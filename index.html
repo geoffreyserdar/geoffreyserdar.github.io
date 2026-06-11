@@ -1,543 +1,506 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Geoffrey Serdar | Minnesota Realtor</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Geoffrey Serdar | Minnesota Realtor</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
 
-    :root {
-      --navy:   #0A1628;
-      --navy2:  #112240;
-      --gold:   #C9A84C;
-      --gold2:  #E8C96A;
-      --warm:   #F8F6F1;
-      --mid:    #8A9BB0;
-      --white:  #FFFFFF;
-    }
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17849235035"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'AW-17849235035');
+</script>
 
-    html { scroll-behavior: smooth; }
-
-    body {
-      background: var(--navy);
-      color: var(--warm);
-      font-family: 'Inter', sans-serif;
-      min-height: 100vh;
-      overflow-x: hidden;
-    }
-
-    /* ── HERO ── */
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 60px 32px 48px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero::before {
-      content: 'MINNETONKA';
-      position: absolute;
-      bottom: -20px;
-      right: -30px;
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(80px, 18vw, 200px);
-      font-weight: 900;
-      color: var(--navy2);
-      letter-spacing: -4px;
-      line-height: 1;
-      pointer-events: none;
-      user-select: none;
-      white-space: nowrap;
-    }
-
-    .eyebrow {
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 24px;
-    }
-
-    .hero-name {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(48px, 10vw, 96px);
-      font-weight: 900;
-      line-height: 0.95;
-      letter-spacing: -2px;
-      color: var(--warm);
-      margin-bottom: 8px;
-    }
-
-    .hero-name span {
-      display: block;
-      color: var(--gold);
-    }
-
-    .hero-title {
-      font-family: 'Inter', sans-serif;
-      font-size: clamp(14px, 2.5vw, 18px);
-      font-weight: 300;
-      color: var(--mid);
-      letter-spacing: 1px;
-      margin-bottom: 48px;
-    }
-
-    .hero-stats {
-      display: flex;
-      gap: 40px;
-      margin-bottom: 56px;
-      flex-wrap: wrap;
-    }
-
-    .stat {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-    }
-
-    .stat-number {
-      font-family: 'Playfair Display', serif;
-      font-size: 32px;
-      font-weight: 700;
-      color: var(--warm);
-      line-height: 1;
-    }
-
-    .stat-label {
-      font-size: 11px;
-      font-weight: 500;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      color: var(--mid);
-    }
-
-    /* ── FORM ── */
-    .form-card {
-      background: var(--navy2);
-      border: 1px solid rgba(201, 168, 76, 0.2);
-      border-radius: 4px;
-      padding: 36px 32px;
-      max-width: 480px;
-      position: relative;
-      z-index: 1;
-    }
-
-    .form-headline {
-      font-family: 'Playfair Display', serif;
-      font-size: 22px;
-      font-weight: 700;
-      color: var(--warm);
-      margin-bottom: 6px;
-      line-height: 1.3;
-    }
-
-    .form-sub {
-      font-size: 13px;
-      color: var(--mid);
-      margin-bottom: 28px;
-      line-height: 1.6;
-    }
-
-    .field {
-      margin-bottom: 16px;
-    }
-
-    .field label {
-      display: block;
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      color: var(--mid);
-      margin-bottom: 8px;
-    }
-
-    .field input,
-    .field select {
-      width: 100%;
-      background: var(--navy);
-      border: 1px solid rgba(138, 155, 176, 0.25);
-      border-radius: 3px;
-      color: var(--warm);
-      font-family: 'Inter', sans-serif;
-      font-size: 15px;
-      padding: 14px 16px;
-      outline: none;
-      transition: border-color 0.2s;
-      appearance: none;
-    }
-
-    .field input::placeholder { color: rgba(138, 155, 176, 0.5); }
-
-    .field input:focus,
-    .field select:focus {
-      border-color: var(--gold);
-    }
-
-    .field select option {
-      background: var(--navy);
-      color: var(--warm);
-    }
-
-    .submit-btn {
-      width: 100%;
-      background: var(--gold);
-      border: none;
-      border-radius: 3px;
-      color: var(--navy);
-      font-family: 'Inter', sans-serif;
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      padding: 16px;
-      cursor: pointer;
-      margin-top: 8px;
-      transition: background 0.2s, transform 0.1s;
-    }
-
-    .submit-btn:hover { background: var(--gold2); }
-    .submit-btn:active { transform: scale(0.99); }
-
-    .form-privacy {
-      font-size: 11px;
-      color: rgba(138, 155, 176, 0.5);
-      text-align: center;
-      margin-top: 14px;
-      line-height: 1.5;
-    }
-
-    /* ── SUCCESS STATE ── */
-    .success-state {
-      display: none;
-      text-align: center;
-      padding: 20px 0;
-    }
-
-    .success-state.visible { display: block; }
-    .form-fields.hidden { display: none; }
-
-    .success-icon {
-      font-size: 40px;
-      margin-bottom: 16px;
-    }
-
-    .success-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 24px;
-      font-weight: 700;
-      color: var(--warm);
-      margin-bottom: 8px;
-    }
-
-    .success-sub {
-      font-size: 14px;
-      color: var(--mid);
-      line-height: 1.6;
-    }
-
-    /* ── SECTIONS ── */
-    .section {
-      padding: 80px 32px;
-      max-width: 640px;
-      margin: 0 auto;
-    }
-
-    .section-eyebrow {
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 20px;
-    }
-
-    .section-headline {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(28px, 5vw, 42px);
-      font-weight: 700;
-      color: var(--warm);
-      line-height: 1.2;
-      margin-bottom: 20px;
-    }
-
-    .section-body {
-      font-size: 16px;
-      line-height: 1.8;
-      color: var(--mid);
-    }
-
-    .section-body strong {
-      color: var(--warm);
-      font-weight: 500;
-    }
-
-    .divider {
-      width: 40px;
-      height: 2px;
-      background: var(--gold);
-      margin: 0 32px 0;
-      opacity: 0.4;
-    }
-
-    /* ── SPECIALTIES ── */
-    .specialties {
-      padding: 0 32px 80px;
-      max-width: 640px;
-      margin: 0 auto;
-    }
-
-    .spec-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-      margin-top: 24px;
-    }
-
-    .spec-item {
-      background: var(--navy2);
-      border: 1px solid rgba(201, 168, 76, 0.15);
-      border-radius: 3px;
-      padding: 20px 18px;
-    }
-
-    .spec-title {
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--warm);
-      margin-bottom: 6px;
-      letter-spacing: 0.3px;
-    }
-
-    .spec-desc {
-      font-size: 12px;
-      color: var(--mid);
-      line-height: 1.5;
-    }
-
-    /* ── FOOTER ── */
-    footer {
-      border-top: 1px solid rgba(138, 155, 176, 0.1);
-      padding: 40px 32px;
-      text-align: center;
-    }
-
-    .footer-name {
-      font-family: 'Playfair Display', serif;
-      font-size: 20px;
-      font-weight: 700;
-      color: var(--warm);
-      margin-bottom: 4px;
-    }
-
-    .footer-brokerage {
-      font-size: 12px;
-      color: var(--mid);
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      margin-bottom: 20px;
-    }
-
-    .footer-contact {
-      display: flex;
-      justify-content: center;
-      gap: 32px;
-      flex-wrap: wrap;
-    }
-
-    .footer-contact a {
-      font-size: 13px;
-      color: var(--gold);
-      text-decoration: none;
-      letter-spacing: 0.3px;
-    }
-
-    .footer-contact a:hover { color: var(--gold2); }
-
-    .footer-legal {
-      font-size: 11px;
-      color: rgba(138, 155, 176, 0.35);
-      margin-top: 24px;
-      line-height: 1.6;
-    }
-
-    /* ── RESPONSIVE ── */
-    @media (max-width: 480px) {
-      .hero { padding: 48px 24px 40px; }
-      .form-card { padding: 28px 24px; }
-      .hero-stats { gap: 28px; }
-      .spec-grid { grid-template-columns: 1fr; }
-      .section, .specialties { padding-left: 24px; padding-right: 24px; }
-      .divider { margin-left: 24px; }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      * { transition: none !important; }
-    }
-  </style>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --navy: #0A1628;
+  --navy2: #112240;
+  --gold: #C9A84C;
+  --gold2: #E8C96A;
+  --warm: #F8F6F1;
+  --mid: #8A9BB0;
+  --white: #FFFFFF;
+}
+html { scroll-behavior: smooth; }
+body {
+  background: var(--navy);
+  color: var(--warm);
+  font-family: 'Inter', sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+/* ── HERO ── */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 60px 32px 48px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: 'MINNETONKA';
+  position: absolute;
+  bottom: -20px;
+  right: -30px;
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(80px, 18vw, 200px);
+  font-weight: 900;
+  color: var(--navy2);
+  letter-spacing: -4px;
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+  white-space: nowrap;
+}
+.eyebrow {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 24px;
+}
+.hero-name {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(48px, 10vw, 96px);
+  font-weight: 900;
+  line-height: 0.95;
+  letter-spacing: -2px;
+  color: var(--warm);
+  margin-bottom: 8px;
+}
+.hero-name span {
+  display: block;
+  color: var(--gold);
+}
+.hero-title {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(14px, 2.5vw, 18px);
+  font-weight: 300;
+  color: var(--mid);
+  letter-spacing: 1px;
+  margin-bottom: 48px;
+}
+.hero-stats {
+  display: flex;
+  gap: 40px;
+  margin-bottom: 56px;
+  flex-wrap: wrap;
+}
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.stat-number {
+  font-family: 'Playfair Display', serif;
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--warm);
+  line-height: 1;
+}
+.stat-label {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--mid);
+}
+/* ── FORM ── */
+.form-card {
+  background: var(--navy2);
+  border: 1px solid rgba(201, 168, 76, 0.2);
+  border-radius: 4px;
+  padding: 36px 32px;
+  max-width: 480px;
+  position: relative;
+  z-index: 1;
+}
+.form-headline {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--warm);
+  margin-bottom: 6px;
+  line-height: 1.3;
+}
+.form-sub {
+  font-size: 13px;
+  color: var(--mid);
+  margin-bottom: 28px;
+  line-height: 1.6;
+}
+.field {
+  margin-bottom: 16px;
+}
+.field label {
+  display: block;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--mid);
+  margin-bottom: 8px;
+}
+.field input,
+.field select {
+  width: 100%;
+  background: var(--navy);
+  border: 1px solid rgba(138, 155, 176, 0.25);
+  border-radius: 3px;
+  color: var(--warm);
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  padding: 14px 16px;
+  outline: none;
+  transition: border-color 0.2s;
+  appearance: none;
+}
+.field input::placeholder { color: rgba(138, 155, 176, 0.5); }
+.field input:focus,
+.field select:focus {
+  border-color: var(--gold);
+}
+.field select option {
+  background: var(--navy);
+  color: var(--warm);
+}
+.submit-btn {
+  width: 100%;
+  background: var(--gold);
+  border: none;
+  border-radius: 3px;
+  color: var(--navy);
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 16px;
+  cursor: pointer;
+  margin-top: 8px;
+  transition: background 0.2s, transform 0.1s;
+}
+.submit-btn:hover { background: var(--gold2); }
+.submit-btn:active { transform: scale(0.99); }
+.form-privacy {
+  font-size: 11px;
+  color: rgba(138, 155, 176, 0.5);
+  text-align: center;
+  margin-top: 14px;
+  line-height: 1.5;
+}
+/* ── SUCCESS STATE ── */
+.success-state {
+  display: none;
+  text-align: center;
+  padding: 20px 0;
+}
+.success-state.visible { display: block; }
+.form-fields.hidden { display: none; }
+.success-icon {
+  font-size: 40px;
+  margin-bottom: 16px;
+}
+.success-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--warm);
+  margin-bottom: 8px;
+}
+.success-sub {
+  font-size: 14px;
+  color: var(--mid);
+  line-height: 1.6;
+}
+/* ── SECTIONS ── */
+.section {
+  padding: 80px 32px;
+  max-width: 640px;
+  margin: 0 auto;
+}
+.section-eyebrow {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 20px;
+}
+.section-headline {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(28px, 5vw, 42px);
+  font-weight: 700;
+  color: var(--warm);
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+.section-body {
+  font-size: 16px;
+  line-height: 1.8;
+  color: var(--mid);
+}
+.section-body strong {
+  color: var(--warm);
+  font-weight: 500;
+}
+.divider {
+  width: 40px;
+  height: 2px;
+  background: var(--gold);
+  margin: 0 32px 0;
+  opacity: 0.4;
+}
+/* ── SPECIALTIES ── */
+.specialties {
+  padding: 0 32px 80px;
+  max-width: 640px;
+  margin: 0 auto;
+}
+.spec-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 24px;
+}
+.spec-item {
+  background: var(--navy2);
+  border: 1px solid rgba(201, 168, 76, 0.15);
+  border-radius: 3px;
+  padding: 20px 18px;
+}
+.spec-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--warm);
+  margin-bottom: 6px;
+  letter-spacing: 0.3px;
+}
+.spec-desc {
+  font-size: 12px;
+  color: var(--mid);
+  line-height: 1.5;
+}
+/* ── FOOTER ── */
+footer {
+  border-top: 1px solid rgba(138, 155, 176, 0.1);
+  padding: 40px 32px;
+  text-align: center;
+}
+.footer-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--warm);
+  margin-bottom: 4px;
+}
+.footer-brokerage {
+  font-size: 12px;
+  color: var(--mid);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+.footer-contact {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+.footer-contact a {
+  font-size: 13px;
+  color: var(--gold);
+  text-decoration: none;
+  letter-spacing: 0.3px;
+}
+.footer-contact a:hover { color: var(--gold2); }
+.footer-legal {
+  font-size: 11px;
+  color: rgba(138, 155, 176, 0.35);
+  margin-top: 24px;
+  line-height: 1.6;
+}
+/* ── RESPONSIVE ── */
+@media (max-width: 480px) {
+  .hero { padding: 48px 24px 40px; }
+  .form-card { padding: 28px 24px; }
+  .hero-stats { gap: 28px; }
+  .spec-grid { grid-template-columns: 1fr; }
+  .section, .specialties { padding-left: 24px; padding-right: 24px; }
+  .divider { margin-left: 24px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+}
+</style>
 </head>
+
 <body>
 
-  <!-- HERO -->
-  <section class="hero">
-    <p class="eyebrow">Serdar + Partners at Compass</p>
-    <h1 class="hero-name">
-      Geoffrey
-      <span>Serdar</span>
-    </h1>
-    <p class="hero-title">Minnesota Realtor &nbsp;·&nbsp; Lake Minnetonka &nbsp;·&nbsp; Carver County</p>
+<!-- HERO -->
+<section class="hero">
+  <p class="eyebrow">Serdar + Partners at Compass</p>
+  <h1 class="hero-name">
+    Geoffrey
+    <span>Serdar</span>
+  </h1>
+  <p class="hero-title">Minnesota Realtor &nbsp;·&nbsp; Lake Minnetonka &nbsp;·&nbsp; Carver County</p>
 
-    <div class="hero-stats">
-      <div class="stat">
-        <span class="stat-number">13+</span>
-        <span class="stat-label">Years</span>
-      </div>
-      <div class="stat">
-        <span class="stat-number">360+</span>
-        <span class="stat-label">Transactions</span>
-      </div>
-      <div class="stat">
-        <span class="stat-number">$500K–$1.2M</span>
-        <span class="stat-label">Sweet Spot</span>
-      </div>
+  <div class="hero-stats">
+    <div class="stat">
+      <span class="stat-number">13+</span>
+      <span class="stat-label">Years</span>
     </div>
-
-    <!-- FORM -->
-    <div class="form-card">
-      <div class="form-fields" id="formFields">
-        <h2 class="form-headline">Let's talk about your next move.</h2>
-        <p class="form-sub">Leave your name and number. Geoffrey will reach out personally — no scripts, no assistants.</p>
-
-        <form id="captureForm" onsubmit="handleSubmit(event)">
-          <div class="field">
-            <label for="name">Your Name</label>
-            <input type="text" id="name" name="name" placeholder="First and last name" required autocomplete="name" />
-          </div>
-          <div class="field">
-            <label for="phone">Phone Number</label>
-            <input type="tel" id="phone" name="phone" placeholder="952-000-0000" required autocomplete="tel" />
-          </div>
-          <div class="field">
-            <label for="interest">I'm thinking about...</label>
-            <select id="interest" name="interest">
-              <option value="">Select one</option>
-              <option value="selling">Selling my home</option>
-              <option value="buying">Buying a home</option>
-              <option value="both">Buying and selling</option>
-              <option value="investing">Investment property</option>
-              <option value="probate">Probate / estate sale</option>
-              <option value="just looking">Just exploring</option>
-            </select>
-          </div>
-          <button type="submit" class="submit-btn">Get in Touch</button>
-        </form>
-        <p class="form-privacy">Your information stays with Geoffrey. No spam, ever.</p>
-      </div>
-
-      <div class="success-state" id="successState">
-        <div class="success-icon">✓</div>
-        <h3 class="success-title">Got it. Talk soon.</h3>
-        <p class="success-sub">Geoffrey will reach out to you directly.<br />In the meantime — 952-258-3100.</p>
-      </div>
+    <div class="stat">
+      <span class="stat-number">360+</span>
+      <span class="stat-label">Transactions</span>
     </div>
-  </section>
-
-  <div class="divider"></div>
-
-  <!-- ABOUT -->
-  <div class="section">
-    <p class="section-eyebrow">Who You're Calling</p>
-    <h2 class="section-headline">A hunter, not a farmer.</h2>
-    <p class="section-body">
-      Geoffrey Serdar has been fighting for sellers and finding homes for buyers across the Twin Cities for over 13 years. 
-      <strong>He answers his own phone.</strong> He shows up to his own appointments. He negotiates his own deals.<br /><br />
-      Based in Excelsior — on the east side of Minnewashta Park — Geoffrey knows the Lake Minnetonka market from the water up. 
-      His focus is the <strong>$500K–$1.2M middle market</strong> in Carver County and the lake communities: 
-      Excelsior, Wayzata, Orono, Mound, Chanhassen, and beyond.
-    </p>
-  </div>
-
-  <div class="divider"></div>
-
-  <!-- SPECIALTIES -->
-  <div class="specialties">
-    <p class="section-eyebrow">How Geoffrey Can Help</p>
-    <div class="spec-grid">
-      <div class="spec-item">
-        <p class="spec-title">Listing & Selling</p>
-        <p class="spec-desc">Aggressive marketing, honest pricing strategy, and a negotiator who fights for every dollar.</p>
-      </div>
-      <div class="spec-item">
-        <p class="spec-title">Buying</p>
-        <p class="spec-desc">Access to on and off-market properties. Creative financing. No pressure.</p>
-      </div>
-      <div class="spec-item">
-        <p class="spec-title">Probate & Estates</p>
-        <p class="spec-desc">Specialized experience guiding executors and families through real estate in difficult times.</p>
-      </div>
-      <div class="spec-item">
-        <p class="spec-title">Investment Property</p>
-        <p class="spec-desc">Multi-family, rentals, and off-market deals. Geoffrey invests himself — he knows the numbers.</p>
-      </div>
+    <div class="stat">
+      <span class="stat-number">$500K–$1.2M</span>
+      <span class="stat-label">Sweet Spot</span>
     </div>
   </div>
 
-  <!-- FOOTER -->
-  <footer>
-    <p class="footer-name">Geoffrey Serdar</p>
-    <p class="footer-brokerage">Serdar + Partners at Compass</p>
-    <div class="footer-contact">
-      <a href="tel:9522583100">952-258-3100</a>
-      <a href="mailto:geoffrey@serdarpartnersrealty.com">geoffrey@serdarpartnersrealty.com</a>
-      <a href="https://www.compass.com/agents/geoffrey-serdar/" target="_blank">Compass Profile</a>
+  <!-- FORM -->
+  <div class="form-card">
+    <div class="form-fields" id="formFields">
+      <h2 class="form-headline">Let's talk about your next move.</h2>
+      <p class="form-sub">Leave your name and number. Geoffrey will reach out personally — no scripts, no assistants.</p>
+      <form id="captureForm" onsubmit="handleSubmit(event)">
+        <div class="field">
+          <label for="name">Your Name</label>
+          <input type="text" id="name" name="name" placeholder="First and last name" required autocomplete="name" />
+        </div>
+        <div class="field">
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" name="phone" placeholder="952-000-0000" required autocomplete="tel" />
+        </div>
+        <div class="field">
+          <label for="interest">I'm thinking about...</label>
+          <select id="interest" name="interest">
+            <option value="">Select one</option>
+            <option value="selling">Selling my home</option>
+            <option value="buying">Buying a home</option>
+            <option value="both">Buying and selling</option>
+            <option value="investing">Investment property</option>
+            <option value="probate">Probate / estate sale</option>
+            <option value="just looking">Just exploring</option>
+          </select>
+        </div>
+        <button type="submit" class="submit-btn">Get in Touch</button>
+      </form>
+      <p class="form-privacy">Your information stays with Geoffrey. No spam, ever.</p>
     </div>
-    <p class="footer-legal">
-      Licensed in Minnesota &nbsp;·&nbsp; Serdar + Partners at Compass<br />
-      © 2026 Geoffrey Serdar. All rights reserved.
-    </p>
-  </footer>
 
-  <script>
-    function handleSubmit(e) {
-      e.preventDefault();
+    <div class="success-state" id="successState">
+      <div class="success-icon">✓</div>
+      <h3 class="success-title">Got it. Talk soon.</h3>
+      <p class="success-sub">Geoffrey will reach out to you directly.<br />In the meantime — 952-258-3100.</p>
+    </div>
+  </div>
+</section>
 
-      const name     = document.getElementById('name').value.trim();
-      const phone    = document.getElementById('phone').value.trim();
-      const interest = document.getElementById('interest').value;
+<div class="divider"></div>
 
-      // Send to Formspree (replace YOUR_FORM_ID before deploying)
-      const FORM_ID = 'mpqerwwk';
+<!-- ABOUT -->
+<div class="section">
+  <p class="section-eyebrow">Who You're Calling</p>
+  <h2 class="section-headline">A hunter, not a farmer.</h2>
+  <p class="section-body">
+    Geoffrey Serdar has been fighting for sellers and finding homes for buyers across the Twin Cities for over 13 years.
+    <strong>He answers his own phone.</strong> He shows up to his own appointments. He negotiates his own deals.<br /><br />
+    Based in Excelsior — on the east side of Minnewashta Park — Geoffrey knows the Lake Minnetonka market from the water up.
+    His focus is the <strong>$500K–$1.2M middle market</strong> in Carver County and the lake communities:
+    Excelsior, Wayzata, Orono, Mound, Chanhassen, and beyond.
+  </p>
+</div>
 
-      fetch(`https://formspree.io/f/${FORM_ID}`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-        body: JSON.stringify({ name, phone, interest })
-      })
-      .then(res => {
-        if (res.ok) {
-          showSuccess();
-        } else {
-          // Still show success UX — log internally
-          console.error('Form submission error');
-          showSuccess();
-        }
-      })
-      .catch(() => showSuccess()); // Fail gracefully
+<div class="divider"></div>
 
+<!-- SPECIALTIES -->
+<div class="specialties">
+  <p class="section-eyebrow">How Geoffrey Can Help</p>
+  <div class="spec-grid">
+    <div class="spec-item">
+      <p class="spec-title">Listing & Selling</p>
+      <p class="spec-desc">Aggressive marketing, honest pricing strategy, and a negotiator who fights for every dollar.</p>
+    </div>
+    <div class="spec-item">
+      <p class="spec-title">Buying</p>
+      <p class="spec-desc">Access to on and off-market properties. Creative financing. No pressure.</p>
+    </div>
+    <div class="spec-item">
+      <p class="spec-title">Probate & Estates</p>
+      <p class="spec-desc">Specialized experience guiding executors and families through real estate in difficult times.</p>
+    </div>
+    <div class="spec-item">
+      <p class="spec-title">Investment Property</p>
+      <p class="spec-desc">Multi-family, rentals, and off-market deals. Geoffrey invests himself — he knows the numbers.</p>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p class="footer-name">Geoffrey Serdar</p>
+  <p class="footer-brokerage">Serdar + Partners at Compass</p>
+  <div class="footer-contact">
+    <a href="tel:9522583100">952-258-3100</a>
+    <a href="mailto:geoffrey@serdarpartnersrealty.com">geoffrey@serdarpartnersrealty.com</a>
+    <a href="https://www.compass.com/agents/geoffrey-serdar/" target="_blank">Compass Profile</a>
+  </div>
+  <p class="footer-legal">
+    Licensed in Minnesota &nbsp;·&nbsp; Serdar + Partners at Compass<br />
+    © 2026 Geoffrey Serdar. All rights reserved.
+  </p>
+</footer>
+
+<script>
+function handleSubmit(e) {
+  e.preventDefault();
+  const name = document.getElementById('name').value.trim();
+  const phone = document.getElementById('phone').value.trim();
+  const interest = document.getElementById('interest').value;
+
+  const FORM_ID = 'mpqerwwk';
+  fetch(`https://formspree.io/f/${FORM_ID}`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+    body: JSON.stringify({ name, phone, interest })
+  })
+  .then(res => {
+    if (res.ok) {
+      showSuccess();
+    } else {
+      console.error('Form submission error');
       showSuccess();
     }
+  })
+  .catch(() => showSuccess());
 
-    function showSuccess() {
-      document.getElementById('formFields').classList.add('hidden');
-      document.getElementById('successState').classList.add('visible');
-    }
-  </script>
+  showSuccess();
+}
+
+function showSuccess() {
+  document.getElementById('formFields').classList.add('hidden');
+  document.getElementById('successState').classList.add('visible');
+
+  // Fire Google Ads conversion — triggers exactly when "Got it. Talk soon." appears
+  gtag('event', 'conversion', {
+    'send_to': 'AW-17849235035/jRxICLmDpr0cENvslr9C',
+    'value': 1.0,
+    'currency': 'USD'
+  });
+}
+</script>
 
 </body>
 </html>
