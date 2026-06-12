@@ -474,11 +474,48 @@ footer {
 </footer>
 
 <script>
+// ── Capture lead source on page load (UTM / Google Ads / referrer) ──
+const LEAD_SOURCE = (function () {
+  const p = new URLSearchParams(window.location.search);
+  return {
+    utm_source: p.get('utm_source') || '',
+    utm_medium: p.get('utm_medium') || '',
+    utm_campaign: p.get('utm_campaign') || '',
+    gclid: p.get('gclid') || '',
+    referrer: document.referrer || ''
+  };
+})();
+
+// ── Lead SMS alert (Twilio Function) ──
+const LEAD_ALERT_URL = 'https://lead-alert-4343.twil.io/lead-alert';
+const LEAD_ALERT_SECRET = 'slx_9f3Kqe2R';
+
+// Quiet background alert. Never blocks the form, the email, or the conversion.
+function notifyLead(name, phone, interest) {
+  try {
+    const data = new URLSearchParams({
+      secret: LEAD_ALERT_SECRET,
+      name: name,
+      phone: phone,
+      interest: interest,
+      utm_source: LEAD_SOURCE.utm_source,
+      utm_medium: LEAD_SOURCE.utm_medium,
+      utm_campaign: LEAD_SOURCE.utm_campaign,
+      gclid: LEAD_SOURCE.gclid,
+      referrer: LEAD_SOURCE.referrer
+    });
+    fetch(LEAD_ALERT_URL, { method: 'POST', mode: 'no-cors', body: data }).catch(function () {});
+  } catch (e) { /* never let the alert break the lead */ }
+}
+
 function handleSubmit(e) {
   e.preventDefault();
   const name = document.getElementById('name').value.trim();
   const phone = document.getElementById('phone').value.trim();
   const interest = document.getElementById('interest').value;
+
+  // Speed-to-lead text — rides alongside Formspree; the email stays the source of truth
+  notifyLead(name, phone, interest);
 
   const FORM_ID = 'mpqerwwk';
   fetch('https://formspree.io/f/' + FORM_ID, {
@@ -486,28 +523,30 @@ function handleSubmit(e) {
     headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
     body: JSON.stringify({ name, phone, interest })
   })
-  .then(res => {
-    if (res.ok) { showSuccess(); } else { showSuccess(); }
-  })
+  .then(() => showSuccess())
   .catch(() => showSuccess());
 
   showSuccess();
 }
 
+let leadConverted = false;
 function showSuccess() {
   document.getElementById('formFields').classList.add('hidden');
   document.getElementById('successState').classList.add('visible');
 
-  // Fire Google Ads conversion — triggers exactly when "Got it. Talk soon." appears
-  gtag('event', 'conversion', {
-    'send_to': 'AW-17849235035/jRxICLmDpr0cENvslr9C',
-    'value': 1.0,
-    'currency': 'USD'
-  });
+  // Fire Google Ads conversion exactly once, even if showSuccess runs more than once
+  if (!leadConverted) {
+    leadConverted = true;
+    gtag('event', 'conversion', {
+      'send_to': 'AW-17849235035/jRxICLmDpr0cENvslr9C',
+      'value': 1.0,
+      'currency': 'USD'
+    });
+  }
 }
 
 // Auto-format phone number as XXX-XXX-XXXX while typing
-document.getElementById('phone').addEventListener('input', function(e) {
+document.getElementById('phone').addEventListener('input', function (e) {
   var v = e.target.value.replace(/[^0-9]/g, '').slice(0, 10);
   if (v.length >= 7) { v = v.slice(0,3) + '-' + v.slice(3,6) + '-' + v.slice(6); }
   else if (v.length >= 4) { v = v.slice(0,3) + '-' + v.slice(3); }
