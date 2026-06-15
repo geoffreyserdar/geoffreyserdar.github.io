@@ -35,7 +35,7 @@ body {
   min-height: 100vh;
   overflow-x: hidden;
 }
-/* ── HERO ── */
+/* HERO */
 .hero {
   min-height: 100vh;
   display: flex;
@@ -77,10 +77,7 @@ body {
   color: var(--warm);
   margin-bottom: 8px;
 }
-.hero-name span {
-  display: block;
-  color: var(--gold);
-}
+.hero-name span { display: block; color: var(--gold); }
 .hero-title {
   font-family: 'Inter', sans-serif;
   font-size: clamp(14px, 2.5vw, 18px);
@@ -89,32 +86,17 @@ body {
   letter-spacing: 1px;
   margin-bottom: 48px;
 }
-.hero-stats {
-  display: flex;
-  gap: 40px;
-  margin-bottom: 56px;
-  flex-wrap: wrap;
-}
-.stat {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
+.hero-stats { display: flex; gap: 40px; margin-bottom: 56px; flex-wrap: wrap; }
+.stat { display: flex; flex-direction: column; gap: 4px; }
 .stat-number {
   font-family: 'Playfair Display', serif;
-  font-size: 32px;
-  font-weight: 700;
-  color: var(--warm);
-  line-height: 1;
+  font-size: 32px; font-weight: 700; color: var(--warm); line-height: 1;
 }
 .stat-label {
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  color: var(--mid);
+  font-size: 11px; font-weight: 500; letter-spacing: 1.5px;
+  text-transform: uppercase; color: var(--mid);
 }
-/* ── FORM ── */
+/* FORM */
 .form-card {
   background: var(--navy2);
   border: 1px solid rgba(201, 168, 76, 0.2);
@@ -126,32 +108,16 @@ body {
 }
 .form-headline {
   font-family: 'Playfair Display', serif;
-  font-size: 22px;
-  font-weight: 700;
-  color: var(--warm);
-  margin-bottom: 6px;
-  line-height: 1.3;
+  font-size: 22px; font-weight: 700; color: var(--warm);
+  margin-bottom: 6px; line-height: 1.3;
 }
-.form-sub {
-  font-size: 13px;
-  color: var(--mid);
-  margin-bottom: 28px;
-  line-height: 1.6;
-}
-.field {
-  margin-bottom: 16px;
-}
+.form-sub { font-size: 13px; color: var(--mid); margin-bottom: 28px; line-height: 1.6; }
+.field { margin-bottom: 16px; }
 .field label {
-  display: block;
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  color: var(--mid);
-  margin-bottom: 8px;
+  display: block; font-size: 11px; font-weight: 600; letter-spacing: 1.5px;
+  text-transform: uppercase; color: var(--mid); margin-bottom: 8px;
 }
-.field input,
-.field select {
+.field input, .field select {
   width: 100%;
   background: var(--navy);
   border: 1px solid rgba(138, 155, 176, 0.25);
@@ -165,17 +131,9 @@ body {
   appearance: none;
 }
 .field input::placeholder { color: rgba(138, 155, 176, 0.5); }
-.field input:focus,
-.field select:focus {
-  border-color: var(--gold);
-}
-.field input.input-error {
-  border-color: #E8A0A0;
-}
-.field select option {
-  background: var(--navy);
-  color: var(--warm);
-}
+.field input:focus, .field select:focus { border-color: var(--gold); }
+.field input.input-error { border-color: #E8A0A0; }
+.field select option { background: var(--navy); color: var(--warm); }
 .field-error {
   display: none;
   margin-top: 8px;
@@ -183,9 +141,7 @@ body {
   line-height: 1.5;
   color: #E8A0A0;
 }
-.field-error.visible {
-  display: block;
-}
+.field-error.visible { display: block; }
 .submit-btn {
   width: 100%;
   background: var(--gold);
@@ -193,156 +149,63 @@ body {
   border-radius: 3px;
   color: var(--navy);
   font-family: 'Inter', sans-serif;
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 2px;
+  font-size: 13px; font-weight: 700; letter-spacing: 2px;
   text-transform: uppercase;
   padding: 16px;
   cursor: pointer;
   margin-top: 8px;
-  transition: background 0.2s, transform 0.1s;
+  transition: background 0.2s, transform 0.1s, opacity 0.2s;
 }
 .submit-btn:hover { background: var(--gold2); }
 .submit-btn:active { transform: scale(0.99); }
+.submit-btn:disabled { cursor: default; }
 .form-privacy {
-  font-size: 11px;
-  color: rgba(138, 155, 176, 0.5);
-  text-align: center;
-  margin-top: 14px;
-  line-height: 1.5;
+  font-size: 11px; color: rgba(138, 155, 176, 0.5);
+  text-align: center; margin-top: 14px; line-height: 1.5;
 }
-/* ── SUCCESS STATE ── */
-.success-state {
-  display: none;
-  text-align: center;
-  padding: 20px 0;
-}
+/* SUCCESS STATE */
+.success-state { display: none; text-align: center; padding: 20px 0; }
 .success-state.visible { display: block; }
 .form-fields.hidden { display: none; }
-.success-icon {
-  font-size: 40px;
-  margin-bottom: 16px;
-}
+.success-icon { font-size: 40px; margin-bottom: 16px; }
 .success-title {
   font-family: 'Playfair Display', serif;
-  font-size: 24px;
-  font-weight: 700;
-  color: var(--warm);
-  margin-bottom: 8px;
+  font-size: 24px; font-weight: 700; color: var(--warm); margin-bottom: 8px;
 }
-.success-sub {
-  font-size: 14px;
-  color: var(--mid);
-  line-height: 1.6;
-}
-/* ── SECTIONS ── */
-.section {
-  padding: 80px 32px;
-  max-width: 640px;
-  margin: 0 auto;
-}
+.success-sub { font-size: 14px; color: var(--mid); line-height: 1.6; }
+/* SECTIONS */
+.section { padding: 80px 32px; max-width: 640px; margin: 0 auto; }
 .section-eyebrow {
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 20px;
+  font-size: 11px; font-weight: 600; letter-spacing: 3px;
+  text-transform: uppercase; color: var(--gold); margin-bottom: 20px;
 }
 .section-headline {
   font-family: 'Playfair Display', serif;
-  font-size: clamp(28px, 5vw, 42px);
-  font-weight: 700;
-  color: var(--warm);
-  line-height: 1.2;
-  margin-bottom: 20px;
+  font-size: clamp(28px, 5vw, 42px); font-weight: 700;
+  color: var(--warm); line-height: 1.2; margin-bottom: 20px;
 }
-.section-body {
-  font-size: 16px;
-  line-height: 1.8;
-  color: var(--mid);
-}
-.section-body strong {
-  color: var(--warm);
-  font-weight: 500;
-}
-.divider {
-  width: 40px;
-  height: 2px;
-  background: var(--gold);
-  margin: 0 32px 0;
-  opacity: 0.4;
-}
-/* ── SPECIALTIES ── */
-.specialties {
-  padding: 0 32px 80px;
-  max-width: 640px;
-  margin: 0 auto;
-}
-.spec-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-  margin-top: 24px;
-}
+.section-body { font-size: 16px; line-height: 1.8; color: var(--mid); }
+.section-body strong { color: var(--warm); font-weight: 500; }
+.divider { width: 40px; height: 2px; background: var(--gold); margin: 0 32px 0; opacity: 0.4; }
+/* SPECIALTIES */
+.specialties { padding: 0 32px 80px; max-width: 640px; margin: 0 auto; }
+.spec-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 24px; }
 .spec-item {
   background: var(--navy2);
   border: 1px solid rgba(201, 168, 76, 0.15);
-  border-radius: 3px;
-  padding: 20px 18px;
+  border-radius: 3px; padding: 20px 18px;
 }
-.spec-title {
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--warm);
-  margin-bottom: 6px;
-  letter-spacing: 0.3px;
-}
-.spec-desc {
-  font-size: 12px;
-  color: var(--mid);
-  line-height: 1.5;
-}
-/* ── FOOTER ── */
-footer {
-  border-top: 1px solid rgba(138, 155, 176, 0.1);
-  padding: 40px 32px;
-  text-align: center;
-}
-.footer-name {
-  font-family: 'Playfair Display', serif;
-  font-size: 20px;
-  font-weight: 700;
-  color: var(--warm);
-  margin-bottom: 4px;
-}
-.footer-brokerage {
-  font-size: 12px;
-  color: var(--mid);
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  margin-bottom: 20px;
-}
-.footer-contact {
-  display: flex;
-  justify-content: center;
-  gap: 32px;
-  flex-wrap: wrap;
-}
-.footer-contact a {
-  font-size: 13px;
-  color: var(--gold);
-  text-decoration: none;
-  letter-spacing: 0.3px;
-}
+.spec-title { font-size: 13px; font-weight: 600; color: var(--warm); margin-bottom: 6px; letter-spacing: 0.3px; }
+.spec-desc { font-size: 12px; color: var(--mid); line-height: 1.5; }
+/* FOOTER */
+footer { border-top: 1px solid rgba(138, 155, 176, 0.1); padding: 40px 32px; text-align: center; }
+.footer-name { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; color: var(--warm); margin-bottom: 4px; }
+.footer-brokerage { font-size: 12px; color: var(--mid); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 20px; }
+.footer-contact { display: flex; justify-content: center; gap: 32px; flex-wrap: wrap; }
+.footer-contact a { font-size: 13px; color: var(--gold); text-decoration: none; letter-spacing: 0.3px; }
 .footer-contact a:hover { color: var(--gold2); }
-.footer-legal {
-  font-size: 11px;
-  color: rgba(138, 155, 176, 0.35);
-  margin-top: 24px;
-  line-height: 1.6;
-}
-/* ── RESPONSIVE ── */
+.footer-legal { font-size: 11px; color: rgba(138, 155, 176, 0.35); margin-top: 24px; line-height: 1.6; }
+/* RESPONSIVE */
 @media (max-width: 480px) {
   .hero { padding: 48px 24px 40px; }
   .form-card { padding: 28px 24px; }
@@ -351,9 +214,7 @@ footer {
   .section, .specialties { padding-left: 24px; padding-right: 24px; }
   .divider { margin-left: 24px; }
 }
-@media (prefers-reduced-motion: reduce) {
-  * { transition: none !important; }
-}
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
 </style>
 </head>
 
@@ -369,25 +230,16 @@ footer {
   <p class="hero-title">Minnesota Realtor &nbsp;·&nbsp; Lake Minnetonka &nbsp;·&nbsp; Carver County</p>
 
   <div class="hero-stats">
-    <div class="stat">
-      <span class="stat-number">13+</span>
-      <span class="stat-label">Years</span>
-    </div>
-    <div class="stat">
-      <span class="stat-number">360+</span>
-      <span class="stat-label">Transactions</span>
-    </div>
-    <div class="stat">
-      <span class="stat-number">$500K–$1.2M</span>
-      <span class="stat-label">Sweet Spot</span>
-    </div>
+    <div class="stat"><span class="stat-number">13+</span><span class="stat-label">Years</span></div>
+    <div class="stat"><span class="stat-number">360+</span><span class="stat-label">Transactions</span></div>
+    <div class="stat"><span class="stat-number">$500K&ndash;$1.2M</span><span class="stat-label">Sweet Spot</span></div>
   </div>
 
   <!-- FORM -->
   <div class="form-card">
     <div class="form-fields" id="formFields">
       <h2 class="form-headline">Let's talk about your next move.</h2>
-      <p class="form-sub">Leave your name and number. Geoffrey will reach out personally — no scripts, no assistants.</p>
+      <p class="form-sub">Leave your name and number. Geoffrey will reach out personally &mdash; no scripts, no assistants.</p>
       <form id="captureForm" onsubmit="handleSubmit(event)">
         <div class="field">
           <label for="name">Your Name</label>
@@ -396,7 +248,7 @@ footer {
         <div class="field">
           <label for="phone">Phone Number</label>
           <input type="tel" id="phone" name="phone" placeholder="952-000-0000" required autocomplete="tel" />
-          <p class="field-error" id="phoneError" role="alert">That number doesn't look quite right — mind double-checking it? Geoffrey calls every lead personally, so we want to be sure it reaches you.</p>
+          <p class="field-error" id="phoneError" role="alert">That number doesn't look quite right &mdash; mind double-checking it? Geoffrey calls every lead personally, so we want to be sure it reaches you.</p>
         </div>
         <div class="field">
           <label for="interest">I'm thinking about...</label>
@@ -416,9 +268,9 @@ footer {
     </div>
 
     <div class="success-state" id="successState">
-      <div class="success-icon">✓</div>
+      <div class="success-icon">&check;</div>
       <h3 class="success-title">Got it. Talk soon.</h3>
-      <p class="success-sub">Geoffrey will reach out to you directly.<br />In the meantime — 952-258-3100.</p>
+      <p class="success-sub">Geoffrey will reach out to you directly.<br />In the meantime &mdash; 952-258-3100.</p>
     </div>
   </div>
 </section>
@@ -432,8 +284,8 @@ footer {
   <p class="section-body">
     Geoffrey Serdar has been fighting for sellers and finding homes for buyers across the Twin Cities for over 13 years.
     <strong>He answers his own phone.</strong> He shows up to his own appointments. He negotiates his own deals.<br /><br />
-    Based in Excelsior — on the east side of Minnewashta Park — Geoffrey knows the Lake Minnetonka market from the water up.
-    His focus is the <strong>$500K–$1.2M middle market</strong> in Carver County and the lake communities:
+    Based in Excelsior &mdash; on the east side of Minnewashta Park &mdash; Geoffrey knows the Lake Minnetonka market from the water up.
+    His focus is the <strong>$500K&ndash;$1.2M middle market</strong> in Carver County and the lake communities:
     Excelsior, Wayzata, Orono, Mound, Chanhassen, and beyond.
   </p>
 </div>
@@ -445,7 +297,7 @@ footer {
   <p class="section-eyebrow">How Geoffrey Can Help</p>
   <div class="spec-grid">
     <div class="spec-item">
-      <p class="spec-title">Listing & Selling</p>
+      <p class="spec-title">Listing &amp; Selling</p>
       <p class="spec-desc">Aggressive marketing, honest pricing strategy, and a negotiator who fights for every dollar.</p>
     </div>
     <div class="spec-item">
@@ -453,12 +305,12 @@ footer {
       <p class="spec-desc">Access to on and off-market properties. Creative financing. No pressure.</p>
     </div>
     <div class="spec-item">
-      <p class="spec-title">Probate & Estates</p>
+      <p class="spec-title">Probate &amp; Estates</p>
       <p class="spec-desc">Specialized experience guiding executors and families through real estate in difficult times.</p>
     </div>
     <div class="spec-item">
       <p class="spec-title">Investment Property</p>
-      <p class="spec-desc">Multi-family, rentals, and off-market deals. Geoffrey invests himself — he knows the numbers.</p>
+      <p class="spec-desc">Multi-family, rentals, and off-market deals. Geoffrey invests himself &mdash; he knows the numbers.</p>
     </div>
   </div>
 </div>
@@ -474,12 +326,12 @@ footer {
   </div>
   <p class="footer-legal">
     Licensed in Minnesota &nbsp;·&nbsp; Serdar+Partners at Compass<br />
-    © 2026 Geoffrey Serdar. All rights reserved.
+    &copy; 2026 Geoffrey Serdar. All rights reserved.
   </p>
 </footer>
 
 <script>
-// ── Capture lead source on page load (UTM / Google Ads / referrer) ──
+// Capture lead source on page load (UTM / Google Ads / referrer)
 const LEAD_SOURCE = (function () {
   const p = new URLSearchParams(window.location.search);
   return {
@@ -491,19 +343,15 @@ const LEAD_SOURCE = (function () {
   };
 })();
 
-// ── Front-door phone check (client-side) ──
-// Blocks structurally-impossible US numbers before anything submits.
-// This is NOT a "real number" guarantee — Twilio Lookup (server-side) is the
-// deep net for numbers that look real but aren't assigned. This stops the
-// obvious fakes (bad area code, wrong length, all-same-digit) at the form.
+// LAYER 1 — front door: block structurally-impossible US numbers in the browser.
 function isValidUSPhone(raw) {
   var d = String(raw || '').replace(/\D/g, '');
-  if (d.length === 11 && d.charAt(0) === '1') d = d.slice(1);   // drop leading country code
-  if (d.length !== 10) return false;                            // must be 10 digits
-  var area = +d.charAt(0);                                      // area code first digit
-  var exch = +d.charAt(3);                                      // exchange first digit
-  if (area < 2 || exch < 2) return false;                       // NANP: both must be 2-9 (kills "170...")
-  if (d.charAt(1) === '1' && d.charAt(2) === '1') return false; // N11 service codes (211, 311, ... 911)
+  if (d.length === 11 && d.charAt(0) === '1') d = d.slice(1);
+  if (d.length !== 10) return false;
+  var area = +d.charAt(0);
+  var exch = +d.charAt(3);
+  if (area < 2 || exch < 2) return false;                       // NANP: must be 2-9
+  if (d.charAt(1) === '1' && d.charAt(2) === '1') return false; // N11 service codes
   if (/^(\d)\1{9}$/.test(d)) return false;                      // all identical digits
   return true;
 }
@@ -521,62 +369,73 @@ function clearPhoneError() {
   if (inp) inp.classList.remove('input-error');
 }
 
-// ── Lead SMS alert (Twilio Function) ──
+function setChecking(on) {
+  var btn = document.querySelector('.submit-btn');
+  if (!btn) return;
+  if (on) { btn.disabled = true; btn.style.opacity = '0.7'; btn.textContent = 'Checking…'; }
+  else { btn.disabled = false; btn.style.opacity = ''; btn.textContent = 'Get in Touch'; }
+}
+
+// LAYER 2 — carrier check via the Twilio Function. Also fires the speed-to-lead
+// text on a good number. Fails OPEN on timeout/error so a real lead is never lost.
 const LEAD_ALERT_URL = 'https://lead-alert-4343.twil.io/lead-alert';
 const LEAD_ALERT_SECRET = 'slx_9f3Kqe2R';
 
-// Quiet background alert. Never blocks the form, the email, or the conversion.
-function notifyLead(name, phone, interest) {
-  try {
-    const data = new URLSearchParams({
-      secret: LEAD_ALERT_SECRET,
-      name: name,
-      phone: phone,
-      interest: interest,
-      utm_source: LEAD_SOURCE.utm_source,
-      utm_medium: LEAD_SOURCE.utm_medium,
-      utm_campaign: LEAD_SOURCE.utm_campaign,
-      gclid: LEAD_SOURCE.gclid,
-      referrer: LEAD_SOURCE.referrer
-    });
-    fetch(LEAD_ALERT_URL, { method: 'POST', mode: 'no-cors', body: data }).catch(function () {});
-  } catch (e) { /* never let the alert break the lead */ }
+function checkNumber(name, phone, interest) {
+  var controller = new AbortController();
+  var timer = setTimeout(function () { controller.abort(); }, 2500);
+  var data = new URLSearchParams({
+    secret: LEAD_ALERT_SECRET,
+    name: name, phone: phone, interest: interest,
+    utm_source: LEAD_SOURCE.utm_source,
+    utm_medium: LEAD_SOURCE.utm_medium,
+    utm_campaign: LEAD_SOURCE.utm_campaign,
+    gclid: LEAD_SOURCE.gclid,
+    referrer: LEAD_SOURCE.referrer
+  });
+  return fetch(LEAD_ALERT_URL, { method: 'POST', body: data, signal: controller.signal })
+    .then(function (r) { clearTimeout(timer); return r.json(); })
+    .catch(function () { clearTimeout(timer); return { valid: true, failOpen: true }; });
 }
 
-function handleSubmit(e) {
-  e.preventDefault();
-  const name = document.getElementById('name').value.trim();
-  const phone = document.getElementById('phone').value.trim();
-  const interest = document.getElementById('interest').value;
-
-  // FRONT DOOR: an impossible number never gets in. Show the nudge and stop.
-  if (!isValidUSPhone(phone)) {
-    showPhoneError();
-    return;
-  }
-  clearPhoneError();
-
-  // Speed-to-lead text — rides alongside Formspree; the email stays the source of truth
-  notifyLead(name, phone, interest);
-
-  const FORM_ID = 'mpqerwwk';
+function submitToFormspree(name, phone, interest) {
+  var FORM_ID = 'mpqerwwk';
   fetch('https://formspree.io/f/' + FORM_ID, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
     body: JSON.stringify({
-      name: name,
-      phone: phone,
-      interest: interest,
+      name: name, phone: phone, interest: interest,
       utm_source: LEAD_SOURCE.utm_source,
       utm_medium: LEAD_SOURCE.utm_medium,
       utm_campaign: LEAD_SOURCE.utm_campaign,
       gclid: LEAD_SOURCE.gclid,
       referrer: LEAD_SOURCE.referrer
     })
-  })
-  .then(() => showSuccess())
-  .catch(() => showSuccess());
+  }).catch(function () {});
+}
 
+async function handleSubmit(e) {
+  e.preventDefault();
+  var name = document.getElementById('name').value.trim();
+  var phone = document.getElementById('phone').value.trim();
+  var interest = document.getElementById('interest').value;
+
+  // Layer 1 — impossible numbers never get in.
+  if (!isValidUSPhone(phone)) { showPhoneError(); return; }
+  clearPhoneError();
+
+  // Layer 2 — carrier check (also triggers the alert text on a good number).
+  setChecking(true);
+  var verdict = await checkNumber(name, phone, interest);
+  setChecking(false);
+
+  if (verdict && verdict.valid === false) {
+    showPhoneError();   // looks fine, but the carrier says it isn't a working line
+    return;
+  }
+
+  // Passed (or check was inconclusive / timed out) -> record + finish.
+  submitToFormspree(name, phone, interest);
   showSuccess();
 }
 
@@ -584,8 +443,6 @@ let leadConverted = false;
 function showSuccess() {
   document.getElementById('formFields').classList.add('hidden');
   document.getElementById('successState').classList.add('visible');
-
-  // Fire Google Ads conversion exactly once, even if showSuccess runs more than once
   if (!leadConverted) {
     leadConverted = true;
     gtag('event', 'conversion', {
@@ -596,7 +453,7 @@ function showSuccess() {
   }
 }
 
-// Auto-format phone number as XXX-XXX-XXXX while typing; clear any error as they fix it
+// Auto-format phone as XXX-XXX-XXXX while typing; clear any error as they fix it
 document.getElementById('phone').addEventListener('input', function (e) {
   var v = e.target.value.replace(/[^0-9]/g, '').slice(0, 10);
   if (v.length >= 7) { v = v.slice(0,3) + '-' + v.slice(3,6) + '-' + v.slice(6); }
