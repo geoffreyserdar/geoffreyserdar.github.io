@@ -352,6 +352,7 @@ function isValidUSPhone(raw) {
   var exch = +d.charAt(3);
   if (area < 2 || exch < 2) return false;                       // NANP: must be 2-9
   if (d.charAt(1) === '1' && d.charAt(2) === '1') return false; // N11 service codes
+  if (d.slice(3, 6) === '555') return false;                    // 555 exchange = classic fake / fictional number
   if (/^(\d)\1{9}$/.test(d)) return false;                      // all identical digits
   return true;
 }
