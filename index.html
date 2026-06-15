@@ -7,16 +7,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
 
 <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17849235035">
-
-// Auto-format phone number as XXX-XXX-XXXX
-document.getElementById('phone').addEventListener('input', function(e) {
-  let v = e.target.value.replace(/\D/g, '').slice(0, 10);
-  if (v.length >= 7) v = v.slice(0,3) + '-' + v.slice(3,6) + '-' + v.slice(6);
-  else if (v.length >= 4) v = v.slice(0,3) + '-' + v.slice(3);
-  e.target.value = v;
-});
-</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17849235035"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -178,9 +169,22 @@ body {
 .field select:focus {
   border-color: var(--gold);
 }
+.field input.input-error {
+  border-color: #E8A0A0;
+}
 .field select option {
   background: var(--navy);
   color: var(--warm);
+}
+.field-error {
+  display: none;
+  margin-top: 8px;
+  font-size: 12px;
+  line-height: 1.5;
+  color: #E8A0A0;
+}
+.field-error.visible {
+  display: block;
 }
 .submit-btn {
   width: 100%;
@@ -392,6 +396,7 @@ footer {
         <div class="field">
           <label for="phone">Phone Number</label>
           <input type="tel" id="phone" name="phone" placeholder="952-000-0000" required autocomplete="tel" />
+          <p class="field-error" id="phoneError" role="alert">That number doesn't look quite right — mind double-checking it? Geoffrey calls every lead personally, so we want to be sure it reaches you.</p>
         </div>
         <div class="field">
           <label for="interest">I'm thinking about...</label>
@@ -486,6 +491,36 @@ const LEAD_SOURCE = (function () {
   };
 })();
 
+// ── Front-door phone check (client-side) ──
+// Blocks structurally-impossible US numbers before anything submits.
+// This is NOT a "real number" guarantee — Twilio Lookup (server-side) is the
+// deep net for numbers that look real but aren't assigned. This stops the
+// obvious fakes (bad area code, wrong length, all-same-digit) at the form.
+function isValidUSPhone(raw) {
+  var d = String(raw || '').replace(/\D/g, '');
+  if (d.length === 11 && d.charAt(0) === '1') d = d.slice(1);   // drop leading country code
+  if (d.length !== 10) return false;                            // must be 10 digits
+  var area = +d.charAt(0);                                      // area code first digit
+  var exch = +d.charAt(3);                                      // exchange first digit
+  if (area < 2 || exch < 2) return false;                       // NANP: both must be 2-9 (kills "170...")
+  if (d.charAt(1) === '1' && d.charAt(2) === '1') return false; // N11 service codes (211, 311, ... 911)
+  if (/^(\d)\1{9}$/.test(d)) return false;                      // all identical digits
+  return true;
+}
+
+function showPhoneError() {
+  var err = document.getElementById('phoneError');
+  var inp = document.getElementById('phone');
+  if (err) err.classList.add('visible');
+  if (inp) { inp.classList.add('input-error'); inp.focus(); }
+}
+function clearPhoneError() {
+  var err = document.getElementById('phoneError');
+  var inp = document.getElementById('phone');
+  if (err) err.classList.remove('visible');
+  if (inp) inp.classList.remove('input-error');
+}
+
 // ── Lead SMS alert (Twilio Function) ──
 const LEAD_ALERT_URL = 'https://lead-alert-4343.twil.io/lead-alert';
 const LEAD_ALERT_SECRET = 'slx_9f3Kqe2R';
@@ -514,6 +549,13 @@ function handleSubmit(e) {
   const phone = document.getElementById('phone').value.trim();
   const interest = document.getElementById('interest').value;
 
+  // FRONT DOOR: an impossible number never gets in. Show the nudge and stop.
+  if (!isValidUSPhone(phone)) {
+    showPhoneError();
+    return;
+  }
+  clearPhoneError();
+
   // Speed-to-lead text — rides alongside Formspree; the email stays the source of truth
   notifyLead(name, phone, interest);
 
@@ -521,7 +563,16 @@ function handleSubmit(e) {
   fetch('https://formspree.io/f/' + FORM_ID, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-    body: JSON.stringify({ name, phone, interest })
+    body: JSON.stringify({
+      name: name,
+      phone: phone,
+      interest: interest,
+      utm_source: LEAD_SOURCE.utm_source,
+      utm_medium: LEAD_SOURCE.utm_medium,
+      utm_campaign: LEAD_SOURCE.utm_campaign,
+      gclid: LEAD_SOURCE.gclid,
+      referrer: LEAD_SOURCE.referrer
+    })
   })
   .then(() => showSuccess())
   .catch(() => showSuccess());
@@ -545,12 +596,13 @@ function showSuccess() {
   }
 }
 
-// Auto-format phone number as XXX-XXX-XXXX while typing
+// Auto-format phone number as XXX-XXX-XXXX while typing; clear any error as they fix it
 document.getElementById('phone').addEventListener('input', function (e) {
   var v = e.target.value.replace(/[^0-9]/g, '').slice(0, 10);
   if (v.length >= 7) { v = v.slice(0,3) + '-' + v.slice(3,6) + '-' + v.slice(6); }
   else if (v.length >= 4) { v = v.slice(0,3) + '-' + v.slice(3); }
   e.target.value = v;
+  clearPhoneError();
 });
 </script>
 
