@@ -163,6 +163,11 @@ body {
   font-size: 11px; color: rgba(138, 155, 176, 0.5);
   text-align: center; margin-top: 14px; line-height: 1.5;
 }
+.form-consent {
+  font-size: 11px; color: var(--mid);
+  text-align: center; margin-top: 14px; line-height: 1.6;
+}
+.form-consent a { color: var(--gold); text-decoration: underline; }
 /* SUCCESS STATE */
 .success-state { display: none; text-align: center; padding: 20px 0; }
 .success-state.visible { display: block; }
@@ -205,6 +210,7 @@ footer { border-top: 1px solid rgba(138, 155, 176, 0.1); padding: 40px 32px; tex
 .footer-contact a { font-size: 13px; color: var(--gold); text-decoration: none; letter-spacing: 0.3px; }
 .footer-contact a:hover { color: var(--gold2); }
 .footer-legal { font-size: 11px; color: rgba(138, 155, 176, 0.35); margin-top: 24px; line-height: 1.6; }
+.footer-legal a { color: var(--gold); text-decoration: none; }
 /* RESPONSIVE */
 @media (max-width: 480px) {
   .hero { padding: 48px 24px 40px; }
@@ -264,7 +270,7 @@ footer { border-top: 1px solid rgba(138, 155, 176, 0.1); padding: 40px 32px; tex
         </div>
         <button type="submit" class="submit-btn">Get in Touch</button>
       </form>
-      <p class="form-privacy">Your information stays with Geoffrey. No spam, ever.</p>
+      <p class="form-consent">By submitting this form, you agree that Serdar+Partners at Compass may contact you by phone call and text message (including by automated means) at the number you provide, regarding your real estate inquiry. Consent is not a condition of any purchase. Message &amp; data rates may apply; message frequency varies. Reply STOP to opt out, HELP for help. See our <a href="/privacy">Privacy Policy</a>.</p>
     </div>
 
     <div class="success-state" id="successState">
@@ -326,7 +332,7 @@ footer { border-top: 1px solid rgba(138, 155, 176, 0.1); padding: 40px 32px; tex
   </div>
   <p class="footer-legal">
     Licensed in Minnesota &nbsp;·&nbsp; Serdar+Partners at Compass<br />
-    &copy; 2026 Geoffrey Serdar. All rights reserved.
+    &copy; 2026 Geoffrey Serdar. All rights reserved. &nbsp;·&nbsp; <a href="/privacy">Privacy Policy</a>
   </p>
 </footer>
 
