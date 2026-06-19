@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Stay With Us · Ches Mar Farm · Geoffrey &amp; Sabrina Serdar</title>
+<meta name="description" content="A little guide to your stay at Ches Mar Farm in Excelsior, Minnesota — our favorite local spots, and a way to stay in touch with your hosts, Geoffrey & Sabrina." />
+
+<!-- ============================================================= -->
+<!-- WIRING CONSTANTS — CONFIRM THESE MATCH probate.html ON THE MAC  -->
+<!--   GA4 measurement id ......... G-250YS9FRRM                     -->
+<!--   Google Ads id ............. AW-17849235035                    -->
+<!--   Ads conversion label ...... AW-17849235035/jRxICLmDpr0cENvslr9C -->
+<!--   Formspree endpoint ........ https://formspree.io/f/mpqerwwk   -->
+<!--   Twilio lead-alert fn ...... https://lead-alert-4343.twil.io/lead-alert -->
+<!-- ============================================================= -->
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-250YS9FRRM"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-250YS9FRRM');
+  gtag('config', 'AW-17849235035');
+</script>
+
+<style>
+  :root{
+    --ink:#2b2a26; --soft:#5c5950; --line:#ddd6c8;
+    --cream:#f6f1e7; --deep:#3a4a3f; --gold:#a98b54; --paper:#fffdf8;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:Georgia,'Times New Roman',serif; color:var(--ink);
+    background:var(--paper); line-height:1.65; font-size:17px;
+  }
+  .wrap{max-width:760px;margin:0 auto;padding:0 22px;}
+  .eyebrow{
+    font-family:'Helvetica Neue',Arial,sans-serif; text-transform:uppercase;
+    letter-spacing:0.28em; font-size:12px; color:var(--gold); font-weight:600;
+  }
+  /* HERO */
+  .hero{
+    background:var(--deep); color:var(--cream); text-align:center;
+    padding:74px 22px 64px;
+  }
+  .hero .eyebrow{color:var(--gold);}
+  .hero .hello{
+    font-family:'Snell Roundhand','Apple Chancery',cursive,serif; font-style:italic;
+    font-size:68px; color:var(--gold); line-height:0.95; margin:10px 0 4px;
+  }
+  .hero h1{font-weight:normal;font-size:30px;color:var(--cream);letter-spacing:0.01em;}
+  .hero .loc{
+    font-family:'Helvetica Neue',Arial,sans-serif; text-transform:uppercase;
+    letter-spacing:0.26em; font-size:12px; color:var(--cream); margin-top:22px; opacity:0.85;
+  }
+  .hero .gline{width:64px;height:1px;background:var(--gold);margin:26px auto 0;}
+  /* SECTIONS */
+  section{padding:52px 0;border-bottom:1px solid var(--line);}
+  h2{font-weight:normal;font-size:27px;color:var(--deep);margin:8px 0 18px;}
+  p{color:var(--soft);margin-bottom:14px;}
+  p.lead{color:var(--ink);font-size:19px;}
+  /* guide cards */
+  .guide{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:8px;}
+  .gcard{border:1px solid var(--line);border-radius:6px;padding:18px 20px;background:var(--cream);}
+  .gcard h3{font-weight:normal;font-size:18px;color:var(--deep);margin-bottom:5px;}
+  .gcard p{font-size:15px;margin:0;color:var(--soft);}
+  .gcard .where{
+    font-family:'Helvetica Neue',Arial,sans-serif;text-transform:uppercase;
+    letter-spacing:0.14em;font-size:10px;color:var(--gold);margin-top:7px;
+  }
+  /* the warm capture */
+  .invite{background:var(--cream);}
+  .invite .lead{max-width:600px;}
+  /* guest wall */
+  .wall{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:8px;}
+  .quote{border-left:2px solid var(--gold);padding:6px 0 6px 18px;}
+  .quote p{font-style:italic;color:var(--ink);margin-bottom:8px;font-size:16px;}
+  .quote .who{font-family:'Helvetica Neue',Arial,sans-serif;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);}
+  @media(max-width:620px){.wall{grid-template-columns:1fr;}}
+  form{margin-top:24px;max-width:520px;}
+  .field{margin-bottom:14px;}
+  label{
+    display:block;font-family:'Helvetica Neue',Arial,sans-serif;font-size:12px;
+    letter-spacing:0.12em;text-transform:uppercase;color:var(--soft);margin-bottom:5px;
+  }
+  input,textarea{
+    width:100%;padding:13px 14px;border:1px solid var(--line);border-radius:5px;
+    font-family:Georgia,serif;font-size:16px;color:var(--ink);background:var(--paper);
+  }
+  input:focus,textarea:focus{outline:2px solid var(--gold);outline-offset:1px;border-color:var(--gold);}
+  textarea{min-height:84px;resize:vertical;}
+  .opts{display:flex;gap:18px;flex-wrap:wrap;margin:4px 0 16px;}
+  .opt{font-family:'Helvetica Neue',Arial,sans-serif;font-size:14px;color:var(--ink);display:flex;align-items:center;gap:7px;}
+  .opt input{width:auto;}
+  button{
+    background:var(--deep);color:var(--cream);border:none;border-radius:5px;
+    padding:15px 30px;font-family:'Helvetica Neue',Arial,sans-serif;font-size:15px;
+    letter-spacing:0.06em;cursor:pointer;font-weight:600;
+  }
+  button:hover{background:#2f3d33;}
+  .fineprint{font-size:13px;color:var(--soft);margin-top:14px;}
+  .success{
+    display:none;background:var(--deep);color:var(--cream);padding:26px;border-radius:6px;
+    margin-top:24px;text-align:center;
+  }
+  .success .h{font-family:'Snell Roundhand','Apple Chancery',cursive,serif;font-style:italic;font-size:34px;color:var(--gold);}
+  /* hosts footer */
+  .hosts{text-align:center;padding:48px 22px 60px;}
+  .hosts .name{
+    font-family:'Snell Roundhand','Apple Chancery',cursive,serif;font-style:italic;
+    font-size:34px;color:var(--gold);
+  }
+  .hosts p{color:var(--soft);font-size:15px;margin:6px 0;}
+  .hosts .ph{color:var(--ink);font-size:16px;}
+  @media(max-width:620px){
+    .guide{grid-template-columns:1fr;}
+    .hero .hello{font-size:54px;}
+    .hero h1{font-size:25px;}
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="eyebrow">We're so glad you're here</div>
+  <div class="hello">Welcome</div>
+  <h1>to Ches Mar Farm</h1>
+  <div class="loc">Excelsior, Minnesota &middot; On Minnewashta</div>
+  <div class="gline"></div>
+</header>
+
+<div class="wrap">
+
+  <section>
+    <div class="eyebrow">From your hosts</div>
+    <h2>Make yourself at home</h2>
+    <p class="lead">We hope your days here bring rest and a little of that quiet Minnesota magic. Below are a few of our favorite local spots — and if there's anything at all you need during your stay, we're a text away.</p>
+  </section>
+
+  <section>
+    <div class="eyebrow">Our favorites nearby</div>
+    <h2>Where we'd send a friend</h2>
+    <div class="guide">
+      <div class="gcard"><h3>Macanda &amp; Macanda's HiFi</h3><p>Latin-Japanese plates on the lake, with a vinyl record bar.</p><div class="where">Wayzata</div></div>
+      <div class="gcard"><h3>Maynards</h3><p>Classic lakeside dining with the best water views around.</p><div class="where">Excelsior</div></div>
+      <div class="gcard"><h3>Hazelwood Food + Drink</h3><p>A cozy neighborhood favorite — rotisserie and wood-fired pizza.</p><div class="where">Tonka Bay</div></div>
+      <div class="gcard"><h3>Lord Fletcher's</h3><p>An on-the-water institution, perfect for a sunset drink.</p><div class="where">Spring Park</div></div>
+      <div class="gcard"><h3>Minnewashta Regional Park</h3><p>Walk right from the farm to the lake and its beautiful beach.</p><div class="where">Next door</div></div>
+      <div class="gcard"><h3>Downtown Excelsior</h3><p>Ice cream, sailboats, and a Main Street that feels like a movie set.</p><div class="where">Excelsior</div></div>
+    </div>
+    <p style="margin-top:18px;font-size:15px;">Want more? Just ask us — we love sharing the spots that don't make the lists.</p>
+  </section>
+
+  <section>
+    <div class="eyebrow">From our guests</div>
+    <h2>What other families say</h2>
+    <p>More than 78 families have stayed with us, from all over the world. Here are a few words they left behind.</p>
+    <!-- ============================================================= -->
+    <!-- ROLLING GUEST WALL — paste a new <div class="quote"> below      -->
+    <!-- when a guest checks the share box in the booklet's guest log.   -->
+    <!-- Copy this template, fill it in, redeploy:                       -->
+    <!--   <div class="quote"><p>"Their note here."</p>                 -->
+    <!--   <span class="who">First name · Where from</span></div>        -->
+    <!-- ============================================================= -->
+    <div class="wall">
+      <div class="quote"><p>"The quietest, most beautiful weekend we've had in years. We didn't want to leave."</p><span class="who">The Andersons · Chicago, IL</span></div>
+      <div class="quote"><p>"Woke up to deer in the meadow and coffee on the porch. Pure magic."</p><span class="who">Marta · Barcelona, Spain</span></div>
+      <div class="quote"><p>"Geoffrey and Sabrina thought of everything. We're already planning to come back."</p><span class="who">The Okafors · London, UK</span></div>
+      <div class="quote"><p>"The lake at sunset is something I'll never forget. Thank you for sharing your home."</p><span class="who">Lucas · São Paulo, Brazil</span></div>
+    </div>
+    <p style="margin-top:18px;font-size:14px;color:var(--soft);">(Sample notes shown — replace with real guest entries as they come in.)</p>
+  </section>
+
+  <section class="invite" style="margin:0 -22px;padding-left:22px;padding-right:22px;border-radius:0;">
+    <div class="eyebrow">Before you go</div>
+    <h2>Stay in touch with us</h2>
+    <p class="lead">A lot of guests tell us they could stay forever. If you'd like, leave us your details — we'll send you our local guide, and you'll always have a friend on the lake. No pressure, ever.</p>
+
+    <form id="stayForm" onsubmit="return handleStay(event)">
+      <div class="field">
+        <label for="name">Your name</label>
+        <input type="text" id="name" name="name" required />
+      </div>
+      <div class="field">
+        <label for="phone">Phone</label>
+        <input type="tel" id="phone" name="phone" required />
+      </div>
+      <div class="field">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required />
+      </div>
+
+      <label>What brings you our way? (optional)</label>
+      <div class="opts">
+        <span class="opt"><input type="checkbox" name="interest_keepintouch" value="yes" /> Just stay in touch</span>
+        <span class="opt"><input type="checkbox" name="interest_comeback" value="yes" /> We'd come back</span>
+        <span class="opt"><input type="checkbox" name="interest_event" value="yes" /> Host an event here</span>
+        <span class="opt"><input type="checkbox" name="interest_area" value="yes" /> Curious about the area</span>
+      </div>
+
+      <div class="field">
+        <label for="note">Anything you'd like to tell us? (optional)</label>
+        <textarea id="note" name="note"></textarea>
+      </div>
+
+      <!-- hidden routing/tagging fields for the Lead -> Compass bridge -->
+      <input type="hidden" name="formType" value="airbnb-guest" />
+      <input type="hidden" name="intent" value="Guest" />
+      <input type="hidden" name="local" value="Excelsior" />
+      <input type="hidden" name="source_tag" value="Source _ Airbnb" />
+      <input type="hidden" name="_subject" value="🏡 Airbnb Guest — Ches Mar Farm" />
+      <input type="hidden" id="utm_source" name="utm_source" value="" />
+      <input type="hidden" id="utm_medium" name="utm_medium" value="" />
+      <input type="hidden" id="utm_campaign" name="utm_campaign" value="" />
+      <input type="hidden" id="gclid" name="gclid" value="" />
+      <input type="hidden" id="referrer" name="referrer" value="" />
+
+      <button type="submit">Send it to Geoffrey &amp; Sabrina</button>
+      <p class="fineprint">We'll only ever reach out as friends and hosts — never spam, never shared.</p>
+    </form>
+
+    <div class="success" id="staySuccess">
+      <div class="h">Thank you!</div>
+      <p style="color:var(--cream);margin-top:8px;">We've got it — we'll be in touch. Until then, enjoy every minute at Ches Mar Farm.</p>
+    </div>
+  </section>
+
+</div>
+
+<footer class="hosts">
+  <div class="eyebrow">Your hosts</div>
+  <div class="name">Geoffrey &amp; Sabrina</div>
+  <p>Serdar + Partners &middot; Compass Real Estate</p>
+  <p class="ph">Geoffrey 952-258-3100 &middot; Sabrina 952-270-3377</p>
+  <p>Excelsior, Minnesota</p>
+</footer>
+
+<script>
+  // capture UTM / gclid / referrer (same convention as the other pages)
+  (function(){
+    var p = new URLSearchParams(window.location.search);
+    var set = function(id,val){ var el=document.getElementById(id); if(el) el.value = val || ''; };
+    set('utm_source',   p.get('utm_source')   || 'airbnb');
+    set('utm_medium',   p.get('utm_medium')   || 'booklet');
+    set('utm_campaign', p.get('utm_campaign') || 'chesmar-stay');
+    set('gclid',        p.get('gclid'));
+    set('referrer',     document.referrer);
+  })();
+
+  function handleStay(e){
+    e.preventDefault();
+    var form = document.getElementById('stayForm');
+    var data = new FormData(form);
+
+    // 1) Formspree (same endpoint as probate/site — routes via formType + source_tag)
+    fetch('https://formspree.io/f/mpqerwwk', {
+      method:'POST', body:data, headers:{'Accept':'application/json'}
+    }).then(function(r){
+      // 2) GA4 event
+      if(typeof gtag==='function'){
+        gtag('event', 'generate_lead', {form:'airbnb-guest', source:'chesmar-stay'});
+        // 3) Google Ads conversion (same label as the site lead conversion)
+        gtag('event', 'conversion', {'send_to':'AW-17849235035/jRxICLmDpr0cENvslr9C','value':1.0,'currency':'USD'});
+      }
+      // 4) Twilio lead-alert (fires now; texts will deliver once Twilio TFV is approved)
+      try{
+        fetch('https://lead-alert-4343.twil.io/lead-alert', {
+          method:'POST', headers:{'Content-Type':'application/json'},
+          body: JSON.stringify({
+            name: data.get('name'), phone: data.get('phone'), email: data.get('email'),
+            intent: 'Airbnb Guest', source: data.get('utm_source'),
+            medium: data.get('utm_medium'), campaign: data.get('utm_campaign')
+          })
+        }).catch(function(){});
+      }catch(err){}
+
+      // show success
+      form.style.display='none';
+      document.getElementById('staySuccess').style.display='block';
+    }).catch(function(){
+      alert("Something went wrong sending that — you can always reach us directly at 952-258-3100.");
+    });
+    return false;
+  }
+</script>
+
+</body>
+</html>
