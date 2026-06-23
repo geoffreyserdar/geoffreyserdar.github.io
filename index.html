@@ -259,13 +259,13 @@ footer { border-top: 1px solid rgba(138, 155, 176, 0.1); padding: 40px 32px; tex
         <div class="field">
           <label for="interest">I'm thinking about...</label>
           <select id="interest" name="interest">
-            <option value="">Select one</option>
-            <option value="selling">Selling my home</option>
-            <option value="buying">Buying a home</option>
-            <option value="both">Buying and selling</option>
-            <option value="investing">Investment property</option>
-            <option value="probate">Probate / estate sale</option>
-            <option value="just looking">Just exploring</option>
+            <option value="">What's bringing you here?</option>
+            <option value="selling">Thinking about a move (no rush)</option>
+            <option value="buying">Just starting to look around</option>
+            <option value="both">We're running out of room here</option>
+            <option value="investing">Have money I'd like to put to work</option>
+            <option value="probate">Helping with a family member's home</option>
+            <option value="just looking">Just curious what my place is worth</option>
           </select>
         </div>
         <button type="submit" class="submit-btn">Get in Touch</button>
@@ -470,5 +470,37 @@ document.getElementById('phone').addEventListener('input', function (e) {
 });
 </script>
 
+
+<!-- raziel: form drop-off tracking -->
+<script>
+(function () {
+  var lastField = null;
+  ['name', 'phone', 'interest'].forEach(function (id) {
+    var el = document.getElementById(id);
+    if (!el) return;
+    el.addEventListener('focus', function () { lastField = id; });
+    el.addEventListener('input', function () { lastField = id; });
+    el.addEventListener('change', function () { lastField = id; });
+  });
+  var interest = document.getElementById('interest');
+  if (interest) {
+    interest.addEventListener('change', function () {
+      if (interest.value && typeof gtag === 'function') {
+        gtag('event', 'interest_selected', { interest_value: interest.value });
+      }
+    });
+  }
+  var fired = false;
+  window.addEventListener('pagehide', function () {
+    if (fired || !lastField) return;
+    var ok = document.getElementById('successState');
+    if (ok && ok.classList.contains('visible')) return;
+    fired = true;
+    if (typeof gtag === 'function') {
+      gtag('event', 'form_abandon', { last_field: lastField });
+    }
+  });
+})();
+</script>
 </body>
 </html>
