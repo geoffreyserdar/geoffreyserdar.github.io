@@ -286,5 +286,28 @@
   }
 </script>
 
+
+<!-- raziel: form drop-off tracking -->
+<script>
+(function () {
+  var lastField = null;
+  ['name', 'phone'].forEach(function (id) {
+    var el = document.getElementById(id);
+    if (!el) return;
+    el.addEventListener('focus', function () { lastField = id; });
+    el.addEventListener('input', function () { lastField = id; });
+  });
+  var fired = false;
+  window.addEventListener('pagehide', function () {
+    if (fired || !lastField) return;
+    var ok = document.getElementById('successState');
+    if (ok && ok.classList.contains('visible')) return;
+    fired = true;
+    if (typeof gtag === 'function') {
+      gtag('event', 'form_abandon', { last_field: lastField });
+    }
+  });
+})();
+</script>
 </body>
 </html>
