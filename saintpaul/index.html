@@ -413,6 +413,15 @@ function setChecking(on) {
 // LAYER 2 — carrier check via the Twilio Function. Also fires the speed-to-lead
 // text on a good number. Fails OPEN on timeout/error so a real lead is never lost.
 const LEAD_ALERT_URL = 'https://lead-alert-4343.twil.io/lead-alert';
+const INTEREST_DETAIL = {
+  'selling': 'Thinking about a move (no rush) - Seller, no urgency, patient, plant a seed',
+  'buying': 'Just starting to look around - Early buyer, educate, build rapport, dont push',
+  'both': 'We are running out of room here - Move-up, space-driven, real timeline',
+  'investing': 'Have money Id like to put to work - Investor, talk numbers, direct, ROI-minded',
+  'probate': 'Helping with a family members home - Probate/grief, empathy first, slow, never transactional',
+  'just looking': 'Just curious what my place is worth - Curiosity, not-ready, value-first, long game'
+};
+function interestDetail(v) { return INTEREST_DETAIL[v] || v || '(none selected)'; }
 const LEAD_ALERT_SECRET = 'slx_9f3Kqe2R';
 
 function checkNumber(name, phone, interest) {
@@ -439,7 +448,7 @@ function submitToFormspree(name, phone, interest) {
     method: 'POST',
     headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
     body: JSON.stringify({
-      name: name, phone: phone, interest: interest,
+      name: name, phone: phone, interest: interest, interest_detail: interestDetail(interest),
       local: PAGE_LOCAL,
       utm_source: LEAD_SOURCE.utm_source,
       utm_medium: LEAD_SOURCE.utm_medium,
