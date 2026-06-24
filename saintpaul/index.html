@@ -135,6 +135,7 @@ body {
 .field input:focus, .field select:focus { border-color: var(--gold); }
 .field input.input-error { border-color: #E8A0A0; }
 .field select option { background: var(--navy); color: var(--warm); }
+  .field select option:disabled, .field select option[value=""] { color: #8a93a6; }
 .field-error {
   display: none;
   margin-top: 8px;
@@ -498,5 +499,37 @@ document.getElementById('phone').addEventListener('input', function (e) {
 });
 </script>
 
+
+<!-- raziel: form drop-off tracking -->
+<script>
+(function () {
+  var lastField = null;
+  ['name', 'phone', 'interest'].forEach(function (id) {
+    var el = document.getElementById(id);
+    if (!el) return;
+    el.addEventListener('focus', function () { lastField = id; });
+    el.addEventListener('input', function () { lastField = id; });
+    el.addEventListener('change', function () { lastField = id; });
+  });
+  var interest = document.getElementById('interest');
+  if (interest) {
+    interest.addEventListener('change', function () {
+      if (interest.value && typeof gtag === 'function') {
+        gtag('event', 'interest_selected', { interest_value: interest.value });
+      }
+    });
+  }
+  var fired = false;
+  window.addEventListener('pagehide', function () {
+    if (fired || !lastField) return;
+    var ok = document.getElementById('successState');
+    if (ok && ok.classList.contains('visible')) return;
+    fired = true;
+    if (typeof gtag === 'function') {
+      gtag('event', 'form_abandon', { last_field: lastField });
+    }
+  });
+})();
+</script>
 </body>
 </html>
