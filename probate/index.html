@@ -831,9 +831,11 @@ document.getElementById('probate-submit').addEventListener('click', async functi
   try {
     await fetch(LEAD_ALERT_URL, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'X-Custom-Secret': LEAD_ALERT_SECRET },
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
+        secret: LEAD_ALERT_SECRET,
         name: nameVal, phone: phoneVal, interest: 'Probate lead',
+        site: window.location.hostname + window.location.pathname,
         utm_source:   utmParams.get('utm_source')   || 'probate-mailer',
         utm_medium:   utmParams.get('utm_medium')   || 'direct-mail',
         utm_campaign: utmParams.get('utm_campaign') || 'probate-mailer'
