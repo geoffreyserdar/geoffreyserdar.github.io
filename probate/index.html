@@ -820,9 +820,9 @@ document.getElementById('probate-submit').addEventListener('click', async functi
       body: JSON.stringify({
         name: nameVal, phone: phoneVal,
         formType: 'probate-lead', local: 'Probate', intent: 'Probate',
-        utm_source:   utmParams.get('utm_source')   || 'probate-mailer',
-        utm_medium:   utmParams.get('utm_medium')   || 'direct-mail',
-        utm_campaign: utmParams.get('utm_campaign') || 'probate-mailer',
+        utm_source:   utmParams.get('utm_source')   || 'direct',
+        utm_medium:   utmParams.get('utm_medium')   || 'none',
+        utm_campaign: utmParams.get('utm_campaign') || 'direct',
         referrer: document.referrer || ''
       })
     });
@@ -836,16 +836,16 @@ document.getElementById('probate-submit').addEventListener('click', async functi
         secret: LEAD_ALERT_SECRET,
         name: nameVal, phone: phoneVal, interest: 'Probate lead',
         site: window.location.hostname + window.location.pathname,
-        utm_source:   utmParams.get('utm_source')   || 'probate-mailer',
-        utm_medium:   utmParams.get('utm_medium')   || 'direct-mail',
-        utm_campaign: utmParams.get('utm_campaign') || 'probate-mailer'
+        utm_source:   utmParams.get('utm_source')   || 'direct',
+        utm_medium:   utmParams.get('utm_medium')   || 'none',
+        utm_campaign: utmParams.get('utm_campaign') || 'direct'
       })
     });
   } catch(e) { console.warn('Twilio', e); }
 
   try {
     gtag('event', 'conversion', { 'send_to': 'AW-17849235035/jRxICLmDpr0cENvslr9C' });
-    gtag('event', 'probate_lead', { source: utmParams.get('utm_source') || 'probate-mailer' });
+    gtag('event', 'probate_lead', { source: utmParams.get('utm_source') || 'direct' });
   } catch(e) {}
 
   document.getElementById('probate-form-wrap').style.display = 'none';
