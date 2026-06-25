@@ -269,9 +269,13 @@
         fetch('https://lead-alert-4343.twil.io/lead-alert', {
           method:'POST', headers:{'Content-Type':'application/json'},
           body: JSON.stringify({
-            name: data.get('name'), phone: data.get('phone'), email: data.get('email'),
-            intent: 'Airbnb Guest', source: data.get('utm_source'),
-            medium: data.get('utm_medium'), campaign: data.get('utm_campaign')
+            secret: 'slx_9f3Kqe2R',
+            name: data.get('name'), phone: data.get('phone'),
+            interest: 'Airbnb Guest',
+            site: window.location.hostname + window.location.pathname,
+            utm_source: data.get('utm_source'),
+            utm_medium: data.get('utm_medium'),
+            utm_campaign: data.get('utm_campaign')
           })
         }).catch(function(){});
       }catch(err){}
