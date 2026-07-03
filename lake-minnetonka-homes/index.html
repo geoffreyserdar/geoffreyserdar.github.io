@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<!-- ============================================================= -->
+<!-- SEO — buyer page. This URL should live at:                    -->
+<!--   geoffreyserdar.com/lake-minnetonka-homes/                   -->
+<!-- The <title> + description below carry the search keywords.    -->
+<!-- ============================================================= -->
+<title>Lake Minnetonka Homes for Sale | Geoffrey Serdar, Compass Realtor</title>
+<meta name="description" content="Find Lake Minnetonka homes for sale — including off-market and coming-soon listings before they hit Zillow. Work directly with Geoffrey Serdar, a local Compass agent who hand-picks the right homes for you." />
+<link rel="canonical" href="https://geoffreyserdar.com/lake-minnetonka-homes/" />
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+<!-- Google tag (gtag.js) — SAME account + GA4 as the main site.        -->
+<!-- (Config IDs are also mirrored in RAZIEL_CONFIG below for cloning.)  -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17849235035"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'AW-17849235035');
+  gtag('config', 'G-250YS9FRRM');
+</script>
+
+<style>
+/* ============================================================= */
+/* BRAND TOKENS — change these to rebrand for another business.   */
+/* ============================================================= */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --navy: #0A1628;
+  --navy2: #112240;
+  --gold: #C9A84C;
+  --gold2: #E8C96A;
+  --warm: #F8F6F1;
+  --mid: #8A9BB0;
+  --white: #FFFFFF;
+}
+html { scroll-behavior: smooth; }
+body {
+  background: var(--navy);
+  color: var(--warm);
+  font-family: 'Inter', sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+/* HERO */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 60px 32px 48px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: 'MINNETONKA';
+  position: absolute;
+  bottom: -20px;
+  right: -30px;
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(80px, 18vw, 200px);
+  font-weight: 900;
+  color: var(--navy2);
+  letter-spacing: -4px;
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+  white-space: nowrap;
+}
+.eyebrow {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 24px;
+}
+.hero-name {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(40px, 8.5vw, 82px);
+  font-weight: 900;
+  line-height: 0.98;
+  letter-spacing: -2px;
+  color: var(--warm);
+  margin-bottom: 12px;
+}
+.hero-name span { display: block; color: var(--gold); }
+.hero-title {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(14px, 2.5vw, 18px);
+  font-weight: 300;
+  color: var(--mid);
+  letter-spacing: 1px;
+  margin-bottom: 48px;
+}
+.hero-stats { display: flex; gap: 40px; margin-bottom: 56px; flex-wrap: wrap; }
+.stat { display: flex; flex-direction: column; gap: 4px; }
+.stat-number {
+  font-family: 'Playfair Display', serif;
+  font-size: 32px; font-weight: 700; color: var(--warm); line-height: 1;
+}
+.stat-label {
+  font-size: 11px; font-weight: 500; letter-spacing: 1.5px;
+  text-transform: uppercase; color: var(--mid);
+}
+/* FORM */
+.form-card {
+  background: var(--navy2);
+  border: 1px solid rgba(201, 168, 76, 0.2);
+  border-radius: 4px;
+  padding: 36px 32px;
+  max-width: 480px;
+  position: relative;
+  z-index: 1;
+}
+.form-headline {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px; font-weight: 700; color: var(--warm);
+  margin-bottom: 6px; line-height: 1.3;
+}
+.form-sub { font-size: 13px; color: var(--mid); margin-bottom: 28px; line-height: 1.6; }
+.field { margin-bottom: 16px; }
+.field label {
+  display: block; font-size: 11px; font-weight: 600; letter-spacing: 1.5px;
+  text-transform: uppercase; color: var(--mid); margin-bottom: 8px;
+}
+.field input, .field select {
+  width: 100%;
+  background: var(--navy);
+  border: 1px solid rgba(138, 155, 176, 0.25);
+  border-radius: 3px;
+  color: var(--warm);
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  padding: 14px 16px;
+  outline: none;
+  transition: border-color 0.2s;
+  appearance: none;
+}
+.field input::placeholder { color: rgba(138, 155, 176, 0.5); }
+.field input:focus, .field select:focus { border-color: var(--gold); }
+.field input.input-error { border-color: #E8A0A0; }
+.field select option { background: var(--navy); color: var(--warm); }
+  .field select option:disabled, .field select option[value=""] { color: #8a93a6; }
+.field-error {
+  display: none;
+  margin-top: 8px;
+  font-size: 12px;
+  line-height: 1.5;
+  color: #E8A0A0;
+}
+.field-error.visible { display: block; }
+.submit-btn {
+  width: 100%;
+  background: var(--gold);
+  border: none;
+  border-radius: 3px;
+  color: var(--navy);
+  font-family: 'Inter', sans-serif;
+  font-size: 13px; font-weight: 700; letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 16px;
+  cursor: pointer;
+  margin-top: 8px;
+  transition: background 0.2s, transform 0.1s, opacity 0.2s;
+}
+.submit-btn:hover { background: var(--gold2); }
+.submit-btn:active { transform: scale(0.99); }
+.submit-btn:disabled { cursor: default; }
+.form-privacy {
+  font-size: 11px; color: rgba(138, 155, 176, 0.5);
+  text-align: center; margin-top: 14px; line-height: 1.5;
+}
+.form-consent {
+  font-size: 11px; color: var(--mid);
+  text-align: center; margin-top: 14px; line-height: 1.6;
+}
+.form-consent a { color: var(--gold); text-decoration: underline; }
+/* SUCCESS STATE */
+.success-state { display: none; text-align: center; padding: 20px 0; }
+.success-state.visible { display: block; }
+.form-fields.hidden { display: none; }
+.success-icon { font-size: 40px; margin-bottom: 16px; }
+.success-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 24px; font-weight: 700; color: var(--warm); margin-bottom: 8px;
+}
+.success-sub { font-size: 14px; color: var(--mid); line-height: 1.6; }
+/* SECTIONS */
+.section { padding: 80px 32px; max-width: 640px; margin: 0 auto; }
+.section-eyebrow {
+  font-size: 11px; font-weight: 600; letter-spacing: 3px;
+  text-transform: uppercase; color: var(--gold); margin-bottom: 20px;
+}
+.section-headline {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(28px, 5vw, 42px); font-weight: 700;
+  color: var(--warm); line-height: 1.2; margin-bottom: 20px;
+}
+.section-body { font-size: 16px; line-height: 1.8; color: var(--mid); }
+.section-body strong { color: var(--warm); font-weight: 500; }
+.divider { width: 40px; height: 2px; background: var(--gold); margin: 0 32px 0; opacity: 0.4; }
+/* EDGE GRID (how Geoffrey helps buyers) */
+.specialties { padding: 0 32px 80px; max-width: 640px; margin: 0 auto; }
+.spec-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 24px; }
+.spec-item {
+  background: var(--navy2);
+  border: 1px solid rgba(201, 168, 76, 0.15);
+  border-radius: 3px; padding: 20px 18px;
+}
+.spec-title { font-size: 13px; font-weight: 600; color: var(--warm); margin-bottom: 6px; letter-spacing: 0.3px; }
+.spec-desc { font-size: 12px; color: var(--mid); line-height: 1.5; }
+/* SECONDARY CTA */
+.cta-band { padding: 0 32px 90px; max-width: 640px; margin: 0 auto; text-align: center; }
+.cta-band a {
+  display: inline-block;
+  background: var(--gold);
+  color: var(--navy);
+  font-size: 13px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+  text-decoration: none;
+  padding: 16px 34px;
+  border-radius: 3px;
+  transition: background 0.2s;
+}
+.cta-band a:hover { background: var(--gold2); }
+.cta-note { font-size: 12px; color: var(--mid); margin-top: 16px; }
+/* FOOTER */
+footer { border-top: 1px solid rgba(138, 155, 176, 0.1); padding: 40px 32px; text-align: center; }
+.footer-name { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; color: var(--warm); margin-bottom: 4px; }
+.footer-brokerage { font-size: 12px; color: var(--mid); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 20px; }
+.footer-contact { display: flex; justify-content: center; gap: 32px; flex-wrap: wrap; }
+.footer-contact a { font-size: 13px; color: var(--gold); text-decoration: none; letter-spacing: 0.3px; }
+.footer-contact a:hover { color: var(--gold2); }
+.footer-legal { font-size: 11px; color: rgba(138, 155, 176, 0.35); margin-top: 24px; line-height: 1.6; }
+.footer-legal a { color: var(--gold); text-decoration: none; }
+/* RESPONSIVE */
+@media (max-width: 480px) {
+  .hero { padding: 48px 24px 40px; }
+  .form-card { padding: 28px 24px; }
+  .hero-stats { gap: 28px; }
+  .spec-grid { grid-template-columns: 1fr; }
+  .section, .specialties, .cta-band { padding-left: 24px; padding-right: 24px; }
+  .divider { margin-left: 24px; }
+}
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+</head>
+
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <p class="eyebrow">Serdar+Partners at Compass</p>
+  <h1 class="hero-name">
+    Lake Minnetonka Homes
+    <span>before they hit Zillow.</span>
+  </h1>
+  <p class="hero-title">Off-market &amp; coming-soon listings &nbsp;·&nbsp; Hand-picked for you &nbsp;·&nbsp; Excelsior · Wayzata · Orono · Chanhassen</p>
+
+  <div class="hero-stats">
+    <div class="stat"><span class="stat-number">First</span><span class="stat-label">Look at New Homes</span></div>
+    <div class="stat"><span class="stat-number">13+</span><span class="stat-label">Years Local</span></div>
+    <div class="stat"><span class="stat-number">360+</span><span class="stat-label">Homes Closed</span></div>
+  </div>
+
+  <!-- FORM -->
+  <div class="form-card">
+    <div class="form-fields" id="formFields">
+      <h2 class="form-headline">See homes before they hit the public sites.</h2>
+      <p class="form-sub">Tell Geoffrey what you're after. He'll send hand-picked Lake Minnetonka homes &mdash; including off-market and coming-soon &mdash; straight to you. No portal logins, no spam.</p>
+      <form id="captureForm" onsubmit="handleSubmit(event)">
+        <div class="field">
+          <label for="name">Your Name</label>
+          <input type="text" id="name" name="name" placeholder="First and last name" required autocomplete="name" />
+        </div>
+        <div class="field">
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" name="phone" placeholder="952-000-0000" required autocomplete="tel" />
+          <p class="field-error" id="phoneError" role="alert">That number doesn't look quite right &mdash; mind double-checking it? Geoffrey calls every buyer personally, so we want to be sure it reaches you.</p>
+        </div>
+        <div class="field">
+          <label for="interest">I'm looking for...</label>
+          <select id="interest" name="interest">
+            <option value="" disabled selected>What are you looking for?</option>
+            <option value="buying">A home to live in</option>
+            <option value="early_access">Early access — off-market &amp; coming-soon</option>
+            <option value="investing">An investment property</option>
+            <option value="relocating">Relocating to the lake area</option>
+            <option value="both">Buying and selling</option>
+            <option value="just looking">Just exploring the market</option>
+          </select>
+        </div>
+        <button type="submit" class="submit-btn">Start My Search</button>
+      </form>
+      <p class="form-consent">By submitting this form, you agree that Serdar+Partners at Compass may contact you by phone call and text message (including by automated means) at the number you provide, regarding your real estate inquiry. Consent is not a condition of any purchase. Message &amp; data rates may apply; message frequency varies. Reply STOP to opt out, HELP for help. See our <a href="/privacy">Privacy Policy</a>.</p>
+    </div>
+
+    <div class="success-state" id="successState">
+      <div class="success-icon">&check;</div>
+      <h3 class="success-title">Got it. Talk soon.</h3>
+      <p class="success-sub">Geoffrey will reach out to you directly with homes that fit.<br />In the meantime &mdash; 952-258-3100.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- WHY NOT JUST ZILLOW (the no-portal thesis) -->
+<div class="section">
+  <p class="section-eyebrow">Why Work With Geoffrey</p>
+  <h2 class="section-headline">Zillow shows you what everyone else already sees.</h2>
+  <p class="section-body">
+    The best Lake Minnetonka homes move fast &mdash; often <strong>before they're ever public.</strong>
+    As a local Compass agent, Geoffrey hears about coming-soon and off-market homes first, and he
+    hand-picks the ones that actually fit you.<br /><br />
+    No firehose of 500 listings to sort through. No portal login. <strong>Just the right homes, early,
+    from a real person who answers his own phone.</strong>
+  </p>
+</div>
+
+<div class="divider"></div>
+
+<!-- EDGE GRID -->
+<div class="specialties">
+  <p class="section-eyebrow">Your Edge as a Buyer</p>
+  <div class="spec-grid">
+    <div class="spec-item">
+      <p class="spec-title">First Look</p>
+      <p class="spec-desc">Coming-soon and off-market homes reach you before they hit the public sites.</p>
+    </div>
+    <div class="spec-item">
+      <p class="spec-title">Hand-Picked</p>
+      <p class="spec-desc">Geoffrey learns what you want and sends only real matches &mdash; never a firehose.</p>
+    </div>
+    <div class="spec-item">
+      <p class="spec-title">Creative Financing</p>
+      <p class="spec-desc">Assumable loans, VA, and deal structures most buyers never hear about.</p>
+    </div>
+    <div class="spec-item">
+      <p class="spec-title">Local From the Water Up</p>
+      <p class="spec-desc">Excelsior-based. He knows the lake communities street by street.</p>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ABOUT -->
+<div class="section">
+  <p class="section-eyebrow">Who You're Calling</p>
+  <h2 class="section-headline">A hunter, not a farmer.</h2>
+  <p class="section-body">
+    Geoffrey Serdar has been finding homes for buyers across the Twin Cities for over 13 years.
+    <strong>He answers his own phone.</strong> He shows up to his own showings. He negotiates his own deals.<br /><br />
+    Based in Excelsior &mdash; on the east side of Minnewashta Park &mdash; Geoffrey knows the Lake Minnetonka market from the water up.
+    His focus is the <strong>$500K&ndash;$1.2M middle market</strong> in Carver County and the lake communities:
+    Excelsior, Wayzata, Orono, Mound, Chanhassen, and beyond.
+  </p>
+</div>
+
+<!-- SECONDARY CTA -->
+<div class="cta-band">
+  <a href="#top" onclick="document.getElementById('name').focus(); return false;">Get My First Look</a>
+  <p class="cta-note">Or call Geoffrey directly &mdash; 952-258-3100.</p>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p class="footer-name">Geoffrey Serdar</p>
+  <p class="footer-brokerage">Serdar+Partners at Compass</p>
+  <div class="footer-contact">
+    <a href="tel:9522583100">952-258-3100</a>
+    <a href="mailto:geoffrey@serdarpartnersrealty.com">geoffrey@serdarpartnersrealty.com</a>
+    <a href="https://www.compass.com/agents/geoffrey-serdar/" target="_blank">Compass Profile</a>
+  </div>
+  <p class="footer-legal">
+    Licensed in Minnesota &nbsp;·&nbsp; Serdar+Partners at Compass<br />
+    &copy; 2026 Geoffrey Serdar. All rights reserved. &nbsp;·&nbsp; <a href="/privacy">Privacy Policy</a>
+  </p>
+</footer>
+
+<script>
+/* ================================================================= */
+/* RAZIEL_CONFIG — the lead pipe in ONE place.                       */
+/* To clone this whole system for another business, change these     */
+/* values and the brand tokens up top. Nothing else needs editing.   */
+/* These IDs are cloned verbatim from the live geoffreyserdar.com     */
+/* page — the same conversion, Twilio alert, and Formspree inbox.    */
+/* ================================================================= */
+const RAZIEL_CONFIG = {
+  adsAccount:      'AW-17849235035',
+  conversionLabel: 'jRxICLmDpr0cENvslr9C',     // Google Ads "Submit lead form (1)"
+  twilioUrl:       'https://lead-alert-4343.twil.io/lead-alert',
+  twilioSecret:    'slx_9f3Kqe2R',
+  formspreeId:     'mpqerwwk',
+  ctaLabel:        'Start My Search'            // button text (also restored after an error)
+};
+
+// Capture lead source on page load (UTM / Google Ads / referrer)
+const LEAD_SOURCE = (function () {
+  const p = new URLSearchParams(window.location.search);
+  return {
+    utm_source: p.get('utm_source') || '',
+    utm_medium: p.get('utm_medium') || '',
+    utm_campaign: p.get('utm_campaign') || '',
+    gclid: p.get('gclid') || '',
+    referrer: document.referrer || ''
+  };
+})();
+
+// LAYER 1 — front door: block structurally-impossible US numbers in the browser.
+function isValidUSPhone(raw) {
+  var d = String(raw || '').replace(/\D/g, '');
+  if (d.length === 11 && d.charAt(0) === '1') d = d.slice(1);
+  if (d.length !== 10) return false;
+  var area = +d.charAt(0);
+  var exch = +d.charAt(3);
+  if (area < 2 || exch < 2) return false;                       // NANP: must be 2-9
+  if (d.charAt(1) === '1' && d.charAt(2) === '1') return false; // N11 service codes
+  if (d.slice(3, 6) === '555') return false;                    // 555 exchange = classic fake / fictional number
+  if (/^(\d)\1{9}$/.test(d)) return false;                      // all identical digits
+  return true;
+}
+
+function showPhoneError() {
+  var err = document.getElementById('phoneError');
+  var inp = document.getElementById('phone');
+  if (err) err.classList.add('visible');
+  if (inp) { inp.classList.add('input-error'); inp.focus(); }
+}
+function clearPhoneError() {
+  var err = document.getElementById('phoneError');
+  var inp = document.getElementById('phone');
+  if (err) err.classList.remove('visible');
+  if (inp) inp.classList.remove('input-error');
+}
+
+function setChecking(on) {
+  var btn = document.querySelector('.submit-btn');
+  if (!btn) return;
+  if (on) { btn.disabled = true; btn.style.opacity = '0.7'; btn.textContent = 'Checking…'; }
+  else { btn.disabled = false; btn.style.opacity = ''; btn.textContent = RAZIEL_CONFIG.ctaLabel; }
+}
+
+// LAYER 2 — carrier check via the Twilio Function. Also fires the speed-to-lead
+// text on a good number. Fails OPEN on timeout/error so a real lead is never lost.
+const INTEREST_DETAIL = {
+  'buying': 'A home to live in - Buyer, help find the right fit, no pressure',
+  'early_access': 'Wants off-market & coming-soon first - Serious buyer, feed early inventory, move fast',
+  'investing': 'An investment property - Investor, talk numbers, direct, ROI-minded',
+  'relocating': 'Relocating to the lake area - New to the area, orient them, neighborhoods first',
+  'both': 'Buying and selling - Move-up, needs both sides coordinated, real timeline',
+  'just looking': 'Just exploring the market - Early buyer, educate, build rapport, dont push',
+  'selling': 'Thinking about a move (no rush) - Seller, no urgency, patient, plant a seed',
+  'probate': 'Helping with a family members home - Probate/grief, empathy first, slow, never transactional'
+};
+function interestDetail(v) { return INTEREST_DETAIL[v] || v || '(none selected)'; }
+
+function checkNumber(name, phone, interest) {
+  var controller = new AbortController();
+  var timer = setTimeout(function () { controller.abort(); }, 2500);
+  var data = new URLSearchParams({
+    secret: RAZIEL_CONFIG.twilioSecret,
+    name: name, phone: phone, interest: interest,
+    site: window.location.hostname + window.location.pathname,
+    utm_source: LEAD_SOURCE.utm_source,
+    utm_medium: LEAD_SOURCE.utm_medium,
+    utm_campaign: LEAD_SOURCE.utm_campaign,
+    gclid: LEAD_SOURCE.gclid,
+    referrer: LEAD_SOURCE.referrer
+  });
+  return fetch(RAZIEL_CONFIG.twilioUrl, { method: 'POST', body: data, signal: controller.signal })
+    .then(function (r) { clearTimeout(timer); return r.json(); })
+    .catch(function () { clearTimeout(timer); return { valid: true, failOpen: true }; });
+}
+
+function submitToFormspree(name, phone, interest) {
+  fetch('https://formspree.io/f/' + RAZIEL_CONFIG.formspreeId, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+    body: JSON.stringify({
+      name: name, phone: phone, interest: interest, interest_detail: interestDetail(interest),
+      utm_source: LEAD_SOURCE.utm_source,
+      utm_medium: LEAD_SOURCE.utm_medium,
+      utm_campaign: LEAD_SOURCE.utm_campaign,
+      gclid: LEAD_SOURCE.gclid,
+      referrer: LEAD_SOURCE.referrer
+    })
+  }).catch(function () {});
+}
+
+async function handleSubmit(e) {
+  e.preventDefault();
+  var name = document.getElementById('name').value.trim();
+  var phone = document.getElementById('phone').value.trim();
+  var interest = document.getElementById('interest').value;
+
+  // Layer 1 — impossible numbers never get in.
+  if (!isValidUSPhone(phone)) { showPhoneError(); return; }
+  clearPhoneError();
+
+  // Layer 2 — carrier check (also triggers the alert text on a good number).
+  setChecking(true);
+  var verdict = await checkNumber(name, phone, interest);
+  setChecking(false);
+
+  if (verdict && verdict.valid === false) {
+    showPhoneError();   // looks fine, but the carrier says it isn't a working line
+    return;
+  }
+
+  // Passed (or check was inconclusive / timed out) -> record + finish.
+  submitToFormspree(name, phone, interest);
+  showSuccess();
+}
+
+let leadConverted = false;
+function showSuccess() {
+  document.getElementById('formFields').classList.add('hidden');
+  document.getElementById('successState').classList.add('visible');
+  if (!leadConverted) {
+    leadConverted = true;
+    gtag('event', 'conversion', {
+      'send_to': RAZIEL_CONFIG.adsAccount + '/' + RAZIEL_CONFIG.conversionLabel,
+      'value': 1.0,
+      'currency': 'USD'
+    });
+  }
+}
+
+// Auto-format phone as XXX-XXX-XXXX while typing; clear any error as they fix it
+document.getElementById('phone').addEventListener('input', function (e) {
+  var v = e.target.value.replace(/[^0-9]/g, '').slice(0, 10);
+  if (v.length >= 7) { v = v.slice(0,3) + '-' + v.slice(3,6) + '-' + v.slice(6); }
+  else if (v.length >= 4) { v = v.slice(0,3) + '-' + v.slice(3); }
+  e.target.value = v;
+  clearPhoneError();
+});
+</script>
+
+
+<!-- raziel: form drop-off tracking -->
+<script>
+(function () {
+  var lastField = null;
+  ['name', 'phone', 'interest'].forEach(function (id) {
+    var el = document.getElementById(id);
+    if (!el) return;
+    el.addEventListener('focus', function () { lastField = id; });
+    el.addEventListener('input', function () { lastField = id; });
+    el.addEventListener('change', function () { lastField = id; });
+  });
+  var interest = document.getElementById('interest');
+  if (interest) {
+    interest.addEventListener('change', function () {
+      if (interest.value && typeof gtag === 'function') {
+        gtag('event', 'interest_selected', { interest_value: interest.value });
+      }
+    });
+  }
+  var fired = false;
+  window.addEventListener('pagehide', function () {
+    if (fired || !lastField) return;
+    var ok = document.getElementById('successState');
+    if (ok && ok.classList.contains('visible')) return;
+    fired = true;
+    if (typeof gtag === 'function') {
+      gtag('event', 'form_abandon', { last_field: lastField });
+    }
+  });
+})();
+</script>
+</body>
+</html>
