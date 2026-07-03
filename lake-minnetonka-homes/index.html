@@ -192,6 +192,9 @@ body {
   font-size: 24px; font-weight: 700; color: var(--warm); margin-bottom: 8px;
 }
 .success-sub { font-size: 14px; color: var(--mid); line-height: 1.6; }
+.success-crosslink { font-size: 13px; color: var(--mid); margin-top: 22px; line-height: 1.7; }
+.success-crosslink a { color: var(--gold); text-decoration: underline; text-underline-offset: 3px; }
+.success-crosslink a:hover { color: var(--gold2); }
 /* SECTIONS */
 .section { padding: 80px 32px; max-width: 640px; margin: 0 auto; }
 .section-eyebrow {
@@ -230,6 +233,15 @@ body {
 }
 .cta-band a:hover { background: var(--gold2); }
 .cta-note { font-size: 12px; color: var(--mid); margin-top: 16px; }
+/* CROSS-LINK to the 5-Year-Rule calculator (for the move-up seller) */
+.cta-crosslink { font-size: 13px; color: var(--mid); margin-top: 26px; line-height: 1.6; }
+.cta-crosslink a {
+  display: inline; background: none; color: var(--gold); padding: 0;
+  font-size: 13px; font-weight: 500; letter-spacing: 0; text-transform: none;
+  text-decoration: underline; text-underline-offset: 3px;
+}
+.cta-crosslink a:hover { background: none; color: var(--gold2); }
+.cta-crosslink em { color: var(--warm); font-style: italic; }
 /* FOOTER */
 footer { border-top: 1px solid rgba(138, 155, 176, 0.1); padding: 40px 32px; text-align: center; }
 .footer-name { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; color: var(--warm); margin-bottom: 4px; }
@@ -306,6 +318,7 @@ footer { border-top: 1px solid rgba(138, 155, 176, 0.1); padding: 40px 32px; tex
       <div class="success-icon">&check;</div>
       <h3 class="success-title">Got it. Talk soon.</h3>
       <p class="success-sub">Geoffrey will reach out to you directly with homes that fit.<br />In the meantime &mdash; 952-258-3100.</p>
+      <p class="success-crosslink">Own a home you'd need to sell too?<br /><a href="/keep-or-sell/">Run your 5-year keep-or-sell math &rarr;</a></p>
     </div>
   </div>
 </section>
@@ -369,6 +382,7 @@ footer { border-top: 1px solid rgba(138, 155, 176, 0.1); padding: 40px 32px; tex
 <div class="cta-band">
   <a href="#top" onclick="document.getElementById('name').focus(); return false;">Get My First Look</a>
   <p class="cta-note">Or call Geoffrey directly &mdash; 952-258-3100.</p>
+  <p class="cta-crosslink">Buying <em>and</em> selling? <a href="/keep-or-sell/">See whether to keep your current home or take the equity &mdash; run the 5-year math &rarr;</a></p>
 </div>
 
 <!-- FOOTER -->
