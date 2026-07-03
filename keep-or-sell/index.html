@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<!-- ============================================================= -->
+<!-- SEO — the 5-Year-Rule calculator. This URL should live at:     -->
+<!--   geoffreyserdar.com/keep-or-sell/                             -->
+<!-- A "room in the house" on the main site (NOT the ad landing).   -->
+<!-- ============================================================= -->
+<title>Keep It or Sell It? The 5-Year Rule Calculator | Geoffrey Serdar, Compass</title>
+<meta name="description" content="Should you sell your home — or hold it, rent it out, and buy your next place anyway? Run the 5-year math Geoffrey Serdar uses to cut through it. Free, no email required." />
+<link rel="canonical" href="https://geoffreyserdar.com/keep-or-sell/" />
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+<!-- Google tag (gtag.js) — SAME account + GA4 as the rest of the site.  -->
+<!-- Cloned verbatim from the live pages. Do NOT change these IDs.        -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17849235035"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'AW-17849235035');
+  gtag('config', 'G-250YS9FRRM');
+</script>
+
+<style>
+/* ============================================================= */
+/* BRAND TOKENS — cloned from the buyer page. Change to rebrand.   */
+/* ============================================================= */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --navy: #0A1628;
+  --navy2: #112240;
+  --gold: #C9A84C;
+  --gold2: #E8C96A;
+  --warm: #F8F6F1;
+  --mid: #8A9BB0;
+  --white: #FFFFFF;
+}
+html { scroll-behavior: smooth; }
+body {
+  background: var(--navy);
+  color: var(--warm);
+  font-family: 'Inter', sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* HERO / HOOK */
+.hero {
+  padding: 72px 32px 40px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '5 YEARS';
+  position: absolute;
+  bottom: -26px;
+  right: -24px;
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(76px, 17vw, 190px);
+  font-weight: 900;
+  color: var(--navy2);
+  letter-spacing: -4px;
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+  white-space: nowrap;
+}
+.hero-inner { max-width: 640px; margin: 0 auto; position: relative; z-index: 1; }
+.eyebrow {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 22px;
+}
+.hero-name {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(38px, 8vw, 72px);
+  font-weight: 900;
+  line-height: 1.0;
+  letter-spacing: -2px;
+  color: var(--warm);
+  margin-bottom: 20px;
+}
+.hero-name span { color: var(--gold); }
+.hero-sub {
+  font-size: clamp(15px, 2.6vw, 18px);
+  font-weight: 300;
+  color: var(--mid);
+  line-height: 1.7;
+  margin-bottom: 18px;
+  max-width: 560px;
+}
+.hero-sub strong { color: var(--warm); font-weight: 500; }
+.hero-note {
+  font-size: 12.5px;
+  color: rgba(138, 155, 176, 0.7);
+  line-height: 1.6;
+  border-left: 2px solid rgba(201, 168, 76, 0.35);
+  padding-left: 14px;
+  max-width: 540px;
+}
+
+/* CALCULATOR CARD */
+.calc-wrap { max-width: 640px; margin: 0 auto; padding: 8px 32px 24px; }
+.calc-card {
+  background: var(--navy2);
+  border: 1px solid rgba(201, 168, 76, 0.2);
+  border-radius: 4px;
+  padding: 34px 30px;
+}
+.calc-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px; font-weight: 700; color: var(--warm);
+  margin-bottom: 6px; line-height: 1.3;
+}
+.calc-lead { font-size: 13px; color: var(--mid); margin-bottom: 26px; line-height: 1.6; }
+
+.field { margin-bottom: 18px; }
+.field > label {
+  display: block; font-size: 11px; font-weight: 600; letter-spacing: 1.5px;
+  text-transform: uppercase; color: var(--mid); margin-bottom: 8px;
+}
+.field-hint { font-size: 11.5px; color: rgba(138,155,176,0.7); margin-bottom: 8px; line-height: 1.5; }
+.money-input { position: relative; }
+.money-input::before {
+  content: '$';
+  position: absolute; left: 14px; top: 50%; transform: translateY(-50%);
+  color: var(--mid); font-size: 15px; pointer-events: none;
+}
+.field input[type="text"], .field input[type="tel"], .field input[type="email"] {
+  width: 100%;
+  background: var(--navy);
+  border: 1px solid rgba(138, 155, 176, 0.25);
+  border-radius: 3px;
+  color: var(--warm);
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  padding: 14px 16px;
+  outline: none;
+  transition: border-color 0.2s;
+  appearance: none;
+}
+.money-input input { padding-left: 28px !important; }
+.field input::placeholder { color: rgba(138, 155, 176, 0.5); }
+.field input:focus { border-color: var(--gold); }
+.field input.input-error { border-color: #E8A0A0; }
+
+/* toggle */
+.toggle { display: flex; gap: 0; margin-bottom: 10px; border: 1px solid rgba(138,155,176,0.25); border-radius: 3px; overflow: hidden; }
+.toggle button {
+  flex: 1; background: var(--navy); border: none; color: var(--mid);
+  font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 0.5px;
+  padding: 11px 8px; cursor: pointer; transition: background 0.15s, color 0.15s;
+}
+.toggle button.active { background: var(--gold); color: var(--navy); }
+.breakdown-fields { display: none; }
+.breakdown-fields.show { display: block; }
+.mini-field { margin-bottom: 12px; }
+.mini-field label {
+  display: block; font-size: 11px; color: var(--mid); margin-bottom: 6px; letter-spacing: 0.3px;
+}
+
+/* soft door link */
+.door {
+  display: inline-block;
+  font-size: 12.5px; color: var(--gold); text-decoration: none;
+  margin-top: 4px; border-bottom: 1px dotted rgba(201,168,76,0.5); padding-bottom: 1px;
+  cursor: pointer; background: none; border-left: none; border-right: none; border-top: none;
+  font-family: 'Inter', sans-serif;
+}
+.door:hover { color: var(--gold2); }
+
+.run-btn {
+  width: 100%;
+  background: var(--gold);
+  border: none;
+  border-radius: 3px;
+  color: var(--navy);
+  font-family: 'Inter', sans-serif;
+  font-size: 13px; font-weight: 700; letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 16px;
+  cursor: pointer;
+  margin-top: 12px;
+  transition: background 0.2s, transform 0.1s;
+}
+.run-btn:hover { background: var(--gold2); }
+.run-btn:active { transform: scale(0.99); }
+
+/* VERDICT */
+.verdict { display: none; margin-top: 28px; padding-top: 26px; border-top: 1px solid rgba(138,155,176,0.15); }
+.verdict.show { display: block; }
+.verdict-line {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(19px, 3.6vw, 24px); font-weight: 700; color: var(--warm);
+  line-height: 1.35; margin-bottom: 22px;
+}
+.verdict-line .accent { color: var(--gold); }
+.two-nums { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.num-card {
+  background: var(--navy);
+  border: 1px solid rgba(138,155,176,0.18);
+  border-radius: 3px; padding: 18px 16px; position: relative;
+  transition: border-color 0.2s;
+}
+.num-card.win { border-color: var(--gold); }
+.num-tag {
+  display: none;
+  position: absolute; top: -10px; right: 12px;
+  background: var(--gold); color: var(--navy);
+  font-size: 11px; font-weight: 700; letter-spacing: 0.5px;
+  padding: 3px 9px; border-radius: 20px;
+}
+.num-card.win .num-tag { display: inline-block; }
+.num-label { font-size: 10.5px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: var(--mid); margin-bottom: 8px; line-height: 1.4; }
+.num-value { font-family: 'Playfair Display', serif; font-size: clamp(24px, 5vw, 30px); font-weight: 700; color: var(--warm); line-height: 1; }
+.num-caption { font-size: 11px; color: var(--mid); margin-top: 8px; line-height: 1.4; }
+
+.figured-toggle {
+  background: none; border: none; color: var(--mid);
+  font-family: 'Inter', sans-serif; font-size: 12.5px; letter-spacing: 0.3px;
+  cursor: pointer; margin-top: 18px; padding: 0; text-decoration: underline; text-underline-offset: 3px;
+}
+.figured-toggle:hover { color: var(--warm); }
+.figured { display: none; margin-top: 16px; background: var(--navy); border-radius: 3px; padding: 18px 18px; }
+.figured.show { display: block; }
+.figured-row { font-size: 13px; color: var(--mid); line-height: 1.7; }
+.figured-row strong { color: var(--warm); font-weight: 500; }
+.figured-sep { height: 1px; background: rgba(138,155,176,0.12); margin: 12px 0; }
+
+.disclaimer { font-size: 12px; color: rgba(138,155,176,0.75); line-height: 1.6; margin-top: 20px; }
+.real-btn {
+  display: block; width: 100%; text-align: center;
+  background: transparent; border: 1px solid var(--gold);
+  border-radius: 3px; color: var(--gold);
+  font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+  padding: 15px; margin-top: 20px; cursor: pointer; transition: background 0.2s, color 0.2s;
+}
+.real-btn:hover { background: var(--gold); color: var(--navy); }
+
+/* LEAD FORM (shared, opened by any door) */
+.lead-wrap { max-width: 640px; margin: 0 auto; padding: 4px 32px 24px; }
+.lead-card {
+  display: none;
+  background: var(--navy2);
+  border: 1px solid rgba(201, 168, 76, 0.35);
+  border-radius: 4px;
+  padding: 32px 30px;
+}
+.lead-card.show { display: block; }
+.lead-headline { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; color: var(--warm); margin-bottom: 6px; line-height: 1.3; }
+.lead-sub { font-size: 13px; color: var(--mid); margin-bottom: 24px; line-height: 1.6; }
+.lead-card .field label {
+  display: block; font-size: 11px; font-weight: 600; letter-spacing: 1.5px;
+  text-transform: uppercase; color: var(--mid); margin-bottom: 8px;
+}
+.field-error { display: none; margin-top: 8px; font-size: 12px; line-height: 1.5; color: #E8A0A0; }
+.field-error.visible { display: block; }
+.calc-error { display: none; margin-top: 14px; font-size: 13px; line-height: 1.55; color: #E8A0A0; text-align: center; }
+.calc-error.visible { display: block; }
+.submit-btn {
+  width: 100%; background: var(--gold); border: none; border-radius: 3px; color: var(--navy);
+  font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+  padding: 16px; cursor: pointer; margin-top: 8px; transition: background 0.2s, transform 0.1s, opacity 0.2s;
+}
+.submit-btn:hover { background: var(--gold2); }
+.submit-btn:active { transform: scale(0.99); }
+.submit-btn:disabled { cursor: default; }
+.form-consent { font-size: 11px; color: var(--mid); text-align: center; margin-top: 14px; line-height: 1.6; }
+.form-consent a { color: var(--gold); text-decoration: underline; }
+.success-state { display: none; text-align: center; padding: 12px 0; }
+.success-state.visible { display: block; }
+.lead-fields.hidden { display: none; }
+.success-icon { font-size: 40px; margin-bottom: 12px; }
+.success-title { font-family: 'Playfair Display', serif; font-size: 24px; font-weight: 700; color: var(--warm); margin-bottom: 8px; }
+.success-sub { font-size: 14px; color: var(--mid); line-height: 1.6; }
+
+/* WHY ESSAY + SECTIONS */
+.divider { width: 40px; height: 2px; background: var(--gold); margin: 24px auto 0; opacity: 0.4; }
+.section { padding: 72px 32px 0; max-width: 640px; margin: 0 auto; }
+.section-eyebrow { font-size: 11px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 18px; }
+.section-headline { font-family: 'Playfair Display', serif; font-size: clamp(28px, 5vw, 40px); font-weight: 700; color: var(--warm); line-height: 1.2; margin-bottom: 22px; }
+.essay p { font-size: 16px; line-height: 1.85; color: var(--mid); margin-bottom: 20px; }
+.essay p strong { color: var(--warm); font-weight: 500; }
+.essay em { color: var(--warm); font-style: italic; }
+.essay .lead-para { font-size: 17px; color: var(--warm); }
+
+/* SOFT CLOSE */
+.cta-band { padding: 60px 32px 90px; max-width: 640px; margin: 0 auto; text-align: center; }
+.cta-quote { font-family: 'Playfair Display', serif; font-size: clamp(20px, 4vw, 26px); font-weight: 400; font-style: italic; color: var(--warm); line-height: 1.5; margin-bottom: 30px; }
+.cta-band a.call {
+  display: inline-block; background: var(--gold); color: var(--navy);
+  font-size: 13px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; text-decoration: none;
+  padding: 16px 34px; border-radius: 3px; transition: background 0.2s;
+}
+.cta-band a.call:hover { background: var(--gold2); }
+.cta-note { font-size: 12px; color: var(--mid); margin-top: 16px; }
+
+/* FOOTER (cloned) */
+footer { border-top: 1px solid rgba(138, 155, 176, 0.1); padding: 40px 32px; text-align: center; }
+.footer-name { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; color: var(--warm); margin-bottom: 4px; }
+.footer-brokerage { font-size: 12px; color: var(--mid); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 20px; }
+.footer-contact { display: flex; justify-content: center; gap: 32px; flex-wrap: wrap; }
+.footer-contact a { font-size: 13px; color: var(--gold); text-decoration: none; letter-spacing: 0.3px; }
+.footer-contact a:hover { color: var(--gold2); }
+.footer-legal { font-size: 11px; color: rgba(138, 155, 176, 0.35); margin-top: 24px; line-height: 1.6; }
+.footer-legal a { color: var(--gold); text-decoration: none; }
+
+/* RESPONSIVE */
+@media (max-width: 480px) {
+  .hero { padding: 56px 24px 32px; }
+  .calc-wrap, .lead-wrap { padding-left: 24px; padding-right: 24px; }
+  .calc-card, .lead-card { padding: 26px 22px; }
+  .section { padding-left: 24px; padding-right: 24px; }
+  .two-nums { grid-template-columns: 1fr; }
+  .cta-band { padding-left: 24px; padding-right: 24px; }
+}
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+</head>
+
+<body>
+
+<!-- HOOK -->
+<section class="hero">
+  <div class="hero-inner">
+    <p class="eyebrow">The 5-Year Rule · Geoffrey's Take</p>
+    <h1 class="hero-name">Keep it, or <span>take the equity?</span></h1>
+    <p class="hero-sub">
+      Thinking about selling? Before you do &mdash; should you <strong>hold it, rent it out, and buy your next place anyway?</strong>
+      You don't always have to sell to move on. Here's the 5-year math I use to cut through it.
+    </p>
+    <p class="hero-note">
+      You may have heard a different &ldquo;5-year rule&rdquo; &mdash; the one about not buying unless you'll stay five years.
+      This is the other one: whether to <strong style="color:var(--warm);font-weight:500;">hold a home you already own, or sell it.</strong>
+    </p>
+  </div>
+</section>
+
+<!-- CALCULATOR -->
+<div class="calc-wrap">
+  <div class="calc-card">
+    <h2 class="calc-title">Run your own numbers.</h2>
+    <p class="calc-lead">Four honest inputs. The math runs right here &mdash; no email, no wall. Takes about thirty seconds.</p>
+
+    <!-- 1. RENT -->
+    <div class="field">
+      <label for="rent">What would it rent for? &mdash; per month</label>
+      <div class="money-input"><input type="text" id="rent" inputmode="numeric" placeholder="2,800" autocomplete="off" /></div>
+      <button type="button" class="door" onclick="openTalk('rent')">Not sure what it'd rent for? Let's talk &mdash; I'll tell you &rarr;</button>
+    </div>
+
+    <!-- 2. CARRY -->
+    <div class="field">
+      <label>What does it cost you each month?</label>
+      <div class="toggle">
+        <button type="button" id="tgOne" class="active" onclick="setCarryMode('one')">One payment</button>
+        <button type="button" id="tgBreak" onclick="setCarryMode('break')">Break it down</button>
+      </div>
+
+      <div id="carryOneWrap">
+        <p class="field-hint">Your total monthly payment &mdash; mortgage, taxes &amp; insurance (the escrowed number).</p>
+        <div class="money-input"><input type="text" id="carryOne" inputmode="numeric" placeholder="2,100" autocomplete="off" /></div>
+        <button type="button" class="door" onclick="openTalk('cost')">That's your payment only &mdash; real renting has repairs and the odd empty month. Want the true number? Let's talk &rarr;</button>
+      </div>
+
+      <div id="carryBreakWrap" class="breakdown-fields">
+        <p class="field-hint">The investor's view &mdash; add up what it really costs to hold.</p>
+        <div class="mini-field"><label>Mortgage (principal &amp; interest)</label><div class="money-input"><input type="text" id="pi" inputmode="numeric" placeholder="1,500" autocomplete="off" /></div></div>
+        <div class="mini-field"><label>Property taxes / month</label><div class="money-input"><input type="text" id="tax" inputmode="numeric" placeholder="350" autocomplete="off" /></div></div>
+        <div class="mini-field"><label>Insurance / month</label><div class="money-input"><input type="text" id="ins" inputmode="numeric" placeholder="120" autocomplete="off" /></div></div>
+        <div class="mini-field"><label>Repairs &amp; reserve / month</label><div class="money-input"><input type="text" id="rep" inputmode="numeric" placeholder="200" autocomplete="off" /></div></div>
+        <div class="mini-field"><label>Management / month <span style="opacity:.7">(0 if you self-manage)</span></label><div class="money-input"><input type="text" id="mgmt" inputmode="numeric" placeholder="0" autocomplete="off" /></div></div>
+      </div>
+    </div>
+
+    <!-- 3. VALUE -->
+    <div class="field">
+      <label for="value">What's it worth today?</label>
+      <div class="money-input"><input type="text" id="value" inputmode="numeric" placeholder="525,000" autocomplete="off" /></div>
+    </div>
+
+    <!-- 4. OWED -->
+    <div class="field">
+      <label for="owed">What do you still owe?</label>
+      <div class="money-input"><input type="text" id="owed" inputmode="numeric" placeholder="310,000" autocomplete="off" /></div>
+    </div>
+
+    <button type="button" class="run-btn" onclick="runMath()">Show me the 5-year math</button>
+    <p class="calc-error" id="calcError"></p>
+
+    <!-- VERDICT -->
+    <div class="verdict" id="verdict">
+      <p class="verdict-line" id="verdictLine"></p>
+      <div class="two-nums">
+        <div class="num-card" id="holdCard">
+          <span class="num-tag" id="holdTag"></span>
+          <p class="num-label">Hold &amp; rent · 5 years</p>
+          <p class="num-value" id="holdNum">$0</p>
+          <p class="num-caption">what renting it out pays you over five years</p>
+        </div>
+        <div class="num-card" id="sellCard">
+          <span class="num-tag" id="sellTag"></span>
+          <p class="num-label">Sell today</p>
+          <p class="num-value" id="sellNum">$0</p>
+          <p class="num-caption">&asymp; what you'd walk away with</p>
+        </div>
+      </div>
+
+      <button type="button" class="figured-toggle" onclick="toggleFigured()">See how this is figured &#9662;</button>
+      <div class="figured" id="figured">
+        <p class="figured-row" id="figHold"></p>
+        <div class="figured-sep"></div>
+        <p class="figured-row" id="figSell"></p>
+        <button type="button" class="door" style="margin-top:12px" onclick="openTalk('net')">Not sure what you'd net? Let's talk &rarr;</button>
+      </div>
+
+      <p class="disclaimer">
+        A quick estimate, not tax advice &mdash; I'll run your true numbers, and you confirm with your CPA.
+        On purpose, this leaves out appreciation, taxes, and what the place means to you. That's where a real conversation comes in.
+      </p>
+      <button type="button" class="real-btn" onclick="openTalk('real')">Run my real numbers with Geoffrey &rarr;</button>
+    </div>
+  </div>
+</div>
+
+<!-- LEAD FORM (shared) -->
+<div class="lead-wrap">
+  <div class="lead-card" id="leadCard">
+    <div class="lead-fields" id="leadFields">
+      <h3 class="lead-headline" id="leadHeadline">Let's talk it through.</h3>
+      <p class="lead-sub" id="leadSub">Leave your name and number and Geoffrey will reach out directly &mdash; no obligation, no pressure.</p>
+      <form id="leadForm" onsubmit="handleSubmit(event)">
+        <div class="field">
+          <label for="name">Your Name</label>
+          <input type="text" id="name" name="name" placeholder="First and last name" required autocomplete="name" />
+        </div>
+        <div class="field">
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" name="phone" placeholder="952-000-0000" required autocomplete="tel" />
+          <p class="field-error" id="phoneError" role="alert">That number doesn't look quite right &mdash; mind double-checking it? Geoffrey calls every owner personally, so we want to be sure it reaches you.</p>
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="you@email.com" required autocomplete="email" />
+          <p class="field-error" id="emailError" role="alert">That email doesn't look quite right &mdash; mind double-checking it? It's how Geoffrey sends your numbers over.</p>
+        </div>
+        <button type="submit" class="submit-btn">Send it to Geoffrey</button>
+      </form>
+      <p class="form-consent">By submitting this form, you agree that Serdar+Partners at Compass may contact you by phone call and text message (including by automated means) at the number you provide, regarding your real estate inquiry. Consent is not a condition of any purchase. Message &amp; data rates may apply; message frequency varies. Reply STOP to opt out, HELP for help. See our <a href="/privacy">Privacy Policy</a>.</p>
+    </div>
+    <div class="success-state" id="successState">
+      <div class="success-icon">&check;</div>
+      <h3 class="success-title">Got it. Talk soon.</h3>
+      <p class="success-sub">Geoffrey will reach out directly with your real numbers.<br />In the meantime &mdash; 952-258-3100.</p>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- WHY ESSAY -->
+<div class="section essay">
+  <p class="section-eyebrow">Why I Use It</p>
+  <h2 class="section-headline">Why I use the 5-Year Rule</h2>
+  <p class="lead-para"><em>Most people decide whether to sell a property with their gut. I use a number.</em></p>
+  <p>
+    Any property you own is really two things at once: a <strong>lump sum</strong> you could walk away with today if you sold it,
+    and an <strong>income stream</strong> if you hold onto it and rent it out. And here's what a lot of people miss &mdash;
+    you don't have to sell to move on. If your income supports it, you can lease out the home you have and still buy the next one.
+    So the real question is rarely &ldquo;should I stay&rdquo; &mdash; it's <em>which is worth more to you: the check today, or the rent for years to come?</em>
+  </p>
+  <p>So I put them side by side over five years.</p>
+  <p><strong>Hold side:</strong> what the property pays you if you rent it out &mdash; the rent, minus what it costs to carry (mortgage, taxes, insurance, upkeep) &mdash; added up over five years.</p>
+  <p><strong>Sell side:</strong> what you'd actually net if you sold today &mdash; your price, minus what you owe, minus the cost of selling.</p>
+  <p>
+    Then I compare them. If five years of holding and renting beats the check you'd get for selling, <strong>keep it</strong> &mdash;
+    it's paying you more than the payout would. If the sale wins, <strong>sell it</strong> and put that money somewhere it works harder.
+  </p>
+  <p>
+    Why five years? A property usually needs a little time to be worth more than the cost and effort of selling it &mdash;
+    and about five years is where holding starts to pay off. Long enough to see past one good or bad year, short enough to still be a real decision.
+  </p>
+  <p>
+    This won't capture everything &mdash; appreciation, taxes, what the place means to you. That's where I come in.
+    But it cuts the emotion and gives you a starting answer in about thirty seconds.
+    Most people have never actually run their own numbers &mdash; and the moment they do, the decision usually makes itself.
+  </p>
+  <p><em>Not sure what yours would rent for, or what you'd really net? That's the easiest call I take all week.</em></p>
+</div>
+
+<!-- SOFT CLOSE -->
+<div class="cta-band">
+  <p class="cta-quote">&ldquo;The agent who'll tell you to keep your house.&rdquo;</p>
+  <a class="call" href="#" onclick="openTalk('close'); return false;">Talk it through with Geoffrey</a>
+  <p class="cta-note">Or call directly &mdash; 952-258-3100.</p>
+</div>
+
+<!-- FOOTER (cloned) -->
+<footer>
+  <p class="footer-name">Geoffrey Serdar</p>
+  <p class="footer-brokerage">Serdar+Partners at Compass</p>
+  <div class="footer-contact">
+    <a href="tel:9522583100">952-258-3100</a>
+    <a href="mailto:geoffrey@serdarpartnersrealty.com">geoffrey@serdarpartnersrealty.com</a>
+    <a href="https://www.compass.com/agents/geoffrey-serdar/" target="_blank">Compass Profile</a>
+  </div>
+  <p class="footer-legal">
+    Licensed in Minnesota &nbsp;·&nbsp; Serdar+Partners at Compass<br />
+    &copy; 2026 Geoffrey Serdar. All rights reserved. &nbsp;·&nbsp; <a href="/privacy">Privacy Policy</a>
+  </p>
+</footer>
+
+<script>
+/* ================================================================= */
+/* RAZIEL_CONFIG — the lead pipe in ONE place. Cloned verbatim from   */
+/* the live buyer page: SAME conversion, Twilio alert, Formspree      */
+/* inbox. The ONLY thing that differs here is source: 'keep-or-sell'. */
+/* ================================================================= */
+const RAZIEL_CONFIG = {
+  adsAccount:      'AW-17849235035',
+  conversionLabel: 'jRxICLmDpr0cENvslr9C',     // Google Ads "Submit lead form (1)"
+  twilioUrl:       'https://lead-alert-4343.twil.io/lead-alert',
+  twilioSecret:    'slx_9f3Kqe2R',
+  formspreeId:     'mpqerwwk',
+  source:          'keep-or-sell',             // <-- tags every lead from this page
+  ctaLabel:        'Send it to Geoffrey'
+};
+
+/* ---- lead source (UTM / gclid / referrer) ---- */
+const LEAD_SOURCE = (function () {
+  const p = new URLSearchParams(window.location.search);
+  return {
+    utm_source: p.get('utm_source') || '',
+    utm_medium: p.get('utm_medium') || '',
+    utm_campaign: p.get('utm_campaign') || '',
+    gclid: p.get('gclid') || '',
+    referrer: document.referrer || ''
+  };
+})();
+
+/* ================================================================= */
+/* THE MATH                                                          */
+/* Hold side  = (monthly rent - all-in monthly carry) x 60 months    */
+/* Sell side  = value - payoff - typical sale costs (bundled)        */
+/* Bigger number wins. Sale-cost % is NEVER shown in the UI.         */
+/* ================================================================= */
+var SALE_COST_RATE = 0.065;  // under-the-hood only — never rendered (commission + MN deed tax + closing, bundled)
+var carryMode = 'one';
+var lastCalc = null;         // remembered so a lead lands with full context
+
+function num(id) {
+  var el = document.getElementById(id);
+  if (!el) return 0;
+  var v = String(el.value || '').replace(/[^0-9.]/g, '');
+  var n = parseFloat(v);
+  return isNaN(n) ? 0 : n;
+}
+function money(n) {
+  var neg = n < 0;
+  n = Math.round(Math.abs(n));
+  return (neg ? '\u2212$' : '$') + n.toLocaleString('en-US');
+}
+
+function allInCarry() {
+  if (carryMode === 'break') {
+    return num('pi') + num('tax') + num('ins') + num('rep') + num('mgmt');
+  }
+  return num('carryOne');
+}
+
+function setCarryMode(mode) {
+  carryMode = mode;
+  document.getElementById('tgOne').classList.toggle('active', mode === 'one');
+  document.getElementById('tgBreak').classList.toggle('active', mode === 'break');
+  document.getElementById('carryOneWrap').style.display = (mode === 'one') ? 'block' : 'none';
+  document.getElementById('carryBreakWrap').classList.toggle('show', mode === 'break');
+}
+
+function runMath() {
+  var rent  = num('rent');
+  var carry = allInCarry();
+  var value = num('value');
+  var owed  = num('owed');
+
+  // gentle guard: need value + owed + rent + a carry figure to say anything real
+  var ce = document.getElementById('calcError');
+  if (value <= 0 || rent <= 0 || carry <= 0) {
+    ce.textContent = 'Add rent, your monthly cost, and the home\u2019s value to run the math \u2014 or tap a \u201clet\u2019s talk\u201d link and I\u2019ll help you fill in the blanks.';
+    ce.classList.add('visible');
+    return;
+  }
+  ce.classList.remove('visible');
+
+  var hold = (rent - carry) * 60;
+  var sellCosts = value * SALE_COST_RATE;
+  var net = value - owed - sellCosts;
+
+  lastCalc = { rent: rent, carry: carry, value: value, owed: owed, hold: hold, net: net };
+
+  document.getElementById('holdNum').textContent = money(hold);
+  document.getElementById('sellNum').textContent = (net < 0 ? '' : '\u2248 ') + money(net);
+
+  var holdCard = document.getElementById('holdCard');
+  var sellCard = document.getElementById('sellCard');
+  var holdTag  = document.getElementById('holdTag');
+  var sellTag  = document.getElementById('sellTag');
+  holdCard.classList.remove('win'); sellCard.classList.remove('win');
+
+  var diff = hold - net;
+  var line = document.getElementById('verdictLine');
+  var closeBand = Math.max(5000, Math.max(Math.abs(hold), Math.abs(net)) * 0.05);
+
+  if (net < 0) {
+    lastCalc.verdict = 'underwater';
+    line.innerHTML = 'This one\u2019s close to the line \u2014 selling today may not leave much, or could cost you at closing. <span class="accent">Worth a real conversation.</span>';
+    holdCard.classList.add('win'); holdTag.textContent = '';
+  } else if (Math.abs(diff) < closeBand) {
+    lastCalc.verdict = 'tossup';
+    line.innerHTML = 'It\u2019s basically a coin flip \u2014 within ' + money(Math.abs(diff)) + ' either way. <span class="accent">This is exactly the kind of call worth talking through.</span>';
+  } else if (hold > net) {
+    lastCalc.verdict = 'hold';
+    line.innerHTML = '<span class="accent">Hold it.</span> Renting wins by ' + money(diff) + ' over five years.';
+    holdCard.classList.add('win'); holdTag.textContent = '+' + money(diff);
+  } else {
+    lastCalc.verdict = 'sell';
+    line.innerHTML = '<span class="accent">Take the equity.</span> Selling wins by ' + money(-diff) + ' over five years.';
+    sellCard.classList.add('win'); sellTag.textContent = '+' + money(-diff);
+  }
+
+  // breakdown (dollar figures only — never a percent)
+  document.getElementById('figHold').innerHTML =
+    'Rent <strong>' + money(rent) + '</strong> \u2212 monthly cost <strong>' + money(carry) +
+    '</strong> = <strong>' + money(rent - carry) + '/mo</strong>, \u00d7 60 months = <strong>' + money(hold) + '</strong>.';
+  document.getElementById('figSell').innerHTML =
+    'Value <strong>' + money(value) + '</strong> \u2212 what you owe <strong>' + money(owed) +
+    '</strong> \u2212 selling costs <strong>\u2248 ' + money(sellCosts) + '</strong> = <strong>\u2248 ' + money(net) + '</strong> you\u2019d walk away with.';
+
+  document.getElementById('verdict').classList.add('show');
+  document.getElementById('verdict').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+
+  if (typeof gtag === 'function') {
+    gtag('event', 'calc_result', { verdict: lastCalc.verdict, source: RAZIEL_CONFIG.source });
+  }
+}
+
+function toggleFigured() {
+  document.getElementById('figured').classList.toggle('show');
+}
+
+/* ================================================================= */
+/* THE TWO "LET'S TALK" DOORS  ->  shared lead form -> existing pipe  */
+/* ================================================================= */
+var TALK = {
+  rent:  { h: 'Not sure what it\u2019d rent for?', s: 'That\u2019s the easiest call I take all week. Leave your name and number \u2014 I\u2019ll tell you what it\u2019d realistically rent for.' },
+  net:   { h: 'Not sure what you\u2019d really net?', s: 'Leave your name and number and I\u2019ll run your true net-if-sold \u2014 the honest number, not an estimate.' },
+  real:  { h: 'Let\u2019s run your real numbers.', s: 'I\u2019ll do the true math with you \u2014 rents, costs, and what you\u2019d actually walk away with. No obligation.' },
+  cost:  { h: 'Want your true cost of holding?', s: 'Your payment isn\u2019t the whole story \u2014 repairs, the odd vacant month, upkeep. Leave your info and I\u2019ll run what renting it out really costs.' },
+  close: { h: 'Let\u2019s talk it through.', s: 'Leave your name and number and I\u2019ll reach out directly \u2014 no pressure, no obligation.' }
+};
+var talkContext = 'close';
+
+function openTalk(context) {
+  talkContext = context || 'close';
+  var t = TALK[talkContext] || TALK.close;
+  document.getElementById('leadHeadline').textContent = t.h;
+  document.getElementById('leadSub').textContent = t.s;
+  document.getElementById('leadFields').classList.remove('hidden');
+  document.getElementById('successState').classList.remove('visible');
+  document.getElementById('leadCard').classList.add('show');
+  document.getElementById('leadCard').scrollIntoView({ behavior: 'smooth', block: 'center' });
+  setTimeout(function () { document.getElementById('name').focus(); }, 300);
+  if (typeof gtag === 'function') {
+    gtag('event', 'talk_door', { door: talkContext, source: RAZIEL_CONFIG.source });
+  }
+}
+
+/* ---- phone validation (cloned two-layer, fails open) ---- */
+function isValidUSPhone(raw) {
+  var d = String(raw || '').replace(/\D/g, '');
+  if (d.length === 11 && d.charAt(0) === '1') d = d.slice(1);
+  if (d.length !== 10) return false;
+  var area = +d.charAt(0), exch = +d.charAt(3);
+  if (area < 2 || exch < 2) return false;
+  if (d.charAt(1) === '1' && d.charAt(2) === '1') return false;
+  if (d.slice(3, 6) === '555') return false;
+  if (/^(\d)\1{9}$/.test(d)) return false;
+  return true;
+}
+function showPhoneError() {
+  var err = document.getElementById('phoneError'), inp = document.getElementById('phone');
+  if (err) err.classList.add('visible');
+  if (inp) { inp.classList.add('input-error'); inp.focus(); }
+}
+function clearPhoneError() {
+  var err = document.getElementById('phoneError'), inp = document.getElementById('phone');
+  if (err) err.classList.remove('visible');
+  if (inp) inp.classList.remove('input-error');
+}
+function setChecking(on) {
+  var btn = document.querySelector('.submit-btn');
+  if (!btn) return;
+  if (on) { btn.disabled = true; btn.style.opacity = '0.7'; btn.textContent = 'Checking\u2026'; }
+  else { btn.disabled = false; btn.style.opacity = ''; btn.textContent = RAZIEL_CONFIG.ctaLabel; }
+}
+
+/* ---- a compact, human summary of their numbers for Geoffrey ---- */
+function calcSummary() {
+  if (!lastCalc) return 'Did not run the calculator (came straight through a "let\u2019s talk" door).';
+  return 'Rent ' + money(lastCalc.rent) + '/mo | monthly cost ' + money(lastCalc.carry) +
+         ' | value ' + money(lastCalc.value) + ' | owed ' + money(lastCalc.owed) +
+         ' || Hold 5yr ' + money(lastCalc.hold) + ' vs Net-if-sold ' + money(lastCalc.net) +
+         ' -> tool says: ' + lastCalc.verdict.toUpperCase();
+}
+var DOOR_DETAIL = {
+  rent:  'KEEP-OR-SELL door: "doesn\u2019t know what it\u2019d rent for" \u2014 WARM. Owner deciding hold vs sell; give a real rent range.',
+  net:   'KEEP-OR-SELL door: "doesn\u2019t know what they\u2019d net" \u2014 WARM. Owner deciding hold vs sell; run true net-if-sold.',
+  real:  'KEEP-OR-SELL door: "run my real numbers" \u2014 ran the tool, wants the true math. High intent.',
+  cost:  'KEEP-OR-SELL door: "one-payment mode, wants true holding cost" \u2014 owner under-counting repairs/vacancy; run real carry.',
+  close: 'KEEP-OR-SELL: soft close / talk it through.'
+};
+
+function checkNumber(name, phone, email) {
+  var controller = new AbortController();
+  var timer = setTimeout(function () { controller.abort(); }, 2500);
+  var data = new URLSearchParams({
+    secret: RAZIEL_CONFIG.twilioSecret,
+    name: name, phone: phone, email: email,
+    interest: 'keep-or-sell (' + talkContext + ')',
+    source: RAZIEL_CONFIG.source,
+    site: window.location.hostname + window.location.pathname,
+    utm_source: LEAD_SOURCE.utm_source,
+    utm_medium: LEAD_SOURCE.utm_medium,
+    utm_campaign: LEAD_SOURCE.utm_campaign,
+    gclid: LEAD_SOURCE.gclid,
+    referrer: LEAD_SOURCE.referrer
+  });
+  return fetch(RAZIEL_CONFIG.twilioUrl, { method: 'POST', body: data, signal: controller.signal })
+    .then(function (r) { clearTimeout(timer); return r.json(); })
+    .catch(function () { clearTimeout(timer); return { valid: true, failOpen: true }; });
+}
+
+function submitToFormspree(name, phone, email) {
+  fetch('https://formspree.io/f/' + RAZIEL_CONFIG.formspreeId, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+    body: JSON.stringify({
+      name: name, phone: phone, email: email,
+      source: RAZIEL_CONFIG.source,
+      interest: 'keep-or-sell',
+      door: talkContext,
+      interest_detail: DOOR_DETAIL[talkContext] || DOOR_DETAIL.close,
+      their_numbers: calcSummary(),
+      utm_source: LEAD_SOURCE.utm_source,
+      utm_medium: LEAD_SOURCE.utm_medium,
+      utm_campaign: LEAD_SOURCE.utm_campaign,
+      gclid: LEAD_SOURCE.gclid,
+      referrer: LEAD_SOURCE.referrer
+    })
+  }).catch(function () {});
+}
+
+/* ---- email validation (simple + permissive; fails friendly) ---- */
+function isValidEmail(raw) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(String(raw || '').trim());
+}
+function showEmailError() {
+  var err = document.getElementById('emailError'), inp = document.getElementById('email');
+  if (err) err.classList.add('visible');
+  if (inp) { inp.classList.add('input-error'); inp.focus(); }
+}
+function clearEmailError() {
+  var err = document.getElementById('emailError'), inp = document.getElementById('email');
+  if (err) err.classList.remove('visible');
+  if (inp) inp.classList.remove('input-error');
+}
+
+async function handleSubmit(e) {
+  e.preventDefault();
+  var name = document.getElementById('name').value.trim();
+  var phone = document.getElementById('phone').value.trim();
+  var email = document.getElementById('email').value.trim();
+
+  // phone first, then email — we want cell AND a newsletter address
+  if (!isValidUSPhone(phone)) { showPhoneError(); return; }
+  clearPhoneError();
+  if (!isValidEmail(email)) { showEmailError(); return; }
+  clearEmailError();
+
+  setChecking(true);
+  var verdict = await checkNumber(name, phone, email);
+  setChecking(false);
+
+  if (verdict && verdict.valid === false) { showPhoneError(); return; }
+
+  submitToFormspree(name, phone, email);
+  showSuccess();
+}
+
+/* ---- SUCCESS -> fires the SAME native conversion (jRxI). Do not alter. ---- */
+let leadConverted = false;
+function showSuccess() {
+  document.getElementById('leadFields').classList.add('hidden');
+  document.getElementById('successState').classList.add('visible');
+  if (!leadConverted) {
+    leadConverted = true;
+    gtag('event', 'conversion', {
+      'send_to': RAZIEL_CONFIG.adsAccount + '/' + RAZIEL_CONFIG.conversionLabel,
+      'value': 1.0,
+      'currency': 'USD'
+    });
+  }
+}
+
+/* ---- auto-format phone as XXX-XXX-XXXX ---- */
+document.getElementById('phone').addEventListener('input', function (e) {
+  var v = e.target.value.replace(/[^0-9]/g, '').slice(0, 10);
+  if (v.length >= 7) { v = v.slice(0,3) + '-' + v.slice(3,6) + '-' + v.slice(6); }
+  else if (v.length >= 4) { v = v.slice(0,3) + '-' + v.slice(3); }
+  e.target.value = v;
+  clearPhoneError();
+});
+document.getElementById('email').addEventListener('input', clearEmailError);
+
+/* ---- live currency grouping on the money inputs ---- */
+['rent','carryOne','pi','tax','ins','rep','mgmt','value','owed'].forEach(function (id) {
+  var el = document.getElementById(id);
+  if (!el) return;
+  el.addEventListener('input', function (e) {
+    var digits = e.target.value.replace(/[^0-9]/g, '');
+    e.target.value = digits ? parseInt(digits, 10).toLocaleString('en-US') : '';
+  });
+});
+</script>
+
+<!-- raziel: form drop-off tracking (cloned) -->
+<script>
+(function () {
+  var lastField = null;
+  ['name', 'phone', 'email'].forEach(function (id) {
+    var el = document.getElementById(id);
+    if (!el) return;
+    el.addEventListener('focus', function () { lastField = id; });
+    el.addEventListener('input', function () { lastField = id; });
+  });
+  var fired = false;
+  window.addEventListener('pagehide', function () {
+    if (fired || !lastField) return;
+    var ok = document.getElementById('successState');
+    if (ok && ok.classList.contains('visible')) return;
+    fired = true;
+    if (typeof gtag === 'function') {
+      gtag('event', 'form_abandon', { last_field: lastField, source: 'keep-or-sell' });
+    }
+  });
+})();
+</script>
+</body>
+</html>
