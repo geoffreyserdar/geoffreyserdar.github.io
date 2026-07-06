@@ -559,6 +559,34 @@ body {
   .form-card { padding: 28px 20px; }
 }
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+/* KEEP-OR-SELL DOOR (probate — gentle) */
+.ks-probate-section { background: var(--cream); padding: 72px 32px; border-top: 1px solid var(--rule); }
+.ks-probate { max-width: 620px; margin: 0 auto; text-align: center; }
+.ks-probate-eyebrow {
+  font-size: 12px; font-weight: 600; letter-spacing: 2.5px;
+  text-transform: uppercase; color: var(--accent); margin-bottom: 14px;
+}
+.ks-probate h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(24px, 4vw, 32px); font-weight: 700;
+  color: var(--ink); line-height: 1.25; margin-bottom: 16px;
+}
+.ks-probate p {
+  font-size: 16px; line-height: 1.75; color: var(--slate);
+  max-width: 540px; margin: 0 auto 28px;
+}
+.ks-probate-btn {
+  display: inline-block;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  background: var(--white);
+  font-family: 'Inter', sans-serif;
+  font-size: 12px; font-weight: 600; letter-spacing: 2.5px;
+  text-transform: uppercase; text-decoration: none;
+  padding: 15px 30px;
+  transition: background 0.2s, color 0.2s;
+}
+.ks-probate-btn:hover { background: var(--accent); color: var(--white); }
 </style>
 </head>
 <body>
@@ -615,6 +643,16 @@ body {
         <p>If selling isn't the goal, I can coordinate repairs, connect you with contractors, or help set up a rental. The decision belongs to the family — my job is honest math and market clarity.</p>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- KEEP-OR-SELL DOOR (calculator — gentle, executor-facing) -->
+<section class="ks-probate-section">
+  <div class="ks-probate">
+    <p class="ks-probate-eyebrow">When you're ready</p>
+    <h2>Keep the home, or sell it?</h2>
+    <p>One of the harder questions an estate can raise. When the time feels right, here's a quiet way to weigh holding onto the home against selling &mdash; the real numbers, no pressure, entirely on your timeline.</p>
+    <a class="ks-probate-btn" href="/keep-or-sell/?utm_source=probate&amp;utm_medium=calc_door">Weigh your options &rarr;</a>
   </div>
 </section>
 
@@ -877,7 +915,3 @@ document.getElementById('probate-submit').addEventListener('click', async functi
 </script>
 </body>
 </html>
-
-<!-- redeploy 1783299527 -->
-
-<!-- redeploy 1783299809 -->
