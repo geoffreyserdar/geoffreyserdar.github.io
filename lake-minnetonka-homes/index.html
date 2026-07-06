@@ -297,6 +297,11 @@ footer { border-top: 1px solid rgba(138, 155, 176, 0.1); padding: 40px 32px; tex
           <p class="field-error" id="phoneError" role="alert">That number doesn't look quite right &mdash; mind double-checking it? Geoffrey calls every buyer personally, so we want to be sure it reaches you.</p>
         </div>
         <div class="field">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="you@email.com" required autocomplete="email" />
+          <p class="field-error" id="emailError" role="alert">That email doesn't look quite right &mdash; mind double-checking it? It's how Geoffrey sends you the homes.</p>
+        </div>
+        <div class="field">
           <label for="interest">I'm looking for...</label>
           <select id="interest" name="interest">
             <option value="" disabled selected>What are you looking for?</option>
@@ -456,6 +461,23 @@ function clearPhoneError() {
   if (inp) inp.classList.remove('input-error');
 }
 
+// Email — light, permissive check; fails friendly (same pattern as the phone layer).
+function isValidEmail(raw) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(String(raw || '').trim());
+}
+function showEmailError() {
+  var err = document.getElementById('emailError');
+  var inp = document.getElementById('email');
+  if (err) err.classList.add('visible');
+  if (inp) { inp.classList.add('input-error'); inp.focus(); }
+}
+function clearEmailError() {
+  var err = document.getElementById('emailError');
+  var inp = document.getElementById('email');
+  if (err) err.classList.remove('visible');
+  if (inp) inp.classList.remove('input-error');
+}
+
 function setChecking(on) {
   var btn = document.querySelector('.submit-btn');
   if (!btn) return;
@@ -478,12 +500,12 @@ const INTEREST_DETAIL = {
 };
 function interestDetail(v) { return INTEREST_DETAIL[v] || v || '(none selected)'; }
 
-function checkNumber(name, phone, interest) {
+function checkNumber(name, phone, email, interest) {
   var controller = new AbortController();
   var timer = setTimeout(function () { controller.abort(); }, 2500);
   var data = new URLSearchParams({
     secret: RAZIEL_CONFIG.twilioSecret,
-    name: name, phone: phone, interest: interest,
+    name: name, phone: phone, email: email, interest: interest,
     site: window.location.hostname + window.location.pathname,
     utm_source: LEAD_SOURCE.utm_source,
     utm_medium: LEAD_SOURCE.utm_medium,
@@ -496,12 +518,12 @@ function checkNumber(name, phone, interest) {
     .catch(function () { clearTimeout(timer); return { valid: true, failOpen: true }; });
 }
 
-function submitToFormspree(name, phone, interest) {
+function submitToFormspree(name, phone, email, interest) {
   fetch('https://formspree.io/f/' + RAZIEL_CONFIG.formspreeId, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
     body: JSON.stringify({
-      name: name, phone: phone, interest: interest, interest_detail: interestDetail(interest),
+      name: name, phone: phone, email: email, interest: interest, interest_detail: interestDetail(interest),
       utm_source: LEAD_SOURCE.utm_source,
       utm_medium: LEAD_SOURCE.utm_medium,
       utm_campaign: LEAD_SOURCE.utm_campaign,
@@ -515,15 +537,20 @@ async function handleSubmit(e) {
   e.preventDefault();
   var name = document.getElementById('name').value.trim();
   var phone = document.getElementById('phone').value.trim();
+  var email = document.getElementById('email').value.trim();
   var interest = document.getElementById('interest').value;
 
   // Layer 1 — impossible numbers never get in.
   if (!isValidUSPhone(phone)) { showPhoneError(); return; }
   clearPhoneError();
 
+  // Email — must look like an email (light check, fails friendly).
+  if (!isValidEmail(email)) { showEmailError(); return; }
+  clearEmailError();
+
   // Layer 2 — carrier check (also triggers the alert text on a good number).
   setChecking(true);
-  var verdict = await checkNumber(name, phone, interest);
+  var verdict = await checkNumber(name, phone, email, interest);
   setChecking(false);
 
   if (verdict && verdict.valid === false) {
@@ -532,7 +559,7 @@ async function handleSubmit(e) {
   }
 
   // Passed (or check was inconclusive / timed out) -> record + finish.
-  submitToFormspree(name, phone, interest);
+  submitToFormspree(name, phone, email, interest);
   showSuccess();
 }
 
