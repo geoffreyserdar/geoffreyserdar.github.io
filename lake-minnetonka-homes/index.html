@@ -50,11 +50,11 @@ body {
 }
 /* HERO */
 .hero {
-  min-height: 100vh;
+  min-height: 88vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 60px 32px 48px;
+  padding: 60px 32px 56px;
   position: relative;
   overflow: hidden;
 }
@@ -89,6 +89,8 @@ body {
   letter-spacing: -2px;
   color: var(--warm);
   margin-bottom: 12px;
+  position: relative;
+  z-index: 1;
 }
 .hero-name span { display: block; color: var(--gold); }
 .hero-title {
@@ -97,9 +99,11 @@ body {
   font-weight: 300;
   color: var(--mid);
   letter-spacing: 1px;
-  margin-bottom: 48px;
+  margin-bottom: 44px;
+  position: relative;
+  z-index: 1;
 }
-.hero-stats { display: flex; gap: 40px; margin-bottom: 56px; flex-wrap: wrap; }
+.hero-stats { display: flex; gap: 40px; margin-bottom: 48px; flex-wrap: wrap; position: relative; z-index: 1; }
 .stat { display: flex; flex-direction: column; gap: 4px; }
 .stat-number {
   font-family: 'Playfair Display', serif;
@@ -109,19 +113,81 @@ body {
   font-size: 11px; font-weight: 500; letter-spacing: 1.5px;
   text-transform: uppercase; color: var(--mid);
 }
-/* FORM */
+/* HERO scroll cue — primary action is to LOOK, not to commit */
+.hero-cues { display: flex; gap: 16px; flex-wrap: wrap; align-items: center; position: relative; z-index: 1; }
+.hero-cue {
+  display: inline-block;
+  background: var(--gold);
+  color: var(--navy);
+  font-size: 13px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+  text-decoration: none;
+  padding: 15px 30px;
+  border-radius: 3px;
+  transition: background 0.2s;
+}
+.hero-cue:hover { background: var(--gold2); }
+.hero-cue-alt {
+  font-size: 13px; color: var(--mid); text-decoration: none; letter-spacing: 0.3px;
+}
+.hero-cue-alt strong { color: var(--gold); font-weight: 600; }
+.hero-cue-alt:hover strong { color: var(--gold2); }
+/* SECTIONS */
+.section { padding: 76px 32px 0; max-width: 640px; margin: 0 auto; }
+.section-eyebrow {
+  font-size: 11px; font-weight: 600; letter-spacing: 3px;
+  text-transform: uppercase; color: var(--gold); margin-bottom: 20px;
+}
+.section-headline {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(28px, 5vw, 42px); font-weight: 700;
+  color: var(--warm); line-height: 1.2; margin-bottom: 20px;
+}
+.section-body { font-size: 16px; line-height: 1.8; color: var(--mid); }
+.section-body strong { color: var(--warm); font-weight: 500; }
+.divider { width: 40px; height: 2px; background: var(--gold); margin: 56px 32px 0; opacity: 0.4; }
+/* EDGE GRID (how Geoffrey helps buyers) */
+.specialties { padding: 44px 32px 0; max-width: 640px; margin: 0 auto; }
+.spec-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 24px; }
+.spec-item {
+  background: var(--navy2);
+  border: 1px solid rgba(201, 168, 76, 0.15);
+  border-radius: 3px; padding: 20px 18px;
+}
+.spec-title { font-size: 13px; font-weight: 600; color: var(--warm); margin-bottom: 6px; letter-spacing: 0.3px; }
+.spec-desc { font-size: 12px; color: var(--mid); line-height: 1.5; }
+/* TEASER — makes "off-market" concrete without faking listings */
+.teaser { padding: 44px 32px 0; max-width: 640px; margin: 0 auto; }
+.teaser-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 24px; }
+.teaser-card {
+  background: var(--navy2);
+  border: 1px solid rgba(201, 168, 76, 0.15);
+  border-radius: 3px;
+  padding: 22px 16px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.teaser-tag {
+  font-size: 10px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 10px;
+}
+.teaser-town { font-family: 'Playfair Display', serif; font-size: 17px; font-weight: 700; color: var(--warm); margin-bottom: 4px; }
+.teaser-blur { font-size: 12px; color: var(--mid); line-height: 1.5; }
+.teaser-lock { font-size: 11px; color: rgba(138,155,176,0.6); margin-top: 12px; letter-spacing: 0.3px; }
+.teaser-note { font-size: 13px; color: var(--mid); margin-top: 20px; line-height: 1.7; text-align: center; }
+/* FORM — Door 1 (the phone) */
+.form-section { padding: 60px 32px 0; max-width: 520px; margin: 0 auto; }
 .form-card {
   background: var(--navy2);
-  border: 1px solid rgba(201, 168, 76, 0.2);
+  border: 1px solid rgba(201, 168, 76, 0.25);
   border-radius: 4px;
   padding: 36px 32px;
-  max-width: 480px;
   position: relative;
   z-index: 1;
 }
 .form-headline {
   font-family: 'Playfair Display', serif;
-  font-size: 22px; font-weight: 700; color: var(--warm);
+  font-size: 24px; font-weight: 700; color: var(--warm);
   margin-bottom: 6px; line-height: 1.3;
 }
 .form-sub { font-size: 13px; color: var(--mid); margin-bottom: 28px; line-height: 1.6; }
@@ -195,33 +261,43 @@ body {
 .success-crosslink { font-size: 13px; color: var(--mid); margin-top: 22px; line-height: 1.7; }
 .success-crosslink a { color: var(--gold); text-decoration: underline; text-underline-offset: 3px; }
 .success-crosslink a:hover { color: var(--gold2); }
-/* SECTIONS */
-.section { padding: 80px 32px; max-width: 640px; margin: 0 auto; }
-.section-eyebrow {
+/* DOOR 2 — the calculator (soft path for the not-ready browser) */
+.door2 { padding: 56px 32px 0; max-width: 640px; margin: 0 auto; }
+.door2-card {
+  background: linear-gradient(180deg, rgba(201,168,76,0.06), rgba(17,34,64,0));
+  background-color: var(--navy2);
+  border: 1px solid rgba(201, 168, 76, 0.2);
+  border-radius: 4px;
+  padding: 34px 30px;
+  text-align: center;
+}
+.door2-eyebrow {
   font-size: 11px; font-weight: 600; letter-spacing: 3px;
-  text-transform: uppercase; color: var(--gold); margin-bottom: 20px;
+  text-transform: uppercase; color: var(--gold); margin-bottom: 14px;
 }
-.section-headline {
+.door2-headline {
   font-family: 'Playfair Display', serif;
-  font-size: clamp(28px, 5vw, 42px); font-weight: 700;
-  color: var(--warm); line-height: 1.2; margin-bottom: 20px;
+  font-size: clamp(22px, 4vw, 28px); font-weight: 700;
+  color: var(--warm); line-height: 1.3; margin-bottom: 12px;
 }
-.section-body { font-size: 16px; line-height: 1.8; color: var(--mid); }
-.section-body strong { color: var(--warm); font-weight: 500; }
-.divider { width: 40px; height: 2px; background: var(--gold); margin: 0 32px 0; opacity: 0.4; }
-/* EDGE GRID (how Geoffrey helps buyers) */
-.specialties { padding: 0 32px 80px; max-width: 640px; margin: 0 auto; }
-.spec-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 24px; }
-.spec-item {
-  background: var(--navy2);
-  border: 1px solid rgba(201, 168, 76, 0.15);
-  border-radius: 3px; padding: 20px 18px;
+.door2-body { font-size: 14px; color: var(--mid); line-height: 1.7; margin-bottom: 24px; max-width: 460px; margin-left: auto; margin-right: auto; }
+.door2-body strong { color: var(--warm); font-weight: 500; }
+.door2-btn {
+  display: inline-block;
+  background: transparent;
+  color: var(--gold);
+  border: 1px solid var(--gold);
+  font-size: 13px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+  text-decoration: none;
+  padding: 15px 32px;
+  border-radius: 3px;
+  transition: background 0.2s, color 0.2s;
 }
-.spec-title { font-size: 13px; font-weight: 600; color: var(--warm); margin-bottom: 6px; letter-spacing: 0.3px; }
-.spec-desc { font-size: 12px; color: var(--mid); line-height: 1.5; }
-/* SECONDARY CTA */
-.cta-band { padding: 0 32px 90px; max-width: 640px; margin: 0 auto; text-align: center; }
-.cta-band a {
+.door2-btn:hover { background: var(--gold); color: var(--navy); }
+.door2-note { font-size: 12px; color: rgba(138,155,176,0.7); margin-top: 14px; }
+/* ABOUT + SECONDARY CTA */
+.cta-band { padding: 56px 32px 0; max-width: 640px; margin: 0 auto; text-align: center; }
+.cta-band a.cta-primary {
   display: inline-block;
   background: var(--gold);
   color: var(--navy);
@@ -231,19 +307,10 @@ body {
   border-radius: 3px;
   transition: background 0.2s;
 }
-.cta-band a:hover { background: var(--gold2); }
+.cta-band a.cta-primary:hover { background: var(--gold2); }
 .cta-note { font-size: 12px; color: var(--mid); margin-top: 16px; }
-/* CROSS-LINK to the 5-Year-Rule calculator (for the move-up seller) */
-.cta-crosslink { font-size: 13px; color: var(--mid); margin-top: 26px; line-height: 1.6; }
-.cta-crosslink a {
-  display: inline; background: none; color: var(--gold); padding: 0;
-  font-size: 13px; font-weight: 500; letter-spacing: 0; text-transform: none;
-  text-decoration: underline; text-underline-offset: 3px;
-}
-.cta-crosslink a:hover { background: none; color: var(--gold2); }
-.cta-crosslink em { color: var(--warm); font-style: italic; }
 /* FOOTER */
-footer { border-top: 1px solid rgba(138, 155, 176, 0.1); padding: 40px 32px; text-align: center; }
+footer { border-top: 1px solid rgba(138, 155, 176, 0.1); padding: 40px 32px; text-align: center; margin-top: 80px; }
 .footer-name { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; color: var(--warm); margin-bottom: 4px; }
 .footer-brokerage { font-size: 12px; color: var(--mid); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 20px; }
 .footer-contact { display: flex; justify-content: center; gap: 32px; flex-wrap: wrap; }
@@ -252,21 +319,23 @@ footer { border-top: 1px solid rgba(138, 155, 176, 0.1); padding: 40px 32px; tex
 .footer-legal { font-size: 11px; color: rgba(138, 155, 176, 0.35); margin-top: 24px; line-height: 1.6; }
 .footer-legal a { color: var(--gold); text-decoration: none; }
 /* RESPONSIVE */
-@media (max-width: 480px) {
-  .hero { padding: 48px 24px 40px; }
+@media (max-width: 560px) {
+  .hero { padding: 48px 24px 44px; min-height: 84vh; }
   .form-card { padding: 28px 24px; }
   .hero-stats { gap: 28px; }
   .spec-grid { grid-template-columns: 1fr; }
-  .section, .specialties, .cta-band { padding-left: 24px; padding-right: 24px; }
+  .teaser-grid { grid-template-columns: 1fr; }
+  .section, .specialties, .teaser, .form-section, .door2, .cta-band { padding-left: 24px; padding-right: 24px; }
   .divider { margin-left: 24px; }
+  .hero-cues { gap: 14px; }
 }
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
 </style>
 </head>
 
-<body>
+<body id="top">
 
-<!-- HERO -->
+<!-- HERO — the promise. Primary cue is to LOOK (scroll), not to commit. -->
 <section class="hero">
   <p class="eyebrow">Serdar+Partners at Compass</p>
   <h1 class="hero-name">
@@ -281,10 +350,85 @@ footer { border-top: 1px solid rgba(138, 155, 176, 0.1); padding: 40px 32px; tex
     <div class="stat"><span class="stat-number">360+</span><span class="stat-label">Homes Closed</span></div>
   </div>
 
-  <!-- FORM -->
+  <div class="hero-cues">
+    <a href="#how-it-works" class="hero-cue">See How It Works</a>
+    <a href="#start" class="hero-cue-alt">Ready now? <strong>Get your first look &rarr;</strong></a>
+  </div>
+</section>
+
+<!-- WHY NOT JUST ZILLOW (the no-portal thesis) — value FIRST, before any ask -->
+<div class="section" id="how-it-works">
+  <p class="section-eyebrow">Why Work With Geoffrey</p>
+  <h2 class="section-headline">Zillow shows you what everyone else already sees.</h2>
+  <p class="section-body">
+    The best Lake Minnetonka homes move fast &mdash; often <strong>before they're ever public.</strong>
+    As a local Compass agent, Geoffrey hears about coming-soon and off-market homes first, and he
+    hand-picks the ones that actually fit you.<br /><br />
+    No firehose of 500 listings to sort through. No portal login. <strong>Just the right homes, early,
+    from a real person who answers his own phone.</strong>
+  </p>
+</div>
+
+<!-- TEASER — real Compass Private Exclusives (pre-MLS, off-portal). Category-level, honest. -->
+<div class="teaser">
+  <p class="section-eyebrow">Compass Private Exclusives</p>
+  <div class="teaser-grid">
+    <div class="teaser-card">
+      <p class="teaser-tag">Private Exclusive</p>
+      <p class="teaser-town">Excelsior</p>
+      <p class="teaser-blur">Walk-to-town classic, near the lake</p>
+      <p class="teaser-lock">Off Zillow &mdash; shared privately</p>
+    </div>
+    <div class="teaser-card">
+      <p class="teaser-tag">Private Exclusive</p>
+      <p class="teaser-town">Orono</p>
+      <p class="teaser-blur">Private acreage, main-lake access</p>
+      <p class="teaser-lock">Off Zillow &mdash; shared privately</p>
+    </div>
+    <div class="teaser-card">
+      <p class="teaser-tag">Private Exclusive</p>
+      <p class="teaser-town">Victoria</p>
+      <p class="teaser-blur">New-construction &amp; lake-community homes</p>
+      <p class="teaser-lock">Off Zillow &mdash; shared privately</p>
+    </div>
+    <div class="teaser-card">
+      <p class="teaser-tag">Private Exclusive</p>
+      <p class="teaser-town">Chanhassen</p>
+      <p class="teaser-blur">Move-up family home, quiet street</p>
+      <p class="teaser-lock">Off Zillow &mdash; shared privately</p>
+    </div>
+  </div>
+  <p class="teaser-note"><strong>Compass Private Exclusives</strong> are homes marketed privately within Compass &mdash; pre-MLS, never posted to Zillow. Geoffrey has direct access. Inventory rotates &mdash; tell him what you're after and he'll share what fits.</p>
+</div>
+
+<!-- EDGE GRID -->
+<div class="specialties">
+  <p class="section-eyebrow">Your Edge as a Buyer</p>
+  <div class="spec-grid">
+    <div class="spec-item">
+      <p class="spec-title">First Look</p>
+      <p class="spec-desc">Coming-soon and off-market homes reach you before they hit the public sites.</p>
+    </div>
+    <div class="spec-item">
+      <p class="spec-title">Hand-Picked</p>
+      <p class="spec-desc">Geoffrey learns what you want and sends only real matches &mdash; never a firehose.</p>
+    </div>
+    <div class="spec-item">
+      <p class="spec-title">Creative Financing</p>
+      <p class="spec-desc">Contract for deed, seller financing, assumable &amp; VA loans &mdash; deal structures most buyers never hear about. Geoffrey works creative financing of all kinds.</p>
+    </div>
+    <div class="spec-item">
+      <p class="spec-title">Local From the Water Up</p>
+      <p class="spec-desc">Excelsior-based. He knows the lake communities street by street.</p>
+    </div>
+  </div>
+</div>
+
+<!-- FORM — Door 1 (the phone). Now AFTER value, where a warmed reader arrives. -->
+<div class="form-section" id="start">
   <div class="form-card">
     <div class="form-fields" id="formFields">
-      <h2 class="form-headline">See homes before they hit the public sites.</h2>
+      <h2 class="form-headline">Get your first look.</h2>
       <p class="form-sub">Tell Geoffrey what you're after. He'll send hand-picked Lake Minnetonka homes &mdash; including off-market and coming-soon &mdash; straight to you. No portal logins, no spam.</p>
       <form id="captureForm" onsubmit="handleSubmit(event)">
         <div class="field">
@@ -326,45 +470,16 @@ footer { border-top: 1px solid rgba(138, 155, 176, 0.1); padding: 40px 32px; tex
       <p class="success-crosslink">Own a home you'd need to sell too?<br /><a href="/keep-or-sell/">Run your 5-year keep-or-sell math &rarr;</a></p>
     </div>
   </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- WHY NOT JUST ZILLOW (the no-portal thesis) -->
-<div class="section">
-  <p class="section-eyebrow">Why Work With Geoffrey</p>
-  <h2 class="section-headline">Zillow shows you what everyone else already sees.</h2>
-  <p class="section-body">
-    The best Lake Minnetonka homes move fast &mdash; often <strong>before they're ever public.</strong>
-    As a local Compass agent, Geoffrey hears about coming-soon and off-market homes first, and he
-    hand-picks the ones that actually fit you.<br /><br />
-    No firehose of 500 listings to sort through. No portal login. <strong>Just the right homes, early,
-    from a real person who answers his own phone.</strong>
-  </p>
 </div>
 
-<div class="divider"></div>
-
-<!-- EDGE GRID -->
-<div class="specialties">
-  <p class="section-eyebrow">Your Edge as a Buyer</p>
-  <div class="spec-grid">
-    <div class="spec-item">
-      <p class="spec-title">First Look</p>
-      <p class="spec-desc">Coming-soon and off-market homes reach you before they hit the public sites.</p>
-    </div>
-    <div class="spec-item">
-      <p class="spec-title">Hand-Picked</p>
-      <p class="spec-desc">Geoffrey learns what you want and sends only real matches &mdash; never a firehose.</p>
-    </div>
-    <div class="spec-item">
-      <p class="spec-title">Creative Financing</p>
-      <p class="spec-desc">Contract for deed, seller financing, assumable &amp; VA loans &mdash; deal structures most buyers never hear about. Geoffrey works creative financing of all kinds.</p>
-    </div>
-    <div class="spec-item">
-      <p class="spec-title">Local From the Water Up</p>
-      <p class="spec-desc">Excelsior-based. He knows the lake communities street by street.</p>
-    </div>
+<!-- DOOR 2 — the calculator: the soft path for the not-ready browser -->
+<div class="door2">
+  <div class="door2-card">
+    <p class="door2-eyebrow">Not Ready to Talk Yet?</p>
+    <h2 class="door2-headline">Own a home you'd have to sell first?</h2>
+    <p class="door2-body">Before you buy the next one, know your number. Geoffrey's free <strong>5-year calculator</strong> shows whether to keep your current home and rent it, or sell and take the equity &mdash; in about 30 seconds, no call required.</p>
+    <a href="/keep-or-sell/?utm_source=lake-minnetonka-homes&amp;utm_medium=door2" class="door2-btn">Run My 5-Year Math</a>
+    <p class="door2-note">Your numbers, your result &mdash; then decide if you want to talk.</p>
   </div>
 </div>
 
@@ -385,9 +500,8 @@ footer { border-top: 1px solid rgba(138, 155, 176, 0.1); padding: 40px 32px; tex
 
 <!-- SECONDARY CTA -->
 <div class="cta-band">
-  <a href="#top" onclick="document.getElementById('name').focus(); return false;">Get My First Look</a>
+  <a href="#start" class="cta-primary" onclick="document.getElementById('name').focus();">Get My First Look</a>
   <p class="cta-note">Or call Geoffrey directly &mdash; 952-258-3100.</p>
-  <p class="cta-crosslink">Buying <em>and</em> selling? <a href="/keep-or-sell/">See whether to keep your current home or take the equity &mdash; run the 5-year math &rarr;</a></p>
 </div>
 
 <!-- FOOTER -->
@@ -592,7 +706,7 @@ document.getElementById('phone').addEventListener('input', function (e) {
 <script>
 (function () {
   var lastField = null;
-  ['name', 'phone', 'interest'].forEach(function (id) {
+  ['name', 'phone', 'email', 'interest'].forEach(function (id) {
     var el = document.getElementById(id);
     if (!el) return;
     el.addEventListener('focus', function () { lastField = id; });
