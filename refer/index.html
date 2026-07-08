@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<!-- ============================================================= -->
+<!-- SEO — the referral page. Lives at:                            -->
+<!--   geoffreyserdar.com/refer/                                   -->
+<!-- Linked from Geoffrey's email signature. The referral engine.  -->
+<!-- ============================================================= -->
+<title>Refer Someone to Geoffrey Serdar | Serdar+Partners at Compass</title>
+<meta name="description" content="Know someone thinking about a move? Refer them to Geoffrey Serdar — a Lake Minnetonka realtor who answers his own phone. He'll take great care of them." />
+<link rel="canonical" href="https://geoffreyserdar.com/refer/" />
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+<!-- Google tag (gtag.js) — SAME account + GA4 as the rest of the site. -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17849235035"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'AW-17849235035');
+  gtag('config', 'G-250YS9FRRM');
+</script>
+
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --navy: #0A1628;
+  --navy2: #112240;
+  --gold: #C9A84C;
+  --gold2: #E8C96A;
+  --warm: #F8F6F1;
+  --mid: #8A9BB0;
+  --white: #FFFFFF;
+}
+html { scroll-behavior: smooth; }
+body {
+  background: var(--navy);
+  color: var(--warm);
+  font-family: 'Inter', sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* HERO */
+.hero {
+  padding: 72px 32px 32px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: 'THANK YOU';
+  position: absolute;
+  bottom: -22px;
+  right: -24px;
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(64px, 15vw, 170px);
+  font-weight: 900;
+  color: var(--navy2);
+  letter-spacing: -4px;
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+  white-space: nowrap;
+}
+.hero-inner { max-width: 620px; margin: 0 auto; position: relative; z-index: 1; }
+.eyebrow {
+  font-size: 11px; font-weight: 600; letter-spacing: 3px;
+  text-transform: uppercase; color: var(--gold); margin-bottom: 22px;
+}
+.hero-name {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(36px, 7.5vw, 64px);
+  font-weight: 900; line-height: 1.02; letter-spacing: -2px;
+  color: var(--warm); margin-bottom: 20px;
+}
+.hero-name span { color: var(--gold); }
+.hero-sub {
+  font-size: clamp(15px, 2.6vw, 18px);
+  font-weight: 300; color: var(--mid); line-height: 1.7;
+  margin-bottom: 16px; max-width: 540px;
+}
+.hero-sub strong { color: var(--warm); font-weight: 500; }
+
+/* FORM */
+.form-wrap { max-width: 620px; margin: 0 auto; padding: 12px 32px 24px; }
+.form-card {
+  background: var(--navy2);
+  border: 1px solid rgba(201, 168, 76, 0.25);
+  border-radius: 4px;
+  padding: 34px 30px;
+}
+.form-section-label {
+  font-size: 11px; font-weight: 600; letter-spacing: 1.5px;
+  text-transform: uppercase; color: var(--gold);
+  margin-bottom: 4px; margin-top: 8px;
+}
+.form-section-hint { font-size: 13px; color: var(--mid); margin-bottom: 18px; line-height: 1.5; }
+.form-divider { height: 1px; background: rgba(138,155,176,0.15); margin: 28px 0 24px; }
+.field { margin-bottom: 16px; }
+.field label {
+  display: block; font-size: 11px; font-weight: 600; letter-spacing: 1.5px;
+  text-transform: uppercase; color: var(--mid); margin-bottom: 8px;
+}
+.field input, .field textarea {
+  width: 100%;
+  background: var(--navy);
+  border: 1px solid rgba(138, 155, 176, 0.25);
+  border-radius: 3px;
+  color: var(--warm);
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  padding: 14px 16px;
+  outline: none;
+  transition: border-color 0.2s;
+  appearance: none;
+}
+.field textarea { resize: vertical; min-height: 70px; line-height: 1.5; }
+.field input::placeholder, .field textarea::placeholder { color: rgba(138, 155, 176, 0.5); }
+.field input:focus, .field textarea:focus { border-color: var(--gold); }
+.field input.input-error { border-color: #E8A0A0; }
+.field-optional { font-weight: 400; text-transform: none; letter-spacing: 0; color: rgba(138,155,176,0.6); font-size: 10.5px; }
+.field-error { display: none; margin-top: 8px; font-size: 12px; line-height: 1.5; color: #E8A0A0; }
+.field-error.visible { display: block; }
+.calc-error { display: none; margin-top: 12px; font-size: 13px; line-height: 1.5; color: #E8A0A0; text-align: center; }
+.calc-error.visible { display: block; }
+
+.submit-btn {
+  width: 100%; background: var(--gold); border: none; border-radius: 3px; color: var(--navy);
+  font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+  padding: 16px; cursor: pointer; margin-top: 12px; transition: background 0.2s, transform 0.1s, opacity 0.2s;
+}
+.submit-btn:hover { background: var(--gold2); }
+.submit-btn:active { transform: scale(0.99); }
+.submit-btn:disabled { cursor: default; }
+.form-consent { font-size: 11px; color: var(--mid); text-align: center; margin-top: 14px; line-height: 1.6; }
+.form-consent a { color: var(--gold); text-decoration: underline; }
+
+/* SUCCESS */
+.success-state { display: none; text-align: center; padding: 16px 0; }
+.success-state.visible { display: block; }
+.form-fields.hidden { display: none; }
+.success-icon { font-size: 42px; margin-bottom: 14px; }
+.success-title { font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 700; color: var(--warm); margin-bottom: 10px; }
+.success-sub { font-size: 15px; color: var(--mid); line-height: 1.7; }
+
+/* REASSURANCE STRIP */
+.why { max-width: 620px; margin: 0 auto; padding: 40px 32px 0; }
+.why-title { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; color: var(--warm); margin-bottom: 18px; text-align: center; }
+.why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.why-item { background: var(--navy2); border: 1px solid rgba(201,168,76,0.15); border-radius: 3px; padding: 18px 16px; }
+.why-item h3 { font-size: 13px; font-weight: 600; color: var(--warm); margin-bottom: 6px; letter-spacing: 0.3px; }
+.why-item p { font-size: 13px; color: var(--mid); line-height: 1.55; }
+
+/* CTA / phone */
+.cta-band { padding: 56px 32px 0; max-width: 620px; margin: 0 auto; text-align: center; }
+.cta-phone-label { display: block; font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 500; letter-spacing: 1px; text-transform: uppercase; color: var(--mid); margin-bottom: 2px; }
+.cta-phone { display: inline-block; font-family: 'Playfair Display', serif; font-size: clamp(24px, 6vw, 32px); font-weight: 700; color: var(--gold); text-decoration: none; letter-spacing: 0.5px; transition: color 0.2s; }
+.cta-phone:hover { color: var(--gold2); }
+.cta-actions { display: flex; gap: 12px; justify-content: center; margin-top: 16px; }
+.cta-action { flex: 0 1 auto; min-width: 200px; text-align: center; border: 1px solid var(--gold); border-radius: 3px; color: var(--gold); font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; text-decoration: none; padding: 14px 20px; transition: background 0.2s, color 0.2s; }
+.cta-action:hover { background: var(--gold); color: var(--navy); }
+
+/* FOOTER */
+footer { border-top: 1px solid rgba(138, 155, 176, 0.1); padding: 40px 32px; text-align: center; margin-top: 72px; }
+.footer-name { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; color: var(--warm); margin-bottom: 4px; }
+.footer-brokerage { font-size: 12px; color: var(--mid); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 20px; }
+.footer-contact { display: flex; justify-content: center; gap: 32px; flex-wrap: wrap; }
+.footer-contact a { font-size: 13px; color: var(--gold); text-decoration: none; letter-spacing: 0.3px; }
+.footer-contact a:hover { color: var(--gold2); }
+.footer-legal { font-size: 11px; color: rgba(138, 155, 176, 0.35); margin-top: 24px; line-height: 1.6; }
+.footer-legal a { color: var(--gold); text-decoration: none; }
+
+@media (max-width: 480px) {
+  .hero { padding: 56px 24px 24px; }
+  .form-wrap { padding-left: 24px; padding-right: 24px; }
+  .form-card { padding: 26px 22px; }
+  .why { padding-left: 24px; padding-right: 24px; }
+  .why-grid { grid-template-columns: 1fr; }
+  .cta-band { padding-left: 24px; padding-right: 24px; }
+}
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+</head>
+
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <p class="eyebrow">A Favor, and a Thank You</p>
+    <h1 class="hero-name">Know someone <span>thinking of a move?</span></h1>
+    <p class="hero-sub">
+      The best thing that happens in my business is when someone I've helped points me toward someone they care about.
+      <strong>If a friend, neighbor, or family member is thinking about buying or selling &mdash; I'd be honored to take good care of them,</strong>
+      the same way I would you.
+    </p>
+    <p class="hero-sub" style="font-size:15px;">No pressure on them, ever. I'll reach out, be useful, and let them decide. That's it.</p>
+  </div>
+</section>
+
+<!-- FORM -->
+<div class="form-wrap">
+  <div class="form-card">
+    <div class="form-fields" id="formFields">
+
+      <p class="form-section-label">First &mdash; who are you?</p>
+      <p class="form-section-hint">So I know who to thank.</p>
+      <div class="field">
+        <label for="referrerName">Your Name</label>
+        <input type="text" id="referrerName" placeholder="Your first and last name" autocomplete="name" />
+      </div>
+      <div class="field">
+        <label for="referrerPhone">Your Phone <span class="field-optional">(optional, but I'd love to thank you)</span></label>
+        <input type="tel" id="referrerPhone" placeholder="952-000-0000" autocomplete="tel" />
+        <p class="field-error" id="referrerPhoneError" role="alert">That number doesn't look quite right &mdash; mind double-checking it?</p>
+      </div>
+
+      <div class="form-divider"></div>
+
+      <p class="form-section-label">Now &mdash; who should I reach out to?</p>
+      <p class="form-section-hint">Just enough for me to say hello. I'll take it from there, gently.</p>
+      <div class="field">
+        <label for="friendName">Their Name</label>
+        <input type="text" id="friendName" placeholder="Their name" autocomplete="off" />
+      </div>
+      <div class="field">
+        <label for="friendContact">The Best Way to Reach Them</label>
+        <input type="text" id="friendContact" placeholder="Their phone or email" autocomplete="off" />
+        <p class="field-error" id="friendContactError" role="alert">Add a phone number or email so I can reach them.</p>
+      </div>
+      <div class="field">
+        <label for="note">Anything I Should Know? <span class="field-optional">(optional)</span></label>
+        <textarea id="note" placeholder="e.g. 'My neighbor is thinking of selling next spring' or 'college friend relocating to the area'"></textarea>
+      </div>
+
+      <button type="button" class="submit-btn" onclick="handleSubmit()">Send it to Geoffrey</button>
+      <p class="calc-error" id="calcError"></p>
+      <p class="form-consent">
+        I'll only use this to reach out to the person you're referring, on your recommendation. I won't share your name with anyone else. See our <a href="/privacy">Privacy Policy</a>.
+      </p>
+    </div>
+
+    <div class="success-state" id="successState">
+      <div class="success-icon">&#128075;</div>
+      <h3 class="success-title">Thank you &mdash; truly.</h3>
+      <p class="success-sub">This means a lot. I'll reach out to them personally and take good care of them.<br />If you left your number, I'll be in touch to say thanks myself.<br /><br />&mdash; Geoffrey &nbsp;·&nbsp; 952-258-3100</p>
+    </div>
+  </div>
+</div>
+
+<!-- WHY THEY'RE IN GOOD HANDS -->
+<div class="why">
+  <p class="why-title">They'll be in good hands.</p>
+  <div class="why-grid">
+    <div class="why-item">
+      <h3>A real person</h3>
+      <p>Geoffrey answers his own phone, shows up to his own appointments, and negotiates his own deals.</p>
+    </div>
+    <div class="why-item">
+      <h3>No pressure</h3>
+      <p>He'll be useful first. If the timing's not right, he'll say so &mdash; and stay in touch for whenever it is.</p>
+    </div>
+    <div class="why-item">
+      <h3>13+ years local</h3>
+      <p>Deep roots in the Lake Minnetonka and Carver County market, from first homes to lakefront estates.</p>
+    </div>
+    <div class="why-item">
+      <h3>The whole picture</h3>
+      <p>Buying, selling, creative financing, probate, investment &mdash; whatever they're facing, he's guided someone through it.</p>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="cta-band">
+  <span class="cta-phone-label">Rather just tell me directly? Tap to call &mdash; or text</span>
+  <a class="cta-phone" href="tel:9522583100">952-258-3100</a>
+  <div class="cta-actions">
+    <a class="cta-action" href="sms:9522583100">Text Geoffrey instead</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p class="footer-name">Geoffrey Serdar</p>
+  <p class="footer-brokerage">Serdar+Partners at Compass</p>
+  <div class="footer-contact">
+    <a href="tel:9522583100">952-258-3100</a>
+    <a href="mailto:geoffrey@serdarpartnersrealty.com">geoffrey@serdarpartnersrealty.com</a>
+    <a href="https://www.compass.com/agents/geoffrey-serdar/" target="_blank">Compass Profile</a>
+  </div>
+  <p class="footer-legal">
+    Licensed in Minnesota &nbsp;·&nbsp; Serdar+Partners at Compass<br />
+    &copy; 2026 Geoffrey Serdar. All rights reserved. &nbsp;·&nbsp; <a href="/privacy">Privacy Policy</a>
+  </p>
+</footer>
+
+<script>
+/* ================================================================= */
+/* RAZIEL_CONFIG — same lead pipe, tagged as a REFERRAL.             */
+/* Cloned verbatim from the live pages: SAME Twilio + Formspree.     */
+/* NOTE: a referral is NOT a self-conversion — it does NOT fire the  */
+/* jRxI Google Ads conversion (that's for ad-driven leads only).     */
+/* ================================================================= */
+const RAZIEL_CONFIG = {
+  twilioUrl:   'https://lead-alert-4343.twil.io/lead-alert',
+  twilioSecret:'slx_9f3Kqe2R',
+  formspreeId: 'mpqerwwk',
+  source:      'referral',
+  ctaLabel:    'Send it to Geoffrey'
+};
+
+const LEAD_SOURCE = (function () {
+  const p = new URLSearchParams(window.location.search);
+  return {
+    utm_source: p.get('utm_source') || '',
+    utm_medium: p.get('utm_medium') || '',
+    utm_campaign: p.get('utm_campaign') || '',
+    referrer: document.referrer || ''
+  };
+})();
+
+function isValidUSPhone(raw) {
+  var d = String(raw || '').replace(/\D/g, '');
+  if (d.length === 11 && d.charAt(0) === '1') d = d.slice(1);
+  if (d.length !== 10) return false;
+  var area = +d.charAt(0), exch = +d.charAt(3);
+  if (area < 2 || exch < 2) return false;
+  if (d.charAt(1) === '1' && d.charAt(2) === '1') return false;
+  if (d.slice(3, 6) === '555') return false;
+  if (/^(\d)\1{9}$/.test(d)) return false;
+  return true;
+}
+function showErr(id) {
+  var e = document.getElementById(id + 'Error'), i = document.getElementById(id);
+  if (e) e.classList.add('visible'); if (i) { i.classList.add('input-error'); i.focus(); }
+}
+function clearErr(id) {
+  var e = document.getElementById(id + 'Error'), i = document.getElementById(id);
+  if (e) e.classList.remove('visible'); if (i) i.classList.remove('input-error');
+}
+function setChecking(on) {
+  var btn = document.querySelector('.submit-btn');
+  if (!btn) return;
+  if (on) { btn.disabled = true; btn.style.opacity = '0.7'; btn.textContent = 'Sending\u2026'; }
+  else { btn.disabled = false; btn.style.opacity = ''; btn.textContent = RAZIEL_CONFIG.ctaLabel; }
+}
+
+function fireAlert(d) {
+  var controller = new AbortController();
+  var timer = setTimeout(function () { controller.abort(); }, 2500);
+  var body = new URLSearchParams({
+    secret: RAZIEL_CONFIG.twilioSecret,
+    name: 'REFERRAL from ' + (d.referrerName || 'someone'),
+    phone: d.friendContact,
+    email: '',
+    interest: 'referral',
+    source: RAZIEL_CONFIG.source,
+    site: window.location.hostname + window.location.pathname,
+    referrer: LEAD_SOURCE.referrer
+  });
+  return fetch(RAZIEL_CONFIG.twilioUrl, { method: 'POST', body: body, signal: controller.signal })
+    .then(function (r) { clearTimeout(timer); return r.json(); })
+    .catch(function () { clearTimeout(timer); return { valid: true, failOpen: true }; });
+}
+
+function toFormspree(d) {
+  fetch('https://formspree.io/f/' + RAZIEL_CONFIG.formspreeId, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+    body: JSON.stringify({
+      name: 'REFERRAL: ' + d.friendName + ' (referred by ' + d.referrerName + ')',
+      source: 'referral',
+      interest: 'referral',
+      interest_detail: 'REFERRAL \u2014 ' + d.referrerName + ' referred ' + d.friendName +
+                       '. Reach them: ' + d.friendContact + '. ' +
+                       (d.note ? 'Note: ' + d.note + '. ' : '') +
+                       (d.referrerPhone ? 'Thank the referrer at ' + d.referrerPhone + '.' : 'Referrer left no phone.'),
+      referrer_name: d.referrerName,
+      referrer_phone: d.referrerPhone,
+      friend_name: d.friendName,
+      friend_contact: d.friendContact,
+      note: d.note,
+      page_referrer: LEAD_SOURCE.referrer
+    })
+  }).catch(function () {});
+}
+
+async function handleSubmit() {
+  var d = {
+    referrerName:  document.getElementById('referrerName').value.trim(),
+    referrerPhone: document.getElementById('referrerPhone').value.trim(),
+    friendName:    document.getElementById('friendName').value.trim(),
+    friendContact: document.getElementById('friendContact').value.trim(),
+    note:          document.getElementById('note').value.trim()
+  };
+
+  var ce = document.getElementById('calcError');
+  // need at least: who's referring, who they're referring, and how to reach them
+  if (!d.referrerName || !d.friendName || !d.friendContact) {
+    ce.textContent = 'Just need your name, their name, and how to reach them \u2014 the rest is optional.';
+    ce.classList.add('visible');
+    return;
+  }
+  ce.classList.remove('visible');
+
+  // if the referrer left a phone, sanity-check it (optional field, so only if present)
+  if (d.referrerPhone && !isValidUSPhone(d.referrerPhone)) { showErr('referrerPhone'); return; }
+  clearErr('referrerPhone');
+
+  setChecking(true);
+  await fireAlert(d);
+  setChecking(false);
+
+  toFormspree(d);
+  showSuccess();
+
+  if (typeof gtag === 'function') {
+    gtag('event', 'referral_submitted', { source: 'referral' });
+  }
+}
+
+function showSuccess() {
+  document.getElementById('formFields').classList.add('hidden');
+  document.getElementById('successState').classList.add('visible');
+  document.getElementById('successState').scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+
+/* phone auto-format on the optional referrer phone */
+document.getElementById('referrerPhone').addEventListener('input', function (e) {
+  var v = e.target.value.replace(/[^0-9]/g, '').slice(0, 10);
+  if (v.length >= 7) { v = v.slice(0,3) + '-' + v.slice(3,6) + '-' + v.slice(6); }
+  else if (v.length >= 4) { v = v.slice(0,3) + '-' + v.slice(3); }
+  e.target.value = v;
+  clearErr('referrerPhone');
+});
+</script>
+</body>
+</html>
