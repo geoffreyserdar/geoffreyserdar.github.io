@@ -315,6 +315,21 @@ body {
   transition: color 0.2s;
 }
 .cta-phone:hover { color: var(--gold2); }
+.cta-actions { display: flex; gap: 12px; justify-content: center; margin-top: 16px; }
+.cta-action {
+  flex: 0 1 auto;
+  min-width: 200px;
+  text-align: center;
+  border: 1px solid var(--gold);
+  border-radius: 3px;
+  color: var(--gold);
+  font-family: 'Inter', sans-serif;
+  font-size: 13px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
+  text-decoration: none;
+  padding: 14px 20px;
+  transition: background 0.2s, color 0.2s;
+}
+.cta-action:hover { background: var(--gold); color: var(--navy); }
 .cta-phone-label { display: block; font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 500; letter-spacing: 1px; text-transform: uppercase; color: var(--mid); margin-top: 16px; margin-bottom: 2px; }
 
 /* FOOTER (cloned) */
@@ -514,8 +529,11 @@ footer { border-top: 1px solid rgba(138, 155, 176, 0.1); padding: 40px 32px; tex
 <div class="cta-band">
   <p class="cta-quote">&ldquo;The agent who'll tell you to keep your house.&rdquo;</p>
   <a class="call" href="#" onclick="openTalk('close'); return false;">Talk it through with Geoffrey</a>
-  <span class="cta-phone-label">Or call directly</span>
+  <span class="cta-phone-label">Tap to call &mdash; or text instead</span>
   <a class="cta-phone" href="tel:9522583100">952-258-3100</a>
+  <div class="cta-actions">
+    <a class="cta-action" href="sms:9522583100">Text Geoffrey instead</a>
+  </div>
 </div>
 
 <!-- FOOTER (cloned) -->
