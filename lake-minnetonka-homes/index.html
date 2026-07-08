@@ -309,6 +309,33 @@ body {
 }
 .cta-band a.cta-primary:hover { background: var(--gold2); }
 .cta-note { font-size: 12px; color: var(--mid); margin-top: 16px; }
+.cta-phone-label { display: block; font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 500; letter-spacing: 1px; text-transform: uppercase; color: var(--mid); margin-top: 18px; margin-bottom: 2px; }
+.cta-phone {
+  display: inline-block;
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(24px, 6vw, 32px);
+  font-weight: 700;
+  color: var(--gold);
+  text-decoration: none;
+  letter-spacing: 0.5px;
+  transition: color 0.2s;
+}
+.cta-phone:hover { color: var(--gold2); }
+.cta-actions { display: flex; gap: 12px; justify-content: center; margin-top: 16px; }
+.cta-action {
+  flex: 0 1 auto;
+  min-width: 200px;
+  text-align: center;
+  border: 1px solid var(--gold);
+  border-radius: 3px;
+  color: var(--gold);
+  font-family: 'Inter', sans-serif;
+  font-size: 13px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
+  text-decoration: none;
+  padding: 14px 20px;
+  transition: background 0.2s, color 0.2s;
+}
+.cta-action:hover { background: var(--gold); color: var(--navy); }
 /* VIDEO — proof of craft (tap-to-play, muted, lazy). Lower on the page, after warmth. */
 .video-section { padding: 60px 32px 0; max-width: 640px; margin: 0 auto; }
 .video-frame {
@@ -544,7 +571,11 @@ footer { border-top: 1px solid rgba(138, 155, 176, 0.1); padding: 40px 32px; tex
 <!-- SECONDARY CTA -->
 <div class="cta-band">
   <a href="#start" class="cta-primary" onclick="document.getElementById('name').focus();">Get My First Look</a>
-  <p class="cta-note">Or call Geoffrey directly &mdash; 952-258-3100.</p>
+  <span class="cta-phone-label">Tap to call &mdash; or text instead</span>
+  <a class="cta-phone" href="tel:9522583100">952-258-3100</a>
+  <div class="cta-actions">
+    <a class="cta-action" href="sms:9522583100">Text Geoffrey instead</a>
+  </div>
 </div>
 
 <!-- FOOTER -->
