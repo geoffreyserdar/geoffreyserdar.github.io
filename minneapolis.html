@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Geoffrey Serdar | Minneapolis Realtor &mdash; Kenwood, Lowry Hill &amp; the Lakes</title>
+<meta name="description" content="Geoffrey Serdar sells and finds historic, architectural homes across Minneapolis' premier neighborhoods — Kenwood, Lowry Hill, Lake of the Isles, Linden Hills, and Tangletown. 13 years, 360+ families served. He answers his own phone." />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17849235035"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'AW-17849235035');
+  gtag('config', 'G-250YS9FRRM');
+</script>
+
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --navy: #0A1628;
+  --navy2: #112240;
+  --gold: #C9A84C;
+  --gold2: #E8C96A;
+  --warm: #F8F6F1;
+  --mid: #8A9BB0;
+  --white: #FFFFFF;
+}
+html { scroll-behavior: smooth; }
+body {
+  background: var(--navy);
+  color: var(--warm);
+  font-family: 'Inter', sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+/* HERO */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 60px 32px 48px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: 'MINNEAPOLIS';
+  position: absolute;
+  bottom: -20px;
+  right: -30px;
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(70px, 16vw, 184px);
+  font-weight: 900;
+  color: var(--navy2);
+  letter-spacing: -4px;
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+  white-space: nowrap;
+}
+.eyebrow {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 24px;
+}
+.hero-name {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(48px, 10vw, 96px);
+  font-weight: 900;
+  line-height: 0.95;
+  letter-spacing: -2px;
+  color: var(--warm);
+  margin-bottom: 8px;
+}
+.hero-name span { display: block; color: var(--gold); }
+.hero-title {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(14px, 2.5vw, 18px);
+  font-weight: 300;
+  color: var(--mid);
+  letter-spacing: 1px;
+  margin-bottom: 48px;
+}
+.hero-stats { display: flex; gap: 40px; margin-bottom: 56px; flex-wrap: wrap; }
+.stat { display: flex; flex-direction: column; gap: 4px; }
+.stat-number {
+  font-family: 'Playfair Display', serif;
+  font-size: 32px; font-weight: 700; color: var(--warm); line-height: 1;
+}
+.stat-label {
+  font-size: 11px; font-weight: 500; letter-spacing: 1.5px;
+  text-transform: uppercase; color: var(--mid);
+}
+/* FORM */
+.form-card {
+  background: var(--navy2);
+  border: 1px solid rgba(201, 168, 76, 0.2);
+  border-radius: 4px;
+  padding: 36px 32px;
+  max-width: 480px;
+  position: relative;
+  z-index: 1;
+}
+.form-headline {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px; font-weight: 700; color: var(--warm);
+  margin-bottom: 6px; line-height: 1.3;
+}
+.form-sub { font-size: 13px; color: var(--mid); margin-bottom: 28px; line-height: 1.6; }
+.field { margin-bottom: 16px; }
+.field label {
+  display: block; font-size: 11px; font-weight: 600; letter-spacing: 1.5px;
+  text-transform: uppercase; color: var(--mid); margin-bottom: 8px;
+}
+.field input, .field select {
+  width: 100%;
+  background: var(--navy);
+  border: 1px solid rgba(138, 155, 176, 0.25);
+  border-radius: 3px;
+  color: var(--warm);
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  padding: 14px 16px;
+  outline: none;
+  transition: border-color 0.2s;
+  appearance: none;
+}
+.field input::placeholder { color: rgba(138, 155, 176, 0.5); }
+.field input:focus, .field select:focus { border-color: var(--gold); }
+.field input.input-error { border-color: #E8A0A0; }
+.field select option { background: var(--navy); color: var(--warm); }
+  .field select option:disabled, .field select option[value=""] { color: #8a93a6; }
+.field-error {
+  display: none;
+  margin-top: 8px;
+  font-size: 12px;
+  line-height: 1.5;
+  color: #E8A0A0;
+}
+.field-error.visible { display: block; }
+.submit-btn {
+  width: 100%;
+  background: var(--gold);
+  border: none;
+  border-radius: 3px;
+  color: var(--navy);
+  font-family: 'Inter', sans-serif;
+  font-size: 13px; font-weight: 700; letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 16px;
+  cursor: pointer;
+  margin-top: 8px;
+  transition: background 0.2s, transform 0.1s, opacity 0.2s;
+}
+.submit-btn:hover { background: var(--gold2); }
+.submit-btn:active { transform: scale(0.99); }
+.submit-btn:disabled { cursor: default; }
+.form-privacy {
+  font-size: 11px; color: rgba(138, 155, 176, 0.5);
+  text-align: center; margin-top: 14px; line-height: 1.5;
+}
+/* SUCCESS STATE */
+.success-state { display: none; text-align: center; padding: 20px 0; }
+.success-state.visible { display: block; }
+.form-fields.hidden { display: none; }
+.success-icon { font-size: 40px; margin-bottom: 16px; }
+.success-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 24px; font-weight: 700; color: var(--warm); margin-bottom: 8px;
+}
+.success-sub { font-size: 14px; color: var(--mid); line-height: 1.6; }
+/* SECTIONS */
+.section { padding: 80px 32px; max-width: 640px; margin: 0 auto; }
+.section-eyebrow {
+  font-size: 11px; font-weight: 600; letter-spacing: 3px;
+  text-transform: uppercase; color: var(--gold); margin-bottom: 20px;
+}
+.section-headline {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(28px, 5vw, 42px); font-weight: 700;
+  color: var(--warm); line-height: 1.2; margin-bottom: 20px;
+}
+.section-body { font-size: 16px; line-height: 1.8; color: var(--mid); }
+.section-body strong { color: var(--warm); font-weight: 500; }
+.divider { width: 40px; height: 2px; background: var(--gold); margin: 0 32px 0; opacity: 0.4; }
+/* NEIGHBORHOODS */
+.hoods { padding: 0 32px 24px; max-width: 640px; margin: 0 auto; }
+.hood-list { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
+.hood-tag {
+  font-size: 12px; font-weight: 500; letter-spacing: 0.5px;
+  color: var(--warm);
+  background: var(--navy2);
+  border: 1px solid rgba(201, 168, 76, 0.25);
+  border-radius: 999px;
+  padding: 8px 16px;
+}
+/* SPECIALTIES */
+.specialties { padding: 56px 32px 80px; max-width: 640px; margin: 0 auto; }
+.spec-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 24px; }
+.spec-item {
+  background: var(--navy2);
+  border: 1px solid rgba(201, 168, 76, 0.15);
+  border-radius: 3px; padding: 20px 18px;
+}
+.spec-title { font-size: 13px; font-weight: 600; color: var(--warm); margin-bottom: 6px; letter-spacing: 0.3px; }
+.spec-desc { font-size: 12px; color: var(--mid); line-height: 1.5; }
+/* FOOTER */
+footer { border-top: 1px solid rgba(138, 155, 176, 0.1); padding: 40px 32px; text-align: center; }
+.footer-name { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; color: var(--warm); margin-bottom: 4px; }
+.footer-brokerage { font-size: 12px; color: var(--mid); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 20px; }
+.footer-contact { display: flex; justify-content: center; gap: 32px; flex-wrap: wrap; }
+.footer-contact a { font-size: 13px; color: var(--gold); text-decoration: none; letter-spacing: 0.3px; }
+.footer-contact a:hover { color: var(--gold2); }
+.footer-legal { font-size: 11px; color: rgba(138, 155, 176, 0.35); margin-top: 24px; line-height: 1.6; }
+/* RESPONSIVE */
+@media (max-width: 480px) {
+  .hero { padding: 48px 24px 40px; }
+  .form-card { padding: 28px 24px; }
+  .hero-stats { gap: 28px; }
+  .spec-grid { grid-template-columns: 1fr; }
+  .section, .specialties, .hoods { padding-left: 24px; padding-right: 24px; }
+  .divider { margin-left: 24px; }
+}
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+/* KEEP-OR-SELL DOOR */
+.keepsell { max-width: 640px; margin: 0 auto 80px; padding: 0 32px; }
+.keepsell-card {
+  background: var(--navy2);
+  border: 1px solid rgba(201, 168, 76, 0.25);
+  border-radius: 4px;
+  padding: 40px 36px;
+  text-align: center;
+}
+.keepsell-eyebrow {
+  font-size: 11px; font-weight: 600; letter-spacing: 3px;
+  text-transform: uppercase; color: var(--gold); margin-bottom: 16px;
+}
+.keepsell-headline {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(24px, 4.5vw, 34px); font-weight: 700;
+  color: var(--warm); line-height: 1.2; margin-bottom: 14px;
+}
+.keepsell-body { font-size: 15px; line-height: 1.7; color: var(--mid); margin-bottom: 28px; }
+.keepsell-btn {
+  display: inline-block;
+  background: var(--gold);
+  border-radius: 3px;
+  color: var(--navy);
+  font-family: 'Inter', sans-serif;
+  font-size: 13px; font-weight: 700; letter-spacing: 2px;
+  text-transform: uppercase; text-decoration: none;
+  padding: 16px 32px;
+  transition: background 0.2s, transform 0.1s;
+}
+.keepsell-btn:hover { background: var(--gold2); }
+.keepsell-btn:active { transform: scale(0.99); }
+@media (max-width: 480px) {
+  .keepsell { padding-left: 24px; padding-right: 24px; }
+  .keepsell-card { padding: 32px 24px; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <p class="eyebrow">Serdar+Partners at Compass</p>
+  <h1 class="hero-name">
+    Geoffrey
+    <span>Serdar</span>
+  </h1>
+  <p class="hero-title">Minneapolis Realtor &nbsp;·&nbsp; Kenwood &nbsp;·&nbsp; Lowry Hill &nbsp;·&nbsp; Linden Hills</p>
+
+  <div class="hero-stats">
+    <div class="stat"><span class="stat-number">13+</span><span class="stat-label">Years</span></div>
+    <div class="stat"><span class="stat-number">360+</span><span class="stat-label">Families Served</span></div>
+    <div class="stat"><span class="stat-number">Historic</span><span class="stat-label">Homes &amp; Estates</span></div>
+  </div>
+
+  <!-- FORM -->
+  <div class="form-card">
+    <div class="form-fields" id="formFields">
+      <h2 class="form-headline">Let's talk about your Minneapolis move.</h2>
+      <p class="form-sub">Leave your name and number. Geoffrey will reach out personally &mdash; no scripts, no assistants.</p>
+      <form id="captureForm" onsubmit="handleSubmit(event)">
+        <div class="field">
+          <label for="name">Your Name</label>
+          <input type="text" id="name" name="name" placeholder="First and last name" required autocomplete="name" />
+        </div>
+        <div class="field">
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" name="phone" placeholder="612-000-0000" required autocomplete="tel" />
+          <p class="field-error" id="phoneError" role="alert">That number doesn't look quite right &mdash; mind double-checking it? Geoffrey calls every lead personally, so we want to be sure it reaches you.</p>
+        </div>
+        <div class="field">
+          <label for="interest">I'm thinking about...</label>
+          <select id="interest" name="interest">
+            <option value="" disabled selected>What's bringing you here?</option>
+            <option value="selling">Thinking about a move (no rush)</option>
+            <option value="buying">Just starting to look around</option>
+            <option value="both">We're running out of room here</option>
+            <option value="investing">Have money I'd like to put to work</option>
+            <option value="probate">Helping with a family member's home</option>
+            <option value="just looking">Just curious what my place is worth</option>
+          </select>
+        </div>
+        <button type="submit" class="submit-btn">Get in Touch</button>
+      </form>
+      <p class="form-privacy">Your information stays with Geoffrey. No spam, ever.</p>
+    </div>
+
+    <div class="success-state" id="successState">
+      <div class="success-icon">&check;</div>
+      <h3 class="success-title">Got it. Talk soon.</h3>
+      <p class="success-sub">Geoffrey will reach out to you directly.<br />In the meantime &mdash; 952-258-3100.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ABOUT -->
+<div class="section">
+  <p class="section-eyebrow">Who You're Calling</p>
+  <h2 class="section-headline">Minneapolis homes with a story in the bones.</h2>
+  <p class="section-body">
+    Geoffrey Serdar <strong>grew up in Kingfield</strong> &mdash; he knows these south Minneapolis blocks the way you only can from living them.
+    Thirteen years and 360+ families served later, the approach hasn't changed: <strong>he answers his own phone.</strong>
+    He shows up to his own appointments. He negotiates his own deals.<br /><br />
+    From the converted mansions of <strong>Kenwood and Lowry Hill</strong> to the character homes of <strong>Linden Hills, Kingfield, and Tangletown</strong>,
+    Geoffrey works the properties that don't trade like everything else &mdash; original woodwork, real craftsmanship, the kind of home that rewards an agent who actually reads it.
+    If you're buying or selling near the Chain of Lakes, that's the difference.
+  </p>
+</div>
+
+<div class="divider"></div>
+
+<!-- NEIGHBORHOODS -->
+<div class="hoods">
+  <p class="section-eyebrow">Where Geoffrey Works</p>
+  <div class="hood-list">
+    <span class="hood-tag">Kenwood</span>
+    <span class="hood-tag">Lowry Hill</span>
+    <span class="hood-tag">Lake of the Isles</span>
+    <span class="hood-tag">East Isles</span>
+    <span class="hood-tag">Linden Hills</span>
+    <span class="hood-tag">Tangletown</span>
+    <span class="hood-tag">Kingfield</span>
+    <span class="hood-tag">Lowry Hill East</span>
+    <span class="hood-tag">Fulton</span>
+    <span class="hood-tag">Lynnhurst</span>
+  </div>
+</div>
+
+<!-- SPECIALTIES -->
+<div class="specialties">
+  <p class="section-eyebrow">How Geoffrey Can Help</p>
+  <div class="spec-grid">
+    <div class="spec-item">
+      <p class="spec-title">Historic &amp; Architectural Homes</p>
+      <p class="spec-desc">Converted mansions, Prairie School, vintage condos &mdash; Geoffrey reads what makes a home rare and prices it right.</p>
+    </div>
+    <div class="spec-item">
+      <p class="spec-title">Listing &amp; Selling</p>
+      <p class="spec-desc">Sharp positioning, honest pricing, and a negotiator who fights for every dollar.</p>
+    </div>
+    <div class="spec-item">
+      <p class="spec-title">Buyer Representation</p>
+      <p class="spec-desc">On and off-market access across Kenwood, the Isles, and Linden Hills. No pressure.</p>
+    </div>
+    <div class="spec-item">
+      <p class="spec-title">Estates &amp; Probate</p>
+      <p class="spec-desc">Guiding executors and families through the sale of a longtime home, with patience and discretion.</p>
+    </div>
+  </div>
+</div>
+
+<!-- KEEP-OR-SELL DOOR (calculator lead magnet) -->
+<div class="keepsell">
+  <div class="keepsell-card">
+    <p class="keepsell-eyebrow">Own a home?</p>
+    <h2 class="keepsell-headline">Keep it, or sell it?</h2>
+    <p class="keepsell-body">Run the 5-year math Geoffrey uses to settle the hold-vs-sell question &mdash; your numbers, a clear verdict, about thirty seconds. Free, no pressure.</p>
+    <a class="keepsell-btn" href="/keep-or-sell/?utm_source=minneapolis&amp;utm_medium=calc_door">Run your 5-year numbers &rarr;</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p class="footer-name">Geoffrey Serdar</p>
+  <p class="footer-brokerage">Serdar+Partners at Compass</p>
+  <div class="footer-contact">
+    <a href="tel:9522583100">952-258-3100</a>
+    <a href="mailto:geoffrey@serdarpartnersrealty.com">geoffrey@serdarpartnersrealty.com</a>
+    <a href="https://www.compass.com/agents/geoffrey-serdar/" target="_blank">Compass Profile</a>
+  </div>
+  <p class="footer-legal">
+    Serving Minneapolis &amp; the Twin Cities &nbsp;·&nbsp; Licensed in Minnesota &nbsp;·&nbsp; Serdar+Partners at Compass<br />
+    &copy; 2026 Geoffrey Serdar. All rights reserved.
+  </p>
+</footer>
+
+<script>
+// Which page is this? Stamps every lead so the CRM/bridge can tag it by city.
+const PAGE_LOCAL = 'Minneapolis';
+
+// Capture lead source on page load (UTM / Google Ads / referrer)
+const LEAD_SOURCE = (function () {
+  const p = new URLSearchParams(window.location.search);
+  return {
+    utm_source: p.get('utm_source') || '',
+    utm_medium: p.get('utm_medium') || '',
+    utm_campaign: p.get('utm_campaign') || '',
+    gclid: p.get('gclid') || '',
+    referrer: document.referrer || ''
+  };
+})();
+
+// LAYER 1 — front door: block structurally-impossible US numbers in the browser.
+function isValidUSPhone(raw) {
+  var d = String(raw || '').replace(/\D/g, '');
+  if (d.length === 11 && d.charAt(0) === '1') d = d.slice(1);
+  if (d.length !== 10) return false;
+  var area = +d.charAt(0);
+  var exch = +d.charAt(3);
+  if (area < 2 || exch < 2) return false;                       // NANP: must be 2-9
+  if (d.charAt(1) === '1' && d.charAt(2) === '1') return false; // N11 service codes
+  if (d.slice(3, 6) === '555') return false;                    // 555 exchange = classic fake / fictional number
+  if (/^(\d)\1{9}$/.test(d)) return false;                      // all identical digits
+  return true;
+}
+
+function showPhoneError() {
+  var err = document.getElementById('phoneError');
+  var inp = document.getElementById('phone');
+  if (err) err.classList.add('visible');
+  if (inp) { inp.classList.add('input-error'); inp.focus(); }
+}
+function clearPhoneError() {
+  var err = document.getElementById('phoneError');
+  var inp = document.getElementById('phone');
+  if (err) err.classList.remove('visible');
+  if (inp) inp.classList.remove('input-error');
+}
+
+function setChecking(on) {
+  var btn = document.querySelector('.submit-btn');
+  if (!btn) return;
+  if (on) { btn.disabled = true; btn.style.opacity = '0.7'; btn.textContent = 'Checking…'; }
+  else { btn.disabled = false; btn.style.opacity = ''; btn.textContent = 'Get in Touch'; }
+}
+
+// LAYER 2 — carrier check via the Twilio Function. Also fires the speed-to-lead
+// text on a good number. Fails OPEN on timeout/error so a real lead is never lost.
+const LEAD_ALERT_URL = 'https://lead-alert-4343.twil.io/lead-alert';
+const INTEREST_DETAIL = {
+  'selling': 'Thinking about a move (no rush) - Seller, no urgency, patient, plant a seed',
+  'buying': 'Just starting to look around - Early buyer, educate, build rapport, dont push',
+  'both': 'We are running out of room here - Move-up, space-driven, real timeline',
+  'investing': 'Have money Id like to put to work - Investor, talk numbers, direct, ROI-minded',
+  'probate': 'Helping with a family members home - Probate/grief, empathy first, slow, never transactional',
+  'just looking': 'Just curious what my place is worth - Curiosity, not-ready, value-first, long game'
+};
+function interestDetail(v) { return INTEREST_DETAIL[v] || v || '(none selected)'; }
+const LEAD_ALERT_SECRET = 'slx_9f3Kqe2R';
+
+function checkNumber(name, phone, interest) {
+  var controller = new AbortController();
+  var timer = setTimeout(function () { controller.abort(); }, 2500);
+  var data = new URLSearchParams({
+    secret: LEAD_ALERT_SECRET,
+    name: name, phone: phone, interest: interest,
+    site: window.location.hostname + window.location.pathname,
+    local: PAGE_LOCAL,
+    utm_source: LEAD_SOURCE.utm_source,
+    utm_medium: LEAD_SOURCE.utm_medium,
+    utm_campaign: LEAD_SOURCE.utm_campaign,
+    gclid: LEAD_SOURCE.gclid,
+    referrer: LEAD_SOURCE.referrer
+  });
+  return fetch(LEAD_ALERT_URL, { method: 'POST', body: data, signal: controller.signal })
+    .then(function (r) { clearTimeout(timer); return r.json(); })
+    .catch(function () { clearTimeout(timer); return { valid: true, failOpen: true }; });
+}
+
+function submitToFormspree(name, phone, interest) {
+  var FORM_ID = 'mpqerwwk';
+  fetch('https://formspree.io/f/' + FORM_ID, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+    body: JSON.stringify({
+      name: name, phone: phone, interest: interest, interest_detail: interestDetail(interest),
+      local: PAGE_LOCAL,
+      utm_source: LEAD_SOURCE.utm_source,
+      utm_medium: LEAD_SOURCE.utm_medium,
+      utm_campaign: LEAD_SOURCE.utm_campaign,
+      gclid: LEAD_SOURCE.gclid,
+      referrer: LEAD_SOURCE.referrer
+    })
+  }).catch(function () {});
+}
+
+async function handleSubmit(e) {
+  e.preventDefault();
+  var name = document.getElementById('name').value.trim();
+  var phone = document.getElementById('phone').value.trim();
+  var interest = document.getElementById('interest').value;
+
+  // Layer 1 — impossible numbers never get in.
+  if (!isValidUSPhone(phone)) { showPhoneError(); return; }
+  clearPhoneError();
+
+  // Layer 2 — carrier check (also triggers the alert text on a good number).
+  setChecking(true);
+  var verdict = await checkNumber(name, phone, interest);
+  setChecking(false);
+
+  if (verdict && verdict.valid === false) {
+    showPhoneError();   // looks fine, but the carrier says it isn't a working line
+    return;
+  }
+
+  // Passed (or check was inconclusive / timed out) -> record + finish.
+  submitToFormspree(name, phone, interest);
+  showSuccess();
+}
+
+let leadConverted = false;
+function showSuccess() {
+  document.getElementById('formFields').classList.add('hidden');
+  document.getElementById('successState').classList.add('visible');
+  if (!leadConverted) {
+    leadConverted = true;
+    gtag('event', 'conversion', {
+      'send_to': 'AW-17849235035/jRxICLmDpr0cENvslr9C',
+      'value': 1.0,
+      'currency': 'USD'
+    });
+  }
+}
+
+// Auto-format phone as XXX-XXX-XXXX while typing; clear any error as they fix it
+document.getElementById('phone').addEventListener('input', function (e) {
+  var v = e.target.value.replace(/[^0-9]/g, '').slice(0, 10);
+  if (v.length >= 7) { v = v.slice(0,3) + '-' + v.slice(3,6) + '-' + v.slice(6); }
+  else if (v.length >= 4) { v = v.slice(0,3) + '-' + v.slice(3); }
+  e.target.value = v;
+  clearPhoneError();
+});
+</script>
+
+
+<!-- raziel: form drop-off tracking -->
+<script>
+(function () {
+  var lastField = null;
+  ['name', 'phone', 'interest'].forEach(function (id) {
+    var el = document.getElementById(id);
+    if (!el) return;
+    el.addEventListener('focus', function () { lastField = id; });
+    el.addEventListener('input', function () { lastField = id; });
+    el.addEventListener('change', function () { lastField = id; });
+  });
+  var interest = document.getElementById('interest');
+  if (interest) {
+    interest.addEventListener('change', function () {
+      if (interest.value && typeof gtag === 'function') {
+        gtag('event', 'interest_selected', { interest_value: interest.value });
+      }
+    });
+  }
+  var fired = false;
+  window.addEventListener('pagehide', function () {
+    if (fired || !lastField) return;
+    var ok = document.getElementById('successState');
+    if (ok && ok.classList.contains('visible')) return;
+    fired = true;
+    if (typeof gtag === 'function') {
+      gtag('event', 'form_abandon', { last_field: lastField });
+    }
+  });
+})();
+</script>
+</body>
+</html>
