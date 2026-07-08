@@ -121,14 +121,14 @@ body {
   font-size: 22px; font-weight: 700; color: var(--warm);
   margin-bottom: 6px; line-height: 1.3;
 }
-.calc-lead { font-size: 13px; color: var(--mid); margin-bottom: 26px; line-height: 1.6; }
+.calc-lead { font-size: 14px; color: var(--mid); margin-bottom: 26px; line-height: 1.6; }
 
 .field { margin-bottom: 18px; }
 .field > label {
   display: block; font-size: 11px; font-weight: 600; letter-spacing: 1.5px;
   text-transform: uppercase; color: var(--mid); margin-bottom: 8px;
 }
-.field-hint { font-size: 11.5px; color: rgba(138,155,176,0.7); margin-bottom: 8px; line-height: 1.5; }
+.field-hint { font-size: 13px; color: rgba(138,155,176,0.7); margin-bottom: 8px; line-height: 1.5; }
 .money-input { position: relative; }
 .money-input::before {
   content: '$';
@@ -171,7 +171,7 @@ body {
 /* soft door link */
 .door {
   display: inline-block;
-  font-size: 12.5px; color: var(--gold); text-decoration: none;
+  font-size: 14px; color: var(--gold); text-decoration: none;
   margin-top: 4px; border-bottom: 1px dotted rgba(201,168,76,0.5); padding-bottom: 1px;
   cursor: pointer; background: none; border-left: none; border-right: none; border-top: none;
   font-family: 'Inter', sans-serif;
@@ -257,7 +257,7 @@ body {
 }
 .lead-card.show { display: block; }
 .lead-headline { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; color: var(--warm); margin-bottom: 6px; line-height: 1.3; }
-.lead-sub { font-size: 13px; color: var(--mid); margin-bottom: 24px; line-height: 1.6; }
+.lead-sub { font-size: 14px; color: var(--mid); margin-bottom: 24px; line-height: 1.6; }
 .lead-card .field label {
   display: block; font-size: 11px; font-weight: 600; letter-spacing: 1.5px;
   text-transform: uppercase; color: var(--mid); margin-bottom: 8px;
@@ -303,6 +303,19 @@ body {
 }
 .cta-band a.call:hover { background: var(--gold2); }
 .cta-note { font-size: 12px; color: var(--mid); margin-top: 16px; }
+.cta-phone {
+  display: inline-block;
+  margin-top: 18px;
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(24px, 6vw, 32px);
+  font-weight: 700;
+  color: var(--gold);
+  text-decoration: none;
+  letter-spacing: 0.5px;
+  transition: color 0.2s;
+}
+.cta-phone:hover { color: var(--gold2); }
+.cta-phone-label { display: block; font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 500; letter-spacing: 1px; text-transform: uppercase; color: var(--mid); margin-top: 16px; margin-bottom: 2px; }
 
 /* FOOTER (cloned) */
 footer { border-top: 1px solid rgba(138, 155, 176, 0.1); padding: 40px 32px; text-align: center; }
@@ -501,7 +514,8 @@ footer { border-top: 1px solid rgba(138, 155, 176, 0.1); padding: 40px 32px; tex
 <div class="cta-band">
   <p class="cta-quote">&ldquo;The agent who'll tell you to keep your house.&rdquo;</p>
   <a class="call" href="#" onclick="openTalk('close'); return false;">Talk it through with Geoffrey</a>
-  <p class="cta-note">Or call directly &mdash; 952-258-3100.</p>
+  <span class="cta-phone-label">Or call directly</span>
+  <a class="cta-phone" href="tel:9522583100">952-258-3100</a>
 </div>
 
 <!-- FOOTER (cloned) -->
