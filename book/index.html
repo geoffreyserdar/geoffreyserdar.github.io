@@ -109,7 +109,7 @@ body {
   padding: 32px 28px 24px;
 }
 .book-headline { font-family: 'Playfair Display', serif; font-size: 24px; font-weight: 700; color: var(--warm); margin-bottom: 6px; }
-.book-sub { font-size: 14px; color: var(--mid); margin-bottom: 8px; line-height: 1.6; }
+.book-sub { font-size: 15px; color: var(--mid); margin-bottom: 8px; line-height: 1.6; }
 /* Calendly inline widget */
 .calendly-inline-widget { min-width: 320px; height: 700px; border-radius: 4px; overflow: hidden; }
 
@@ -117,13 +117,19 @@ body {
 .assurances { display: flex; gap: 28px; flex-wrap: wrap; max-width: 760px; margin: 0 auto 56px; padding: 0 24px; position: relative; z-index: 1; }
 .assurance { flex: 1; min-width: 200px; }
 .assurance-title { font-size: 13px; font-weight: 600; color: var(--warm); margin-bottom: 5px; letter-spacing: 0.3px; }
-.assurance-desc { font-size: 12.5px; color: var(--mid); line-height: 1.55; }
+.assurance-desc { font-size: 14px; color: var(--mid); line-height: 1.6; }
 
-/* FALLBACK CONTACT */
+/* FALLBACK CONTACT — big tappable phone + text button (matches buyer/calculator/refer/homepage) */
 .fallback { text-align: center; padding: 0 24px 56px; position: relative; z-index: 1; }
 .fallback p { font-size: 14px; color: var(--mid); line-height: 1.7; }
 .fallback a { color: var(--gold); text-decoration: none; font-weight: 500; }
 .fallback a:hover { color: var(--gold2); }
+.cta-phone-label { display: block; font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 500; letter-spacing: 1px; text-transform: uppercase; color: var(--mid); margin-bottom: 4px; }
+.cta-phone { display: inline-block; font-family: 'Playfair Display', serif; font-size: clamp(26px, 6vw, 34px); font-weight: 700; color: var(--gold); text-decoration: none; letter-spacing: 0.5px; transition: color 0.2s; }
+.cta-phone:hover { color: var(--gold2); }
+.cta-actions { display: flex; gap: 12px; justify-content: center; margin-top: 16px; }
+.cta-action { flex: 0 1 auto; min-width: 220px; text-align: center; border: 1px solid var(--gold); border-radius: 3px; color: var(--gold); font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; text-decoration: none; padding: 14px 20px; transition: background 0.2s, color 0.2s; }
+.cta-action:hover { background: var(--gold); color: var(--navy); }
 
 /* FOOTER */
 footer { border-top: 1px solid rgba(138, 155, 176, 0.1); padding: 36px 32px; text-align: center; position: relative; z-index: 1; }
@@ -151,10 +157,10 @@ footer { border-top: 1px solid rgba(138, 155, 176, 0.1); padding: 36px 32px; tex
 <section class="hero">
   <p class="eyebrow">Serdar+Partners at Compass</p>
   <h1 class="hero-headline">Let's find a time that <span>works for you.</span></h1>
-  <p class="hero-sub">Pick a slot below for a 15-minute call. You'll get a confirmation with a one-click video link &mdash; nothing to install, works on any device.</p>
+  <p class="hero-sub">Grab 15 minutes with me &mdash; pick a slot below. You'll get a confirmation with a one-click video link, or we can simply talk by phone. Nothing to install, works on any device.</p>
   <div class="hero-stats">
     <div class="stat"><span class="stat-number">13+</span><span class="stat-label">Years</span></div>
-    <div class="stat"><span class="stat-number">360+</span><span class="stat-label">Transactions</span></div>
+    <div class="stat"><span class="stat-number">360+</span><span class="stat-label">Families Served</span></div>
     <div class="stat"><span class="stat-number">You</span><span class="stat-label">Talk to Geoffrey</span></div>
   </div>
 </section>
@@ -181,13 +187,17 @@ footer { border-top: 1px solid rgba(138, 155, 176, 0.1); padding: 36px 32px; tex
   </div>
   <div class="assurance">
     <p class="assurance-title">Whatever you're weighing</p>
-    <p class="assurance-desc">Buying, selling, an inherited home, or just thinking it through &mdash; bring the question.</p>
+    <p class="assurance-desc">Buying, selling, an inherited family home, or just thinking it through &mdash; bring the question.</p>
   </div>
 </div>
 
-<!-- FALLBACK -->
+<!-- FALLBACK — big tappable phone + text (site-wide standard) -->
 <div class="fallback">
-  <p>Prefer to talk now? Call or text <a href="tel:9522583100">952-258-3100</a>.</p>
+  <span class="cta-phone-label">Prefer to talk now? Tap to call &mdash; or text</span>
+  <a class="cta-phone" href="tel:9522583100">952-258-3100</a>
+  <div class="cta-actions">
+    <a class="cta-action" href="sms:9522583100">Text Geoffrey instead</a>
+  </div>
 </div>
 
 <!-- FOOTER -->
