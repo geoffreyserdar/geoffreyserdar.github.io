@@ -231,6 +231,22 @@ body {
   color: #E8A0A0;
 }
 .field-error.visible { display: block; }
+.field .optional { text-transform: none; letter-spacing: 0; color: rgba(138,155,176,0.6); font-weight: 400; font-size: 10px; }
+.chip-group { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip {
+  background: var(--navy);
+  border: 1px solid rgba(138, 155, 176, 0.25);
+  border-radius: 999px;
+  color: var(--warm);
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  padding: 9px 15px;
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s, color 0.15s;
+  -webkit-tap-highlight-color: transparent;
+}
+.chip:hover { border-color: var(--gold); }
+.chip.selected { background: var(--gold); border-color: var(--gold); color: var(--navy); font-weight: 600; }
 .submit-btn {
   width: 100%;
   background: var(--gold);
@@ -510,17 +526,17 @@ footer { border-top: 1px solid rgba(138, 155, 176, 0.1); padding: 40px 32px; tex
           <p class="field-error" id="emailError" role="alert">That email doesn't look quite right &mdash; mind double-checking it? It's how Geoffrey sends you the homes.</p>
         </div>
         <div class="field">
-          <label for="interest">I'm looking for...</label>
-          <select id="interest" name="interest">
-            <option value="" disabled selected>What are you looking for?</option>
-            <option value="buying">A home to live in</option>
-            <option value="early_access">Early access — off-market &amp; coming-soon</option>
-            <option value="investing">An investment property</option>
-            <option value="creative_financing">Creative financing / contract for deed</option>
-            <option value="relocating">Relocating to the lake area</option>
-            <option value="both">Buying and selling</option>
-            <option value="just looking">Just exploring the market</option>
-          </select>
+          <label id="interestLabel">I'm looking for... <span class="optional">optional</span></label>
+          <div class="chip-group" role="group" aria-labelledby="interestLabel" id="interestChips">
+            <button type="button" class="chip" data-value="buying" aria-pressed="false">A home to live in</button>
+            <button type="button" class="chip" data-value="early_access" aria-pressed="false">Off-market &amp; coming-soon</button>
+            <button type="button" class="chip" data-value="investing" aria-pressed="false">Investment property</button>
+            <button type="button" class="chip" data-value="creative_financing" aria-pressed="false">Creative financing</button>
+            <button type="button" class="chip" data-value="relocating" aria-pressed="false">Relocating to the area</button>
+            <button type="button" class="chip" data-value="both" aria-pressed="false">Buying and selling</button>
+            <button type="button" class="chip" data-value="just looking" aria-pressed="false">Just exploring</button>
+          </div>
+          <input type="hidden" id="interest" name="interest" value="" />
         </div>
         <button type="submit" class="submit-btn">Start My Search</button>
       </form>
@@ -805,21 +821,40 @@ document.getElementById('phone').addEventListener('input', function (e) {
 <script>
 (function () {
   var lastField = null;
-  ['name', 'phone', 'email', 'interest'].forEach(function (id) {
+  ['name', 'phone', 'email'].forEach(function (id) {
     var el = document.getElementById(id);
     if (!el) return;
     el.addEventListener('focus', function () { lastField = id; });
     el.addEventListener('input', function () { lastField = id; });
     el.addEventListener('change', function () { lastField = id; });
   });
-  var interest = document.getElementById('interest');
-  if (interest) {
-    interest.addEventListener('change', function () {
-      if (interest.value && typeof gtag === 'function') {
-        gtag('event', 'interest_selected', { interest_value: interest.value });
+
+  // Interest chips — one-tap, optional, non-blocking. Sets the hidden #interest.
+  var chips = document.getElementById('interestChips');
+  var hidden = document.getElementById('interest');
+  if (chips && hidden) {
+    chips.addEventListener('click', function (e) {
+      var chip = e.target.closest('.chip');
+      if (!chip) return;
+      lastField = 'interest';
+      var val = chip.getAttribute('data-value');
+      var already = chip.classList.contains('selected');
+      chips.querySelectorAll('.chip').forEach(function (c) {
+        c.classList.remove('selected'); c.setAttribute('aria-pressed', 'false');
+      });
+      if (already) {
+        hidden.value = '';
+      } else {
+        chip.classList.add('selected');
+        chip.setAttribute('aria-pressed', 'true');
+        hidden.value = val;
+        if (typeof gtag === 'function') {
+          gtag('event', 'interest_selected', { interest_value: val });
+        }
       }
     });
   }
+
   var fired = false;
   window.addEventListener('pagehide', function () {
     if (fired || !lastField) return;
