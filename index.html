@@ -4,6 +4,10 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Geoffrey Serdar | Minnesota Realtor</title>
+
+<!-- begin Pixel Code (Compass Lead Flow — real estate only) -->
+<script src="https://www.compass.com/cxlp/a.min.js" id="cxlp-ajs" data-client-id="dh30gl6zq3rg" async></script>
+<!-- end Pixel Code -->
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
 
 <!-- Google tag (gtag.js) -->
@@ -143,6 +147,22 @@ body {
   color: #E8A0A0;
 }
 .field-error.visible { display: block; }
+.field .optional { text-transform: none; letter-spacing: 0; color: rgba(138,155,176,0.6); font-weight: 400; font-size: 10px; }
+.chip-group { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip {
+  background: var(--navy);
+  border: 1px solid rgba(138, 155, 176, 0.25);
+  border-radius: 999px;
+  color: var(--warm);
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  padding: 9px 15px;
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s, color 0.15s;
+  -webkit-tap-highlight-color: transparent;
+}
+.chip:hover { border-color: var(--gold); }
+.chip.selected { background: var(--gold); border-color: var(--gold); color: var(--navy); font-weight: 600; }
 .submit-btn {
   width: 100%;
   background: var(--gold);
@@ -302,16 +322,16 @@ footer { border-top: 1px solid rgba(138, 155, 176, 0.1); padding: 40px 32px; tex
           <p class="field-error" id="phoneError" role="alert">That number doesn't look quite right &mdash; mind double-checking it? Geoffrey calls every lead personally, so we want to be sure it reaches you.</p>
         </div>
         <div class="field">
-          <label for="interest">I'm thinking about...</label>
-          <select id="interest" name="interest">
-            <option value="" disabled selected>What's bringing you here?</option>
-            <option value="selling">Thinking about a move (no rush)</option>
-            <option value="buying">Just starting to look around</option>
-            <option value="both">We're running out of room here</option>
-            <option value="investing">Have money I'd like to put to work</option>
-            <option value="probate">Helping with a family member's home</option>
-            <option value="just looking">Just curious what my place is worth</option>
-          </select>
+          <label id="interestLabel">I'm thinking about... <span class="optional">optional</span></label>
+          <div class="chip-group" role="group" aria-labelledby="interestLabel" id="interestChips">
+            <button type="button" class="chip" data-value="selling" aria-pressed="false">Thinking about a move</button>
+            <button type="button" class="chip" data-value="buying" aria-pressed="false">Just starting to look</button>
+            <button type="button" class="chip" data-value="both" aria-pressed="false">Running out of room</button>
+            <button type="button" class="chip" data-value="investing" aria-pressed="false">Money to put to work</button>
+            <button type="button" class="chip" data-value="probate" aria-pressed="false">Helping with a family home</button>
+            <button type="button" class="chip" data-value="just looking" aria-pressed="false">What's my place worth</button>
+          </div>
+          <input type="hidden" id="interest" name="interest" value="" />
         </div>
         <button type="submit" class="submit-btn">Get in Touch</button>
       </form>
@@ -551,21 +571,40 @@ document.getElementById('phone').addEventListener('input', function (e) {
 <script>
 (function () {
   var lastField = null;
-  ['name', 'phone', 'interest'].forEach(function (id) {
+  ['name', 'phone'].forEach(function (id) {
     var el = document.getElementById(id);
     if (!el) return;
     el.addEventListener('focus', function () { lastField = id; });
     el.addEventListener('input', function () { lastField = id; });
     el.addEventListener('change', function () { lastField = id; });
   });
-  var interest = document.getElementById('interest');
-  if (interest) {
-    interest.addEventListener('change', function () {
-      if (interest.value && typeof gtag === 'function') {
-        gtag('event', 'interest_selected', { interest_value: interest.value });
+
+  // Interest chips — one-tap, optional, non-blocking. Sets the hidden #interest.
+  var chips = document.getElementById('interestChips');
+  var hidden = document.getElementById('interest');
+  if (chips && hidden) {
+    chips.addEventListener('click', function (e) {
+      var chip = e.target.closest('.chip');
+      if (!chip) return;
+      lastField = 'interest';
+      var val = chip.getAttribute('data-value');
+      var already = chip.classList.contains('selected');
+      chips.querySelectorAll('.chip').forEach(function (c) {
+        c.classList.remove('selected'); c.setAttribute('aria-pressed', 'false');
+      });
+      if (already) {
+        hidden.value = '';
+      } else {
+        chip.classList.add('selected');
+        chip.setAttribute('aria-pressed', 'true');
+        hidden.value = val;
+        if (typeof gtag === 'function') {
+          gtag('event', 'interest_selected', { interest_value: val });
+        }
       }
     });
   }
+
   var fired = false;
   window.addEventListener('pagehide', function () {
     if (fired || !lastField) return;
