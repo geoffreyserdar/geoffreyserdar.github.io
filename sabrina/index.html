@@ -11,6 +11,10 @@
 <!-- referral path (/refer/) and a gentle estate path (/probate/). -->
 <!-- ============================================================= -->
 <title>Sabrina Bownik | Serdar+Partners at Compass — Lake Minnetonka Realtor</title>
+
+<!-- begin Pixel Code (Compass Lead Flow — real estate only) -->
+<script src="https://www.compass.com/cxlp/a.min.js" id="cxlp-ajs" data-client-id="dh30gl6zq3rg" async></script>
+<!-- end Pixel Code -->
 <meta name="description" content="Meet Sabrina Bownik of Serdar+Partners at Compass — guiding buyers and sellers since 2012, owner-operator of 40 rental units, and the steady hand behind every Lake Minnetonka move." />
 <link rel="canonical" href="https://geoffreyserdar.com/sabrina/" />
 <meta property="og:title" content="Sabrina Bownik | Serdar+Partners at Compass" />
@@ -151,6 +155,11 @@ a { color: var(--gold); text-decoration: none; }
 .field-optional { font-weight: 400; text-transform: none; letter-spacing: 0; color: rgba(138,155,176,0.6); font-size: 10.5px; }
 .field-error { display: none; margin-top: 8px; font-size: 12px; line-height: 1.5; color: #E8A0A0; }
 .field-error.visible { display: block; }
+.field .optional { text-transform: none; letter-spacing: 0; color: rgba(138,155,176,0.6); font-weight: 400; font-size: 10px; }
+.chip-group { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip { background: var(--navy); border: 1px solid rgba(138, 155, 176, 0.25); border-radius: 999px; color: var(--warm); font-family: 'Inter', sans-serif; font-size: 13px; padding: 9px 15px; cursor: pointer; transition: border-color 0.15s, background 0.15s, color 0.15s; -webkit-tap-highlight-color: transparent; }
+.chip:hover { border-color: var(--gold); }
+.chip.selected { background: var(--gold); border-color: var(--gold); color: var(--navy); font-weight: 600; }
 .calc-error { display: none; margin-top: 12px; font-size: 13px; line-height: 1.5; color: #E8A0A0; text-align: center; }
 .calc-error.visible { display: block; }
 .submit-btn { width: 100%; background: var(--gold); border: none; border-radius: 3px; color: var(--navy); font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 16px; cursor: pointer; margin-top: 12px; transition: background 0.2s, transform 0.1s, opacity 0.2s; }
@@ -340,16 +349,16 @@ footer { border-top: 1px solid rgba(138,155,176,0.1); padding: 40px 32px; text-a
         <p class="field-error" id="emailError" role="alert">That email doesn't look quite right &mdash; mind double-checking it?</p>
       </div>
       <div class="field">
-        <label for="interest">What Can We Help With?</label>
-        <select id="interest">
-          <option value="" selected>Choose one&hellip;</option>
-          <option value="selling">Selling a home</option>
-          <option value="buying">Buying a home</option>
-          <option value="rental">Looking for a place to rent</option>
-          <option value="management">I own rentals &mdash; property management</option>
-          <option value="estate">An estate or inherited home</option>
-          <option value="exploring">Just exploring / not sure yet</option>
-        </select>
+        <label id="interestLabel">What Can We Help With? <span class="optional">optional</span></label>
+        <div class="chip-group" role="group" aria-labelledby="interestLabel" id="interestChips">
+          <button type="button" class="chip" data-value="selling" aria-pressed="false">Selling a home</button>
+          <button type="button" class="chip" data-value="buying" aria-pressed="false">Buying a home</button>
+          <button type="button" class="chip" data-value="rental" aria-pressed="false">Looking to rent</button>
+          <button type="button" class="chip" data-value="management" aria-pressed="false">Property management</button>
+          <button type="button" class="chip" data-value="estate" aria-pressed="false">Estate / inherited home</button>
+          <button type="button" class="chip" data-value="exploring" aria-pressed="false">Just exploring</button>
+        </div>
+        <input type="hidden" id="interest" value="" />
       </div>
       <div class="field">
         <label for="note">Anything I Should Know? <span class="field-optional">(optional)</span></label>
@@ -584,21 +593,40 @@ document.getElementById('email').addEventListener('input', function () { clearEr
 /* form drop-off tracking — same pattern as the buyer page */
 (function () {
   var lastField = null;
-  ['name', 'phone', 'email', 'interest', 'note'].forEach(function (id) {
+  ['name', 'phone', 'email', 'note'].forEach(function (id) {
     var el = document.getElementById(id);
     if (!el) return;
     el.addEventListener('focus', function () { lastField = id; });
     el.addEventListener('input', function () { lastField = id; });
     el.addEventListener('change', function () { lastField = id; });
   });
-  var interest = document.getElementById('interest');
-  if (interest) {
-    interest.addEventListener('change', function () {
-      if (interest.value && typeof gtag === 'function') {
-        gtag('event', 'interest_selected', { interest_value: interest.value });
+
+  // Interest chips — one-tap, optional, non-blocking. Sets the hidden #interest.
+  var chips = document.getElementById('interestChips');
+  var hidden = document.getElementById('interest');
+  if (chips && hidden) {
+    chips.addEventListener('click', function (e) {
+      var chip = e.target.closest('.chip');
+      if (!chip) return;
+      lastField = 'interest';
+      var val = chip.getAttribute('data-value');
+      var already = chip.classList.contains('selected');
+      chips.querySelectorAll('.chip').forEach(function (c) {
+        c.classList.remove('selected'); c.setAttribute('aria-pressed', 'false');
+      });
+      if (already) {
+        hidden.value = '';
+      } else {
+        chip.classList.add('selected');
+        chip.setAttribute('aria-pressed', 'true');
+        hidden.value = val;
+        if (typeof gtag === 'function') {
+          gtag('event', 'interest_selected', { interest_value: val });
+        }
       }
     });
   }
+
   var fired = false;
   window.addEventListener('pagehide', function () {
     if (fired || !lastField) return;
