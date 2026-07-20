@@ -149,6 +149,26 @@
 }
 </script>
 
+<!-- ============ SCHEMA 4 — VideoObject (the Lake Minnewashta short) ============ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "VideoObject",
+  "name": "Lake Minnewashta shoreline at sunset — Excelsior, Minnesota",
+  "description": "A September evening on the west-facing shore of Lake Minnewashta in Excelsior, Minnesota, near Lake Minnewashta Regional Park and the Ches Mar Farm neighborhood.",
+  "thumbnailUrl": "https://i.ytimg.com/vi/ngOeMnMJnxg/hqdefault.jpg",
+  "uploadDate": "2026-07-20",
+  "duration": "PT9S",
+  "contentUrl": "https://www.youtube.com/shorts/ngOeMnMJnxg",
+  "embedUrl": "https://www.youtube.com/embed/ngOeMnMJnxg",
+  "publisher": {
+    "@type": "RealEstateAgent",
+    "name": "Geoffrey Serdar | Lake Minnetonka Realtor",
+    "url": "https://geoffreyserdar.com"
+  }
+}
+</script>
+
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 :root {
@@ -178,6 +198,11 @@ h1 { font-family: 'Playfair Display', serif; font-weight: 900; font-size: clamp(
 .hero-fig { margin: 34px 0 8px; }
 .hero-fig img { width: 100%; border-radius: 8px; border: 1px solid rgba(201,168,76,0.20); display: block; }
 .hero-fig figcaption { font-size: 13px; color: var(--mid); margin-top: 10px; text-align: center; font-style: italic; }
+/* vertical Short embed */
+.video-wrap { max-width: 340px; margin: 34px auto 8px; }
+.video-frame { position: relative; width: 100%; aspect-ratio: 9 / 16; border-radius: 10px; overflow: hidden; border: 1px solid rgba(201,168,76,0.25); }
+.video-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.video-wrap figcaption { font-size: 13px; color: var(--mid); margin-top: 10px; text-align: center; font-style: italic; }
 /* article body */
 article { padding: 24px 0 8px; font-size: 17px; }
 article h2 { font-family: 'Playfair Display', serif; font-weight: 700; font-size: clamp(22px, 4vw, 30px); color: var(--warm); margin: 44px 0 14px; line-height: 1.25; }
@@ -343,6 +368,13 @@ footer { border-top: 1px solid rgba(138,155,176,0.1); margin-top: 40px; padding:
     </ul>
     <p>In summer we walk to the beach. In winter, our kids slide down the hills in that park until their cheeks are raw. There&rsquo;s a version of Minnesota that people who don&rsquo;t live here never quite believe: that the same place can be a swimming lake in July and a ski trail in January, and that you can have both of them a short walk from your own door. This is that place.</p>
     <p>And because our shore faces <strong>west</strong>, the evenings are the quiet showstopper. Late on a September day the sun drops over the water, the sky turns to color, and the whole lake goes still &mdash; the kind of thing you stop the car for, except you&rsquo;re already home.</p>
+
+    <figure class="video-wrap">
+      <div class="video-frame">
+        <iframe src="https://www.youtube.com/embed/ngOeMnMJnxg" title="Lake Minnewashta shoreline at sunset — Excelsior, Minnesota" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      </div>
+      <figcaption>Lake Minnewashta on a September evening &mdash; the west-facing shore near Ches Mar Farm. <a href="https://www.youtube.com/shorts/ngOeMnMJnxg" target="_blank" rel="noopener">Watch on YouTube</a>.</figcaption>
+    </figure>
 
     <figure>
       <img src="img/winter.jpg" alt="Hoarfrost on the trees under a blue winter sky over the snowy woods and fields around Lake Minnewashta" />
