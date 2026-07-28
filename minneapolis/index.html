@@ -553,6 +553,34 @@ async function handleSubmit(e) {
 }
 
 let leadConverted = false;
+
+/* ================= RAZIEL S65 (2026-07-28) — lead telemetry + confirmation visibility =================
+   WHY: showSuccess() only ever fired the Google ADS conversion. GA4 was never told a lead
+   happened, so GA4 logged 0 leads for 90 days while Ads counted 4. Also, hiding the form
+   collapsed the page and scrolled the confirmation out of view, so people saw no confirmation.
+   ==================================================================================================== */
+function RAZIEL_gaLead() {
+  try {
+    if (typeof gtag !== 'function') return;
+    var LS = (typeof LEAD_SOURCE !== 'undefined' && LEAD_SOURCE) ? LEAD_SOURCE : {};
+    gtag('event', 'generate_lead', {
+      currency: 'USD',
+      value: 1.0,
+      lead_source: LS.utm_source || '',
+      lead_medium: LS.utm_medium || '',
+      lead_campaign: LS.utm_campaign || '',
+      gclid_present: LS.gclid ? 'yes' : 'no',
+      page_path: location.pathname
+    });
+  } catch (e) {}
+}
+function RAZIEL_scrollToSuccess() {
+  try {
+    var el = document.getElementById('successState');
+    if (el && el.scrollIntoView) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  } catch (e) {}
+}
+
 function showSuccess() {
   document.getElementById('formFields').classList.add('hidden');
   document.getElementById('successState').classList.add('visible');
@@ -563,7 +591,9 @@ function showSuccess() {
       'value': 1.0,
       'currency': 'USD'
     });
+    RAZIEL_gaLead();
   }
+  RAZIEL_scrollToSuccess();
 }
 
 // Auto-format phone as XXX-XXX-XXXX while typing; clear any error as they fix it
