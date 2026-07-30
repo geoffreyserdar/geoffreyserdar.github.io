@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Victoria, MN Realtor | Geoffrey Serdar &mdash; Carver County's City of Lakes and Parks</title>
+
+<!-- begin Pixel Code (Compass Lead Flow — real estate only) -->
+<script src="https://www.compass.com/cxlp/a.min.js" id="cxlp-ajs" data-client-id="dh30gl6zq3rg" async></script>
+<!-- end Pixel Code -->
+<meta name="description" content="Geoffrey Serdar is a local realtor serving Victoria, Minnesota — Carver County's City of Lakes and Parks. Homes near Stieger Lake, Lake Bavaria, Carver Park Reserve and the Minnesota Landscape Arboretum. 13+ years, 360+ families served, and he answers his own phone." />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17849235035"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'AW-17849235035');
+  gtag('config', 'G-250YS9FRRM');
+</script>
+
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --navy: #0A1628;
+  --navy2: #112240;
+  --gold: #C9A84C;
+  --gold2: #E8C96A;
+  --warm: #F8F6F1;
+  --mid: #8A9BB0;
+  --white: #FFFFFF;
+}
+html { scroll-behavior: smooth; }
+body {
+  background: var(--navy);
+  color: var(--warm);
+  font-family: 'Inter', sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+/* HERO */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 60px 32px 48px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: 'VICTORIA';
+  position: absolute;
+  bottom: -20px;
+  right: -30px;
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(72px, 17vw, 190px);
+  font-weight: 900;
+  color: var(--navy2);
+  letter-spacing: -4px;
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+  white-space: nowrap;
+}
+.eyebrow {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 24px;
+}
+.hero-name {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(48px, 10vw, 96px);
+  font-weight: 900;
+  line-height: 0.95;
+  letter-spacing: -2px;
+  color: var(--warm);
+  margin-bottom: 8px;
+}
+.hero-name span { display: block; color: var(--gold); }
+.hero-title {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(14px, 2.5vw, 18px);
+  font-weight: 300;
+  color: var(--mid);
+  letter-spacing: 1px;
+  margin-bottom: 48px;
+}
+.hero-stats { display: flex; gap: 40px; margin-bottom: 56px; flex-wrap: wrap; }
+.stat { display: flex; flex-direction: column; gap: 4px; }
+.stat-number {
+  font-family: 'Playfair Display', serif;
+  font-size: 32px; font-weight: 700; color: var(--warm); line-height: 1;
+}
+.stat-label {
+  font-size: 11px; font-weight: 500; letter-spacing: 1.5px;
+  text-transform: uppercase; color: var(--mid);
+}
+/* FORM */
+.form-card {
+  background: var(--navy2);
+  border: 1px solid rgba(201, 168, 76, 0.2);
+  border-radius: 4px;
+  padding: 36px 32px;
+  max-width: 480px;
+  position: relative;
+  z-index: 1;
+}
+.form-headline {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px; font-weight: 700; color: var(--warm);
+  margin-bottom: 6px; line-height: 1.3;
+}
+.form-sub { font-size: 13px; color: var(--mid); margin-bottom: 28px; line-height: 1.6; }
+.field { margin-bottom: 16px; }
+.field label {
+  display: block; font-size: 11px; font-weight: 600; letter-spacing: 1.5px;
+  text-transform: uppercase; color: var(--mid); margin-bottom: 8px;
+}
+.field input, .field select {
+  width: 100%;
+  background: var(--navy);
+  border: 1px solid rgba(138, 155, 176, 0.25);
+  border-radius: 3px;
+  color: var(--warm);
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  padding: 14px 16px;
+  outline: none;
+  transition: border-color 0.2s;
+  appearance: none;
+}
+.field input::placeholder { color: rgba(138, 155, 176, 0.5); }
+.field input:focus, .field select:focus { border-color: var(--gold); }
+.field input.input-error { border-color: #E8A0A0; }
+.field select option { background: var(--navy); color: var(--warm); }
+  .field select option:disabled, .field select option[value=""] { color: #8a93a6; }
+.field-error {
+  display: none;
+  margin-top: 8px;
+  font-size: 12px;
+  line-height: 1.5;
+  color: #E8A0A0;
+}
+.field-error.visible { display: block; }
+.field .optional { text-transform: none; letter-spacing: 0; color: rgba(138,155,176,0.6); font-weight: 400; font-size: 10px; }
+.chip-group { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip {
+  background: var(--navy);
+  border: 1px solid rgba(138, 155, 176, 0.25);
+  border-radius: 999px;
+  color: var(--warm);
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  padding: 9px 15px;
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s, color 0.15s;
+  -webkit-tap-highlight-color: transparent;
+}
+.chip:hover { border-color: var(--gold); }
+.chip.selected { background: var(--gold); border-color: var(--gold); color: var(--navy); font-weight: 600; }
+.submit-btn {
+  width: 100%;
+  background: var(--gold);
+  border: none;
+  border-radius: 3px;
+  color: var(--navy);
+  font-family: 'Inter', sans-serif;
+  font-size: 13px; font-weight: 700; letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 16px;
+  cursor: pointer;
+  margin-top: 8px;
+  transition: background 0.2s, transform 0.1s, opacity 0.2s;
+}
+.submit-btn:hover { background: var(--gold2); }
+.submit-btn:active { transform: scale(0.99); }
+.submit-btn:disabled { cursor: default; }
+.form-privacy {
+  font-size: 11px; color: rgba(138, 155, 176, 0.5);
+  text-align: center; margin-top: 14px; line-height: 1.5;
+}
+/* SUCCESS STATE */
+.success-state { display: none; text-align: center; padding: 20px 0; }
+.success-state.visible { display: block; }
+.form-fields.hidden { display: none; }
+.success-icon { font-size: 40px; margin-bottom: 16px; }
+.success-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 24px; font-weight: 700; color: var(--warm); margin-bottom: 8px;
+}
+.success-sub { font-size: 14px; color: var(--mid); line-height: 1.6; }
+/* SECTIONS */
+.section { padding: 80px 32px; max-width: 640px; margin: 0 auto; }
+.section-eyebrow {
+  font-size: 11px; font-weight: 600; letter-spacing: 3px;
+  text-transform: uppercase; color: var(--gold); margin-bottom: 20px;
+}
+.section-headline {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(28px, 5vw, 42px); font-weight: 700;
+  color: var(--warm); line-height: 1.2; margin-bottom: 20px;
+}
+.section-body { font-size: 16px; line-height: 1.8; color: var(--mid); }
+.section-body strong { color: var(--warm); font-weight: 500; }
+.divider { width: 40px; height: 2px; background: var(--gold); margin: 0 32px 0; opacity: 0.4; }
+/* NEIGHBORHOODS */
+.hoods { padding: 0 32px 24px; max-width: 640px; margin: 0 auto; }
+.hood-list { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
+.hood-tag {
+  font-size: 12px; font-weight: 500; letter-spacing: 0.5px;
+  color: var(--warm);
+  background: var(--navy2);
+  border: 1px solid rgba(201, 168, 76, 0.25);
+  border-radius: 999px;
+  padding: 8px 16px;
+}
+/* SPECIALTIES */
+.specialties { padding: 56px 32px 80px; max-width: 640px; margin: 0 auto; }
+.spec-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 24px; }
+.spec-item {
+  background: var(--navy2);
+  border: 1px solid rgba(201, 168, 76, 0.15);
+  border-radius: 3px; padding: 20px 18px;
+}
+.spec-title { font-size: 13px; font-weight: 600; color: var(--warm); margin-bottom: 6px; letter-spacing: 0.3px; }
+.spec-desc { font-size: 12px; color: var(--mid); line-height: 1.5; }
+/* FOOTER */
+footer { border-top: 1px solid rgba(138, 155, 176, 0.1); padding: 40px 32px; text-align: center; }
+.footer-name { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; color: var(--warm); margin-bottom: 4px; }
+.footer-brokerage { font-size: 12px; color: var(--mid); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 20px; }
+.footer-contact { display: flex; justify-content: center; gap: 32px; flex-wrap: wrap; }
+.footer-contact a { font-size: 13px; color: var(--gold); text-decoration: none; letter-spacing: 0.3px; }
+.footer-contact a:hover { color: var(--gold2); }
+.footer-legal { font-size: 11px; color: rgba(138, 155, 176, 0.35); margin-top: 24px; line-height: 1.6; }
+/* RESPONSIVE */
+@media (max-width: 480px) {
+  .hero { padding: 48px 24px 40px; }
+  .form-card { padding: 28px 24px; }
+  .hero-stats { gap: 28px; }
+  .spec-grid { grid-template-columns: 1fr; }
+  .section, .specialties, .hoods { padding-left: 24px; padding-right: 24px; }
+  .divider { margin-left: 24px; }
+}
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+/* KEEP-OR-SELL DOOR */
+.keepsell { max-width: 640px; margin: 0 auto 80px; padding: 0 32px; }
+.keepsell-card {
+  background: var(--navy2);
+  border: 1px solid rgba(201, 168, 76, 0.25);
+  border-radius: 4px;
+  padding: 40px 36px;
+  text-align: center;
+}
+.keepsell-eyebrow {
+  font-size: 11px; font-weight: 600; letter-spacing: 3px;
+  text-transform: uppercase; color: var(--gold); margin-bottom: 16px;
+}
+.keepsell-headline {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(24px, 4.5vw, 34px); font-weight: 700;
+  color: var(--warm); line-height: 1.2; margin-bottom: 14px;
+}
+.keepsell-body { font-size: 15px; line-height: 1.7; color: var(--mid); margin-bottom: 28px; }
+.keepsell-btn {
+  display: inline-block;
+  background: var(--gold);
+  border-radius: 3px;
+  color: var(--navy);
+  font-family: 'Inter', sans-serif;
+  font-size: 13px; font-weight: 700; letter-spacing: 2px;
+  text-transform: uppercase; text-decoration: none;
+  padding: 16px 32px;
+  transition: background 0.2s, transform 0.1s;
+}
+.keepsell-btn:hover { background: var(--gold2); }
+.keepsell-btn:active { transform: scale(0.99); }
+@media (max-width: 480px) {
+  .keepsell { padding-left: 24px; padding-right: 24px; }
+  .keepsell-card { padding: 32px 24px; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <p class="eyebrow">Serdar+Partners at Compass</p>
+  <h1 class="hero-name">
+    Geoffrey
+    <span>Serdar</span>
+  </h1>
+  <p class="hero-title">Victoria Realtor &nbsp;·&nbsp; Carver County &nbsp;·&nbsp; Stieger Lake &nbsp;·&nbsp; Lake Bavaria &nbsp;·&nbsp; Carver Park Reserve</p>
+
+  <div class="hero-stats">
+    <div class="stat"><span class="stat-number">13+</span><span class="stat-label">Years</span></div>
+    <div class="stat"><span class="stat-number">360+</span><span class="stat-label">Families Served</span></div>
+    <div class="stat"><span class="stat-number">Carver</span><span class="stat-label">County Local</span></div>
+  </div>
+
+  <!-- FORM -->
+  <div class="form-card">
+    <div class="form-fields" id="formFields">
+      <h2 class="form-headline">Let's talk about your Victoria move.</h2>
+      <p class="form-sub">Leave your name and number. Geoffrey will reach out personally &mdash; no scripts, no assistants.</p>
+      <form id="captureForm" onsubmit="handleSubmit(event)">
+        <div class="field">
+          <label for="name">Your Name</label>
+          <input type="text" id="name" name="name" placeholder="First and last name" required autocomplete="name" />
+        </div>
+        <div class="field">
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" name="phone" placeholder="952-000-0000" required autocomplete="tel" />
+          <p class="field-error" id="phoneError" role="alert">That number doesn't look quite right &mdash; mind double-checking it? Geoffrey calls every lead personally, so we want to be sure it reaches you.</p>
+        </div>
+        <div class="field">
+          <label id="interestLabel">I'm thinking about... <span class="optional">optional</span></label>
+          <div class="chip-group" role="group" aria-labelledby="interestLabel" id="interestChips">
+            <button type="button" class="chip" data-value="selling" aria-pressed="false">Thinking about a move</button>
+            <button type="button" class="chip" data-value="buying" aria-pressed="false">Just starting to look</button>
+            <button type="button" class="chip" data-value="both" aria-pressed="false">Running out of room</button>
+            <button type="button" class="chip" data-value="investing" aria-pressed="false">Money to put to work</button>
+            <button type="button" class="chip" data-value="probate" aria-pressed="false">Helping with a family home</button>
+            <button type="button" class="chip" data-value="just looking" aria-pressed="false">What's my place worth</button>
+          </div>
+          <input type="hidden" id="interest" name="interest" value="" />
+        </div>
+        <button type="submit" class="submit-btn">Get in Touch</button>
+      </form>
+      <p class="form-privacy">Your information stays with Geoffrey. No spam, ever.</p>
+    </div>
+
+    <div class="success-state" id="successState">
+      <div class="success-icon">&check;</div>
+      <h3 class="success-title">Got it. Talk soon.</h3>
+      <p class="success-sub">Geoffrey will reach out to you directly.<br />In the meantime &mdash; 952-258-3100.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ABOUT — the heritage section. Real, sourced local history: Victoria's founding
+     (victoriamn.gov) + Wendelin Grimm (National Register 1974, Carver Park Reserve).
+     This is what makes the page substantive rather than a city-name swap. -->
+<div class="section">
+  <p class="section-eyebrow">Who You're Calling</p>
+  <h2 class="section-headline">A hunter, not a farmer.</h2>
+  <p class="section-body">
+    That's been my line for years &mdash; I'd rather go find you the right house than sit and wait for one to show up.<br /><br />
+    In Victoria, it needs a footnote.<br /><br />
+    This town was built by farmers. The <strong>Diethelm brothers</strong> put up the first shelter in <strong>1851</strong>, and families
+    came from Germany, Holland and Switzerland on word of mouth about the soil. Wheat was the cash crop. Potatoes, carrots,
+    cabbage and corn fed the families that grew them. The town got its name in <strong>1856</strong>, when families on opposite
+    sides of <strong>Lake Bavaria</strong> settled their differences and the north shore donated the land for a church.<br /><br />
+    And one of those farmers changed the country. <strong>Wendelin Grimm</strong> arrived in <strong>1859</strong> carrying seed from
+    Germany he called &ldquo;everlasting clover.&rdquo; He spent <strong>fifteen winters</strong> keeping seed only from the plants that
+    lived through them &mdash; and grew the <strong>first truly winter-hardy alfalfa in North America</strong>. Every modern variety
+    in this country came out of that field.<br /><br />
+    His farmstead is still standing, inside <strong>Carver Park Reserve</strong>. The road it sits on carries his name.<br /><br />
+    So &mdash; hunter, not farmer. <strong>But I know whose ground this is.</strong>
+  </p>
+</div>
+
+<div class="divider"></div>
+
+<!-- VICTORIA TODAY -->
+<div class="section">
+  <p class="section-eyebrow">What Victoria Actually Is</p>
+  <h2 class="section-headline">The City of Lakes and Parks &mdash; and it means it.</h2>
+  <p class="section-body">
+    Victoria calls itself the City of Lakes and Parks, which is the rare case of a city slogan being an understatement.
+    <strong>Carver Park Reserve</strong> alone holds <strong>604 acres of water</strong> and three fishable lakes &mdash; Stieger, Auburn and Zumbra &mdash;
+    plus <strong>25 miles of hiking trail</strong>, 10 miles of mountain-bike singletrack, cross-country ski and horseback trails, a campground,
+    and the <strong>Lowry Nature Center</strong>, the first public nature center ever built in the Twin Cities.<br /><br />
+    The <strong>Minnesota Landscape Arboretum</strong> is here. So is the <strong>Wassermann Lake Preserve</strong>. The
+    <strong>Lake Minnetonka LRT Regional Trail</strong> runs more than fifteen miles from Hopkins straight through town and into the park reserve
+    &mdash; you can ride to Excelsior for lunch without touching a highway.<br /><br />
+    Kids attend <strong>Eastern Carver County Schools (District 112)</strong>. Downtown is small and walkable, Bayfront Park sits on
+    Stieger Lake, and you are twenty-five minutes from a Minneapolis office and about four minutes from a trailhead.<br /><br />
+    <strong>Who Victoria fits:</strong> people who want Chanhassen's schools and access without Chanhassen's density, who want water and
+    trail at the back door rather than a view of them, and who would trade a shorter commute for a quieter one.
+    If you want the lake to be the whole address, that's Excelsior or Shorewood. If you want a bigger lot and a park you can
+    disappear into, this is the one.
+  </p>
+</div>
+
+<!-- NEIGHBORHOODS -->
+<div class="hoods">
+  <p class="section-eyebrow">Where Geoffrey Works</p>
+  <div class="hood-list">
+    <span class="hood-tag">Downtown Victoria</span>
+    <span class="hood-tag">Stieger Lake</span>
+    <span class="hood-tag">Lake Bavaria</span>
+    <span class="hood-tag">Lake Auburn</span>
+    <span class="hood-tag">Lake Zumbra</span>
+    <span class="hood-tag">Wassermann Lake</span>
+    <span class="hood-tag">Carver Park Reserve</span>
+    <span class="hood-tag">Chanhassen</span>
+    <span class="hood-tag">Chaska</span>
+    <span class="hood-tag">Waconia</span>
+    <span class="hood-tag">Excelsior</span>
+  </div>
+</div>
+
+<!-- SPECIALTIES -->
+<div class="specialties">
+  <p class="section-eyebrow">How Geoffrey Can Help</p>
+  <div class="spec-grid">
+    <div class="spec-item">
+      <p class="spec-title">One-Level &amp; Main-Floor Living</p>
+      <p class="spec-desc">Ramblers and villas where the bedrooms, laundry and daily life all happen on one floor &mdash; the hardest thing to find in Carver County and the first thing move-down buyers ask for.</p>
+    </div>
+    <div class="spec-item">
+      <p class="spec-title">Listing &amp; Selling</p>
+      <p class="spec-desc">Sharp positioning, honest pricing, and a negotiator who fights for every dollar.</p>
+    </div>
+    <div class="spec-item">
+      <p class="spec-title">Buyer Representation</p>
+      <p class="spec-desc">On and off-market access across Victoria, Chanhassen, Chaska and Waconia. No pressure, no portal login.</p>
+    </div>
+    <div class="spec-item">
+      <p class="spec-title">Estates &amp; Probate</p>
+      <p class="spec-desc">Guiding executors and families through the sale of a longtime home &mdash; often the one a family has held here for generations &mdash; with patience and discretion.</p>
+    </div>
+  </div>
+</div>
+
+<!-- KEEP-OR-SELL DOOR (calculator lead magnet) -->
+<div class="keepsell">
+  <div class="keepsell-card">
+    <p class="keepsell-eyebrow">Own a home?</p>
+    <h2 class="keepsell-headline">Keep it, or sell it?</h2>
+    <p class="keepsell-body">Run the 5-year math Geoffrey uses to settle the hold-vs-sell question &mdash; your numbers, a clear verdict, about thirty seconds. Free, no pressure.</p>
+    <a class="keepsell-btn" href="/keep-or-sell/?utm_source=victoria&amp;utm_medium=calc_door">Run your 5-year numbers &rarr;</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p class="footer-name">Geoffrey Serdar</p>
+  <p class="footer-brokerage">Serdar+Partners at Compass</p>
+  <div class="footer-contact">
+    <a href="tel:9522583100">952-258-3100</a>
+    <a href="mailto:geoffrey@serdarpartnersrealty.com">geoffrey@serdarpartnersrealty.com</a>
+    <a href="https://www.compass.com/agents/geoffrey-serdar/" target="_blank">Compass Profile</a>
+  </div>
+  <p class="footer-legal">
+    Serving Victoria, Carver County &amp; the Lake Minnetonka area &nbsp;·&nbsp; Licensed in Minnesota &nbsp;·&nbsp; Serdar+Partners at Compass<br />
+    &copy; 2026 Geoffrey Serdar. All rights reserved.
+  </p>
+</footer>
+
+<script>
+// Which page is this? Stamps every lead so the CRM/bridge can tag it by city.
+const PAGE_LOCAL = 'Victoria';
+
+// Capture lead source on page load (UTM / Google Ads / referrer)
+const LEAD_SOURCE = (function () {
+  const p = new URLSearchParams(window.location.search);
+  return {
+    utm_source: p.get('utm_source') || '',
+    utm_medium: p.get('utm_medium') || '',
+    utm_campaign: p.get('utm_campaign') || '',
+    gclid: p.get('gclid') || '',
+    referrer: document.referrer || ''
+  };
+})();
+
+// LAYER 1 — front door: block structurally-impossible US numbers in the browser.
+function isValidUSPhone(raw) {
+  var d = String(raw || '').replace(/\D/g, '');
+  if (d.length === 11 && d.charAt(0) === '1') d = d.slice(1);
+  if (d.length !== 10) return false;
+  var area = +d.charAt(0);
+  var exch = +d.charAt(3);
+  if (area < 2 || exch < 2) return false;                       // NANP: must be 2-9
+  if (d.charAt(1) === '1' && d.charAt(2) === '1') return false; // N11 service codes
+  if (d.slice(3, 6) === '555') return false;                    // 555 exchange = classic fake / fictional number
+  if (/^(\d)\1{9}$/.test(d)) return false;                      // all identical digits
+  return true;
+}
+
+function showPhoneError() {
+  var err = document.getElementById('phoneError');
+  var inp = document.getElementById('phone');
+  if (err) err.classList.add('visible');
+  if (inp) { inp.classList.add('input-error'); inp.focus(); }
+}
+function clearPhoneError() {
+  var err = document.getElementById('phoneError');
+  var inp = document.getElementById('phone');
+  if (err) err.classList.remove('visible');
+  if (inp) inp.classList.remove('input-error');
+}
+
+function setChecking(on) {
+  var btn = document.querySelector('.submit-btn');
+  if (!btn) return;
+  if (on) { btn.disabled = true; btn.style.opacity = '0.7'; btn.textContent = 'Checking…'; }
+  else { btn.disabled = false; btn.style.opacity = ''; btn.textContent = 'Get in Touch'; }
+}
+
+// LAYER 2 — carrier check via the Twilio Function. Also fires the speed-to-lead
+// text on a good number. Fails OPEN on timeout/error so a real lead is never lost.
+const LEAD_ALERT_URL = 'https://lead-alert-4343.twil.io/lead-alert';
+const INTEREST_DETAIL = {
+  'selling': 'Thinking about a move (no rush) - Seller, no urgency, patient, plant a seed',
+  'buying': 'Just starting to look around - Early buyer, educate, build rapport, dont push',
+  'both': 'We are running out of room here - Move-up, space-driven, real timeline',
+  'investing': 'Have money Id like to put to work - Investor, talk numbers, direct, ROI-minded',
+  'probate': 'Helping with a family members home - Probate/grief, empathy first, slow, never transactional',
+  'just looking': 'Just curious what my place is worth - Curiosity, not-ready, value-first, long game'
+};
+function interestDetail(v) { return INTEREST_DETAIL[v] || v || '(none selected)'; }
+const LEAD_ALERT_SECRET = 'slx_9f3Kqe2R';
+
+function checkNumber(name, phone, interest) {
+  var controller = new AbortController();
+  var timer = setTimeout(function () { controller.abort(); }, 2500);
+  var data = new URLSearchParams({
+    secret: LEAD_ALERT_SECRET,
+    name: name, phone: phone, interest: interest,
+    site: window.location.hostname + window.location.pathname,
+    local: PAGE_LOCAL,
+    utm_source: LEAD_SOURCE.utm_source,
+    utm_medium: LEAD_SOURCE.utm_medium,
+    utm_campaign: LEAD_SOURCE.utm_campaign,
+    gclid: LEAD_SOURCE.gclid,
+    referrer: LEAD_SOURCE.referrer
+  });
+  return fetch(LEAD_ALERT_URL, { method: 'POST', body: data, signal: controller.signal })
+    .then(function (r) { clearTimeout(timer); return r.json(); })
+    .catch(function () { clearTimeout(timer); return { valid: true, failOpen: true }; });
+}
+
+function submitToFormspree(name, phone, interest) {
+  var FORM_ID = 'mpqerwwk';
+  fetch('https://formspree.io/f/' + FORM_ID, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+    body: JSON.stringify({
+      name: name, phone: phone, interest: interest, interest_detail: interestDetail(interest),
+      local: PAGE_LOCAL,
+      utm_source: LEAD_SOURCE.utm_source,
+      utm_medium: LEAD_SOURCE.utm_medium,
+      utm_campaign: LEAD_SOURCE.utm_campaign,
+      gclid: LEAD_SOURCE.gclid,
+      referrer: LEAD_SOURCE.referrer
+    })
+  }).catch(function () {});
+}
+
+async function handleSubmit(e) {
+  e.preventDefault();
+  var name = document.getElementById('name').value.trim();
+  var phone = document.getElementById('phone').value.trim();
+  var interest = document.getElementById('interest').value;
+
+  // Layer 1 — impossible numbers never get in.
+  if (!isValidUSPhone(phone)) { showPhoneError(); return; }
+  clearPhoneError();
+
+  // Layer 2 — carrier check (also triggers the alert text on a good number).
+  setChecking(true);
+  var verdict = await checkNumber(name, phone, interest);
+  setChecking(false);
+
+  if (verdict && verdict.valid === false) {
+    showPhoneError();   // looks fine, but the carrier says it isn't a working line
+    return;
+  }
+
+  // Passed (or check was inconclusive / timed out) -> record + finish.
+  submitToFormspree(name, phone, interest);
+  showSuccess();
+}
+
+let leadConverted = false;
+
+/* ================= RAZIEL S65 (2026-07-28) — lead telemetry + confirmation visibility =================
+   WHY: showSuccess() only ever fired the Google ADS conversion. GA4 was never told a lead
+   happened, so GA4 logged 0 leads for 90 days while Ads counted 4. Also, hiding the form
+   collapsed the page and scrolled the confirmation out of view, so people saw no confirmation.
+   ==================================================================================================== */
+function RAZIEL_gaLead() {
+  try {
+    if (typeof gtag !== 'function') return;
+    var LS = (typeof LEAD_SOURCE !== 'undefined' && LEAD_SOURCE) ? LEAD_SOURCE : {};
+    gtag('event', 'generate_lead', {
+      currency: 'USD',
+      value: 1.0,
+      lead_source: LS.utm_source || '',
+      lead_medium: LS.utm_medium || '',
+      lead_campaign: LS.utm_campaign || '',
+      gclid_present: LS.gclid ? 'yes' : 'no',
+      page_path: location.pathname
+    });
+  } catch (e) {}
+}
+function RAZIEL_scrollToSuccess() {
+  try {
+    var el = document.getElementById('successState');
+    if (el && el.scrollIntoView) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  } catch (e) {}
+}
+
+function showSuccess() {
+  document.getElementById('formFields').classList.add('hidden');
+  document.getElementById('successState').classList.add('visible');
+  if (!leadConverted) {
+    leadConverted = true;
+    gtag('event', 'conversion', {
+      'send_to': 'AW-17849235035/jRxICLmDpr0cENvslr9C',
+      'value': 1.0,
+      'currency': 'USD'
+    });
+    RAZIEL_gaLead();
+  }
+  RAZIEL_scrollToSuccess();
+}
+
+// Auto-format phone as XXX-XXX-XXXX while typing; clear any error as they fix it
+document.getElementById('phone').addEventListener('input', function (e) {
+  var v = e.target.value.replace(/[^0-9]/g, '').slice(0, 10);
+  if (v.length >= 7) { v = v.slice(0,3) + '-' + v.slice(3,6) + '-' + v.slice(6); }
+  else if (v.length >= 4) { v = v.slice(0,3) + '-' + v.slice(3); }
+  e.target.value = v;
+  clearPhoneError();
+});
+</script>
+
+
+<!-- raziel: form drop-off tracking -->
+<script>
+(function () {
+  var lastField = null;
+  ['name', 'phone'].forEach(function (id) {
+    var el = document.getElementById(id);
+    if (!el) return;
+    el.addEventListener('focus', function () { lastField = id; });
+    el.addEventListener('input', function () { lastField = id; });
+    el.addEventListener('change', function () { lastField = id; });
+  });
+
+  // Interest chips — one-tap, optional, non-blocking. Sets the hidden #interest.
+  var chips = document.getElementById('interestChips');
+  var hidden = document.getElementById('interest');
+  if (chips && hidden) {
+    chips.addEventListener('click', function (e) {
+      var chip = e.target.closest('.chip');
+      if (!chip) return;
+      lastField = 'interest';
+      var val = chip.getAttribute('data-value');
+      var already = chip.classList.contains('selected');
+      chips.querySelectorAll('.chip').forEach(function (c) {
+        c.classList.remove('selected'); c.setAttribute('aria-pressed', 'false');
+      });
+      if (already) {
+        hidden.value = '';
+      } else {
+        chip.classList.add('selected');
+        chip.setAttribute('aria-pressed', 'true');
+        hidden.value = val;
+        if (typeof gtag === 'function') {
+          gtag('event', 'interest_selected', { interest_value: val });
+        }
+      }
+    });
+  }
+
+  var fired = false;
+  window.addEventListener('pagehide', function () {
+    if (fired || !lastField) return;
+    var ok = document.getElementById('successState');
+    if (ok && ok.classList.contains('visible')) return;
+    fired = true;
+    if (typeof gtag === 'function') {
+      gtag('event', 'form_abandon', { last_field: lastField });
+    }
+  });
+})();
+</script>
+</body>
+</html>
+
+<!-- redeploy 1783299512 -->
