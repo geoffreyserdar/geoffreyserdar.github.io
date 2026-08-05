@@ -414,6 +414,36 @@ footer { border-top: 1px solid rgba(138, 155, 176, 0.1); padding: 40px 32px; tex
   .hero-cues { gap: 14px; }
 }
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+
+/* ===== S67 CONVERSION REBUILD — give before you ask ===== */
+.doors { margin: 0 0 26px; }
+.doors-q { font-size: 15px; font-weight: 600; color: #F8F6F1; margin: 0 0 12px; }
+.door-btns { display: grid; gap: 10px; margin: 18px 0 4px; }
+.door-btn { display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%;
+  padding: 17px 20px; border-radius: 6px; font-size: 16px; font-weight: 700; letter-spacing: .3px;
+  text-decoration: none; border: 0; cursor: pointer; transition: transform .08s, filter .15s; }
+.door-btn:active { transform: translateY(1px); }
+.door-text { background: #C9A84C; color: #0A1628; }
+.door-text:hover { filter: brightness(1.08); }
+.door-call { background: transparent; color: #C9A84C; border: 1px solid rgba(201,168,76,.55); }
+.door-call:hover { background: rgba(201,168,76,.10); }
+.door-note { font-size: 13px; color: #8A9BB0; text-align: center; margin: 14px 0 0; line-height: 1.55; }
+.door-reply { display: none; background: rgba(201,168,76,.08); border-left: 3px solid #C9A84C;
+  border-radius: 4px; padding: 14px 16px; margin: 4px 0 0; font-size: 15px; color: #F8F6F1; }
+.door-reply.visible { display: block; }
+.or-rule { display: flex; align-items: center; gap: 14px; margin: 26px 0 20px; }
+.or-rule::before, .or-rule::after { content: ""; flex: 1; height: 1px; background: rgba(138,155,176,.20); }
+.or-rule span { font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: #8A9BB0; }
+.optional-tag { font-size: 11px; font-weight: 500; letter-spacing: 1px; text-transform: uppercase;
+  color: #8A9BB0; margin-left: 8px; }
+.keepgoing { max-width: 620px; margin: 0 auto; padding: 34px 24px 8px; }
+.keepgoing h3 { font-family: 'Playfair Display', serif; font-size: 21px; color: #F8F6F1; margin: 0 0 6px; }
+.keepgoing p.kg-sub { font-size: 14px; color: #8A9BB0; margin: 0 0 18px; }
+.kg-link { display: block; padding: 15px 0; border-top: 1px solid rgba(138,155,176,.15);
+  color: #F8F6F1; text-decoration: none; font-size: 15px; }
+.kg-link:last-child { border-bottom: 1px solid rgba(138,155,176,.15); }
+.kg-link span { display: block; font-size: 13px; color: #8A9BB0; margin-top: 3px; }
+.kg-link:hover { color: #C9A84C; }
 </style>
 </head>
 
@@ -530,16 +560,40 @@ footer { border-top: 1px solid rgba(138, 155, 176, 0.1); padding: 40px 32px; tex
 <div class="form-section" id="start">
   <div class="form-card">
     <div class="form-fields" id="formFields">
-      <h2 class="form-headline">Get your first look.</h2>
-      <p class="form-sub">Tell Geoffrey what you're after. He'll send hand-picked Lake Minnetonka homes &mdash; including off-market and coming-soon &mdash; straight to you. No portal logins, no spam.</p>
+      <h2 class="form-headline">Just tell Geoffrey what you're after.</h2>
+      <p class="form-sub">No account, no portal login, no drip campaign. Pick one below and he'll tell you what he actually thinks &mdash; including when the answer is &ldquo;don't buy that.&rdquo;</p>
+
+      <div class="doors">
+        <p class="doors-q">I'm looking for&hellip;</p>
+        <div class="chip-group" role="group" aria-label="What are you looking for" id="interestChips">
+          <button type="button" class="chip" data-value="buying" aria-pressed="false">A home to live in</button>
+          <button type="button" class="chip" data-value="early_access" aria-pressed="false">Off-market &amp; coming-soon</button>
+          <button type="button" class="chip" data-value="investing" aria-pressed="false">Investment property</button>
+          <button type="button" class="chip" data-value="creative_financing" aria-pressed="false">Creative financing</button>
+          <button type="button" class="chip" data-value="relocating" aria-pressed="false">Relocating to the area</button>
+          <button type="button" class="chip" data-value="both" aria-pressed="false">Buying and selling</button>
+          <button type="button" class="chip" data-value="just looking" aria-pressed="false">Just exploring</button>
+        </div>
+        <input type="hidden" id="interest" name="interest" value="" />
+
+        <p class="door-reply" id="doorReply"></p>
+
+        <div class="door-btns">
+          <a class="door-btn door-text" id="textBtn" href="sms:+19522583100">&#128241; Text Geoffrey</a>
+          <a class="door-btn door-call" id="callBtn" href="tel:9522583100">&#128222; Call 952-258-3100</a>
+        </div>
+        <p class="door-note">He answers his own phone. No call center, no assistant, no script.</p>
+      </div>
+
+      <div class="or-rule"><span>or leave your email</span></div>
       <form id="captureForm" onsubmit="handleSubmit(event)">
         <div class="field">
-          <label for="name">Your Name</label>
-          <input type="text" id="name" name="name" placeholder="First and last name" required autocomplete="name" />
+          <label for="name">Your Name <span class="optional-tag">optional</span></label>
+          <input type="text" id="name" name="name" placeholder="First and last name" autocomplete="name" />
         </div>
         <div class="field">
-          <label for="phone">Phone Number</label>
-          <input type="tel" id="phone" name="phone" placeholder="952-000-0000" required autocomplete="tel" />
+          <label for="phone">Phone Number <span class="optional-tag">optional</span></label>
+          <input type="tel" id="phone" name="phone" placeholder="952-000-0000" autocomplete="tel" />
           <p class="field-error" id="phoneError" role="alert">That number doesn't look quite right &mdash; mind double-checking it? Geoffrey calls every buyer personally, so we want to be sure it reaches you.</p>
         </div>
         <div class="field">
@@ -547,20 +601,8 @@ footer { border-top: 1px solid rgba(138, 155, 176, 0.1); padding: 40px 32px; tex
           <input type="email" id="email" name="email" placeholder="you@email.com" required autocomplete="email" />
           <p class="field-error" id="emailError" role="alert">That email doesn't look quite right &mdash; mind double-checking it? It's how Geoffrey sends you the homes.</p>
         </div>
-        <div class="field">
-          <label id="interestLabel">I'm looking for... <span class="optional">optional</span></label>
-          <div class="chip-group" role="group" aria-labelledby="interestLabel" id="interestChips">
-            <button type="button" class="chip" data-value="buying" aria-pressed="false">A home to live in</button>
-            <button type="button" class="chip" data-value="early_access" aria-pressed="false">Off-market &amp; coming-soon</button>
-            <button type="button" class="chip" data-value="investing" aria-pressed="false">Investment property</button>
-            <button type="button" class="chip" data-value="creative_financing" aria-pressed="false">Creative financing</button>
-            <button type="button" class="chip" data-value="relocating" aria-pressed="false">Relocating to the area</button>
-            <button type="button" class="chip" data-value="both" aria-pressed="false">Buying and selling</button>
-            <button type="button" class="chip" data-value="just looking" aria-pressed="false">Just exploring</button>
-          </div>
-          <input type="hidden" id="interest" name="interest" value="" />
-        </div>
-        <button type="submit" class="submit-btn">Start My Search</button>
+
+        <button type="submit" class="submit-btn">Send Me Homes</button>
       </form>
       <p class="form-consent">By submitting this form, you agree that Serdar+Partners at Compass may contact you by phone call and text message (including by automated means) at the number you provide, regarding your real estate inquiry. Consent is not a condition of any purchase. Message &amp; data rates may apply; message frequency varies. Reply STOP to opt out, HELP for help. See our <a href="/privacy">Privacy Policy</a>.</p>
     </div>
@@ -572,6 +614,20 @@ footer { border-top: 1px solid rgba(138, 155, 176, 0.1); padding: 40px 32px; tex
       <p class="success-crosslink">Own a home you'd need to sell too?<br /><a href="/keep-or-sell/">Run your 5-year keep-or-sell math &rarr;</a></p>
     </div>
   </div>
+</div>
+
+<!-- S67 — KEEP GOING: the third door. Ad traffic routed into the guides,
+     which hold readers 90-100s vs 18.6s on this page. Do not remove. -->
+<div class="keepgoing">
+  <h3>Not ready to talk to anybody?</h3>
+  <p class="kg-sub">Fair. Read something instead &mdash; this is the stuff Geoffrey actually knows.</p>
+  <a class="kg-link" href="/guides/downtown-victoria-mn/?utm_source=lmh&amp;utm_medium=keepgoing">What downtown Victoria is becoming
+    <span>The restaurateur who bet on a small-town main street &mdash; and what it says about buying here.</span></a>
+  <a class="kg-link" href="/guides/living-on-ches-mar-farm/?utm_source=lmh&amp;utm_medium=keepgoing">Living on Ches Mar Farm
+    <span>Five homes on a gravel road inside Excelsior. Geoffrey lives on it.</span></a>
+  <a class="kg-link" href="/guides/lost-lake-boat-slips/?utm_source=lmh&amp;utm_medium=keepgoing">The Lost Lake boat slips
+    <span>What a Mound city slip is worth, how it transfers, and how owners lose it.</span></a>
+  <a class="kg-link" href="/guides/?utm_source=lmh&amp;utm_medium=keepgoing">All Lake Minnetonka guides <span>Everything, in one place.</span></a>
 </div>
 
 <!-- DOOR 2 — the calculator: the soft path for the not-ready browser -->
@@ -904,8 +960,43 @@ document.getElementById('phone').addEventListener('input', function (e) {
           gtag('event', 'interest_selected', { interest_value: val });
         }
       }
+      setDoors(hidden.value || null);
     });
   }
+
+  // S67 — chip selection now personalises the text message and answers back,
+  // instead of revealing a wall of required fields.
+  var REPLY = {
+    buying:             { r: "Good. Tell him the towns you\u2019re circling and the number that actually works \u2014 he\u2019ll tell you what it really buys.", m: "Hi Geoffrey \u2014 I\u2019m looking for a home around Lake Minnetonka. Can you tell me what my budget actually gets me?" },
+    early_access:       { r: "That\u2019s the part portals can\u2019t do. He hears about these before they\u2019re public.", m: "Hi Geoffrey \u2014 I\u2019d like to hear about off-market and coming-soon homes around Lake Minnetonka." },
+    investing:          { r: "Different math entirely. Tell him the return you need and he\u2019ll tell you if this lake supports it.", m: "Hi Geoffrey \u2014 I\u2019m looking at investment property around Lake Minnetonka. Can we talk numbers?" },
+    creative_financing: { r: "Worth a real conversation \u2014 assumable loans and contract for deed both exist out here, and both have teeth.", m: "Hi Geoffrey \u2014 I\u2019d like to talk through creative financing options on a purchase." },
+    relocating:         { r: "Then the town matters more than the house. That\u2019s the conversation to have first.", m: "Hi Geoffrey \u2014 I\u2019m relocating to the Lake Minnetonka area and trying to figure out which town fits." },
+    both:               { r: "The order matters and it\u2019s where most people get hurt. Ask him how to sequence it.", m: "Hi Geoffrey \u2014 I need to buy and sell. How should I sequence it?" },
+    "just looking":     { r: "Perfectly fine. No pitch \u2014 ask him anything and he\u2019ll just answer it.", m: "Hi Geoffrey \u2014 just starting to look around Lake Minnetonka. Mind if I ask you a few questions?" }
+  };
+  var DEFAULT_MSG = "Hi Geoffrey \u2014 I saw your site and had a question about Lake Minnetonka homes.";
+  function setDoors(val) {
+    var reply = document.getElementById('doorReply');
+    var tbtn  = document.getElementById('textBtn');
+    var cfg   = REPLY[val];
+    if (reply) {
+      if (cfg) { reply.textContent = cfg.r; reply.classList.add('visible'); }
+      else { reply.textContent = ''; reply.classList.remove('visible'); }
+    }
+    if (tbtn) {
+      tbtn.setAttribute('href', 'sms:+19522583100?&body=' + encodeURIComponent(cfg ? cfg.m : DEFAULT_MSG));
+    }
+  }
+  setDoors(null);
+  var tb = document.getElementById('textBtn');
+  if (tb) tb.addEventListener('click', function () {
+    if (typeof gtag === 'function') gtag('event', 'text_tap', { interest_value: (hidden && hidden.value) || '(none)' });
+  });
+  var cb = document.getElementById('callBtn');
+  if (cb) cb.addEventListener('click', function () {
+    if (typeof gtag === 'function') gtag('event', 'call_tap', { interest_value: (hidden && hidden.value) || '(none)' });
+  });
 
   var fired = false;
   window.addEventListener('pagehide', function () {
