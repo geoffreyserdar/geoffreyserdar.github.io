@@ -106,7 +106,7 @@ p { margin: 0 0 20px; }
 .vids { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; }
 .vids .feature { grid-column: 1 / -1; }
 .vid { position: relative; border-radius: 4px; overflow: hidden; background: var(--navy); aspect-ratio: 16/9; cursor: pointer; border: 0; padding: 0; width: 100%; display: block; }
-.vid img { width: 100%; height: 100%; object-fit: cover; filter: brightness(.88); transition: .4s; display: block; }
+.vid img { width: 100%; height: 100%; object-fit: cover; filter: none; transition: .4s; display: block; }
 .vid:hover img, .vid:focus img { filter: brightness(1); transform: scale(1.02); }
 .vid:focus { outline: 3px solid var(--olive); outline-offset: 2px; }
 .vid .play { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; pointer-events: none; }
@@ -293,7 +293,7 @@ footer .legal { margin-top: 18px; line-height: 1.8; }
       b.className = 'vid' + (v.feature ? ' feature' : '');
       b.type = 'button';
       b.setAttribute('aria-label', 'Play video' + (v.cap ? ': ' + v.cap : ''));
-      b.innerHTML = '<img loading="lazy" src="https://img.youtube.com/vi/' + v.id + '/hqdefault.jpg" alt="">'
+      b.innerHTML = '<img loading="lazy" src="https://img.youtube.com/vi/' + v.id + '/maxresdefault.jpg" onerror="this.onerror=null;this.src=&quot;https://img.youtube.com/vi/' + v.id + '/hqdefault.jpg&quot;" alt="">'
         + '<span class="play"><i></i></span>'
         + (v.cap ? '<span class="cap">' + v.cap + '</span>' : '');
       b.addEventListener('click', function () {
