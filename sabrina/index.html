@@ -58,7 +58,7 @@ body {
 a { color: var(--gold); text-decoration: none; }
 
 /* TOPBAR */
-.topbar { border-bottom: 1px solid rgba(138,155,176,0.12); }
+.topbar { border-bottom: 1px solid rgba(77,72,57,0.12); }
 .topbar-inner { max-width: 860px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 20px 32px; }
 .brandmark { font-family: 'Playfair Display', serif; font-weight: 900; font-size: 20px; color: var(--warm); letter-spacing: -0.5px; }
 .brandmark span { color: var(--gold); }
@@ -143,21 +143,21 @@ a { color: var(--gold); text-decoration: none; }
 .field { margin-bottom: 16px; }
 .field label { display: block; font-size: 11px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--mid); margin-bottom: 8px; }
 .field input, .field select, .field textarea {
-  width: 100%; background: var(--navy); border: 1px solid rgba(138,155,176,0.25);
+  width: 100%; background: var(--navy); border: 1px solid rgba(77,72,57,0.25);
   border-radius: 3px; color: var(--warm); font-family: 'Inter', sans-serif; font-size: 15px;
   padding: 14px 16px; outline: none; transition: border-color 0.2s; appearance: none;
 }
 .field textarea { resize: vertical; min-height: 68px; line-height: 1.5; }
 .field select { cursor: pointer; background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20width%3D%2214%22%20height%3D%228%22%20viewBox%3D%220%200%2014%208%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cpath%20d%3D%22M1%201l6%206%206-6%22%20stroke%3D%22%238A9BB0%22%20stroke-width%3D%222%22%20fill%3D%22none%22%20stroke-linecap%3D%22round%22/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 16px center; padding-right: 42px; }
-.field input::placeholder, .field textarea::placeholder { color: rgba(138,155,176,0.5); }
+.field input::placeholder, .field textarea::placeholder { color: rgba(77,72,57,0.5); }
 .field input:focus, .field select:focus, .field textarea:focus { border-color: var(--gold); }
 .field input.input-error, .field select.input-error { border-color: #E8A0A0; }
-.field-optional { font-weight: 400; text-transform: none; letter-spacing: 0; color: rgba(138,155,176,0.6); font-size: 10.5px; }
+.field-optional { font-weight: 400; text-transform: none; letter-spacing: 0; color: rgba(77,72,57,0.6); font-size: 10.5px; }
 .field-error { display: none; margin-top: 8px; font-size: 12px; line-height: 1.5; color: #E8A0A0; }
 .field-error.visible { display: block; }
-.field .optional { text-transform: none; letter-spacing: 0; color: rgba(138,155,176,0.6); font-weight: 400; font-size: 10px; }
+.field .optional { text-transform: none; letter-spacing: 0; color: rgba(77,72,57,0.6); font-weight: 400; font-size: 10px; }
 .chip-group { display: flex; flex-wrap: wrap; gap: 8px; }
-.chip { background: var(--navy); border: 1px solid rgba(138, 155, 176, 0.25); border-radius: 999px; color: var(--warm); font-family: 'Inter', sans-serif; font-size: 13px; padding: 9px 15px; cursor: pointer; transition: border-color 0.15s, background 0.15s, color 0.15s; -webkit-tap-highlight-color: transparent; }
+.chip { background: var(--navy); border: 1px solid rgba(77, 72, 57, 0.25); border-radius: 999px; color: var(--warm); font-family: 'Inter', sans-serif; font-size: 13px; padding: 9px 15px; cursor: pointer; transition: border-color 0.15s, background 0.15s, color 0.15s; -webkit-tap-highlight-color: transparent; }
 .chip:hover { border-color: var(--gold); }
 .chip.selected { background: var(--gold); border-color: var(--gold); color: var(--navy); font-weight: 600; }
 .calc-error { display: none; margin-top: 12px; font-size: 13px; line-height: 1.5; color: #E8A0A0; text-align: center; }
@@ -195,13 +195,13 @@ a { color: var(--gold); text-decoration: none; }
 .cta-action:hover { background: var(--gold); color: var(--navy); }
 
 /* FOOTER */
-footer { border-top: 1px solid rgba(138,155,176,0.1); padding: 40px 32px; text-align: center; margin-top: 72px; }
+footer { border-top: 1px solid rgba(77,72,57,0.1); padding: 40px 32px; text-align: center; margin-top: 72px; }
 .footer-name { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; color: var(--warm); margin-bottom: 4px; }
 .footer-brokerage { font-size: 12px; color: var(--mid); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 20px; }
 .footer-contact { display: flex; justify-content: center; gap: 26px; flex-wrap: wrap; }
 .footer-contact a { font-size: 13px; color: var(--gold); text-decoration: none; letter-spacing: 0.3px; }
 .footer-contact a:hover { color: var(--gold2); }
-.footer-legal { font-size: 11px; color: rgba(138,155,176,0.35); margin-top: 24px; line-height: 1.6; }
+.footer-legal { font-size: 11px; color: rgba(77,72,57,0.35); margin-top: 24px; line-height: 1.6; }
 .footer-legal a { color: var(--gold); text-decoration: none; }
 
 @media (max-width: 560px) {
@@ -238,6 +238,10 @@ footer .footer-contact a:hover{ color:#E0C79B; }
 footer .footer-legal, footer .footer-legal a{ color:#8A8375; }
 .field input, .field select { border:1px solid #B9AC8E; background:#FAF7EF; }
 .field input::placeholder { color:#6E6752; opacity:1; }
+
+/* Aug 18 — placeholders read as examples, typed text reads as answers */
+.field input, .field select { color:#1F201C; }
+.field input::placeholder { color:#A39B87; opacity:1; }
 </style>
 </head>
 
