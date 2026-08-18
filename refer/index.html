@@ -103,7 +103,7 @@ body {
   margin-bottom: 4px; margin-top: 8px;
 }
 .form-section-hint { font-size: 13px; color: var(--mid); margin-bottom: 18px; line-height: 1.5; }
-.form-divider { height: 1px; background: rgba(138,155,176,0.15); margin: 28px 0 24px; }
+.form-divider { height: 1px; background: rgba(77,72,57,0.15); margin: 28px 0 24px; }
 .field { margin-bottom: 16px; }
 .field label {
   display: block; font-size: 11px; font-weight: 600; letter-spacing: 1.5px;
@@ -112,7 +112,7 @@ body {
 .field input, .field textarea {
   width: 100%;
   background: var(--navy);
-  border: 1px solid rgba(138, 155, 176, 0.25);
+  border: 1px solid rgba(77, 72, 57, 0.25);
   border-radius: 3px;
   color: var(--warm);
   font-family: 'Inter', sans-serif;
@@ -123,10 +123,10 @@ body {
   appearance: none;
 }
 .field textarea { resize: vertical; min-height: 70px; line-height: 1.5; }
-.field input::placeholder, .field textarea::placeholder { color: rgba(138, 155, 176, 0.5); }
+.field input::placeholder, .field textarea::placeholder { color: rgba(77, 72, 57, 0.5); }
 .field input:focus, .field textarea:focus { border-color: var(--gold); }
 .field input.input-error { border-color: #E8A0A0; }
-.field-optional { font-weight: 400; text-transform: none; letter-spacing: 0; color: rgba(138,155,176,0.6); font-size: 10.5px; }
+.field-optional { font-weight: 400; text-transform: none; letter-spacing: 0; color: rgba(77,72,57,0.6); font-size: 10.5px; }
 .field-error { display: none; margin-top: 8px; font-size: 12px; line-height: 1.5; color: #E8A0A0; }
 .field-error.visible { display: block; }
 .calc-error { display: none; margin-top: 12px; font-size: 13px; line-height: 1.5; color: #E8A0A0; text-align: center; }
@@ -169,13 +169,13 @@ body {
 .cta-action:hover { background: var(--gold); color: var(--navy); }
 
 /* FOOTER */
-footer { border-top: 1px solid rgba(138, 155, 176, 0.1); padding: 40px 32px; text-align: center; margin-top: 72px; }
+footer { border-top: 1px solid rgba(77, 72, 57, 0.1); padding: 40px 32px; text-align: center; margin-top: 72px; }
 .footer-name { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; color: var(--warm); margin-bottom: 4px; }
 .footer-brokerage { font-size: 12px; color: var(--mid); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 20px; }
 .footer-contact { display: flex; justify-content: center; gap: 32px; flex-wrap: wrap; }
 .footer-contact a { font-size: 13px; color: var(--gold); text-decoration: none; letter-spacing: 0.3px; }
 .footer-contact a:hover { color: var(--gold2); }
-.footer-legal { font-size: 11px; color: rgba(138, 155, 176, 0.35); margin-top: 24px; line-height: 1.6; }
+.footer-legal { font-size: 11px; color: rgba(77, 72, 57, 0.35); margin-top: 24px; line-height: 1.6; }
 .footer-legal a { color: var(--gold); text-decoration: none; }
 
 @media (max-width: 480px) {
@@ -213,6 +213,10 @@ footer .footer-contact a:hover{ color:#E0C79B; }
 footer .footer-legal, footer .footer-legal a{ color:#8A8375; }
 .field input, .field select { border:1px solid #B9AC8E; background:#FAF7EF; }
 .field input::placeholder { color:#6E6752; opacity:1; }
+
+/* Aug 18 — placeholders read as examples, typed text reads as answers */
+.field input, .field select { color:#1F201C; }
+.field input::placeholder { color:#A39B87; opacity:1; }
 </style>
 </head>
 
