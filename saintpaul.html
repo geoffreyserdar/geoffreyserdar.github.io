@@ -4,6 +4,10 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Geoffrey Serdar | Saint Paul Realtor &mdash; Summit Hill, Crocus Hill &amp; Cathedral Hill</title>
+
+<!-- begin Pixel Code (Compass Lead Flow — real estate only) -->
+<script src="https://www.compass.com/cxlp/a.min.js" id="cxlp-ajs" data-client-id="dh30gl6zq3rg" async></script>
+<!-- end Pixel Code -->
 <meta name="description" content="Geoffrey Serdar sells and finds historic, architectural homes across Saint Paul's premier neighborhoods — Summit Avenue, Crocus Hill, Cathedral Hill, Mac-Groveland, and Highland Park. A Saint Paul native. 13 years, 360+ families served. He answers his own phone." />
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
 
@@ -20,13 +24,13 @@
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 :root {
-  --navy: #0A1628;
-  --navy2: #112240;
-  --gold: #C9A84C;
-  --gold2: #E8C96A;
-  --warm: #F8F6F1;
-  --mid: #8A9BB0;
-  --white: #FFFFFF;
+  --navy: #ECE4D4;
+  --navy2: #E3DAC6;
+  --gold: #8A6A3F;
+  --gold2: #C9A877;
+  --warm: #1F201C;
+  --mid: #4D4839;
+  --white: #FAF7EF;
 }
 html { scroll-behavior: smooth; }
 body {
@@ -121,7 +125,7 @@ body {
 .field input, .field select {
   width: 100%;
   background: var(--navy);
-  border: 1px solid rgba(138, 155, 176, 0.25);
+  border: 1px solid rgba(77, 72, 57, 0.25);
   border-radius: 3px;
   color: var(--warm);
   font-family: 'Inter', sans-serif;
@@ -131,7 +135,7 @@ body {
   transition: border-color 0.2s;
   appearance: none;
 }
-.field input::placeholder { color: rgba(138, 155, 176, 0.5); }
+.field input::placeholder { color: rgba(77, 72, 57, 0.5); }
 .field input:focus, .field select:focus { border-color: var(--gold); }
 .field input.input-error { border-color: #E8A0A0; }
 .field select option { background: var(--navy); color: var(--warm); }
@@ -144,6 +148,22 @@ body {
   color: #E8A0A0;
 }
 .field-error.visible { display: block; }
+.field .optional { text-transform: none; letter-spacing: 0; color: rgba(77,72,57,0.6); font-weight: 400; font-size: 10px; }
+.chip-group { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip {
+  background: var(--navy);
+  border: 1px solid rgba(77, 72, 57, 0.25);
+  border-radius: 999px;
+  color: var(--warm);
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  padding: 9px 15px;
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s, color 0.15s;
+  -webkit-tap-highlight-color: transparent;
+}
+.chip:hover { border-color: var(--gold); }
+.chip.selected { background: var(--gold); border-color: var(--gold); color: var(--navy); font-weight: 600; }
 .submit-btn {
   width: 100%;
   background: var(--gold);
@@ -162,7 +182,7 @@ body {
 .submit-btn:active { transform: scale(0.99); }
 .submit-btn:disabled { cursor: default; }
 .form-privacy {
-  font-size: 11px; color: rgba(138, 155, 176, 0.5);
+  font-size: 11px; color: rgba(77, 72, 57, 0.5);
   text-align: center; margin-top: 14px; line-height: 1.5;
 }
 /* SUCCESS STATE */
@@ -211,13 +231,13 @@ body {
 .spec-title { font-size: 13px; font-weight: 600; color: var(--warm); margin-bottom: 6px; letter-spacing: 0.3px; }
 .spec-desc { font-size: 12px; color: var(--mid); line-height: 1.5; }
 /* FOOTER */
-footer { border-top: 1px solid rgba(138, 155, 176, 0.1); padding: 40px 32px; text-align: center; }
+footer { border-top: 1px solid rgba(77, 72, 57, 0.1); padding: 40px 32px; text-align: center; }
 .footer-name { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; color: var(--warm); margin-bottom: 4px; }
 .footer-brokerage { font-size: 12px; color: var(--mid); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 20px; }
 .footer-contact { display: flex; justify-content: center; gap: 32px; flex-wrap: wrap; }
 .footer-contact a { font-size: 13px; color: var(--gold); text-decoration: none; letter-spacing: 0.3px; }
 .footer-contact a:hover { color: var(--gold2); }
-.footer-legal { font-size: 11px; color: rgba(138, 155, 176, 0.35); margin-top: 24px; line-height: 1.6; }
+.footer-legal { font-size: 11px; color: rgba(77, 72, 57, 0.35); margin-top: 24px; line-height: 1.6; }
 /* RESPONSIVE */
 @media (max-width: 480px) {
   .hero { padding: 48px 24px 40px; }
@@ -264,7 +284,48 @@ footer { border-top: 1px solid rgba(138, 155, 176, 0.1); padding: 40px 32px; tex
   .keepsell { padding-left: 24px; padding-right: 24px; }
   .keepsell-card { padding: 32px 24px; }
 }
+
+/* Aug 18 — olive for structural labels; brass reserved for tappable things */
+.eyebrow, .section-eyebrow, .keepsell-eyebrow { color: #4F5B33; }
+
+/* Aug 18 — olive band, the accent wall */
+.specialties{
+  background:#E2E4D3;
+  padding-top:56px; padding-bottom:56px;
+  box-shadow:0 0 0 100vmax #E2E4D3;
+  clip-path:inset(0 -100vmax);
+}
+.specialties .spec-item{ background:#FAF9F1; border:1px solid #C9CDB4; }
+.specialties .section-eyebrow{ color:#3F4A26; }
+
+/* Aug 18 — dark close, matching the reviews page */
+.reach-band{
+  background:#1D1E1A; color:#ECE4D4;
+  padding:72px 32px 64px; margin-top:64px;
+  box-shadow:0 0 0 100vmax #1D1E1A; clip-path:inset(0 -100vmax);
+}
+.reach-band .reach-label{ color:#A9A192; }
+.reach-band .reach-phone{ color:#C9A877; }
+.reach-band .reach-phone:hover{ color:#E0C79B; }
+.reach-band .reach-action{ border-color:rgba(201,168,119,.55); color:#C9A877; }
+.reach-band .reach-action:hover{ background:#C9A877; color:#1D1E1A; }
+footer{
+  background:#2C2D27; color:#A49C89; border-top:1px solid rgba(201,168,119,.28);
+  box-shadow:0 0 0 100vmax #2C2D27; clip-path:inset(0 -100vmax);
+}
+footer .footer-name{ color:#ECE4D4; }
+footer .footer-brokerage{ color:#A49C89; }
+footer .footer-contact a{ color:#C9A877; }
+footer .footer-contact a:hover{ color:#E0C79B; }
+footer .footer-legal, footer .footer-legal a{ color:#8A8375; }
+.field input, .field select { border:1px solid #B9AC8E; background:#FAF7EF; }
+.field input::placeholder { color:#6E6752; opacity:1; }
+
+/* Aug 18 — placeholders read as examples, typed text reads as answers */
+.field input, .field select { color:#1F201C; }
+.field input::placeholder { color:#A39B87; opacity:1; }
 </style>
+<link rel="canonical" href="https://geoffreyserdar.com/saintpaul/">
 </head>
 
 <body>
@@ -300,16 +361,16 @@ footer { border-top: 1px solid rgba(138, 155, 176, 0.1); padding: 40px 32px; tex
           <p class="field-error" id="phoneError" role="alert">That number doesn't look quite right &mdash; mind double-checking it? Geoffrey calls every lead personally, so we want to be sure it reaches you.</p>
         </div>
         <div class="field">
-          <label for="interest">I'm thinking about...</label>
-          <select id="interest" name="interest">
-            <option value="" disabled selected>What's bringing you here?</option>
-            <option value="selling">Thinking about a move (no rush)</option>
-            <option value="buying">Just starting to look around</option>
-            <option value="both">We're running out of room here</option>
-            <option value="investing">Have money I'd like to put to work</option>
-            <option value="probate">Helping with a family member's home</option>
-            <option value="just looking">Just curious what my place is worth</option>
-          </select>
+          <label id="interestLabel">I'm thinking about... <span class="optional">optional</span></label>
+          <div class="chip-group" role="group" aria-labelledby="interestLabel" id="interestChips">
+            <button type="button" class="chip" data-value="selling" aria-pressed="false">Thinking about a move</button>
+            <button type="button" class="chip" data-value="buying" aria-pressed="false">Just starting to look</button>
+            <button type="button" class="chip" data-value="both" aria-pressed="false">Running out of room</button>
+            <button type="button" class="chip" data-value="investing" aria-pressed="false">Money to put to work</button>
+            <button type="button" class="chip" data-value="probate" aria-pressed="false">Helping with a family home</button>
+            <button type="button" class="chip" data-value="just looking" aria-pressed="false">What's my place worth</button>
+          </div>
+          <input type="hidden" id="interest" name="interest" value="" />
         </div>
         <button type="submit" class="submit-btn">Get in Touch</button>
       </form>
@@ -399,6 +460,7 @@ footer { border-top: 1px solid rgba(138, 155, 176, 0.1); padding: 40px 32px; tex
     <a href="tel:9522583100">952-258-3100</a>
     <a href="mailto:geoffrey@serdarpartnersrealty.com">geoffrey@serdarpartnersrealty.com</a>
     <a href="https://www.compass.com/agents/geoffrey-serdar/" target="_blank">Compass Profile</a>
+    <a href="/reviews/">★ 4.8 · 62 Reviews</a>
   </div>
   <p class="footer-legal">
     Serving Saint Paul &amp; the Twin Cities &nbsp;·&nbsp; Licensed in Minnesota &nbsp;·&nbsp; Serdar+Partners at Compass<br />
@@ -532,6 +594,34 @@ async function handleSubmit(e) {
 }
 
 let leadConverted = false;
+
+/* ================= RAZIEL S65 (2026-07-28) — lead telemetry + confirmation visibility =================
+   WHY: showSuccess() only ever fired the Google ADS conversion. GA4 was never told a lead
+   happened, so GA4 logged 0 leads for 90 days while Ads counted 4. Also, hiding the form
+   collapsed the page and scrolled the confirmation out of view, so people saw no confirmation.
+   ==================================================================================================== */
+function RAZIEL_gaLead() {
+  try {
+    if (typeof gtag !== 'function') return;
+    var LS = (typeof LEAD_SOURCE !== 'undefined' && LEAD_SOURCE) ? LEAD_SOURCE : {};
+    gtag('event', 'generate_lead', {
+      currency: 'USD',
+      value: 1.0,
+      lead_source: LS.utm_source || '',
+      lead_medium: LS.utm_medium || '',
+      lead_campaign: LS.utm_campaign || '',
+      gclid_present: LS.gclid ? 'yes' : 'no',
+      page_path: location.pathname
+    });
+  } catch (e) {}
+}
+function RAZIEL_scrollToSuccess() {
+  try {
+    var el = document.getElementById('successState');
+    if (el && el.scrollIntoView) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  } catch (e) {}
+}
+
 function showSuccess() {
   document.getElementById('formFields').classList.add('hidden');
   document.getElementById('successState').classList.add('visible');
@@ -542,7 +632,9 @@ function showSuccess() {
       'value': 1.0,
       'currency': 'USD'
     });
+    RAZIEL_gaLead();
   }
+  RAZIEL_scrollToSuccess();
 }
 
 // Auto-format phone as XXX-XXX-XXXX while typing; clear any error as they fix it
@@ -560,21 +652,40 @@ document.getElementById('phone').addEventListener('input', function (e) {
 <script>
 (function () {
   var lastField = null;
-  ['name', 'phone', 'interest'].forEach(function (id) {
+  ['name', 'phone'].forEach(function (id) {
     var el = document.getElementById(id);
     if (!el) return;
     el.addEventListener('focus', function () { lastField = id; });
     el.addEventListener('input', function () { lastField = id; });
     el.addEventListener('change', function () { lastField = id; });
   });
-  var interest = document.getElementById('interest');
-  if (interest) {
-    interest.addEventListener('change', function () {
-      if (interest.value && typeof gtag === 'function') {
-        gtag('event', 'interest_selected', { interest_value: interest.value });
+
+  // Interest chips — one-tap, optional, non-blocking. Sets the hidden #interest.
+  var chips = document.getElementById('interestChips');
+  var hidden = document.getElementById('interest');
+  if (chips && hidden) {
+    chips.addEventListener('click', function (e) {
+      var chip = e.target.closest('.chip');
+      if (!chip) return;
+      lastField = 'interest';
+      var val = chip.getAttribute('data-value');
+      var already = chip.classList.contains('selected');
+      chips.querySelectorAll('.chip').forEach(function (c) {
+        c.classList.remove('selected'); c.setAttribute('aria-pressed', 'false');
+      });
+      if (already) {
+        hidden.value = '';
+      } else {
+        chip.classList.add('selected');
+        chip.setAttribute('aria-pressed', 'true');
+        hidden.value = val;
+        if (typeof gtag === 'function') {
+          gtag('event', 'interest_selected', { interest_value: val });
+        }
       }
     });
   }
+
   var fired = false;
   window.addEventListener('pagehide', function () {
     if (fired || !lastField) return;
