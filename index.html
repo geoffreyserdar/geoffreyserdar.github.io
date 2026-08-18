@@ -288,12 +288,22 @@ footer { border-top: 1px solid rgba(138, 155, 176, 0.1); padding: 40px 32px; tex
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
 
 /* Aug 18 — olive for structural labels; brass reserved for tappable things */
-.eyebrow, .section-eyebrow, .keepsell-eyebrow { color: #454935; }
+.eyebrow, .section-eyebrow, .keepsell-eyebrow { color: #4F5B33; }
 
 /* Aug 18 — reviews badge in the hero stats */
 a.stat-link { text-decoration: none; color: inherit; transition: opacity .2s; }
 a.stat-link:hover { opacity: .68; }
 a.stat-link .stat-number { color: #8A6A3F; }
+
+/* Aug 18 — olive band, the accent wall */
+.specialties{
+  background:#E2E4D3;
+  padding-top:56px; padding-bottom:56px;
+  box-shadow:0 0 0 100vmax #E2E4D3;
+  clip-path:inset(0 -100vmax);
+}
+.specialties .spec-item{ background:#FAF9F1; border:1px solid #C9CDB4; }
+.specialties .section-eyebrow{ color:#3F4A26; }
 </style>
 <link rel="canonical" href="https://geoffreyserdar.com/">
 </head>
