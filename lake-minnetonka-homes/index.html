@@ -41,13 +41,13 @@
 /* ============================================================= */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 :root {
-  --navy: #0A1628;
-  --navy2: #112240;
-  --gold: #C9A84C;
-  --gold2: #E8C96A;
-  --warm: #F8F6F1;
-  --mid: #8A9BB0;
-  --white: #FFFFFF;
+  --navy: #ECE4D4;
+  --navy2: #E3DAC6;
+  --gold: #8A6A3F;
+  --gold2: #C9A877;
+  --warm: #1F201C;
+  --mid: #4D4839;
+  --white: #FAF7EF;
 }
 html { scroll-behavior: smooth; }
 body {
@@ -159,7 +159,7 @@ body {
 .spec-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 24px; }
 .spec-item {
   background: var(--navy2);
-  border: 1px solid rgba(201, 168, 76, 0.15);
+  border: 1px solid rgba(138, 106, 63, 0.15);
   border-radius: 3px; padding: 20px 18px;
 }
 .spec-title { font-size: 13px; font-weight: 600; color: var(--warm); margin-bottom: 6px; letter-spacing: 0.3px; }
@@ -169,7 +169,7 @@ body {
 .teaser-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 24px; }
 .teaser-card {
   background: var(--navy2);
-  border: 1px solid rgba(201, 168, 76, 0.15);
+  border: 1px solid rgba(138, 106, 63, 0.15);
   border-radius: 3px;
   padding: 22px 16px;
   text-align: center;
@@ -182,13 +182,13 @@ body {
 }
 .teaser-town { font-family: 'Playfair Display', serif; font-size: 17px; font-weight: 700; color: var(--warm); margin-bottom: 4px; }
 .teaser-blur { font-size: 13px; color: var(--mid); line-height: 1.55; }
-.teaser-lock { font-size: 11px; color: rgba(138,155,176,0.6); margin-top: 12px; letter-spacing: 0.3px; }
+.teaser-lock { font-size: 11px; color: rgba(77,72,57,0.6); margin-top: 12px; letter-spacing: 0.3px; }
 .teaser-note { font-size: 13px; color: var(--mid); margin-top: 20px; line-height: 1.7; text-align: center; }
 /* FORM — Door 1 (the phone) */
 .form-section { padding: 60px 32px 0; max-width: 520px; margin: 0 auto; }
 .form-card {
   background: var(--navy2);
-  border: 1px solid rgba(201, 168, 76, 0.25);
+  border: 1px solid rgba(138, 106, 63, 0.25);
   border-radius: 4px;
   padding: 36px 32px;
   position: relative;
@@ -208,7 +208,7 @@ body {
 .field input, .field select {
   width: 100%;
   background: var(--navy);
-  border: 1px solid rgba(138, 155, 176, 0.25);
+  border: 1px solid rgba(77, 72, 57, 0.25);
   border-radius: 3px;
   color: var(--warm);
   font-family: 'Inter', sans-serif;
@@ -218,7 +218,7 @@ body {
   transition: border-color 0.2s;
   appearance: none;
 }
-.field input::placeholder { color: rgba(138, 155, 176, 0.5); }
+.field input::placeholder { color: rgba(77, 72, 57, 0.5); }
 .field input:focus, .field select:focus { border-color: var(--gold); }
 .field input.input-error { border-color: #E8A0A0; }
 .field select option { background: var(--navy); color: var(--warm); }
@@ -231,11 +231,11 @@ body {
   color: #E8A0A0;
 }
 .field-error.visible { display: block; }
-.field .optional { text-transform: none; letter-spacing: 0; color: rgba(138,155,176,0.6); font-weight: 400; font-size: 10px; }
+.field .optional { text-transform: none; letter-spacing: 0; color: rgba(77,72,57,0.6); font-weight: 400; font-size: 10px; }
 .chip-group { display: flex; flex-wrap: wrap; gap: 8px; }
 .chip {
   background: var(--navy);
-  border: 1px solid rgba(138, 155, 176, 0.25);
+  border: 1px solid rgba(77, 72, 57, 0.25);
   border-radius: 999px;
   color: var(--warm);
   font-family: 'Inter', sans-serif;
@@ -265,7 +265,7 @@ body {
 .submit-btn:active { transform: scale(0.99); }
 .submit-btn:disabled { cursor: default; }
 .form-privacy {
-  font-size: 11px; color: rgba(138, 155, 176, 0.5);
+  font-size: 11px; color: rgba(77, 72, 57, 0.5);
   text-align: center; margin-top: 14px; line-height: 1.5;
 }
 .form-consent {
@@ -289,9 +289,9 @@ body {
 /* DOOR 2 — the calculator (soft path for the not-ready browser) */
 .door2 { padding: 56px 32px 0; max-width: 640px; margin: 0 auto; }
 .door2-card {
-  background: linear-gradient(180deg, rgba(201,168,76,0.06), rgba(17,34,64,0));
+  background: linear-gradient(180deg, rgba(138,106,63,0.06), rgba(17,34,64,0));
   background-color: var(--navy2);
-  border: 1px solid rgba(201, 168, 76, 0.2);
+  border: 1px solid rgba(138, 106, 63, 0.2);
   border-radius: 4px;
   padding: 34px 30px;
   text-align: center;
@@ -319,7 +319,7 @@ body {
   transition: background 0.2s, color 0.2s;
 }
 .door2-btn:hover { background: var(--gold); color: var(--navy); }
-.door2-note { font-size: 12px; color: rgba(138,155,176,0.7); margin-top: 14px; }
+.door2-note { font-size: 12px; color: rgba(77,72,57,0.7); margin-top: 14px; }
 /* ABOUT + SECONDARY CTA */
 .cta-band { padding: 56px 32px 0; max-width: 640px; margin: 0 auto; text-align: center; }
 .cta-band a.cta-primary {
@@ -368,7 +368,7 @@ body {
   width: 100%;
   aspect-ratio: 16 / 9;
   margin-top: 24px;
-  border: 1px solid rgba(201, 168, 76, 0.25);
+  border: 1px solid rgba(138, 106, 63, 0.25);
   border-radius: 4px;
   overflow: hidden;
   background: #06101f;
@@ -379,7 +379,7 @@ body {
   position: absolute; inset: 0;
   display: flex; flex-direction: column; align-items: center; justify-content: center;
   gap: 16px;
-  background: linear-gradient(180deg, rgba(10,22,40,0.35), rgba(10,22,40,0.75));
+  background: linear-gradient(180deg, rgba(29,30,26,0.35), rgba(29,30,26,0.75));
   background-color: #0d1b30;
   text-align: center; padding: 24px;
 }
@@ -394,13 +394,13 @@ body {
 .video-poster-label { font-size: 13px; color: var(--warm); letter-spacing: 0.3px; font-weight: 500; }
 .video-caption { font-size: 13px; color: var(--mid); margin-top: 16px; line-height: 1.7; text-align: center; }
 /* FOOTER */
-footer { border-top: 1px solid rgba(138, 155, 176, 0.1); padding: 40px 32px; text-align: center; margin-top: 80px; }
+footer { border-top: 1px solid rgba(77, 72, 57, 0.1); padding: 40px 32px; text-align: center; margin-top: 80px; }
 .footer-name { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; color: var(--warm); margin-bottom: 4px; }
 .footer-brokerage { font-size: 12px; color: var(--mid); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 20px; }
 .footer-contact { display: flex; justify-content: center; gap: 32px; flex-wrap: wrap; }
 .footer-contact a { font-size: 13px; color: var(--gold); text-decoration: none; letter-spacing: 0.3px; }
 .footer-contact a:hover { color: var(--gold2); }
-.footer-legal { font-size: 11px; color: rgba(138, 155, 176, 0.35); margin-top: 24px; line-height: 1.6; }
+.footer-legal { font-size: 11px; color: rgba(77, 72, 57, 0.35); margin-top: 24px; line-height: 1.6; }
 .footer-legal a { color: var(--gold); text-decoration: none; }
 /* RESPONSIVE */
 @media (max-width: 560px) {
@@ -417,33 +417,73 @@ footer { border-top: 1px solid rgba(138, 155, 176, 0.1); padding: 40px 32px; tex
 
 /* ===== S67 CONVERSION REBUILD — give before you ask ===== */
 .doors { margin: 0 0 26px; }
-.doors-q { font-size: 15px; font-weight: 600; color: #F8F6F1; margin: 0 0 12px; }
+.doors-q { font-size: 15px; font-weight: 600; color: #1F201C; margin: 0 0 12px; }
 .door-btns { display: grid; gap: 10px; margin: 18px 0 4px; }
 .door-btn { display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%;
   padding: 17px 20px; border-radius: 6px; font-size: 16px; font-weight: 700; letter-spacing: .3px;
   text-decoration: none; border: 0; cursor: pointer; transition: transform .08s, filter .15s; }
 .door-btn:active { transform: translateY(1px); }
-.door-text { background: #C9A84C; color: #0A1628; }
+.door-text { background: #8A6A3F; color: #FAF7EF; }
 .door-text:hover { filter: brightness(1.08); }
-.door-call { background: transparent; color: #C9A84C; border: 1px solid rgba(201,168,76,.55); }
-.door-call:hover { background: rgba(201,168,76,.10); }
-.door-note { font-size: 13px; color: #8A9BB0; text-align: center; margin: 14px 0 0; line-height: 1.55; }
-.door-reply { display: none; background: rgba(201,168,76,.08); border-left: 3px solid #C9A84C;
-  border-radius: 4px; padding: 14px 16px; margin: 4px 0 0; font-size: 15px; color: #F8F6F1; }
+.door-call { background: transparent; color: #8A6A3F; border: 1px solid rgba(138,106,63,.55); }
+.door-call:hover { background: rgba(138,106,63,.10); }
+.door-note { font-size: 13px; color: #4D4839; text-align: center; margin: 14px 0 0; line-height: 1.55; }
+.door-reply { display: none; background: rgba(138,106,63,.08); border-left: 3px solid #8A6A3F;
+  border-radius: 4px; padding: 14px 16px; margin: 4px 0 0; font-size: 15px; color: #1F201C; }
 .door-reply.visible { display: block; }
 .or-rule { display: flex; align-items: center; gap: 14px; margin: 26px 0 20px; }
-.or-rule::before, .or-rule::after { content: ""; flex: 1; height: 1px; background: rgba(138,155,176,.20); }
-.or-rule span { font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: #8A9BB0; }
+.or-rule::before, .or-rule::after { content: ""; flex: 1; height: 1px; background: rgba(77,72,57,.20); }
+.or-rule span { font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: #4D4839; }
 .optional-tag { font-size: 11px; font-weight: 500; letter-spacing: 1px; text-transform: uppercase;
-  color: #8A9BB0; margin-left: 8px; }
+  color: #4D4839; margin-left: 8px; }
 .keepgoing { max-width: 620px; margin: 0 auto; padding: 34px 24px 8px; }
-.keepgoing h3 { font-family: 'Playfair Display', serif; font-size: 21px; color: #F8F6F1; margin: 0 0 6px; }
-.keepgoing p.kg-sub { font-size: 14px; color: #8A9BB0; margin: 0 0 18px; }
-.kg-link { display: block; padding: 15px 0; border-top: 1px solid rgba(138,155,176,.15);
-  color: #F8F6F1; text-decoration: none; font-size: 15px; }
-.kg-link:last-child { border-bottom: 1px solid rgba(138,155,176,.15); }
-.kg-link span { display: block; font-size: 13px; color: #8A9BB0; margin-top: 3px; }
-.kg-link:hover { color: #C9A84C; }
+.keepgoing h3 { font-family: 'Playfair Display', serif; font-size: 21px; color: #1F201C; margin: 0 0 6px; }
+.keepgoing p.kg-sub { font-size: 14px; color: #4D4839; margin: 0 0 18px; }
+.kg-link { display: block; padding: 15px 0; border-top: 1px solid rgba(77,72,57,.15);
+  color: #1F201C; text-decoration: none; font-size: 15px; }
+.kg-link:last-child { border-bottom: 1px solid rgba(77,72,57,.15); }
+.kg-link span { display: block; font-size: 13px; color: #4D4839; margin-top: 3px; }
+.kg-link:hover { color: #8A6A3F; }
+
+/* Aug 18 — olive for structural labels; brass reserved for tappable things */
+.eyebrow, .section-eyebrow, .keepsell-eyebrow { color: #4F5B33; }
+
+/* Aug 18 — olive band, the accent wall */
+.specialties{
+  background:#E2E4D3;
+  padding-top:56px; padding-bottom:56px;
+  box-shadow:0 0 0 100vmax #E2E4D3;
+  clip-path:inset(0 -100vmax);
+}
+.specialties .spec-item{ background:#FAF9F1; border:1px solid #C9CDB4; }
+.specialties .section-eyebrow{ color:#3F4A26; }
+
+/* Aug 18 — dark close, matching the reviews page */
+.reach-band{
+  background:#1D1E1A; color:#ECE4D4;
+  padding:72px 32px 64px; margin-top:64px;
+  box-shadow:0 0 0 100vmax #1D1E1A; clip-path:inset(0 -100vmax);
+}
+.reach-band .reach-label{ color:#A9A192; }
+.reach-band .reach-phone{ color:#C9A877; }
+.reach-band .reach-phone:hover{ color:#E0C79B; }
+.reach-band .reach-action{ border-color:rgba(201,168,119,.55); color:#C9A877; }
+.reach-band .reach-action:hover{ background:#C9A877; color:#1D1E1A; }
+footer{
+  background:#2C2D27; color:#A49C89; border-top:1px solid rgba(201,168,119,.28);
+  box-shadow:0 0 0 100vmax #2C2D27; clip-path:inset(0 -100vmax);
+}
+footer .footer-name{ color:#ECE4D4; }
+footer .footer-brokerage{ color:#A49C89; }
+footer .footer-contact a{ color:#C9A877; }
+footer .footer-contact a:hover{ color:#E0C79B; }
+footer .footer-legal, footer .footer-legal a{ color:#8A8375; }
+.field input, .field select { border:1px solid #B9AC8E; background:#FAF7EF; }
+.field input::placeholder { color:#6E6752; opacity:1; }
+
+/* Aug 18 — placeholders read as examples, typed text reads as answers */
+.field input, .field select { color:#1F201C; }
+.field input::placeholder { color:#A39B87; opacity:1; }
 </style>
 </head>
 
@@ -689,6 +729,7 @@ footer { border-top: 1px solid rgba(138, 155, 176, 0.1); padding: 40px 32px; tex
     <a href="tel:9522583100">952-258-3100</a>
     <a href="mailto:geoffrey@serdarpartnersrealty.com">geoffrey@serdarpartnersrealty.com</a>
     <a href="https://www.compass.com/agents/geoffrey-serdar/" target="_blank">Compass Profile</a>
+    <a href="/reviews/">★ 4.8 · 62 Reviews</a>
   </div>
   <p class="footer-legal">
     Licensed in Minnesota &nbsp;·&nbsp; Serdar+Partners at Compass<br />
