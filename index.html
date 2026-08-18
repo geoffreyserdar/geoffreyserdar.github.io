@@ -124,7 +124,7 @@ body {
 .field input, .field select {
   width: 100%;
   background: var(--navy);
-  border: 1px solid rgba(138, 155, 176, 0.25);
+  border: 1px solid rgba(77, 72, 57, 0.25);
   border-radius: 3px;
   color: var(--warm);
   font-family: 'Inter', sans-serif;
@@ -134,7 +134,7 @@ body {
   transition: border-color 0.2s;
   appearance: none;
 }
-.field input::placeholder { color: rgba(138, 155, 176, 0.5); }
+.field input::placeholder { color: rgba(77, 72, 57, 0.5); }
 .field input:focus, .field select:focus { border-color: var(--gold); }
 .field input.input-error { border-color: #E8A0A0; }
 .field select option { background: var(--navy); color: var(--warm); }
@@ -147,11 +147,11 @@ body {
   color: #E8A0A0;
 }
 .field-error.visible { display: block; }
-.field .optional { text-transform: none; letter-spacing: 0; color: rgba(138,155,176,0.6); font-weight: 400; font-size: 10px; }
+.field .optional { text-transform: none; letter-spacing: 0; color: rgba(77,72,57,0.6); font-weight: 400; font-size: 10px; }
 .chip-group { display: flex; flex-wrap: wrap; gap: 8px; }
 .chip {
   background: var(--navy);
-  border: 1px solid rgba(138, 155, 176, 0.25);
+  border: 1px solid rgba(77, 72, 57, 0.25);
   border-radius: 999px;
   color: var(--warm);
   font-family: 'Inter', sans-serif;
@@ -181,7 +181,7 @@ body {
 .submit-btn:active { transform: scale(0.99); }
 .submit-btn:disabled { cursor: default; }
 .form-privacy {
-  font-size: 11px; color: rgba(138, 155, 176, 0.5);
+  font-size: 11px; color: rgba(77, 72, 57, 0.5);
   text-align: center; margin-top: 14px; line-height: 1.5;
 }
 .form-consent {
@@ -224,7 +224,7 @@ body {
 .spec-title { font-size: 13px; font-weight: 600; color: var(--warm); margin-bottom: 6px; letter-spacing: 0.3px; }
 .spec-desc { font-size: 13px; color: var(--mid); line-height: 1.55; }
 /* FOOTER */
-footer { border-top: 1px solid rgba(138, 155, 176, 0.1); padding: 40px 32px; text-align: center; }
+footer { border-top: 1px solid rgba(77, 72, 57, 0.1); padding: 40px 32px; text-align: center; }
 .footer-name { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; color: var(--warm); margin-bottom: 4px; }
 .footer-brokerage { font-size: 12px; color: var(--mid); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 20px; }
 .footer-contact { display: flex; justify-content: center; gap: 32px; flex-wrap: wrap; }
@@ -238,7 +238,7 @@ footer { border-top: 1px solid rgba(138, 155, 176, 0.1); padding: 40px 32px; tex
 .reach-actions { display: flex; gap: 12px; justify-content: center; margin-top: 16px; flex-wrap: wrap; }
 .reach-action { flex: 0 1 auto; min-width: 180px; text-align: center; border: 1px solid var(--gold); border-radius: 3px; color: var(--gold); font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; text-decoration: none; padding: 14px 20px; transition: background 0.2s, color 0.2s; }
 .reach-action:hover { background: var(--gold); color: var(--navy); }
-.footer-legal { font-size: 11px; color: rgba(138, 155, 176, 0.35); margin-top: 24px; line-height: 1.6; }
+.footer-legal { font-size: 11px; color: rgba(77, 72, 57, 0.35); margin-top: 24px; line-height: 1.6; }
 .footer-legal a { color: var(--gold); text-decoration: none; }
 /* RESPONSIVE */
 @media (max-width: 480px) {
@@ -316,6 +316,10 @@ footer .footer-brokerage{ color:#A49C89; }
 footer .footer-contact a{ color:#C9A877; }
 footer .footer-contact a:hover{ color:#E0C79B; }
 footer .footer-legal, footer .footer-legal a{ color:#8A8375; }
+
+/* Aug 18 — placeholders read as examples, typed text reads as answers */
+.field input, .field select { color:#1F201C; }
+.field input::placeholder { color:#A39B87; opacity:1; }
 </style>
 <link rel="canonical" href="https://geoffreyserdar.com/">
 </head>
