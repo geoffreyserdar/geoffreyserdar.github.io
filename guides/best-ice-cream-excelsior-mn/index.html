@@ -26,8 +26,8 @@
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 :root {
-  --navy: #0A1628; --navy2: #112240; --gold: #C9A84C;
-  --gold2: #E8C96A; --warm: #F8F6F1; --mid: #8A9BB0;
+  --navy: #ECE4D4; --navy2: #E3DAC6; --gold: #8A6A3F;
+  --gold2: #C9A877; --warm: #1F201C; --mid: #4D4839;
 }
 html { scroll-behavior: smooth; }
 body { background: var(--navy); color: var(--warm); font-family: 'Inter', sans-serif; line-height: 1.7; }
@@ -35,7 +35,7 @@ a { color: var(--gold); }
 a:hover { color: var(--gold2); }
 .wrap { max-width: 720px; margin: 0 auto; padding: 0 28px; }
 /* top bar */
-.topbar { border-bottom: 1px solid rgba(138,155,176,0.12); }
+.topbar { border-bottom: 1px solid rgba(77,72,57,0.12); }
 .topbar .wrap { display: flex; align-items: center; justify-content: space-between; padding: 20px 28px; }
 .brandmark { font-family: 'Playfair Display', serif; font-weight: 900; font-size: 20px; color: var(--warm); text-decoration: none; letter-spacing: -0.5px; }
 .brandmark span { color: var(--gold); }
@@ -63,7 +63,7 @@ article figcaption, .hero-fig figcaption { font-size: 13px; color: var(--mid); m
 .hero-fig { margin: 8px 0 34px; }
 .hero-fig img { width: 100%; border-radius: 8px; border: 1px solid rgba(201,168,76,0.20); }
 article figcaption { font-size: 13px; color: var(--mid); margin-top: 8px; text-align: center; }
-.disclaimer { font-size: 13px; color: var(--mid); border-top: 1px solid rgba(138,155,176,0.15); padding-top: 18px; margin-top: 8px; font-style: italic; }
+.disclaimer { font-size: 13px; color: var(--mid); border-top: 1px solid rgba(77,72,57,0.15); padding-top: 18px; margin-top: 8px; font-style: italic; }
 /* the CTA card (the hub link — the conversion) */
 .cta-card { background: var(--navy2); border: 1px solid rgba(201,168,76,0.25); border-radius: 6px; padding: 34px 30px; margin: 48px 0 20px; text-align: center; }
 .cta-eyebrow { font-size: 11px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
@@ -74,14 +74,29 @@ article figcaption { font-size: 13px; color: var(--mid); margin-top: 8px; text-a
 .cta-alt { margin-top: 18px; font-size: 13px; color: var(--mid); }
 .cta-alt a { text-decoration: underline; text-underline-offset: 3px; }
 /* footer */
-footer { border-top: 1px solid rgba(138,155,176,0.1); margin-top: 40px; padding: 40px 0; text-align: center; }
+footer { border-top: 1px solid rgba(77,72,57,0.1); margin-top: 40px; padding: 40px 0; text-align: center; }
 .footer-name { font-family: 'Playfair Display', serif; font-size: 19px; font-weight: 700; color: var(--warm); }
 .footer-brokerage { font-size: 12px; color: var(--mid); letter-spacing: 1px; text-transform: uppercase; margin: 4px 0 18px; }
 .footer-contact a { font-size: 13px; color: var(--gold); text-decoration: none; margin: 0 14px; }
-.footer-legal { font-size: 11px; color: rgba(138,155,176,0.4); margin-top: 20px; line-height: 1.6; }
+.footer-legal { font-size: 11px; color: rgba(77,72,57,0.4); margin-top: 20px; line-height: 1.6; }
 .back { display: inline-block; margin-top: 14px; font-size: 13px; color: var(--mid); text-decoration: none; }
 .back:hover { color: var(--gold); }
 @media (max-width: 560px) { .wrap { padding: 0 22px; } header.post { padding: 40px 0 4px; } .lede { font-size: 17px; } article { font-size: 16px; } }
+
+/* Aug 18 — dark close + form legibility */
+.reach-band{ background:#1D1E1A; color:#ECE4D4; padding:72px 32px 64px; margin-top:64px;
+  box-shadow:0 0 0 100vmax #1D1E1A; clip-path:inset(0 -100vmax); }
+.reach-band .reach-label{ color:#A9A192; }
+.reach-band .reach-phone{ color:#C9A877; }
+.reach-band .reach-action{ border-color:rgba(201,168,119,.55); color:#C9A877; }
+.reach-band .reach-action:hover{ background:#C9A877; color:#1D1E1A; }
+footer{ background:#2C2D27; color:#A49C89; border-top:1px solid rgba(201,168,119,.28);
+  box-shadow:0 0 0 100vmax #2C2D27; clip-path:inset(0 -100vmax); }
+footer .footer-name{ color:#ECE4D4; }
+footer .footer-contact a{ color:#C9A877; }
+footer .footer-legal, footer .footer-legal a{ color:#8A8375; }
+.field input, .field select{ border:1px solid #B9AC8E; background:#FAF7EF; color:#1F201C; }
+.field input::placeholder{ color:#A39B87; opacity:1; }
 </style>
 </head>
 <body>
