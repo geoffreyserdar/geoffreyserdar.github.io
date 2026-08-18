@@ -154,7 +154,30 @@ footer { border-top: 1px solid rgba(138, 155, 176, 0.1); padding: 36px 32px; tex
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
 
 /* Aug 18 — olive for structural labels; brass reserved for tappable things */
-.eyebrow, .section-eyebrow, .keepsell-eyebrow { color: #454935; }
+.eyebrow, .section-eyebrow, .keepsell-eyebrow { color: #4F5B33; }
+
+/* Aug 18 — dark close, matching the reviews page */
+.reach-band{
+  background:#1D1E1A; color:#ECE4D4;
+  padding:72px 32px 64px; margin-top:64px;
+  box-shadow:0 0 0 100vmax #1D1E1A; clip-path:inset(0 -100vmax);
+}
+.reach-band .reach-label{ color:#A9A192; }
+.reach-band .reach-phone{ color:#C9A877; }
+.reach-band .reach-phone:hover{ color:#E0C79B; }
+.reach-band .reach-action{ border-color:rgba(201,168,119,.55); color:#C9A877; }
+.reach-band .reach-action:hover{ background:#C9A877; color:#1D1E1A; }
+footer{
+  background:#2C2D27; color:#A49C89; border-top:1px solid rgba(201,168,119,.28);
+  box-shadow:0 0 0 100vmax #2C2D27; clip-path:inset(0 -100vmax);
+}
+footer .footer-name{ color:#ECE4D4; }
+footer .footer-brokerage{ color:#A49C89; }
+footer .footer-contact a{ color:#C9A877; }
+footer .footer-contact a:hover{ color:#E0C79B; }
+footer .footer-legal, footer .footer-legal a{ color:#8A8375; }
+.field input, .field select { border:1px solid #B9AC8E; background:#FAF7EF; }
+.field input::placeholder { color:#6E6752; opacity:1; }
 </style>
 <link rel="canonical" href="https://geoffreyserdar.com/book/">
 </head>
