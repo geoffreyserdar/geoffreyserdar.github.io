@@ -331,6 +331,22 @@ footer .footer-legal, footer .footer-legal a{ color:#8A8375; }
 a.stat-link{ text-decoration:none; color:inherit; transition:opacity .2s; }
 a.stat-link:hover{ opacity:.68; }
 a.stat-link .stat-number{ color:#8A6A3F; }
+
+/* Aug 19 — Parkview video + guide link */
+.vic-video{ max-width:640px; margin:44px auto 0; padding:0 32px; }
+.video-frame{ position:relative; width:100%; aspect-ratio:16/9; border-radius:6px; overflow:hidden;
+  border:1px solid rgba(138,106,63,.25); background:#1D1E1A; }
+.vfacade{ position:absolute; inset:0; width:100%; height:100%; padding:0; border:0; display:block; cursor:pointer; background:#1D1E1A; }
+.vfacade img{ width:100%; height:100%; object-fit:cover; display:block; transition:transform .4s; }
+.vfacade:hover img{ transform:scale(1.02); }
+.vfacade:focus{ outline:3px solid #8A6A3F; outline-offset:2px; }
+.vplay{ position:absolute; inset:0; display:flex; align-items:flex-end; justify-content:flex-start; padding:20px; pointer-events:none; }
+.vplay i{ width:56px; height:56px; border-radius:50%; background:rgba(236,228,212,.16);
+  border:1.5px solid #C9A877; display:flex; align-items:center; justify-content:center; }
+.vplay i::after{ content:""; border:10px solid transparent; border-left:17px solid #ECE4D4; margin-left:5px; }
+.vic-vcap{ font-size:13px; color:#4D4839; margin-top:12px; text-align:center; font-style:italic; }
+.vic-read{ font-size:15px; color:#4D4839; margin-top:22px; text-align:center; line-height:1.7; }
+.vic-read a{ color:#8A6A3F; }
 </style>
 <link rel="canonical" href="https://geoffreyserdar.com/victoria/">
 </head>
@@ -443,6 +459,20 @@ a.stat-link .stat-number{ color:#8A6A3F; }
 
 <!-- NEIGHBORHOODS -->
 <div class="hoods">
+  
+<div class="vic-video">
+  <div class="video-frame">
+    <button class="vfacade" type="button" data-src="https://www.youtube.com/embed/KltK3FZ7hp0?autoplay=1&rel=0" aria-label="Play: Parkview in Victoria, Minnesota">
+      <img loading="lazy" alt="" src="https://img.youtube.com/vi/KltK3FZ7hp0/maxresdefault.jpg"
+        onerror="this.onerror=null;this.src='https://img.youtube.com/vi/KltK3FZ7hp0/hqdefault.jpg'">
+      <span class="vplay"><i></i></span>
+    </button>
+  </div>
+  <p class="vic-vcap">Parkview, Victoria &mdash; the kind of thing you can&rsquo;t tell from a listing photo.</p>
+  <p class="vic-read">Not ready to talk yet? Here&rsquo;s how downtown Victoria is changing, and the man behind it &mdash;
+    <a href="/guides/downtown-victoria-mn/?utm_source=victoria&utm_medium=page&utm_campaign=erik-guide">read the Erik Forsberg story</a>.</p>
+</div>
+
   <p class="section-eyebrow">Where Geoffrey Works</p>
   <div class="hood-list">
     <span class="hood-tag">Downtown Victoria</span>
@@ -737,6 +767,14 @@ document.getElementById('phone').addEventListener('input', function (e) {
     }
   });
 })();
+</script>
+<script>
+document.querySelectorAll('.vfacade').forEach(function (b) {
+  b.addEventListener('click', function () {
+    b.outerHTML = '<iframe src="' + b.dataset.src + '" style="position:absolute;inset:0;width:100%;height:100%;border:0" '
+      + 'allow="autoplay; encrypted-media; fullscreen" allowfullscreen></iframe>';
+  });
+});
 </script>
 </body>
 </html>
