@@ -448,15 +448,6 @@ footer { border-top: 1px solid rgba(77, 72, 57, 0.1); padding: 40px 32px; text-a
 /* Aug 18 — olive for structural labels; brass reserved for tappable things */
 .eyebrow, .section-eyebrow, .keepsell-eyebrow { color: #4F5B33; }
 
-/* Aug 18 — olive band, the accent wall */
-.specialties{
-  background:#E2E4D3;
-  padding-top:56px; padding-bottom:56px;
-  box-shadow:0 0 0 100vmax #E2E4D3;
-  clip-path:inset(0 -100vmax);
-}
-.specialties .spec-item{ background:#FAF9F1; border:1px solid #C9CDB4; }
-.specialties .section-eyebrow{ color:#3F4A26; }
 
 /* Aug 18 — dark close, matching the reviews page */
 .reach-band{
@@ -484,6 +475,15 @@ footer .footer-legal, footer .footer-legal a{ color:#8A8375; }
 /* Aug 18 — placeholders read as examples, typed text reads as answers */
 .field input, .field select { color:#1F201C; }
 .field input::placeholder { color:#A39B87; opacity:1; }
+
+/* Aug 19 — video poster: real thumbnail + readable label */
+.video-poster{
+  background-image: linear-gradient(rgba(20,21,17,.20), rgba(20,21,17,.78)),
+                    url('https://img.youtube.com/vi/_KmVW7CgXkg/maxresdefault.jpg');
+  background-size: cover; background-position: center;
+}
+.video-poster-label{ color:#ECE4D4; text-shadow:0 1px 14px rgba(0,0,0,.85); }
+.video-play{ color:#ECE4D4; }
 </style>
 </head>
 
