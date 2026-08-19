@@ -97,6 +97,23 @@ footer .footer-contact a{ color:#C9A877; }
 footer .footer-legal, footer .footer-legal a{ color:#8A8375; }
 .field input, .field select{ border:1px solid #B9AC8E; background:#FAF7EF; color:#1F201C; }
 .field input::placeholder{ color:#A39B87; opacity:1; }
+
+/* Aug 19 — shorts + quiet video facades */
+.updated{ font-size:13px; letter-spacing:.08em; text-transform:uppercase; color:#4D4839; margin:10px 0 0; }
+.shorts-row{ display:grid; grid-template-columns:1fr 1fr; gap:20px; margin:26px 0 10px; }
+.shorts-row figure{ margin:0; }
+.vshort{ position:relative; aspect-ratio:9/16; border-radius:10px; overflow:hidden;
+  border:1px solid rgba(138,106,63,.25); background:#1D1E1A; }
+.vfacade{ position:absolute; inset:0; width:100%; height:100%; padding:0; border:0; display:block; cursor:pointer; background:#1D1E1A; }
+.vfacade img{ width:100%; height:100%; object-fit:cover; display:block; transition:transform .4s; }
+.vfacade:hover img{ transform:scale(1.02); }
+.vfacade:focus{ outline:3px solid #8A6A3F; outline-offset:2px; }
+.vplay{ position:absolute; inset:0; display:flex; align-items:center; justify-content:center; pointer-events:none; }
+.vplay i{ width:64px; height:64px; border-radius:50%; background:rgba(236,228,212,.16);
+  border:1.5px solid #C9A877; display:flex; align-items:center; justify-content:center; }
+.vplay i::after{ content:""; border:11px solid transparent; border-left:18px solid #ECE4D4; margin-left:5px; }
+.shorts-cap{ font-size:13px; color:#4D4839; margin-top:8px; text-align:center; font-style:italic; line-height:1.5; }
+@media(max-width:640px){ .shorts-row{ grid-template-columns:1fr; } }
 </style>
 </head>
 <body>
@@ -112,6 +129,7 @@ footer .footer-legal, footer .footer-legal a{ color:#8A8375; }
   <header class="post">
     <p class="eyebrow">On the Lake</p>
     <h1>The Best Ice Cream in Excelsior, Minnesota</h1>
+    <p class="updated">Updated August 19, 2026</p>
     <p class="meta"><strong>Geoffrey Serdar</strong> &nbsp;·&nbsp; July 7, 2026 &nbsp;·&nbsp; Serdar+Partners at Compass</p>
     <p class="lede">On a warm evening in downtown Excelsior, the walk down Water Street ends the same way it has for decades — with an ice cream cone by the lake. Here are the two spots locals send everyone to.</p>
   </header>
@@ -131,6 +149,32 @@ footer .footer-legal, footer .footer-legal a{ color:#8A8375; }
         <img src="img/licks-interior.jpg" alt="Inside Licks Unlimited in Excelsior, Minnesota — pink walls, a black-and-white checkerboard floor, red vinyl booths, a cow-print ice cream counter and neon signs" />
         <figcaption>Inside: pink walls, checkerboard floor, red booths, and a cow-print counter. It has looked like this for a long time on purpose.</figcaption>
       </figure>
+      <p>Benedetta orders the chocolate with sprinkles. Every time. And every time, she tries whatever I ordered and decides she likes mine better. I&rsquo;ve stopped fighting it &mdash; now I just order something I&rsquo;d be happy to hand over.</p>
+
+      <div class="shorts-row">
+      <figure>
+        <div class="vshort">
+          <button class="vfacade" type="button" data-src="https://www.youtube.com/embed/-FpfYg1vzVI?autoplay=1&rel=0" aria-label="Play: A Sprite float made with the lemon raspberry sorbet &mdash; one of their flavors of the week.">
+            <img loading="lazy" alt="" src="https://i.ytimg.com/vi/-FpfYg1vzVI/oardefault.jpg"
+              onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/-FpfYg1vzVI/hqdefault.jpg'">
+            <span class="vplay"><i></i></span>
+          </button>
+        </div>
+        <figcaption class="shorts-cap">A Sprite float made with the lemon raspberry sorbet &mdash; one of their flavors of the week. <a href="https://youtube.com/shorts/-FpfYg1vzVI" target="_blank" rel="noopener">Watch on YouTube</a>.</figcaption>
+      </figure>
+      <figure>
+        <div class="vshort">
+          <button class="vfacade" type="button" data-src="https://www.youtube.com/embed/67n2YGfjc58?autoplay=1&rel=0" aria-label="Play: Chocolate with sprinkles, as always.">
+            <img loading="lazy" alt="" src="https://i.ytimg.com/vi/67n2YGfjc58/oardefault.jpg"
+              onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/67n2YGfjc58/hqdefault.jpg'">
+            <span class="vplay"><i></i></span>
+          </button>
+        </div>
+        <figcaption class="shorts-cap">Chocolate with sprinkles, as always. <a href="https://youtube.com/shorts/67n2YGfjc58" target="_blank" rel="noopener">Watch on YouTube</a>.</figcaption>
+      </figure>
+      </div>
+
+
       <h2>Tommy's Tonka Trolley — ice cream from a streetcar</h2>
       <p><strong>Tommy's Tonka Trolley</strong> is the other Excelsior institution, and it's hard to beat for pure charm — you're served homemade ice cream right out of a historic Minnesota streetcar, steps from the water. On a balmy summer night it's exactly the kind of only-in-Excelsior moment that makes people fall in love with this town.</p>
       <p>The current owners have their own sweet story: they moved to downtown Excelsior in 2012, spent years chatting with the Trolley's founder on summer nights, and eventually took over the business they'd always dreamed of owning. It's a small-town passing-of-the-torch, and it's part of what makes the place feel like home.</p>
@@ -163,5 +207,13 @@ footer .footer-legal, footer .footer-legal a{ color:#8A8375; }
   </div>
 </footer>
 
+<script>
+document.querySelectorAll('.vfacade').forEach(function (b) {
+  b.addEventListener('click', function () {
+    b.outerHTML = '<iframe src="' + b.dataset.src + '" style="position:absolute;inset:0;width:100%;height:100%;border:0" '
+      + 'allow="autoplay; encrypted-media; fullscreen" allowfullscreen></iframe>';
+  });
+});
+</script>
 </body>
 </html>
