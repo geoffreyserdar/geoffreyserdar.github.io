@@ -169,9 +169,9 @@ h1 { font-family: 'Playfair Display', serif; font-weight: 900; font-size: clamp(
 /* article body */
 article { padding: 24px 0 8px; font-size: 17px; }
 article h2 { font-family: 'Playfair Display', serif; font-weight: 700; font-size: clamp(22px, 4vw, 30px); color: var(--warm); margin: 44px 0 14px; line-height: 1.25; }
-article p { margin: 0 0 20px; color: #D9DEE6; }
+article p { margin: 0 0 20px; color: #33342C; }
 article strong { color: var(--warm); font-weight: 600; }
-article ul, article ol { margin: 0 0 22px; padding-left: 22px; color: #D9DEE6; }
+article ul, article ol { margin: 0 0 22px; padding-left: 22px; color: #33342C; }
 article li { margin-bottom: 12px; }
 article blockquote { border-left: 3px solid var(--gold); padding: 6px 0 6px 22px; margin: 30px 0; font-family: 'Playfair Display', serif; font-size: 23px; font-style: italic; color: var(--warm); line-height: 1.4; }
 article blockquote cite { display: block; font-family: 'Inter', sans-serif; font-style: normal; font-size: 13px; letter-spacing: 0.3px; color: var(--mid); margin-top: 14px; }
@@ -184,12 +184,12 @@ article figure.fig-small { max-width: 330px; margin: 30px auto; }
 @media (max-width: 560px) { article figure.fig-small { max-width: 260px; } }
 /* the short-version callout */
 .tldr { background: var(--navy2); border: 1px solid rgba(201,168,76,0.22); border-left: 3px solid var(--gold); border-radius: 6px; padding: 24px 26px; margin: 30px 0 8px; }
-.tldr p { color: #D9DEE6; margin: 0 0 14px; }
+.tldr p { color: #33342C; margin: 0 0 14px; }
 .tldr p:last-child { margin-bottom: 0; }
 .tldr strong { color: var(--warm); }
 /* timestamp index */
 .stamps { list-style: none; padding: 0; margin: 8px 0 24px; border-top: 1px solid rgba(77,72,57,0.15); }
-.stamps li { border-bottom: 1px solid rgba(77,72,57,0.15); padding: 14px 0; color: #D9DEE6; display: flex; gap: 16px; align-items: baseline; }
+.stamps li { border-bottom: 1px solid rgba(77,72,57,0.15); padding: 14px 0; color: #33342C; display: flex; gap: 16px; align-items: baseline; }
 .stamps .t { font-variant-numeric: tabular-nums; font-size: 13px; font-weight: 600; color: var(--gold); white-space: nowrap; text-decoration: none; }
 .stamps .t:hover { color: var(--gold2); }
 .stamps .d { font-size: 15px; }
@@ -198,11 +198,11 @@ article figure.fig-small { max-width: 330px; margin: 30px auto; }
 .faq-item { border-top: 1px solid rgba(77,72,57,0.15); padding: 20px 0; }
 .faq-item:last-child { border-bottom: 1px solid rgba(77,72,57,0.15); }
 .faq-q { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 19px; color: var(--warm); margin-bottom: 8px !important; }
-.faq-a { color: #D9DEE6; margin: 0 !important; }
+.faq-a { color: #33342C; margin: 0 !important; }
 /* contacts */
 .contacts { background: var(--navy2); border: 1px solid rgba(201,168,76,0.18); border-radius: 6px; padding: 26px 28px; margin: 30px 0 8px; }
 .contacts h3 { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 20px; color: var(--warm); margin-bottom: 6px; }
-.contacts p { color: #D9DEE6; margin: 0 0 16px; font-size: 15px; }
+.contacts p { color: #33342C; margin: 0 0 16px; font-size: 15px; }
 .contacts p:last-child { margin-bottom: 0; }
 .contacts strong { color: var(--warm); }
 .disclaimer { font-size: 13px; color: var(--mid); border-top: 1px solid rgba(77,72,57,0.15); padding-top: 18px; margin-top: 24px; font-style: italic; }
@@ -239,6 +239,17 @@ footer .footer-contact a{ color:#C9A877; }
 footer .footer-legal, footer .footer-legal a{ color:#8A8375; }
 .field input, .field select{ border:1px solid #B9AC8E; background:#FAF7EF; color:#1F201C; }
 .field input::placeholder{ color:#A39B87; opacity:1; }
+
+/* Aug 18 — quiet video facades */
+.vfacade{ position:absolute; inset:0; width:100%; height:100%; padding:0; border:0; display:block;
+  background:#1D1E1A; cursor:pointer; }
+.vfacade img{ width:100%; height:100%; object-fit:cover; display:block; transition:transform .4s; }
+.vfacade:hover img{ transform:scale(1.02); }
+.vfacade:focus{ outline:3px solid #8A6A3F; outline-offset:2px; }
+.vplay{ position:absolute; inset:0; display:flex; align-items:center; justify-content:center; pointer-events:none; }
+.vplay i{ width:72px; height:72px; border-radius:50%; background:rgba(236,228,212,.16);
+  border:1.5px solid #C9A877; display:flex; align-items:center; justify-content:center; }
+.vplay i::after{ content:""; border:12px solid transparent; border-left:20px solid #ECE4D4; margin-left:6px; }
 </style>
 </head>
 <body>
@@ -280,7 +291,7 @@ footer .footer-legal, footer .footer-legal a{ color:#8A8375; }
 
     <figure class="video-wrap">
       <div class="video-frame">
-        <iframe src="https://www.youtube.com/embed/0gHlJUV9MtE" title="Bison Tartare &amp; Oysters at The Noble Lion — Victoria, Minnesota" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        <button class="vfacade" type="button" data-src="https://www.youtube.com/embed/0gHlJUV9MtE?autoplay=1&rel=0" aria-label="Play: Bison Tartare and Oysters at The Noble Lion"><img loading="lazy" alt="" src="https://img.youtube.com/vi/0gHlJUV9MtE/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/0gHlJUV9MtE/hqdefault.jpg'"><span class="vplay"><i></i></span></button>
       </div>
       <figcaption>Dinner at The Noble Lion, downtown Victoria. <a href="https://www.youtube.com/shorts/0gHlJUV9MtE" target="_blank" rel="noopener">Watch on YouTube</a>.</figcaption>
     </figure>
@@ -326,7 +337,7 @@ footer .footer-legal, footer .footer-legal a{ color:#8A8375; }
 
     <figure class="video-wide">
       <div class="video-frame">
-        <iframe src="https://www.youtube.com/embed/aZNwEsErpjc?start=8235" title="Real Talk with Geoffrey — Chatting with Restaurateur Erik Forsberg (Victoria segment)" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        <button class="vfacade" type="button" data-src="https://www.youtube.com/embed/aZNwEsErpjc?start=8235&autoplay=1&rel=0" aria-label="Play: The Victoria conversation with Erik Forsberg"><img loading="lazy" alt="" src="https://img.youtube.com/vi/aZNwEsErpjc/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/aZNwEsErpjc/hqdefault.jpg'"><span class="vplay"><i></i></span></button>
       </div>
       <figcaption>The Victoria conversation, cued to 2:17:15. <a href="https://youtu.be/aZNwEsErpjc" target="_blank" rel="noopener">Watch the full interview on YouTube</a>.</figcaption>
     </figure>
@@ -470,5 +481,13 @@ footer .footer-legal, footer .footer-legal a{ color:#8A8375; }
   </div>
 </footer>
 
+<script>
+document.querySelectorAll('.vfacade').forEach(function (b) {
+  b.addEventListener('click', function () {
+    b.outerHTML = '<iframe src="' + b.dataset.src + '" style="position:absolute;inset:0;width:100%;height:100%;border:0" '
+      + 'allow="autoplay; encrypted-media; fullscreen" allowfullscreen></iframe>';
+  });
+});
+</script>
 </body>
 </html>
