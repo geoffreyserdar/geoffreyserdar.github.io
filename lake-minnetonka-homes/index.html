@@ -484,6 +484,16 @@ footer .footer-legal, footer .footer-legal a{ color:#8A8375; }
 }
 .video-poster-label{ color:#ECE4D4; text-shadow:0 1px 14px rgba(0,0,0,.85); }
 .video-play{ color:#ECE4D4; }
+
+/* Aug 19 — play control to bottom-left; keep the face clear */
+.video-poster{
+  flex-direction: row; align-items: flex-end; justify-content: flex-start;
+  text-align: left; gap: 14px; padding: 22px;
+  background-image: linear-gradient(rgba(20,21,17,.06) 35%, rgba(20,21,17,.82)),
+                    url('https://img.youtube.com/vi/_KmVW7CgXkg/maxresdefault.jpg');
+}
+.video-play{ width:58px; height:58px; font-size:21px; flex:none; }
+.video-poster-label{ padding-bottom:17px; }
 </style>
 </head>
 
