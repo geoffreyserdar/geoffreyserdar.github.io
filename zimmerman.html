@@ -190,6 +190,31 @@
   .success-title{font-family:"Playfair Display",serif;font-size:25px;font-weight:700;color:#F5EEDF;margin-bottom:8px;}
   .success-sub{font-size:15px;color:#c7bfad;line-height:1.6;}
 
+  /* floor-plan viewer */
+  .fp-tabs{display:flex;gap:8px;flex-wrap:wrap;margin:6px 0 18px;}
+  .fp-tabs button{min-height:52px;border:1.5px solid var(--inputline);background:transparent;color:var(--mid);border-radius:8px;
+    font-family:Inter;font-size:15px;font-weight:500;cursor:pointer;padding:0 18px;transition:.12s;}
+  .fp-tabs button.on{border-color:var(--gold);background:rgba(138,106,63,.10);color:var(--ink);font-weight:600;}
+  .fp-stage{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;box-shadow:0 4px 24px rgba(29,30,26,.06);}
+  .fp-stage img{width:100%;height:auto;display:block;border-radius:8px;cursor:zoom-in;}
+  .fp-cap{font-size:14.5px;color:var(--mid);margin-top:12px;text-align:center;}
+  .fp-cap .zoom{color:var(--gold);font-weight:600;white-space:nowrap;}
+  .lb{position:fixed;inset:0;background:rgba(20,20,18,.93);display:none;align-items:center;justify-content:center;z-index:9999;padding:18px;cursor:zoom-out;}
+  .lb.open{display:flex;}
+  .lb img{max-width:100%;max-height:100%;border-radius:6px;box-shadow:0 12px 50px rgba(0,0,0,.5);}
+  .lb .x{position:absolute;top:14px;right:22px;color:#F5EEDF;font-size:38px;font-weight:300;line-height:1;cursor:pointer;}
+  /* financing matrix */
+  .fmx{overflow-x:auto;margin-top:24px;border:1px solid var(--line);border-radius:14px;}
+  .fmx table{border-collapse:collapse;width:100%;min-width:660px;background:var(--card);font-size:15px;}
+  .fmx th,.fmx td{padding:12px 14px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top;}
+  .fmx thead th{background:var(--navy);color:#EFE7D7;font-weight:600;font-size:13.5px;}
+  .fmx thead th small{display:block;font-weight:400;color:var(--gold2);font-size:11.5px;margin-top:2px;}
+  .fmx .grp td{background:#e9dfc9;font-weight:700;color:var(--ink);font-size:12.5px;text-transform:uppercase;letter-spacing:.08em;}
+  .fmx td b{font-family:"Playfair Display",serif;font-weight:700;font-size:16px;color:var(--ink);}
+  .fmx .buy td b{color:#2f5d43;}
+  .fmx td small{display:block;color:var(--mid);font-size:12px;font-weight:400;font-family:Inter;margin-top:2px;}
+  .fmx .dash{color:var(--placeholder);}
+
   /* footer */
   footer{background:var(--navy2);color:#c4bca9;box-shadow:0 0 0 100vmax var(--navy2);clip-path:inset(0 -100vmax);}
   footer .wrap{padding-top:34px;padding-bottom:34px;}
@@ -219,6 +244,7 @@
       <a href="#math">The math</a>
       <a href="#shop">The shop</a>
       <a href="#records">The records</a>
+      <a href="#floorplans">Floor plans</a>
       <a class="reviews-badge" href="/reviews/"><span class="stars">★★★★★</span> 4.8 · 62 reviews</a>
       <a class="hphone" href="tel:9522583100">952-258-3100</a>
     </nav>
@@ -324,6 +350,39 @@
   </section>
 </div>
 
+<!-- FINANCING MATRIX -->
+<div class="wrap divide">
+  <section>
+    <div class="col">
+      <div class="eyebrow">Every way to finance it, side by side</div>
+      <h2>Buy it, or build it — the full math.</h2>
+      <p>The quiet advantage: because the shop is attached to the house, the <strong>whole property rides one 30-year home loan</strong>. Build a shop by itself and that cheap 30-year money isn't available to you at all — you're on SBA or commercial terms, and you wait a year or two.</p>
+    </div>
+    <div class="fmx">
+      <table>
+        <thead><tr>
+          <th>Scenario</th>
+          <th>30-yr residential<small>~6.55%</small></th>
+          <th>SBA 504<small>~6.5% · 25 yr</small></th>
+          <th>Commercial<small>~8.5% · 25 yr</small></th>
+        </tr></thead>
+        <tbody>
+          <tr class="grp"><td colspan="4">Buy 9765</td></tr>
+          <tr class="buy"><td>Own the house, apartment &amp; shop — rent nothing</td><td><b>~$4,560/mo</b><small>20% down</small></td><td class="dash">—</td><td class="dash">—</td></tr>
+          <tr class="buy"><td>Own the house &amp; shop — rent the apartment</td><td><b>~$3,560/mo</b><small>net · 20% down</small></td><td class="dash">—</td><td class="dash">—</td></tr>
+          <tr class="buy"><td>Own the shop — rent the house &amp; apartment</td><td><b>~$1,360/mo</b><small>net · 20% down</small></td><td class="dash">—</td><td class="dash">—</td></tr>
+          <tr class="grp"><td colspan="4">Build new</td></tr>
+          <tr><td>Build it all — house, shop, apartment + both geothermal<small>~$1,167,000 to build</small></td><td><b>~$7,100/mo</b><small>$233,400 down</small></td><td class="dash">—</td><td class="dash">—</td></tr>
+          <tr><td>Build the shop + house on the same kind of land<small>~$1,077,000 to build</small></td><td><b>~$6,550/mo</b><small>$215,400 down</small></td><td class="dash">—</td><td class="dash">—</td></tr>
+          <tr><td>Build just the shop — on new land<small>~$562,000 to build</small></td><td class="dash">no 30-yr loan for a bare shop</td><td><b>~$3,980/mo</b><small>$56,200 down</small></td><td><b>~$3,960/mo</b><small>$140,500 down</small></td></tr>
+          <tr><td>Build just the shop — on land you already own<small>~$487,000 to build</small></td><td class="dash">—</td><td><b>~$3,450/mo</b><small>$48,700 down</small></td><td><b>~$3,430/mo</b><small>$121,750 down</small></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="calc-note">Read the blanks: the only way to touch a 30-year home loan is to have a house — and buying 9765 puts the shop on that loan. Build a standalone shop and you're on pricier SBA or commercial money, you wait a year or two, and you still need somewhere to live (add ~$2,000/mo to the shop-only rows to compare fairly — the buy rows already include the home). Illustrative estimates only — not an offer of financing or financial advice; rates change frequently. Confirm every number with your own lender, CPA, and tax advisor.</p>
+  </section>
+</div>
+
 <!-- WHAT YOU'RE BUYING -->
 <div class="wrap divide" id="shop">
   <section>
@@ -349,7 +408,7 @@
         <h3>The land</h3>
         <ul>
           <li><strong>Five private, wooded acres</strong> with a pond and trails.</li>
-          <li>An attached, heated garage.</li>
+          <li>An oversized 3-car, heated garage.</li>
           <li>Adjoining acreage may be available separately by private arrangement — ask for details.</li>
         </ul>
       </div>
@@ -377,9 +436,30 @@
       <div class="r"><div class="k">Septic — cleared</div><p>The home is on a <strong>new engineered system, county-verified compliant (2026)</strong>, good through 2031. The shop has its own compliant holding-tank system. Reports on file.</p></div>
       <div class="r"><div class="k">Water</div><p>A documented private well with a disclosure certificate on file, plus an in-ground sprinkler system.</p></div>
       <div class="r"><div class="k">Power &amp; heat</div><p>3-phase capability via converter, two separate electric meters, and geothermal on both buildings with propane backup.</p></div>
-      <div class="r"><div class="k">Measured floor plans</div><p>Professionally measured room-by-room plans of the home, garage, and suite — available on request.</p></div>
+      <div class="r"><div class="k">Measured floor plans</div><p>Measured room-by-room plans of all three levels plus the shop — <a href="#floorplans">explore them below</a>.</p></div>
       <div class="r"><div class="k">Improvements</div><p>Steel roof (2022), a ~$40,000 retaining wall (2022), and new shop gutters (2024).</p></div>
       <div class="r"><div class="k">The one estimate</div><p>The shop's ~4,800 sq ft is an <strong>estimate</strong> until it's formally measured — we'd rather say "approx." than guess high.</p></div>
+    </div>
+  </section>
+</div>
+
+<!-- FLOOR PLANS -->
+<div class="wrap divide" id="floorplans">
+  <section>
+    <div class="col">
+      <div class="eyebrow">Every room, measured</div>
+      <h2>The floor plans.</h2>
+      <p>Measured plans for all three levels of the home plus the shop. Tap any plan to enlarge it and read the dimensions.</p>
+    </div>
+    <div class="fp-tabs" id="fpTabs">
+      <button data-fp="shop" class="on">The shop</button>
+      <button data-fp="entry">Entry &amp; suite</button>
+      <button data-fp="main">Main level</button>
+      <button data-fp="lower">Lower level</button>
+    </div>
+    <div class="fp-stage">
+      <img id="fpImg" src="zim-img/plan-shop.png" alt="Measured floor plan — the shop">
+      <div class="fp-cap" id="fpCap">The shop — Warehouse + Shop/Office side, ~4,800 sq ft (approx.). <span class="zoom">Tap to enlarge ⤢</span></div>
     </div>
   </section>
 </div>
@@ -791,5 +871,24 @@ document.getElementById('phone').addEventListener('input', function (e) {
 })();
 </script>
 
+<!-- FLOOR PLAN LIGHTBOX -->
+<div class="lb" id="lightbox"><span class="x">&times;</span><img id="lbImg" src="" alt="Floor plan enlarged"></div>
+<script>
+(function(){
+  var plans={
+    shop:{src:'zim-img/plan-shop.png',cap:'The shop — Warehouse + Shop/Office side, ~4,800 sq ft (approx.).'},
+    entry:{src:'zim-img/plan-entry.png',cap:'Entry level — the oversized 3-car garage and the separate ~480 sq ft income suite.'},
+    main:{src:'zim-img/plan-main.png',cap:'Main level — kitchen, living &amp; dining, the primary bedroom, a second bedroom &amp; bath.'},
+    lower:{src:'zim-img/plan-lower.png',cap:'Lower level — a big family room, two more bedrooms, a flex room &amp; bath.'}
+  };
+  var img=document.getElementById('fpImg'),cap=document.getElementById('fpCap'),tabs=document.getElementById('fpTabs');
+  if(tabs){tabs.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;
+    tabs.querySelectorAll('button').forEach(function(x){x.classList.remove('on');});b.classList.add('on');
+    var p=plans[b.getAttribute('data-fp')];img.src=p.src;cap.innerHTML=p.cap+' <span class="zoom">Tap to enlarge ⤢</span>';});}
+  var lb=document.getElementById('lightbox'),lbImg=document.getElementById('lbImg');
+  if(img&&lb){img.addEventListener('click',function(){lbImg.src=img.src;lb.classList.add('open');});
+    lb.addEventListener('click',function(){lb.classList.remove('open');lbImg.src='';});}
+})();
+</script>
 </body>
 </html>
