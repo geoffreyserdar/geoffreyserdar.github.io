@@ -36,7 +36,7 @@
     --placeholder:#A39B87;
   }
   *{box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
+  html{scroll-behavior:smooth;scroll-padding-top:76px;}
   body{margin:0;background:var(--ground);color:var(--ink);
     font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
     font-size:19px;line-height:1.75;-webkit-font-smoothing:antialiased;}
@@ -55,7 +55,7 @@
   .divide{border-top:1px solid var(--line);}
 
   /* HEADER (dark) */
-  header{background:var(--navy);color:#EFE7D7;}
+  header{background:var(--navy);color:#EFE7D7;position:sticky;top:0;z-index:100;box-shadow:0 2px 14px rgba(20,20,18,.28);}
   header .bar{display:flex;align-items:center;justify-content:space-between;padding:16px 28px;max-width:1080px;margin:0 auto;gap:16px;flex-wrap:wrap;}
   .brand{font-family:"Playfair Display",serif;font-weight:900;font-size:19px;letter-spacing:.02em;color:#F3ECDD;}
   .brand small{display:block;font-family:Inter;font-weight:500;font-size:10.5px;letter-spacing:.28em;color:var(--gold2);margin-top:2px;text-transform:uppercase;}
@@ -65,6 +65,17 @@
   .reviews-badge{display:inline-flex;align-items:center;gap:7px;color:#E7DFCE;font-size:14px;font-weight:500;}
   .reviews-badge .stars{color:var(--gold2);letter-spacing:1px;}
   .hphone{color:#F3ECDD;font-weight:600;font-size:15px;}
+  /* scroll-progress completion bar + readout */
+  .sprog{position:fixed;top:0;left:0;width:100%;height:3px;z-index:200;background:transparent;pointer-events:none;}
+  .sprog i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--gold),var(--gold2));box-shadow:0 0 8px rgba(201,168,119,.5);transition:width .1s linear;}
+  .pct{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:600;color:var(--gold2);border:1px solid rgba(201,168,119,.45);border-radius:20px;padding:4px 12px;letter-spacing:.02em;white-space:nowrap;}
+  .pct .dotp{width:7px;height:7px;border-radius:50%;background:var(--gold2);box-shadow:0 0 6px rgba(201,168,119,.7);}
+  @media (max-width:640px){
+    header .bar{padding:11px 18px;gap:10px;}
+    .hnav{gap:13px;}
+    .hnav a{font-size:14px;}
+    .reviews-badge{display:none;}
+  }
 
   /* HERO */
   .hero{padding-top:66px;padding-bottom:40px;}
@@ -236,6 +247,9 @@
 </head>
 <body>
 
+<!-- SCROLL PROGRESS -->
+<div class="sprog"><i id="spFill"></i></div>
+
 <!-- HEADER -->
 <header>
   <div class="bar">
@@ -246,6 +260,7 @@
       <a href="#records">The records</a>
       <a href="#floorplans">Floor plans</a>
       <a class="reviews-badge" href="/reviews/"><span class="stars">★★★★★</span> 4.8 · 62 reviews</a>
+      <span class="pct" id="pct" title="How far you've explored this page"><span class="dotp"></span><span><span id="pctNum">0</span>%</span></span>
       <a class="hphone" href="tel:9522583100">952-258-3100</a>
     </nav>
   </div>
@@ -888,6 +903,22 @@ document.getElementById('phone').addEventListener('input', function (e) {
   var lb=document.getElementById('lightbox'),lbImg=document.getElementById('lbImg');
   if(img&&lb){img.addEventListener('click',function(){lbImg.src=img.src;lb.classList.add('open');});
     lb.addEventListener('click',function(){lb.classList.remove('open');lbImg.src='';});}
+})();
+</script>
+<!-- SCROLL PROGRESS -->
+<script>
+(function(){
+  var fill=document.getElementById('spFill'),num=document.getElementById('pctNum');
+  function upd(){
+    var h=document.documentElement, sc=h.scrollTop||document.body.scrollTop||0;
+    var max=(h.scrollHeight-h.clientHeight)||1;
+    var p=Math.max(0,Math.min(100,Math.round(sc/max*100)));
+    if(fill)fill.style.width=p+'%';
+    if(num)num.textContent=p;
+  }
+  window.addEventListener('scroll',upd,{passive:true});
+  window.addEventListener('resize',upd);
+  upd();
 })();
 </script>
 </body>
