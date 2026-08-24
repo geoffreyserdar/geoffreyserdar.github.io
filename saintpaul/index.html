@@ -288,15 +288,6 @@ footer { border-top: 1px solid rgba(77, 72, 57, 0.1); padding: 40px 32px; text-a
 /* Aug 18 — olive for structural labels; brass reserved for tappable things */
 .eyebrow, .section-eyebrow, .keepsell-eyebrow { color: #4F5B33; }
 
-/* Aug 18 — olive band, the accent wall */
-.specialties{
-  background:#E2E4D3;
-  padding-top:56px; padding-bottom:56px;
-  box-shadow:0 0 0 100vmax #E2E4D3;
-  clip-path:inset(0 -100vmax);
-}
-.specialties .spec-item{ background:#FAF9F1; border:1px solid #C9CDB4; }
-.specialties .section-eyebrow{ color:#3F4A26; }
 
 /* Aug 18 — dark close, matching the reviews page */
 .reach-band{
@@ -324,6 +315,11 @@ footer .footer-legal, footer .footer-legal a{ color:#8A8375; }
 /* Aug 18 — placeholders read as examples, typed text reads as answers */
 .field input, .field select { color:#1F201C; }
 .field input::placeholder { color:#A39B87; opacity:1; }
+
+/* Aug 18 — reviews badge in hero stats */
+a.stat-link{ text-decoration:none; color:inherit; transition:opacity .2s; }
+a.stat-link:hover{ opacity:.68; }
+a.stat-link .stat-number{ color:#8A6A3F; }
 </style>
 <link rel="canonical" href="https://geoffreyserdar.com/saintpaul/">
 </head>
@@ -343,6 +339,7 @@ footer .footer-legal, footer .footer-legal a{ color:#8A8375; }
     <div class="stat"><span class="stat-number">13+</span><span class="stat-label">Years</span></div>
     <div class="stat"><span class="stat-number">360+</span><span class="stat-label">Families Served</span></div>
     <div class="stat"><span class="stat-number">Historic</span><span class="stat-label">Homes &amp; Estates</span></div>
+    <a class="stat stat-link" href="/reviews/"><span class="stat-number">4.8&#9733;</span><span class="stat-label">62 Google Reviews</span></a>
   </div>
 
   <!-- FORM -->
@@ -357,7 +354,7 @@ footer .footer-legal, footer .footer-legal a{ color:#8A8375; }
         </div>
         <div class="field">
           <label for="phone">Phone Number</label>
-          <input type="tel" id="phone" name="phone" placeholder="651-000-0000" required autocomplete="tel" />
+          <input type="tel" id="phone" name="phone" placeholder="651-000-0000" autocomplete="tel" />
           <p class="field-error" id="phoneError" role="alert">That number doesn't look quite right &mdash; mind double-checking it? Geoffrey calls every lead personally, so we want to be sure it reaches you.</p>
         </div>
         <div class="field">
@@ -374,7 +371,7 @@ footer .footer-legal, footer .footer-legal a{ color:#8A8375; }
         </div>
         <button type="submit" class="submit-btn">Get in Touch</button>
       </form>
-      <p class="form-privacy">Your information stays with Geoffrey. No spam, ever.</p>
+      <p class="form-consent">By submitting this form, you agree that Serdar+Partners at Compass may contact you by phone call and text message (including by automated means) at the number you provide, regarding your real estate inquiry. Consent is not a condition of any purchase. Message &amp; data rates may apply; message frequency varies. Reply STOP to opt out, HELP for help. See our <a href="/privacy">Privacy Policy</a> and <a href="/terms">Terms</a>.</p>
     </div>
 
     <div class="success-state" id="successState">
