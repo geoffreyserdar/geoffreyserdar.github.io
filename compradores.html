@@ -219,7 +219,7 @@ input.input-error{border-color:var(--warn)!important;box-shadow:0 0 0 3px rgba(1
   </section>
 
   <form id="compradoresForm" action="https://formspree.io/f/mpqerwwk" method="POST" novalidate>
-    <input type="hidden" name="form_source" value="compradores-intake-v5">
+    <input type="hidden" name="form_source" value="compradores-intake-v6">
     <input type="hidden" name="_language" value="es">
     <input type="hidden" name="_subject" value="Compradores checklist / Raquel-Yenir style | Serdar">
     <input type="hidden" name="meeting_context__contexto_reunion" value="Co-present dinner intake - not a BRA; Geoffrey + clients">
@@ -288,12 +288,20 @@ input.input-error{border-color:var(--warn)!important;box-shadow:0 0 0 3px rgba(1
         <p class="field-error" id="phoneError2">Número de EE. UU. válido (10 dígitos). / Valid US number (10 digits). No 555.</p>
       </div>
 
-      <label class="fld" for="email_shared">
-        <span class="es" lang="es">Correo (compartido u otro) <span class="opt">(opcional)</span></span>
-        <span class="en" lang="en">Email (shared or other) (optional)</span>
+      <label class="fld" for="email_p1">
+        <span class="es" lang="es">Correo - Persona 1 / Ella</span>
+        <span class="en" lang="en">Email - Person 1</span>
       </label>
-      <input type="email" id="email_shared" name="Correo_compartido__Shared_email" autocomplete="email" placeholder="nombre@correo.com">
-      <p class="field-error" id="emailError">Correo válido, por favor. / Please enter a valid email.</p>
+      <input type="email" id="email_p1" name="Correo_P1__Email_P1" required autocomplete="email" placeholder="nombre@correo.com">
+      <p class="field-error" id="emailError1">Correo válido, por favor. / Please enter a valid email.</p>
+      <div id="emailP2Wrap">
+        <label class="fld" for="email_p2">
+          <span class="es" lang="es">Correo - Persona 2 / Él</span>
+          <span class="en" lang="en">Email - Person 2</span>
+        </label>
+        <input type="email" id="email_p2" name="Correo_P2__Email_P2" autocomplete="email" placeholder="nombre@correo.com">
+        <p class="field-error" id="emailError2">Correo válido, por favor. / Please enter a valid email.</p>
+      </div>
 
       <label class="fld" id="lbl-canal">
         <span class="es" lang="es">Canal preferido</span>
@@ -660,7 +668,7 @@ input.input-error{border-color:var(--warn)!important;box-shadow:0 0 0 3px rgba(1
           lead_campaign:LEAD_SOURCE.utm_campaign||'',
           gclid_present:LEAD_SOURCE.gclid?'yes':'no',
           page_path:location.pathname,
-          form_source:'compradores-intake-v5'
+          form_source:'compradores-intake-v6'
         });
       }
     }catch(err){}
@@ -696,9 +704,11 @@ input.input-error{border-color:var(--warn)!important;box-shadow:0 0 0 3px rgba(1
   }
   formatPhoneInput(document.getElementById('celular_p1'));
   formatPhoneInput(document.getElementById('celular_p2'));
-  document.getElementById('email_shared').addEventListener('input',function(){
-    this.classList.remove('input-error');document.getElementById('emailError').classList.remove('visible');
-  });
+  function wireEmail(id,errId){
+    var el=document.getElementById(id);if(!el)return;
+    el.addEventListener('input',function(){this.classList.remove('input-error');document.getElementById(errId).classList.remove('visible');});
+  }
+  wireEmail('email_p1','emailError1');wireEmail('email_p2','emailError2');
   function isCoupleMode(){return !document.getElementById('tipo_solo').checked;}
   function updateRoleLabels(){
     var ella=document.getElementById('role_ella_el').checked;
@@ -724,12 +734,18 @@ input.input-error{border-color:var(--warn)!important;box-shadow:0 0 0 3px rgba(1
   }
   function updateCoupleUI(){
     var couple=isCoupleMode();
-    if(couple){p2Block.classList.remove('hidden-block');nombreP2.required=true;celularP2.required=true;}
-    else{
-      p2Block.classList.add('hidden-block');nombreP2.required=false;celularP2.required=false;
+    var emailP2=document.getElementById('email_p2');
+    var emailP2Wrap=document.getElementById('emailP2Wrap');
+    if(couple){
+      p2Block.classList.remove('hidden-block');if(emailP2Wrap)emailP2Wrap.classList.remove('hidden-block');
+      nombreP2.required=true;celularP2.required=true;if(emailP2)emailP2.required=true;
+    } else {
+      p2Block.classList.add('hidden-block');if(emailP2Wrap)emailP2Wrap.classList.add('hidden-block');
+      nombreP2.required=false;celularP2.required=false;if(emailP2){emailP2.required=false;emailP2.value='';emailP2.classList.remove('miss','input-error');}
       nombreP2.value='';celularP2.value='';
       nombreP2.classList.remove('miss','input-error');celularP2.classList.remove('miss','input-error');
       document.getElementById('phoneError2').classList.remove('visible');
+      var e2=document.getElementById('emailError2');if(e2)e2.classList.remove('visible');
     }
     updateRoleLabels();updateProgress();
   }
@@ -811,9 +827,14 @@ input.input-error{border-color:var(--warn)!important;box-shadow:0 0 0 3px rgba(1
     }
     checkPhone(document.getElementById('celular_p1'),'phoneError1');
     if(isCoupleMode())checkPhone(document.getElementById('celular_p2'),'phoneError2');
-    var em=document.getElementById('email_shared');
-    if(!isValidEmail(em.value)){em.classList.add('input-error');document.getElementById('emailError').classList.add('visible');if(!firstBad||(em.compareDocumentPosition(firstBad)&Node.DOCUMENT_POSITION_FOLLOWING))firstBad=em;}
-    else{em.classList.remove('input-error');document.getElementById('emailError').classList.remove('visible');}
+    function checkEmail(el,errId){
+      if(!el||(el.closest&&el.closest('.hidden-block')))return;
+      if(!el.required&&!String(el.value||'').trim()){el.classList.remove('input-error');document.getElementById(errId).classList.remove('visible');return;}
+      if(!isValidEmail(el.value)||(el.required&&!String(el.value||'').trim())){el.classList.add('input-error');document.getElementById(errId).classList.add('visible');if(!firstBad||(el.compareDocumentPosition(firstBad)&Node.DOCUMENT_POSITION_FOLLOWING))firstBad=el;}
+      else{el.classList.remove('input-error');document.getElementById(errId).classList.remove('visible');}
+    }
+    checkEmail(document.getElementById('email_p1'),'emailError1');
+    if(isCoupleMode())checkEmail(document.getElementById('email_p2'),'emailError2');
     if(firstBad){try{firstBad.scrollIntoView({behavior:'smooth',block:'center'});}catch(_){firstBad.scrollIntoView();}setTimeout(function(){try{firstBad.focus({preventScroll:true});}catch(_){try{firstBad.focus();}catch(err){}}},350);return;}
 
     // Layer 1 passed. Layer 2 — Twilio carrier check + speed-to-lead (fail OPEN).
@@ -858,9 +879,9 @@ input.input-error{border-color:var(--warn)!important;box-shadow:0 0 0 3px rgba(1
       lastField=id;
       if(startFired)return;
       startFired=true;
-      if(typeof gtag==='function')gtag('event','form_start',{first_field:id,form_source:'compradores-intake-v5'});
+      if(typeof gtag==='function')gtag('event','form_start',{first_field:id,form_source:'compradores-intake-v6'});
     }
-    ['nombre_p1','celular_p1','nombre_p2','celular_p2'].forEach(function(id){
+    ['nombre_p1','celular_p1','email_p1','nombre_p2','celular_p2','email_p2'].forEach(function(id){
       var el=document.getElementById(id);
       if(!el)return;
       el.addEventListener('focus',function(){touchField(id);});
@@ -873,7 +894,7 @@ input.input-error{border-color:var(--warn)!important;box-shadow:0 0 0 3px rgba(1
       var thanks=document.getElementById('thanks');
       if(thanks&&thanks.style.display==='block')return;
       fired=true;
-      if(typeof gtag==='function')gtag('event','form_abandon',{last_field:lastField,form_source:'compradores-intake-v5'});
+      if(typeof gtag==='function')gtag('event','form_abandon',{last_field:lastField,form_source:'compradores-intake-v6'});
     });
   })();
 })();
