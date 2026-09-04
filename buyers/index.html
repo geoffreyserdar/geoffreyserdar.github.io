@@ -343,6 +343,26 @@ a.stat-link .stat-number{ color:#8A6A3F; }
 .or-rule{ display:flex; align-items:center; gap:14px; margin:26px 0 20px; }
 .or-rule::before,.or-rule::after{ content:""; flex:1; height:1px; background:rgba(77,72,57,.20); }
 .or-rule span{ font-size:12px; letter-spacing:2px; text-transform:uppercase; color:#4D4839; }
+/* --- video: click-to-play facade, brand spec sec.7. No third-party script until tapped. --- */
+.vidband{ padding:8px 32px 56px; max-width:640px; margin:0 auto; }
+.vid-head{ font-family:'Playfair Display',Georgia,serif; font-weight:700; font-size:clamp(24px,4vw,34px);
+  line-height:1.2; color:#1F201C; margin:0 0 14px; max-width:22ch; }
+.vid-sub{ font-size:17px; line-height:1.7; color:#4D4839; margin:0 0 22px; max-width:60ch; }
+.vidwrap{ position:relative; }
+.vidfacade{ display:block; width:100%; padding:0; border:1px solid #D8CCB4; background:#1D1E1A;
+  border-radius:4px; overflow:hidden; cursor:pointer; position:relative; line-height:0; }
+.vidfacade:focus-visible{ outline:2px solid #8A6A3F; outline-offset:3px; }
+.vidthumb{ width:100%; height:auto; display:block; opacity:.88; transition:opacity .2s; }
+.vidfacade:hover .vidthumb{ opacity:1; }
+.vidplay{ position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
+  width:70px; height:70px; border-radius:50%; background:rgba(236,228,212,.16);
+  border:1px solid #C9A877; display:flex; align-items:center; justify-content:center;
+  transition:background .2s; }
+.vidfacade:hover .vidplay{ background:rgba(236,228,212,.28); }
+.vidplay svg{ margin-left:4px; }
+.vidframe{ width:100%; aspect-ratio:16/9; border:1px solid #D8CCB4; border-radius:4px; display:block; }
+.vid-credit{ font-size:13px; color:#4D4839; margin:12px 0 0; letter-spacing:.02em; }
+@media (max-width:640px){ .vidband{ padding-left:22px; padding-right:22px; } .vidplay{ width:58px; height:58px; } }
 /* --- the face, beside the phone promise --- */
 .door-who{ display:flex; align-items:center; gap:14px; margin:16px 0 0; }
 .door-face{ flex:0 0 auto; width:72px; height:72px; border-radius:50%; object-fit:cover;
@@ -474,6 +494,44 @@ a.stat-link .stat-number{ color:#8A6A3F; }
 </div>
 
 <div class="divider"></div>
+
+
+<!-- VIDEO: click-to-play facade. No YouTube script loads until someone taps. -->
+<div class="vidband">
+  <p class="section-eyebrow">What that looks like</p>
+  <h2 class="vid-head">They started on Lake Minnetonka. They ended up on the Mississippi.</h2>
+  <p class="vid-sub">The first house they wanted didn't survive the renovation math, so we started over. Multiple offers on the one they found. They got it.</p>
+
+  <div class="vidwrap">
+    <button class="vidfacade" id="vidFacade" type="button"
+            aria-label="Play the tour of 8211 River Acres Road, Cottage Grove">
+      <img class="vidthumb" src="https://img.youtube.com/vi/mDXCgSYe5_4/maxresdefault.jpg"
+           onerror="this.onerror=null;this.src='https://img.youtube.com/vi/mDXCgSYe5_4/hqdefault.jpg';"
+           alt="8211 River Acres Road, Cottage Grove, Minnesota" width="1280" height="720" loading="lazy" />
+      <span class="vidplay" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="26" height="26"><path d="M8 5v14l11-7z" fill="#C9A877"/></svg>
+      </span>
+    </button>
+  </div>
+  <p class="vid-credit">Represented the buyers &middot; Listed by RE/MAX Advantage Plus</p>
+</div>
+
+<script>
+(function () {
+  var f = document.getElementById('vidFacade');
+  if (!f) return;
+  f.addEventListener('click', function () {
+    var i = document.createElement('iframe');
+    i.src = 'https://www.youtube-nocookie.com/embed/mDXCgSYe5_4?autoplay=1&rel=0&modestbranding=1';
+    i.title = 'Started on Lake Minnetonka, Sold on the Mississippi';
+    i.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+    i.allowFullscreen = true;
+    i.className = 'vidframe';
+    f.replaceWith(i);
+    if (typeof gtag === 'function') gtag('event', 'video_play', { video_id: 'mDXCgSYe5_4', page: 'buyers' });
+  });
+})();
+</script>
 
 <!-- SPECIALTIES -->
 <div class="specialties">
