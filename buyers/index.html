@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Geoffrey Serdar | Buyer Representation &mdash; Lake Minnetonka, Excelsior &amp; Carver County</title>
+<title>Geoffrey Serdar | Buyer Representation in the Twin Cities</title>
 
 <!-- begin Pixel Code (Compass Lead Flow — real estate only) -->
 <script src="https://www.compass.com/cxlp/a.min.js" id="cxlp-ajs" data-client-id="dh30gl6zq3rg" async></script>
 <!-- end Pixel Code -->
-<meta name="description" content="Buyer representation across Lake Minnetonka, Excelsior, Victoria, Chanhassen and Carver County. Geoffrey Serdar reads the inspection, prices it honestly, and builds offers sellers can say yes to. 13 years, 360+ families served. He answers his own phone." />
+<meta name="description" content="Buyer representation across the Twin Cities. We read the inspection, price it honestly, and build offers sellers can say yes to. Based in Excelsior. 13 years, 360+ families served. Geoffrey answers his own phone. Call or text 952-258-3100." />
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
 
 <!-- Google tag (gtag.js) -->
@@ -51,7 +51,7 @@ body {
   overflow: hidden;
 }
 .hero::before {
-  content: 'SAINT PAUL';
+  content: 'MINNESOTA';
   position: absolute;
   bottom: -20px;
   right: -30px;
@@ -320,6 +320,47 @@ footer .footer-legal, footer .footer-legal a{ color:#8A8375; }
 a.stat-link{ text-decoration:none; color:inherit; transition:opacity .2s; }
 a.stat-link:hover{ opacity:.68; }
 a.stat-link .stat-number{ color:#8A6A3F; }
+
+/* --- consent block: markup shipped Aug 24, CSS never did. 12px not 11px, and full-opacity
+   --mid rather than the 50%-alpha .form-privacy uses, so it clears 4.5:1 for a 55+ audience. --- */
+.form-consent{ font-size:12px; color:#4D4839; text-align:center; margin-top:16px; line-height:1.65;
+  max-width:60ch; margin-left:auto; margin-right:auto; }
+.form-consent a{ color:#8A6A3F; text-decoration:underline; }
+.form-consent a:hover{ color:#1F201C; }
+/* --- v2 buyer door: matches .door-btn on /lake-minnetonka-homes/ --- */
+.door-btns{ display:grid; gap:10px; margin:18px 0 4px; }
+.door-btn{ display:flex; align-items:center; justify-content:center; gap:10px; width:100%;
+  padding:17px 20px; border-radius:6px; font-size:16px; font-weight:700; letter-spacing:.3px;
+  text-decoration:none; border:0; cursor:pointer; transition:transform .08s, filter .15s; min-height:56px; }
+.door-btn:active{ transform:translateY(1px); }
+.door-btn:focus-visible{ outline:2px solid #8A6A3F; outline-offset:3px; }
+.door-text{ background:#8A6A3F; color:#FAF7EF; }
+.door-text:hover{ filter:brightness(1.08); }
+.door-call{ background:transparent; color:#8A6A3F; border:1px solid rgba(138,106,63,.55); }
+.door-call:hover{ background:rgba(138,106,63,.10); }
+.door-note{ font-size:13px; color:#4D4839; text-align:center; margin:14px 0 0; line-height:1.55; }
+.or-rule{ display:flex; align-items:center; gap:14px; margin:26px 0 20px; }
+.or-rule::before,.or-rule::after{ content:""; flex:1; height:1px; background:rgba(77,72,57,.20); }
+.or-rule span{ font-size:12px; letter-spacing:2px; text-transform:uppercase; color:#4D4839; }
+/* --- what happens when you reach out --- */
+.next-up{ margin:26px 0 0; padding:20px 0 0; border-top:1px solid #D8CCB4; }
+.next-h{ font-size:13px; letter-spacing:.18em; text-transform:uppercase; color:#4D4839; margin:0 0 16px; font-weight:500; }
+.next-steps{ display:grid; gap:14px; }
+.next-step{ display:flex; gap:12px; align-items:flex-start; }
+.next-n{ flex:0 0 auto; width:26px; height:26px; border:1px solid #8A6A3F; color:#8A6A3F; border-radius:50%;
+  display:flex; align-items:center; justify-content:center; font-size:13px; font-weight:600; margin-top:1px; }
+.next-step p{ margin:0; font-size:16px; line-height:1.6; color:#33342C; }
+/* --- reach-band close --- */
+.reach-head{ font-family:'Playfair Display',Georgia,serif; font-weight:700; font-size:clamp(28px,4.4vw,40px);
+  line-height:1.15; margin:10px 0 18px; color:#FAF7EF; max-width:20ch; }
+.reach-body{ font-size:19px; line-height:1.75; color:#C4BBA6; margin:0 0 28px; max-width:60ch; }
+.reach-label{ font-size:13px; letter-spacing:.2em; text-transform:uppercase; margin:0; }
+.reach-actions{ display:flex; flex-wrap:wrap; gap:16px; align-items:center; }
+.reach-action{ display:inline-flex; align-items:center; gap:9px; border:1px solid; padding:15px 26px;
+  border-radius:6px; text-decoration:none; font-weight:700; font-size:16px; min-height:56px; box-sizing:border-box; }
+.reach-phone{ text-decoration:none; font-size:19px; font-weight:600; }
+.reach-action:focus-visible,.reach-phone:focus-visible{ outline:2px solid #C9A877; outline-offset:3px; }
+
 </style>
 <link rel="canonical" href="https://geoffreyserdar.com/buyers/">
 </head>
@@ -333,7 +374,7 @@ a.stat-link .stat-number{ color:#8A6A3F; }
     Geoffrey
     <span>Serdar</span>
   </h1>
-  <p class="hero-title">Buyer Representation &nbsp;·&nbsp; Lake Minnetonka &nbsp;·&nbsp; Carver County</p>
+  <p class="hero-title">Buyer Representation &nbsp;·&nbsp; Twin Cities</p>
 
   <div class="hero-stats">
     <div class="stat"><span class="stat-number">13+</span><span class="stat-label">Years</span></div>
@@ -342,11 +383,29 @@ a.stat-link .stat-number{ color:#8A6A3F; }
     <a class="stat stat-link" href="/reviews/"><span class="stat-number">4.8&#9733;</span><span class="stat-label">62 Google Reviews</span></a>
   </div>
 
-  <!-- FORM -->
+  <!-- THE DOOR -->
   <div class="form-card">
     <div class="form-fields" id="formFields">
-      <h2 class="form-headline">Let's talk about the home you're trying to get.</h2>
-      <p class="form-sub">Leave your name and number. Geoffrey will reach out personally &mdash; no scripts, no assistants.</p>
+      <h2 class="form-headline">Most people don't choose their buyer's agent. They call whoever's name was on the sign.</h2>
+      <p class="form-sub">You don't have to be ready. Most people who text me aren't. Ask a question, get a straight answer, decide later.</p>
+
+      <div class="door-btns">
+        <a class="door-btn door-text" href="sms:+19522583100">&#128241; Text Geoffrey</a>
+        <a class="door-btn door-call" href="tel:9522583100">&#128222; Call 952-258-3100</a>
+      </div>
+      <p class="door-note">He answers his own phone. No call center, no assistant, no script.</p>
+
+      <div class="next-up">
+        <p class="next-h">What happens when you reach out</p>
+        <div class="next-steps">
+          <div class="next-step"><span class="next-n">1</span><p>Geoffrey answers, usually the same day. Not a drip sequence.</p></div>
+          <div class="next-step"><span class="next-n">2</span><p>We talk through what you're actually trying to buy, and what it will really cost.</p></div>
+          <div class="next-step"><span class="next-n">3</span><p>You get a plan for how to win it, whether or not you ever hire us.</p></div>
+        </div>
+      </div>
+
+      <div class="or-rule"><span>or leave your number</span></div>
+
       <form id="captureForm" onsubmit="handleSubmit(event)">
         <div class="field">
           <label for="name">Your Name</label>
@@ -355,21 +414,21 @@ a.stat-link .stat-number{ color:#8A6A3F; }
         <div class="field">
           <label for="phone">Phone Number</label>
           <input type="tel" id="phone" name="phone" placeholder="952-000-0000" autocomplete="tel" />
-          <p class="field-error" id="phoneError" role="alert">That number doesn't look quite right &mdash; mind double-checking it? Geoffrey calls every lead personally, so we want to be sure it reaches you.</p>
+          <p class="field-error" id="phoneError" role="alert">That number doesn't look quite right. Mind double-checking it? Geoffrey calls every lead personally, so we want to be sure it reaches you.</p>
         </div>
         <div class="field">
           <label id="interestLabel">I'm thinking about... <span class="optional">optional</span></label>
           <div class="chip-group" role="group" aria-labelledby="interestLabel" id="interestChips">
-            <button type="button" class="chip" data-value="buying" aria-pressed="false">Starting to look</button>
+            <button type="button" class="chip" data-value="buying" aria-pressed="false">Just starting to look</button>
             <button type="button" class="chip" data-value="both" aria-pressed="false">Buying and selling</button>
-            <button type="button" class="chip" data-value="selling" aria-pressed="false">Running out of room</button>
-            <button type="button" class="chip" data-value="investing" aria-pressed="false">Money to put to work</button>
+            <button type="button" class="chip" data-value="investing" aria-pressed="false">Looking at investment property</button>
             <button type="button" class="chip" data-value="probate" aria-pressed="false">Helping with a family home</button>
-            <button type="button" class="chip" data-value="just looking" aria-pressed="false">What's my place worth</button>
+            <button type="button" class="chip" data-value="selling" aria-pressed="false">Thinking about a move</button>
+            <button type="button" class="chip" data-value="just looking" aria-pressed="false">Just have a question</button>
           </div>
           <input type="hidden" id="interest" name="interest" value="" />
         </div>
-        <button type="submit" class="submit-btn">Get in Touch</button>
+        <button type="submit" class="submit-btn">Talk to Geoffrey</button>
       </form>
       <p class="form-consent">By submitting this form, you agree that Serdar+Partners at Compass may contact you by phone call and text message (including by automated means) at the number you provide, regarding your real estate inquiry. Consent is not a condition of any purchase. Message &amp; data rates may apply; message frequency varies. Reply STOP to opt out, HELP for help. See our <a href="/privacy">Privacy Policy</a> and <a href="/terms">Terms</a>.</p>
     </div>
@@ -377,26 +436,29 @@ a.stat-link .stat-number{ color:#8A6A3F; }
     <div class="success-state" id="successState">
       <div class="success-icon">&check;</div>
       <h3 class="success-title">Got it. Talk soon.</h3>
-      <p class="success-sub">Geoffrey will reach out to you directly.<br />In the meantime &mdash; 952-258-3100.</p>
+      <p class="success-sub">Geoffrey will reach out to you directly.<br />In the meantime, call or text 952-258-3100.</p>
     </div>
   </div>
 </section>
 
 <div class="divider"></div>
 
-<!-- THE ARGUMENT -->
+<!-- WHO YOU'RE CALLING -->
 <div class="section">
   <p class="section-eyebrow">Who You're Calling</p>
   <h2 class="section-headline">The best offer is not always the biggest one.</h2>
   <p class="section-body">
-    When a home draws more than one buyer, the seller is choosing between <strong>people and terms</strong>, not just numbers on a page.
-    Most of what decides it happens before anyone writes an offer &mdash; whether you understand what the seller actually needs,
+    When a home draws more than one buyer, the seller is choosing between people and terms, not just numbers on a page.
+    Most of what decides it happens before anyone writes an offer: whether you understand what the seller actually needs,
     what the house is really going to cost you, and which risks you can take off their hands instead of handing back.<br /><br />
-    That is the work Geoffrey does on the buy side. Read the inspection properly and price it honestly, so you can commit without
-    guessing. Understand what the other side is protecting. Then make the case for you plainly, on the facts.
-    <strong>Buyers he represents have won homes that other buyers also wanted</strong> &mdash; not by overpaying, but by being the
+    That is the work we do on the buy side. We read the inspection properly and price it honestly, so you can commit
+    without guessing. We work out what the other side is protecting. Then we make the case for you plainly, on the facts.
+    <strong>Buyers we represent have won homes that other buyers also wanted</strong>, not by overpaying, but by being the
     offer the seller could say yes to with confidence.<br /><br />
-    Geoffrey lives on <strong>Lake Minnewashta in Excelsior</strong>. Thirteen years, 360+ families served, and he still answers his own
+    We also own and operate rentals and short-term stays ourselves, so when the conversation turns to what a property
+    actually returns, it isn't theoretical.<br /><br />
+    <strong>Geoffrey is based in Excelsior, on the east side of Minnewashta Park.</strong> Home base is the lake and Carver
+    County. We represent buyers across the Twin Cities. Thirteen years, 360+ families served, and he still answers his own
     phone, shows up to his own showings, and negotiates his own deals.
   </p>
 </div>
@@ -409,49 +471,45 @@ a.stat-link .stat-number{ color:#8A6A3F; }
   <div class="spec-grid">
     <div class="spec-item">
       <p class="spec-title">Competing Offers</p>
-      <p class="spec-desc">A strategy built on what this particular seller needs &mdash; timing, certainty, which contingencies matter. Price is one lever of several, and it is rarely the only one in play.</p>
+      <p class="spec-desc">A strategy built on what this seller needs: timing, certainty, which contingencies matter. Price is one lever of several, and rarely the only one in play.</p>
     </div>
     <div class="spec-item">
-      <p class="spec-title">The Inspection, Priced Before You Commit</p>
-      <p class="spec-desc">Mechanicals at the end of their life, a roof, a septic system, a surprise. Real ranges from real trades, so you know what you are taking on rather than hoping.</p>
+      <p class="spec-title">The Inspection, Priced First</p>
+      <p class="spec-desc">Mechanicals near the end of their life. A roof. A septic system. We get real ranges from real trades, so you know what you are taking on rather than hoping.</p>
     </div>
     <div class="spec-item">
       <p class="spec-title">On and Off-Market Access</p>
-      <p class="spec-desc">Excelsior, Victoria, Chanhassen, Chaska, Shorewood, Minnetrista and the Lake Minnetonka shoreline &mdash; including homes that never reach a public search.</p>
+      <p class="spec-desc">Homes that never reach a public search, through a network built over thirteen years of actually being in this market.</p>
     </div>
     <div class="spec-item">
-      <p class="spec-title">An Honest No</p>
-      <p class="spec-desc">If the house is wrong, or the number is wrong, Geoffrey says so. No pressure, no scripts, and no interest in selling you something you will regret.</p>
+      <p class="spec-title">A Second Opinion, Free</p>
+      <p class="spec-desc">Already working with an agent? We are not asking you to leave them, and we will not pitch you. Ask us about a house, a number or an inspection line item, get a straight answer, and take it back to your own agent.</p>
     </div>
   </div>
 </div>
 
-<!-- WHERE HE WORKS -->
-<div class="hoods">
-  <p class="section-eyebrow">Where Geoffrey Works</p>
-  <div class="hood-list">
-    <span class="hood-tag">Excelsior</span>
-    <span class="hood-tag">Lake Minnewashta</span>
-    <span class="hood-tag">Lake Minnetonka</span>
-    <span class="hood-tag">Victoria</span>
-    <span class="hood-tag">Chanhassen</span>
-    <span class="hood-tag">Chaska</span>
-    <span class="hood-tag">Shorewood</span>
-    <span class="hood-tag">Minnetrista</span>
-    <span class="hood-tag">Tonka Bay</span>
-    <span class="hood-tag">Deephaven</span>
-    <span class="hood-tag">Wayzata</span>
-    <span class="hood-tag">Orono</span>
-  </div>
-</div>
-
-<!-- KEEP-OR-SELL DOOR (calculator lead magnet) -->
+<!-- KEEP-OR-SELL DOOR -->
 <div class="keepsell">
   <div class="keepsell-card">
     <p class="keepsell-eyebrow">Buying, but you already own?</p>
     <h2 class="keepsell-headline">Keep it, or sell it?</h2>
-    <p class="keepsell-body">Run the 5-year math Geoffrey uses to settle the hold-vs-sell question &mdash; your numbers, a clear verdict, about thirty seconds. Free, no pressure.</p>
-    <a class="keepsell-btn" href="/keep-or-sell/?utm_source=buyers&amp;utm_medium=calc_door">Run your 5-year numbers &rarr;</a>
+    <p class="keepsell-body">Run the 5-year math Geoffrey uses to settle the hold-vs-sell question. Your numbers, a clear verdict, about thirty seconds. Free, no pressure.</p>
+    <a class="keepsell-btn" href="/keep-or-sell/?utm_source=buyers&amp;utm_medium=calc_door">Run your 5-year numbers</a>
+  </div>
+</div>
+
+<!-- DARK CLOSE: the Honest No -->
+<div class="reach-band">
+  <p class="reach-label">One more thing</p>
+  <h2 class="reach-head">We would rather tell you no.</h2>
+  <p class="reach-body">
+    If the house is wrong, or the number is wrong, we say so out loud, early, before you are emotionally committed
+    to it. We would rather lose a sale than watch someone sign for a house they will resent in two years.
+    That is not a sales position. It is the entire job.
+  </p>
+  <div class="reach-actions">
+    <a class="reach-action" href="sms:+19522583100">&#128241; Text Geoffrey</a>
+    <a class="reach-phone" href="tel:9522583100">952-258-3100</a>
   </div>
 </div>
 
@@ -467,7 +525,7 @@ a.stat-link .stat-number{ color:#8A6A3F; }
     <a href="/reviews/">★ 4.8 · 62 Reviews</a>
   </div>
   <p class="footer-legal">
-    Serving Lake Minnetonka, Excelsior &amp; Carver County &nbsp;·&nbsp; Licensed in Minnesota &nbsp;·&nbsp; Serdar+Partners at Compass<br />
+    Serving the Twin Cities &amp; Greater Minnesota &nbsp;·&nbsp; Licensed in Minnesota &nbsp;·&nbsp; Serdar+Partners at Compass<br />
     &copy; 2026 Geoffrey Serdar. All rights reserved.
   </p>
 </footer>
