@@ -342,6 +342,11 @@ a.stat-link .stat-number{ color:#8A6A3F; }
 .or-rule{ display:flex; align-items:center; gap:14px; margin:26px 0 20px; }
 .or-rule::before,.or-rule::after{ content:""; flex:1; height:1px; background:rgba(77,72,57,.20); }
 .or-rule span{ font-size:12px; letter-spacing:2px; text-transform:uppercase; color:#4D4839; }
+/* --- the face, beside the phone promise --- */
+.door-who{ display:flex; align-items:center; gap:14px; margin:16px 0 0; }
+.door-face{ flex:0 0 auto; width:72px; height:72px; border-radius:50%; object-fit:cover;
+  border:1px solid rgba(138,106,63,.45); display:block; }
+.door-who .door-note{ margin:0; text-align:left; }
 /* --- what happens when you reach out --- */
 .next-up{ margin:26px 0 0; padding:20px 0 0; border-top:1px solid #D8CCB4; }
 .next-h{ font-size:13px; letter-spacing:.18em; text-transform:uppercase; color:#4D4839; margin:0 0 16px; font-weight:500; }
@@ -393,7 +398,11 @@ a.stat-link .stat-number{ color:#8A6A3F; }
         <a class="door-btn door-text" href="sms:+19522583100">&#128241; Text Geoffrey</a>
         <a class="door-btn door-call" href="tel:9522583100">&#128222; Call 952-258-3100</a>
       </div>
-      <p class="door-note">He answers his own phone. No call center, no assistant, no script.</p>
+      <div class="door-who">
+        <img class="door-face" src="/img/geoffrey.jpg" width="72" height="72" loading="lazy"
+             alt="Geoffrey Serdar, Serdar+Partners at Compass" />
+        <p class="door-note">He answers his own phone. No call center, no assistant, no script.</p>
+      </div>
 
       <div class="next-up">
         <p class="next-h">What happens when you reach out</p>
