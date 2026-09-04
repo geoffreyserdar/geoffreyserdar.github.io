@@ -468,6 +468,7 @@ const LEAD_SOURCE = (function () {
     utm_source: p.get('utm_source') || '',
     utm_medium: p.get('utm_medium') || '',
     utm_campaign: p.get('utm_campaign') || '',
+    utm_content: p.get('utm_content') || '',
     gclid: p.get('gclid') || '',
     referrer: document.referrer || ''
   };
@@ -531,6 +532,7 @@ function checkNumber(name, phone, interest) {
     utm_source: LEAD_SOURCE.utm_source,
     utm_medium: LEAD_SOURCE.utm_medium,
     utm_campaign: LEAD_SOURCE.utm_campaign,
+    utm_content: LEAD_SOURCE.utm_content,
     gclid: LEAD_SOURCE.gclid,
     referrer: LEAD_SOURCE.referrer
   });
@@ -549,6 +551,7 @@ function submitToFormspree(name, phone, interest) {
       utm_source: LEAD_SOURCE.utm_source,
       utm_medium: LEAD_SOURCE.utm_medium,
       utm_campaign: LEAD_SOURCE.utm_campaign,
+      utm_content: LEAD_SOURCE.utm_content,
       gclid: LEAD_SOURCE.gclid,
       referrer: LEAD_SOURCE.referrer
     })
@@ -639,12 +642,23 @@ document.getElementById('phone').addEventListener('input', function (e) {
 <script>
 (function () {
   var lastField = null;
+  var startFired = false;
+  // Sept 4 2026: no page on this site ever fired form_start. What GA4 showed was
+  // Google's automatic enhanced-measurement event, which does not reliably detect
+  // JS-driven forms, so form_start and form_abandon had different denominators and
+  // could never be compared. This fires our own, once, on first interaction.
+  function touchField(id) {
+    lastField = id;
+    if (startFired) return;
+    startFired = true;
+    if (typeof gtag === 'function') gtag('event', 'form_start', { first_field: id });
+  }
   ['name', 'phone'].forEach(function (id) {
     var el = document.getElementById(id);
     if (!el) return;
-    el.addEventListener('focus', function () { lastField = id; });
-    el.addEventListener('input', function () { lastField = id; });
-    el.addEventListener('change', function () { lastField = id; });
+    el.addEventListener('focus', function () { touchField(id); });
+    el.addEventListener('input', function () { touchField(id); });
+    el.addEventListener('change', function () { touchField(id); });
   });
 
   // Interest chips — one-tap, optional, non-blocking. Sets the hidden #interest.
@@ -654,7 +668,7 @@ document.getElementById('phone').addEventListener('input', function (e) {
     chips.addEventListener('click', function (e) {
       var chip = e.target.closest('.chip');
       if (!chip) return;
-      lastField = 'interest';
+      touchField('interest');
       var val = chip.getAttribute('data-value');
       var already = chip.classList.contains('selected');
       chips.querySelectorAll('.chip').forEach(function (c) {
