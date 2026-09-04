@@ -354,15 +354,18 @@ a.stat-link .stat-number{ color:#8A6A3F; }
 .vidfacade:focus-visible{ outline:2px solid #8A6A3F; outline-offset:3px; }
 .vidthumb{ width:100%; height:auto; display:block; opacity:.88; transition:opacity .2s; }
 .vidfacade:hover .vidthumb{ opacity:1; }
-.vidplay{ position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
-  width:70px; height:70px; border-radius:50%; background:rgba(236,228,212,.16);
-  border:1px solid #C9A877; display:flex; align-items:center; justify-content:center;
-  transition:background .2s; }
-.vidfacade:hover .vidplay{ background:rgba(236,228,212,.28); }
+.vidfacade::after{ content:''; position:absolute; inset:0; pointer-events:none; z-index:1;
+  background:radial-gradient(circle at 50% 50%, rgba(0,0,0,.30) 0, rgba(0,0,0,0) 44%); }
+.vidplay{ position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); z-index:2;
+  width:76px; height:76px; border-radius:50%; background:rgba(29,30,26,.84);
+  border:2px solid rgba(236,228,212,.94); box-shadow:0 6px 26px rgba(0,0,0,.45);
+  display:flex; align-items:center; justify-content:center;
+  transition:background .18s, transform .18s; }
+.vidfacade:hover .vidplay{ background:#1D1E1A; transform:translate(-50%,-50%) scale(1.06); }
 .vidplay svg{ margin-left:4px; }
 .vidframe{ width:100%; aspect-ratio:16/9; border:1px solid #D8CCB4; border-radius:4px; display:block; }
 .vid-credit{ font-size:13px; color:#4D4839; margin:12px 0 0; letter-spacing:.02em; }
-@media (max-width:640px){ .vidband{ padding-left:22px; padding-right:22px; } .vidplay{ width:58px; height:58px; } }
+@media (max-width:640px){ .vidband{ padding-left:22px; padding-right:22px; } .vidplay{ width:64px; height:64px; } }
 /* --- the face, beside the phone promise --- */
 .door-who{ display:flex; align-items:center; gap:14px; margin:16px 0 0; }
 .door-face{ flex:0 0 auto; width:72px; height:72px; border-radius:50%; object-fit:cover;
@@ -520,13 +523,24 @@ a.stat-link .stat-number{ color:#8A6A3F; }
 (function () {
   var f = document.getElementById('vidFacade');
   if (!f) return;
+  var fired = false;
   f.addEventListener('click', function () {
+    if (fired) return;
+    fired = true;
     var i = document.createElement('iframe');
-    i.src = 'https://www.youtube-nocookie.com/embed/mDXCgSYe5_4?autoplay=1&rel=0&modestbranding=1';
+    i.src = 'https://www.youtube-nocookie.com/embed/mDXCgSYe5_4'
+          + '?autoplay=1&playsinline=1&rel=0&modestbranding=1&enablejsapi=1';
     i.title = 'Started on Lake Minnetonka, Sold on the Mississippi';
-    i.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+    i.allow = 'autoplay; accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
     i.allowFullscreen = true;
     i.className = 'vidframe';
+    i.addEventListener('load', function () {
+      // Some browsers load the embed paused even after a real tap. Nudge it once.
+      try {
+        i.contentWindow.postMessage(
+          '{"event":"command","func":"playVideo","args":[]}', '*');
+      } catch (e) {}
+    });
     f.replaceWith(i);
     if (typeof gtag === 'function') gtag('event', 'video_play', { video_id: 'mDXCgSYe5_4', page: 'buyers' });
   });
