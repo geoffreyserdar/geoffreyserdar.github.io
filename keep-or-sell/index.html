@@ -817,6 +817,71 @@ function checkNumber(name, phone, email) {
     .catch(function () { clearTimeout(timer); return { valid: true, failOpen: true }; });
 }
 
+/* CXLP bridge: fetch→Formspree skips native form submit, so CRM pixel never sees leads.
+   Prefer window.__global__.track; fallback = temp form submit for CXLP binder. */
+var __cxlpBridgeBusy = false;
+function notifyCompassLeadPixel(name, phone, email) {
+  try {
+    name = String(name == null ? '' : name).trim();
+    phone = String(phone == null ? '' : phone).trim();
+    email = String(email == null ? '' : email).trim();
+    if (!name && !phone && !email) return;
+
+    try {
+      var g = window.__global__;
+      if (g && typeof g.track === 'function') {
+        var parts = name.split(/\s+/).filter(Boolean);
+        var firstName = parts[0] || '';
+        var lastName = parts.length > 1 ? parts.slice(1).join(' ') : '';
+        g.track('Lead', {
+          name: name,
+          phone: phone,
+          email: email,
+          firstName: firstName,
+          lastName: lastName
+        });
+        return;
+      }
+    } catch (_trackErr) {}
+
+    if (__cxlpBridgeBusy) return;
+    __cxlpBridgeBusy = true;
+    var form = document.createElement('form');
+    form.id = 'cxlpBridgeForm';
+    form.setAttribute('data-cxlp-bridge', '1');
+    form.setAttribute('aria-hidden', 'true');
+    form.style.cssText = 'position:absolute;left:-9999px;top:-9999px;height:0;width:0;overflow:hidden;opacity:0;pointer-events:none;';
+
+    function addInput(type, fieldName, val) {
+      var inp = document.createElement('input');
+      inp.type = type;
+      inp.name = fieldName;
+      inp.id = 'cxlpBridge_' + fieldName;
+      inp.autocomplete = fieldName === 'phone' ? 'tel' : fieldName;
+      inp.value = val || '';
+      form.appendChild(inp);
+      return inp;
+    }
+    addInput('text', 'name', name);
+    addInput('tel', 'phone', phone);
+    addInput('email', 'email', email);
+
+    document.body.appendChild(form);
+    // Brief pause so CXLP MutationObserver / late binder can see the form.
+    setTimeout(function () {
+      try {
+        form.dispatchEvent(new Event('submit', { bubbles: true, cancelable: true }));
+      } catch (_subErr) {}
+      setTimeout(function () {
+        try { if (form.parentNode) form.parentNode.removeChild(form); } catch (_rmErr) {}
+        __cxlpBridgeBusy = false;
+      }, 80);
+    }, 60);
+  } catch (_err) {
+    __cxlpBridgeBusy = false;
+  }
+}
+
 function submitToFormspree(name, phone, email) {
   fetch('https://formspree.io/f/' + RAZIEL_CONFIG.formspreeId, {
     method: 'POST',
@@ -853,6 +918,7 @@ function clearEmailError() {
 }
 
 async function handleSubmit(e) {
+  if (e && e.target && (e.target.id === 'cxlpBridgeForm' || (e.target.getAttribute && e.target.getAttribute('data-cxlp-bridge') === '1'))) return;
   e.preventDefault();
   var name = document.getElementById('name').value.trim();
   var phone = document.getElementById('phone').value.trim();
@@ -871,6 +937,7 @@ async function handleSubmit(e) {
   if (verdict && verdict.valid === false) { showPhoneError(); return; }
 
   submitToFormspree(name, phone, email);
+  try { notifyCompassLeadPixel(name, phone, email); } catch (_cxlp) {}
   showSuccess();
 }
 
