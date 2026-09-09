@@ -332,6 +332,12 @@ footer .footer-legal, footer .footer-legal a{ color:#8A8375; }
 .form-consent[hidden], .form-consent.is-hidden { display: none !important; }
 
 
+
+/* Quiet face beside the phone promise (Uriel) */
+.door-who{ display:flex; align-items:center; gap:14px; margin:0 0 24px; }
+.door-face{ flex:0 0 auto; width:72px; height:72px; border-radius:50%; object-fit:cover;
+  border:1px solid rgba(138,106,63,.45); display:block; }
+.door-who .door-note{ margin:0; text-align:left; font-size:13px; color:var(--mid); line-height:1.55; }
 /* Phone-first type on the capture form only (40+ readers). Palette/fonts/hero untouched. */
 .form-card .chip { font-size: 17px; padding: 11px 16px; }
 .form-card .field label {
@@ -378,6 +384,11 @@ footer .footer-legal, footer .footer-legal a{ color:#8A8375; }
     <div class="form-fields" id="formFields">
       <h2 class="form-headline">Let's talk about your next move.</h2>
       <p class="form-sub">Pick the one that fits. Leave a name. Geoffrey answers himself.</p>
+      <div class="door-who">
+        <img class="door-face" src="/img/geoffrey.jpg" width="72" height="72" loading="lazy"
+             alt="Geoffrey Serdar, Serdar+Partners at Compass" />
+        <p class="door-note">He answers his own phone.</p>
+      </div>
       <form id="captureForm" onsubmit="handleSubmit(event)">
         <div class="field">
           <label id="interestLabel">I'm thinking about... <span class="optional">optional</span></label>
