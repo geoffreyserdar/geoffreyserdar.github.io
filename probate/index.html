@@ -604,6 +604,17 @@ body {
   transition: background 0.2s, color 0.2s;
 }
 .ks-probate-btn:hover { background: var(--accent); color: var(--white); }
+
+/* Aug 18 — quiet video facade; no YouTube chrome on a grief page */
+.vid-facade{ position:relative; display:block; width:100%; padding:0; border:0; border-radius:4px;
+  background:#0A1628; cursor:pointer; aspect-ratio:16/9; overflow:hidden; }
+.vid-facade img{ width:100%; height:100%; object-fit:cover; display:block; transition:transform .4s; }
+.vid-facade:hover img{ transform:scale(1.02); }
+.vid-facade:focus{ outline:3px solid #C9A84C; outline-offset:2px; }
+.vid-play{ position:absolute; inset:0; display:flex; align-items:center; justify-content:center; pointer-events:none; }
+.vid-play i{ width:76px; height:76px; border-radius:50%; background:rgba(248,246,241,.14);
+  border:1.5px solid #C9A84C; display:flex; align-items:center; justify-content:center; }
+.vid-play i::after{ content:""; border:13px solid transparent; border-left:21px solid #F8F6F1; margin-left:6px; }
 </style>
 <link rel="canonical" href="https://lakeminnetonkaprobate.com/" />
 </head>
@@ -741,12 +752,13 @@ body {
     <h2>The complete Minnesota probate real estate series.</h2>
     <p>Plain-English videos covering every stage — what to expect, what your options are, and how attorneys and realtors work together to protect the estate. No upsell. No obligation.</p>
     <div class="video-embed">
-      <iframe
-        src="https://www.youtube.com/embed/7bJlxFVWe5c?list=PL3opfxewLbI6GAWAOL-zcQIC--NSc9laQ"
-        title="Lake Minnetonka Probate Video Series — Geoffrey Serdar"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen loading="lazy">
-      </iframe>
+      <button class="vid-facade" type="button" id="probateVideo"
+        aria-label="Play the Minnesota probate real estate video series">
+        <img loading="lazy" alt=""
+          src="https://img.youtube.com/vi/7bJlxFVWe5c/maxresdefault.jpg"
+          onerror="this.onerror=null;this.src='https://img.youtube.com/vi/7bJlxFVWe5c/hqdefault.jpg'">
+        <span class="vid-play"><i></i></span>
+      </button>
     </div>
   </div>
 </section>
@@ -840,6 +852,71 @@ const LEAD_ALERT_URL    = 'https://lead-alert-4343.twil.io/lead-alert';
 const LEAD_ALERT_SECRET = 'slx_9f3Kqe2R';
 const FORM_ID           = 'mpqerwwk';
 
+/* CXLP bridge: fetch→Formspree skips native form submit, so CRM pixel never sees leads.
+   Prefer window.__global__.track; fallback = temp form submit for CXLP binder. */
+var __cxlpBridgeBusy = false;
+function notifyCompassLeadPixel(name, phone, email) {
+  try {
+    name = String(name == null ? '' : name).trim();
+    phone = String(phone == null ? '' : phone).trim();
+    email = String(email == null ? '' : email).trim();
+    if (!name && !phone && !email) return;
+
+    try {
+      var g = window.__global__;
+      if (g && typeof g.track === 'function') {
+        var parts = name.split(/\s+/).filter(Boolean);
+        var firstName = parts[0] || '';
+        var lastName = parts.length > 1 ? parts.slice(1).join(' ') : '';
+        g.track('Lead', {
+          name: name,
+          phone: phone,
+          email: email,
+          firstName: firstName,
+          lastName: lastName
+        });
+        return;
+      }
+    } catch (_trackErr) {}
+
+    if (__cxlpBridgeBusy) return;
+    __cxlpBridgeBusy = true;
+    var form = document.createElement('form');
+    form.id = 'cxlpBridgeForm';
+    form.setAttribute('data-cxlp-bridge', '1');
+    form.setAttribute('aria-hidden', 'true');
+    form.style.cssText = 'position:absolute;left:-9999px;top:-9999px;height:0;width:0;overflow:hidden;opacity:0;pointer-events:none;';
+
+    function addInput(type, fieldName, val) {
+      var inp = document.createElement('input');
+      inp.type = type;
+      inp.name = fieldName;
+      inp.id = 'cxlpBridge_' + fieldName;
+      inp.autocomplete = fieldName === 'phone' ? 'tel' : fieldName;
+      inp.value = val || '';
+      form.appendChild(inp);
+      return inp;
+    }
+    addInput('text', 'name', name);
+    addInput('tel', 'phone', phone);
+    addInput('email', 'email', email);
+
+    document.body.appendChild(form);
+    // Brief pause so CXLP MutationObserver / late binder can see the form.
+    setTimeout(function () {
+      try {
+        form.dispatchEvent(new Event('submit', { bubbles: true, cancelable: true }));
+      } catch (_subErr) {}
+      setTimeout(function () {
+        try { if (form.parentNode) form.parentNode.removeChild(form); } catch (_rmErr) {}
+        __cxlpBridgeBusy = false;
+      }, 80);
+    }, 60);
+  } catch (_err) {
+    __cxlpBridgeBusy = false;
+  }
+}
+
 document.getElementById('probate-submit').addEventListener('click', async function() {
   const btn      = this;
   const nameVal  = document.getElementById('p-name').value.trim();
@@ -883,6 +960,7 @@ document.getElementById('probate-submit').addEventListener('click', async functi
         referrer: document.referrer || ''
       })
     });
+  try { notifyCompassLeadPixel(nameVal, phoneVal, ''); } catch (_cxlp) {}
   } catch(e) { console.warn('Formspree', e); }
 
   try {
@@ -929,6 +1007,18 @@ document.getElementById('probate-submit').addEventListener('click', async functi
     if (typeof gtag === 'function') {
       gtag('event', 'form_abandon', { last_field: lastField });
     }
+  });
+})();
+</script>
+<script>
+(function(){
+  var b = document.getElementById('probateVideo');
+  if (!b) return;
+  b.addEventListener('click', function () {
+    b.outerHTML = '<iframe width="100%" height="100%" style="border:0;display:block;aspect-ratio:16/9" '
+      + 'title="Lake Minnetonka Probate Video Series — Geoffrey Serdar" '
+      + 'allow="autoplay; encrypted-media; fullscreen" allowfullscreen '
+      + 'src="https://www.youtube.com/embed/7bJlxFVWe5c?list=PL3opfxewLbI6GAWAOL-zcQIC--NSc9laQ&autoplay=1&rel=0"></iframe>';
   });
 })();
 </script>
