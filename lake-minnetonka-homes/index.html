@@ -524,6 +524,12 @@ footer .footer-legal, footer .footer-legal a{ color:#8A8375; }
 }
 
 .form-card .optional-tag { font-size: 13px; color: var(--mid); text-transform: none; letter-spacing: 0; font-weight: 400; }
+
+/* Quiet face beside the phone promise (Uriel) */
+.door-who{ display:flex; align-items:center; gap:14px; margin:14px 0 0; }
+.door-face{ flex:0 0 auto; width:72px; height:72px; border-radius:50%; object-fit:cover;
+  border:1px solid rgba(138,106,63,.45); display:block; }
+.door-who .door-note{ margin:0; text-align:left; font-size:13px; color:var(--mid); line-height:1.55; }
 </style>
 </head>
 
@@ -662,7 +668,11 @@ footer .footer-legal, footer .footer-legal a{ color:#8A8375; }
           <a class="door-btn door-text" id="textBtn" href="sms:+19522583100">&#128241; Text Geoffrey</a>
           <a class="door-btn door-call" id="callBtn" href="tel:9522583100">&#128222; Call 952-258-3100</a>
         </div>
-        <p class="door-note">He answers his own phone.</p>
+        <div class="door-who">
+          <img class="door-face" src="/img/geoffrey.jpg" width="72" height="72" loading="lazy"
+               alt="Geoffrey Serdar, Serdar+Partners at Compass" />
+          <p class="door-note">He answers his own phone.</p>
+        </div>
       </div>
 
       <div class="or-rule"><span>or leave your email</span></div>
