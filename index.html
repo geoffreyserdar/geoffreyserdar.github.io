@@ -321,6 +321,36 @@ footer .footer-legal, footer .footer-legal a{ color:#8A8375; }
 /* Aug 18 — placeholders read as examples, typed text reads as answers */
 .field input, .field select { color:#1F201C; }
 .field input::placeholder { color:#A39B87; opacity:1; }
+
+
+.field-help {
+  margin-top: 6px;
+  font-size: 13px;
+  line-height: 1.45;
+  color: var(--mid);
+}
+.form-consent[hidden], .form-consent.is-hidden { display: none !important; }
+
+
+/* Phone-first type on the capture form only (40+ readers). Palette/fonts/hero untouched. */
+.form-card .chip { font-size: 17px; padding: 11px 16px; }
+.form-card .field label {
+  font-size: 17px;
+  letter-spacing: 0.02em;
+  text-transform: none;
+  font-weight: 600;
+  color: var(--warm);
+}
+.form-card .field .optional {
+  font-size: 13px;
+  color: var(--mid);
+}
+.form-card .field input, .form-card .field select {
+  font-size: 17px;
+  min-height: 48px;
+  padding: 12px 16px;
+}
+
 </style>
 <link rel="canonical" href="https://geoffreyserdar.com/">
 </head>
@@ -347,17 +377,8 @@ footer .footer-legal, footer .footer-legal a{ color:#8A8375; }
   <div class="form-card">
     <div class="form-fields" id="formFields">
       <h2 class="form-headline">Let's talk about your next move.</h2>
-      <p class="form-sub">Leave your name and number. Geoffrey will reach out personally &mdash; no scripts, no assistants.</p>
+      <p class="form-sub">Pick the one that fits. Leave a name. Geoffrey answers himself.</p>
       <form id="captureForm" onsubmit="handleSubmit(event)">
-        <div class="field">
-          <label for="name">Your Name</label>
-          <input type="text" id="name" name="name" placeholder="First and last name" required autocomplete="name" />
-        </div>
-        <div class="field">
-          <label for="phone">Phone Number</label>
-          <input type="tel" id="phone" name="phone" placeholder="952-000-0000" autocomplete="tel" />
-          <p class="field-error" id="phoneError" role="alert">That number doesn't look quite right &mdash; mind double-checking it? Geoffrey calls every lead personally, so we want to be sure it reaches you.</p>
-        </div>
         <div class="field">
           <label id="interestLabel">I'm thinking about... <span class="optional">optional</span></label>
           <div class="chip-group" role="group" aria-labelledby="interestLabel" id="interestChips">
@@ -370,9 +391,26 @@ footer .footer-legal, footer .footer-legal a{ color:#8A8375; }
           </div>
           <input type="hidden" id="interest" name="interest" value="" />
         </div>
+        <div class="field">
+          <label for="name">Your Name</label>
+          <input type="text" id="name" name="name" placeholder="First and last name" required autocomplete="name" />
+        </div>
+        <div class="field">
+          <label for="email">Email <span class="optional">optional</span></label>
+          <input type="email" id="email" name="email" placeholder="you@email.com" autocomplete="email" />
+          <p class="field-help">So he can write, not only call.</p>
+          <p class="field-error" id="emailError" role="alert">That email doesn't look quite right. Mind double-checking it?</p>
+        </div>
+        <div class="field">
+          <label for="phone">Phone <span class="optional">optional</span></label>
+          <input type="tel" id="phone" name="phone" placeholder="952-000-0000" autocomplete="tel" />
+          <p class="field-help">If you want a call.</p>
+          <p class="field-error" id="phoneError" role="alert">That number doesn't look quite right &mdash; mind double-checking it? Geoffrey calls every lead personally, so we want to be sure it reaches you.</p>
+        </div>
+        <p class="field-error" id="contactError" role="alert">Leave an email or a phone number so Geoffrey can reach you.</p>
         <button type="submit" class="submit-btn">Get in Touch</button>
       </form>
-      <p class="form-consent">By submitting this form, you agree that Serdar+Partners at Compass may contact you by phone call and text message (including by automated means) at the number you provide, regarding your real estate inquiry. Consent is not a condition of any purchase. Message &amp; data rates may apply; message frequency varies. Reply STOP to opt out, HELP for help. See our <a href="/privacy">Privacy Policy</a> and <a href="/terms">Terms</a>.</p>
+      <p class="form-consent" id="formConsent" hidden>By submitting this form, you agree that Serdar+Partners at Compass may contact you by phone call and text message (including by automated means) at the number you provide, regarding your real estate inquiry. Consent is not a condition of any purchase. Message &amp; data rates may apply; message frequency varies. Reply STOP to opt out, HELP for help. See our <a href="/privacy">Privacy Policy</a> and <a href="/terms">Terms</a>.</p>
     </div>
 
     <div class="success-state" id="successState">
@@ -501,6 +539,45 @@ function clearPhoneError() {
   if (inp) inp.classList.remove('input-error');
 }
 
+function isValidEmail(raw) {
+  var s = String(raw || '').trim();
+  if (!s) return true; // empty is ok; required-contact rule handled separately
+  return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(s);
+}
+function showEmailError() {
+  var err = document.getElementById('emailError');
+  var inp = document.getElementById('email');
+  if (err) err.classList.add('visible');
+  if (inp) { inp.classList.add('input-error'); inp.focus(); }
+}
+function clearEmailError() {
+  var err = document.getElementById('emailError');
+  var inp = document.getElementById('email');
+  if (err) err.classList.remove('visible');
+  if (inp) inp.classList.remove('input-error');
+}
+function showContactError() {
+  var err = document.getElementById('contactError');
+  if (err) err.classList.add('visible');
+}
+function clearContactError() {
+  var err = document.getElementById('contactError');
+  if (err) err.classList.remove('visible');
+}
+function selectedInterestLabel() {
+  var chip = document.querySelector('#interestChips .chip.selected');
+  if (!chip) return '';
+  return String(chip.textContent || '').replace(/\s+/g, ' ').trim();
+}
+function syncConsent() {
+  var phoneEl = document.getElementById('phone');
+  var consent = document.getElementById('formConsent');
+  if (!consent) return;
+  var digits = phoneEl ? String(phoneEl.value || '').replace(/\D/g, '') : '';
+  if (digits.length >= 1) consent.removeAttribute('hidden');
+  else consent.setAttribute('hidden', '');
+}
+
 function setChecking(on) {
   var btn = document.querySelector('.submit-btn');
   if (!btn) return;
@@ -541,13 +618,13 @@ function checkNumber(name, phone, interest) {
     .catch(function () { clearTimeout(timer); return { valid: true, failOpen: true }; });
 }
 
-function submitToFormspree(name, phone, interest) {
+function submitToFormspree(name, phone, interest, email) {
   var FORM_ID = 'mpqerwwk';
   fetch('https://formspree.io/f/' + FORM_ID, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
     body: JSON.stringify({
-      name: name, phone: phone, interest: interest, interest_detail: interestDetail(interest),
+      name: name, phone: phone, email: email || '', interest: interest, interest_detail: interestDetail(interest),
       utm_source: LEAD_SOURCE.utm_source,
       utm_medium: LEAD_SOURCE.utm_medium,
       utm_campaign: LEAD_SOURCE.utm_campaign,
@@ -562,26 +639,53 @@ async function handleSubmit(e) {
   e.preventDefault();
   var name = document.getElementById('name').value.trim();
   var phone = document.getElementById('phone').value.trim();
+  var emailEl = document.getElementById('email');
+  var email = emailEl ? emailEl.value.trim() : '';
   var interest = document.getElementById('interest').value;
+  var interestLabel = selectedInterestLabel();
 
-  // Layer 1 — impossible numbers never get in.
-  if (!isValidUSPhone(phone)) { showPhoneError(); return; }
   clearPhoneError();
+  clearEmailError();
+  clearContactError();
 
-  // Layer 2 — carrier check (also triggers the alert text on a good number).
-  setChecking(true);
-  var verdict = await checkNumber(name, phone, interest);
-  setChecking(false);
-
-  if (verdict && verdict.valid === false) {
-    showPhoneError();   // looks fine, but the carrier says it isn't a working line
+  if (!name) {
+    var nameInp = document.getElementById('name');
+    if (nameInp) nameInp.focus();
     return;
   }
 
-  // Passed (or check was inconclusive / timed out) -> record + finish.
-  submitToFormspree(name, phone, interest);
+  // Require name plus at least one of email or phone.
+  if (!email && !phone) {
+    showContactError();
+    return;
+  }
+
+  // Email — basic check only if filled.
+  if (email && !isValidEmail(email)) { showEmailError(); return; }
+
+  // Phone — validate only if they typed something. Empty must not block.
+  if (phone) {
+    if (!isValidUSPhone(phone)) { showPhoneError(); return; }
+  }
+
+  if (phone) {
+    // Layer 2 — carrier check (also triggers the alert text on a good number).
+    // Twilio gets the visible chip label (or empty if none).
+    setChecking(true);
+    var verdict = await checkNumber(name, phone, interestLabel);
+    setChecking(false);
+
+    if (verdict && verdict.valid === false) {
+      showPhoneError();
+      return;
+    }
+  }
+
+  // Formspree still receives interest as the slug + interest_detail; email if filled.
+  submitToFormspree(name, phone, interest, email);
   showSuccess();
 }
+
 
 let leadConverted = false;
 
@@ -634,10 +738,20 @@ document.getElementById('phone').addEventListener('input', function (e) {
   else if (v.length >= 4) { v = v.slice(0,3) + '-' + v.slice(3); }
   e.target.value = v;
   clearPhoneError();
+  syncConsent();
 });
+syncConsent();
 </script>
 
 
+<script>
+(function () {
+  var em = document.getElementById('email');
+  if (em) em.addEventListener('input', function () { clearEmailError(); clearContactError(); });
+  var ph = document.getElementById('phone');
+  if (ph) ph.addEventListener('input', function () { clearContactError(); });
+})();
+</script>
 <!-- raziel: form drop-off tracking -->
 <script>
 (function () {
@@ -653,7 +767,7 @@ document.getElementById('phone').addEventListener('input', function (e) {
     startFired = true;
     if (typeof gtag === 'function') gtag('event', 'form_start', { first_field: id });
   }
-  ['name', 'phone'].forEach(function (id) {
+  ['name', 'email', 'phone'].forEach(function (id) {
     var el = document.getElementById(id);
     if (!el) return;
     el.addEventListener('focus', function () { touchField(id); });
