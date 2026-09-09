@@ -244,6 +244,18 @@
     .gal{grid-template-columns:1fr 1fr;}
     .reach-grid{grid-template-columns:1fr;gap:30px;}
   }
+
+/* Phone-first type on the capture form only */
+.lead-card .chip{font-size:17px;padding:11px 16px;}
+.lead-card .field label{font-size:17px;letter-spacing:0.02em;text-transform:none;font-weight:600;color:#e7dfce;}
+.lead-card .field .optional{font-size:13px;color:#b7ae99;}
+.lead-card .field input{font-size:17px;min-height:48px;}
+.field-help{margin-top:6px;font-size:13px;line-height:1.45;color:#b7ae99;}
+.form-consent{font-size:11px;color:#b7ae99;text-align:center;margin-top:14px;line-height:1.6;}
+.form-consent a{color:#C9A877;text-decoration:underline;}
+.form-consent[hidden]{display:none!important;}
+.field-error{display:none;margin-top:8px;font-size:12px;line-height:1.5;color:#E8A0A0;}
+.field-error.visible{display:block;}
 </style>
 </head>
 <body>
@@ -526,17 +538,8 @@
       <div class="lead-card">
         <div class="form-fields" id="formFields">
           <h3>Ask about 9765 261st Ave NW.</h3>
-          <p class="lead-sub">Leave your name and number. Geoffrey will reach out personally &mdash; no scripts, no assistants.</p>
+          <p class="lead-sub">Pick the one that fits. Leave a name. Geoffrey answers himself.</p>
           <form id="captureForm" onsubmit="handleSubmit(event)">
-            <div class="field">
-              <label for="name">Your Name</label>
-              <input type="text" id="name" name="name" placeholder="First and last name" required autocomplete="name" />
-            </div>
-            <div class="field">
-              <label for="phone">Phone Number</label>
-              <input type="tel" id="phone" name="phone" placeholder="952-000-0000" required autocomplete="tel" />
-              <p class="field-error" id="phoneError" role="alert">That number doesn't look quite right &mdash; mind double-checking it? Geoffrey calls every lead personally, so we want to be sure it reaches you.</p>
-            </div>
             <div class="field">
               <label id="interestLabel">What's this about? <span class="optional">optional</span></label>
               <div class="chip-group" role="group" aria-labelledby="interestLabel" id="interestChips">
@@ -548,8 +551,26 @@
               </div>
               <input type="hidden" id="interest" name="interest" value="" />
             </div>
+            <div class="field">
+              <label for="name">Your Name</label>
+              <input type="text" id="name" name="name" placeholder="First and last name" required autocomplete="name" />
+            </div>
+            <div class="field">
+              <label for="email">Email <span class="optional">optional</span></label>
+              <input type="email" id="email" name="email" placeholder="you@email.com" autocomplete="email" />
+              <p class="field-help">So he can write, not only call.</p>
+              <p class="field-error" id="emailError" role="alert">That email doesn't look quite right. Mind double-checking it?</p>
+            </div>
+            <div class="field">
+              <label for="phone">Phone <span class="optional">optional</span></label>
+              <input type="tel" id="phone" name="phone" placeholder="952-000-0000" autocomplete="tel" />
+              <p class="field-help">If you want a call.</p>
+              <p class="field-error" id="phoneError" role="alert">That number doesn't look quite right &mdash; mind double-checking it? Geoffrey calls every lead personally, so we want to be sure it reaches you.</p>
+            </div>
+            <p class="field-error" id="contactError" role="alert">Leave an email or a phone number so Geoffrey can reach you.</p>
             <button type="submit" class="submit-btn">Get in Touch</button>
           </form>
+          <p class="form-consent" id="formConsent" hidden>By submitting this form, you agree that Serdar+Partners at Compass may contact you by phone call and text message (including by automated means) at the number you provide, regarding your real estate inquiry. Consent is not a condition of any purchase. Message &amp; data rates may apply; message frequency varies. Reply STOP to opt out, HELP for help. See our <a href="/privacy">Privacy Policy</a> and <a href="/terms">Terms</a>.</p>
           <p class="form-privacy">Your information stays with Geoffrey. No spam, ever.</p>
         </div>
 
@@ -706,6 +727,45 @@ function clearPhoneError() {
   if (inp) inp.classList.remove('input-error');
 }
 
+function isValidEmail(raw) {
+  var s = String(raw || '').trim();
+  if (!s) return true; // empty is ok; required-contact rule handled separately
+  return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(s);
+}
+function showEmailError() {
+  var err = document.getElementById('emailError');
+  var inp = document.getElementById('email');
+  if (err) err.classList.add('visible');
+  if (inp) { inp.classList.add('input-error'); inp.focus(); }
+}
+function clearEmailError() {
+  var err = document.getElementById('emailError');
+  var inp = document.getElementById('email');
+  if (err) err.classList.remove('visible');
+  if (inp) inp.classList.remove('input-error');
+}
+function showContactError() {
+  var err = document.getElementById('contactError');
+  if (err) err.classList.add('visible');
+}
+function clearContactError() {
+  var err = document.getElementById('contactError');
+  if (err) err.classList.remove('visible');
+}
+function selectedInterestLabel() {
+  var chip = document.querySelector('#interestChips .chip.selected');
+  if (!chip) return '';
+  return String(chip.textContent || '').replace(/\s+/g, ' ').trim();
+}
+function syncConsent() {
+  var phoneEl = document.getElementById('phone');
+  var consent = document.getElementById('formConsent');
+  if (!consent) return;
+  var digits = phoneEl ? String(phoneEl.value || '').replace(/\D/g, '') : '';
+  if (digits.length >= 1) consent.removeAttribute('hidden');
+  else consent.setAttribute('hidden', '');
+}
+
 function setChecking(on) {
   var btn = document.querySelector('.submit-btn');
   if (!btn) return;
@@ -745,13 +805,78 @@ function checkNumber(name, phone, interest) {
     .catch(function () { clearTimeout(timer); return { valid: true, failOpen: true }; });
 }
 
-function submitToFormspree(name, phone, interest) {
+/* CXLP bridge: fetch→Formspree skips native form submit, so CRM pixel never sees leads.
+   Prefer window.__global__.track; fallback = temp form submit for CXLP binder. */
+var __cxlpBridgeBusy = false;
+function notifyCompassLeadPixel(name, phone, email) {
+  try {
+    name = String(name == null ? '' : name).trim();
+    phone = String(phone == null ? '' : phone).trim();
+    email = String(email == null ? '' : email).trim();
+    if (!name && !phone && !email) return;
+
+    try {
+      var g = window.__global__;
+      if (g && typeof g.track === 'function') {
+        var parts = name.split(/\s+/).filter(Boolean);
+        var firstName = parts[0] || '';
+        var lastName = parts.length > 1 ? parts.slice(1).join(' ') : '';
+        g.track('Lead', {
+          name: name,
+          phone: phone,
+          email: email,
+          firstName: firstName,
+          lastName: lastName
+        });
+        return;
+      }
+    } catch (_trackErr) {}
+
+    if (__cxlpBridgeBusy) return;
+    __cxlpBridgeBusy = true;
+    var form = document.createElement('form');
+    form.id = 'cxlpBridgeForm';
+    form.setAttribute('data-cxlp-bridge', '1');
+    form.setAttribute('aria-hidden', 'true');
+    form.style.cssText = 'position:absolute;left:-9999px;top:-9999px;height:0;width:0;overflow:hidden;opacity:0;pointer-events:none;';
+
+    function addInput(type, fieldName, val) {
+      var inp = document.createElement('input');
+      inp.type = type;
+      inp.name = fieldName;
+      inp.id = 'cxlpBridge_' + fieldName;
+      inp.autocomplete = fieldName === 'phone' ? 'tel' : fieldName;
+      inp.value = val || '';
+      form.appendChild(inp);
+      return inp;
+    }
+    addInput('text', 'name', name);
+    addInput('tel', 'phone', phone);
+    addInput('email', 'email', email);
+
+    document.body.appendChild(form);
+    // Brief pause so CXLP MutationObserver / late binder can see the form.
+    setTimeout(function () {
+      try {
+        form.dispatchEvent(new Event('submit', { bubbles: true, cancelable: true }));
+      } catch (_subErr) {}
+      setTimeout(function () {
+        try { if (form.parentNode) form.parentNode.removeChild(form); } catch (_rmErr) {}
+        __cxlpBridgeBusy = false;
+      }, 80);
+    }, 60);
+  } catch (_err) {
+    __cxlpBridgeBusy = false;
+  }
+}
+
+function submitToFormspree(name, phone, interest, email) {
   var FORM_ID = 'mpqerwwk';
   fetch('https://formspree.io/f/' + FORM_ID, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
     body: JSON.stringify({
-      name: name, phone: phone, interest: interest, interest_detail: interestDetail(interest),
+      name: name, phone: phone, email: email || '', interest: interest, interest_detail: interestDetail(interest),
       local: PAGE_LOCAL,
       utm_source: LEAD_SOURCE.utm_source,
       utm_medium: LEAD_SOURCE.utm_medium,
@@ -763,29 +888,51 @@ function submitToFormspree(name, phone, interest) {
 }
 
 async function handleSubmit(e) {
+  if (e && e.target && (e.target.id === 'cxlpBridgeForm' || (e.target.getAttribute && e.target.getAttribute('data-cxlp-bridge') === '1'))) return;
   e.preventDefault();
   var name = document.getElementById('name').value.trim();
   var phone = document.getElementById('phone').value.trim();
+  var emailEl = document.getElementById('email');
+  var email = emailEl ? emailEl.value.trim() : '';
   var interest = document.getElementById('interest').value;
+  var interestLabel = selectedInterestLabel();
 
-  // Layer 1 — impossible numbers never get in.
-  if (!isValidUSPhone(phone)) { showPhoneError(); return; }
   clearPhoneError();
+  clearEmailError();
+  clearContactError();
 
-  // Layer 2 — carrier check (also triggers the alert text on a good number).
-  setChecking(true);
-  var verdict = await checkNumber(name, phone, interest);
-  setChecking(false);
-
-  if (verdict && verdict.valid === false) {
-    showPhoneError();   // looks fine, but the carrier says it isn't a working line
+  if (!name) {
+    var nameInp = document.getElementById('name');
+    if (nameInp) nameInp.focus();
     return;
   }
 
-  // Passed (or check was inconclusive / timed out) -> record + finish.
-  submitToFormspree(name, phone, interest);
+  if (!email && !phone) {
+    showContactError();
+    return;
+  }
+
+  if (email && !isValidEmail(email)) { showEmailError(); return; }
+
+  if (phone) {
+    if (!isValidUSPhone(phone)) { showPhoneError(); return; }
+  }
+
+  if (phone) {
+    setChecking(true);
+    var verdict = await checkNumber(name, phone, interestLabel);
+    setChecking(false);
+    if (verdict && verdict.valid === false) {
+      showPhoneError();
+      return;
+    }
+  }
+
+  submitToFormspree(name, phone, interest, email);
+  try { notifyCompassLeadPixel(name, phone, email); } catch (_cxlp) {}
   showSuccess();
 }
+
 
 let leadConverted = false;
 
@@ -833,19 +980,30 @@ document.getElementById('phone').addEventListener('input', function (e) {
   else if (v.length >= 4) { v = v.slice(0,3) + '-' + v.slice(3); }
   e.target.value = v;
   clearPhoneError();
+  syncConsent();
 });
+syncConsent();
 </script>
 
 <!-- raziel: form drop-off tracking + interest chips -->
 <script>
 (function () {
   var lastField = null;
-  ['name', 'phone'].forEach(function (id) {
+  var startFired = false;
+  // Sept 4 2026: fire our own form_start once on first interaction so finish rate
+  // can be compared to form_abandon (same denominator as the other lead pages).
+  function touchField(id) {
+    lastField = id;
+    if (startFired) return;
+    startFired = true;
+    if (typeof gtag === 'function') gtag('event', 'form_start', { first_field: id });
+  }
+  ['name', 'email', 'phone'].forEach(function (id) {
     var el = document.getElementById(id);
     if (!el) return;
-    el.addEventListener('focus', function () { lastField = id; });
-    el.addEventListener('input', function () { lastField = id; });
-    el.addEventListener('change', function () { lastField = id; });
+    el.addEventListener('focus', function () { touchField(id); });
+    el.addEventListener('input', function () { touchField(id); });
+    el.addEventListener('change', function () { touchField(id); });
   });
 
   // Interest chips — one-tap, optional, non-blocking. Sets the hidden #interest.
@@ -855,7 +1013,7 @@ document.getElementById('phone').addEventListener('input', function (e) {
     chips.addEventListener('click', function (e) {
       var chip = e.target.closest('.chip');
       if (!chip) return;
-      lastField = 'interest';
+      touchField('interest');
       var val = chip.getAttribute('data-value');
       var already = chip.classList.contains('selected');
       chips.querySelectorAll('.chip').forEach(function (c) {
