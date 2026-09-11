@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>People we trust · Serdar+Partners · Compass</title>
+  <meta name="description" content="Trades and people Geoffrey Serdar stands behind. Lived recommendations — not a paid directory." />
+  <meta name="robots" content="noindex" />
+  <!-- DRAFT BUILD 2026-09-11 — noindex · not go-live · Geoffrey phone QA -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --ivory: #ECE4D4;
+      --ivory-deep: #E3DAC6;
+      --cream: #FAF7EF;
+      --tuxedo: #1F201C;
+      --mid: #4D4839;
+      --soft: #6B6454;
+      --brass: #8A6A3F;
+      --brass-light: #C9A877;
+      --line: rgba(77, 72, 57, 0.16);
+      --brass-line: rgba(201, 168, 119, 0.35);
+      --ghost: rgba(77, 72, 57, 0.42);
+    }
+    html { -webkit-text-size-adjust: 100%; }
+    body {
+      background: var(--ivory);
+      color: var(--tuxedo);
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 17px;
+      line-height: 1.55;
+      min-height: 100vh;
+    }
+    a { color: var(--brass); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+    a:hover { color: var(--tuxedo); }
+
+    /* Phone-first shell — reads clean at ~390px */
+    .phone {
+      max-width: 430px;
+      margin: 0 auto;
+      padding: 0 18px 48px;
+      background: var(--cream);
+      min-height: 100vh;
+      box-shadow: 0 0 0 1px var(--line);
+    }
+    @media (min-width: 480px) {
+      body { background: #d9d0be; padding: 24px 12px 40px; }
+      .phone {
+        border-radius: 28px;
+        overflow: hidden;
+        box-shadow:
+          0 0 0 1px rgba(31,32,28,0.08),
+          0 18px 50px rgba(31,32,28,0.12);
+      }
+    }
+
+    /* Header */
+    .topbar {
+      padding: 22px 0 8px;
+      border-bottom: 1px solid var(--line);
+      margin-bottom: 8px;
+    }
+    .brand-row {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .brand {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--brass);
+    }
+    .brand-sub {
+      font-size: 12px;
+      color: var(--soft);
+      letter-spacing: 0.04em;
+    }
+
+    .hero { padding: 28px 0 8px; }
+    .eyebrow {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--brass);
+      margin-bottom: 14px;
+    }
+    h1 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 40px;
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      line-height: 1.08;
+      margin-bottom: 16px;
+      color: var(--tuxedo);
+    }
+    .lede {
+      font-size: 18px;
+      font-weight: 400;
+      color: var(--mid);
+      line-height: 1.55;
+    }
+    .lede strong { color: var(--tuxedo); font-weight: 600; }
+
+    /* Soft doors */
+    .doors {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 8px;
+      margin: 22px 0 8px;
+    }
+    .door {
+      display: block;
+      text-align: center;
+      text-decoration: none;
+      color: var(--brass);
+      border: 1px solid var(--brass-line);
+      background: var(--ivory);
+      border-radius: 10px;
+      padding: 12px 6px;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      line-height: 1.3;
+    }
+    .door:hover { background: var(--ivory-deep); color: var(--tuxedo); }
+    .door span {
+      display: block;
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--soft);
+      margin-top: 2px;
+      letter-spacing: 0;
+    }
+
+    section { padding: 28px 0 8px; }
+    h2 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 26px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 8px;
+    }
+    .section-note {
+      font-size: 16px;
+      color: var(--mid);
+      margin-bottom: 20px;
+      line-height: 1.5;
+    }
+
+    /* Person cards */
+    .roster { display: flex; flex-direction: column; gap: 16px; }
+    .card {
+      background: var(--ivory);
+      border: 1px solid var(--brass-line);
+      border-radius: 16px;
+      padding: 20px 18px 18px;
+    }
+    .photo-slot {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      max-width: 220px;
+      margin: 0 auto 16px;
+      border-radius: 50%;
+      background:
+        linear-gradient(145deg, var(--ivory-deep), #d6cbb4);
+      border: 2px dashed rgba(138, 106, 63, 0.35);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      position: relative;
+      overflow: hidden;
+    }
+    .photo-slot.rounded-square { border-radius: 22px; }
+    .photo-slot .camera {
+      width: 44px;
+      height: 44px;
+      border: 2px solid rgba(138, 106, 63, 0.5);
+      border-radius: 50%;
+      position: relative;
+    }
+    .photo-slot .camera::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 58%;
+      width: 28px;
+      height: 14px;
+      border: 2px solid rgba(138, 106, 63, 0.5);
+      border-bottom: none;
+      border-radius: 14px 14px 0 0;
+      transform: translate(-50%, -50%);
+    }
+    .photo-slot .label {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--soft);
+    }
+    .photo-slot .who {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 15px;
+      color: var(--mid);
+      text-align: center;
+      padding: 0 12px;
+      line-height: 1.25;
+    }
+
+    .photo-slot.has-media {
+      border-style: solid;
+      border-color: var(--brass-line);
+      background: var(--ivory-deep);
+      padding: 0;
+    }
+    .photo-slot.has-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .photo-slot.has-media.logo-mark img {
+      object-fit: cover;
+      transform: scale(1.02);
+    }
+
+    .craft {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--brass);
+      text-align: center;
+      margin-bottom: 6px;
+    }
+    .card h3 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 24px;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 4px;
+      line-height: 1.2;
+    }
+    .company {
+      text-align: center;
+      font-size: 15px;
+      color: var(--soft);
+      margin-bottom: 12px;
+    }
+    .why {
+      font-size: 17px;
+      color: var(--mid);
+      text-align: center;
+      line-height: 1.5;
+      margin-bottom: 14px;
+    }
+    .cta {
+      display: block;
+      text-align: center;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      color: var(--brass);
+      border: 1px solid var(--brass-line);
+      border-radius: 999px;
+      padding: 12px 16px;
+      background: var(--cream);
+    }
+    .cta:hover { background: var(--ivory-deep); color: var(--tuxedo); }
+
+    /* Ghost / not locked */
+    .ghosts { display: flex; flex-direction: column; gap: 12px; }
+    .ghost {
+      border: 1px dashed rgba(77, 72, 57, 0.28);
+      border-radius: 16px;
+      padding: 18px 16px;
+      background: rgba(227, 218, 198, 0.35);
+      opacity: 0.72;
+      filter: grayscale(0.25);
+    }
+    .ghost .photo-slot {
+      max-width: 140px;
+      border-style: dotted;
+      margin-bottom: 12px;
+    }
+    .ghost .photo-slot .camera { width: 32px; height: 32px; }
+    .ghost .photo-slot .camera::after { width: 20px; height: 10px; }
+    .ghost .craft { color: var(--ghost); }
+    .ghost h3 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 20px;
+      text-align: center;
+      color: var(--ghost);
+      margin-bottom: 4px;
+    }
+    .ghost p {
+      text-align: center;
+      font-size: 15px;
+      color: var(--ghost);
+    }
+    .badge {
+      display: inline-block;
+      margin: 10px auto 0;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ghost);
+      border: 1px dashed rgba(77, 72, 57, 0.3);
+      padding: 5px 10px;
+      border-radius: 999px;
+    }
+    .ghost .center { text-align: center; }
+
+    /* Recommend */
+    .recommend-box {
+      background: var(--ivory);
+      border: 1px solid var(--brass-line);
+      border-radius: 16px;
+      padding: 22px 18px;
+    }
+    .recommend-box p {
+      font-size: 17px;
+      color: var(--mid);
+      margin-bottom: 14px;
+    }
+    .contact-row {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .contact-row a {
+      display: block;
+      text-align: center;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 600;
+      padding: 14px 16px;
+      border-radius: 12px;
+    }
+    .contact-row a.primary {
+      background: var(--brass);
+      color: var(--cream);
+    }
+    .contact-row a.primary:hover { background: var(--brass-light); color: var(--tuxedo); }
+    .contact-row a.secondary {
+      border: 1px solid var(--brass-line);
+      color: var(--brass);
+      background: var(--cream);
+    }
+
+    /* Footer doors reprise */
+    .soft-doors-bottom {
+      margin-top: 8px;
+      padding: 8px 0 0;
+    }
+    .soft-doors-bottom p {
+      font-size: 17px;
+      color: var(--mid);
+      margin-bottom: 14px;
+    }
+
+    footer {
+      margin-top: 36px;
+      padding: 28px 0 8px;
+      border-top: 1px solid var(--line);
+      text-align: center;
+    }
+    .footer-name {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 22px;
+      font-weight: 700;
+    }
+    .footer-team {
+      font-size: 13px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--soft);
+      margin-top: 4px;
+    }
+    .footer-links {
+      margin-top: 14px;
+      font-size: 15px;
+      color: var(--mid);
+      line-height: 1.7;
+    }
+    .footer-note {
+      margin-top: 14px;
+      font-size: 13px;
+      color: var(--soft);
+      line-height: 1.45;
+    }
+    .card-links {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: 12px;
+    }
+    .card-links a {
+      display: inline-block;
+      font-size: 15px;
+      font-weight: 500;
+    }
+    .card-links .soft-ask {
+      font-size: 13px;
+      color: var(--soft);
+      font-weight: 400;
+      margin-top: 2px;
+    }
+    .example-banner {
+      margin: 14px 0 0;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--soft);
+      text-align: center;
+      opacity: 0.8;
+    }
+
+    /* Hero project-fit CTA */
+    .fit-cta {
+      display: block;
+      text-align: center;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      line-height: 1.35;
+      color: var(--cream);
+      background: var(--brass);
+      border: 1px solid var(--brass);
+      border-radius: 12px;
+      padding: 16px 18px;
+      margin: 20px 0 0;
+    }
+    .fit-cta:hover { background: var(--brass-light); color: var(--tuxedo); border-color: var(--brass-light); }
+
+    /* Sticky mobile project-fit bar — thumb zone, ivory/brass */
+    .sticky-fit {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 40;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      padding: 12px 18px calc(12px + env(safe-area-inset-bottom, 0px));
+      background: rgba(250, 247, 239, 0.96);
+      border-top: 1px solid var(--brass-line);
+      box-shadow: 0 -8px 28px rgba(31, 32, 28, 0.08);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+    @media (min-width: 480px) {
+      .sticky-fit {
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100%;
+        max-width: 430px;
+        border-radius: 0 0 28px 28px;
+      }
+    }
+    .sticky-fit .sticky-primary {
+      display: block;
+      width: 100%;
+      text-align: center;
+      padding: 13px 14px;
+      background: var(--tuxedo);
+      color: var(--cream) !important;
+      font-size: 15px;
+      font-weight: 600;
+      line-height: 1.3;
+      border-radius: 12px;
+      text-decoration: none;
+    }
+    .sticky-fit .sticky-primary:hover {
+      background: var(--mid);
+      color: var(--cream) !important;
+    }
+    .sticky-fit .sticky-text {
+      font-size: 13px;
+      color: var(--brass);
+      text-decoration: none;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+    }
+    .sticky-fit .sticky-text:hover { color: var(--tuxedo); }
+    body.has-sticky-fit .phone {
+      padding-bottom: calc(118px + env(safe-area-inset-bottom, 0px));
+    }
+  </style>
+</head>
+<body>
+  <div class="phone">
+    <header class="topbar">
+      <div class="brand-row">
+        <div class="brand">People we trust</div>
+        <div class="brand-sub">Serdar+Partners · Compass</div>
+      </div>
+    </header>
+
+    <div class="hero">
+      <p class="eyebrow">Geoffrey’s short list</p>
+      <h1>People we trust</h1>
+      <p class="lede">
+        If you’re looking for help on a job, these are people we’ve worked with several times — personally.
+        They did a nice job for us. Short list. No kickbacks. Not a vendor directory.
+      </p>
+
+      <a class="fit-cta" href="tel:+19522583100">Call me to discuss your project so I can see if these guys are a right fit</a>
+
+      <nav class="doors" aria-label="How we can help">
+        <a class="door" href="https://geoffreyserdar.com/buyers/">Buying<span>find the right place</span></a>
+        <a class="door" href="https://geoffreyserdar.com/keep-or-sell/">Selling<span>think it through</span></a>
+        <a class="door" href="https://geoffreyserdar.com/book/">Getting ready<span>prep the house</span></a>
+      </nav>
+    </div>
+
+    <section aria-labelledby="roster-heading">
+      <h2 id="roster-heading">The roster</h2>
+      <p class="section-note">
+        When you reach out, tell them <strong>Geoffrey Serdar</strong> connected you.
+        That helps them know the intro is real — and keeps this list useful for neighbors.
+      </p>
+      <div class="roster">
+
+        <article class="card">
+          <div class="photo-slot has-media" role="img" aria-label="Matey Damyan — mock crop; permission still needed before publish">
+            <img src="img/matey-damyan.jpg" alt="Matey Damyan (mock crop — permission still needed)" width="440" height="440" loading="lazy" style="object-position: 78% 35%;" />
+          </div>
+          <div class="craft">Electrical</div>
+          <h3>Matey Damyan</h3>
+          <p class="company">Damyans Electric</p>
+          <p class="why">Clean, code-true electrical work without the drama. When the wires matter, this is who I call.</p>
+          <div class="card-links">
+            <a class="cta" href="sms:9522583100">Geoffrey can connect you</a>
+            <p class="soft-ask">Tell them Geoffrey Serdar connected you.</p>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="photo-slot has-media" role="img" aria-label="Ruben — Micron Mechanical">
+            <img src="img/ruben-micron.jpg" alt="Ruben of Micron Mechanical" width="440" height="440" loading="lazy" />
+          </div>
+          <div class="craft">HVAC</div>
+          <h3>Ruben</h3>
+          <p class="company">Micron Mechanical</p>
+          <p class="why">Heat, cool, and the quiet systems a Minnesota house needs. Steady hands. Real craft.</p>
+          <div class="card-links">
+            <a class="cta" href="sms:9522583100">Geoffrey can connect you</a>
+            <p class="soft-ask">Tell them Geoffrey Serdar connected you.</p>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="photo-slot has-media logo-mark" role="img" aria-label="Pattim Plumbing mark — Tim Besser">
+            <img src="img/tim-besser-pattim-mark.png" alt="Pattim Plumbing logo mark for Tim Besser" width="440" height="440" loading="lazy" />
+          </div>
+          <div class="craft">Plumbing</div>
+          <h3>Tim Besser</h3>
+          <p class="company">Pattim Plumbing</p>
+          <p class="why">Duplex washer and dryer craft done carefully — shared lines, laundry setups, work that has to hold up on both sides.</p>
+          <div class="card-links">
+            <a href="tel:+19522204568">Call Tim · 952-220-4568</a>
+            <a class="cta" href="sms:9522583100">Geoffrey can connect you</a>
+            <p class="soft-ask">Tell them Geoffrey Serdar connected you.</p>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="photo-slot rounded-square" role="img" aria-label="Photo coming — Reinaldo Cintron, R &amp; R Roofing">
+            <div class="camera" aria-hidden="true"></div>
+            <div class="label">Photo coming</div>
+            <div class="who">Reinaldo Cintron</div>
+          </div>
+          <div class="craft">Roofing</div>
+          <h3>Reinaldo Cintron</h3>
+          <p class="company">R &amp; R Roofing Inc. · Bloomington, MN · License BC631301</p>
+          <p class="why">He helped save a real estate deal when the lender required a new roof — a fair bid that let underwriting close. Careful roof work you can stand behind.</p>
+          <div class="card-links">
+            <a href="tel:+19522104988">Call · 952-210-4988</a>
+            <a href="https://www.google.com/maps?cid=17051854002267666147">Google reviews</a>
+            <a href="https://rrroofinginc.com/">rrroofinginc.com</a>
+            <a class="cta" href="sms:9522583100">Geoffrey can connect you</a>
+            <p class="soft-ask">Tell them Geoffrey Serdar connected you.</p>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="photo-slot rounded-square" role="img" aria-label="Photo coming — Vlad Kharenko, VK Tree &amp; Stump">
+            <div class="camera" aria-hidden="true"></div>
+            <div class="label">Photo coming</div>
+            <div class="who">Vlad Kharenko</div>
+          </div>
+          <div class="craft">Tree removal · stump work</div>
+          <h3>Vlad Kharenko</h3>
+          <p class="company">VK Tree &amp; Stump</p>
+          <p class="why">Careful tree removal and stump work for west-metro yards — the crew we trust when a tree has to come down cleanly.</p>
+          <div class="card-links">
+            <a href="tel:+17632736589">Call · 763-273-6589</a>
+            <a href="https://vktreeandstump.com/">vktreeandstump.com</a>
+            <a class="cta" href="sms:9522583100">Geoffrey can connect you</a>
+            <p class="soft-ask">Tell them Geoffrey Serdar connected you.</p>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="photo-slot rounded-square" role="img" aria-label="Photo coming — Cory Nelson, Statement Tree">
+            <div class="camera" aria-hidden="true"></div>
+            <div class="label">Photo coming</div>
+            <div class="who">Cory Nelson</div>
+          </div>
+          <div class="craft">Tree removal</div>
+          <h3>Cory Nelson</h3>
+          <p class="company">Statement Tree</p>
+          <p class="why">Tree work done with care around homes and yards — the kind of removal that leaves the place better than it found it.</p>
+          <div class="card-links">
+            <a href="https://statementtree.com/">statementtree.com</a>
+            <a class="cta" href="sms:9522583100">Geoffrey can connect you</a>
+            <p class="soft-ask">Tell them Geoffrey Serdar connected you.</p>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="photo-slot rounded-square" role="img" aria-label="Photo coming — Chase Nelson">
+            <div class="camera" aria-hidden="true"></div>
+            <div class="label">Photo coming</div>
+            <div class="who">Chase Nelson</div>
+          </div>
+          <div class="craft">Lawn care</div>
+          <h3>Chase Nelson</h3>
+          <p class="company">Lawn care that keeps a place looking lived-in and proud</p>
+          <p class="why">Steady lawn work through the season — the kind of care you notice when you pull in the drive.</p>
+          <div class="card-links">
+            <a class="cta" href="sms:9522583100">Geoffrey can connect you</a>
+            <p class="soft-ask">Tell them Geoffrey Serdar connected you.</p>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="photo-slot" role="img" aria-label="Photo coming — Raquel and Yanir">
+            <div class="camera" aria-hidden="true"></div>
+            <div class="label">Photo coming</div>
+            <div class="who">Raquel &amp; Yanir</div>
+          </div>
+          <div class="craft">Airbnb turnovers · listing prep</div>
+          <h3>Raquel &amp; Yanir</h3>
+          <p class="company">Turnovers &amp; listing-prep cleaning</p>
+          <p class="why">The kind of ready that guests and buyers actually notice — careful turnovers and listing-prep cleaning, detail by detail.</p>
+          <div class="card-links">
+            <a class="cta" href="sms:9522583100">Geoffrey can connect you</a>
+            <p class="soft-ask">Tell them Geoffrey Serdar connected you.</p>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="photo-slot rounded-square" role="img" aria-label="Photo coming — Carlos">
+            <div class="camera" aria-hidden="true"></div>
+            <div class="label">Photo coming</div>
+            <div class="who">Carlos</div>
+          </div>
+          <div class="craft">Painting · handyman / light remodel</div>
+          <h3>Carlos</h3>
+          <p class="company">Paint, handyman &amp; light remodel work</p>
+          <p class="why">Fresh walls and the small remodel jobs that change how a house feels — careful, tidy, and proud of the finish.</p>
+          <div class="card-links">
+            <a class="cta" href="sms:9522583100">Geoffrey can connect you</a>
+            <p class="soft-ask">Tell them Geoffrey Serdar connected you.</p>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="photo-slot rounded-square" role="img" aria-label="Photo coming — Jake Blackowiak">
+            <div class="camera" aria-hidden="true"></div>
+            <div class="label">Photo coming</div>
+            <div class="who">Jake Blackowiak</div>
+          </div>
+          <div class="craft">Junk removal · clutter pickup</div>
+          <h3>Jake Blackowiak</h3>
+          <p class="company">Jake’s Junk Removal · Saint Bonifacius MN</p>
+          <p class="why">When a place needs to breathe again — clutter out, space back — careful pickup that respects the house and the day.</p>
+          <div class="card-links">
+            <a href="tel:+16122273392">Call Jake · 612-227-3392</a>
+            <a href="mailto:Jakesjunkremovalmn@gmail.com">Email Jake</a>
+            <a class="cta" href="sms:9522583100">Geoffrey can connect you</a>
+            <p class="soft-ask">Tell them Geoffrey Serdar connected you.</p>
+          </div>
+        </article>
+
+      </div>
+
+    </section>
+
+    <section aria-labelledby="more-heading">
+      <h2 id="more-heading">More people as we lock them</h2>
+      <p class="section-note">Slots waiting on the right name. We don’t invent a card until I’m ready to stand behind it.</p>
+      
+      <div class="ghosts">
+        <article class="ghost">
+          <div class="photo-slot" role="img" aria-label="Not locked yet — Gutters">
+            <div class="camera" aria-hidden="true"></div>
+            <div class="label">Not locked</div>
+            <div class="who">Gutters</div>
+          </div>
+          <div class="craft">Gutters</div>
+          <h3>Gutters</h3>
+          <p>Empty until we lock someone we trust.</p>
+          <div class="center"><span class="badge">Coming · not public yet</span></div>
+        </article>
+        <article class="ghost">
+          <div class="photo-slot" role="img" aria-label="Not locked yet — Windows">
+            <div class="camera" aria-hidden="true"></div>
+            <div class="label">Not locked</div>
+            <div class="who">Windows</div>
+          </div>
+          <div class="craft">Windows</div>
+          <h3>Windows</h3>
+          <p>Empty until we lock someone we trust.</p>
+          <div class="center"><span class="badge">Coming · not public yet</span></div>
+        </article>
+        <article class="ghost">
+          <div class="photo-slot" role="img" aria-label="Not locked yet — Flooring">
+            <div class="camera" aria-hidden="true"></div>
+            <div class="label">Not locked</div>
+            <div class="who">Flooring</div>
+          </div>
+          <div class="craft">Flooring</div>
+          <h3>Flooring</h3>
+          <p>Empty until we lock someone we trust.</p>
+          <div class="center"><span class="badge">Coming · not public yet</span></div>
+        </article>
+        <article class="ghost">
+          <div class="photo-slot" role="img" aria-label="Not locked yet — Concrete">
+            <div class="camera" aria-hidden="true"></div>
+            <div class="label">Not locked</div>
+            <div class="who">Concrete</div>
+          </div>
+          <div class="craft">Concrete</div>
+          <h3>Concrete</h3>
+          <p>Empty until we lock someone we trust.</p>
+          <div class="center"><span class="badge">Coming · not public yet</span></div>
+        </article>
+        <article class="ghost">
+          <div class="photo-slot" role="img" aria-label="Not locked yet — Fence">
+            <div class="camera" aria-hidden="true"></div>
+            <div class="label">Not locked</div>
+            <div class="who">Fence</div>
+          </div>
+          <div class="craft">Fence</div>
+          <h3>Fence</h3>
+          <p>Empty until we lock someone we trust.</p>
+          <div class="center"><span class="badge">Coming · not public yet</span></div>
+        </article>
+      </div>
+
+    </section>
+
+    <section aria-labelledby="recommend-heading">
+      <h2 id="recommend-heading">Recommend someone?</h2>
+      <div class="recommend-box">
+        <p>
+          Know someone who does careful work around the lakes or Carver County?
+          Tell me. I read every note — and I only add people I’d vouch for myself.
+        </p>
+        <div class="contact-row">
+          <a class="primary" href="tel:+19522583100">Call me to discuss your project so I can see if these guys are a right fit</a>
+          <a class="secondary" href="sms:9522583100">Text Geoffrey · 952-258-3100</a>
+          <a class="secondary" href="tel:+19522583100">Call Geoffrey</a>
+          <a class="secondary" href="https://geoffreyserdar.com/book/">Book 15 minutes</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="soft-doors-bottom" aria-labelledby="doors-heading">
+      <h2 id="doors-heading">Buying, selling, or getting a place ready?</h2>
+      <p>
+        This page is here to be useful either way.
+        Buying — think through the house and the work it needs.
+        Selling — get it ready without guessing who to call.
+        No pressure. Just a clear conversation.
+      </p>
+      <nav class="doors" aria-label="Buy and sell">
+        <a class="door" href="https://geoffreyserdar.com/buyers/">Buying<span>buy-side help</span></a>
+        <a class="door" href="https://geoffreyserdar.com/keep-or-sell/">Selling<span>keep or sell</span></a>
+        <a class="door" href="https://geoffreyserdar.com/book/">Ready<span>talk it through</span></a>
+      </nav>
+    </section>
+
+    <footer>
+      <div class="footer-name">Geoffrey Serdar</div>
+      <div class="footer-team">Serdar+Partners · Compass</div>
+      <div class="footer-links">
+        <a href="https://geoffreyserdar.com/">geoffreyserdar.com</a><br />
+        <a href="tel:+19522583100">952-258-3100</a>
+      </div>
+      <p class="footer-note">
+        People on this list are ones we’ve worked with and stand behind.
+        Zero kickbacks. Tell them Geoffrey Serdar connected you.
+      </p>
+      <p class="example-banner">Draft · noindex · not go-live</p>
+    </footer>
+  </div>
+
+  <div class="sticky-fit" role="region" aria-label="Talk through your project">
+    <a class="sticky-primary" href="tel:+19522583100">Talk through your project — I’ll see who’s the right fit</a>
+    <a class="sticky-text" href="sms:9522583100">Text · 952-258-3100</a>
+  </div>
+</body>
+</html>
