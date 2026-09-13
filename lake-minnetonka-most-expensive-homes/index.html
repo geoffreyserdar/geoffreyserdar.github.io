@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Expensive Homes on Lake Minnetonka — Running Public Record | Geoffrey Serdar</title>
+<title>Expensive Homes on Lake Minnetonka | Geoffrey Serdar</title>
 <script src="https://www.compass.com/cxlp/a.min.js" id="cxlp-ajs" data-client-id="dh30gl6zq3rg" async></script>
-<meta name="description" content="Lake Minnetonka expensive-homes running dashboard: lake-wide trophies, per-bay leaders, lake clubs, and what moved. Asks labeled vs sold. Call Geoffrey Serdar at 952-258-3100." />
+<meta name="description" content="What's actually for sale on Lake Minnetonka right now versus what has sold. Asking prices, closed sales, clubs around the lake. Call Geoffrey Serdar at 952-258-3100." />
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
 <link rel="canonical" href="https://geoffreyserdar.com/lake-minnetonka-most-expensive-homes/" />
 <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17849235035"></script>
@@ -30,9 +30,9 @@ a:hover { color: var(--warm); }
 .hero { min-height: auto; display: flex; flex-direction: column; justify-content: center; padding: 48px 24px 40px; position: relative; overflow: hidden; }
 .hero::before { content: 'EXPENSIVE'; position: absolute; bottom: -10px; right: -20px; font-family: 'Playfair Display', serif; font-size: clamp(64px, 16vw, 160px); font-weight: 900; color: var(--navy2); letter-spacing: -4px; line-height: 1; pointer-events: none; user-select: none; white-space: nowrap; opacity: 0.85; }
 .eyebrow { font-size: 11px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; position: relative; z-index: 1; }
-.hero-name { font-family: 'Playfair Display', serif; font-size: clamp(32px, 7vw, 52px); font-weight: 900; line-height: 1.08; letter-spacing: -1.5px; color: var(--warm); margin-bottom: 12px; position: relative; z-index: 1; max-width: 22ch; }
+.hero-name { font-family: 'Playfair Display', serif; font-size: clamp(32px, 7vw, 52px); font-weight: 900; line-height: 1.08; letter-spacing: -1.5px; color: var(--warm); margin-bottom: 12px; position: relative; z-index: 1; max-width: 28ch; }
 .hero-sub { font-size: 14px; color: var(--mid); letter-spacing: 0.02em; margin-bottom: 16px; position: relative; z-index: 1; }
-.hero-deck { font-size: 16px; color: var(--mid); line-height: 1.65; margin-bottom: 20px; max-width: 52ch; position: relative; z-index: 1; }
+.hero-deck { font-size: 16px; color: var(--mid); line-height: 1.65; margin-bottom: 20px; max-width: 64ch; position: relative; z-index: 1; }
 .asof { display: inline-block; font-size: 12px; color: var(--soft); background: rgba(255,255,255,0.45); border: 1px solid var(--line); border-radius: 999px; padding: 6px 12px; margin-bottom: 22px; position: relative; z-index: 1; }
 .hero-stats { display: flex; gap: 28px; margin-bottom: 28px; flex-wrap: wrap; position: relative; z-index: 1; }
 .stat { display: flex; flex-direction: column; gap: 4px; }
@@ -149,20 +149,37 @@ footer { padding: 48px 24px 64px; text-align: center; max-width: 640px; margin: 
 .footer-contact a { font-size: 13px; }
 .footer-legal { font-size: 11px; color: var(--soft); line-height: 1.6; }
 @media (max-width: 480px) { .form-card { padding: 28px 20px; } .section { padding: 52px 20px; } }
+
+.sort-bar { display: flex; flex-wrap: wrap; gap: 8px; margin: 22px 0 8px; }
+.sort-btn { background: var(--white); border: 1px solid var(--line); border-radius: 999px; color: var(--warm); font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 600; padding: 11px 16px; min-height: 44px; cursor: pointer; transition: background 0.15s, color 0.15s, border-color 0.15s; -webkit-tap-highlight-color: transparent; }
+.sort-btn:hover { border-color: var(--gold); }
+.sort-btn[aria-pressed="true"] { background: var(--gold); border-color: var(--gold); color: var(--navy); }
+.sort-hint { font-size: 13px; color: var(--soft); margin-bottom: 6px; line-height: 1.45; }
+.bay-board { display: grid; grid-template-columns: 1fr; gap: 12px; margin-top: 14px; }
+@media (min-width: 720px) { .bay-board { grid-template-columns: 1fr 1fr; } }
+.bay-card { background: var(--white); border: 1px solid rgba(201, 168, 119, 0.28); border-radius: 4px; padding: 18px 16px 16px; }
+.bay-card-name { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; color: var(--warm); line-height: 1.2; margin-bottom: 2px; }
+.bay-card-towns { font-size: 12px; color: var(--gold); margin-bottom: 12px; }
+.bay-pair { display: grid; grid-template-columns: 1fr; gap: 12px; margin-bottom: 12px; }
+@media (min-width: 520px) { .bay-card .bay-pair { grid-template-columns: 1fr 1fr; } }
+.bay-kv-label { font-size: 11px; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; color: var(--gold); margin-bottom: 6px; }
+.bay-kv-value { font-size: 14px; color: var(--mid); line-height: 1.5; }
+.bay-kv-value strong { color: var(--warm); font-weight: 600; }
+.bay-card-note { font-size: 13px; color: var(--soft); line-height: 1.45; }
 </style>
 </head>
 <body>
 
 <section class="hero">
   <p class="eyebrow">Serdar+Partners at Compass · Lake Minnetonka</p>
-  <h1 class="hero-name">Expensive homes on Lake Minnetonka — the running public record</h1>
-  <p class="hero-sub">Lake-wide trophies · per-bay leaders · lake clubs · what moved this month</p>
-  <p class="hero-deck">Asks are marketing. Closings are the record. Bay tops can sit under $5M and still matter. Here’s the public picture — talk when you’re ready.</p>
-  <p class="asof">Dashboard as of September 2026 · Scout pulse 2026-09 · Lake Minnetonka only</p>
+  <h1 class="hero-name">Expensive homes on Lake Minnetonka — and why everyone asks about the $50 million house</h1>
+  <p class="hero-sub">What’s for sale now · what actually closed · clubs around the lake · what changed this month</p>
+  <p class="hero-deck">People see a $50 million listing and assume that’s what lake homes sell for. It isn’t. An asking price is what someone hopes to get. A sold price is what actually happened. I keep those two apart on this page. If you want to talk through a bay or a house, call when you’re ready.</p>
+  <p class="asof">Updated September 2026 · Lake Minnetonka only</p>
   <div class="hero-stats">
     <div class="stat"><span class="stat-number">360+</span><span class="stat-label">Families Served</span></div>
-    <div class="stat"><span class="stat-number">ASK≠SOLD</span><span class="stat-label">Always labeled</span></div>
-    <div class="stat"><span class="stat-number">$5M+</span><span class="stat-label">Lake-wide trophies</span></div>
+    <div class="stat"><span class="stat-number">Asking / sold</span><span class="stat-label">Kept separate</span></div>
+    <div class="stat"><span class="stat-number">$5M+</span><span class="stat-label">Homes people watch</span></div>
     <a class="stat stat-link" href="/reviews/"><span class="stat-number">4.8&#9733;</span><span class="stat-label">62 Google Reviews</span></a>
   </div>
   <div class="door-btns">
@@ -171,17 +188,17 @@ footer { padding: 48px 24px 64px; text-align: center; max-width: 640px; margin: 
   </div>
   <div class="form-card">
     <div class="form-fields" id="formFields">
-      <h2 class="form-headline">Comparing Quiet shoreline, estate timing, or luxury comps?</h2>
-      <p class="form-sub">Leave a name. Geoffrey answers himself — no call center.</p>
+      <h2 class="form-headline">Looking at a lake house, thinking about selling, or just trying to make sense of the numbers?</h2>
+      <p class="form-sub">Leave a name. I answer myself — no call center.</p>
       <form id="captureForm" onsubmit="handleSubmit(event)">
         <div class="field">
-          <label id="interestLabel">What are you comparing? <span class="optional">optional</span></label>
+          <label id="interestLabel">What’s on your mind? <span class="optional">optional</span></label>
           <div class="chip-group" role="group" aria-labelledby="interestLabel" id="interestChips">
-            <button type="button" class="chip" data-value="buying" aria-pressed="false">Watching luxury asks</button>
+            <button type="button" class="chip" data-value="buying" aria-pressed="false">Watching what’s for sale</button>
             <button type="button" class="chip" data-value="selling" aria-pressed="false">Thinking about listing</button>
-            <button type="button" class="chip" data-value="both" aria-pressed="false">Bay / shoreline trade-offs</button>
-            <button type="button" class="chip" data-value="probate" aria-pressed="false">Estate / family transfer</button>
-            <button type="button" class="chip" data-value="investing" aria-pressed="false">Compound / assemblage</button>
+            <button type="button" class="chip" data-value="both" aria-pressed="false">Comparing bays</button>
+            <button type="button" class="chip" data-value="probate" aria-pressed="false">A family home / estate</button>
+            <button type="button" class="chip" data-value="investing" aria-pressed="false">Putting land together</button>
             <button type="button" class="chip" data-value="just looking" aria-pressed="false">Just learning the market</button>
           </div>
           <input type="hidden" id="interest" name="interest" value="" />
@@ -193,18 +210,18 @@ footer { padding: 48px 24px 64px; text-align: center; max-width: 640px; margin: 
         <div class="field">
           <label for="email">Email <span class="optional">optional</span></label>
           <input type="email" id="email" name="email" placeholder="you@email.com" autocomplete="email" />
-          <p class="field-help">So he can write, not only call.</p>
+          <p class="field-help">So I can write, not only call.</p>
           <p class="field-error" id="emailError" role="alert">That email doesn't look quite right. Mind double-checking it?</p>
         </div>
         <div class="field">
           <label for="phone">Phone <span class="optional">optional</span></label>
           <input type="tel" id="phone" name="phone" placeholder="952-000-0000" autocomplete="tel" />
           <p class="field-help">If you want a call.</p>
-          <p class="field-error" id="phoneError" role="alert">That number doesn't look quite right — mind double-checking it? Geoffrey calls every lead personally, so we want to be sure it reaches you.</p>
+          <p class="field-error" id="phoneError" role="alert">That number doesn't look quite right — mind double-checking it? I call back myself, so I want to be sure it reaches you.</p>
         </div>
         <div class="field">
           <label for="compareNote">Anything else? <span class="optional">optional</span></label>
-          <textarea id="compareNote" name="compare_note" placeholder="Bay, timing, Quiet vs public list…"></textarea>
+          <textarea id="compareNote" name="compare_note" placeholder="Which bay, what timing, anything on your mind…"></textarea>
         </div>
         <p class="field-error" id="contactError" role="alert">Leave an email or a phone number so Geoffrey can reach you.</p>
         <button type="submit" class="submit-btn">Get in Touch</button>
@@ -227,145 +244,229 @@ footer { padding: 48px 24px 64px; text-align: center; max-width: 640px; margin: 
 <div class="divider"></div>
 
 <div class="section section-wide">
-  <p class="section-eyebrow">Dashboard A · Lake-wide trophies</p>
-  <h2 class="section-headline">Highest ASK vs highest recent SOLD — labeled, never mixed.</h2>
-  <p class="section-body">Trophy callouts at <strong>$5M+</strong> live at the lake-wide level. An ask is marketing. A closing is the record. Lake Minnetonka shoreline only.</p>
+  <p class="section-eyebrow">Asking vs sold</p>
+  <h2 class="section-headline">The highest asking price on the lake is not the same as the highest recent sale.</h2>
+  <p class="section-body">The $50 million house everyone talks about is still for sale. The biggest recent sale I can point to in public reporting is <strong>$13.5 million on Maxwell Bay in 2023</strong>. Those are different things. An asking price is marketing. A closing is what actually happened. This page is Lake Minnetonka shoreline only.</p>
   <div class="dash-grid two">
     <div class="dash-card">
-      <span class="badge badge-ask">Highest ASK</span>
+      <span class="badge badge-ask">Asking now</span>
       <div class="dash-label">Lake Point Estate</div>
-      <div class="dash-price">$50,000,000 ASK</div>
+      <div class="dash-price">$50,000,000 asking</div>
       <p class="dash-meta">
-        2770 Gale Rd · Woodland / Wayzata · Active<br />
-        Listing brokerage: <strong>Engel &amp; Völkers</strong> (not Geoffrey Serdar)<br />
-        Estate / trustees per press · ~$320k/yr taxes (listing)<br />
-        <a href="https://www.compass.com/homedetails/2770-Gale-Rd-Wayzata-MN-55391/D6969_pid/" target="_blank" rel="noopener">Compass deep link →</a>
+        2770 Gale Rd · Woodland / Wayzata · still on the market<br />
+        Listed by <strong>Engel &amp; Völkers</strong> — not a Geoffrey Serdar listing<br />
+        Press describes the sellers as estate / trustees · taxes about $320k a year on the listing<br />
+        <a href="#branded-crm-pending" data-branded-crm-pending="2770 Gale Rd, Wayzata">See it on Compass →</a>
       </p>
     </div>
     <div class="dash-card">
-      <span class="badge badge-sold">Highest recent SOLD</span>
+      <span class="badge badge-sold">Recently sold</span>
       <div class="dash-label">Maxwell Bay · Orono</div>
-      <div class="dash-price">$13,500,000 SOLD</div>
+      <div class="dash-price">$13,500,000 sold</div>
       <p class="dash-meta">
-        Closed 2023-07-24 · press / Bizjournals<br />
-        Among the largest recent Twin Cities residential sales documented in this pack.<br />
-        Cite only — not a “buy this” CTA.
+        Closed July 24, 2023 · reported by the Business Journals<br />
+        One of the largest Twin Cities home sales in recent years that we can document in public.<br />
+        I’m citing it so you have a real number — not as a pitch to go buy it.
       </p>
     </div>
   </div>
   <div class="dash-grid" style="margin-top:12px">
     <div class="dash-card">
-      <span class="badge badge-sold">Also-notable SOLD</span>
+      <span class="badge badge-sold">Other sales worth knowing</span>
       <p class="dash-meta">
-        <strong>$8.8M SOLD</strong> — Minnetonka Beach (2025-02-14) · Bizjournals<br />
-        <strong>$10.0M SOLD</strong> — Wayzata Bay / Bushaway Rd corridor (2023-12-15)<br />
-        <strong>~$17–17.5M</strong> — press-cited historic MN residential record, fall 2006 (Robb Report / Star Tribune phrasing). Treat as press-reported; not independently re-verified via eCRV here.
+        <strong>$8.8 million sold</strong> — Minnetonka Beach, February 14, 2025 · Business Journals<br />
+        <strong>$10 million sold</strong> — Wayzata Bay / Bushaway Road, December 15, 2023<br />
+        <strong>About $17–17.5 million</strong> — often cited as a historic Minnesota home-sale record from fall 2006 (Robb Report / Star Tribune). That’s press-reported; I haven’t independently re-checked it against the state’s eCRV records here.
       </p>
     </div>
   </div>
-  <div class="callout"><strong>$50–55M class = listing ask, not a sale.</strong> Ownership stance on Lake Point Estate = estate / trustees of late businessman Bob (Robert) Lothenbach per press. Do not invent living occupants.</div>
+  <div class="callout">The <strong>$50–55 million</strong> number is an asking price, not a sale. Press describes the sellers of Lake Point Estate as the estate / trustees of the late businessman Bob (Robert) Lothenbach. We don’t invent who lives there.</div>
 </div>
 
 <div class="divider"></div>
 
 <div class="section section-wide">
-  <p class="section-eyebrow">Dashboard B · Per-bay leaders</p>
-  <h2 class="section-headline">Bay tops may sit under $5M — and still lead the board.</h2>
-  <p class="section-body">Rolling window: <strong>prior 24 months</strong> where dated, plus historic footnote for the 2006 press record. Lake Minnetonka bays only. If a bay’s leader is UNKNOWN from public sources, we say so. Every live ASK credits the listing agent / brokerage.</p>
-  <div class="table-wrap">
-    <table class="dash">
-      <thead>
-        <tr>
-          <th>Bay / basin</th>
-          <th>Towns (usual)</th>
-          <th>ASK leader</th>
-          <th>SOLD leader</th>
-          <th>Notes</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><strong>Wayzata Bay</strong></td>
-          <td>Wayzata</td>
-          <td><span class="tag tag-ask">ASK</span> Watch Crosby Rd corridor · e.g. 2634 Crosby Rd <strong>$6.75M</strong> (Trenary Realty Group) — verify bay on map</td>
-          <td><span class="tag tag-sold">SOLD</span> <strong>$10.0M</strong> · 405 Bushaway Rd · 2023-12-15</td>
-          <td>WYC / Bushaway corridor</td>
-        </tr>
-        <tr>
-          <td><strong>Maxwell Bay</strong></td>
-          <td>Orono</td>
-          <td><span class="tag tag-ask">ASK</span> UNKNOWN in Sep 2026 pulse</td>
-          <td><span class="tag tag-sold">SOLD</span> <strong>$13.5M</strong> · 2023-07-24</td>
-          <td>Ultra-close press</td>
-        </tr>
-        <tr>
-          <td><strong>Crystal Bay</strong></td>
-          <td>Orono / Minnetonka Beach</td>
-          <td><span class="tag tag-ask">ASK</span> UNKNOWN in Sep 2026 pulse</td>
-          <td><span class="tag tag-sold">SOLD</span> ~<strong>$8.6M</strong> · 3017 N Shore Dr · May 2023</td>
-          <td>Lafayette shore</td>
-        </tr>
-        <tr>
-          <td><strong>Carson Bay</strong></td>
-          <td>Deephaven</td>
-          <td><span class="tag tag-ask">ASK</span> Watch Linwood / Glueks Point (lower-lake adjacent)</td>
-          <td><span class="tag tag-sold">SOLD</span> <strong>$7.6M</strong> · 19955 Cottagewood Ave · 2024-09-30</td>
-          <td>MYC / Cottagewood</td>
-        </tr>
-        <tr>
-          <td><strong>Stubbs Bay</strong></td>
-          <td>Orono</td>
-          <td><span class="tag tag-ask">ASK</span> <strong>$13.4M</strong> · 475 Oxford Rd · On Point Realty · <a href="https://www.compass.com/homedetails/475-Oxford-Rd-Orono-MN-55356/D33BF_pid/" target="_blank" rel="noopener">Compass</a></td>
-          <td><span class="tag tag-sold">SOLD</span> UNKNOWN in Sep 2026 pulse</td>
-          <td>West-facing asks</td>
-        </tr>
-        <tr>
-          <td><strong>Smithtown Bay</strong></td>
-          <td>Victoria / Shorewood edge</td>
-          <td><span class="tag tag-ask">ASK</span> UNKNOWN in Sep 2026 pulse</td>
-          <td><span class="tag tag-sold">SOLD</span> <strong>$7.625M</strong> · 6445 Hawks Pointe Ln · 2024-12-02</td>
-          <td>2024 MN press top sale</td>
-        </tr>
-        <tr>
-          <td><strong>Excelsior / lower-lake</strong></td>
-          <td>Excelsior, Greenwood, Tonka Bay…</td>
-          <td><span class="tag tag-ask">ASK</span> <strong>$22M</strong> pending · 20670 Linwood Rd, Deephaven · Jeffrey J. Dewing, Coldwell Banker · <a href="https://www.compass.com/homedetails/20670-Linwood-Rd-Deephaven-MN-55331/EP63M_pid/" target="_blank" rel="noopener">Compass</a></td>
-          <td><span class="tag tag-sold">SOLD</span> UNKNOWN as bay-specific leader in pulse</td>
-          <td>Dock density · pending ≠ sold</td>
-        </tr>
-        <tr>
-          <td><strong>Browns Bay</strong></td>
-          <td>Orono / Wayzata mail</td>
-          <td><span class="tag tag-ask">ASK</span> <strong>$5.665M</strong> · 1397 Orono Ln · Beth Ulrich &amp; Chelsey Danielson, Compass (not Geoffrey) · <a href="https://www.compass.com/homedetails/1397-Orono-Ln-Wayzata-MN-55391/EEOF5_pid/" target="_blank" rel="noopener">Compass</a></td>
-          <td><span class="tag tag-sold">SOLD</span> UNKNOWN in Sep 2026 pulse</td>
-          <td>Active luxury this cycle</td>
-        </tr>
-        <tr>
-          <td><strong>Woodland / Gale Rd</strong></td>
-          <td>Woodland / Wayzata</td>
-          <td><span class="tag tag-ask">ASK</span> Lake Point <strong>$50M</strong> · Engel &amp; Völkers · <a href="https://www.compass.com/homedetails/2770-Gale-Rd-Wayzata-MN-55391/D6969_pid/" target="_blank" rel="noopener">Compass</a></td>
-          <td><span class="tag tag-sold">SOLD</span> —</td>
-          <td>Ask class</td>
-        </tr>
-        <tr>
-          <td><strong>Upper lake</strong> (East/West/Halsted/Cooks)</td>
-          <td>Mound, Minnetrista, Shorewood…</td>
-          <td><span class="tag tag-ask">ASK</span> <strong>$6.995M</strong> · 4100 Enchanted Ln, Mound · Edina Realty · <a href="https://www.compass.com/homedetails/4100-Enchanted-Ln-Mound-MN-55364/E7E0T_pid/" target="_blank" rel="noopener">Compass</a></td>
-          <td><span class="tag tag-sold">SOLD</span> UNKNOWN in Sep 2026 pulse</td>
-          <td>UMYC water</td>
-        </tr>
-      </tbody>
-    </table>
+  <p class="section-eyebrow">By bay</p>
+  <h2 class="section-headline">Every bay has its own high-water mark — and some sit well under $5 million.</h2>
+  <p class="section-body">Tap a sort below. <strong>Sold</strong> is the highest sale I can document in public reporting for that water — recent first, plus the 2006 press record where it belongs. This is not a full county-record sweep of every sale ever. If we don’t have a clear public leader yet, I’ll say so. <strong>Asking</strong> is what’s for sale now (or under contract). When a house is still listed, I credit the listing agent.</p>
+  <div class="sort-bar" role="group" aria-label="Sort bays">
+    <button type="button" class="sort-btn" data-bay-sort="sold" aria-pressed="true">Highest sold</button>
+    <button type="button" class="sort-btn" data-bay-sort="ask" aria-pressed="false">Highest asking</button>
+    <button type="button" class="sort-btn" data-bay-sort="name" aria-pressed="false">A to Z by bay</button>
   </div>
-  <p class="section-note">Baseline facts: Scout expensive-homes pack 2026-09-13 · pulse seed 2026-09. Bay assignment verified only when public listing/press supports the water name.</p>
+  <p class="sort-hint" id="baySortHint">Showing bays by the highest documented sold price first. Bays without a public sale yet sink to the bottom.</p>
+  <div class="bay-board" id="bayBoard">
+
+    <article class="bay-card" data-bay="Wayzata Bay" data-sold="17500000" data-ask="6750000">
+      <h3 class="bay-card-name">Wayzata Bay</h3>
+      <p class="bay-card-towns">Wayzata</p>
+      <div class="bay-pair">
+        <div>
+          <div class="bay-kv-label">Asking now</div>
+          <div class="bay-kv-value">Watch Crosby Road — 2634 Crosby Rd at <strong>$6.75 million</strong> (Trenary Realty Group). Confirm the bay on a map before you treat it as Wayzata Bay water. <a href="#branded-crm-pending" data-branded-crm-pending="2634 Crosby Rd, Wayzata">Compass listing</a></div>
+        </div>
+        <div>
+          <div class="bay-kv-label">Highest sold we can document</div>
+          <div class="bay-kv-value">Press often cites about <strong>$17–17.5 million</strong> in fall 2006 (Robb Report / Star Tribune), usually on this water / Bushaway corridor. More recently: <strong>$10 million</strong> at 405 Bushaway Rd, December 15, 2023.</div>
+        </div>
+      </div>
+      <p class="bay-card-note">Wayzata Yacht Club / Bushaway. The 2006 figure is press-cited, not independently re-checked against eCRV here.</p>
+    </article>
+
+    <article class="bay-card" data-bay="Maxwell Bay" data-sold="13500000" data-ask="0">
+      <h3 class="bay-card-name">Maxwell Bay</h3>
+      <p class="bay-card-towns">Orono</p>
+      <div class="bay-pair">
+        <div>
+          <div class="bay-kv-label">Asking now</div>
+          <div class="bay-kv-value">We don’t have a clear public leader for this bay yet.</div>
+        </div>
+        <div>
+          <div class="bay-kv-label">Highest sold we can document</div>
+          <div class="bay-kv-value"><strong>$13.5 million</strong> · July 24, 2023 · Business Journals</div>
+        </div>
+      </div>
+      <p class="bay-card-note">The sale people still talk about. Highest recent close I can point to on the whole lake.</p>
+    </article>
+
+    <article class="bay-card" data-bay="Crystal Bay" data-sold="8600000" data-ask="0">
+      <h3 class="bay-card-name">Crystal Bay</h3>
+      <p class="bay-card-towns">Orono / Minnetonka Beach</p>
+      <div class="bay-pair">
+        <div>
+          <div class="bay-kv-label">Asking now</div>
+          <div class="bay-kv-value">We don’t have a clear public leader for this bay yet.</div>
+        </div>
+        <div>
+          <div class="bay-kv-label">Highest sold we can document</div>
+          <div class="bay-kv-value">About <strong>$8.6 million</strong> · 3017 N Shore Dr · May 2023 · Business Journals</div>
+        </div>
+      </div>
+      <p class="bay-card-note">Lafayette shore. Recent documented sale — not a claim that nothing older ever sold higher.</p>
+    </article>
+
+    <article class="bay-card" data-bay="Smithtown Bay" data-sold="7625000" data-ask="0">
+      <h3 class="bay-card-name">Smithtown Bay</h3>
+      <p class="bay-card-towns">Victoria / Shorewood edge</p>
+      <div class="bay-pair">
+        <div>
+          <div class="bay-kv-label">Asking now</div>
+          <div class="bay-kv-value">We don’t have a clear public leader for this bay yet.</div>
+        </div>
+        <div>
+          <div class="bay-kv-label">Highest sold we can document</div>
+          <div class="bay-kv-value"><strong>$7.625 million</strong> · 6445 Hawks Pointe Ln · December 2, 2024 · Business Journals (a 2024 Minnesota top sale)</div>
+        </div>
+      </div>
+      <p class="bay-card-note">Recent documented sale — not a full all-time sweep.</p>
+    </article>
+
+    <article class="bay-card" data-bay="Carson Bay" data-sold="7600000" data-ask="0">
+      <h3 class="bay-card-name">Carson Bay</h3>
+      <p class="bay-card-towns">Deephaven</p>
+      <div class="bay-pair">
+        <div>
+          <div class="bay-kv-label">Asking now</div>
+          <div class="bay-kv-value">Watch Linwood / Gluek’s Point on the lower lake next door.</div>
+        </div>
+        <div>
+          <div class="bay-kv-label">Highest sold we can document</div>
+          <div class="bay-kv-value"><strong>$7.6 million</strong> · 19955 Cottagewood Ave · September 30, 2024 · Business Journals</div>
+        </div>
+      </div>
+      <p class="bay-card-note">Minnetonka Yacht Club / Cottagewood. Recent documented sale.</p>
+    </article>
+
+    <article class="bay-card" data-bay="Excelsior / lower lake" data-sold="0" data-ask="22000000">
+      <h3 class="bay-card-name">Excelsior / lower lake</h3>
+      <p class="bay-card-towns">Excelsior, Greenwood, Tonka Bay…</p>
+      <div class="bay-pair">
+        <div>
+          <div class="bay-kv-label">Asking now</div>
+          <div class="bay-kv-value"><strong>$22 million</strong>, under contract · 20670 Linwood Rd, Deephaven · Jeffrey J. Dewing, Coldwell Banker · <a href="#branded-crm-pending" data-branded-crm-pending="20670 Linwood Rd, Deephaven">Compass listing</a></div>
+        </div>
+        <div>
+          <div class="bay-kv-label">Highest sold we can document</div>
+          <div class="bay-kv-value">We don’t have a clear public leader for this bay yet.</div>
+        </div>
+      </div>
+      <p class="bay-card-note">Busy docks. Pending is not sold.</p>
+    </article>
+
+    <article class="bay-card" data-bay="Stubbs Bay" data-sold="0" data-ask="13400000">
+      <h3 class="bay-card-name">Stubbs Bay</h3>
+      <p class="bay-card-towns">Orono</p>
+      <div class="bay-pair">
+        <div>
+          <div class="bay-kv-label">Asking now</div>
+          <div class="bay-kv-value"><strong>$13.4 million</strong> · 475 Oxford Rd · On Point Realty · <a href="#branded-crm-pending" data-branded-crm-pending="475 Oxford Rd, Orono">Compass listing</a></div>
+        </div>
+        <div>
+          <div class="bay-kv-label">Highest sold we can document</div>
+          <div class="bay-kv-value">We don’t have a clear public leader for this bay yet.</div>
+        </div>
+      </div>
+      <p class="bay-card-note">West-facing water.</p>
+    </article>
+
+    <article class="bay-card" data-bay="Browns Bay" data-sold="0" data-ask="5665000">
+      <h3 class="bay-card-name">Browns Bay</h3>
+      <p class="bay-card-towns">Orono / Wayzata mail</p>
+      <div class="bay-pair">
+        <div>
+          <div class="bay-kv-label">Asking now</div>
+          <div class="bay-kv-value"><strong>$5.665 million</strong> · 1397 Orono Ln · Beth Ulrich &amp; Chelsey Danielson, Compass (not Geoffrey) · <a href="#branded-crm-pending" data-branded-crm-pending="1397 Orono Ln, Wayzata">Compass listing</a></div>
+        </div>
+        <div>
+          <div class="bay-kv-label">Highest sold we can document</div>
+          <div class="bay-kv-value">We don’t have a clear public leader for this bay yet.</div>
+        </div>
+      </div>
+      <p class="bay-card-note">On the market this cycle. Southways sat on this water historically — that $53.5 million figure was an asking price, not a sale.</p>
+    </article>
+
+    <article class="bay-card" data-bay="Woodland / Gale Road" data-sold="0" data-ask="50000000">
+      <h3 class="bay-card-name">Woodland / Gale Road</h3>
+      <p class="bay-card-towns">Woodland / Wayzata</p>
+      <div class="bay-pair">
+        <div>
+          <div class="bay-kv-label">Asking now</div>
+          <div class="bay-kv-value">Lake Point at <strong>$50 million</strong> · Engel &amp; Völkers · <a href="#branded-crm-pending" data-branded-crm-pending="2770 Gale Rd, Wayzata">Compass listing</a></div>
+        </div>
+        <div>
+          <div class="bay-kv-label">Highest sold we can document</div>
+          <div class="bay-kv-value">No recent public sale at this level that we can point to.</div>
+        </div>
+      </div>
+      <p class="bay-card-note">Asking-price class. Not sold.</p>
+    </article>
+
+    <article class="bay-card" data-bay="Upper lake" data-sold="0" data-ask="6995000">
+      <h3 class="bay-card-name">Upper lake</h3>
+      <p class="bay-card-towns">Mound, Minnetrista, Shorewood… (East / West / Halsted / Cooks)</p>
+      <div class="bay-pair">
+        <div>
+          <div class="bay-kv-label">Asking now</div>
+          <div class="bay-kv-value"><strong>$6.995 million</strong> · 4100 Enchanted Ln, Mound · Edina Realty · <a href="#branded-crm-pending" data-branded-crm-pending="4100 Enchanted Ln, Mound">Compass listing</a></div>
+        </div>
+        <div>
+          <div class="bay-kv-label">Highest sold we can document</div>
+          <div class="bay-kv-value">We don’t have a clear public leader for this bay yet.</div>
+        </div>
+      </div>
+      <p class="bay-card-note">Upper Minnetonka Yacht Club water.</p>
+    </article>
+
+  </div>
+  <p class="section-note">Bay names are used only when a public listing or press story actually supports the water. Sold figures are the highest I can document in public reporting as of September 2026 — recent sales, plus the 2006 press record on Wayzata water. Not invented, and not a claim that every older sale has been checked.</p>
 </div>
 
 <div class="divider"></div>
 
 <div class="section section-wide">
-  <p class="section-eyebrow">Clubs strip · lake-core only</p>
-  <h2 class="section-headline">Lake Minnetonka clubs — lifestyle context, not a price input.</h2>
-  <p class="section-body">Seven in-use lake / lake-town clubs. They are <strong>not</strong> a proxy for home value, not a ranking, and not proof anyone belongs to any club. No fees. No Geoffrey memberships. No “house comes with membership.” West-metro and Minneapolis clubs stay off this Lake Minnetonka page.</p>
+  <p class="section-eyebrow">Clubs around the lake</p>
+  <h2 class="section-headline">These are the clubs people actually mean when they talk about the lake.</h2>
+  <p class="section-body">Seven clubs on the water or in the lake towns. Being near a club is part of how life feels here — it is not a price tag, not a ranking, and not proof anyone belongs. I don’t publish fees, I don’t claim memberships, and a house does not come with a membership. This page stays on Lake Minnetonka.</p>
   <figure class="inline-photo" style="margin-top:20px">
     <img src="img/01-lafayette-club-crystal-bay.jpg" alt="Lafayette Club on Crystal Bay" width="1200" height="800" loading="lazy" />
   </figure>
@@ -374,86 +475,86 @@ footer { padding: 48px 24px 64px; text-align: center; max-width: 640px; margin: 
     <div class="club-card">
       <div class="club-name">Lafayette Club</div>
       <div class="club-place">Minnetonka Beach · Crystal Bay</div>
-      <div class="club-grain">Golf + social + racquet + dock</div>
+      <div class="club-grain">Golf, social, racquet, dock</div>
       <a class="club-link" href="https://www.lafayetteclub.com/" target="_blank" rel="noopener">lafayetteclub.com</a>
     </div>
     <div class="club-card">
       <div class="club-name">Woodhill Country Club</div>
       <div class="club-place">Wayzata (inland)</div>
-      <div class="club-grain">Golf + tennis + family · limited public detail</div>
+      <div class="club-grain">Golf, tennis, family — they keep public detail light</div>
       <a class="club-link" href="https://www.woodhillcc.com/" target="_blank" rel="noopener">woodhillcc.com</a>
     </div>
     <div class="club-card">
       <div class="club-name">Wayzata Country Club</div>
       <div class="club-place">Wayzata</div>
-      <div class="club-grain">Golf + pool + racquet + dining</div>
+      <div class="club-grain">Golf, pool, racquet, dining</div>
       <a class="club-link" href="https://www.wayzatacc.com/" target="_blank" rel="noopener">wayzatacc.com</a>
     </div>
     <div class="club-card">
       <div class="club-name">Spring Hill Golf Club</div>
       <div class="club-place">Wayzata / Medina–Orono edge</div>
-      <div class="club-grain">Golf-first private</div>
+      <div class="club-grain">Golf first, private</div>
       <a class="club-link" href="https://www.springhillgc.com/" target="_blank" rel="noopener">springhillgc.com</a>
     </div>
     <div class="club-card">
       <div class="club-name">Minnetonka Yacht Club</div>
       <div class="club-place">Deephaven · Lighthouse Island</div>
-      <div class="club-grain">Yacht / sail + social</div>
+      <div class="club-grain">Sail, yacht, social</div>
       <a class="club-link" href="https://www.minnetonkayachtclub.org/" target="_blank" rel="noopener">minnetonkayachtclub.org</a>
     </div>
     <div class="club-card">
       <div class="club-name">Wayzata Yacht Club</div>
       <div class="club-place">Wayzata Bay</div>
-      <div class="club-grain">Racing + marina social</div>
+      <div class="club-grain">Racing and the marina social life</div>
       <a class="club-link" href="https://wyc.org/" target="_blank" rel="noopener">wyc.org</a>
     </div>
     <div class="club-card">
       <div class="club-name">Upper Minnetonka Yacht Club</div>
       <div class="club-place">Shorewood · upper lake</div>
-      <div class="club-grain">Yacht / racing</div>
+      <div class="club-grain">Yacht and racing</div>
       <a class="club-link" href="https://www.umyc.org/" target="_blank" rel="noopener">umyc.org</a>
     </div>
   </div>
-  <p class="section-note" style="margin-top:16px"><strong>Skipped:</strong> Minnetonka Country Club (closed 2014). Non-lake west-metro and Minneapolis clubs stay off this Lake Minnetonka page.</p>
+  <p class="section-note" style="margin-top:16px">Minnetonka Country Club closed in 2014, so it isn’t on this list.</p>
 </div>
 
 <div class="divider"></div>
 
 <div class="section">
-  <p class="section-eyebrow">Monthly · What moved</p>
-  <h2 class="section-headline">September 2026 pulse seed</h2>
-  <p class="section-body">Short note from the Scout pulse — Lake Minnetonka only.</p>
+  <p class="section-eyebrow">What’s moved lately</p>
+  <h2 class="section-headline">A few things worth knowing as of September 2026</h2>
+  <p class="section-body">Lake Minnetonka only — the houses and clubs around this water.</p>
   <ul class="pulse-list">
-    <li><strong>Lake-wide ASK:</strong> Lake Point Estate still the public <strong>$50M ASK</strong> (Active). Engel &amp; Völkers on Compass syndication. Ask path $68M quiet → $55M → $50M. <strong>Not sold.</strong></li>
-    <li><strong>Lake-wide SOLD band:</strong> Highest documented recent close in baseline remains <strong>$13.5M</strong> Maxwell Bay (2023). Bizjournals “largest since 2023”: <strong>$8.8M</strong> Minnetonka Beach (2025).</li>
-    <li><strong>Bay leaders:</strong> Stubbs ASK <strong>$13.4M</strong> (Oxford Rd). Browns ASK <strong>$5.665M</strong> (Orono Ln — Compass agents, not Geoffrey). Upper-lake ASK <strong>$6.995M</strong> (Enchanted Ln). Carson SOLD <strong>$7.6M</strong> (2024). Smithtown SOLD <strong>$7.625M</strong> (2024).</li>
-    <li><strong>Pending watch:</strong> 20670 Linwood Rd · <strong>$22M ASK</strong> · Contract Signed / Pending — not a close until recorded.</li>
-    <li><strong>Clubs:</strong> Lake-core seven only (Lafayette, Woodhill, Wayzata CC, Spring Hill, MYC, WYC, UMYC). Minnetonka Country Club (closed 2014) stays off. No west-metro / Minneapolis clubs.</li>
+    <li>The house people mean when they say “the $50 million house” is still for sale: Lake Point Estate, listed by Engel &amp; Völkers (you’ll also see it on Compass). The asking price started around $68 million when it was shopped quietly, then $55 million, now $50 million. <strong>It has not sold.</strong></li>
+    <li>The highest recent sale I can document is still <strong>$13.5 million on Maxwell Bay in 2023</strong>. The Business Journals called an <strong>$8.8 million</strong> Minnetonka Beach sale in 2025 the largest since then.</li>
+    <li>Around the bays: <strong>$13.4 million</strong> asking on Oxford Road (Stubbs Bay). <strong>$5.665 million</strong> asking on Orono Lane (Browns Bay — Compass colleagues, not me). <strong>$6.995 million</strong> asking on Enchanted Lane (upper lake). <strong>$7.6 million</strong> sold on Carson Bay in 2024. <strong>$7.625 million</strong> sold on Smithtown Bay in 2024.</li>
+    <li>Keep an eye on 20670 Linwood Road in Deephaven — <strong>$22 million</strong> asking, under contract. That is not a sale until it records.</li>
+    <li>The clubs on this page are the seven around the lake: Lafayette, Woodhill, Wayzata Country Club, Spring Hill, Minnetonka Yacht Club, Wayzata Yacht Club, and Upper Minnetonka Yacht Club. Minnetonka Country Club closed in 2014.</li>
   </ul>
-  <p class="section-note">Source file: scout-expensive-homes-minnetonka-pulse-2026-09.md · as of 2026-09-13 America/Chicago</p>
+  <p class="section-note">As of September 13, 2026.</p>
 </div>
 
 <div class="divider"></div>
 
 <div class="section">
-  <p class="section-eyebrow">Evergreen · What people ask</p>
-  <h2 class="section-headline">Straight answers from the public record</h2>
+  <p class="section-eyebrow">Questions I get</p>
+  <h2 class="section-headline">Straight answers</h2>
   <div class="paa">
     <details>
-      <summary>Who owns the ~$55M Lake Minnetonka home?</summary>
-      <div class="paa-body">Partial only. Press names the sellers as the <strong>estate / trustees</strong> of late businessman Bob (Robert) Lothenbach (died Nov 2023). It is a <strong>listing ask</strong>, not a closed sale. Current public ask is <strong>$50M</strong> (was $55M MLS / ~$68M quiet shop). We do not invent living occupants.</div>
+      <summary>Who owns the ~$55 million Lake Minnetonka home?</summary>
+      <div class="paa-body">We only know part of it. Press names the sellers as the <strong>estate / trustees</strong> of the late businessman Bob (Robert) Lothenbach, who died in November 2023. That $50 million figure is an <strong>asking price</strong>, not a closed sale. It was $55 million on the MLS and shopped quietly around $68 million before that. We don’t invent who lives there.</div>
     </details>
     <details>
       <summary>What are the most expensive homes on Lake Minnetonka?</summary>
-      <div class="paa-body">Distinguish <strong>asking prices</strong> vs <strong>closed sales</strong>. Ultra-asks ($50M class) are not the same as recent closed comps ($7–14M tier in 2023–2025 press). Use the dashboard tables above — every dollar labeled ASK or SOLD.</div>
+      <div class="paa-body">Start by separating <strong>asking prices</strong> from <strong>closed sales</strong>. A $50 million listing is not the same as the $7–14 million sales that actually closed in 2023–2025. The tables above keep those labeled as asking or sold.</div>
     </details>
     <details>
       <summary>What is the most expensive home in Minnesota?</summary>
-      <div class="paa-body"><strong>Most expensive public listing (2025–2026):</strong> Lake Point Estate ~$50–55M ask on Lake Minnetonka. <strong>Most expensive widely cited closed MN residential sale:</strong> press often cites ~$17–17.5M for a Lake Minnetonka property in fall 2006. Treat the exact record figure as press-reported unless eCRV is cited. Private/off-market deals may exist — UNKNOWN.</div>
+      <div class="paa-body"><strong>Most expensive public listing right now (2025–2026):</strong> Lake Point Estate, asking about $50–55 million on Lake Minnetonka. <strong>Most expensive widely cited closed Minnesota residential sale:</strong> press often cites about $17–17.5 million for a Lake Minnetonka property in fall 2006. Treat that exact figure as press-reported unless someone cites the state’s eCRV. Private or off-market deals may exist — we just don’t have them in public.</div>
     </details>
     <details>
       <summary>Who are the top realtors on Lake Minnetonka?</summary>
-      <div class="paa-body">We refuse self-ranking. Soft funnel only: lake focus, complex / probate transfers when relevant, <strong>360+ Families Served</strong>, and a conversation when you’re ready — reverse-sell permission, not a trophy claim.</div>
+      <div class="paa-body">I’m not going to rank myself. I work this lake, I help with complicated family transfers when that’s the situation, and I’ve worked with <strong>360+ families</strong>. If you want to talk, call. That’s enough.</div>
     </details>
   </div>
 </div>
@@ -461,37 +562,42 @@ footer { padding: 48px 24px 64px; text-align: center; max-width: 640px; margin: 
 <div class="divider"></div>
 
 <div class="section">
-  <p class="section-eyebrow">Evergreen · Lake Point Estate</p>
-  <h2 class="section-headline">Minnesota’s highest-profile ask — not a sold price.</h2>
+  <p class="section-eyebrow">The $50 million house</p>
+  <h2 class="section-headline">Lake Point Estate — Minnesota’s highest-profile asking price, not a sold price.</h2>
   <p class="section-body">
-    <strong>2770 Gale Road</strong>, Wayzata / Woodland · west-facing lower-lake shore · ~8 acres · ~650–655 ft shoreline · ~29,000 sq ft compound (press / Compass).<br /><br />
-    Price path: quiet shop <strong>~$68M</strong> (Aug 2024) → MLS <strong>$55M</strong> (May 2025) → off market late Oct 2025 → re-list <strong>$50M</strong> (Jan 28, 2026, MLS #6812564).<br /><br />
-    Status as of Scout access: <strong>Active listing ask $50,000,000</strong> on Compass.com syndication. Listing brokerage: <strong>Engel &amp; Völkers</strong> Minneapolis Downtown / Lake Minnetonka — <strong>not</strong> a Geoffrey Serdar listing. Taxes ~$320,880 / year (listing). Sellers described as estate trustees per press.
+    <strong>2770 Gale Road</strong> sits in Woodland, with a Wayzata address, on the west-facing lower lake. About 8 acres, roughly 650–655 feet of shoreline, and a compound the press and Compass put around 29,000 square feet.
   </p>
   <p class="section-body" style="margin-top:14px">
-    <a href="https://www.compass.com/homedetails/2770-Gale-Rd-Wayzata-MN-55391/D6969_pid/" target="_blank" rel="noopener">Open the Compass property page →</a>
+    The asking path is the part people miss. It was shopped quietly around <strong>$68 million</strong> in August 2024, came on the MLS at <strong>$55 million</strong> in May 2025, went off the market in late October 2025, and came back at <strong>$50 million</strong> on January 28, 2026 (MLS #6812564).
   </p>
-  <div class="callout">Editorial line: the $50–68M band is an <strong>ask</strong>, not a sold price. Closed shoreline comps that make the press still cluster far lower.</div>
+  <p class="section-body" style="margin-top:14px">
+    As of September 2026 it is still an active <strong>$50,000,000 asking price</strong> on Compass. The listing brokerage is <strong>Engel &amp; Völkers</strong> Minneapolis Downtown / Lake Minnetonka — <strong>not</strong> my listing. Taxes are listed around $320,880 a year. Press describes the sellers as estate trustees.
+  </p>
+  <p class="section-body" style="margin-top:14px">
+    <!-- BRANDED CRM LINK PENDING: 2770 Gale Rd, Wayzata / Lake Point -->
+    <a href="#branded-crm-pending" data-branded-crm-pending="2770 Gale Rd, Wayzata">See the Compass listing →</a>
+  </p>
+  <div class="callout">That $50–68 million band is an <strong>asking price</strong>, not a sold price. The shoreline sales that make the papers still sit much lower.</div>
 </div>
 
 <div class="divider"></div>
 
 <div class="section section-wide">
-  <p class="section-eyebrow">Evergreen · Closed sales + what “expensive” means</p>
-  <h2 class="section-headline">Press-documented closed tier</h2>
+  <p class="section-eyebrow">What actually closed</p>
+  <h2 class="section-headline">Sales we can point to in the press</h2>
   <div class="table-wrap">
     <table class="dash">
       <thead>
-        <tr><th>Price (closed)</th><th>Area / bay</th><th>When</th><th>Source grain</th></tr>
+        <tr><th>Sold price</th><th>Area / bay</th><th>When</th><th>Where we saw it</th></tr>
       </thead>
       <tbody>
-        <tr><td><strong>$13.5M SOLD</strong></td><td>Orono — Maxwell Bay</td><td>2023-07-24</td><td>Bizjournals</td></tr>
-        <tr><td><strong>$10.0M SOLD</strong></td><td>Wayzata — Wayzata Bay (Bushaway)</td><td>2023-12-15</td><td>MLS / lake press roundups</td></tr>
-        <tr><td><strong>$8.8M SOLD</strong></td><td>Minnetonka Beach</td><td>2025-02-14</td><td>Bizjournals</td></tr>
-        <tr><td><strong>~$8.6M SOLD</strong></td><td>Orono — Crystal Bay</td><td>May 2023</td><td>Bizjournals</td></tr>
-        <tr><td><strong>$7.625M SOLD</strong></td><td>Victoria — Smithtown Bay</td><td>2024-12-02</td><td>Bizjournals (2024 MN top sale)</td></tr>
-        <tr><td><strong>$7.6M SOLD</strong></td><td>Deephaven — Carson Bay</td><td>2024-09-30</td><td>Bizjournals</td></tr>
-        <tr><td><strong>~$17–17.5M</strong> (press-cited historic)</td><td>Wayzata / Lake Minnetonka</td><td>Fall 2006</td><td>Robb Report / Star Tribune phrasing</td></tr>
+        <tr><td><strong>$13.5 million sold</strong></td><td>Orono — Maxwell Bay</td><td>July 24, 2023</td><td>Business Journals</td></tr>
+        <tr><td><strong>$10 million sold</strong></td><td>Wayzata — Wayzata Bay (Bushaway)</td><td>December 15, 2023</td><td>MLS / lake press roundups</td></tr>
+        <tr><td><strong>$8.8 million sold</strong></td><td>Minnetonka Beach</td><td>February 14, 2025</td><td>Business Journals</td></tr>
+        <tr><td><strong>About $8.6 million sold</strong></td><td>Orono — Crystal Bay</td><td>May 2023</td><td>Business Journals</td></tr>
+        <tr><td><strong>$7.625 million sold</strong></td><td>Victoria — Smithtown Bay</td><td>December 2, 2024</td><td>Business Journals (a 2024 Minnesota top sale)</td></tr>
+        <tr><td><strong>$7.6 million sold</strong></td><td>Deephaven — Carson Bay</td><td>September 30, 2024</td><td>Business Journals</td></tr>
+        <tr><td><strong>About $17–17.5 million</strong> (historic, press-cited)</td><td>Wayzata / Lake Minnetonka</td><td>Fall 2006</td><td>Robb Report / Star Tribune phrasing</td></tr>
       </tbody>
     </table>
   </div>
@@ -499,69 +605,71 @@ footer { padding: 48px 24px 64px; text-align: center; max-width: 640px; margin: 
     <img src="img/04-excelsior-homes-docks.jpg" alt="Homes and docks along Lake Minnetonka near Excelsior" width="1200" height="800" loading="lazy" />
   </figure>
   <p class="credit">Excelsior homes and docks — Tony Webster · CC BY 2.0 via Wikimedia Commons</p>
-  <h3 class="section-headline" style="font-size:24px;margin-top:8px">What “expensive” means here</h3>
+  <h3 class="section-headline" style="font-size:24px;margin-top:8px">What actually makes a lake home expensive</h3>
+  <p class="section-body">People ask this like there’s a formula. There isn’t — but there are a handful of things that almost always show up in the price.</p>
   <ul class="teach-list">
-    <li><strong>Shoreline feet + quality</strong> — level sand vs steep; protected bay vs open fetch; dockability.</li>
-    <li><strong>Bay &amp; orientation</strong> — west/southwest exposures and privacy coves command premiums.</li>
-    <li><strong>Acreage &amp; assemblage</strong> — multi-lot compounds vs tight Cottagewood lots are different products.</li>
-    <li><strong>Privacy / Quiet / off-market</strong> — ultra-asks often start quietly; years of DOM are normal.</li>
-    <li><strong>Boat culture &amp; outbuildings</strong> — boathouses, guest houses, sport courts appear in $10M+ narratives.</li>
-    <li><strong>Taxes as reality check</strong> — Lake Point ~$320k/yr; other trophy asks carry six-figure taxes too.</li>
-    <li><strong>List vs sold gap</strong> — historic Southways $53.5M ask vs subdivided reality; Lake Point $68→50M asks with no close yet. <strong>Asks are marketing. Comps are closings.</strong></li>
+    <li><strong>Shoreline — how many feet, and what kind.</strong> Level sand is a different house than a steep lot. A protected bay is a different house than one that takes a beating from open water. And can you actually dock a boat.</li>
+    <li><strong>Which bay, and which way it faces.</strong> West and southwest light, and the coves that stay private, tend to cost more.</li>
+    <li><strong>Land.</strong> A multi-lot compound is a different thing than a tight Cottagewood lot. You’re not comparing the same product.</li>
+    <li><strong>Privacy.</strong> The biggest asking prices often start quietly, off the public list. It’s normal for those houses to sit for years.</li>
+    <li><strong>Boat life and the extra buildings.</strong> Boathouses, guest houses, sport courts show up in the $10 million-and-up stories.</li>
+    <li><strong>Taxes.</strong> Lake Point is listed around $320,000 a year. Other houses in this range carry six-figure tax bills too. That’s the real carrying cost, not a footnote.</li>
+    <li><strong>The gap between asking and sold.</strong> Southways once asked $53.5 million and later got subdivided. Lake Point has come from $68 million down to $50 million and still hasn’t closed. Asking prices are marketing. Sold prices are what happened.</li>
   </ul>
 </div>
 
 <div class="divider"></div>
 
 <div class="section section-wide">
-  <p class="section-eyebrow">Compass · $5M+ lake watchlist</p>
-  <h2 class="section-headline">Public syndication as of Scout 2026-09-13</h2>
-  <p class="section-body">Lake Minnetonka shoreline / landmark asks. Deep links beat a generic homepage. Listing photos stay on Compass — we credit the listing agent / brokerage honestly.</p>
+  <p class="section-eyebrow">Listings to watch</p>
+  <h2 class="section-headline">What’s on Compass at $5 million and up</h2>
+  <p class="section-body">These are Lake Minnetonka shoreline houses you can actually click into. Photos live on Compass. I credit the listing agent on every one — none of these are mine unless I say so.</p>
+  <!-- BRANDED CRM LINKS PENDING: replace href="#branded-crm-pending" from /workspace/compass-branded-listing-links-2026-09-13.md -->
 
   <div class="watch-card">
     <div class="watch-addr">2770 Gale Rd, Wayzata (Woodland) — Lake Point Estate</div>
-    <div class="watch-ask">$50,000,000 ASK · Active</div>
-    <p class="watch-meta">Engel &amp; Völkers · MLS #6812564 · <a href="https://www.compass.com/homedetails/2770-Gale-Rd-Wayzata-MN-55391/D6969_pid/" target="_blank" rel="noopener">Compass</a></p>
+    <div class="watch-ask">$50,000,000 asking · Active</div>
+    <p class="watch-meta">Engel &amp; Völkers · MLS #6812564 · <a href="#branded-crm-pending" data-branded-crm-pending="2770 Gale Rd, Wayzata">Compass listing</a></p>
   </div>
   <div class="watch-card">
     <div class="watch-addr">20670 Linwood Rd, Deephaven</div>
-    <div class="watch-ask">$22,000,000 ASK · Contract Signed / Pending</div>
-    <p class="watch-meta">Jeffrey J. Dewing, Coldwell Banker Realty · MLS #6769887 · <a href="https://www.compass.com/homedetails/20670-Linwood-Rd-Deephaven-MN-55331/EP63M_pid/" target="_blank" rel="noopener">Compass</a></p>
+    <div class="watch-ask">$22,000,000 asking · Under contract / pending</div>
+    <p class="watch-meta">Jeffrey J. Dewing, Coldwell Banker Realty · MLS #6769887 · <a href="#branded-crm-pending" data-branded-crm-pending="20670 Linwood Rd, Deephaven">Compass listing</a></p>
   </div>
   <div class="watch-card">
     <div class="watch-addr">1535 Bohns Point Rd, Orono</div>
-    <div class="watch-ask">$13,495,000 ASK · Active</div>
-    <p class="watch-meta">Jeffrey J. Dewing, Coldwell Banker Realty · <a href="https://www.compass.com/homedetails/1535-Bohns-Point-Rd-Wayzata-MN-55391/DU7WL_pid/" target="_blank" rel="noopener">Compass</a></p>
+    <div class="watch-ask">$13,495,000 asking · Active</div>
+    <p class="watch-meta">Jeffrey J. Dewing, Coldwell Banker Realty · <a href="#branded-crm-pending" data-branded-crm-pending="1535 Bohns Point Rd, Orono">Compass listing</a></p>
   </div>
   <div class="watch-card">
     <div class="watch-addr">475 Oxford Rd, Orono — Stubbs Bay</div>
-    <div class="watch-ask">$13,400,000 ASK · Active</div>
-    <p class="watch-meta">On Point Realty, Inc. · <a href="https://www.compass.com/homedetails/475-Oxford-Rd-Orono-MN-55356/D33BF_pid/" target="_blank" rel="noopener">Compass</a></p>
+    <div class="watch-ask">$13,400,000 asking · Active</div>
+    <p class="watch-meta">On Point Realty, Inc. · <a href="#branded-crm-pending" data-branded-crm-pending="475 Oxford Rd, Orono">Compass listing</a></p>
   </div>
   <div class="watch-card">
     <div class="watch-addr">4100 Enchanted Ln, Mound</div>
-    <div class="watch-ask">$6,995,000 ASK · Active</div>
-    <p class="watch-meta">Edina Realty, Inc. · <a href="https://www.compass.com/homedetails/4100-Enchanted-Ln-Mound-MN-55364/E7E0T_pid/" target="_blank" rel="noopener">Compass</a></p>
+    <div class="watch-ask">$6,995,000 asking · Active</div>
+    <p class="watch-meta">Edina Realty, Inc. · <a href="#branded-crm-pending" data-branded-crm-pending="4100 Enchanted Ln, Mound">Compass listing</a></p>
   </div>
   <div class="watch-card">
     <div class="watch-addr">2634 Crosby Rd, Wayzata</div>
-    <div class="watch-ask">$6,750,000 ASK · Active</div>
-    <p class="watch-meta">Trenary Realty Group · <a href="https://www.compass.com/homedetails/2634-Crosby-Rd-Wayzata-MN-55391/DQSQF_pid/" target="_blank" rel="noopener">Compass</a></p>
+    <div class="watch-ask">$6,750,000 asking · Active</div>
+    <p class="watch-meta">Trenary Realty Group · <a href="#branded-crm-pending" data-branded-crm-pending="2634 Crosby Rd, Wayzata">Compass listing</a></p>
   </div>
   <div class="watch-card">
     <div class="watch-addr">1397 Orono Ln, Wayzata — Browns Bay</div>
-    <div class="watch-ask">$5,665,000 ASK · Active</div>
-    <p class="watch-meta">Beth Ulrich &amp; Chelsey Danielson, Compass — <strong>not Geoffrey Serdar</strong> · <a href="https://www.compass.com/homedetails/1397-Orono-Ln-Wayzata-MN-55391/EEOF5_pid/" target="_blank" rel="noopener">Compass</a></p>
+    <div class="watch-ask">$5,665,000 asking · Active</div>
+    <p class="watch-meta">Beth Ulrich &amp; Chelsey Danielson, Compass — <strong>not Geoffrey Serdar</strong> · <a href="#branded-crm-pending" data-branded-crm-pending="1397 Orono Ln, Wayzata">Compass listing</a></p>
   </div>
 </div>
 
 <div class="divider"></div>
 
 <div class="section">
-  <p class="section-eyebrow">Estate / probate soft door</p>
-  <h2 class="section-headline">When a landmark lake home meets a family transfer</h2>
+  <p class="section-eyebrow">Families and estates</p>
+  <h2 class="section-headline">When a landmark lake home is also a family transfer</h2>
   <p class="section-body">
-    Some of the lake’s most-watched listings arrive through estates and trustees — Lake Point’s press story is one example. If you’re navigating a family home after a death, start with calm facts, not fear.
+    Some of the lake’s most-watched listings come through estates and trustees. Lake Point’s press story is one example. If you’re figuring out a family home after a death, start with calm facts — not fear.
   </p>
   <p class="section-body" style="margin-top:14px">
     <a href="https://lakeminnetonkaprobate.com/?utm_source=expensive_homes&amp;utm_medium=soft_door">Lake Minnetonka Probate →</a>
@@ -570,8 +678,8 @@ footer { padding: 48px 24px 64px; text-align: center; max-width: 640px; margin: 
 
 <div class="reach-band">
   <p class="reach-label">Talk when you’re ready</p>
-  <h2>Soft reverse-sell. Real conversation.</h2>
-  <p>Comparing Quiet shoreline, estate timing, or luxury comps on Lake Minnetonka? Geoffrey answers his own phone.</p>
+  <h2>Call when it would actually help.</h2>
+  <p>If you’re trying to make sense of a lake house, an estate, or what something is really worth — I answer my own phone.</p>
   <a class="reach-phone" href="tel:+19522583100">952-258-3100</a>
   <div>
     <a class="reach-action" href="tel:+19522583100">Call Geoffrey</a>
@@ -593,10 +701,11 @@ footer { padding: 48px 24px 64px; text-align: center; max-width: 640px; margin: 
   </div>
   <p class="footer-legal">
     Serving Lake Minnetonka &amp; lake towns · Licensed in Minnesota · Serdar+Partners at Compass<br />
-    Dashboard facts from public Compass syndication, press, and Scout packs — ASK vs SOLD always labeled. Lake Minnetonka only.<br />
+    Numbers on this page come from public Compass listings and press reporting. Asking prices and sold prices are kept separate. Lake Minnetonka only.<br />
     &copy; 2026 Geoffrey Serdar. All rights reserved.
   </p>
 </footer>
+
 <script>
 const PAGE_LOCAL = 'Lake Minnetonka Expensive Homes';
 
@@ -690,12 +799,12 @@ function setChecking(on) {
 // text on a good number. Fails OPEN on timeout/error so a real lead is never lost.
 const LEAD_ALERT_URL = 'https://lead-alert-4343.twil.io/lead-alert';
 const INTEREST_DETAIL = {
-  'selling': 'Thinking about listing - Luxury/shoreline seller, patient, Quiet-aware',
-  'buying': 'Watching luxury asks - Early luxury buyer, educate, reverse-sell',
-  'both': 'Bay / shoreline trade-offs - Comparing bays, orientation, dockability',
-  'investing': 'Compound / assemblage - Assemblage or investment angle, numbers-first',
-  'probate': 'Estate / family transfer - Probate/grief, empathy first, never transactional',
-  'just looking': 'Just learning the market - Curiosity, dashboard reader, long game'
+  'selling': 'Thinking about listing',
+  'buying': 'Watching what is for sale',
+  'both': 'Comparing bays',
+  'investing': 'Putting land together',
+  'probate': 'A family home / estate',
+  'just looking': 'Just learning the market'
 };
 function interestDetail(v) { return INTEREST_DETAIL[v] || v || '(none selected)'; }
 const LEAD_ALERT_SECRET = 'slx_9f3Kqe2R';
@@ -987,6 +1096,46 @@ syncConsent();
 })();
 </script>
 </script>
+
+<script>
+(function () {
+  var board = document.getElementById('bayBoard');
+  if (!board) return;
+  var buttons = document.querySelectorAll('[data-bay-sort]');
+  var hint = document.getElementById('baySortHint');
+  var hints = {
+    sold: 'Showing bays by the highest documented sold price first. Bays without a public sale yet sink to the bottom.',
+    ask: 'Showing bays by the highest asking price first. Bays without a public asking price sink to the bottom.',
+    name: 'Showing bays A to Z.'
+  };
+  function sortBy(key) {
+    var cards = Array.prototype.slice.call(board.children);
+    cards.sort(function (a, b) {
+      if (key === 'name') {
+        return (a.getAttribute('data-bay') || '').localeCompare(b.getAttribute('data-bay') || '');
+      }
+      var av = parseFloat(a.getAttribute('data-' + key)) || 0;
+      var bv = parseFloat(b.getAttribute('data-' + key)) || 0;
+      if (bv !== av) return bv - av;
+      return (a.getAttribute('data-bay') || '').localeCompare(b.getAttribute('data-bay') || '');
+    });
+    cards.forEach(function (c) { board.appendChild(c); });
+    if (hint && hints[key]) hint.textContent = hints[key];
+  }
+  buttons.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      buttons.forEach(function (b) { b.setAttribute('aria-pressed', 'false'); });
+      btn.setAttribute('aria-pressed', 'true');
+      sortBy(btn.getAttribute('data-bay-sort'));
+    });
+  });
+  sortBy('sold');
+  document.querySelectorAll('a[href="#branded-crm-pending"]').forEach(function (a) {
+    a.addEventListener('click', function (e) { e.preventDefault(); });
+  });
+})();
+</script>
+
 </body>
 </html>
-<!-- expensive-homes magnet lake-only 2026-09-13 -->
+<!-- expensive-homes magnet lake-only 2026-09-13 · human voice rewrite -->
