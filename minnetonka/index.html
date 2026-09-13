@@ -110,7 +110,24 @@ body {
   max-width: 480px;
   position: relative;
   z-index: 1;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
 }
+@media (min-width: 720px) {
+  .hero {
+    align-items: center;
+    text-align: center;
+  }
+  .hero-stats {
+    justify-content: center;
+  }
+  .form-card {
+    text-align: left;
+    max-width: 520px;
+  }
+}
+
 .form-headline {
   font-family: 'Playfair Display', serif;
   font-size: 22px; font-weight: 700; color: var(--warm);
