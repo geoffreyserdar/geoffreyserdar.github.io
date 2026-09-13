@@ -108,8 +108,31 @@ body {
   border-radius: 4px;
   padding: 36px 32px;
   max-width: 480px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
   position: relative;
   z-index: 1;
+}
+/* Desktop: keep phone-width card, center the hero so it doesn't strand left */
+@media (min-width: 720px) {
+  .hero {
+    align-items: center;
+    text-align: center;
+  }
+  .hero-stats {
+    justify-content: center;
+  }
+  .form-card {
+    text-align: left;
+    max-width: 520px;
+  }
+  .door-btns {
+    justify-content: center;
+  }
+  .door-who {
+    justify-content: center;
+  }
 }
 .form-headline {
   font-family: 'Playfair Display', serif;
