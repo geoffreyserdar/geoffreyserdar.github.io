@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Lake Minnetonka this week | Geoffrey Serdar</title>
+<title>What sold around Lake Minnetonka this week | Geoffrey Serdar</title>
 <script src="https://www.compass.com/cxlp/a.min.js" id="cxlp-ajs" data-client-id="dh30gl6zq3rg" async></script>
-<meta name="description" content="This week’s closed sales across the Lake Minnetonka town ring. Unlock the sheet with your name, email, and mobile — or call Geoffrey at 952-258-3100." />
+<meta name="description" content="Closed sales this week in the towns around Lake Minnetonka. See the list with your name, email, and mobile — or call Geoffrey at 952-258-3100." />
 <meta name="robots" content="noindex, nofollow" />
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
 <link rel="canonical" href="https://geoffreyserdar.com/lake-minnetonka-weekly/" />
@@ -307,7 +307,7 @@ table.sheet td {
 table.sheet tbody tr:nth-child(even) { background: var(--card); }
 table.sheet tbody tr:nth-child(odd) { background: transparent; }
 
-/* Bay callouts */
+/* Bay notes */
 .bay-list { margin-top: 4px; }
 .bay-item {
   border-left: 2px solid var(--brass);
@@ -336,7 +336,7 @@ table.sheet tbody tr:nth-child(odd) { background: transparent; }
   line-height: 1.5;
 }
 
-/* Geoffrey take */
+/* Geoffrey’s take */
 .take-band {
   background: var(--card);
   border-radius: 4px;
@@ -409,16 +409,16 @@ table.sheet tbody tr:nth-child(odd) { background: transparent; }
 <div class="shell">
 
   <header class="masthead" id="top">
-    <h1 class="masthead-title">Lake Minnetonka this week</h1>
-    <p class="masthead-meta">Week of Sep 8–14, 2026 <span class="example-tag">Example structure</span></p>
-    <p class="masthead-asof">As of — · CT · Scout week pending</p>
+    <h1 class="masthead-title">What sold around Lake Minnetonka this week</h1>
+    <p class="masthead-meta">Week of Sep 8–14, 2026 <span class="example-tag">Sample layout</span></p>
+    <p class="masthead-asof">Sample week — real closes come next</p>
   </header>
 
   <p class="header-phone-quiet" id="headerPhoneQuiet">Or call/text <a href="tel:+19522583100">952-258-3100</a></p>
 
   <div class="gate-card" id="gateCard">
-    <h2 class="gate-title">Unlock this week’s sheet</h2>
-    <p class="gate-soft">Email unlocks the live sheet. Phone lets Geoffrey text or call — we don’t blast.</p>
+    <h2 class="gate-title">See what sold this week</h2>
+    <p class="gate-soft">First name, email, and mobile — so Geoffrey can text or call. No blasts.</p>
     <form id="captureForm" onsubmit="handleSubmit(event)" novalidate>
       <div class="field">
         <label for="firstName">First name <span class="req">*</span></label>
@@ -436,15 +436,15 @@ table.sheet tbody tr:nth-child(odd) { background: transparent; }
         <div class="field-error" id="phoneError">Please enter a valid 10-digit U.S. mobile number.</div>
       </div>
       <input type="hidden" name="source_tag" value="Source _ Lead Magnet" />
-      <input type="hidden" name="interest" value="weekly_sheet" />
-      <input type="hidden" name="_subject" value="Lake Minnetonka Weekly — unlock" />
-      <button type="submit" class="submit-btn" id="submitBtn">Unlock the sheet</button>
+      <input type="hidden" name="interest" value="weekly_lake_sales" />
+      <input type="hidden" name="_subject" value="Lake Minnetonka weekly — what sold" />
+      <button type="submit" class="submit-btn" id="submitBtn">Show me this week</button>
     </form>
     <p class="gate-phone">Or call/text <a href="tel:+19522583100">952-258-3100</a></p>
   </div>
-  <p class="gate-unlocked-note" id="alreadyUnlocked">Sheet unlocked on this device.</p>
+  <p class="gate-unlocked-note" id="alreadyUnlocked">You’re in — this week is open on this phone.</p>
 
-  <p class="sheet-locked-hint">The sheet unlocks after first name, email, and mobile — or call <a href="tel:+19522583100">952-258-3100</a>.</p>
+  <p class="sheet-locked-hint">Enter your first name, email, and mobile to see this week — or call <a href="tel:+19522583100">952-258-3100</a>.</p>
 
   <div class="sheet-wrap" id="sheet" aria-hidden="true">
 
@@ -452,60 +452,60 @@ table.sheet tbody tr:nth-child(odd) { background: transparent; }
     <section class="section" id="week-glance">
       <h2 class="section-h2">Week at a glance</h2>
       <hr class="section-rule" />
-      <p class="section-body">Lake-ring totals across fourteen towns. All residential closes in those cities — inland included. Thin weeks stay honest: if fewer than three closes, no median.</p>
+      <p class="section-body">Homes that closed in the fourteen towns around the lake — waterfront and inland. Quiet weeks stay honest: if almost nothing sold, we say so and skip the averages.</p>
 
       <div class="stat-grid three">
         <div class="stat-tile">
-          <div class="stat-label">Closed (lake-ring)</div>
+          <div class="stat-label">Homes closed</div>
           <div class="stat-value big-n" id="statNClosed">0</div>
-          <div class="stat-meta">No closes this period — example until Scout week lands.</div>
+          <div class="stat-meta">Nothing closed in this sample week. Real numbers replace this soon.</div>
         </div>
         <div class="stat-tile">
-          <div class="stat-label">Active cities</div>
+          <div class="stat-label">Towns with a sale</div>
           <div class="stat-value" id="statActive">0</div>
-          <div class="stat-meta">Cities with ≥1 close</div>
+          <div class="stat-meta">At least one home closed</div>
         </div>
         <div class="stat-tile">
-          <div class="stat-label">Quiet cities</div>
+          <div class="stat-label">Quiet towns</div>
           <div class="stat-value" id="statQuiet">14</div>
-          <div class="stat-meta">INCLUDE towns with 0 closes</div>
+          <div class="stat-meta">No closes this week</div>
         </div>
       </div>
-      <!-- Median / ask / gap tiles omitted when n &lt; 3 (thin-week lock). No fake “—” tiles. -->
-      <p class="section-caption">n = 0 closes · As of — CT · window: thin (example). Medians suppressed when n &lt; 3.</p>
+      <!-- Skip average-price tiles when fewer than 3 closes. No fake dashes. -->
+      <p class="section-caption">Sample week with no closes. When fewer than three homes sell, we don’t invent an “average price.”</p>
     </section>
 
     <!-- 2) By city -->
     <section class="section" id="by-city">
       <h2 class="section-h2">By city</h2>
       <hr class="section-rule" />
-      <p class="section-body">Only cities with activity. Zeros live in Quiet towns. City median only when that city’s n ≥ 3.</p>
+      <p class="section-body">Only towns where something actually sold. Quiet towns are listed below. A town average only shows up when that town had enough sales to mean something.</p>
       <div class="table-wrap">
-        <table class="sheet" aria-label="Active cities">
+        <table class="sheet" aria-label="Towns with a sale">
           <thead>
             <tr>
               <th>City</th>
               <th>#</th>
-              <th>Median sold</th>
-              <th>Ask vs sold</th>
-              <th>DOM</th>
+              <th>Typical sold price</th>
+              <th>List vs sold</th>
+              <th>Days listed</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td colspan="5" style="color:var(--mid);">No active cities this period (example empty week).</td>
+              <td colspan="5" style="color:var(--mid);">No towns had a close in this sample week.</td>
             </tr>
           </tbody>
         </table>
       </div>
-      <p class="section-caption">No full street addresses on the public page. Sort live: # closed desc, then median sold desc.</p>
+      <p class="section-caption">We don’t publish full street addresses here.</p>
     </section>
 
-    <!-- 3) Bay callouts — omit block when none; shown here as empty-state for scaffold -->
+    <!-- 3) Bay notes — omit block when none; shown here as empty-state for scaffold -->
     <section class="section" id="bay-callouts">
-      <h2 class="section-h2">Bay callouts</h2>
+      <h2 class="section-h2">Bay notes</h2>
       <hr class="section-rule" />
-      <p class="bay-empty">No bay-notable closes this period. Inland-only weeks omit this section entirely when live.</p>
+      <p class="bay-empty">No standout bay sales in this sample week. If a week is all inland, this section simply won’t appear.</p>
       <!-- Example callout markup (hidden until real data):
       <div class="bay-list">
         <div class="bay-item">
@@ -517,14 +517,14 @@ table.sheet tbody tr:nth-child(odd) { background: transparent; }
       -->
     </section>
 
-    <!-- 4) Geoffrey take -->
+    <!-- 4) Geoffrey’s take -->
     <section class="section" id="geoffrey-take">
-      <h2 class="section-h2">Geoffrey take</h2>
+      <h2 class="section-h2">Geoffrey’s take</h2>
       <hr class="section-rule" />
       <div class="take-band">
-        <p>Example — Scout drafts; Geoffrey locks. Volume / which cities moved.</p>
-        <p>Ask vs sold tone if n ≥ 3; else too thin for a gap read.</p>
-        <p>One honest forward look or quiet-town nod — no invented comps.</p>
+        <p>This is placeholder copy. On a live week: how busy it was, which towns moved, and one honest note from Geoffrey.</p>
+        <p>If almost nothing sold, we won’t pretend there’s a big “list vs sold” story.</p>
+        <p>Quiet towns get named. No made-up comps.</p>
       </div>
     </section>
 
@@ -532,14 +532,14 @@ table.sheet tbody tr:nth-child(odd) { background: transparent; }
     <section class="section" id="quiet-towns">
       <h2 class="section-h2">Quiet towns</h2>
       <hr class="section-rule" />
-      <p class="quiet-blurb" id="quietBlurb">No closes reported this period in: Deephaven, Excelsior, Greenwood, Minnetonka, Minnetonka Beach, Minnetrista, Mound, Orono, Shorewood, Spring Park, Tonka Bay, Victoria, Wayzata, Woodland.</p>
+      <p class="quiet-blurb" id="quietBlurb">No closes this week in: Deephaven, Excelsior, Greenwood, Minnetonka, Minnetonka Beach, Minnetrista, Mound, Orono, Shorewood, Spring Park, Tonka Bay, Victoria, Wayzata, Woodland.</p>
     </section>
 
-    <p class="crosslink">Also reading the lake? <a href="/lake-minnetonka-most-expensive-homes/">Expensive homes on Lake Minnetonka</a>.</p>
+    <p class="crosslink">Also looking at the lake? <a href="/lake-minnetonka-most-expensive-homes/">Expensive homes on Lake Minnetonka</a>.</p>
 
     <div class="source-footer">
-      <p>Source: Compass MLS closed sales · lake-ring cities per Scout 2026-09-18.</p>
-      <p>Not waterfront-only — inland homes in these towns count.</p>
+      <p>Source: Compass MLS closed sales in the towns around Lake Minnetonka.</p>
+      <p>Not just waterfront — inland homes in these towns count too.</p>
     </div>
   </div>
 
@@ -551,7 +551,7 @@ table.sheet tbody tr:nth-child(odd) { background: transparent; }
       <a href="mailto:geoffrey@serdarpartnersrealty.com">Email</a>
       <a href="https://geoffreyserdar.com/">geoffreyserdar.com</a>
     </div>
-    <p class="legal">Information believed accurate but not guaranteed. Equal Housing Opportunity. EXAMPLE structure until Scout publishes a live week. Do not deploy until Geoffrey GO.</p>
+    <p class="legal">Information believed accurate but not guaranteed. Equal Housing Opportunity. Sample layout for preview. Real weekly numbers come next. Still hidden from Google.</p>
   </footer>
 
 </div>
@@ -628,8 +628,8 @@ table.sheet tbody tr:nth-child(odd) { background: transparent; }
     if (quietPhone) quietPhone.classList.add('visible');
     if (note) {
       note.textContent = opts.fromStorage
-        ? 'Sheet unlocked on this device.'
-        : 'Unlocked. Here’s this week’s sheet.';
+        ? 'You’re in — this week is open on this phone.'
+        : 'You’re in. Here’s what sold this week.';
       note.classList.add('visible');
     }
     if (opts.scroll !== false && sheet) {
@@ -642,7 +642,7 @@ table.sheet tbody tr:nth-child(odd) { background: transparent; }
   function fireUnlockAnalytics() {
     try {
       if (typeof gtag !== 'function') return;
-      gtag('event', 'weekly_sheet_unlock', {
+      gtag('event', 'weekly_lake_sales_unlock', {
         page_path: location.pathname,
         lead_source: LEAD_SOURCE.utm_source || '',
         lead_medium: LEAD_SOURCE.utm_medium || '',
@@ -676,7 +676,7 @@ table.sheet tbody tr:nth-child(odd) { background: transparent; }
       secret: LEAD_ALERT_SECRET,
       name: name,
       phone: phone,
-      interest: 'weekly_sheet',
+      interest: 'weekly_lake_sales',
       site: window.location.hostname + window.location.pathname,
       local: PAGE_LOCAL,
       utm_source: LEAD_SOURCE.utm_source,
@@ -744,10 +744,10 @@ table.sheet tbody tr:nth-child(odd) { background: transparent; }
         first_name: firstName,
         phone: phone,
         email: email,
-        interest: 'weekly_sheet',
-        interest_detail: 'Lake Minnetonka Weekly Sheet unlock',
+        interest: 'weekly_lake_sales',
+        interest_detail: 'Lake Minnetonka weekly — what sold',
         source_tag: 'Source _ Lead Magnet',
-        _subject: 'Lake Minnetonka Weekly — unlock',
+        _subject: 'Lake Minnetonka weekly — what sold',
         local: PAGE_LOCAL,
         page: location.pathname,
         utm_source: LEAD_SOURCE.utm_source,
@@ -789,11 +789,11 @@ table.sheet tbody tr:nth-child(odd) { background: transparent; }
     if (!isValidEmail(email)) { showErr('emailError', 'email'); return; }
     if (!isValidUSPhone(phone)) { showErr('phoneError', 'phone'); return; }
 
-    if (btn) { btn.disabled = true; btn.textContent = 'Unlocking…'; }
+    if (btn) { btn.disabled = true; btn.textContent = 'One moment…'; }
 
     var verdict = await checkNumber(firstName, phone);
     if (verdict && verdict.valid === false) {
-      if (btn) { btn.disabled = false; btn.textContent = 'Unlock the sheet'; }
+      if (btn) { btn.disabled = false; btn.textContent = 'Show me this week'; }
       showErr('phoneError', 'phone');
       return;
     }
@@ -805,7 +805,7 @@ table.sheet tbody tr:nth-child(odd) { background: transparent; }
     fireUnlockAnalytics();
     revealSheet({ fromStorage: false, scroll: true });
 
-    if (btn) { btn.disabled = false; btn.textContent = 'Unlock the sheet'; }
+    if (btn) { btn.disabled = false; btn.textContent = 'Show me this week'; }
   };
 
   var phoneEl = document.getElementById('phone');
@@ -854,7 +854,7 @@ table.sheet tbody tr:nth-child(odd) { background: transparent; }
   // Keep quiet blurb alphabetical from INCLUDE list (example: all quiet)
   var quietEl = document.getElementById('quietBlurb');
   if (quietEl) {
-    quietEl.textContent = 'No closes reported this period in: ' + INCLUDE_TOWNS.slice().sort().join(', ') + '.';
+    quietEl.textContent = 'No closes this week in: ' + INCLUDE_TOWNS.slice().sort().join(', ') + '.';
   }
 
   if (hasUnlock()) {
@@ -864,4 +864,4 @@ table.sheet tbody tr:nth-child(odd) { background: transparent; }
 </script>
 </body>
 </html>
-<!-- lake-minnetonka-weekly v1 · Art frame applied 2026-09-18 · EXAMPLE · do not deploy until Scout week + Geoffrey GO -->
+<!-- lake-minnetonka-weekly v1 · preview · human copy 2026-09-18 · noindex until real week + Geoffrey GO -->
