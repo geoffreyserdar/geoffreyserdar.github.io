@@ -32,17 +32,18 @@
 /* ============================================================= */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 :root {
-  --navy: #0A1628;
-  --navy2: #112240;
-  --gold: #C9A84C;
-  --gold2: #E8C96A;
-  --warm: #F8F6F1;
-  --mid: #8A9BB0;
-  --white: #FFFFFF;
+  /* House aesthetic 2026 — match buyers/homepage (not Claude navy) */
+  --navy: #ECE4D4;    /* soft ivory panels (legacy name) */
+  --navy2: #E3DAC6;   /* deeper ivory */
+  --gold: #8A6A3F;    /* brass */
+  --gold2: #C9A877;   /* light brass */
+  --warm: #1F201C;    /* tuxedo text */
+  --mid: #4D4839;     /* secondary text */
+  --white: #FAF7EF;   /* page ground */
 }
 html { scroll-behavior: smooth; }
 body {
-  background: var(--navy);
+  background: var(--white);
   color: var(--warm);
   font-family: 'Inter', sans-serif;
   min-height: 100vh;
@@ -475,6 +476,18 @@ footer { border-top: 1px solid rgba(138, 155, 176, 0.1); padding: 40px 32px; tex
 }
 .gate-phone-once a { color: var(--gold, #8A6A3F); font-weight: 500; }
 
+
+.dash-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 0 0 14px; }
+.dash-tile { background: var(--navy2); border: 1px solid rgba(31,32,28,0.10); border-radius: 4px; padding: 14px 10px; text-align: center; }
+.dash-n { font-family: 'Playfair Display', Georgia, serif; font-size: 28px; font-weight: 700; color: var(--warm); line-height: 1.1; }
+.dash-l { font-size: 11px; letter-spacing: 0.04em; text-transform: uppercase; color: var(--gold); margin-top: 6px; }
+.dash-table { width: 100%; border-collapse: collapse; font-size: 14px; margin-top: 8px; }
+.dash-table th { text-align: left; font-size: 11px; letter-spacing: 0.04em; text-transform: uppercase; color: var(--gold); font-weight: 600; padding: 8px 6px; border-bottom: 1px solid rgba(31,32,28,0.14); }
+.dash-table td { padding: 10px 6px; border-bottom: 1px solid rgba(31,32,28,0.08); color: var(--warm); }
+@media (max-width: 520px) {
+  .dash-row { grid-template-columns: 1fr; }
+}
+
 </style>
 </head>
 
@@ -605,21 +618,39 @@ footer { border-top: 1px solid rgba(138, 155, 176, 0.1); padding: 40px 32px; tex
       <p class="success-sub">Geoffrey may text or call from 952-258-3100. The week’s note is below.</p>
       <div class="week-unlock" id="weekUnlock">
         <h3>Lake Minnetonka this week</h3>
-        <p class="week-meta">Week of Sep 8–14, 2026 · Sample · real closes next</p>
+        <p class="week-meta">Week of Sep 8–14, 2026 · Sample layout · real closes replace this next</p>
+
         <div class="week-block">
-          <h4>Around the towns</h4>
-          <p>Nothing closed in the lake-ring towns this sample week. When homes do close, they’ll show up here by town — not as a spreadsheet dump, just what moved.</p>
+          <h4>At a glance</h4>
+          <div class="dash-row">
+            <div class="dash-tile"><div class="dash-n" id="dashClosed">0</div><div class="dash-l">Homes closed</div></div>
+            <div class="dash-tile"><div class="dash-n" id="dashTowns">0</div><div class="dash-l">Towns with a sale</div></div>
+            <div class="dash-tile"><div class="dash-n" id="dashQuiet">14</div><div class="dash-l">Quiet towns</div></div>
+          </div>
+          <p>Sample week — nothing closed. On a live thin week we skip fake averages and just show what moved.</p>
         </div>
+
         <div class="week-block">
-          <h4>The fuller note</h4>
-          <p>Same quiet week — still not dressing it up. On a live week this is where one close or one bay might teach something about the lake, not just a count.</p>
-          <p>If you’re watching a particular town, call me. The useful part of a thin week is often the quiet itself.</p>
+          <h4>By town</h4>
+          <p>When closes land, each active town shows here with count and typical sold price. Empty sample: no town rows yet.</p>
+          <table class="dash-table" id="dashTownTable">
+            <thead><tr><th>Town</th><th>#</th><th>Sold around</th><th>vs ask</th></tr></thead>
+            <tbody>
+              <tr><td colspan="4">No closes in the lake-ring towns this sample week.</td></tr>
+            </tbody>
+          </table>
         </div>
+
+        <div class="week-block">
+          <h4>Geoffrey’s note</h4>
+          <p>Quiet sample week — I’m not inventing a story. When real closes land, this is where I’ll say what mattered: which towns moved, whether asks held, and one thing I’d tell a neighbor.</p>
+        </div>
+
         <div class="week-block">
           <h4>Quiet towns</h4>
           <p>Deephaven, Excelsior, Greenwood, Minnetonka, Minnetonka Beach, Minnetrista, Mound, Orono, Shorewood, Spring Park, Tonka Bay, Victoria, Wayzata, Woodland.</p>
         </div>
-        <p class="success-crosslink">Curious about the top end?<br /><a href="/lake-minnetonka-most-expensive-homes/">Expensive homes on Lake Minnetonka →</a></p>
+<p class="success-crosslink">Curious about the top end?<br /><a href="/lake-minnetonka-most-expensive-homes/">Expensive homes on Lake Minnetonka →</a></p>
       </div>
     </div>
   </div>
