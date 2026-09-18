@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Lake Minnetonka this week | Geoffrey Serdar</title>
+<script src="https://www.compass.com/cxlp/a.min.js" id="cxlp-ajs" data-client-id="dh30gl6zq3rg" async></script>
+<meta name="description" content="This week’s closed sales across the Lake Minnetonka town ring. Unlock the sheet with your name, email, and mobile — or call Geoffrey at 952-258-3100." />
+<meta name="robots" content="noindex, nofollow" />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="canonical" href="https://geoffreyserdar.com/lake-minnetonka-weekly/" />
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17849235035"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'AW-17849235035');
+  gtag('config', 'G-250YS9FRRM');
+</script>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --page: #FAF7EF;       /* bright ivory — page ground */
+  --card: #ECE4D4;       /* soft ivory — gate + tiles */
+  --mid-card: #E3DAC6;   /* sparingly */
+  --tuxedo: #1F201C;
+  --mid: #4D4839;
+  --brass: #8A6A3F;
+  --brass-soft: #C9A877;
+  --mute: rgba(77, 72, 57, 0.40);
+  --line: rgba(31, 32, 28, 0.20);
+  --hair: rgba(77, 72, 57, 0.14);
+  --measure: 38em;
+  --col: 660px;
+}
+html { scroll-behavior: smooth; }
+body {
+  background: var(--page);
+  color: var(--tuxedo);
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1.5;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+a { color: var(--tuxedo); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+a:hover { color: var(--brass); }
+:focus-visible { outline: 2px solid var(--brass); outline-offset: 2px; }
+
+.shell {
+  max-width: var(--col);
+  margin: 0 auto;
+  padding: 40px 24px 0;
+}
+
+/* —— Masthead: one Playfair moment —— */
+.masthead { margin-bottom: 28px; }
+.masthead-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(28px, 6vw, 38px);
+  font-weight: 900;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--tuxedo);
+  margin-bottom: 10px;
+  max-width: 18ch;
+}
+.masthead-meta {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--brass);
+  margin-bottom: 6px;
+}
+.masthead-asof {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--mid);
+}
+.example-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--mid);
+  border: 1px solid var(--hair);
+  border-radius: 3px;
+  padding: 2px 7px;
+  margin-left: 6px;
+  vertical-align: middle;
+}
+
+/* —— Gate card —— */
+.gate-card {
+  background: var(--card);
+  border: 1px solid var(--hair);
+  border-radius: 5px;
+  padding: 28px 24px;
+  margin-bottom: 20px;
+}
+.gate-title {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--tuxedo);
+  margin-bottom: 8px;
+}
+.gate-soft {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--mid);
+  line-height: 1.55;
+  margin-bottom: 22px;
+  max-width: var(--measure);
+}
+.field { margin-bottom: 16px; }
+.field label {
+  display: block;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--mid);
+  margin-bottom: 6px;
+}
+.req { color: var(--mid); font-weight: 400; opacity: 0.75; }
+.field input {
+  width: 100%;
+  height: 44px;
+  background: var(--page);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  color: var(--tuxedo);
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  padding: 0 14px;
+  outline: none;
+  transition: border-color 0.15s;
+  box-shadow: none;
+}
+.field input:focus { border-color: var(--brass); }
+.field input.input-error { border-color: var(--brass); }
+.field-error {
+  display: none;
+  margin-top: 6px;
+  font-size: 12px;
+  line-height: 1.45;
+  color: var(--brass);
+}
+.field-error.visible { display: block; }
+.submit-btn {
+  display: inline-block;
+  width: 100%;
+  height: 48px;
+  margin-top: 4px;
+  background: var(--tuxedo);
+  color: var(--page);
+  border: none;
+  border-radius: 4px;
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.submit-btn:hover { background: var(--brass); }
+.submit-btn:disabled { opacity: 0.7; cursor: default; }
+@media (min-width: 560px) {
+  .submit-btn { width: auto; min-width: 220px; padding: 0 28px; }
+}
+.gate-phone {
+  margin-top: 18px;
+  font-size: 14px;
+  color: var(--mid);
+}
+.gate-phone a {
+  color: var(--brass);
+  font-weight: 500;
+  text-decoration: none;
+}
+.gate-phone a:hover { text-decoration: underline; color: var(--tuxedo); }
+.gate-unlocked-note {
+  display: none;
+  font-size: 13px;
+  color: var(--mid);
+  margin: 8px 0 20px;
+}
+.gate-unlocked-note.visible { display: block; }
+.header-phone-quiet {
+  display: none;
+  font-size: 13px;
+  color: var(--mid);
+  margin-bottom: 24px;
+}
+.header-phone-quiet.visible { display: block; }
+.header-phone-quiet a { color: var(--brass); text-decoration: none; font-weight: 500; }
+.header-phone-quiet a:hover { text-decoration: underline; }
+
+.sheet-locked-hint {
+  display: none;
+  font-size: 14px;
+  color: var(--mid);
+  margin: 8px 0 32px;
+  max-width: var(--measure);
+}
+body.is-locked .sheet-locked-hint { display: block; }
+
+.sheet-wrap { display: none; }
+.sheet-wrap.unlocked { display: block; }
+
+/* —— Sections: H2 → thin brass rule → content → air —— */
+.section {
+  padding: 0 0 56px;
+  max-width: var(--col);
+}
+.section-h2 {
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--tuxedo);
+  margin-bottom: 10px;
+}
+.section-rule {
+  display: block;
+  width: 64px;
+  height: 1px;
+  background: var(--brass);
+  border: 0;
+  margin: 0 0 20px;
+}
+.section-body {
+  font-size: 17px;
+  line-height: 1.55;
+  color: var(--tuxedo);
+  max-width: var(--measure);
+  margin-bottom: 16px;
+}
+.section-caption {
+  font-size: 13px;
+  color: var(--mid);
+  line-height: 1.5;
+  margin-top: 14px;
+}
+
+/* Stat tiles */
+.stat-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 4px;
+}
+@media (min-width: 520px) {
+  .stat-grid.three { grid-template-columns: 1fr 1fr 1fr; }
+}
+.stat-tile {
+  background: var(--card);
+  border-radius: 4px;
+  padding: 16px 18px;
+}
+.stat-label {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--mid);
+  margin-bottom: 8px;
+  letter-spacing: 0.02em;
+}
+.stat-value {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(28px, 6vw, 40px);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  color: var(--tuxedo);
+  line-height: 1.05;
+  margin-bottom: 6px;
+}
+.stat-value.big-n { font-size: clamp(40px, 8vw, 56px); }
+.stat-meta {
+  font-size: 13px;
+  color: var(--mid);
+  line-height: 1.45;
+}
+
+/* Table */
+.table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; margin-top: 4px; }
+table.sheet {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  font-variant-numeric: tabular-nums;
+}
+table.sheet th {
+  text-align: left;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--mid);
+  padding: 10px 8px;
+  border-bottom: 1px solid var(--hair);
+  white-space: nowrap;
+}
+table.sheet td {
+  padding: 11px 8px;
+  border-bottom: 1px solid var(--hair);
+  color: var(--tuxedo);
+  vertical-align: top;
+}
+table.sheet tbody tr:nth-child(even) { background: var(--card); }
+table.sheet tbody tr:nth-child(odd) { background: transparent; }
+
+/* Bay callouts */
+.bay-list { margin-top: 4px; }
+.bay-item {
+  border-left: 2px solid var(--brass);
+  padding: 4px 0 4px 14px;
+  margin-bottom: 16px;
+}
+.bay-city {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--tuxedo);
+  margin-bottom: 4px;
+}
+.bay-line {
+  font-size: 15px;
+  color: var(--tuxedo);
+  line-height: 1.5;
+}
+.bay-prices {
+  font-size: 13px;
+  color: var(--mid);
+  margin-top: 4px;
+}
+.bay-empty {
+  font-size: 15px;
+  color: var(--mid);
+  line-height: 1.5;
+}
+
+/* Geoffrey take */
+.take-band {
+  background: var(--card);
+  border-radius: 4px;
+  padding: 20px 18px;
+}
+.take-band p {
+  font-size: 17px;
+  line-height: 1.55;
+  color: var(--tuxedo);
+  margin-bottom: 12px;
+  max-width: var(--measure);
+}
+.take-band p:last-child { margin-bottom: 0; }
+
+/* Quiet towns — one soft paragraph */
+.quiet-blurb {
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--mid);
+  max-width: var(--measure);
+}
+
+.crosslink {
+  font-size: 14px;
+  color: var(--mid);
+  margin: 0 0 40px;
+  padding-bottom: 8px;
+}
+.crosslink a { color: var(--brass); }
+
+.source-footer {
+  font-size: 12px;
+  line-height: 1.55;
+  color: var(--mid);
+  padding: 0 0 48px;
+  max-width: var(--measure);
+  border-top: 1px solid var(--hair);
+  padding-top: 24px;
+}
+.source-footer p { margin-bottom: 8px; }
+.source-footer p:last-child { margin-bottom: 0; }
+
+.site-footer {
+  padding: 0 0 56px;
+  font-size: 13px;
+  color: var(--mid);
+}
+.site-footer .name {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--tuxedo);
+  margin-bottom: 4px;
+}
+.site-footer a { color: var(--brass); text-decoration: none; }
+.site-footer a:hover { text-decoration: underline; }
+.site-footer .links { margin: 10px 0 14px; display: flex; flex-wrap: wrap; gap: 8px 16px; }
+.site-footer .legal { font-size: 12px; line-height: 1.5; color: var(--mid); max-width: var(--measure); }
+
+@media (max-width: 480px) {
+  body { font-size: 16px; }
+  .shell { padding: 32px 20px 0; }
+  .section-h2 { font-size: 14px; }
+  .gate-card { padding: 22px 18px; }
+}
+</style>
+</head>
+<body class="is-locked">
+
+<div class="shell">
+
+  <header class="masthead" id="top">
+    <h1 class="masthead-title">Lake Minnetonka this week</h1>
+    <p class="masthead-meta">Week of Sep 8–14, 2026 <span class="example-tag">Example structure</span></p>
+    <p class="masthead-asof">As of — · CT · Scout week pending</p>
+  </header>
+
+  <p class="header-phone-quiet" id="headerPhoneQuiet">Or call/text <a href="tel:+19522583100">952-258-3100</a></p>
+
+  <div class="gate-card" id="gateCard">
+    <h2 class="gate-title">Unlock this week’s sheet</h2>
+    <p class="gate-soft">Email unlocks the live sheet. Phone lets Geoffrey text or call — we don’t blast.</p>
+    <form id="captureForm" onsubmit="handleSubmit(event)" novalidate>
+      <div class="field">
+        <label for="firstName">First name <span class="req">*</span></label>
+        <input type="text" id="firstName" name="first_name" autocomplete="given-name" required />
+        <div class="field-error" id="nameError">Please enter your first name.</div>
+      </div>
+      <div class="field">
+        <label for="email">Email <span class="req">*</span></label>
+        <input type="email" id="email" name="email" autocomplete="email" required />
+        <div class="field-error" id="emailError">Please enter a valid email.</div>
+      </div>
+      <div class="field">
+        <label for="phone">Mobile <span class="req">*</span></label>
+        <input type="tel" id="phone" name="phone" autocomplete="tel" required inputmode="tel" />
+        <div class="field-error" id="phoneError">Please enter a valid 10-digit U.S. mobile number.</div>
+      </div>
+      <input type="hidden" name="source_tag" value="Source _ Lead Magnet" />
+      <input type="hidden" name="interest" value="weekly_sheet" />
+      <input type="hidden" name="_subject" value="Lake Minnetonka Weekly — unlock" />
+      <button type="submit" class="submit-btn" id="submitBtn">Unlock the sheet</button>
+    </form>
+    <p class="gate-phone">Or call/text <a href="tel:+19522583100">952-258-3100</a></p>
+  </div>
+  <p class="gate-unlocked-note" id="alreadyUnlocked">Sheet unlocked on this device.</p>
+
+  <p class="sheet-locked-hint">The sheet unlocks after first name, email, and mobile — or call <a href="tel:+19522583100">952-258-3100</a>.</p>
+
+  <div class="sheet-wrap" id="sheet" aria-hidden="true">
+
+    <!-- 1) Week at a glance -->
+    <section class="section" id="week-glance">
+      <h2 class="section-h2">Week at a glance</h2>
+      <hr class="section-rule" />
+      <p class="section-body">Lake-ring totals across fourteen towns. All residential closes in those cities — inland included. Thin weeks stay honest: if fewer than three closes, no median.</p>
+
+      <div class="stat-grid three">
+        <div class="stat-tile">
+          <div class="stat-label">Closed (lake-ring)</div>
+          <div class="stat-value big-n" id="statNClosed">0</div>
+          <div class="stat-meta">No closes this period — example until Scout week lands.</div>
+        </div>
+        <div class="stat-tile">
+          <div class="stat-label">Active cities</div>
+          <div class="stat-value" id="statActive">0</div>
+          <div class="stat-meta">Cities with ≥1 close</div>
+        </div>
+        <div class="stat-tile">
+          <div class="stat-label">Quiet cities</div>
+          <div class="stat-value" id="statQuiet">14</div>
+          <div class="stat-meta">INCLUDE towns with 0 closes</div>
+        </div>
+      </div>
+      <!-- Median / ask / gap tiles omitted when n &lt; 3 (thin-week lock). No fake “—” tiles. -->
+      <p class="section-caption">n = 0 closes · As of — CT · window: thin (example). Medians suppressed when n &lt; 3.</p>
+    </section>
+
+    <!-- 2) By city -->
+    <section class="section" id="by-city">
+      <h2 class="section-h2">By city</h2>
+      <hr class="section-rule" />
+      <p class="section-body">Only cities with activity. Zeros live in Quiet towns. City median only when that city’s n ≥ 3.</p>
+      <div class="table-wrap">
+        <table class="sheet" aria-label="Active cities">
+          <thead>
+            <tr>
+              <th>City</th>
+              <th>#</th>
+              <th>Median sold</th>
+              <th>Ask vs sold</th>
+              <th>DOM</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td colspan="5" style="color:var(--mid);">No active cities this period (example empty week).</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="section-caption">No full street addresses on the public page. Sort live: # closed desc, then median sold desc.</p>
+    </section>
+
+    <!-- 3) Bay callouts — omit block when none; shown here as empty-state for scaffold -->
+    <section class="section" id="bay-callouts">
+      <h2 class="section-h2">Bay callouts</h2>
+      <hr class="section-rule" />
+      <p class="bay-empty">No bay-notable closes this period. Inland-only weeks omit this section entirely when live.</p>
+      <!-- Example callout markup (hidden until real data):
+      <div class="bay-list">
+        <div class="bay-item">
+          <div class="bay-city">Wayzata Bay · Wayzata</div>
+          <div class="bay-line">Only waterfront close this week.</div>
+          <div class="bay-prices">Sold — · Ask —</div>
+        </div>
+      </div>
+      -->
+    </section>
+
+    <!-- 4) Geoffrey take -->
+    <section class="section" id="geoffrey-take">
+      <h2 class="section-h2">Geoffrey take</h2>
+      <hr class="section-rule" />
+      <div class="take-band">
+        <p>Example — Scout drafts; Geoffrey locks. Volume / which cities moved.</p>
+        <p>Ask vs sold tone if n ≥ 3; else too thin for a gap read.</p>
+        <p>One honest forward look or quiet-town nod — no invented comps.</p>
+      </div>
+    </section>
+
+    <!-- 5) Quiet towns -->
+    <section class="section" id="quiet-towns">
+      <h2 class="section-h2">Quiet towns</h2>
+      <hr class="section-rule" />
+      <p class="quiet-blurb" id="quietBlurb">No closes reported this period in: Deephaven, Excelsior, Greenwood, Minnetonka, Minnetonka Beach, Minnetrista, Mound, Orono, Shorewood, Spring Park, Tonka Bay, Victoria, Wayzata, Woodland.</p>
+    </section>
+
+    <p class="crosslink">Also reading the lake? <a href="/lake-minnetonka-most-expensive-homes/">Expensive homes on Lake Minnetonka</a>.</p>
+
+    <div class="source-footer">
+      <p>Source: Compass MLS closed sales · lake-ring cities per Scout 2026-09-18.</p>
+      <p>Not waterfront-only — inland homes in these towns count.</p>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <p class="name">Geoffrey Serdar</p>
+    <p>Serdar+Partners at Compass · Lake Minnetonka &amp; Twin Cities</p>
+    <div class="links">
+      <a href="tel:+19522583100">952-258-3100</a>
+      <a href="mailto:geoffrey@serdarpartnersrealty.com">Email</a>
+      <a href="https://geoffreyserdar.com/">geoffreyserdar.com</a>
+    </div>
+    <p class="legal">Information believed accurate but not guaranteed. Equal Housing Opportunity. EXAMPLE structure until Scout publishes a live week. Do not deploy until Geoffrey GO.</p>
+  </footer>
+
+</div>
+
+<script>
+(function () {
+  var PAGE_LOCAL = 'lake-minnetonka-weekly';
+  var UNLOCK_KEY = 'gs_lmw_unlock_v1';
+  var FORM_ID = 'mpqerwwk'; // house Formspree — same endpoint as sister GS pages
+  var INCLUDE_TOWNS = [
+    'Deephaven', 'Excelsior', 'Greenwood', 'Minnetonka', 'Minnetonka Beach',
+    'Minnetrista', 'Mound', 'Orono', 'Shorewood', 'Spring Park',
+    'Tonka Bay', 'Victoria', 'Wayzata', 'Woodland'
+  ];
+
+  function qs(name) {
+    try { return new URLSearchParams(window.location.search).get(name) || ''; }
+    catch (e) { return ''; }
+  }
+  var LEAD_SOURCE = {
+    utm_source: qs('utm_source'),
+    utm_medium: qs('utm_medium'),
+    utm_campaign: qs('utm_campaign'),
+    utm_content: qs('utm_content'),
+    gclid: qs('gclid'),
+    referrer: document.referrer || ''
+  };
+
+  function isValidEmail(v) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(v || '').trim());
+  }
+  function isValidUSPhone(v) {
+    var d = String(v || '').replace(/\D/g, '');
+    if (d.length === 11 && d.charAt(0) === '1') d = d.slice(1);
+    return d.length === 10;
+  }
+  function formatPhone(v) {
+    var d = String(v || '').replace(/\D/g, '');
+    if (d.length === 11 && d.charAt(0) === '1') d = d.slice(1);
+    if (d.length <= 3) return d;
+    if (d.length <= 6) return d.slice(0, 3) + '-' + d.slice(3);
+    return d.slice(0, 3) + '-' + d.slice(3, 6) + '-' + d.slice(6, 10);
+  }
+
+  function setCookie(name, value, days) {
+    document.cookie = name + '=' + encodeURIComponent(value) + '; path=/; max-age=' + (days * 86400) + '; SameSite=Lax';
+  }
+  function getCookie(name) {
+    var parts = ('; ' + document.cookie).split('; ' + name + '=');
+    if (parts.length === 2) return decodeURIComponent(parts.pop().split(';').shift() || '');
+    return '';
+  }
+  function persistUnlock() {
+    try { localStorage.setItem(UNLOCK_KEY, '1'); } catch (e) {}
+    setCookie(UNLOCK_KEY, '1', 90);
+  }
+  function hasUnlock() {
+    try { if (localStorage.getItem(UNLOCK_KEY) === '1') return true; } catch (e) {}
+    return getCookie(UNLOCK_KEY) === '1';
+  }
+
+  function revealSheet(opts) {
+    opts = opts || {};
+    var sheet = document.getElementById('sheet');
+    var gateCard = document.getElementById('gateCard');
+    var note = document.getElementById('alreadyUnlocked');
+    var quietPhone = document.getElementById('headerPhoneQuiet');
+    document.body.classList.remove('is-locked');
+    if (sheet) {
+      sheet.classList.add('unlocked');
+      sheet.setAttribute('aria-hidden', 'false');
+    }
+    if (gateCard) gateCard.style.display = 'none';
+    if (quietPhone) quietPhone.classList.add('visible');
+    if (note) {
+      note.textContent = opts.fromStorage
+        ? 'Sheet unlocked on this device.'
+        : 'Unlocked. Here’s this week’s sheet.';
+      note.classList.add('visible');
+    }
+    if (opts.scroll !== false && sheet) {
+      setTimeout(function () {
+        sheet.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 80);
+    }
+  }
+
+  function fireUnlockAnalytics() {
+    try {
+      if (typeof gtag !== 'function') return;
+      gtag('event', 'weekly_sheet_unlock', {
+        page_path: location.pathname,
+        lead_source: LEAD_SOURCE.utm_source || '',
+        lead_medium: LEAD_SOURCE.utm_medium || '',
+        lead_campaign: LEAD_SOURCE.utm_campaign || '',
+        gclid_present: LEAD_SOURCE.gclid ? 'yes' : 'no'
+      });
+      gtag('event', 'generate_lead', {
+        currency: 'USD',
+        value: 1.0,
+        lead_source: LEAD_SOURCE.utm_source || '',
+        lead_medium: LEAD_SOURCE.utm_medium || '',
+        lead_campaign: LEAD_SOURCE.utm_campaign || '',
+        gclid_present: LEAD_SOURCE.gclid ? 'yes' : 'no',
+        page_path: location.pathname
+      });
+      gtag('event', 'conversion', {
+        send_to: 'AW-17849235035/jRxICLmDpr0cENvslr9C',
+        value: 1.0,
+        currency: 'USD'
+      });
+    } catch (e) {}
+  }
+
+  var LEAD_ALERT_URL = 'https://lead-alert-4343.twil.io/lead-alert';
+  var LEAD_ALERT_SECRET = 'slx_9f3Kqe2R';
+
+  function checkNumber(name, phone) {
+    var controller = new AbortController();
+    var timer = setTimeout(function () { controller.abort(); }, 2500);
+    var data = new URLSearchParams({
+      secret: LEAD_ALERT_SECRET,
+      name: name,
+      phone: phone,
+      interest: 'weekly_sheet',
+      site: window.location.hostname + window.location.pathname,
+      local: PAGE_LOCAL,
+      utm_source: LEAD_SOURCE.utm_source,
+      utm_medium: LEAD_SOURCE.utm_medium,
+      utm_campaign: LEAD_SOURCE.utm_campaign,
+      utm_content: LEAD_SOURCE.utm_content,
+      gclid: LEAD_SOURCE.gclid,
+      referrer: LEAD_SOURCE.referrer
+    });
+    return fetch(LEAD_ALERT_URL, { method: 'POST', body: data, signal: controller.signal })
+      .then(function (r) { clearTimeout(timer); return r.json(); })
+      .catch(function () { clearTimeout(timer); return { valid: true, failOpen: true }; });
+  }
+
+  var __cxlpBridgeBusy = false;
+  function notifyCompassLeadPixel(name, phone, email) {
+    try {
+      name = String(name || '').trim();
+      phone = String(phone || '').trim();
+      email = String(email || '').trim();
+      if (!name && !phone && !email) return;
+      try {
+        var g = window.__global__;
+        if (g && typeof g.track === 'function') {
+          var parts = name.split(/\s+/).filter(Boolean);
+          g.track('Lead', {
+            name: name, phone: phone, email: email,
+            firstName: parts[0] || '',
+            lastName: parts.length > 1 ? parts.slice(1).join(' ') : ''
+          });
+          return;
+        }
+      } catch (_t) {}
+      if (__cxlpBridgeBusy) return;
+      __cxlpBridgeBusy = true;
+      var form = document.createElement('form');
+      form.id = 'cxlpBridgeForm';
+      form.setAttribute('data-cxlp-bridge', '1');
+      form.style.cssText = 'position:absolute;left:-9999px;height:0;width:0;overflow:hidden;opacity:0;';
+      function add(type, n, val) {
+        var inp = document.createElement('input');
+        inp.type = type; inp.name = n; inp.value = val || '';
+        form.appendChild(inp);
+      }
+      add('text', 'name', name);
+      add('tel', 'phone', phone);
+      add('email', 'email', email);
+      document.body.appendChild(form);
+      setTimeout(function () {
+        try { form.dispatchEvent(new Event('submit', { bubbles: true, cancelable: true })); } catch (_e) {}
+        setTimeout(function () {
+          try { if (form.parentNode) form.parentNode.removeChild(form); } catch (_r) {}
+          __cxlpBridgeBusy = false;
+        }, 80);
+      }, 60);
+    } catch (_err) { __cxlpBridgeBusy = false; }
+  }
+
+  function submitToFormspree(firstName, phone, email) {
+    fetch('https://formspree.io/f/' + FORM_ID, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+      body: JSON.stringify({
+        name: firstName,
+        first_name: firstName,
+        phone: phone,
+        email: email,
+        interest: 'weekly_sheet',
+        interest_detail: 'Lake Minnetonka Weekly Sheet unlock',
+        source_tag: 'Source _ Lead Magnet',
+        _subject: 'Lake Minnetonka Weekly — unlock',
+        local: PAGE_LOCAL,
+        page: location.pathname,
+        utm_source: LEAD_SOURCE.utm_source,
+        utm_medium: LEAD_SOURCE.utm_medium,
+        utm_campaign: LEAD_SOURCE.utm_campaign,
+        utm_content: LEAD_SOURCE.utm_content,
+        gclid: LEAD_SOURCE.gclid,
+        referrer: LEAD_SOURCE.referrer
+      })
+    }).catch(function () {});
+  }
+
+  function showErr(id, inputId) {
+    var err = document.getElementById(id);
+    var inp = document.getElementById(inputId);
+    if (err) err.classList.add('visible');
+    if (inp) { inp.classList.add('input-error'); inp.focus(); }
+  }
+  function clearErr(id, inputId) {
+    var err = document.getElementById(id);
+    var inp = document.getElementById(inputId);
+    if (err) err.classList.remove('visible');
+    if (inp) inp.classList.remove('input-error');
+  }
+
+  window.handleSubmit = async function (e) {
+    if (e && e.target && e.target.id === 'cxlpBridgeForm') return;
+    e.preventDefault();
+    var firstName = document.getElementById('firstName').value.trim();
+    var email = document.getElementById('email').value.trim();
+    var phone = document.getElementById('phone').value.trim();
+    var btn = document.getElementById('submitBtn');
+
+    clearErr('nameError', 'firstName');
+    clearErr('emailError', 'email');
+    clearErr('phoneError', 'phone');
+
+    if (!firstName) { showErr('nameError', 'firstName'); return; }
+    if (!isValidEmail(email)) { showErr('emailError', 'email'); return; }
+    if (!isValidUSPhone(phone)) { showErr('phoneError', 'phone'); return; }
+
+    if (btn) { btn.disabled = true; btn.textContent = 'Unlocking…'; }
+
+    var verdict = await checkNumber(firstName, phone);
+    if (verdict && verdict.valid === false) {
+      if (btn) { btn.disabled = false; btn.textContent = 'Unlock the sheet'; }
+      showErr('phoneError', 'phone');
+      return;
+    }
+
+    submitToFormspree(firstName, phone, email);
+    try { notifyCompassLeadPixel(firstName, phone, email); } catch (_c) {}
+
+    persistUnlock();
+    fireUnlockAnalytics();
+    revealSheet({ fromStorage: false, scroll: true });
+
+    if (btn) { btn.disabled = false; btn.textContent = 'Unlock the sheet'; }
+  };
+
+  var phoneEl = document.getElementById('phone');
+  if (phoneEl) {
+    phoneEl.addEventListener('input', function () {
+      clearErr('phoneError', 'phone');
+      var start = phoneEl.selectionStart;
+      var before = phoneEl.value.length;
+      phoneEl.value = formatPhone(phoneEl.value);
+      var after = phoneEl.value.length;
+      try { phoneEl.setSelectionRange(start + (after - before), start + (after - before)); } catch (_s) {}
+    });
+  }
+  ['firstName', 'email'].forEach(function (id) {
+    var el = document.getElementById(id);
+    if (!el) return;
+    el.addEventListener('input', function () {
+      if (id === 'firstName') clearErr('nameError', 'firstName');
+      if (id === 'email') clearErr('emailError', 'email');
+    });
+  });
+
+  (function () {
+    var lastField = null;
+    var startFired = false;
+    function touch(id) {
+      lastField = id;
+      if (startFired) return;
+      startFired = true;
+      if (typeof gtag === 'function') gtag('event', 'form_start', { first_field: id });
+    }
+    ['firstName', 'email', 'phone'].forEach(function (id) {
+      var el = document.getElementById(id);
+      if (!el) return;
+      el.addEventListener('focus', function () { touch(id); });
+    });
+    var fired = false;
+    window.addEventListener('pagehide', function () {
+      if (fired || !lastField) return;
+      if (hasUnlock()) return;
+      fired = true;
+      if (typeof gtag === 'function') gtag('event', 'form_abandon', { last_field: lastField });
+    });
+  })();
+
+  // Keep quiet blurb alphabetical from INCLUDE list (example: all quiet)
+  var quietEl = document.getElementById('quietBlurb');
+  if (quietEl) {
+    quietEl.textContent = 'No closes reported this period in: ' + INCLUDE_TOWNS.slice().sort().join(', ') + '.';
+  }
+
+  if (hasUnlock()) {
+    revealSheet({ fromStorage: true, scroll: false });
+  }
+})();
+</script>
+</body>
+</html>
+<!-- lake-minnetonka-weekly v1 · Art frame applied 2026-09-18 · EXAMPLE · do not deploy until Scout week + Geoffrey GO -->
