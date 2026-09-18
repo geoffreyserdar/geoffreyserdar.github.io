@@ -491,12 +491,47 @@ footer { border-top: 1px solid rgba(138, 155, 176, 0.1); padding: 40px 32px; tex
 }
 .week-teaser-line em { font-style: normal; color: var(--gold, #8A6A3F); font-weight: 500; }
 .gate-phone-once {
-  margin: 12px 0 0;
+  margin: 16px 0 8px;
   font-size: 14px;
   color: var(--muted, #4D4839);
   text-align: center;
 }
-.gate-phone-once a { color: var(--gold, #8A6A3F); font-weight: 500; }
+/* Brass Call / Text — match /buyers/ door-btn house style; row → stack on phones */
+.door-btns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 0 0 4px;
+}
+.door-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  flex: 1 1 140px;
+  padding: 17px 20px;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: .3px;
+  text-decoration: none;
+  border: 0;
+  cursor: pointer;
+  transition: transform .08s, filter .15s, background .15s, color .15s;
+  min-height: 56px;
+  text-align: center;
+  font-family: 'Inter', sans-serif;
+}
+.door-btn:active { transform: translateY(1px); }
+.door-btn:focus-visible { outline: 2px solid #8A6A3F; outline-offset: 3px; }
+.door-text { background: #8A6A3F; color: #FAF7EF; }
+.door-text:hover { filter: brightness(1.08); color: #FAF7EF; }
+.door-call { background: transparent; color: #8A6A3F; border: 1px solid rgba(138,106,63,.55); }
+.door-call:hover { background: rgba(138,106,63,.10); color: #8A6A3F; }
+@media (max-width: 480px) {
+  .door-btns { flex-direction: column; }
+  .door-btn { width: 100%; flex: 1 1 auto; }
+}
 .success-go {
   display: inline-block;
   margin-top: 18px;
@@ -664,9 +699,13 @@ footer { border-top: 1px solid rgba(138, 155, 176, 0.1); padding: 40px 32px; tex
           <p class="field-error" id="phoneError" role="alert">That number doesn’t look quite right — Geoffrey texts from his own phone, so we need a real mobile.</p>
         </div>
         <input type="hidden" id="interest" name="interest" value="weekly_lake_note" />
-        <button type="submit" class="submit-btn">See the fuller week</button>
+        <button type="submit" class="submit-btn">Show me what sold</button>
       </form>
-      <p class="gate-phone-once">Or call/text <a href="tel:+19522583100">952-258-3100</a></p>
+      <p class="gate-phone-once">Prefer to talk now?</p>
+      <div class="door-btns">
+        <a class="door-btn door-text" href="sms:+19522583100">Text Geoffrey</a>
+        <a class="door-btn door-call" href="tel:+19522583100">Call 952-258-3100</a>
+      </div>
       <p class="form-consent">By submitting, you agree Serdar+Partners at Compass may contact you by call or text (including automated means) at the number you provide about this note. Consent is not required to buy. Msg &amp; data rates may apply. Reply STOP to opt out. <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a>.</p>
     </div>
 
@@ -764,7 +803,7 @@ const RAZIEL_CONFIG = {
   twilioUrl:       'https://lead-alert-4343.twil.io/lead-alert',
   twilioSecret:    'slx_9f3Kqe2R',
   formspreeId:     'mpqerwwk',
-  ctaLabel:        'See the fuller week'            // button text (also restored after an error)
+  ctaLabel:        'Show me what sold'               // button text (also restored after an error)
 };
 
 // Capture lead source on page load (UTM / Google Ads / referrer)
