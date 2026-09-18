@@ -92,6 +92,15 @@ a:hover { color: var(--brass); }
 }
 
 /* —— Gate card —— */
+.teaser { margin-bottom: 8px; }
+.teaser .section { margin-bottom: 12px; }
+.teaser-soft {
+  font-size: 14px;
+  color: var(--mid);
+  line-height: 1.55;
+  margin: 0 0 18px;
+  max-width: var(--measure);
+}
 .gate-card {
   background: var(--card);
   border: 1px solid var(--hair);
@@ -416,6 +425,42 @@ table.sheet tbody tr:nth-child(odd) { background: transparent; }
 
   <p class="header-phone-quiet" id="headerPhoneQuiet">Or call/text <a href="tel:+19522583100">952-258-3100</a></p>
 
+
+  <!-- Teaser (visible before gate) — Scout #1 -->
+  <div class="teaser" id="teaser">
+
+
+    <!-- 1) Week at a glance -->
+    <section class="section" id="week-glance">
+      <h2 class="section-h2">Week at a glance</h2>
+      <hr class="section-rule" />
+      <p class="section-body">Fourteen towns around the lake. Waterfront and inland. Here’s what actually closed.</p>
+
+      <div class="stat-grid three">
+        <div class="stat-tile">
+          <div class="stat-label">Homes closed</div>
+          <div class="stat-value big-n" id="statNClosed">0</div>
+          <div class="stat-meta">Nothing closed in this sample week. Real numbers replace this soon.</div>
+        </div>
+        <div class="stat-tile">
+          <div class="stat-label">Towns with a sale</div>
+          <div class="stat-value" id="statActive">0</div>
+          <div class="stat-meta">At least one home closed</div>
+        </div>
+        <div class="stat-tile">
+          <div class="stat-label">Quiet towns</div>
+          <div class="stat-value" id="statQuiet">14</div>
+          <div class="stat-meta">No closes this week</div>
+        </div>
+      </div>
+      <!-- Skip average-price tiles when fewer than 3 closes. No fake dashes. -->
+      <p class="section-caption">Sample week — nothing closed. On a live quiet week I’d skip the average and just name what moved.</p>
+    </section>
+
+    
+    <p class="teaser-soft">Quiet sample week so far — the full town list and my read unlock below.</p>
+  </div>
+
   <div class="gate-card" id="gateCard">
     <h2 class="gate-title">See what sold this week</h2>
     <p class="gate-soft">First name, email, and mobile — so Geoffrey can text or call. No blasts.</p>
@@ -442,53 +487,24 @@ table.sheet tbody tr:nth-child(odd) { background: transparent; }
     </form>
     <p class="gate-phone">Or call/text <a href="tel:+19522583100">952-258-3100</a></p>
   </div>
-  <p class="gate-unlocked-note" id="alreadyUnlocked">You’re in — this week is open on this phone.</p>
+  <p class="gate-unlocked-note" id="alreadyUnlocked">You’re in. Scroll the week below — or just call if you’d rather talk it through.</p>
 
   <p class="sheet-locked-hint">Enter your first name, email, and mobile to see this week — or call <a href="tel:+19522583100">952-258-3100</a>.</p>
 
-  <div class="sheet-wrap" id="sheet" aria-hidden="true">
-
-    <!-- 1) Week at a glance -->
-    <section class="section" id="week-glance">
-      <h2 class="section-h2">Week at a glance</h2>
-      <hr class="section-rule" />
-      <p class="section-body">Homes that closed in the fourteen towns around the lake — waterfront and inland. Quiet weeks stay honest: if almost nothing sold, we say so and skip the averages.</p>
-
-      <div class="stat-grid three">
-        <div class="stat-tile">
-          <div class="stat-label">Homes closed</div>
-          <div class="stat-value big-n" id="statNClosed">0</div>
-          <div class="stat-meta">Nothing closed in this sample week. Real numbers replace this soon.</div>
-        </div>
-        <div class="stat-tile">
-          <div class="stat-label">Towns with a sale</div>
-          <div class="stat-value" id="statActive">0</div>
-          <div class="stat-meta">At least one home closed</div>
-        </div>
-        <div class="stat-tile">
-          <div class="stat-label">Quiet towns</div>
-          <div class="stat-value" id="statQuiet">14</div>
-          <div class="stat-meta">No closes this week</div>
-        </div>
-      </div>
-      <!-- Skip average-price tiles when fewer than 3 closes. No fake dashes. -->
-      <p class="section-caption">Sample week with no closes. When fewer than three homes sell, we don’t invent an “average price.”</p>
-    </section>
-
-    <!-- 2) By city -->
+  <div class="sheet-wrap" id="sheet" aria-hidden="true"><!-- 2) By city -->
     <section class="section" id="by-city">
       <h2 class="section-h2">By city</h2>
       <hr class="section-rule" />
-      <p class="section-body">Only towns where something actually sold. Quiet towns are listed below. A town average only shows up when that town had enough sales to mean something.</p>
+      <p class="section-body">Towns that had a close. Quiet ones are named under that. Averages only when a town actually earned one.</p>
       <div class="table-wrap">
         <table class="sheet" aria-label="Towns with a sale">
           <thead>
             <tr>
               <th>City</th>
               <th>#</th>
-              <th>Typical sold price</th>
-              <th>List vs sold</th>
-              <th>Days listed</th>
+              <th>Sold around</th>
+              <th>vs ask</th>
+              <th>Days on market</th>
             </tr>
           </thead>
           <tbody>
@@ -505,7 +521,7 @@ table.sheet tbody tr:nth-child(odd) { background: transparent; }
     <section class="section" id="bay-callouts">
       <h2 class="section-h2">Bay notes</h2>
       <hr class="section-rule" />
-      <p class="bay-empty">No standout bay sales in this sample week. If a week is all inland, this section simply won’t appear.</p>
+      <p class="bay-empty">No bay standouts in this sample.</p>
       <!-- Example callout markup (hidden until real data):
       <div class="bay-list">
         <div class="bay-item">
@@ -522,9 +538,7 @@ table.sheet tbody tr:nth-child(odd) { background: transparent; }
       <h2 class="section-h2">Geoffrey’s take</h2>
       <hr class="section-rule" />
       <div class="take-band">
-        <p>This is placeholder copy. On a live week: how busy it was, which towns moved, and one honest note from Geoffrey.</p>
-        <p>If almost nothing sold, we won’t pretend there’s a big “list vs sold” story.</p>
-        <p>Quiet towns get named. No made-up comps.</p>
+        <p>Quiet sample week — I’m not going to invent a story. When real closes land, this is where I’ll say what actually mattered: which towns moved, whether asks held, and one thing I’d tell a neighbor over coffee.</p>
       </div>
     </section>
 
@@ -539,7 +553,7 @@ table.sheet tbody tr:nth-child(odd) { background: transparent; }
 
     <div class="source-footer">
       <p>Source: Compass MLS closed sales in the towns around Lake Minnetonka.</p>
-      <p>Not just waterfront — inland homes in these towns count too.</p>
+      <p>Inland counts. Same towns.</p>
     </div>
   </div>
 
@@ -628,8 +642,8 @@ table.sheet tbody tr:nth-child(odd) { background: transparent; }
     if (quietPhone) quietPhone.classList.add('visible');
     if (note) {
       note.textContent = opts.fromStorage
-        ? 'You’re in — this week is open on this phone.'
-        : 'You’re in. Here’s what sold this week.';
+        ? 'You’re in. Scroll the week below — or just call if you’d rather talk it through.'
+        : 'You’re in. Scroll the week below — or just call if you’d rather talk it through.';
       note.classList.add('visible');
     }
     if (opts.scroll !== false && sheet) {
