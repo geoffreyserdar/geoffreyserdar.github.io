@@ -376,12 +376,32 @@ table.sheet tbody tr:nth-child(odd) { background: transparent; }
 }
 
 .crosslink {
-  font-size: 14px;
-  color: var(--mid);
   margin: 0 0 40px;
   padding-bottom: 8px;
 }
-.crosslink a { color: var(--brass); }
+.crosslink-prompt {
+  font-size: 14px;
+  color: var(--mid);
+  margin: 0 0 14px;
+}
+.crosslink-btn {
+  display: inline-block;
+  background: var(--brass);
+  color: var(--page);
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 14px 28px;
+  border-radius: 3px;
+  transition: background 0.2s, color 0.2s;
+}
+.crosslink-btn:hover {
+  background: var(--brass-soft);
+  color: var(--tuxedo);
+}
 
 .source-footer {
   font-size: 12px;
@@ -539,7 +559,10 @@ table.sheet tbody tr:nth-child(odd) { background: transparent; }
       <p class="quiet-blurb" id="quietBlurb">No closes this week in: Greenwood, Minnetonka Beach, Minnetrista, Orono, Shorewood, Spring Park, Tonka Bay, Woodland.</p>
     </section>
 
-    <p class="crosslink">Also looking at the top of the lake? <a href="/lake-minnetonka-most-expensive-homes/">Expensive homes on Lake Minnetonka</a> — a quiet door, separate from this week’s note.</p>
+    <div class="crosslink">
+      <p class="crosslink-prompt">Also looking at the top of the lake?</p>
+      <a class="crosslink-btn" href="/lake-minnetonka-most-expensive-homes/">Expensive homes on Lake Minnetonka</a>
+    </div>
 
     <div class="source-footer">
       <p>Source: Compass MLS closed sales in the towns around Lake Minnetonka.</p>

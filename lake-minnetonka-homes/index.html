@@ -277,9 +277,21 @@ body {
   font-size: 24px; font-weight: 700; color: var(--warm); margin-bottom: 8px;
 }
 .success-sub { font-size: 14px; color: var(--mid); line-height: 1.6; }
-.success-crosslink { font-size: 13px; color: var(--mid); margin-top: 22px; line-height: 1.7; }
-.success-crosslink a { color: var(--gold); text-decoration: underline; text-underline-offset: 3px; }
-.success-crosslink a:hover { color: var(--gold2); }
+.success-crosslink { margin-top: 22px; }
+.success-crosslink-prompt {
+  font-size: 13px; color: var(--mid); line-height: 1.7; margin: 0 0 14px;
+}
+.success-crosslink-btn {
+  display: inline-block;
+  background: var(--gold);
+  color: var(--white);
+  font-family: 'Inter', sans-serif;
+  font-size: 13px; font-weight: 700; letter-spacing: 1.5px;
+  text-transform: uppercase; text-decoration: none;
+  padding: 14px 28px; border-radius: 3px;
+  transition: background 0.2s, color 0.2s;
+}
+.success-crosslink-btn:hover { background: var(--gold2); color: var(--warm); }
 /* DOOR 2 — the calculator (soft path for the not-ready browser) */
 .door2 { padding: 56px 32px 0; max-width: 640px; margin: 0 auto; }
 .door2-card {
@@ -499,8 +511,21 @@ footer { border-top: 1px solid rgba(138, 155, 176, 0.1); padding: 40px 32px; tex
   border-radius: 3px;
 }
 .success-go:hover { background: var(--gold2, #C9A877); color: #1F201C !important; }
-.success-crosslink { font-size: 13px; color: var(--mid); margin-top: 18px; line-height: 1.7; }
-.success-crosslink a { color: var(--gold); text-decoration: underline; text-underline-offset: 3px; }
+.success-crosslink { margin-top: 18px; }
+.success-crosslink-prompt {
+  font-size: 13px; color: var(--mid); line-height: 1.7; margin: 0 0 14px;
+}
+.success-crosslink-btn {
+  display: inline-block;
+  background: var(--gold, #8A6A3F);
+  color: #FAF7EF !important;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px; font-weight: 700; letter-spacing: 1.5px;
+  text-transform: uppercase; text-decoration: none;
+  padding: 14px 28px; border-radius: 3px;
+  transition: background 0.2s, color 0.2s;
+}
+.success-crosslink-btn:hover { background: var(--gold2, #C9A877); color: #1F201C !important; }
 @media (max-width: 520px) {
   .teaser-dash { grid-template-columns: 1fr; }
 }
@@ -650,7 +675,10 @@ footer { border-top: 1px solid rgba(138, 155, 176, 0.1); padding: 40px 32px; tex
       <h3 class="success-title">You’re in.</h3>
       <p class="success-sub">Geoffrey may text or call from 952-258-3100.<br />Here’s the fuller week around the lake.</p>
       <a class="success-go" id="weeklyGo" href="/lake-minnetonka-weekly/">Open this week’s note →</a>
-      <p class="success-crosslink">Curious about the top end?<br /><a href="/lake-minnetonka-most-expensive-homes/">Expensive homes on Lake Minnetonka →</a></p>
+      <div class="success-crosslink">
+        <p class="success-crosslink-prompt">Also looking at the top of the lake?</p>
+        <a class="success-crosslink-btn" href="/lake-minnetonka-most-expensive-homes/">Expensive homes on Lake Minnetonka</a>
+      </div>
     </div>
   </div>
 </div>
