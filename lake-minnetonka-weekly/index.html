@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>What sold around Lake Minnetonka this week | Geoffrey Serdar</title>
 <script src="https://www.compass.com/cxlp/a.min.js" id="cxlp-ajs" data-client-id="dh30gl6zq3rg" async></script>
-<meta name="description" content="Closed sales this week in the towns around Lake Minnetonka. See the list with your name, email, and mobile — or call Geoffrey at 952-258-3100." />
+<meta name="description" content="Closed sales this week in the towns around Lake Minnetonka — by town, quiet spots named honestly. Geoffrey Serdar, Compass." />
 <meta name="robots" content="noindex, nofollow" />
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
 <link rel="canonical" href="https://geoffreyserdar.com/lake-minnetonka-weekly/" />
@@ -187,6 +187,14 @@ a:hover { color: var(--brass); }
   text-decoration: none;
 }
 .gate-phone a:hover { text-decoration: underline; color: var(--tuxedo); }
+.from-lander-note {
+  font-size: 14px;
+  color: var(--mid);
+  line-height: 1.55;
+  margin: 0 0 20px;
+  max-width: var(--measure);
+}
+.from-lander-note a { color: var(--brass); font-weight: 500; }
 .gate-unlocked-note {
   display: none;
   font-size: 13px;
@@ -211,10 +219,9 @@ a:hover { color: var(--brass); }
   margin: 8px 0 32px;
   max-width: var(--measure);
 }
-body.is-locked .sheet-locked-hint { display: block; }
+/* sheet-locked-hint unused after ungate */
 
-.sheet-wrap { display: none; }
-.sheet-wrap.unlocked { display: block; }
+.sheet-wrap { display: block; } /* funnel C: lander is the gate; deep week open */
 
 /* —— Sections: H2 → thin brass rule → content → air —— */
 .section {
@@ -426,7 +433,7 @@ table.sheet tbody tr:nth-child(odd) { background: transparent; }
   <p class="header-phone-quiet" id="headerPhoneQuiet">Or call/text <a href="tel:+19522583100">952-258-3100</a></p>
 
 
-  <!-- Teaser (visible before gate) — Scout #1 -->
+  <!-- At-a-glance teaser -->
   <div class="teaser" id="teaser">
 
 
@@ -453,45 +460,17 @@ table.sheet tbody tr:nth-child(odd) { background: transparent; }
           <div class="stat-meta">No closes this week</div>
         </div>
       </div>
-      <!-- Skip average-price tiles when fewer than 3 closes. No fake dashes. -->
+      <!-- Skip average-price tiles on a thin week. No fake dashes. -->
       <p class="section-caption">Sample week — nothing closed. On a live quiet week I’d skip the average and just name what moved.</p>
     </section>
 
     
-    <p class="teaser-soft">Quiet sample week so far — the full town list and my read unlock below.</p>
+    <p class="teaser-soft">Quiet sample week so far — town list and Geoffrey’s read below. <span class="example-tag">Example</span></p>
   </div>
 
-  <div class="gate-card" id="gateCard">
-    <h2 class="gate-title">See what sold this week</h2>
-    <p class="gate-soft">First name, email, and mobile — so Geoffrey can text or call. No blasts.</p>
-    <form id="captureForm" onsubmit="handleSubmit(event)" novalidate>
-      <div class="field">
-        <label for="firstName">First name <span class="req">*</span></label>
-        <input type="text" id="firstName" name="first_name" autocomplete="given-name" required />
-        <div class="field-error" id="nameError">Please enter your first name.</div>
-      </div>
-      <div class="field">
-        <label for="email">Email <span class="req">*</span></label>
-        <input type="email" id="email" name="email" autocomplete="email" required />
-        <div class="field-error" id="emailError">Please enter a valid email.</div>
-      </div>
-      <div class="field">
-        <label for="phone">Mobile <span class="req">*</span></label>
-        <input type="tel" id="phone" name="phone" autocomplete="tel" required inputmode="tel" />
-        <div class="field-error" id="phoneError">Please enter a valid 10-digit U.S. mobile number.</div>
-      </div>
-      <input type="hidden" name="source_tag" value="Source _ Lead Magnet" />
-      <input type="hidden" name="interest" value="weekly_lake_sales" />
-      <input type="hidden" name="_subject" value="Lake Minnetonka weekly — what sold" />
-      <button type="submit" class="submit-btn" id="submitBtn">Show me this week</button>
-    </form>
-    <p class="gate-phone">Or call/text <a href="tel:+19522583100">952-258-3100</a></p>
-  </div>
-  <p class="gate-unlocked-note" id="alreadyUnlocked">You’re in. Scroll the week below — or just call if you’d rather talk it through.</p>
+  <p class="from-lander-note" id="alreadyUnlocked">Came from the lander? You’re in the right place — the fuller week is below. Or call <a href="tel:+19522583100">952-258-3100</a>.</p>
 
-  <p class="sheet-locked-hint">Enter your first name, email, and mobile to see this week — or call <a href="tel:+19522583100">952-258-3100</a>.</p>
-
-  <div class="sheet-wrap" id="sheet" aria-hidden="true"><!-- 2) By city -->
+  <div class="sheet-wrap" id="sheet" aria-hidden="false"><!-- 2) By city -->
     <section class="section" id="by-city">
       <h2 class="section-h2">By city</h2>
       <hr class="section-rule" />
@@ -549,7 +528,7 @@ table.sheet tbody tr:nth-child(odd) { background: transparent; }
       <p class="quiet-blurb" id="quietBlurb">No closes this week in: Deephaven, Excelsior, Greenwood, Minnetonka, Minnetonka Beach, Minnetrista, Mound, Orono, Shorewood, Spring Park, Tonka Bay, Victoria, Wayzata, Woodland.</p>
     </section>
 
-    <p class="crosslink">Also looking at the lake? <a href="/lake-minnetonka-most-expensive-homes/">Expensive homes on Lake Minnetonka</a>.</p>
+    <p class="crosslink">Also looking at the top of the lake? <a href="/lake-minnetonka-most-expensive-homes/">Expensive homes on Lake Minnetonka</a> — a quiet door, separate from this week’s note.</p>
 
     <div class="source-footer">
       <p>Source: Compass MLS closed sales in the towns around Lake Minnetonka.</p>
@@ -575,7 +554,7 @@ table.sheet tbody tr:nth-child(odd) { background: transparent; }
   var PAGE_LOCAL = 'lake-minnetonka-weekly';
   var UNLOCK_KEY = 'gs_lmw_unlock_v1';
   var FORM_ID = 'mpqerwwk'; // house Formspree — same endpoint as sister GS pages
-  var INCLUDE_TOWNS = [
+  var LAKE_RING_TOWNS = [
     'Deephaven', 'Excelsior', 'Greenwood', 'Minnetonka', 'Minnetonka Beach',
     'Minnetrista', 'Mound', 'Orono', 'Shorewood', 'Spring Park',
     'Tonka Bay', 'Victoria', 'Wayzata', 'Woodland'
@@ -630,7 +609,7 @@ table.sheet tbody tr:nth-child(odd) { background: transparent; }
   function revealSheet(opts) {
     opts = opts || {};
     var sheet = document.getElementById('sheet');
-    var gateCard = document.getElementById('gateCard');
+    var gateCard = document.getElementById('gateCard'); // may be absent (funnel C)
     var note = document.getElementById('alreadyUnlocked');
     var quietPhone = document.getElementById('headerPhoneQuiet');
     document.body.classList.remove('is-locked');
@@ -865,17 +844,16 @@ table.sheet tbody tr:nth-child(odd) { background: transparent; }
     });
   })();
 
-  // Keep quiet blurb alphabetical from INCLUDE list (example: all quiet)
+  // Keep quiet-town blurb alphabetical (example: all quiet)
   var quietEl = document.getElementById('quietBlurb');
   if (quietEl) {
-    quietEl.textContent = 'No closes this week in: ' + INCLUDE_TOWNS.slice().sort().join(', ') + '.';
+    quietEl.textContent = 'No closes this week in: ' + LAKE_RING_TOWNS.slice().sort().join(', ') + '.';
   }
 
-  if (hasUnlock()) {
-    revealSheet({ fromStorage: true, scroll: false });
-  }
+  /* Funnel C: deep week open (lander owns the form). */
+  revealSheet({ fromStorage: true, scroll: false });
 })();
 </script>
 </body>
 </html>
-<!-- lake-minnetonka-weekly v1 · preview · human copy 2026-09-18 · noindex until real week + Geoffrey GO -->
+<!-- lake-minnetonka-weekly v1 · funnel C ungated deep week 2026-09-18 · noindex until real Scout week -->
