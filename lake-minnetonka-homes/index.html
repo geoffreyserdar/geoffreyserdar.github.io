@@ -407,6 +407,74 @@ footer { border-top: 1px solid rgba(138, 155, 176, 0.1); padding: 40px 32px; tex
   .hero-cues { gap: 14px; }
 }
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+
+/* —— Evolved form: weekly lake note (2026-09-18) —— */
+.week-teaser {
+  margin: 0 0 18px;
+  padding: 16px 16px 4px;
+  background: #FAF7EF;
+  border: 1px solid rgba(77,72,57,0.14);
+  border-radius: 6px;
+  text-align: left;
+}
+.week-teaser-label {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--gold, #8A6A3F);
+  margin: 0 0 8px;
+}
+.week-teaser p {
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--ink, #1F201C);
+  margin: 0 0 12px;
+}
+.week-unlock {
+  margin-top: 22px;
+  text-align: left;
+}
+.week-unlock h3 {
+  font-family: Georgia, 'Playfair Display', serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--ink, #1F201C);
+  margin: 0 0 8px;
+}
+.week-unlock .week-meta {
+  font-size: 13px;
+  color: var(--gold, #8A6A3F);
+  margin: 0 0 16px;
+}
+.week-unlock .week-block {
+  margin: 0 0 18px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(77,72,57,0.14);
+}
+.week-unlock .week-block:last-of-type { border-bottom: none; }
+.week-unlock .week-block h4 {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--gold, #8A6A3F);
+  margin: 0 0 8px;
+}
+.week-unlock .week-block p {
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--ink, #1F201C);
+  margin: 0 0 8px;
+}
+.gate-phone-once {
+  margin: 12px 0 0;
+  font-size: 14px;
+  color: var(--muted, #4D4839);
+  text-align: center;
+}
+.gate-phone-once a { color: var(--gold, #8A6A3F); font-weight: 500; }
+
 </style>
 </head>
 
@@ -497,50 +565,62 @@ footer { border-top: 1px solid rgba(138, 155, 176, 0.1); padding: 40px 32px; tex
   </div>
 </div>
 
-<!-- FORM — Door 1 (the phone). Now AFTER value, where a warmed reader arrives. -->
+<!-- FORM — evolved 2026-09-18: weekly lake note (replaces failing generic capture) -->
 <div class="form-section" id="start">
   <div class="form-card">
     <div class="form-fields" id="formFields">
-      <h2 class="form-headline">Get your first look.</h2>
-      <p class="form-sub">Tell Geoffrey what you're after. He'll send hand-picked Lake Minnetonka homes &mdash; including off-market and coming-soon &mdash; straight to you. No portal logins, no spam.</p>
+      <h2 class="form-headline">Lake Minnetonka this week</h2>
+      <p class="form-sub">A short note on what actually moved around the lake — towns, quiet spots named honestly. Leave your name, email, and mobile so Geoffrey can text or call. No blasts.</p>
+
+      <div class="week-teaser" id="weekTeaser">
+        <p class="week-teaser-label">Geoffrey’s read</p>
+        <p>Quiet sample week on the lake ring — I’m not inventing a story. When the real closes land, this is where I’ll say what the week actually felt like: which towns moved, whether asks held, and one thing I’d tell a neighbor.</p>
+      </div>
+
       <form id="captureForm" onsubmit="handleSubmit(event)">
         <div class="field">
-          <label for="name">Your Name</label>
-          <input type="text" id="name" name="name" placeholder="First and last name" required autocomplete="name" />
-        </div>
-        <div class="field">
-          <label for="phone">Phone Number</label>
-          <input type="tel" id="phone" name="phone" placeholder="952-000-0000" autocomplete="tel" />
-          <p class="field-error" id="phoneError" role="alert">That number doesn't look quite right &mdash; mind double-checking it? Geoffrey calls every buyer personally, so we want to be sure it reaches you.</p>
+          <label for="name">First name</label>
+          <input type="text" id="name" name="name" placeholder="First name" required autocomplete="given-name" />
         </div>
         <div class="field">
           <label for="email">Email</label>
           <input type="email" id="email" name="email" placeholder="you@email.com" required autocomplete="email" />
-          <p class="field-error" id="emailError" role="alert">That email doesn't look quite right &mdash; mind double-checking it? It's how Geoffrey sends you the homes.</p>
+          <p class="field-error" id="emailError" role="alert">That email doesn’t look quite right — mind double-checking?</p>
         </div>
         <div class="field">
-          <label for="interest">I'm looking for...</label>
-          <select id="interest" name="interest">
-            <option value="" disabled selected>What are you looking for?</option>
-            <option value="buying">A home to live in</option>
-            <option value="early_access">Early access — off-market &amp; coming-soon</option>
-            <option value="investing">An investment property</option>
-            <option value="creative_financing">Creative financing / contract for deed</option>
-            <option value="relocating">Relocating to the lake area</option>
-            <option value="both">Buying and selling</option>
-            <option value="just looking">Just exploring the market</option>
-          </select>
+          <label for="phone">Mobile</label>
+          <input type="tel" id="phone" name="phone" placeholder="952-000-0000" required autocomplete="tel" />
+          <p class="field-error" id="phoneError" role="alert">That number doesn’t look quite right — Geoffrey texts from his own phone, so we need a real mobile.</p>
         </div>
-        <button type="submit" class="submit-btn">Start My Search</button>
+        <input type="hidden" id="interest" name="interest" value="weekly_lake_note" />
+        <button type="submit" class="submit-btn">Open this week</button>
       </form>
-      <p class="form-consent">By submitting this form, you agree that Serdar+Partners at Compass may contact you by phone call and text message (including by automated means) at the number you provide, regarding your real estate inquiry. Consent is not a condition of any purchase. Message &amp; data rates may apply; message frequency varies. Reply STOP to opt out, HELP for help. See our <a href="/privacy">Privacy Policy</a> and <a href="/terms">Terms</a>.</p>
+      <p class="gate-phone-once">Or call/text <a href="tel:+19522583100">952-258-3100</a></p>
+      <p class="form-consent">By submitting, you agree Serdar+Partners at Compass may contact you by call or text (including automated means) at the number you provide about this note. Consent is not required to buy. Msg &amp; data rates may apply. Reply STOP to opt out. <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a>.</p>
     </div>
 
     <div class="success-state" id="successState">
       <div class="success-icon">&check;</div>
-      <h3 class="success-title">Got it. Talk soon.</h3>
-      <p class="success-sub">Geoffrey will reach out to you directly with homes that fit.<br />In the meantime &mdash; 952-258-3100.</p>
-      <p class="success-crosslink">Own a home you'd need to sell too?<br /><a href="/keep-or-sell/">Run your 5-year keep-or-sell math &rarr;</a></p>
+      <h3 class="success-title">You’re in.</h3>
+      <p class="success-sub">Geoffrey may text or call from 952-258-3100. The week’s note is below.</p>
+      <div class="week-unlock" id="weekUnlock">
+        <h3>Lake Minnetonka this week</h3>
+        <p class="week-meta">Week of Sep 8–14, 2026 · Sample · real closes next</p>
+        <div class="week-block">
+          <h4>Around the towns</h4>
+          <p>Nothing closed in the lake-ring towns this sample week. When homes do close, they’ll show up here by town — not as a spreadsheet dump, just what moved.</p>
+        </div>
+        <div class="week-block">
+          <h4>The fuller note</h4>
+          <p>Same quiet week — still not dressing it up. On a live week this is where one close or one bay might teach something about the lake, not just a count.</p>
+          <p>If you’re watching a particular town, call me. The useful part of a thin week is often the quiet itself.</p>
+        </div>
+        <div class="week-block">
+          <h4>Quiet towns</h4>
+          <p>Deephaven, Excelsior, Greenwood, Minnetonka, Minnetonka Beach, Minnetrista, Mound, Orono, Shorewood, Spring Park, Tonka Bay, Victoria, Wayzata, Woodland.</p>
+        </div>
+        <p class="success-crosslink">Curious about the top end?<br /><a href="/lake-minnetonka-most-expensive-homes/">Expensive homes on Lake Minnetonka →</a></p>
+      </div>
     </div>
   </div>
 </div>
@@ -625,7 +705,7 @@ const RAZIEL_CONFIG = {
   twilioUrl:       'https://lead-alert-4343.twil.io/lead-alert',
   twilioSecret:    'slx_9f3Kqe2R',
   formspreeId:     'mpqerwwk',
-  ctaLabel:        'Start My Search'            // button text (also restored after an error)
+  ctaLabel:        'Open this week'            // button text (also restored after an error)
 };
 
 // Capture lead source on page load (UTM / Google Ads / referrer)
@@ -694,6 +774,7 @@ function setChecking(on) {
 // LAYER 2 — carrier check via the Twilio Function. Also fires the speed-to-lead
 // text on a good number. Fails OPEN on timeout/error so a real lead is never lost.
 const INTEREST_DETAIL = {
+  'weekly_lake_note': 'Weekly Lake Minnetonka note unlock - Ads lander evolve 2026-09-18 - callable, Source _ Lead Magnet',
   'buying': 'A home to live in - Buyer, help find the right fit, no pressure',
   'early_access': 'Wants off-market & coming-soon first - Serious buyer, feed early inventory, move fast',
   'investing': 'An investment property - Investor, talk numbers, direct, ROI-minded',
@@ -814,7 +895,7 @@ document.getElementById('phone').addEventListener('input', function (e) {
 <script>
 (function () {
   var lastField = null;
-  ['name', 'phone', 'email', 'interest'].forEach(function (id) {
+  ['name', 'phone', 'email'].forEach(function (id) {
     var el = document.getElementById(id);
     if (!el) return;
     el.addEventListener('focus', function () { lastField = id; });
