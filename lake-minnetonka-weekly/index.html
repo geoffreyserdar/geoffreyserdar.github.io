@@ -426,8 +426,8 @@ table.sheet tbody tr:nth-child(odd) { background: transparent; }
 
   <header class="masthead" id="top">
     <h1 class="masthead-title">What sold around Lake Minnetonka this week</h1>
-    <p class="masthead-meta">Week of Sep 8–14, 2026 <span class="example-tag">Sample layout</span></p>
-    <p class="masthead-asof">Sample week — real closes come next</p>
+    <p class="masthead-meta">Week of Sep 8–14, 2026</p>
+    <p class="masthead-asof">Verified Closed · Compass agent-search · as of Sep 18, 2026 ~1:30 PM CT</p>
   </header>
 
   <p class="header-phone-quiet" id="headerPhoneQuiet">Or call/text <a href="tel:+19522583100">952-258-3100</a></p>
@@ -445,27 +445,26 @@ table.sheet tbody tr:nth-child(odd) { background: transparent; }
 
       <div class="stat-grid three">
         <div class="stat-tile">
-          <div class="stat-label">Homes closed</div>
-          <div class="stat-value big-n" id="statNClosed">0</div>
-          <div class="stat-meta">Nothing closed in this sample week. Real numbers replace this soon.</div>
+          <div class="stat-label">Sold this week</div>
+          <div class="stat-value big-n" id="statNClosed">27</div>
+          <div class="stat-meta">Lake-ring Closed (14 towns)</div>
         </div>
         <div class="stat-tile">
-          <div class="stat-label">Towns with a sale</div>
-          <div class="stat-value" id="statActive">0</div>
-          <div class="stat-meta">At least one home closed</div>
+          <div class="stat-label">Typical price</div>
+          <div class="stat-value" id="statMedian">$663,000</div>
+          <div class="stat-meta">Lake-ring median</div>
         </div>
         <div class="stat-tile">
-          <div class="stat-label">Quiet towns</div>
-          <div class="stat-value" id="statQuiet">14</div>
-          <div class="stat-meta">No closes this week</div>
+          <div class="stat-label">Hottest town</div>
+          <div class="stat-value" id="statHottest">Mound</div>
+          <div class="stat-meta">7 closes · Minnetonka &amp; Victoria tied at 6</div>
         </div>
       </div>
-      <!-- Skip average-price tiles on a thin week. No fake dashes. -->
-      <p class="section-caption">Sample week — nothing closed. On a live quiet week I’d skip the average and just name what moved.</p>
+      <p class="section-caption">Range $175,000–$6,400,000. Six towns had a close; eight stayed quiet.</p>
     </section>
 
     
-    <p class="teaser-soft">Quiet sample week so far — town list and Geoffrey’s read below. <span class="example-tag">Example</span></p>
+    <p class="teaser-soft">Mound led; Wayzata carried the big tickets. Full by-town table and Geoffrey’s take below.</p>
   </div>
 
   <p class="from-lander-note" id="alreadyUnlocked">Came from the lander? You’re in the right place — the fuller week is below. Or call <a href="tel:+19522583100">952-258-3100</a>.</p>
@@ -482,42 +481,54 @@ table.sheet tbody tr:nth-child(odd) { background: transparent; }
               <th>City</th>
               <th>#</th>
               <th>Sold around</th>
-              <th>vs ask</th>
-              <th>Days on market</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td colspan="5" style="color:var(--mid);">No towns had a close in this sample week.</td>
+              <td>Mound</td>
+              <td>7</td>
+              <td>Median $663,000 (range $175,000–$1,832,322)</td>
+            </tr>
+            <tr>
+              <td>Minnetonka</td>
+              <td>6</td>
+              <td>Median $370,000 (range $218,000–$745,000)</td>
+            </tr>
+            <tr>
+              <td>Victoria</td>
+              <td>6</td>
+              <td>Median $614,950 (range $365,000–$740,000)</td>
+            </tr>
+            <tr>
+              <td>Wayzata</td>
+              <td>4</td>
+              <td>Median $2,872,500 (range $1,410,000–$6,400,000)</td>
+            </tr>
+            <tr>
+              <td>Deephaven</td>
+              <td>2</td>
+              <td>Too thin for median: $750,000; $1,150,000</td>
+            </tr>
+            <tr>
+              <td>Excelsior</td>
+              <td>2</td>
+              <td>Too thin for median: $375,000; $1,300,000</td>
             </tr>
           </tbody>
         </table>
       </div>
-      <p class="section-caption">We don’t publish full street addresses here.</p>
+      <p class="section-caption">We don’t publish full street addresses here. Ask vs sold and days on market omitted — not in this Closed pull.</p>
     </section>
 
-    <!-- 3) Bay notes — omit block when none; shown here as empty-state for scaffold -->
-    <section class="section" id="bay-callouts">
-      <h2 class="section-h2">Bay notes</h2>
-      <hr class="section-rule" />
-      <p class="bay-empty">No bay standouts in this sample.</p>
-      <!-- Example callout markup (hidden until real data):
-      <div class="bay-list">
-        <div class="bay-item">
-          <div class="bay-city">Wayzata Bay · Wayzata</div>
-          <div class="bay-line">Only waterfront close this week.</div>
-          <div class="bay-prices">Sold — · Ask —</div>
-        </div>
-      </div>
-      -->
-    </section>
+    <!-- 3) Bay notes — omitted this week (no verified bay/waterfront callouts in Closed pull) -->
 
     <!-- 4) Geoffrey’s take -->
     <section class="section" id="geoffrey-take">
       <h2 class="section-h2">Geoffrey’s take</h2>
       <hr class="section-rule" />
       <div class="take-band">
-        <p>Quiet sample week — I’m not going to invent a story. When real closes land, this is where I’ll say what actually mattered: which towns moved, whether asks held, and one thing I’d tell a neighbor over coffee.</p>
+        <p>Mound led the lake-ring week with seven closes — the west-end towns actually moved.</p>
+        <p>Wayzata still carried the big-ticket sales (four closes, including a multi-million Ferndale sale); quiet postage-stamp towns stayed quiet.</p>
       </div>
     </section>
 
@@ -525,7 +536,7 @@ table.sheet tbody tr:nth-child(odd) { background: transparent; }
     <section class="section" id="quiet-towns">
       <h2 class="section-h2">Quiet towns</h2>
       <hr class="section-rule" />
-      <p class="quiet-blurb" id="quietBlurb">No closes this week in: Deephaven, Excelsior, Greenwood, Minnetonka, Minnetonka Beach, Minnetrista, Mound, Orono, Shorewood, Spring Park, Tonka Bay, Victoria, Wayzata, Woodland.</p>
+      <p class="quiet-blurb" id="quietBlurb">No closes this week in: Greenwood, Minnetonka Beach, Minnetrista, Orono, Shorewood, Spring Park, Tonka Bay, Woodland.</p>
     </section>
 
     <p class="crosslink">Also looking at the top of the lake? <a href="/lake-minnetonka-most-expensive-homes/">Expensive homes on Lake Minnetonka</a> — a quiet door, separate from this week’s note.</p>
@@ -544,7 +555,7 @@ table.sheet tbody tr:nth-child(odd) { background: transparent; }
       <a href="mailto:geoffrey@serdarpartnersrealty.com">Email</a>
       <a href="https://geoffreyserdar.com/">geoffreyserdar.com</a>
     </div>
-    <p class="legal">Information believed accurate but not guaranteed. Equal Housing Opportunity. Sample layout for preview. Real weekly numbers come next. Still hidden from Google.</p>
+    <p class="legal">Information believed accurate but not guaranteed. Equal Housing Opportunity. Verified Closed tallies for Week of Sep 8–14, 2026. Still noindex until Geoffrey says go indexable.</p>
   </footer>
 
 </div>
@@ -844,10 +855,14 @@ table.sheet tbody tr:nth-child(odd) { background: transparent; }
     });
   })();
 
-  // Keep quiet-town blurb alphabetical (example: all quiet)
+  // Quiet towns are set in HTML from Scout REAL pull (do not overwrite with full ring).
+  var QUIET_TOWNS = [
+    'Greenwood', 'Minnetonka Beach', 'Minnetrista', 'Orono',
+    'Shorewood', 'Spring Park', 'Tonka Bay', 'Woodland'
+  ];
   var quietEl = document.getElementById('quietBlurb');
   if (quietEl) {
-    quietEl.textContent = 'No closes this week in: ' + LAKE_RING_TOWNS.slice().sort().join(', ') + '.';
+    quietEl.textContent = 'No closes this week in: ' + QUIET_TOWNS.slice().sort().join(', ') + '.';
   }
 
   /* Funnel C: deep week open (lander owns the form). */
@@ -856,4 +871,4 @@ table.sheet tbody tr:nth-child(odd) { background: transparent; }
 </script>
 </body>
 </html>
-<!-- lake-minnetonka-weekly v1 · funnel C ungated deep week 2026-09-18 · noindex until real Scout week -->
+<!-- lake-minnetonka-weekly v1 · funnel C ungated deep week · REAL Closed Sep 8–14 2026 · noindex until Geoffrey says go -->
