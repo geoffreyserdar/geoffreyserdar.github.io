@@ -29,7 +29,7 @@
   "description": "Three different maps share the Minnetonka name. What Zillow and chat search get wrong, and how to verify schools by address.",
   "author": {"@type": "Person", "name": "Geoffrey Serdar", "url": "https://geoffreyserdar.com/"},
   "datePublished": "2026-09-20",
-  "dateModified": "2026-09-20",
+  "dateModified": "2026-09-21",
   "mainEntityOfPage": "https://geoffreyserdar.com/topics/minnetonka-city-vs-lake-minnetonka/",
   "about": [
     {"@type": "Place", "name": "City of Minnetonka"},
@@ -244,17 +244,17 @@ footer.page-foot .legal {
     <div class="tile">
       <div class="kicker">City of Minnetonka</div>
       <h3>Hennepin west-metro suburb</h3>
-      <p>Large city inland of much of the lake. Think I-394 / Hwy 7 / Ridgedale gravity — highway suburb living, not “a house on the bay” by default.</p>
+      <p>Incorporated city (council-manager). It is an <strong>LMCD member</strong> because it touches the lake complex (notably Gray’s Bay / Libb’s Lake) — that does <em>not</em> mean a Minnetonka address is waterfront lake living. Most parcels are inland suburb.</p>
     </div>
     <div class="tile">
       <div class="kicker">Lake Minnetonka</div>
-      <h3>The water + shoreline towns</h3>
-      <p>Roughly 14,000 acres of water, about 125 miles of shoreline. Towns on and around it include Excelsior, Wayzata, Orono, Shorewood, Mound, and more — each its own city government.</p>
+      <h3>The water + 14 shore cities (LMCD)</h3>
+      <p>Not one city. The Lake Minnetonka Conservation District board has one appointee from each of <strong>14 municipalities that border the lake</strong>. Scale numbers (acres / shoreline) belong on LMCD’s published fact sheet — cite that sheet’s date if you quote them.</p>
     </div>
     <div class="tile">
       <div class="kicker">Minnetonka Beach</div>
-      <h3>Tiny north-shore city</h3>
-      <p>A separate, small municipality on the north shore. Same “Minnetonka” word — different city limits from the big City of Minnetonka.</p>
+      <h3>Separate tiny city (peninsula)</h3>
+      <p>Officially the City of the Village of Minnetonka Beach — a boot-shaped peninsula municipality. <strong>Not</strong> a neighborhood nickname for “beach area of City of Minnetonka.”</p>
     </div>
     <div class="tile">
       <div class="kicker">Why search lies</div>
@@ -292,15 +292,15 @@ footer.page-foot .legal {
       </tr>
       <tr>
         <td><strong>Lake Minnetonka</strong></td>
-        <td>The lake itself; living “on the lake” usually means a shoreline town or bay</td>
-        <td>Hennepin / Carver ring of towns</td>
-        <td>Treating the lake as one city government</td>
+        <td>The water body + <strong>14 LMCD shore cities</strong>, each with its own government</td>
+        <td>Hennepin / Carver ring</td>
+        <td>Treating the lake as one city; searching only “Minnetonka” and missing shore towns</td>
       </tr>
       <tr>
         <td><strong>Minnetonka Beach</strong></td>
-        <td>Small separate city on the north shore</td>
+        <td>Separate municipality (Village of Minnetonka Beach) on a peninsula</td>
         <td>Hennepin</td>
-        <td>Confusing it with the large City of Minnetonka</td>
+        <td>Assuming it’s “the beach part” of City of Minnetonka</td>
       </tr>
       <tr>
         <td><strong>Excelsior, Wayzata, Orono…</strong></td>
@@ -311,13 +311,26 @@ footer.page-foot .legal {
     </tbody>
   </table>
 
-  <h2>How to verify the address (schools)</h2>
-  <p class="lede">Marketing blurbs lie. The street address does not. Use Minnesota’s official finder, then confirm with the district.</p>
+  <p class="lede" style="margin-top:12px"><strong>LMCD’s 14 shore municipalities:</strong> Deephaven, Excelsior, Greenwood, Minnetonka, Minnetonka Beach, Minnetrista, Mound, Orono, Shorewood, Spring Park, Tonka Bay, Victoria, Wayzata, Woodland. (<a href="https://lmcd.org/about-lmcd/" rel="noopener noreferrer">LMCD</a>)</p>
+
+  <h2>What Zillow / chat search gets wrong</h2>
   <ul class="sources">
-    <li><a href="https://pub.education.mn.gov/findsch/" rel="noopener noreferrer">MDE Find a School / Public Library</a> — search by address</li>
-    <li><a href="https://gisdata.mn.gov/en/dataset/society-schooldistrictfinder" rel="noopener noreferrer">Minnesota School District Finder (map)</a> — district by address</li>
-    <li>Then call or check the district’s own attendance-area tools — MDE maps district boundaries; districts set attendance areas</li>
+    <li>Search <strong>“Minnetonka”</strong> often hits the <em>City</em> and misses Excelsior, Wayzata, Deephaven, Orono, Shorewood, Tonka Bay, and the rest of the 14.</li>
+    <li><strong>“Minnetonka Beach”</strong> autocomplete is a different municipality — not City of Minnetonka beachfront.</li>
+    <li>Mailing / USPS city on a listing can disagree with legal city and with school district — especially near Gray’s Bay / Woodland / Deephaven edges.</li>
+    <li><strong>Waterfront</strong> filters still miss off-lake homes in lake towns (and can include other lakes). Lake town ≠ lake lot.</li>
+    <li>A saved search named “Lake Minnetonka” that only uses City of Minnetonka ZIP patterns silently excludes most of the LMCD 14.</li>
   </ul>
+
+  <h2>How to verify the address (schools)</h2>
+  <p class="lede">City name ≠ school district. Two houses on the same lake-town road can land in different districts. Never trust a listing’s “Minnetonka schools” shorthand — paste the <strong>address</strong>.</p>
+  <ul class="sources">
+    <li><a href="https://gis.lcc.mn.gov/iMaps/schooldistricts/" rel="noopener noreferrer">Minnesota School District Finder</a> — first pass: which ISD serves this address</li>
+    <li><a href="https://www.minnetonkaschools.org/district/departments/enrollment/boundaries" rel="noopener noreferrer">Minnetonka Public Schools (ISD 276) boundaries</a> — district warns some cities are served by two or more districts</li>
+    <li><a href="https://www.wayzataschools.org/enroll/school-search" rel="noopener noreferrer">Wayzata Public Schools (ISD 284) School Search</a> — address → in-district? + assignments</li>
+    <li><a href="https://pub.education.mn.gov/findsch/" rel="noopener noreferrer">MDE Find a School</a> — directory soft-check only, not a district-by-address substitute</li>
+  </ul>
+  <p class="lede" style="margin-top:10px">No school rankings on this page. Ever.</p>
 
   <div class="soft-doors" aria-labelledby="doors-heading">
     <h2 id="doors-heading">Next doors</h2>
@@ -361,10 +374,13 @@ footer.page-foot .legal {
 
   <h2>Sources</h2>
   <ul class="sources">
-    <li>Minnesota Department of Education — <a href="https://pub.education.mn.gov/findsch/" rel="noopener noreferrer">Find a School</a></li>
-    <li>Minnesota Geospatial Commons — school district finder / boundary datasets</li>
-    <li>Structural geography: City of Minnetonka (Hennepin); Lake Minnetonka water body; City of Minnetonka Beach (separate)</li>
-    <li>Companion house pages: <a href="/minnetonka/">/minnetonka/</a>, <a href="/lake-minnetonka-weekly/">weekly Closed</a>, <a href="/local-log/">Local Log</a></li>
+    <li>City of Minnetonka — <a href="https://www.minnetonkamn.gov/" rel="noopener noreferrer">minnetonkamn.gov</a></li>
+    <li>City of the Village of Minnetonka Beach — <a href="https://www.ci.minnetonka-beach.mn.us/" rel="noopener noreferrer">ci.minnetonka-beach.mn.us</a></li>
+    <li>Lake Minnetonka Conservation District — <a href="https://lmcd.org/about-lmcd/" rel="noopener noreferrer">lmcd.org/about-lmcd</a> · Board Guide (14 member cities)</li>
+    <li>Minnesota School District Finder — <a href="https://gis.lcc.mn.gov/iMaps/schooldistricts/" rel="noopener noreferrer">gis.lcc.mn.gov/iMaps/schooldistricts</a></li>
+    <li>ISD 276 boundaries — <a href="https://www.minnetonkaschools.org/district/departments/enrollment/boundaries" rel="noopener noreferrer">minnetonkaschools.org</a></li>
+    <li>ISD 284 School Search — <a href="https://www.wayzataschools.org/enroll/school-search" rel="noopener noreferrer">wayzataschools.org</a></li>
+    <li>Scout PRIMARY pack 2026-09-20 · Companion pages: <a href="/minnetonka/">/minnetonka/</a>, <a href="/lake-minnetonka-weekly/">weekly Closed</a>, <a href="/local-log/">Local Log</a></li>
   </ul>
 
   <footer class="page-foot">
