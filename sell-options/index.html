@@ -37,6 +37,54 @@
   "dateModified": "2026-09-20"
 }
 </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Will Geoffrey pressure me into a cash sale?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Cash / as-is is one column on this page — not the hero. A listing conversation can still compare a traditional net next to any as-is intro. You choose the path."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can a realtor stop my foreclosure or reinstate my mortgage?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Loss mitigation, forbearance, and reinstatement start with your mortgage servicer and a free HUD-approved housing counselor. Geoffrey can help you understand listing, short-sale, and keep-vs-sell options once you know where you stand — he is not a substitute for your servicer or counselor."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long does each option take?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Clocks on this page are typical packaging and vary — not guarantees. A traditional list often means weeks to months of marketing. A short sale adds lender review and is often longer. As-is / cash can move faster with a net tradeoff. Servicer and HUD counseling can start this week in parallel. Exact timing depends on your loan, condition, and market."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I have to fill out a hardship questionnaire on this form?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. The form asks only for name, phone, email, and area or address. Hardship details stay on the call or text — not as a public web form."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should I talk to a nonprofit counselor before I talk to Geoffrey?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Often yes, in parallel. Free HUD-approved counseling is available via hud.gov/findacounselor, Minnesota Homeownership Center (hocmn.org), and LSS foreclosure prevention counseling. Those allies are not competitors — they handle loan-path counseling Geoffrey does not replace."
+      }
+    }
+  ]
+}
+</script>
 <style>
 :root {
   --page: #FAF7EF;
@@ -124,55 +172,101 @@ h3 {
   margin: 0 0 6px;
   color: var(--tuxedo);
 }
-.limits {
-  margin: 20px 0 0;
-  padding: 16px 18px;
-  background: var(--card);
-  border-left: 3px solid var(--brass);
-  border-radius: 0 6px 6px 0;
-  font-size: 14.5px;
+.clock-note {
+  font-size: 13.5px;
   color: var(--mid);
-  line-height: 1.55;
+  margin: 0 0 16px;
+  max-width: var(--measure);
 }
-.limits strong { color: var(--tuxedo); }
-@media (max-width: 520px) {
-  .wrap { padding: 36px 18px 0; }
-}
-.tiles {
-  display: grid;
-  gap: 14px;
-  margin: 26px 0;
-  grid-template-columns: 1fr;
-}
-@media (min-width: 560px) {
-  .tiles { grid-template-columns: 1fr 1fr; }
-}
-.tile {
+.matrix {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 8px 0 26px;
+  font-size: 14.5px;
   background: var(--card);
   border-radius: 8px;
-  padding: 18px 18px 16px;
+  overflow: hidden;
   border: 1px solid rgba(138,106,63,.16);
   box-shadow: 0 1px 0 rgba(31,32,28,.04);
 }
-.tile .kicker {
+.matrix caption {
+  caption-side: bottom;
+  text-align: left;
+  padding: 10px 14px 0;
+  font-size: 12.5px;
+  color: var(--mid);
+}
+.matrix th, .matrix td {
+  padding: 14px 14px;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid rgba(77,72,57,.12);
+}
+.matrix thead th {
+  background: var(--mid-card);
   font-size: 11px;
   font-weight: 600;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--brass);
-  margin-bottom: 8px;
 }
-.tile p { font-size: 14.5px; color: var(--mid); margin: 0; line-height: 1.5; }
-.tile a { font-weight: 600; text-decoration: none; border-bottom: 1px solid rgba(138,106,63,.35); }
-.not-box {
-  margin: 24px 0;
-  padding: 18px 20px;
-  border: 1px dashed rgba(138,106,63,.4);
-  border-radius: 8px;
-  background: rgba(236,228,212,.45);
+.matrix tbody th {
+  font-weight: 600;
+  color: var(--tuxedo);
+  width: 28%;
 }
-.not-box ul { margin: 10px 0 0 1.15em; color: var(--mid); font-size: 14.5px; }
-.not-box li { margin: 5px 0; }
+.matrix td { color: var(--mid); }
+.matrix .clock {
+  font-weight: 500;
+  color: var(--tuxedo);
+  white-space: nowrap;
+}
+.matrix .path a {
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(138,106,63,.35);
+}
+.matrix tbody tr:last-child th,
+.matrix tbody tr:last-child td { border-bottom: 0; }
+@media (max-width: 620px) {
+  .matrix, .matrix thead, .matrix tbody, .matrix th, .matrix td, .matrix tr { display: block; width: 100%; }
+  .matrix thead { display: none; }
+  .matrix tr {
+    padding: 14px 14px 12px;
+    border-bottom: 1px solid rgba(77,72,57,.12);
+  }
+  .matrix tbody tr:last-child { border-bottom: 0; }
+  .matrix tbody th {
+    width: auto;
+    padding: 0 0 6px;
+    font-size: 15px;
+  }
+  .matrix td {
+    padding: 4px 0;
+  }
+  .matrix td.clock::before {
+    content: "Typical clock: ";
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--brass);
+  }
+  .matrix td.path::before {
+    content: "What it is: ";
+    display: block;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--brass);
+    margin-bottom: 2px;
+  }
+  .matrix .clock { white-space: normal; }
+}
+@media (max-width: 520px) {
+  .wrap { padding: 36px 18px 0; }
+}
 .cta-row {
   display: flex;
   flex-wrap: wrap;
@@ -193,6 +287,7 @@ h3 {
   border-radius: 3px;
   border: 0;
   transition: filter 0.15s;
+  cursor: pointer;
 }
 .cta-primary:hover { filter: brightness(1.08); color: #FAF7EF; }
 .cta-ghost {
@@ -227,7 +322,7 @@ h3 {
   margin: 0 0 6px;
 }
 .soft-form .field { margin: 0 0 14px; }
-.soft-form input, .soft-form textarea, .soft-form select {
+.soft-form input {
   width: 100%;
   padding: 12px 14px;
   border: 1px solid rgba(31,32,28,.18);
@@ -237,10 +332,51 @@ h3 {
   font-size: 15px;
   color: var(--tuxedo);
 }
-.soft-form textarea { min-height: 90px; resize: vertical; }
 .soft-form .hint { font-size: 13px; color: var(--mid); margin: 8px 0 0; }
 .soft-form .ok { color: #2f5d3a; font-size: 14.5px; margin-top: 12px; display: none; }
 .soft-form .err { color: #8b2e2e; font-size: 14px; margin-top: 10px; display: none; }
+.allies {
+  margin: 36px 0 0;
+  padding: 22px 20px;
+  background: rgba(236,228,212,.55);
+  border-radius: 8px;
+  border: 1px solid rgba(138,106,63,.18);
+}
+.allies h2 { margin-top: 0; font-size: clamp(20px, 3.5vw, 24px); }
+.allies ul {
+  margin: 12px 0 0;
+  padding: 0 0 0 1.15em;
+  color: var(--mid);
+  font-size: 14.5px;
+}
+.allies li { margin: 8px 0; }
+.allies a {
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(138,106,63,.35);
+}
+.faq {
+  margin: 36px 0 0;
+}
+.faq details {
+  background: var(--card);
+  border: 1px solid rgba(138,106,63,.14);
+  border-radius: 6px;
+  padding: 14px 16px;
+  margin: 0 0 10px;
+}
+.faq summary {
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--tuxedo);
+  font-size: 15px;
+}
+.faq details p {
+  margin: 10px 0 0;
+  color: var(--mid);
+  font-size: 14.5px;
+  line-height: 1.55;
+}
 .soft-doors {
   margin: 44px 0 0;
   padding: 32px 0 0;
@@ -404,38 +540,50 @@ footer.site-foot .footer-legal a:hover { color: #C9A877; }
     <a class="cta-ghost" href="/book/?utm_source=sell-options&amp;utm_medium=soft_cta">Book a time</a>
   </div>
 
-  <h2>Five real options</h2>
-  <p class="lede">None of these is “the answer for everyone.” The point is to name them plainly so you are not sold a single path by a fear ad.</p>
-  <div class="tiles">
-    <div class="tile">
-      <div class="kicker">1 · Traditional list</div>
-      <h3>Market the house on Compass MLS</h3>
-      <p>Repairs, price, and timing are your call. Often the highest net when you have runway. Geoffrey runs the appointment like any other listing conversation — no pressure to pick cash.</p>
-    </div>
-    <div class="tile">
-      <div class="kicker">2 · Short sale</div>
-      <h3>Sell with lender approval when debt exceeds value</h3>
-      <p>A process with your servicer, paperwork, and timelines that are <em>not</em> Geoffrey’s to invent on a webpage. He can help you understand the listing side and who else you need at the table.</p>
-    </div>
-    <div class="tile">
-      <div class="kicker">3 · As-is / cash intro</div>
-      <h3>One column — not the hero</h3>
-      <p>When speed or condition matters, Geoffrey can introduce cash / as-is paths and still show you a traditional net for comparison. Same appointment. No “guaranteed offer in 7 days” theater.</p>
-    </div>
-    <div class="tile">
-      <div class="kicker">4 · Servicer / HUD counselor</div>
-      <h3>Talk to the people who can change the loan path</h3>
-      <p>Call your mortgage servicer. Find a free HUD-approved counselor via <a href="https://www.hud.gov/findacounselor" rel="noopener noreferrer">hud.gov/findacounselor</a>. Loss mitigation, forbearance, and reinstatement conversations start there — not with a bandit-sign buyer.</p>
-    </div>
-    <div class="tile" style="grid-column: 1 / -1;">
-      <div class="kicker">5 · Keep / rent bridge</div>
-      <h3>Maybe you should not sell yet</h3>
-      <p>Run the five-year hold-vs-sell math on <a href="/keep-or-sell/?utm_source=sell-options&amp;utm_medium=option_grid">/keep-or-sell/</a>, then talk it through. Geoffrey is the agent who will tell you to keep the house when the numbers say so.</p>
-    </div>
-  </div>
+  <h2>Compare your options</h2>
+  <p class="lede">None of these is “the answer for everyone.” The point is to name them plainly — with honest clocks — so you are not sold a single path by a fear ad.</p>
+  <p class="clock-note">Clocks below are <strong>typical packaging and vary</strong>. They are not guarantees, conversion rates, or promises about your loan or timeline.</p>
 
-<h2>Leave a note — or just text</h2>
-  <p class="lede">Same inbox Geoffrey already uses. Prefer the phone? Text or call <strong>952-258-3100</strong>. Prefer a calendar? <a href="/book/?utm_source=sell-options&amp;utm_medium=form_lede">Book here</a>.</p>
+  <table class="matrix" aria-label="Seller options compared with typical clocks">
+    <thead>
+      <tr>
+        <th scope="col">Option</th>
+        <th scope="col">Typical clock</th>
+        <th scope="col">What it is</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">List traditionally</th>
+        <td class="clock">Often weeks–months of marketing</td>
+        <td class="path">Compass MLS listing. Repairs, price, and timing are your call. Often the highest net when you have runway — Geoffrey runs it like any other listing conversation.</td>
+      </tr>
+      <tr>
+        <th scope="row">Short sale</th>
+        <td class="clock">Adds lender review (often longer)</td>
+        <td class="path">Sell with servicer approval when debt may exceed value. Paperwork and clocks are not Geoffrey’s to invent on a webpage; he can help on the listing side and who else belongs at the table.</td>
+      </tr>
+      <tr>
+        <th scope="row">As-is / cash intro</th>
+        <td class="clock">Can be faster — with a net tradeoff</td>
+        <td class="path"><strong>One column, not the hero.</strong> When speed or condition matters, Geoffrey can introduce cash / as-is paths and still show a traditional net for comparison. Same appointment. No “guaranteed offer in 7 days” theater.</td>
+      </tr>
+      <tr>
+        <th scope="row">Servicer + HUD counselor</th>
+        <td class="clock">Start this week · free counseling in parallel</td>
+        <td class="path">Call your mortgage servicer. Find a free HUD-approved counselor via <a href="https://www.hud.gov/findacounselor" rel="noopener noreferrer">hud.gov/findacounselor</a>. Loss mitigation starts there — not with a bandit-sign buyer.</td>
+      </tr>
+      <tr>
+        <th scope="row">Keep / rent bridge</th>
+        <td class="clock">Numbers first · decide on your clock</td>
+        <td class="path">Maybe you should not sell yet. Run hold-vs-sell math on <a href="/keep-or-sell/?utm_source=sell-options&amp;utm_medium=option_matrix">/keep-or-sell/</a>, then talk it through. Geoffrey will tell you to keep the house when the numbers say so.</td>
+      </tr>
+    </tbody>
+    <caption>Human clocks only — typical packaging / varies by loan, condition, and market.</caption>
+  </table>
+
+  <h2>Leave a note — or just text</h2>
+  <p class="lede">Same inbox Geoffrey already uses. Prefer the phone? Text or call <strong>952-258-3100</strong>. Prefer a calendar? <a href="/book/?utm_source=sell-options&amp;utm_medium=form_lede">Book here</a>. Hardship details stay on the call — not on this form.</p>
   <form class="soft-form" id="sellOptionsForm" novalidate>
     <input type="hidden" name="formType" value="sell-options">
     <input type="hidden" name="source" value="sell-options">
@@ -448,16 +596,12 @@ footer.site-foot .footer-legal a:hover { color: #C9A877; }
       <input id="so-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required>
     </div>
     <div class="field">
-      <label for="so-email">Email (optional)</label>
+      <label for="so-email">Email</label>
       <input id="so-email" name="email" type="email" autocomplete="email">
     </div>
     <div class="field">
-      <label for="so-city">City / lake town (optional)</label>
-      <input id="so-city" name="city" autocomplete="address-level2">
-    </div>
-    <div class="field">
-      <label for="so-note">What are you weighing?</label>
-      <textarea id="so-note" name="message" placeholder="Timing, keep vs sell, short sale curiosity, as-is condition — whatever is true."></textarea>
+      <label for="so-area">Area / address</label>
+      <input id="so-area" name="area" autocomplete="street-address" placeholder="City, lake town, or street">
     </div>
     <button type="submit" class="cta-primary" id="so-submit">Send to Geoffrey</button>
     <p class="hint">No spam list. He’ll text or call back.</p>
@@ -465,22 +609,52 @@ footer.site-foot .footer-legal a:hover { color: #C9A877; }
     <p class="err" id="so-err" role="alert">Something went wrong. Text 952-258-3100 instead.</p>
   </form>
 
+  <aside class="allies" aria-labelledby="allies-heading">
+    <h2 id="allies-heading">Free nonprofit allies</h2>
+    <p class="lede">These are not competitors. Free, non-judgmental counseling sits beside any listing conversation — use them in parallel.</p>
+    <ul>
+      <li><a href="https://www.hud.gov/findacounselor" rel="noopener noreferrer">HUD — find a counselor</a> (national locator)</li>
+      <li><a href="https://www.hocmn.org/find-an-advisor/" rel="noopener noreferrer">Minnesota Homeownership Center — find an advisor</a></li>
+      <li><a href="https://financialcounseling.lssmn.org/financial-wellness-services/foreclosure-prevention-counseling" rel="noopener noreferrer">LSS — foreclosure prevention counseling</a></li>
+    </ul>
+  </aside>
+
+  <section class="faq" aria-labelledby="faq-heading">
+    <h2 id="faq-heading">Straight answers</h2>
+    <details>
+      <summary>Will Geoffrey pressure me into a cash sale?</summary>
+      <p>No. Cash / as-is is one column — not the hero. You can still compare a traditional net in the same conversation.</p>
+    </details>
+    <details>
+      <summary>Can a realtor stop my foreclosure?</summary>
+      <p>No. Talk to your servicer and a HUD-approved counselor for loan-path help. Geoffrey covers list / short-sale / keep-vs-sell once you know where you stand.</p>
+    </details>
+    <details>
+      <summary>How long does each option take?</summary>
+      <p>Typical packaging only — not guarantees. List often weeks–months; short sale adds lender review (often longer); as-is/cash can be faster with a net tradeoff; servicer/HUD can start this week in parallel.</p>
+    </details>
+    <details>
+      <summary>Do I have to explain my hardship on this form?</summary>
+      <p>No. Name, phone, email, area/address only. Hardship stays on the call or text.</p>
+    </details>
+    <details>
+      <summary>Should I call a nonprofit first?</summary>
+      <p>Often yes, in parallel. HUD, HOCMN, and LSS are free allies — linked above — not substitutes Geoffrey wants you to skip.</p>
+    </details>
+  </section>
+
   <div class="soft-doors" aria-labelledby="doors-heading">
     <h2 id="doors-heading">Related doors</h2>
     <p class="lede">Process truth, keep-vs-sell math, and the rest of the library.</p>
     <div class="links">
-      <a href="/keep-or-sell/?utm_source=sell-options&amp;utm_medium=soft_door">Keep or sell calculator</a>
       <a href="/topics/minnesota-foreclosure-timeline/?utm_source=sell-options&amp;utm_medium=soft_door">MN foreclosure timeline</a>
+      <a href="/keep-or-sell/?utm_source=sell-options&amp;utm_medium=soft_door">Keep or sell calculator</a>
       <a href="/probate/?utm_source=sell-options&amp;utm_medium=soft_door">Probate</a>
       <a href="/topics/?utm_source=sell-options&amp;utm_medium=soft_door">All topics</a>
       <a href="/lake-minnetonka-weekly/?utm_source=sell-options&amp;utm_medium=soft_door">Weekly closed sales</a>
       <a href="/local-log/?utm_source=sell-options&amp;utm_medium=soft_door">Local Log</a>
     </div>
   </div>
-
-  <p class="disclaimer">
-    Educational page only. Not legal advice. Geoffrey Serdar / Serdar+Partners at Compass is a licensed Minnesota real estate brokerage relationship — not a foreclosure consultant under Minn. Stat. ch. 325N, and not a substitute for a HUD-approved housing counselor or your mortgage servicer. If you are facing foreclosure, use official notices, talk to counsel when needed, and verify every timeline against statute and your county sheriff — not against a blog.
-  </p>
 
   <div class="reach-band" role="region" aria-label="Call or text Geoffrey">
     <span class="reach-label">Tap to call — or text</span>
@@ -503,11 +677,13 @@ footer.site-foot .footer-legal a:hover { color: #C9A877; }
       <a href="/guides/">Lake Minnetonka Guides</a>
       <a href="/keep-or-sell/">Keep or sell</a>
       <a href="/topics/">Topics</a>
+      <a href="/topics/minnesota-foreclosure-timeline/">MN foreclosure timeline</a>
       <a href="/refer/">Refer a Friend</a>
     </nav>
     <a class="footer-reviews" href="/reviews/"><span class="star" aria-hidden="true">★</span>4.8 · 62 Reviews</a>
     <p class="footer-legal">
       Serdar+Partners at Compass<br>
+      Educational page only. Not legal advice. Geoffrey Serdar / Serdar+Partners at Compass is a licensed Minnesota real estate brokerage relationship — not a foreclosure consultant under Minn. Stat. ch. 325N, and not a substitute for a HUD-approved housing counselor or your mortgage servicer. If you are facing foreclosure, use official notices, talk to counsel when needed, and verify every timeline against statute and your county sheriff — not against a blog.<br>
       &copy; 2026 Geoffrey Serdar. All rights reserved. · <a href="/privacy">Privacy Policy</a>
     </p>
   </footer>
@@ -515,6 +691,56 @@ footer.site-foot .footer-legal a:hover { color: #C9A877; }
 </main>
 <script>
 (function () {
+  /* RAZIEL_CONFIG — same Twilio lead-alert pipe as keep-or-sell (speed-to-SMS). Ads/Meta deferred. */
+  var RAZIEL_CONFIG = {
+    twilioUrl: 'https://lead-alert-4343.twil.io/lead-alert',
+    twilioSecret: 'slx_9f3Kqe2R',
+    formspreeId: 'mpqerwwk',
+    source: 'sell-options'
+  };
+  var LEAD_SOURCE = (function () {
+    var p = new URLSearchParams(window.location.search);
+    return {
+      utm_source: p.get('utm_source') || '',
+      utm_medium: p.get('utm_medium') || '',
+      utm_campaign: p.get('utm_campaign') || '',
+      gclid: p.get('gclid') || '',
+      referrer: document.referrer || ''
+    };
+  })();
+
+  function fireLeadAlert(name, phone, email, area) {
+    var controller = new AbortController();
+    var timer = setTimeout(function () { controller.abort(); }, 2500);
+    var data = new URLSearchParams({
+      secret: RAZIEL_CONFIG.twilioSecret,
+      name: name || '',
+      phone: phone || '',
+      email: email || '',
+      interest: 'sell-options' + (area ? ' · ' + area : ''),
+      verdict: '',
+      door: 'sell-options',
+      source: RAZIEL_CONFIG.source,
+      site: window.location.hostname + window.location.pathname,
+      utm_source: LEAD_SOURCE.utm_source,
+      utm_medium: LEAD_SOURCE.utm_medium,
+      utm_campaign: LEAD_SOURCE.utm_campaign,
+      gclid: LEAD_SOURCE.gclid,
+      referrer: LEAD_SOURCE.referrer
+    });
+    return fetch(RAZIEL_CONFIG.twilioUrl, {
+      method: 'POST',
+      body: data,
+      signal: controller.signal
+    }).then(function (r) {
+      clearTimeout(timer);
+      return r.json();
+    }).catch(function () {
+      clearTimeout(timer);
+      return { valid: true, failOpen: true };
+    });
+  }
+
   var form = document.getElementById('sellOptionsForm');
   if (!form) return;
   var ok = document.getElementById('so-ok');
@@ -530,8 +756,12 @@ footer.site-foot .footer-legal a:hover { color: #C9A877; }
     payload.formType = 'sell-options';
     payload.source = 'sell-options';
     payload._subject = 'Sell-options lead — geoffreyserdar.com';
+    var name = payload.name || '';
+    var phone = payload.phone || '';
+    var email = payload.email || '';
+    var area = payload.area || '';
     if (btn) { btn.disabled = true; btn.textContent = 'Sending…'; }
-    fetch('https://formspree.io/f/mpqerwwk', {
+    fetch('https://formspree.io/f/' + RAZIEL_CONFIG.formspreeId, {
       method: 'POST',
       headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
       body: JSON.stringify(payload)
@@ -542,6 +772,8 @@ footer.site-foot .footer-legal a:hover { color: #C9A877; }
       if (typeof gtag === 'function') {
         gtag('event', 'generate_lead', { form_type: 'sell-options', source: 'sell-options' });
       }
+      /* Instant SMS/email alert — same Twilio shape as keep-or-sell; fire-and-forget after Formspree OK */
+      fireLeadAlert(name, phone, email, area);
     }).catch(function () {
       if (err) err.style.display = 'block';
     }).finally(function () {
