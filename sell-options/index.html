@@ -63,7 +63,7 @@
       "name": "How long does each option take?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Clocks on this page are typical packaging and vary — not guarantees. A traditional list often means weeks to months of marketing. A short sale adds lender review and is often longer. As-is / cash can move faster with a net tradeoff. Servicer and HUD counseling can start this week in parallel. Exact timing depends on your loan, condition, and market."
+        "text": "Timelines vary by loan, condition, and market — nothing here is a guarantee. A traditional list often means weeks to months of marketing. A short sale adds lender review and is often longer. As-is / cash can move faster with a net tradeoff. Servicer and HUD counseling can start this week in parallel."
       }
     },
     {
@@ -172,97 +172,59 @@ h3 {
   margin: 0 0 6px;
   color: var(--tuxedo);
 }
-.clock-note {
-  font-size: 13.5px;
+.option-lede {
+  font-size: 15.5px;
+  line-height: 1.55;
   color: var(--mid);
-  margin: 0 0 16px;
+  margin: 0 0 18px;
   max-width: var(--measure);
 }
-.matrix {
-  width: 100%;
-  border-collapse: collapse;
-  margin: 8px 0 26px;
-  font-size: 14.5px;
+.option-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+  margin: 0 0 12px;
+}
+@media (min-width: 720px) {
+  .option-grid { grid-template-columns: 1fr 1fr; }
+}
+.option-card {
   background: var(--card);
-  border-radius: 8px;
-  overflow: hidden;
   border: 1px solid rgba(138,106,63,.16);
+  border-radius: 8px;
+  padding: 18px 18px 16px;
   box-shadow: 0 1px 0 rgba(31,32,28,.04);
 }
-.matrix caption {
-  caption-side: bottom;
-  text-align: left;
-  padding: 10px 14px 0;
-  font-size: 12.5px;
+.option-card h3 {
+  font-family: Inter, system-ui, sans-serif;
+  font-size: 16px;
+  font-weight: 650;
+  letter-spacing: -0.01em;
+  color: var(--tuxedo);
+  margin: 0 0 8px;
+}
+.option-card p {
+  margin: 0 0 10px;
+  font-size: 14.5px;
+  line-height: 1.55;
   color: var(--mid);
 }
-.matrix th, .matrix td {
-  padding: 14px 14px;
-  text-align: left;
-  vertical-align: top;
-  border-bottom: 1px solid rgba(77,72,57,.12);
-}
-.matrix thead th {
-  background: var(--mid-card);
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--brass);
-}
-.matrix tbody th {
-  font-weight: 600;
+.option-card p:last-child { margin-bottom: 0; }
+.option-card .next {
+  font-size: 13.5px;
   color: var(--tuxedo);
-  width: 28%;
 }
-.matrix td { color: var(--mid); }
-.matrix .clock {
-  font-weight: 500;
-  color: var(--tuxedo);
-  white-space: nowrap;
-}
-.matrix .path a {
+.option-card a {
   font-weight: 600;
   text-decoration: none;
   border-bottom: 1px solid rgba(138,106,63,.35);
+  color: inherit;
 }
-.matrix tbody tr:last-child th,
-.matrix tbody tr:last-child td { border-bottom: 0; }
-@media (max-width: 620px) {
-  .matrix, .matrix thead, .matrix tbody, .matrix th, .matrix td, .matrix tr { display: block; width: 100%; }
-  .matrix thead { display: none; }
-  .matrix tr {
-    padding: 14px 14px 12px;
-    border-bottom: 1px solid rgba(77,72,57,.12);
-  }
-  .matrix tbody tr:last-child { border-bottom: 0; }
-  .matrix tbody th {
-    width: auto;
-    padding: 0 0 6px;
-    font-size: 15px;
-  }
-  .matrix td {
-    padding: 4px 0;
-  }
-  .matrix td.clock::before {
-    content: "Typical clock: ";
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: var(--brass);
-  }
-  .matrix td.path::before {
-    content: "What it is: ";
-    display: block;
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: var(--brass);
-    margin-bottom: 2px;
-  }
-  .matrix .clock { white-space: normal; }
+.option-quiet {
+  font-size: 13.5px;
+  color: var(--mid);
+  margin: 4px 0 22px;
+  max-width: var(--measure);
 }
 @media (max-width: 520px) {
   .wrap { padding: 36px 18px 0; }
@@ -551,46 +513,36 @@ footer.site-foot .footer-legal a:hover { color: #C9A877; }
   </aside>
 
   <h2>Compare your options</h2>
-  <p class="lede">None of these is “the answer for everyone.” The point is to name them plainly — with honest clocks — so you are not sold a single path by a fear ad.</p>
-  <p class="clock-note">Clocks below are <strong>typical packaging and vary</strong>. They are not guarantees, conversion rates, or promises about your loan or timeline.</p>
+  <p class="option-lede">None of these is “the answer for everyone.” Naming them plainly helps you avoid being sold a single path by a fear ad.</p>
 
-  <table class="matrix" aria-label="Seller options compared with typical clocks">
-    <thead>
-      <tr>
-        <th scope="col">Option</th>
-        <th scope="col">Typical clock</th>
-        <th scope="col">What it is</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <th scope="row">List traditionally</th>
-        <td class="clock">Often weeks–months of marketing</td>
-        <td class="path">Compass MLS listing. Repairs, price, and timing are your call. Often the highest net when you have runway — Geoffrey runs it like any other listing conversation.</td>
-      </tr>
-      <tr>
-        <th scope="row">Short sale</th>
-        <td class="clock">Adds lender review (often longer)</td>
-        <td class="path">Sell with servicer approval when debt may exceed value. Paperwork and clocks are not Geoffrey’s to invent on a webpage; he can help on the listing side and who else belongs at the table.</td>
-      </tr>
-      <tr>
-        <th scope="row">As-is / cash intro</th>
-        <td class="clock">Can be faster — with a net tradeoff</td>
-        <td class="path"><strong>Cash is a column, not the star.</strong> When speed or condition matters, Geoffrey can introduce cash / as-is paths and still show a traditional net for comparison. Same appointment. No fake countdown on a cash offer.</td>
-      </tr>
-      <tr>
-        <th scope="row">Servicer + HUD counselor</th>
-        <td class="clock">Start this week · free counseling in parallel</td>
-        <td class="path">Call your mortgage servicer. Find a free HUD-approved counselor via <a href="https://www.hud.gov/findacounselor" rel="noopener noreferrer">hud.gov/findacounselor</a>. Loss mitigation starts there — not with a bandit-sign buyer.</td>
-      </tr>
-      <tr>
-        <th scope="row">Keep / rent bridge</th>
-        <td class="clock">Numbers first · decide on your clock</td>
-        <td class="path">Maybe you should not sell yet. Run hold-vs-sell math on <a href="/keep-or-sell/?utm_source=sell-options&amp;utm_medium=option_matrix">/keep-or-sell/</a>, then talk it through. Geoffrey will tell you to keep the house when the numbers say so.</td>
-      </tr>
-    </tbody>
-    <caption>Human clocks only — typical packaging / varies by loan, condition, and market.</caption>
-  </table>
+  <div class="option-grid">
+    <article class="option-card">
+      <h3>List traditionally</h3>
+      <p>Compass MLS listing. Repairs, price, and timing are your call. Often the highest net when you have runway — Geoffrey runs it like any other listing conversation.</p>
+      <p class="next">Usually weeks to months of marketing when the house needs time on market.</p>
+    </article>
+    <article class="option-card">
+      <h3>Short sale</h3>
+      <p>Sell with servicer approval when debt may exceed value. Geoffrey can help on the listing side and who else belongs at the table — he won’t invent your paperwork clock on a webpage.</p>
+      <p class="next">Lender review usually makes this longer than a normal listing.</p>
+    </article>
+    <article class="option-card">
+      <h3>As-is / cash intro</h3>
+      <p><strong>Cash is a column, not the star.</strong> When speed or condition matters, Geoffrey can introduce cash / as-is paths and still show a traditional net for comparison. Same appointment. No fake countdown on a cash offer.</p>
+      <p class="next">Can move faster, often with a net tradeoff.</p>
+    </article>
+    <article class="option-card">
+      <h3>Servicer + HUD counselor</h3>
+      <p>Call your mortgage servicer. Find a free HUD-approved counselor via <a href="https://www.hud.gov/findacounselor" rel="noopener noreferrer">hud.gov/findacounselor</a>. Loss mitigation starts there — not with a bandit-sign buyer.</p>
+      <p class="next">You can start this week, in parallel with any house conversation.</p>
+    </article>
+    <article class="option-card">
+      <h3>Keep / rent bridge</h3>
+      <p>Maybe you should not sell yet. Run hold-vs-sell math on <a href="/keep-or-sell/?utm_source=sell-options&amp;utm_medium=option_matrix">/keep-or-sell/</a>, then talk it through. Geoffrey will tell you to keep the house when the numbers say so.</p>
+      <p class="next">Get the numbers first, then decide on your own timeline.</p>
+    </article>
+  </div>
+  <p class="option-quiet">Timelines vary by loan, condition, and market.</p>
 
 
   <p class="lede ferry-ask" style="margin:18px 0 8px;padding:14px 16px;background:rgba(236,228,212,.55);border-radius:6px;border:1px solid rgba(138,106,63,.18)">
@@ -646,7 +598,7 @@ footer.site-foot .footer-legal a:hover { color: #C9A877; }
     </details>
     <details>
       <summary>How long does each option take?</summary>
-      <p>Typical packaging only — not guarantees. List often weeks–months; short sale adds lender review (often longer); as-is/cash can be faster with a net tradeoff; servicer/HUD can start this week in parallel.</p>
+      <p>It depends on your loan, condition, and market. A traditional list often takes weeks to months. A short sale usually adds lender review. As-is or cash can be faster with a net tradeoff. Servicer and HUD counseling can start this week in parallel.</p>
     </details>
     <details>
       <summary>Do I have to explain my hardship on this form?</summary>
