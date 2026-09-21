@@ -112,23 +112,6 @@ a:hover { color: var(--tuxedo); }
   padding: 48px 24px 72px;
   position: relative;
 }
-.wrap::before {
-  content: attr(data-mark);
-  position: absolute;
-  top: 36px;
-  right: -8px;
-  font-family: 'Playfair Display', Georgia, serif;
-  font-weight: 900;
-  font-size: clamp(64px, 18vw, 120px);
-  line-height: 1;
-  letter-spacing: -0.04em;
-  color: var(--card);
-  pointer-events: none;
-  user-select: none;
-  z-index: 0;
-  white-space: nowrap;
-}
-.wrap > * { position: relative; z-index: 1; }
 .crumb {
   font-size: 13px;
   margin: 0 0 20px;
@@ -198,43 +181,7 @@ h3 {
   line-height: 1.55;
 }
 .limits strong { color: var(--tuxedo); }
-.door-btns {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin: 24px 0 0;
-  max-width: 480px;
-}
-.door-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex: 1 1 140px;
-  padding: 17px 20px;
-  border-radius: 6px;
-  font-size: 16px;
-  font-weight: 700;
-  letter-spacing: .3px;
-  text-decoration: none;
-  border: 0;
-  min-height: 56px;
-  font-family: Inter, system-ui, sans-serif;
-  transition: transform .08s, filter .15s, background .15s;
-  cursor: pointer;
-}
-.door-btn:active { transform: translateY(1px); }
-.door-btn:focus-visible { outline: 2px solid var(--brass); outline-offset: 3px; }
-.door-text { background: var(--brass); color: var(--page); }
-.door-text:hover { filter: brightness(1.08); color: var(--page); }
-.door-call {
-  background: transparent;
-  color: var(--brass);
-  border: 1px solid rgba(138,106,63,.55);
-}
-.door-call:hover { background: rgba(138,106,63,.10); color: var(--brass); }
 @media (max-width: 520px) {
-  .door-btns { flex-direction: column; max-width: none; }
-  .door-btn { width: 100%; }
   .wrap { padding: 36px 18px 64px; }
 }
 .tiles {
@@ -365,69 +312,100 @@ table.disambig tr:nth-child(even) td { background: rgba(236,228,212,.28); }
   margin-bottom: 8px;
 }
 .card-list p { font-size: 14.5px; color: var(--mid); margin: 0; line-height: 1.5; }
-footer.page-foot {
-  margin-top: 52px;
-  padding: 36px 0 8px;
-  border-top: 1px solid var(--hair);
+
+
+
+
+
+
+
+
+
+
+
+.site-footer {
+  margin-top: 48px;
+  padding: 36px 0 24px;
+  border-top: 1px solid rgba(77,72,57,.14);
   text-align: center;
 }
-footer.page-foot .name {
+.footer-name {
   font-family: 'Playfair Display', Georgia, serif;
-  font-size: 24px;
+  font-size: 22px;
   font-weight: 700;
   margin: 0 0 8px;
   color: var(--tuxedo);
 }
-footer.page-foot .broker {
+.footer-brokerage {
   font-size: 12px;
   font-weight: 500;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--mid);
-  margin: 0 0 24px;
+  margin: 0 0 16px;
 }
-footer.page-foot .door-btns {
-  margin: 0 auto 22px;
-  justify-content: center;
-}
-footer.page-foot .gate-phone-once {
-  margin: 0 0 14px;
+.gate-phone-once {
+  margin: 0 0 12px;
   font-size: 14px;
   font-weight: 500;
   color: var(--mid);
 }
-footer.page-foot .gate-phone-once a {
-  color: var(--brass);
-  font-weight: 600;
-  text-decoration: none;
-}
-footer.page-foot .footer-links {
-  margin: 0 0 20px;
+.footer-links {
+  margin: 0 0 18px;
   display: flex;
   flex-wrap: wrap;
   gap: 8px 18px;
   justify-content: center;
   font-size: 13px;
 }
-footer.page-foot .footer-links a {
-  color: var(--brass);
-  text-decoration: none;
-}
-footer.page-foot .footer-links a:hover {
-  text-decoration: underline;
-  color: var(--tuxedo);
-}
-footer.page-foot .legal {
-  margin-top: 14px;
+.footer-links a { color: var(--brass); text-decoration: none; }
+.footer-links a:hover { text-decoration: underline; color: var(--tuxedo); }
+.legal {
   font-size: 11px;
-  color: var(--mute);
-  line-height: 1.55;
+  color: rgba(77,72,57,.55);
+  line-height: 1.5;
+  max-width: 36em;
+  margin: 0 auto;
 }
+.door-btns {
+  display: grid;
+  gap: 10px;
+  margin: 0 auto 18px;
+  max-width: 480px;
+  width: 100%;
+}
+.door-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  text-decoration: none;
+  border-radius: 3px;
+  padding: 15px 16px;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  font-family: Inter, system-ui, sans-serif;
+  border: 0;
+  cursor: pointer;
+  transition: background 0.15s, transform 0.1s, color 0.15s, filter 0.15s;
+}
+.door-btn:active { transform: translateY(1px); }
+.door-btn:focus-visible { outline: 2px solid var(--brass); outline-offset: 3px; }
+.door-text { background: var(--brass); color: var(--page); border: 1px solid var(--brass); }
+.door-text:hover { filter: brightness(1.08); color: var(--page); }
+.door-call {
+  background: transparent;
+  color: var(--brass);
+  border: 1px solid rgba(138,106,63,.55);
+}
+.door-call:hover { background: rgba(138,106,63,.10); color: var(--tuxedo); }
 
 </style>
 </head>
 <body>
-<main class="wrap" data-mark="NAMES">
+<main class="wrap">
 
   <p class="crumb"><a href="/topics/">Topics</a> · Disambiguation</p>
   <p class="eyebrow">Geoffrey Serdar · Place clarity</p>
@@ -436,12 +414,7 @@ footer.page-foot .legal {
   <div class="limits">
     <strong>Limits first.</strong> This page does not rank towns, invent home prices, or quote Closed counts. Lake size and shoreline figures below are long-standing geography — not this week’s market. For live solds, use the weekly Closed page when you need numbers.
   </div>
-  <div class="door-btns" role="group" aria-label="Reach Geoffrey">
-    <a class="door-btn door-text" href="sms:+19522583100">Text Geoffrey</a>
-    <a class="door-btn door-call" href="tel:+19522583100">Call 952-258-3100</a>
-  </div>
-
-  <h2>Three maps, one search word</h2>
+<h2>Three maps, one search word</h2>
   <div class="tiles">
     <div class="tile">
       <div class="kicker">City of Minnetonka</div>
@@ -545,11 +518,7 @@ footer.page-foot .legal {
       <a href="/local-log/?utm_source=topics&amp;utm_medium=magnet">Local Log</a>
       <a href="/topics/?utm_source=topics&amp;utm_medium=magnet">All topics</a>
     </div>
-    <div class="door-btns" style="margin-top:20px" role="group" aria-label="Text Geoffrey">
-      <a class="door-btn door-text" href="sms:+19522583100">Text Geoffrey</a>
-      <a class="door-btn door-call" href="tel:+19522583100">Call 952-258-3100</a>
-    </div>
-  </div>
+</div>
 
   <h2>Method &amp; limits</h2>
   <p class="lede">Geography here is structural (city limits vs water body vs named small city). Lake acreage and shoreline length are widely published lake facts — treat them as orientation, not a CMA. No invented inventory or sold counts on this page. Soft doors point to pages that do carry live packs when those packs exist.</p>
@@ -585,21 +554,21 @@ footer.page-foot .legal {
     <li>Scout PRIMARY pack 2026-09-20 · Companion pages: <a href="/minnetonka/">/minnetonka/</a>, <a href="/lake-minnetonka-weekly/">weekly Closed</a>, <a href="/local-log/">Local Log</a></li>
   </ul>
 
-  <footer class="page-foot">
-    <p class="name">Geoffrey Serdar</p>
-    <p class="broker">Serdar+Partners at Compass · Lake Minnetonka &amp; Twin Cities</p>
-    <div class="door-btns" role="group" aria-label="Text or call Geoffrey">
+    <footer class="site-footer">
+    <p class="footer-name">Geoffrey Serdar</p>
+    <p class="footer-brokerage">Serdar+Partners at Compass · Lake Minnetonka &amp; Twin Cities</p>
+    <p class="gate-phone-once">Prefer to talk now?</p>
+    <div class="door-btns" role="group" aria-label="Reach Geoffrey">
       <a class="door-btn door-text" href="sms:+19522583100">Text Geoffrey</a>
       <a class="door-btn door-call" href="tel:+19522583100">Call 952-258-3100</a>
     </div>
     <div class="footer-links">
-      <a href="https://geoffreyserdar.com/">Home</a>
-      <a href="https://geoffreyserdar.com/topics/">Topics</a>
-      <a href="https://geoffreyserdar.com/local-log/">Local Log</a>
-      <a href="https://geoffreyserdar.com/lake-minnetonka-weekly/">Weekly closed sales</a>
-      <a href="https://geoffreyserdar.com/reviews/">Reviews</a>
+      <a href="mailto:geoffrey@serdarpartnersrealty.com">Email Geoffrey</a>
+      <a href="https://geoffreyserdar.com/">geoffreyserdar.com</a>
+      <a href="/topics/">Topics</a>
+      <a href="/minnetonka/">City of Minnetonka</a>
     </div>
-    <p class="legal">Serdar+Partners Realty · Compass · PO Box 607, Excelsior MN 55331<br>Equal Housing Opportunity</p>
+    <p class="legal">Information believed accurate but not guaranteed. Equal Housing Opportunity.</p>
   </footer>
 </main>
 </body>
