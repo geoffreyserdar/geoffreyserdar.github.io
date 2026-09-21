@@ -289,6 +289,9 @@
   --warm: #1F201C;
   --mid: #4D4839;
   --white: #FAF7EF;
+  --brass: #8A6A3F;
+  --page: #FAF7EF;
+  --tuxedo: #1F201C;
 }
 * { box-sizing: border-box; }
 html { -webkit-text-size-adjust: 100%; }
@@ -402,39 +405,136 @@ header.page-head .intro {
   font-size: 13px;
 }
 .permalink a { text-decoration: none; border-bottom: 1px solid rgba(138, 106, 63, 0.35); }
+/* House chrome — match lake-minnetonka-weekly Text/Call doors */
+.door-btns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 22px 0 0;
+  max-width: 480px;
+}
+.door-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  flex: 1 1 140px;
+  padding: 17px 20px;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: .3px;
+  text-decoration: none;
+  border: 0;
+  cursor: pointer;
+  transition: transform .08s, filter .15s, background .15s, color .15s;
+  min-height: 56px;
+  text-align: center;
+  font-family: Inter, system-ui, sans-serif;
+}
+.door-btn:active { transform: translateY(1px); }
+.door-btn:focus-visible { outline: 2px solid var(--brass); outline-offset: 3px; }
+.door-text { background: var(--brass); color: var(--page); }
+.door-text:hover { filter: brightness(1.08); color: var(--page); }
+.door-call {
+  background: transparent;
+  color: var(--brass);
+  border: 1px solid rgba(138,106,63,.55);
+}
+.door-call:hover { background: rgba(138,106,63,.10); color: var(--brass); }
+@media (max-width: 520px) {
+  .door-btns { flex-direction: column; max-width: none; }
+  .door-btn { width: 100%; flex: 1 1 auto; }
+}
+.soft-doors {
+  margin: 36px 0 0;
+  padding: 28px 0 0;
+  border-top: 1px solid rgba(77, 72, 57, 0.14);
+}
+.soft-doors h2 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 22px;
+  font-weight: 700;
+  margin: 0 0 8px;
+  color: var(--warm);
+}
+.soft-doors p {
+  margin: 0 0 16px;
+  color: var(--mid);
+  font-size: 14px;
+  max-width: 38em;
+}
+.soft-doors .links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 18px;
+}
+.soft-doors .links a {
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  color: var(--brass);
+  border-bottom: 1px solid rgba(138,106,63,.35);
+}
+.soft-doors .links a:hover { color: var(--warm); }
 footer.page-foot {
   margin-top: 40px;
-  padding-top: 28px;
+  padding: 32px 0 8px;
   border-top: 1px solid rgba(77, 72, 57, 0.14);
   text-align: center;
 }
 footer.page-foot .name {
   font-family: 'Playfair Display', Georgia, serif;
-  font-size: 18px;
+  font-size: 22px;
   font-weight: 700;
-  margin: 0 0 6px;
+  margin: 0 0 8px;
+  color: var(--warm);
 }
 footer.page-foot .broker {
-  font-size: 11px;
-  letter-spacing: 0.1em;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--mid);
-  margin: 0 0 16px;
+  margin: 0 0 22px;
 }
-footer.page-foot .doors {
-  display: flex;
+footer.page-foot .door-btns {
+  margin: 0 auto 22px;
+  text-align: left;
   justify-content: center;
-  gap: 22px;
-  flex-wrap: wrap;
 }
-footer.page-foot .doors a {
+footer.page-foot .footer-links {
+  margin: 0 0 18px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+  justify-content: center;
   font-size: 13px;
+}
+footer.page-foot .footer-links a {
+  color: var(--brass);
   text-decoration: none;
 }
+footer.page-foot .footer-links a:hover {
+  text-decoration: underline;
+  color: var(--warm);
+}
+footer.page-foot .gate-phone-once {
+  margin: 0 0 10px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--mid);
+}
+footer.page-foot .gate-phone-once a {
+  color: var(--brass);
+  text-decoration: none;
+  font-weight: 600;
+}
 footer.page-foot .legal {
-  margin-top: 18px;
+  margin-top: 14px;
   font-size: 11px;
-  color: rgba(77, 72, 57, 0.4);
+  color: rgba(77, 72, 57, 0.55);
+  line-height: 1.5;
 }
 </style>
 </head>
@@ -444,6 +544,10 @@ footer.page-foot .legal {
     <p class="eyebrow">Geoffrey Serdar · Place archive</p>
     <h1>Local Log</h1>
     <p class="intro">Dated archive of place posts from X and Google Business Profile — Lake Minnetonka, Excelsior, and nearby. Not a blog of every reply.</p>
+    <div class="door-btns" role="group" aria-label="Reach Geoffrey">
+      <a class="door-btn door-text" href="sms:+19522583100">Text Geoffrey</a>
+      <a class="door-btn door-call" href="tel:+19522583100">Call 952-258-3100</a>
+    </div>
   </header>
 
 <article class="entry" id="2026-09-20__x__apple-days-sunday">
@@ -679,14 +783,33 @@ footer.page-foot .legal {
   <p class="permalink"><a href="https://x.com/GeoffreySerdar/status/2097059332806279603" rel="noopener noreferrer">View on X</a></p>
 </article>
 
+  <section class="soft-doors" aria-labelledby="doors-heading">
+    <h2 id="doors-heading">Buying, selling, or reading the week?</h2>
+    <p>This page is the place archive. Soft doors if you already know what you need.</p>
+    <div class="links">
+      <a href="https://geoffreyserdar.com/lake-minnetonka-weekly/?utm_source=local-log&amp;utm_medium=soft_door">This week’s closed sales</a>
+      <a href="https://geoffreyserdar.com/buyers/?utm_source=local-log&amp;utm_medium=soft_door">Buyer representation</a>
+      <a href="https://geoffreyserdar.com/keep-or-sell/?utm_source=local-log&amp;utm_medium=soft_door">Keep it or sell it</a>
+      <a href="https://geoffreyserdar.com/?utm_source=local-log&amp;utm_medium=soft_door">geoffreyserdar.com</a>
+    </div>
+  </section>
+
   <footer class="page-foot">
     <p class="name">Geoffrey Serdar</p>
-    <p class="broker">Serdar+Partners at Compass</p>
-    <div class="doors">
-      <a href="https://geoffreyserdar.com/">Home</a>
-      <a href="tel:9522583100">952-258-3100</a>
+    <p class="broker">Serdar+Partners at Compass · Lake Minnetonka &amp; Twin Cities</p>
+    <div class="door-btns" role="group" aria-label="Text or call Geoffrey">
+      <a class="door-btn door-text" href="sms:+19522583100">Text Geoffrey</a>
+      <a class="door-btn door-call" href="tel:+19522583100">Call 952-258-3100</a>
     </div>
-    <p class="legal">Lake Minnetonka &amp; Excelsior · Minnesota</p>
+    <p class="gate-phone-once">Or call <a href="tel:+19522583100">952-258-3100</a> — he answers his own phone.</p>
+    <div class="footer-links">
+      <a href="https://geoffreyserdar.com/">Home</a>
+      <a href="https://geoffreyserdar.com/lake-minnetonka-weekly/">Weekly closed sales</a>
+      <a href="https://geoffreyserdar.com/guides/">Guides</a>
+      <a href="https://geoffreyserdar.com/reviews/">Reviews</a>
+      <a href="https://www.compass.com/agents/geoffrey-serdar/" rel="noopener noreferrer">Compass profile</a>
+    </div>
+    <p class="legal">Serdar+Partners Realty · Compass · PO Box 607, Excelsior MN 55331<br>Equal Housing Opportunity</p>
   </footer>
 </main>
 </body>
