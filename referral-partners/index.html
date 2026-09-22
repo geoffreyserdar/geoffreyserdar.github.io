@@ -8,41 +8,41 @@
 <title>Referral Partner Intake | Geoffrey Serdar</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
 <!-- NOTE: no GA4 / no Google Ads conversion tag on purpose — this page is OUTSIDE the lead funnel. -->
-
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 :root {
-  --navy: #0A1628;
-  --navy2: #112240;
-  --gold: #C9A84C;
-  --gold2: #E8C96A;
-  --warm: #F8F6F1;
-  --mid: #8A9BB0;
-  --white: #FFFFFF;
+  --ivory: #F8F6F1;
+  --ink: #1A1A18;
+  --mid: #4D4839;
+  --muted: #7A7468;
+  --brass: #8B7355;
+  --brass2: #A08968;
+  --line: rgba(26,26,24,0.12);
+  --card: #FFFFFF;
 }
 html { scroll-behavior: smooth; }
 body {
-  background: var(--navy);
-  color: var(--warm);
+  background: var(--ivory);
+  color: var(--ink);
   font-family: 'Inter', sans-serif;
   min-height: 100vh;
   overflow-x: hidden;
 }
-/* HERO */
 .hero {
-  padding: 64px 32px 24px;
+  padding: 56px 28px 20px;
   position: relative;
   overflow: hidden;
+  border-bottom: 1px solid var(--line);
 }
 .hero::before {
   content: 'PARTNERS';
   position: absolute;
-  top: 8px;
-  right: -28px;
+  top: 4px;
+  right: -20px;
   font-family: 'Playfair Display', serif;
-  font-size: clamp(56px, 13vw, 140px);
+  font-size: clamp(52px, 12vw, 120px);
   font-weight: 900;
-  color: var(--navy2);
+  color: rgba(139,115,85,0.10);
   letter-spacing: -3px;
   line-height: 1;
   pointer-events: none;
@@ -50,147 +50,147 @@ body {
   white-space: nowrap;
   z-index: 0;
 }
-.hero-inner { position: relative; z-index: 1; max-width: 560px; }
+.hero-inner { position: relative; z-index: 1; max-width: 580px; }
 .eyebrow {
-  font-size: 11px; font-weight: 600; letter-spacing: 3px;
-  text-transform: uppercase; color: var(--gold); margin-bottom: 20px;
+  font-size: 11px; font-weight: 600; letter-spacing: 2.5px;
+  text-transform: uppercase; color: var(--brass); margin-bottom: 16px;
 }
 .hero-headline {
   font-family: 'Playfair Display', serif;
-  font-size: clamp(34px, 7vw, 56px);
-  font-weight: 900; line-height: 1.02; letter-spacing: -1.5px;
-  color: var(--warm); margin-bottom: 20px;
+  font-size: clamp(32px, 6.5vw, 48px);
+  font-weight: 900; line-height: 1.05; letter-spacing: -1px;
+  color: var(--ink); margin-bottom: 18px;
 }
 .hero-lead {
-  font-size: 16px; line-height: 1.7; color: var(--mid); max-width: 520px;
+  font-size: 16px; line-height: 1.7; color: var(--mid); max-width: 540px;
 }
-.hero-lead strong { color: var(--warm); font-weight: 500; }
-/* FORM */
-.form-wrap { padding: 24px 32px 80px; }
+.hero-lead strong { color: var(--ink); font-weight: 600; }
+.form-wrap { padding: 28px 28px 72px; }
 .form-card {
-  background: var(--navy2);
-  border: 1px solid rgba(201, 168, 76, 0.2);
-  border-radius: 4px;
-  padding: 36px 32px;
-  max-width: 560px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 32px 28px;
+  max-width: 580px;
+  box-shadow: 0 8px 28px rgba(26,26,24,0.04);
 }
 .form-headline {
   font-family: 'Playfair Display', serif;
-  font-size: 22px; font-weight: 700; color: var(--warm);
+  font-size: 22px; font-weight: 700; color: var(--ink);
   margin-bottom: 6px; line-height: 1.3;
 }
-.form-sub { font-size: 13px; color: var(--mid); margin-bottom: 28px; line-height: 1.6; }
-.field { margin-bottom: 18px; }
+.form-sub { font-size: 13px; color: var(--muted); margin-bottom: 26px; line-height: 1.6; }
+.field { margin-bottom: 16px; }
 .field label {
-  display: block; font-size: 11px; font-weight: 600; letter-spacing: 1.2px;
-  text-transform: uppercase; color: var(--mid); margin-bottom: 8px;
+  display: block; font-size: 11px; font-weight: 600; letter-spacing: 1.1px;
+  text-transform: uppercase; color: var(--muted); margin-bottom: 7px;
 }
 .field input, .field select {
   width: 100%;
-  background: var(--navy);
-  border: 1px solid rgba(138, 155, 176, 0.25);
-  border-radius: 3px;
-  color: var(--warm);
+  background: var(--ivory);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  color: var(--ink);
   font-family: 'Inter', sans-serif;
   font-size: 15px;
-  padding: 13px 15px;
+  padding: 12px 14px;
   outline: none;
   transition: border-color 0.2s;
   appearance: none;
 }
-.field input::placeholder { color: rgba(138, 155, 176, 0.5); }
-.field input:focus, .field select:focus { border-color: var(--gold); }
-.field select option { background: var(--navy); color: var(--warm); }
-.field-hint { font-size: 11px; color: rgba(138,155,176,0.6); margin-top: 6px; line-height: 1.4; }
-.req { color: var(--gold); }
-/* two-up row on wider screens */
-.row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-/* COMMITMENT CHECKLIST */
+.field input::placeholder { color: rgba(122,116,104,0.55); }
+.field input:focus, .field select:focus { border-color: var(--brass); }
+.req { color: var(--brass); }
+.row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+@media (max-width: 520px) { .row2 { grid-template-columns: 1fr; } }
 .checklist {
   margin: 8px 0 18px;
-  border: 1px dashed rgba(201, 168, 76, 0.3);
-  border-radius: 4px;
-  padding: 18px 18px 8px;
+  border: 1px solid rgba(139,115,85,0.28);
+  border-radius: 6px;
+  padding: 18px 16px 8px;
+  background: rgba(139,115,85,0.04);
 }
-.checklist-title { font-size: 13px; font-weight: 600; color: var(--warm); margin-bottom: 4px; }
-.checklist-sub { font-size: 12px; color: var(--mid); line-height: 1.5; margin-bottom: 14px; }
+.checklist-title { font-size: 14px; font-weight: 600; color: var(--ink); margin-bottom: 4px; }
+.checklist-sub { font-size: 12px; color: var(--muted); line-height: 1.55; margin-bottom: 12px; }
 .check {
-  display: flex; align-items: center; gap: 12px;
-  padding: 10px 0; border-top: 1px solid rgba(138,155,176,0.12);
+  display: flex; align-items: flex-start; gap: 12px;
+  padding: 10px 0; border-top: 1px solid var(--line);
 }
 .check:first-of-type { border-top: none; }
 .check input[type="checkbox"] {
-  width: 20px; height: 20px; accent-color: var(--gold);
-  flex: 0 0 auto; cursor: pointer;
+  width: 18px; height: 18px; margin-top: 2px; flex-shrink: 0;
+  accent-color: var(--brass);
 }
-.check label { font-size: 14px; color: var(--warm); cursor: pointer; }
-.check a { color: var(--gold); text-decoration: none; }
-.check a:hover { color: var(--gold2); }
-.check .handle { color: var(--mid); font-size: 12px; }
-/* SUBMIT */
+.check label { font-size: 14px; color: var(--ink); line-height: 1.45; cursor: pointer; }
+.check a { color: var(--brass); font-weight: 500; text-decoration: underline; text-underline-offset: 2px; }
+.handle { color: var(--muted); font-size: 12px; }
 .submit-btn {
   width: 100%;
-  background: var(--gold);
-  border: none; border-radius: 3px;
-  color: var(--navy);
+  background: var(--brass);
+  color: #fff;
+  border: none;
+  border-radius: 4px;
   font-family: 'Inter', sans-serif;
-  font-size: 13px; font-weight: 700; letter-spacing: 2px;
-  text-transform: uppercase;
-  padding: 16px; cursor: pointer; margin-top: 8px;
-  transition: background 0.2s, transform 0.1s, opacity 0.2s;
+  font-size: 14px; font-weight: 600; letter-spacing: 0.4px;
+  padding: 15px 18px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
 }
-.submit-btn:hover { background: var(--gold2); }
+.submit-btn:hover { background: #6F5A42; }
 .submit-btn:active { transform: scale(0.99); }
 .submit-btn:disabled { cursor: default; opacity: 0.7; }
-.form-foot {
-  font-size: 11px; color: rgba(138, 155, 176, 0.6);
-  text-align: center; margin-top: 14px; line-height: 1.5;
+.form-foot { font-size: 12px; color: var(--muted); margin-top: 14px; line-height: 1.55; }
+.checklist-error {
+  display: none;
+  font-size: 12px;
+  color: #8B3A2F;
+  margin: 0 0 12px;
+  line-height: 1.45;
 }
-/* SUCCESS */
-.success-state { display: none; text-align: center; padding: 24px 0; }
+.checklist-error.visible { display: block; }
+.success-state { display: none; text-align: center; padding: 28px 8px; }
 .success-state.visible { display: block; }
 .form-fields.hidden { display: none; }
-.success-icon { font-size: 40px; margin-bottom: 16px; }
+.success-icon { font-size: 36px; margin-bottom: 14px; color: var(--brass); }
 .success-title {
   font-family: 'Playfair Display', serif;
-  font-size: 24px; font-weight: 700; color: var(--warm); margin-bottom: 8px;
+  font-size: 26px; font-weight: 700; color: var(--ink); margin-bottom: 10px;
 }
-.success-sub { font-size: 14px; color: var(--mid); line-height: 1.6; }
-/* FOOTER */
-footer { border-top: 1px solid rgba(138, 155, 176, 0.1); padding: 32px; text-align: center; }
-.footer-name { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; color: var(--warm); margin-bottom: 4px; }
-.footer-brokerage { font-size: 12px; color: var(--mid); letter-spacing: 1px; text-transform: uppercase; }
-@media (max-width: 480px) {
-  .hero { padding: 48px 24px 20px; }
-  .form-wrap { padding: 20px 24px 64px; }
-  .form-card { padding: 26px 22px; }
-  .row2 { grid-template-columns: 1fr; gap: 0; }
+.success-sub { font-size: 14px; color: var(--muted); line-height: 1.65; }
+footer {
+  border-top: 1px solid var(--line);
+  padding: 28px;
+  text-align: center;
 }
-@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+.footer-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 16px; color: var(--ink); margin-bottom: 4px;
+}
+.footer-brokerage { font-size: 12px; color: var(--muted); }
+.footer-links { margin-top: 10px; font-size: 12px; }
+.footer-links a { color: var(--brass); text-decoration: none; }
 </style>
+<!-- REFERRAL-SHIP-20260922-125539 -->
 </head>
-
 <body>
 
-<!-- HERO -->
 <section class="hero">
   <div class="hero-inner">
     <p class="eyebrow">Serdar+Partners at Compass</p>
     <h1 class="hero-headline">Referral partner intake.</h1>
     <p class="hero-lead">
-      You reached out to me about sending referrals. I work with a <strong>small number</strong> of partners &mdash;
-      and only the ones willing to be upfront about their fees and do a little homework first. Fill this out completely,
-      and if it's a fit, we'll talk.
+      I get a lot of these calls. I only work with people who fill this out before our first call —
+      including following, liking, or subscribing on <strong>every</strong> channel listed below.
+      If that isn’t done, we’re not a fit.
     </p>
   </div>
 </section>
 
-<!-- FORM -->
 <div class="form-wrap">
   <div class="form-card">
     <div class="form-fields" id="formFields">
       <h2 class="form-headline">A few questions first.</h2>
-      <p class="form-sub">Two minutes. The more complete your answers, the faster I can tell you whether we're a fit.</p>
+      <p class="form-sub">Two minutes. Incomplete answers — especially incomplete socials — don’t get a call.</p>
 
       <form id="partnerForm" onsubmit="handleSubmit(event)">
         <div class="row2">
@@ -230,68 +230,73 @@ footer { border-top: 1px solid rgba(138, 155, 176, 0.1); padding: 32px; text-ali
           <input type="tel" id="phone" name="phone" placeholder="Your direct cell" required autocomplete="tel" />
         </div>
 
-        <!-- COMMITMENT CHECKLIST -->
-        <div class="checklist">
-          <p class="checklist-title">Before we talk, follow me where I actually show up.</p>
-          <p class="checklist-sub">You found my number &mdash; finding my profiles is the easy part. Follow, like, or subscribe, then tick each one.</p>
+        <div class="checklist" id="socialChecklist">
+          <p class="checklist-title">Required — follow every account before you submit.</p>
+          <p class="checklist-sub">Open each link, follow or connect for real, then check the box. Checking a box you didn’t do wastes both our time.</p>
 
           <div class="check">
-            <input type="checkbox" id="c_ig" name="connected" value="Instagram" />
+            <input type="checkbox" id="c_ig" name="connected" value="Instagram" required />
             <label for="c_ig">Follow on <a href="https://www.instagram.com/geoffreyserdar/" target="_blank" rel="noopener">Instagram</a> <span class="handle">@geoffreyserdar</span></label>
           </div>
           <div class="check">
-            <input type="checkbox" id="c_li" name="connected" value="LinkedIn" />
+            <input type="checkbox" id="c_li" name="connected" value="LinkedIn" required />
             <label for="c_li">Connect on <a href="https://www.linkedin.com/in/geoffreyserdar/" target="_blank" rel="noopener">LinkedIn</a> <span class="handle">/in/geoffreyserdar</span></label>
           </div>
           <div class="check">
-            <input type="checkbox" id="c_yt" name="connected" value="YouTube" />
+            <input type="checkbox" id="c_yt" name="connected" value="YouTube" required />
             <label for="c_yt">Subscribe on <a href="https://www.youtube.com/@RealTalkGeo" target="_blank" rel="noopener">YouTube</a> <span class="handle">@RealTalkGeo</span></label>
           </div>
           <div class="check">
-            <input type="checkbox" id="c_fb" name="connected" value="Facebook (personal)" />
+            <input type="checkbox" id="c_fb" name="connected" value="Facebook (personal)" required />
             <label for="c_fb">Add on <a href="https://www.facebook.com/geoffrey.serdar/" target="_blank" rel="noopener">Facebook</a> <span class="handle">personal</span></label>
           </div>
           <div class="check">
-            <input type="checkbox" id="c_fbp" name="connected" value="Facebook Page" />
+            <input type="checkbox" id="c_fbp" name="connected" value="Facebook Page" required />
             <label for="c_fbp">Like the <a href="https://www.facebook.com/serdarpartners" target="_blank" rel="noopener">Serdar+Partners</a> <span class="handle">Facebook Page</span></label>
           </div>
           <div class="check">
-            <input type="checkbox" id="c_x" name="connected" value="X" />
+            <input type="checkbox" id="c_x" name="connected" value="X" required />
             <label for="c_x">Follow on <a href="https://x.com/RealTalkGeo" target="_blank" rel="noopener">X</a> <span class="handle">@RealTalkGeo</span></label>
           </div>
         </div>
+        <p class="checklist-error" id="checklistError">Check every social box after you’ve actually followed each account.</p>
 
         <button type="submit" class="submit-btn">Submit for review</button>
       </form>
-      <p class="form-foot">Submitting doesn't guarantee a partnership. If your answers are incomplete, you may not hear back.</p>
+      <p class="form-foot">Submitting doesn’t guarantee a partnership. Incomplete socials = no call.</p>
     </div>
 
     <div class="success-state" id="successState">
       <div class="success-icon">&check;</div>
-      <h3 class="success-title">Got it.</h3>
-      <p class="success-sub">If it's a fit, Geoffrey will reach out.<br />Complete answers move to the front of the line.</p>
+      <h3 class="success-title">Received.</h3>
+      <p class="success-sub">Incomplete socials = no call.<br />If everything checks out and it’s a fit, Geoffrey will reach out.</p>
     </div>
   </div>
 </div>
 
-<!-- FOOTER -->
 <footer>
   <p class="footer-name">Geoffrey Serdar</p>
   <p class="footer-brokerage">Serdar+Partners at Compass</p>
+  <p class="footer-links"><a href="/local-log/">Local Log</a></p>
 </footer>
 
 <script>
-// This page is OUTSIDE the lead funnel on purpose:
-//  - no Google Ads conversion fire (these are not leads)
-//  - no Twilio alert
-//  - submissions are flagged so they never get mistaken for a real lead or imported to Compass
+// Outside the lead funnel on purpose: no GA4 conversion, no Twilio, flagged formType.
 const FORM_ID = 'mpqerwwk';
+const SOCIAL_IDS = ['c_ig','c_li','c_yt','c_fb','c_fbp','c_x'];
 
 function setSubmitting(on) {
   var btn = document.querySelector('.submit-btn');
   if (!btn) return;
   btn.disabled = !!on;
   btn.textContent = on ? 'Submitting…' : 'Submit for review';
+}
+
+function allSocialsChecked() {
+  return SOCIAL_IDS.every(function (id) {
+    var el = document.getElementById(id);
+    return el && el.checked;
+  });
 }
 
 function gatherConnected() {
@@ -309,23 +314,37 @@ function showSuccess() {
 
 async function handleSubmit(e) {
   e.preventDefault();
-  setSubmitting(true);
+  var err = document.getElementById('checklistError');
+  if (!allSocialsChecked()) {
+    if (err) err.classList.add('visible');
+    var box = document.getElementById('socialChecklist');
+    if (box) box.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    return;
+  }
+  if (err) err.classList.remove('visible');
 
+  var ok = window.confirm(
+    'Are you sure you subscribed to every social media account listed above?'
+  );
+  if (!ok) return;
+
+  setSubmitting(true);
   var get = function (id) { var el = document.getElementById(id); return el ? el.value.trim() : ''; };
   var connected = gatherConnected();
 
   var payload = {
-    formType: 'referral-partner-intake',          // <- marker so the bridge / inbox never treats this as a lead
+    formType: 'referral-partner-intake',
     _subject: '🚩 Referral Partner Intake — ' + (get('name') || 'unknown') + ' (' + (get('company') || 'no company') + ')',
-    name:         get('name'),
-    location:     get('location'),
-    company:      get('company'),
-    startupCost:  get('startupCost'),
-    costPerLead:  get('costPerLead'),
-    leadSource:   get('leadSource'),
-    phone:        get('phone'),
-    connectedOn:  connected.length ? connected.join(', ') : 'none ticked',
-    connectedCount: connected.length
+    name: get('name'),
+    location: get('location'),
+    company: get('company'),
+    startupCost: get('startupCost'),
+    costPerLead: get('costPerLead'),
+    leadSource: get('leadSource'),
+    phone: get('phone'),
+    connectedOn: connected.length ? connected.join(', ') : 'none ticked',
+    connectedCount: connected.length,
+    socialConfirm: 'yes-confirmed-all-six'
   };
 
   try {
@@ -334,7 +353,7 @@ async function handleSubmit(e) {
       headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
       body: JSON.stringify(payload)
     });
-  } catch (err) { /* fail open — still show success so we don't tip our hand */ }
+  } catch (err2) { /* keep success UX so we don't tip our hand */ }
 
   setSubmitting(false);
   showSuccess();
