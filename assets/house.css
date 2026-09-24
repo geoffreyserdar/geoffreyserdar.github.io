@@ -1,0 +1,173 @@
+/* house.css — shared closer chrome from /workspace/house-chrome/HOUSE-CHROME.md
+   Locked Geoffrey 2026-09-20; shared sheet 2026-09-24.
+   Link as /assets/house.css on every new consumer page. */
+
+:root {
+  --house-page: #FAF7EF;
+  --house-card: #ECE4D4;
+  --house-tuxedo: #1F201C;
+  --house-mid: #4D4839;
+  --house-brass: #8A6A3F;
+  --house-brass-soft: #C9A877;
+  --house-closer: #1D1E1A;
+  --house-footer: #2C2D27;
+}
+
+/* ---- Reach band (dark charcoal closer) ---- */
+.reach-band {
+  background: #1D1E1A;
+  color: #ECE4D4;
+  padding: 72px 32px 64px;
+  margin-top: 64px;
+  text-align: center;
+  box-shadow: 0 0 0 100vmax #1D1E1A;
+  clip-path: inset(0 -100vmax);
+}
+.reach-label {
+  display: block;
+  font-family: Inter, system-ui, sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #A9A192;
+  margin: 0 0 8px;
+}
+.reach-phone {
+  display: inline-block;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(28px, 7vw, 40px);
+  font-weight: 700;
+  color: #C9A877;
+  text-decoration: none;
+  letter-spacing: 0.5px;
+  line-height: 1.2;
+}
+.reach-phone:hover { color: #E0C79B; }
+.reach-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+.reach-action {
+  flex: 0 1 auto;
+  min-width: 220px;
+  text-align: center;
+  border: 1px solid rgba(201,168,119,.55);
+  border-radius: 3px;
+  color: #C9A877;
+  font-family: Inter, system-ui, sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 14px 20px;
+  transition: background 0.2s, color 0.2s;
+  background: transparent;
+}
+.reach-action:hover { background: #C9A877; color: #1D1E1A; }
+
+/* ---- Footer (dark charcoal) ---- */
+footer.site-foot,
+footer {
+  background: #2C2D27;
+  color: #A49C89;
+  border-top: 1px solid rgba(201,168,119,.28);
+  padding: 40px 32px 36px;
+  text-align: center;
+  box-shadow: 0 0 0 100vmax #2C2D27;
+  clip-path: inset(0 -100vmax);
+}
+footer.site-foot .footer-name,
+footer .footer-name {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: #ECE4D4;
+  margin: 0 0 6px;
+}
+footer.site-foot .footer-brokerage,
+footer .footer-brokerage {
+  font-family: Inter, system-ui, sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #A49C89;
+  margin: 0 0 22px;
+}
+footer.site-foot .footer-contact,
+footer .footer-contact {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px 28px;
+  margin: 0 0 14px;
+}
+footer.site-foot .footer-contact a,
+footer .footer-contact a {
+  font-size: 13px;
+  color: #C9A877;
+  text-decoration: none;
+  letter-spacing: 0.3px;
+}
+footer.site-foot .footer-contact a:hover,
+footer .footer-contact a:hover { color: #E0C79B; }
+footer.site-foot .footer-nav,
+footer .footer-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px 22px;
+  margin: 0 0 18px;
+}
+footer.site-foot .footer-nav a,
+footer .footer-nav a {
+  font-size: 13px;
+  color: #C9A877;
+  text-decoration: none;
+}
+footer.site-foot .footer-nav a:hover,
+footer .footer-nav a:hover { color: #E0C79B; }
+footer.site-foot .footer-reviews,
+footer .footer-reviews {
+  display: inline-block;
+  margin: 0 0 18px;
+  font-size: 14px;
+  color: #ECE4D4;
+  text-decoration: none;
+}
+footer.site-foot .footer-reviews .star,
+footer .footer-reviews .star { color: #C9A877; margin-right: 6px; }
+footer.site-foot .footer-legal,
+footer .footer-legal {
+  font-size: 11px;
+  color: #8A8375;
+  line-height: 1.7;
+  margin: 0;
+}
+footer.site-foot .footer-legal a,
+footer .footer-legal a { color: #8A8375; text-decoration: none; }
+footer.site-foot .footer-legal a:hover,
+footer .footer-legal a:hover { color: #C9A877; }
+
+/* ---- Brown solid primary (real page action only) ---- */
+.cta-primary {
+  display: inline-block;
+  background: #8A6A3F;
+  color: #FAF7EF;
+  font-family: Inter, system-ui, sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 16px 34px;
+  border-radius: 3px;
+  border: 0;
+  transition: background 0.2s, filter 0.15s;
+}
+.cta-primary:hover { filter: brightness(1.08); color: #FAF7EF; }
