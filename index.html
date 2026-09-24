@@ -417,6 +417,7 @@ footer .footer-legal, footer .footer-legal a{ color:#8A8375; }
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://geoffreyserdar.com/topics/og-card.png">
 
+<link rel="stylesheet" href="/assets/house.css" />
 </head>
 
 <body>
@@ -562,30 +563,39 @@ footer .footer-legal, footer .footer-legal a{ color:#8A8375; }
 </div>
 
 <!-- FOOTER -->
-<footer>
+<!-- HOUSE:REACH-BAND -->
+<div class="reach-band" role="region" aria-label="Call or text Geoffrey">
+  <span class="reach-label">Tap to call &mdash; or text</span>
+  <a class="reach-phone" href="tel:+19522583100">952-258-3100</a>
+  <div class="reach-actions">
+    <a class="reach-action" href="sms:+19522583100">Text Geoffrey</a>
+    <a class="reach-action" href="tel:+19522583100">Call Geoffrey</a>
+  </div>
+</div>
+<!-- /HOUSE:REACH-BAND -->
+<!-- HOUSE:FOOTER -->
+<footer class="site-foot">
   <p class="footer-name">Geoffrey Serdar</p>
   <p class="footer-brokerage">Serdar+Partners at Compass</p>
   <div class="footer-contact">
-    <a href="tel:9522583100">952-258-3100</a>
+    <a href="tel:+19522583100">952-258-3100</a>
     <a href="mailto:geoffrey@serdarpartnersrealty.com">geoffrey@serdarpartnersrealty.com</a>
-    <a href="https://www.compass.com/agents/geoffrey-serdar/" target="_blank">Compass Profile</a>
-    <a href="/guides/">Lake Minnetonka Guides</a>
-    <a href="/topics/?utm_source=homepage&amp;utm_medium=footer">Topics</a>
-    <a href="/minnetonka/?utm_source=homepage&amp;utm_medium=footer">City of Minnetonka</a>
-    <a href="/excelsior/?utm_source=homepage&amp;utm_medium=footer">Excelsior</a>
-    <a href="/wayzata/?utm_source=homepage&amp;utm_medium=footer">Wayzata</a>
-    <a href="/orono/?utm_source=homepage&amp;utm_medium=footer">Orono</a>
-    <a href="/deephaven/?utm_source=homepage&amp;utm_medium=footer">Deephaven</a>
-    <a href="/tonka-bay/?utm_source=homepage&amp;utm_medium=footer">Tonka Bay</a>
-    <a href="/mound/?utm_source=homepage&amp;utm_medium=footer">Mound</a>
-    <a href="/refer/">Refer a Friend</a>
-    <a href="/reviews/">★ 4.8 · 62 Reviews</a>
   </div>
+  <nav class="footer-nav" aria-label="Footer">
+    <a href="https://www.compass.com/agents/geoffrey-serdar/" rel="noopener noreferrer">Compass Profile</a>
+    <a href="/guides/">Lake Minnetonka Guides</a>
+    <a href="/minnetonka/">City of Minnetonka</a>
+    <a href="/excelsior/">Excelsior</a>
+    <a href="/victoria/">Victoria</a>
+    <a href="/refer/">Refer a Friend</a>
+  </nav>
+  <a class="footer-reviews" href="/reviews/"><span class="star" aria-hidden="true">★</span>4.8 · 62 Reviews</a>
   <p class="footer-legal">
-    Serdar+Partners at Compass<br />
-    &copy; 2026 Geoffrey Serdar. All rights reserved. &nbsp;·&nbsp; <a href="/privacy">Privacy Policy</a>
+    Serdar+Partners at Compass<br>
+    &copy; 2026 Geoffrey Serdar. All rights reserved. · <a href="/privacy">Privacy Policy</a>
   </p>
 </footer>
+<!-- /HOUSE:FOOTER -->
 
 <script>
 // Capture lead source on page load (UTM / Google Ads / referrer)
