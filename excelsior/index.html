@@ -978,7 +978,15 @@ async function handleSubmit(e) {
     window.__listingMagnetStep = 1;
 
     setChecking(true);
-    var verdict = await checkNumber('', phone, 'Excelsior monthly listing report');
+    var _srcBits = [];
+    try {
+      if (LEAD_SOURCE.utm_source) _srcBits.push(LEAD_SOURCE.utm_source);
+      if (LEAD_SOURCE.utm_medium) _srcBits.push(LEAD_SOURCE.utm_medium);
+      if (LEAD_SOURCE.utm_campaign) _srcBits.push(LEAD_SOURCE.utm_campaign);
+      if (LEAD_SOURCE.gclid) _srcBits.push('gclid');
+    } catch (_s) {}
+    var _src = _srcBits.length ? _srcBits.join('/') : 'direct';
+    var verdict = await checkNumber('', phone, 'Excelsior monthly listing report | ' + _src);
     setChecking(false);
     if (verdict && verdict.valid === false) { showPhoneError(); return; }
 
