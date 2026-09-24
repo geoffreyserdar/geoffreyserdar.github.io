@@ -916,13 +916,13 @@ footer.site-foot .footer-legal a:hover { color: #C9A877; }
   }
 
   var LEAD_ALERT_URL = 'https://lead-alert-4343.twil.io/lead-alert';
-  var LEAD_ALERT_SECRET = 'slx_9f3Kqe2R';
+
 
   function checkNumber(name, phone) {
     var controller = new AbortController();
     var timer = setTimeout(function () { controller.abort(); }, 2500);
     var data = new URLSearchParams({
-      secret: LEAD_ALERT_SECRET,
+
       name: name,
       phone: phone,
       interest: 'weekly_lake_sales',

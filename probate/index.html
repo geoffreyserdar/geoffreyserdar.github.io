@@ -893,7 +893,7 @@ function isValidPhone(raw) {
 }
 
 const LEAD_ALERT_URL    = 'https://lead-alert-4343.twil.io/lead-alert';
-const LEAD_ALERT_SECRET = 'slx_9f3Kqe2R';
+
 const FORM_ID           = 'mpqerwwk';
 
 /* CXLP bridge: fetch→Formspree skips native form submit, so CRM pixel never sees leads.
@@ -1012,7 +1012,7 @@ document.getElementById('probate-submit').addEventListener('click', async functi
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        secret: LEAD_ALERT_SECRET,
+
         name: nameVal, phone: phoneVal, interest: 'Probate lead',
         site: window.location.hostname + window.location.pathname,
         utm_source:   utmParams.get('utm_source')   || 'direct',

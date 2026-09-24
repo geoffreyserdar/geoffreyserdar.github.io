@@ -762,7 +762,7 @@ function clearPhoneError() {
 function isValidEmail(raw) {
   var s = String(raw || '').trim();
   if (!s) return true; // empty is ok; required-contact rule handled separately
-  return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(s);
+  return /^[^\s@]+@[^\s@]+\.[^\s@]{2}$/.test(s);
 }
 function showEmailError() {
   var err = document.getElementById('emailError');
@@ -808,7 +808,7 @@ function setChecking(on) {
 // LAYER 2 — carrier check via the Twilio Function. Also fires the speed-to-lead
 // text on a good number. Fails OPEN on timeout/error so a real lead is never lost.
 const LEAD_ALERT_URL = 'https://lead-alert-4343.twil.io/lead-alert';
-const LEAD_ALERT_SECRET = 'slx_9f3Kqe2R';
+
 const INTEREST_DETAIL = {
   'showing': 'Wants to book a private showing - Ready, book it, get the appointment',
   'trade': 'Runs a trade / needs the shop - Target buyer, talk shop specs + financing, high intent',
@@ -822,7 +822,7 @@ function checkNumber(name, phone, interest) {
   var controller = new AbortController();
   var timer = setTimeout(function () { controller.abort(); }, 2500);
   var data = new URLSearchParams({
-    secret: LEAD_ALERT_SECRET,
+
     name: name, phone: phone, interest: interest,
     site: window.location.hostname + window.location.pathname,
     local: PAGE_LOCAL,

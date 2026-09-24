@@ -671,7 +671,7 @@ const RAZIEL_CONFIG = {
   adsAccount:      'AW-17849235035',
   conversionLabel: 'jRxICLmDpr0cENvslr9C',     // Google Ads "Submit lead form (1)"
   twilioUrl:       'https://lead-alert-4343.twil.io/lead-alert',
-  twilioSecret:    'slx_9f3Kqe2R',
+
   formspreeId:     'mpqerwwk',
   source:          'keep-or-sell',             // <-- tags every lead from this page
   ctaLabel:        'Send it to Geoffrey'
@@ -874,7 +874,7 @@ function checkNumber(name, phone, email) {
   var controller = new AbortController();
   var timer = setTimeout(function () { controller.abort(); }, 2500);
   var data = new URLSearchParams({
-    secret: RAZIEL_CONFIG.twilioSecret,
+
     name: name, phone: phone, email: email,
     interest: 'keep-or-sell (' + talkContext + ')',
     verdict: ((lastCalc && lastCalc.verdict) ? lastCalc.verdict : ''),
@@ -979,7 +979,7 @@ function submitToFormspree(name, phone, email) {
 
 /* ---- email validation (simple + permissive; fails friendly) ---- */
 function isValidEmail(raw) {
-  return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(String(raw || '').trim());
+  return /^[^\s@]+@[^\s@]+\.[^\s@]{2}$/.test(String(raw || '').trim());
 }
 function showEmailError() {
   var err = document.getElementById('emailError'), inp = document.getElementById('email');

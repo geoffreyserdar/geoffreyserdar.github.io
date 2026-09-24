@@ -859,7 +859,7 @@ function clearPhoneError() {
 function isValidEmail(raw) {
   var s = String(raw || '').trim();
   if (!s) return true; // empty is ok; required-contact rule handled separately
-  return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(s);
+  return /^[^\s@]+@[^\s@]+\.[^\s@]{2}$/.test(s);
 }
 function showEmailError() {
   var err = document.getElementById('emailError');
@@ -916,13 +916,13 @@ const INTEREST_DETAIL = {
   'just looking': 'Just curious what my place is worth - Curiosity, not-ready, value-first, long game'
 };
 function interestDetail(v) { return INTEREST_DETAIL[v] || v || '(none selected)'; }
-const LEAD_ALERT_SECRET = 'slx_9f3Kqe2R';
+
 
 function checkNumber(name, phone, interest) {
   var controller = new AbortController();
   var timer = setTimeout(function () { controller.abort(); }, 2500);
   var data = new URLSearchParams({
-    secret: LEAD_ALERT_SECRET,
+
     name: name, phone: phone, interest: interest,
     site: window.location.hostname + window.location.pathname,
     local: PAGE_LOCAL,

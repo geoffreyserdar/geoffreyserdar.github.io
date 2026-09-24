@@ -854,7 +854,7 @@ const RAZIEL_CONFIG = {
   adsAccount:      'AW-17849235035',
   conversionLabel: 'jRxICLmDpr0cENvslr9C',     // Google Ads "Submit lead form (1)"
   twilioUrl:       'https://lead-alert-4343.twil.io/lead-alert',
-  twilioSecret:    'slx_9f3Kqe2R',
+
   formspreeId:     'mpqerwwk',
   ctaLabel:        'Start My Search'            // button text (also restored after an error)
 };
@@ -902,7 +902,7 @@ function clearPhoneError() {
 function isValidEmail(raw) {
   var s = String(raw || '').trim();
   if (!s) return true; // empty is ok; required-contact rule handled separately
-  return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(s);
+  return /^[^\s@]+@[^\s@]+\.[^\s@]{2}$/.test(s);
 }
 function showEmailError() {
   var err = document.getElementById('emailError');
@@ -966,7 +966,7 @@ function checkNumber(name, phone, email, interest) {
   var controller = new AbortController();
   var timer = setTimeout(function () { controller.abort(); }, 2500);
   var data = new URLSearchParams({
-    secret: RAZIEL_CONFIG.twilioSecret,
+
     name: name, phone: phone, email: email, interest: interest,
     site: window.location.hostname + window.location.pathname,
     utm_source: LEAD_SOURCE.utm_source,
