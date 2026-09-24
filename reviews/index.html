@@ -177,7 +177,33 @@ h2 { font-weight: 700; }
 .brand { font-weight: 700; }
 .rating .num { font-weight: 700; }
 .vid .cap { font-weight: 700; }
+
+/* House video poster fix 2026-09-24 — black cover + YT thumb + SVG play (no iOS emoji) */
+.video-frame { background: #000 !important; }
+.video-poster {
+  background-color: #000 !important;
+  background-image: linear-gradient(rgba(0,0,0,.35), rgba(0,0,0,.35)),
+                    url('https://i.ytimg.com/vi/_KmVW7CgXkg/maxresdefault.jpg') !important;
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+}
+.video-play {
+  width: 66px; height: 66px; border-radius: 50%;
+  background: var(--gold, #8A6A3F);
+  color: transparent;
+  font-size: 0 !important;
+  padding-left: 0 !important;
+  display: flex; align-items: center; justify-content: center;
+}
+.video-play svg { display: block; margin-left: 2px; }
+.video-poster-label {
+  color: #FAF7EF !important;
+  text-shadow: 0 1px 12px rgba(0,0,0,.75);
+}
+
 </style>
+<link rel="stylesheet" href="/assets/house.css" />
 </head>
 <body>
 
@@ -259,22 +285,39 @@ h2 { font-weight: 700; }
   </div>
 </div>
 
-<footer>
-  <a class="fbadge" href="https://www.google.com/search?q=Geoffrey+Serdar+Lake+Minnetonka+Realtor" target="_blank" rel="noopener">
-    <span style="color:var(--gold);letter-spacing:2px">★★★★★</span> 4.8 · 62 Google reviews
-  </a>
-  <nav>
-    <a href="/">Home</a>
-    <a href="/keep-or-sell/">Keep or Sell</a>
-    <a href="/guides/">Lake Minnetonka Guides</a>
-    <a href="/refer/">Refer a Friend</a>
-    <a href="/book/">Book a Call</a>
-  </nav>
-  <div class="legal">
-    Geoffrey Serdar · REALTOR® · MN License #40273120<br>
-    Serdar+Partners at Compass · Lake Minnetonka &amp; Carver County, Minnesota · <a href="tel:9522583100" style="color:#C4BCA8">952-258-3100</a>
+<!-- HOUSE:REACH-BAND -->
+<div class="reach-band" role="region" aria-label="Call or text Geoffrey">
+  <span class="reach-label">Tap to call &mdash; or text</span>
+  <a class="reach-phone" href="tel:+19522583100">952-258-3100</a>
+  <div class="reach-actions">
+    <a class="reach-action" href="sms:+19522583100">Text Geoffrey</a>
+    <a class="reach-action" href="tel:+19522583100">Call Geoffrey</a>
   </div>
+</div>
+<!-- /HOUSE:REACH-BAND -->
+<!-- HOUSE:FOOTER -->
+<footer class="site-foot">
+  <p class="footer-name">Geoffrey Serdar</p>
+  <p class="footer-brokerage">Serdar+Partners at Compass</p>
+  <div class="footer-contact">
+    <a href="tel:+19522583100">952-258-3100</a>
+    <a href="mailto:geoffrey@serdarpartnersrealty.com">geoffrey@serdarpartnersrealty.com</a>
+  </div>
+  <nav class="footer-nav" aria-label="Footer">
+    <a href="https://www.compass.com/agents/geoffrey-serdar/" rel="noopener noreferrer">Compass Profile</a>
+    <a href="/guides/">Lake Minnetonka Guides</a>
+    <a href="/minnetonka/">City of Minnetonka</a>
+    <a href="/excelsior/">Excelsior</a>
+    <a href="/victoria/">Victoria</a>
+    <a href="/refer/">Refer a Friend</a>
+  </nav>
+  <a class="footer-reviews" href="/reviews/"><span class="star" aria-hidden="true">★</span>4.8 · 62 Reviews</a>
+  <p class="footer-legal">
+    Serdar+Partners at Compass<br>
+    &copy; 2026 Geoffrey Serdar. All rights reserved. · <a href="/privacy">Privacy Policy</a>
+  </p>
 </footer>
+<!-- /HOUSE:FOOTER -->
 
 <script type="application/ld+json">
 {

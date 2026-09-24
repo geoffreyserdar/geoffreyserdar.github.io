@@ -170,6 +170,7 @@ footer { padding: 48px 24px 64px; text-align: center; max-width: 640px; margin: 
 .bay-kv-value strong { color: var(--warm); font-weight: 600; }
 .bay-card-note { font-size: 13px; color: var(--soft); line-height: 1.45; }
 </style>
+<link rel="stylesheet" href="/assets/house.css" />
 </head>
 <body>
 
@@ -702,37 +703,39 @@ footer { padding: 48px 24px 64px; text-align: center; max-width: 640px; margin: 
     <a href="/lake-minnetonka-weekly/?utm_source=expensive_homes&amp;utm_medium=soft_door">Weekly closed sales</a> ·
     <a href="/local-log/?utm_source=expensive_homes&amp;utm_medium=soft_door">Local Log</a>
   </p>
-<div class="reach-band">
-  <p class="reach-label">Talk when you’re ready</p>
-  <h2>Call when it would actually help.</h2>
-  <p>If you’re trying to make sense of a lake house, an estate, or what something is really worth — I answer my own phone.</p>
+<!-- HOUSE:REACH-BAND -->
+<div class="reach-band" role="region" aria-label="Call or text Geoffrey">
+  <span class="reach-label">Tap to call &mdash; or text</span>
   <a class="reach-phone" href="tel:+19522583100">952-258-3100</a>
-  <div>
-    <a class="reach-action" href="tel:+19522583100">Call Geoffrey</a>
+  <div class="reach-actions">
     <a class="reach-action" href="sms:+19522583100">Text Geoffrey</a>
-    <a class="reach-action" href="#captureForm">Leave your number</a>
+    <a class="reach-action" href="tel:+19522583100">Call Geoffrey</a>
   </div>
 </div>
-
-<footer>
+<!-- /HOUSE:REACH-BAND -->
+<!-- HOUSE:FOOTER -->
+<footer class="site-foot">
   <p class="footer-name">Geoffrey Serdar</p>
-  <p class="footer-brokerage">Serdar+Partners at Compass · 360+ Families Served</p>
+  <p class="footer-brokerage">Serdar+Partners at Compass</p>
   <div class="footer-contact">
     <a href="tel:+19522583100">952-258-3100</a>
     <a href="mailto:geoffrey@serdarpartnersrealty.com">geoffrey@serdarpartnersrealty.com</a>
-    <a href="https://www.compass.com/agents/geoffrey-serdar/" target="_blank" rel="noopener">Compass Profile</a>
-    <a href="/reviews/">★ 4.8 · 62 Reviews</a>
-    <a href="/lake-minnetonka-homes/?utm_source=expensive_homes&amp;utm_medium=footer">Lake Minnetonka homes</a>
-    <a href="/minnetonka/?utm_source=expensive_homes&amp;utm_medium=footer">Minnetonka</a>
-    <a href="/topics/?utm_source=expensive_homes&amp;utm_medium=footer">Topics</a>
-      <a href="/local-log/">Local Log</a>
   </div>
+  <nav class="footer-nav" aria-label="Footer">
+    <a href="https://www.compass.com/agents/geoffrey-serdar/" rel="noopener noreferrer">Compass Profile</a>
+    <a href="/guides/">Lake Minnetonka Guides</a>
+    <a href="/minnetonka/">City of Minnetonka</a>
+    <a href="/excelsior/">Excelsior</a>
+    <a href="/victoria/">Victoria</a>
+    <a href="/refer/">Refer a Friend</a>
+  </nav>
+  <a class="footer-reviews" href="/reviews/"><span class="star" aria-hidden="true">★</span>4.8 · 62 Reviews</a>
   <p class="footer-legal">
-    Serving Lake Minnetonka &amp; lake towns · Licensed in Minnesota · Serdar+Partners at Compass<br />
-    Numbers on this page come from public Compass listings and press reporting. List prices and sold prices are kept separate. Lake Minnetonka only.<br />
-    &copy; 2026 Geoffrey Serdar. All rights reserved.
+    Serdar+Partners at Compass<br>
+    &copy; 2026 Geoffrey Serdar. All rights reserved. · <a href="/privacy">Privacy Policy</a>
   </p>
 </footer>
+<!-- /HOUSE:FOOTER -->
 
 <script>
 const PAGE_LOCAL = 'Lake Minnetonka Expensive Homes';
