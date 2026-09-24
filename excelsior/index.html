@@ -251,14 +251,6 @@ body {
 }
 .spec-title { font-size: 13px; font-weight: 600; color: var(--warm); margin-bottom: 6px; letter-spacing: 0.3px; }
 .spec-desc { font-size: 12px; color: var(--mid); line-height: 1.5; }
-/* FOOTER */
-footer { border-top: 1px solid rgba(77, 72, 57, 0.1); padding: 40px 32px; text-align: center; }
-.footer-name { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; color: var(--warm); margin-bottom: 4px; }
-.footer-brokerage { font-size: 12px; color: var(--mid); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 20px; }
-.footer-contact { display: flex; justify-content: center; gap: 32px; flex-wrap: wrap; }
-.footer-contact a { font-size: 13px; color: var(--gold); text-decoration: none; letter-spacing: 0.3px; }
-.footer-contact a:hover { color: var(--gold2); }
-.footer-legal { font-size: 11px; color: rgba(77, 72, 57, 0.35); margin-top: 24px; line-height: 1.6; }
 /* RESPONSIVE */
 @media (max-width: 480px) {
   .hero { padding: 48px 24px 40px; }
@@ -305,42 +297,8 @@ footer { border-top: 1px solid rgba(77, 72, 57, 0.1); padding: 40px 32px; text-a
   .keepsell { padding-left: 24px; padding-right: 24px; }
   .keepsell-card { padding: 32px 24px; }
 }
-
-/* Aug 18 — dark close, matching the reviews page */
-.reach-band{
-  background:#1D1E1A; color:#ECE4D4;
-  padding:72px 32px 64px; margin-top:64px;
-  box-shadow:0 0 0 100vmax #1D1E1A; clip-path:inset(0 -100vmax);
-}
-.reach-band .reach-label{ color:#A9A192; }
-.reach-band .reach-phone{ color:#C9A877; }
-.reach-band .reach-phone:hover{ color:#E0C79B; }
-.reach-band .reach-action{ border-color:rgba(201,168,119,.55); color:#C9A877; }
-.reach-band .reach-action:hover{ background:#C9A877; color:#1D1E1A; }
-footer{
-  background:#2C2D27; color:#A49C89; border-top:1px solid rgba(201,168,119,.28);
-  box-shadow:0 0 0 100vmax #2C2D27; clip-path:inset(0 -100vmax);
-}
-footer .footer-name{ color:#ECE4D4; }
-footer .footer-brokerage{ color:#A49C89; }
-footer .footer-contact a{ color:#C9A877; }
-footer .footer-contact a:hover{ color:#E0C79B; }
-footer .footer-legal, footer .footer-legal a{ color:#8A8375; }
 .field input, .field select { border:1px solid #B9AC8E; background:#FAF7EF; }
 .field input::placeholder { color:#6E6752; opacity:1; }
-
-/* Aug 18 — dark close + form legibility */
-.reach-band{ background:#1D1E1A; color:#ECE4D4; padding:72px 32px 64px; margin-top:64px;
-  box-shadow:0 0 0 100vmax #1D1E1A; clip-path:inset(0 -100vmax); }
-.reach-band .reach-label{ color:#A9A192; }
-.reach-band .reach-phone{ color:#C9A877; }
-.reach-band .reach-action{ border-color:rgba(201,168,119,.55); color:#C9A877; }
-.reach-band .reach-action:hover{ background:#C9A877; color:#1D1E1A; }
-footer{ background:#2C2D27; color:#A49C89; border-top:1px solid rgba(201,168,119,.28);
-  box-shadow:0 0 0 100vmax #2C2D27; clip-path:inset(0 -100vmax); }
-footer .footer-name{ color:#ECE4D4; }
-footer .footer-contact a{ color:#C9A877; }
-footer .footer-legal, footer .footer-legal a{ color:#8A8375; }
 .field input, .field select{ border:1px solid #B9AC8E; background:#FAF7EF; color:#1F201C; }
 .field input::placeholder{ color:#A39B87; opacity:1; }
 
@@ -382,7 +340,6 @@ a.stat-link .stat-number{ color:#8A6A3F; }
 .form-consent a{ color:#8A6A3F; text-decoration:underline; }
 .form-consent a:hover{ color:#1F201C; }
 
-
 .field-help {
   margin-top: 6px;
   font-size: 13px;
@@ -390,7 +347,6 @@ a.stat-link .stat-number{ color:#8A6A3F; }
   color: var(--mid);
 }
 .form-consent[hidden], .form-consent.is-hidden { display: none !important; }
-
 
 /* Phone-first type on the capture form only (40+ readers). Palette/fonts/hero untouched. */
 .form-card .chip { font-size: 17px; padding: 11px 16px; }
@@ -411,10 +367,9 @@ a.stat-link .stat-number{ color:#8A6A3F; }
   padding: 12px 16px;
 }
 
-
 /* Town-page place figures + photo-need placeholders (draft) */
 .place-fig { max-width: 640px; margin: 0 auto 28px; padding: 0 32px; }
-.place-fig img { width: 100%; display: block; border-radius: 6px; border: 1px solid rgba(138,106,63,.25); background: #1D1E1A; }
+.place-fig img { width: 100%; height: auto; max-width: 100%; display: block; border-radius: 6px; border: 1px solid rgba(138,106,63,.25); background: #1D1E1A; }
 .place-cap { font-size: 13px; color: #4D4839; margin-top: 10px; text-align: center; font-style: italic; line-height: 1.5; }
 .place-credit { font-size: 11px; color: rgba(77,72,57,.55); margin-top: 4px; text-align: center; line-height: 1.4; }
 .photo-need {
@@ -430,11 +385,9 @@ a.stat-link .stat-number{ color:#8A6A3F; }
   .place-fig, .sister-doors, .photo-need { padding-left: 24px; padding-right: 24px; }
 }
 
-
 /* Body links — match live /victoria/ (.vic-read a) */
 .section-body a { color: #8A6A3F; text-decoration: underline; text-underline-offset: 2px; }
 .section-body a:hover { color: #1F201C; }
-
 
 .place-credit { font-size: 11px; color: #8A8375; margin: 6px auto 0; max-width: 640px; padding: 0 32px; line-height: 1.5; }
 .place-credit a { color: #8A6A3F; text-decoration: underline; text-underline-offset: 2px; }
@@ -448,6 +401,7 @@ a.stat-link .stat-number{ color:#8A6A3F; }
 <meta name="twitter:card" content="summary_large_image" />
 
 <meta name="robots" content="index, follow" />
+  <link rel="stylesheet" href="/assets/house.css" />
 </head>
 
 <body>
@@ -527,8 +481,8 @@ a.stat-link .stat-number{ color:#8A6A3F; }
 </div>
 
 <figure class="place-fig">
-  <img src="img/excelsior-dock-steamers-pd.jpg" width="1200" height="1500" alt="Historic steamers Stillwater and Como at Excelsior Dock on Lake Minnetonka" />
-  <figcaption class="place-cap">Excelsior Dock when the steamers Stillwater and Como tied up here &mdash; the Port is still the front door to the bay.</figcaption>
+  <img src="img/excelsior-dock-steamers-front.jpg" width="1593" height="997" alt="Historic steamers Stillwater and Como at Excelsior Dock on Lake Minnetonka" />
+  <figcaption class="place-cap">Excelsior Dock when the steamers Stillwater and Como tied up here &mdash; the Port still faces the same bay.</figcaption>
   <p class="place-credit">Public domain · DPLA / Wikimedia Commons</p>
 </figure>
 
@@ -536,17 +490,17 @@ a.stat-link .stat-number{ color:#8A6A3F; }
 
 <div class="section">
   <p class="section-eyebrow">Bays &amp; Shoreline</p>
-  <h2 class="section-headline">Excelsior Bay is the front door. St. Albans and Gideon&rsquo;s sit next door.</h2>
+  <h2 class="section-headline">Excelsior Bay is the water right off downtown. St. Albans Bay and Gideon&rsquo;s Bay are just around the shore.</h2>
   <p class="section-body">
     People say &ldquo;Lake Minnetonka&rdquo; like it&rsquo;s one room. It isn&rsquo;t. Excelsior sits on the south shore, looking into <strong>Excelsior Bay</strong> &mdash; the water you see from the Commons and the Port. That&rsquo;s the bay that makes downtown feel like it belongs to the lake.<br /><br />
     Just east, <strong>St. Albans Bay</strong> runs between Excelsior and Greenwood. Minnetonka Boulevard crosses the channel on the St. Albans Bay Bridge; the cities of Excelsior and Greenwood jointly manage that connection, and property owners with access rights sit under the <strong>St. Alban&rsquo;s Bay Lake Improvement District</strong> (SABLID), set up in <strong>2015</strong> as the first LID on Lake Minnetonka. Private marina docks sit on both Excelsior Bay and St. Albans Bay a few blocks from downtown &mdash; separate from the city&rsquo;s own residential mooring program.<br /><br />
-    Around the corner of the south shore, <strong>Gideon&rsquo;s Bay</strong> is shared with Shorewood and Tonka Bay &mdash; and Deephaven sits in that same general belt. Same lake. Different week. If you&rsquo;re shopping &ldquo;Excelsior,&rdquo; I want to know whether you mean a walk-to-Water-Street lot, a St. Albans shoreline address with a Greenwood mailing quirk, or something that only feels Excelsior because that&rsquo;s where you get dinner. Those are three different houses.
+    Around the corner of the south shore, <strong>Gideon&rsquo;s Bay</strong> is shared with Shorewood and Tonka Bay &mdash; and Deephaven sits in that same general belt. It&rsquo;s the same lake, but the week-to-week feel changes with the bay. If you&rsquo;re shopping &ldquo;Excelsior,&rdquo; I want to know whether you mean a walk-to-Water-Street lot, a St. Albans shoreline address with a Greenwood mailing quirk, or something that only feels Excelsior because that&rsquo;s where you get dinner. Those are three different houses.
   </p>
 </div>
 
 <figure class="place-fig">
   <img src="img/excelsior-bay-shoreline.jpg" width="1600" height="845" alt="Dock line and shoreline on Excelsior Bay, Lake Minnetonka" />
-  <figcaption class="place-cap">Excelsior Bay shoreline — docks along the water, not a listing photo.</figcaption>
+  <figcaption class="place-cap">Excelsior Bay shoreline.</figcaption>
   <p class="place-credit">Photo: <a href="https://www.flickr.com/photos/diversey/48614116533/" rel="noopener noreferrer" target="_blank">Tony Webster</a>, <a href="https://creativecommons.org/licenses/by/2.0/" rel="noopener noreferrer" target="_blank">CC BY 2.0</a></p>
 </figure>
 
@@ -554,13 +508,25 @@ a.stat-link .stat-number{ color:#8A6A3F; }
 
 <div class="section">
   <p class="section-eyebrow">Neighborhoods &amp; Housing</p>
-  <h2 class="section-headline">A small city. Victorian bones. Not much wasted land.</h2>
+  <h2 class="section-headline">It&rsquo;s a small city with Victorian bones, and not much wasted land.</h2>
   <p class="section-body">
     Excelsior is tiny by metro standards &mdash; about <strong>0.63 square miles of land</strong>, and <strong>2,355</strong> people at the <strong>2020</strong> census. That density is the point. You get walkable blocks, older homes with porches that face the street, and newer work tucked into a place that already had a personality.<br /><br />
     Downtown is Water Street and the commercial historic core. Around it you&rsquo;ll find Victorian-era houses that owners have been restoring for decades, plus condominiums and townhomes that showed up later for people who want lake-town life without mowing a big lot. Lakefront and near-lake parcels sit on Excelsior Bay and toward St. Albans; inland streets climb away from the water toward Oak Street and the school.<br /><br />
     On age: ACS summaries put roughly a quarter of Excelsior&rsquo;s housing stock as pre-1940, with a thinner slice built since 2010 &mdash; numbers move with the survey vintage, so I treat them as a shape, not a listing promise.<br /><br />
     What I tell buyers: measure the walk. Can you get to the Commons, a coffee, and the elementary without getting in the car every time? In Excelsior that question actually matters, because the whole town is short. In a bigger west-metro city it&rsquo;s theater.
   </p>
+
+<figure class="place-fig">
+  <img src="img/housing-sampson-house-pd.jpg" width="1600" height="2000" alt="Historic Sampson House hotel postcard, Excelsior on Lake Minnetonka" />
+  <figcaption class="place-cap">Sampson House era lodging — the Victorian boarding and hotel bones still shape Excelsior&rsquo;s streets.</figcaption>
+  <p class="place-credit">Public domain postcard via DPLA / Wikimedia Commons</p>
+</figure>
+<figure class="place-fig">
+  <img src="img/water-street.jpg" width="1357" height="2048" alt="Water Street sidewalk and storefronts in downtown Excelsior on an ordinary day" />
+  <figcaption class="place-cap">Water Street on an ordinary day — brick storefronts, sidewalk racks, Preservation Month banner.</figcaption>
+  <p class="place-credit">Photo: <a href="https://www.flickr.com/photos/jpellgen/52918729140/" rel="noopener noreferrer" target="_blank">jpellgen</a>, <a href="https://creativecommons.org/licenses/by-nc-nd/2.0/" rel="noopener noreferrer" target="_blank">CC BY-NC-ND 2.0</a> (town-page use per Geoffrey 2026-09-24)</p>
+</figure>
+
 </div>
 
 <div class="divider"></div>
@@ -587,9 +553,9 @@ a.stat-link .stat-number{ color:#8A6A3F; }
   <h2 class="section-headline">I won&rsquo;t invent a median for a town this small.</h2>
   <p class="section-body">
     Excelsior doesn&rsquo;t trade like a big suburb. Some weeks you&rsquo;ll see a couple of closed sales; some weeks you&rsquo;ll see none. One month in a town this small can swing hard, so I treat a single median as a snapshot, not a promise.<br /><br />
-    Per the Minneapolis Area REALTORS&reg; Local Market Update for Excelsior, the <strong>median sold</strong> price in <strong>August 2026</strong> was <strong>$930,000</strong> (data as of <strong>September 8, 2026</strong>; NorthstarMLS). That is a <em>sold</em> median &mdash; not an ask. Citywide median ask isn&rsquo;t on that sheet, so I won&rsquo;t invent one.<br /><br />
-    Separately, because the city published it: the residential dock program typically opens about <strong>five</strong> spaces a year (waitlist revised <strong>June 10, 2025</strong>). Logistics, not a scare line. Buying a house here still doesn&rsquo;t hand you a city slip, and Excelsior doesn&rsquo;t advertise a city trailer ramp &mdash; if you need to launch with a trailer, we map a nearby regional access and verify it.<br /><br />
-    For the address in front of you, I&rsquo;ll pull <strong>Closed</strong> rows and actives with the week labeled. Wider lake-ring pulse: <a href="/lake-minnetonka-weekly/?utm_source=excelsior&amp;utm_medium=soft_door">Lake Minnetonka weekly</a>.
+    Per the Minneapolis Area REALTORS&reg; Local Market Update for Excelsior, the <strong>median sold</strong> price in <strong>August 2026</strong> was <strong>$930,000</strong> (data as of <strong>September 8, 2026</strong>; NorthstarMLS). That&rsquo;s what homes actually sold for that month &mdash; a sold median, not a list-price number. The update doesn&rsquo;t publish a citywide median list price, so I won&rsquo;t invent one.<br /><br />
+    Separately, because the city published it: the residential dock program typically opens about <strong>five</strong> spaces a year (waitlist revised <strong>June 10, 2025</strong>). That&rsquo;s just how the waitlist works, not a scare line. Buying a house here still doesn&rsquo;t hand you a city slip, and Excelsior doesn&rsquo;t advertise a city trailer ramp &mdash; if you need to launch with a trailer, we map a nearby regional access and verify it.<br /><br />
+    For the address in front of you, I&rsquo;ll pull recent closed sales and what&rsquo;s actively listed, with the week labeled. Wider lake-ring pulse: <a href="/lake-minnetonka-weekly/?utm_source=excelsior&amp;utm_medium=soft_link">Lake Minnetonka weekly</a>.
   </p>
 </div>
 
@@ -600,8 +566,15 @@ a.stat-link .stat-number{ color:#8A6A3F; }
   <h2 class="section-headline">Minnetonka Schools, a downtown you can walk, and a lawn that belongs to everyone.</h2>
   <p class="section-body">
     Kids here go to <strong>Minnetonka Public Schools</strong>. <strong>Excelsior Elementary</strong> sits at <strong>441 Oak Street</strong> &mdash; English, Chinese Immersion, and the district&rsquo;s Navigator accelerated pathway all live in that building. Middle and high school follow the Minnetonka district map; I always double-check an address against the district before anyone treats a listing blurb as gospel.<br /><br />
-    Day-to-day life runs on Water Street restaurants and shops, the Commons lawn, the Port, and the streetcar museum line for guests who want to see how this place used to move. Highway 7 and Minnetonka Boulevard carry you toward the rest of the south lake and into the west metro. You&rsquo;re close to Shorewood, Greenwood, Deephaven, Tonka Bay, and &mdash; a short hop across the map &mdash; Wayzata on the north shore. Same lake. Different downtowns.
+    Day-to-day life runs on Water Street restaurants and shops, the Commons lawn, the Port, and the streetcar museum line for guests who want to see how this place used to move. Highway 7 and Minnetonka Boulevard carry you toward the rest of the south lake and into the west metro. You&rsquo;re close to Shorewood, Greenwood, Deephaven, Tonka Bay, and &mdash; a short hop across the map &mdash; Wayzata on the north shore. Same lake, different downtowns.
   </p>
+
+<figure class="place-fig">
+  <img src="img/landmarks-amusement-park-pd.jpg" width="1200" height="1900" alt="Historical Excelsior Amusement Park with Corn Crisperies stand and roller coaster" />
+  <figcaption class="place-cap">Excelsior Amusement Park (1925–1973) — the lakeshore play legacy that still colors how people talk about this town.</figcaption>
+  <p class="place-credit">Public domain archival photo via DPLA / Wikimedia Commons</p>
+</figure>
+
 </div>
 
 <div class="hoods">
@@ -680,39 +653,46 @@ a.stat-link .stat-number{ color:#8A6A3F; }
     <p class="keepsell-eyebrow">Own a home?</p>
     <h2 class="keepsell-headline">Keep it, or sell it?</h2>
     <p class="keepsell-body">Run the 5-year math Geoffrey uses to settle the hold-vs-sell question &mdash; your numbers, a clear verdict, about thirty seconds.</p>
-    <a class="keepsell-btn" href="/keep-or-sell/?utm_source=excelsior&amp;utm_medium=calc_door">Run your 5-year numbers &rarr;</a>
+    <a class="keepsell-btn" href="/keep-or-sell/?utm_source=excelsior&amp;utm_medium=calc_link">Run your 5-year numbers &rarr;</a>
   </div>
 </div>
 
-<!-- REACH GEOFFREY — byte-synced from live homepage 2026-09-24 -->
-<div class="reach-band">
+<!-- HOUSE:REACH-BAND -->
+<div class="reach-band" role="region" aria-label="Call or text Geoffrey">
   <span class="reach-label">Tap to call &mdash; or text</span>
-  <a class="reach-phone" href="tel:9522583100">952-258-3100</a>
+  <a class="reach-phone" href="tel:+19522583100">952-258-3100</a>
   <div class="reach-actions">
-    <a class="reach-action" href="sms:9522583100">Text Geoffrey instead</a>
+    <a class="reach-action" href="sms:+19522583100">Text Geoffrey</a>
+    <a class="reach-action" href="tel:+19522583100">Call Geoffrey</a>
   </div>
 </div>
+<!-- /HOUSE:REACH-BAND -->
 
-<!-- FOOTER — full site footer synced from live homepage 2026-09-24; town peers added for draft parity -->
-<footer>
+</div>
+
+<!-- HOUSE:FOOTER -->
+<footer class="site-foot">
   <p class="footer-name">Geoffrey Serdar</p>
   <p class="footer-brokerage">Serdar+Partners at Compass</p>
   <div class="footer-contact">
-    <a href="tel:9522583100">952-258-3100</a>
+    <a href="tel:+19522583100">952-258-3100</a>
     <a href="mailto:geoffrey@serdarpartnersrealty.com">geoffrey@serdarpartnersrealty.com</a>
-    <a href="https://www.compass.com/agents/geoffrey-serdar/" target="_blank">Compass Profile</a>
-    <a href="/guides/">Lake Minnetonka Guides</a>
-    <a href="/topics/?utm_source=excelsior&amp;utm_medium=footer">Topics</a>
-    <a href="/minnetonka/?utm_source=excelsior&amp;utm_medium=footer">City of Minnetonka</a>
-    <a href="/victoria/?utm_source=excelsior&amp;utm_medium=footer">Victoria</a>
-    <a href="/refer/">Refer a Friend</a>
-    <a href="/reviews/">★ 4.8 · 62 Reviews</a>
   </div>
+  <nav class="footer-nav" aria-label="Footer">
+    <a href="https://www.compass.com/agents/geoffrey-serdar/" rel="noopener noreferrer">Compass Profile</a>
+    <a href="/guides/">Lake Minnetonka Guides</a>
+    <a href="/minnetonka/">City of Minnetonka</a>
+    <a href="/excelsior/">Excelsior</a>
+    <a href="/victoria/">Victoria</a>
+    <a href="/refer/">Refer a Friend</a>
+  </nav>
+  <a class="footer-reviews" href="/reviews/"><span class="star" aria-hidden="true">★</span>4.8 · 62 Reviews</a>
   <p class="footer-legal">
-    Serving Excelsior, Lake Minnetonka &amp; the west metro &nbsp;·&nbsp; Licensed in Minnesota &nbsp;·&nbsp; Serdar+Partners at Compass<br />
-    &copy; 2026 Geoffrey Serdar. All rights reserved. &nbsp;·&nbsp; <a href="/privacy">Privacy Policy</a><br />
-</p>
+    Serdar+Partners at Compass<br>
+    &copy; 2026 Geoffrey Serdar. All rights reserved. · <a href="/privacy">Privacy Policy</a>
+  </p>
 </footer>
+<!-- /HOUSE:FOOTER -->
 
 <script>
 // Which page is this? Stamps every lead so the CRM/bridge can tag it by city.
