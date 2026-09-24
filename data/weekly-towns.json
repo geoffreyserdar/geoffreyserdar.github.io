@@ -1,0 +1,307 @@
+{
+  "schema": "weekly-towns/v1",
+  "updated_ct": "2026-09-24T10:55:00-05:00",
+  "status_lock": "Closed only",
+  "include_towns": [
+    "Deephaven",
+    "Excelsior",
+    "Greenwood",
+    "Minnetonka",
+    "Minnetonka Beach",
+    "Minnetrista",
+    "Mound",
+    "Orono",
+    "Shorewood",
+    "Spring Park",
+    "Tonka Bay",
+    "Victoria",
+    "Wayzata",
+    "Woodland"
+  ],
+  "page_slugs": {
+    "excelsior": "Excelsior",
+    "wayzata": "Wayzata",
+    "orono": "Orono",
+    "deephaven": "Deephaven",
+    "tonka-bay": "Tonka Bay",
+    "mound": "Mound",
+    "victoria": "Victoria",
+    "minnetonka": "Minnetonka"
+  },
+  "rules": {
+    "median_min_n": 3,
+    "never_invent": true,
+    "zero_means": "Pull recorded 0 Closed for that town that week",
+    "missing_week": "Omit from history \u2014 do not fabricate",
+    "plain_words": [
+      "sold for",
+      "listed at",
+      "median",
+      "closed"
+    ],
+    "banned_words": [
+      "ask",
+      "asking",
+      "door",
+      "front door",
+      "next door"
+    ]
+  },
+  "weeks": [
+    {
+      "week_start": "2026-09-08",
+      "week_end": "2026-09-14",
+      "week_label": "Sep 8\u201314, 2026",
+      "as_of_ct": "2026-09-18",
+      "lake_ring": {
+        "n_sold": 27,
+        "median": 663000,
+        "typical_price_display": "$663,000",
+        "hottest_town": "Mound",
+        "hottest_count": 7
+      },
+      "towns": {
+        "Deephaven": {
+          "n": 2,
+          "median": null,
+          "range": [
+            750000,
+            1150000
+          ],
+          "label": "2 sold \u00b7 $750,000\u2013$1,150,000",
+          "has_median": false,
+          "sold_prices": [
+            750000,
+            1150000
+          ]
+        },
+        "Excelsior": {
+          "n": 2,
+          "median": null,
+          "range": [
+            375000,
+            1300000
+          ],
+          "label": "2 sold \u00b7 $375,000\u2013$1,300,000",
+          "has_median": false,
+          "sold_prices": [
+            375000,
+            1300000
+          ]
+        },
+        "Greenwood": {
+          "n": 0,
+          "median": null,
+          "range": null,
+          "label": "0 closed",
+          "has_median": false
+        },
+        "Minnetonka": {
+          "n": 6,
+          "median": 370000,
+          "range": null,
+          "label": "6 sold \u00b7 median $370,000",
+          "has_median": true
+        },
+        "Minnetonka Beach": {
+          "n": 0,
+          "median": null,
+          "range": null,
+          "label": "0 closed",
+          "has_median": false
+        },
+        "Minnetrista": {
+          "n": 0,
+          "median": null,
+          "range": null,
+          "label": "0 closed",
+          "has_median": false
+        },
+        "Mound": {
+          "n": 7,
+          "median": 663000,
+          "range": null,
+          "label": "7 sold \u00b7 median $663,000",
+          "has_median": true
+        },
+        "Orono": {
+          "n": 0,
+          "median": null,
+          "range": null,
+          "label": "0 closed",
+          "has_median": false
+        },
+        "Shorewood": {
+          "n": 0,
+          "median": null,
+          "range": null,
+          "label": "0 closed",
+          "has_median": false
+        },
+        "Spring Park": {
+          "n": 0,
+          "median": null,
+          "range": null,
+          "label": "0 closed",
+          "has_median": false
+        },
+        "Tonka Bay": {
+          "n": 0,
+          "median": null,
+          "range": null,
+          "label": "0 closed",
+          "has_median": false
+        },
+        "Victoria": {
+          "n": 6,
+          "median": 614950,
+          "range": null,
+          "label": "6 sold \u00b7 median $614,950",
+          "has_median": true
+        },
+        "Wayzata": {
+          "n": 4,
+          "median": 2872500,
+          "range": null,
+          "label": "4 sold \u00b7 median $2,872,500",
+          "has_median": true
+        },
+        "Woodland": {
+          "n": 0,
+          "median": null,
+          "range": null,
+          "label": "0 closed",
+          "has_median": false
+        }
+      },
+      "provenance": {
+        "source": "agent-search Closed",
+        "files": [
+          "/workspace/lab-inbox/minnetonka-weekly-scout-REAL-agent-search-2026-09-18.md",
+          "/workspace/lab-inbox/minnetonka-weekly-teaser-REAL.json"
+        ],
+        "note": "Per-town counts + medians/ranges from scout table Sep 8\u201314. Lake-ring median $663,000 (n=27)."
+      }
+    },
+    {
+      "week_start": "2026-09-15",
+      "week_end": "2026-09-20",
+      "week_label": "Sep 15\u201320, 2026",
+      "as_of_ct": "2026-09-21T01:05:00-05:00",
+      "lake_ring": {
+        "n_sold": 33,
+        "median": 535000,
+        "typical_price_display": "$535,000",
+        "hottest_town": "Minnetonka",
+        "hottest_count": 20
+      },
+      "towns": {
+        "Deephaven": {
+          "n": 0,
+          "median": null,
+          "range": null,
+          "label": "0 closed",
+          "has_median": false
+        },
+        "Excelsior": {
+          "n": 0,
+          "median": null,
+          "range": null,
+          "label": "0 closed",
+          "has_median": false
+        },
+        "Greenwood": {
+          "n": 1,
+          "median": null,
+          "range": null,
+          "label": "1 sold",
+          "has_median": false
+        },
+        "Minnetonka": {
+          "n": 20,
+          "median": null,
+          "range": null,
+          "label": "20 sold",
+          "has_median": false
+        },
+        "Minnetonka Beach": {
+          "n": 0,
+          "median": null,
+          "range": null,
+          "label": "0 closed",
+          "has_median": false
+        },
+        "Minnetrista": {
+          "n": 2,
+          "median": null,
+          "range": null,
+          "label": "2 sold",
+          "has_median": false
+        },
+        "Mound": {
+          "n": 0,
+          "median": null,
+          "range": null,
+          "label": "0 closed",
+          "has_median": false
+        },
+        "Orono": {
+          "n": 2,
+          "median": null,
+          "range": null,
+          "label": "2 sold",
+          "has_median": false
+        },
+        "Shorewood": {
+          "n": 4,
+          "median": null,
+          "range": null,
+          "label": "4 sold",
+          "has_median": false
+        },
+        "Spring Park": {
+          "n": 2,
+          "median": null,
+          "range": null,
+          "label": "2 sold",
+          "has_median": false
+        },
+        "Tonka Bay": {
+          "n": 0,
+          "median": null,
+          "range": null,
+          "label": "0 closed",
+          "has_median": false
+        },
+        "Victoria": {
+          "n": 2,
+          "median": null,
+          "range": null,
+          "label": "2 sold",
+          "has_median": false
+        },
+        "Wayzata": {
+          "n": 0,
+          "median": null,
+          "range": null,
+          "label": "0 closed",
+          "has_median": false
+        },
+        "Woodland": {
+          "n": 0,
+          "median": null,
+          "range": null,
+          "label": "0 closed",
+          "has_median": false
+        }
+      },
+      "provenance": {
+        "source": "agent-search",
+        "files": [
+          "/workspace/lab-inbox/minnetonka-weekly-teaser-REAL.json"
+        ],
+        "note": "Counts from active_towns + quiet_towns. No per-town medians in this pull \u2014 panel shows count only for towns with sales; lake-ring median $535,000."
+      }
+    }
+  ]
+}
