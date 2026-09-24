@@ -977,7 +977,7 @@ function clearPhoneError() {
 
 // Email — light, permissive check; fails friendly (same pattern as the phone layer).
 function isValidEmail(raw) {
-  return /^[^\s@]+@[^\s@]+\.[^\s@]{2}$/.test(String(raw || '').trim());
+  return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(String(raw || '').trim());
 }
 function showEmailError() {
   var err = document.getElementById('emailError');

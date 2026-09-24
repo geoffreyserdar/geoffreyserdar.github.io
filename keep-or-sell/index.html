@@ -979,7 +979,7 @@ function submitToFormspree(name, phone, email) {
 
 /* ---- email validation (simple + permissive; fails friendly) ---- */
 function isValidEmail(raw) {
-  return /^[^\s@]+@[^\s@]+\.[^\s@]{2}$/.test(String(raw || '').trim());
+  return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(String(raw || '').trim());
 }
 function showEmailError() {
   var err = document.getElementById('emailError'), inp = document.getElementById('email');

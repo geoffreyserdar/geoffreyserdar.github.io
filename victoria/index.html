@@ -859,7 +859,7 @@ function clearPhoneError() {
 function isValidEmail(raw) {
   var s = String(raw || '').trim();
   if (!s) return true; // empty is ok; required-contact rule handled separately
-  return /^[^\s@]+@[^\s@]+\.[^\s@]{2}$/.test(s);
+  return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(s);
 }
 function showEmailError() {
   var err = document.getElementById('emailError');
