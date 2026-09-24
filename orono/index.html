@@ -427,6 +427,66 @@ a.stat-link .stat-number{ color:#8A6A3F; }
 .section-body a { color: #8A6A3F; text-decoration: underline; text-underline-offset: 2px; }
 .section-body a:hover { color: #1F201C; }
 
+
+/* weekly-hub market panel */
+.market-panel {
+  max-width: 640px;
+  margin: 0 auto 36px;
+  padding: 28px 32px;
+  background: #ECE4D4;
+  border: 1px solid rgba(138,106,63,.28);
+  border-radius: 6px;
+}
+.market-panel-eyebrow {
+  font-family: Inter, system-ui, sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  color: #8A6A3F;
+  margin: 0 0 8px;
+}
+.market-panel-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(22px, 4vw, 28px);
+  font-weight: 700;
+  color: #1F201C;
+  margin: 0 0 12px;
+  line-height: 1.25;
+}
+.market-panel-lead, .market-panel-body {
+  font-family: Inter, system-ui, sans-serif;
+  font-size: 15px;
+  line-height: 1.65;
+  color: #4D4839;
+  margin: 0 0 10px;
+}
+.market-panel-link { margin: 14px 0 0; }
+.market-panel-link a {
+  color: #8A6A3F;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+@media (max-width: 640px) {
+  .market-panel { margin: 0 16px 28px; padding: 22px 20px; }
+}
+
+.form-step { display: none; }
+.form-step.active { display: block; }
+.form-step-label {
+  font-size: 11px; font-weight: 600; letter-spacing: 1.2px;
+  text-transform: uppercase; color: #8A6A3F; margin: 0 0 14px;
+}
+.step-skip {
+  display: block; width: 100%; margin-top: 12px; background: none; border: 0;
+  color: #4D4839; font-size: 14px; text-decoration: underline; cursor: pointer;
+  text-underline-offset: 3px;
+}
+.step-skip:hover { color: #8A6A3F; }
+.submit-btn.secondary { background: transparent; color: #8A6A3F; border: 1px solid rgba(138,106,63,.55); }
+.magnet-note { font-size: 14px; color: #4D4839; margin: 0 0 14px; line-height: 1.5; }
+
 </style>
 <meta name="robots" content="index, follow" />
 
@@ -450,29 +510,55 @@ a.stat-link .stat-number{ color:#8A6A3F; }
     <div class="stat"><span class="stat-number">Lake Area</span><span class="stat-label">Local</span></div>
     <a class="stat stat-link" href="/reviews/"><span class="stat-number">4.8&#9733;</span><span class="stat-label">62 Google Reviews</span></a>
   </div>
-  <div class="form-card">
+  <!-- WEEKLY-HUB:TOWN-PANEL town=Orono baked — do not hand-edit numbers -->
+<aside class="market-panel" id="market-panel" data-town="Orono" data-week-start="2026-09-15">
+  <p class="market-panel-eyebrow">This week</p>
+  <h2 class="market-panel-title">What sold in Orono</h2>
+  <p class="market-panel-lead">Two sold in Orono this week.</p>
+  <p class="market-panel-body">The week before, none closed.</p>
+  <p class="market-panel-body">Around the lake, <strong>33 homes closed</strong>, and the middle price was <strong>$535,000</strong>.</p>
+  <p class="market-panel-link"><a href="/lake-minnetonka-weekly/">See every town this week</a></p>
+</aside>
+
+  <div class="form-card" id="listingReportCard">
     <div class="form-fields" id="formFields">
-      <h2 class="form-headline">Let&rsquo;s talk about Orono.</h2>
-      <p class="form-sub">Pick the one that fits. Leave a name. Geoffrey answers himself.</p>
-      <form id="captureForm" onsubmit="handleSubmit(event)">
-        <div class="field"><label id="interestLabel">I&rsquo;m thinking about... <span class="optional">optional</span></label>
-          <div class="chip-group" role="group" aria-labelledby="interestLabel" id="interestChips">
-            <button type="button" class="chip" data-value="selling" aria-pressed="false">Thinking about a move</button>
-            <button type="button" class="chip" data-value="buying" aria-pressed="false">Just starting to look</button>
-            <button type="button" class="chip" data-value="both" aria-pressed="false">Need more space</button>
-            <button type="button" class="chip" data-value="investing" aria-pressed="false">Money to put to work</button>
-            <button type="button" class="chip" data-value="probate" aria-pressed="false">Helping with a family home</button>
-            <button type="button" class="chip" data-value="just looking" aria-pressed="false">What&rsquo;s my place worth</button></div>
-          <input type="hidden" id="interest" name="interest" value="" /></div>
-        <div class="field"><label for="name">Your Name</label><input type="text" id="name" name="name" placeholder="First and last name" required autocomplete="name" /></div>
-        <div class="field"><label for="email">Email <span class="optional">optional</span></label><input type="email" id="email" name="email" placeholder="you@email.com" autocomplete="email" /><p class="field-help">So he can write, not only call.</p><p class="field-error" id="emailError" role="alert">That email doesn&rsquo;t look quite right.</p></div>
-        <div class="field"><label for="phone">Phone <span class="optional">optional</span></label><input type="tel" id="phone" name="phone" placeholder="952-258-3100" autocomplete="tel" /><p class="field-help">If you want a call.</p><p class="field-error" id="phoneError" role="alert">That number doesn&rsquo;t look quite right.</p></div>
-        <p class="field-error" id="contactError" role="alert">Leave an email or a phone number so Geoffrey can reach you.</p>
-        <button type="submit" class="submit-btn">Get in Touch</button>
+      <h2 class="form-headline">Want a monthly listing report for Orono?</h2>
+      <p class="form-sub">Leave your number and I&rsquo;ll set one up for you from my Compass site. I make the call myself &mdash; 952-258-3100.</p>
+      <form id="captureForm" novalidate>
+        <div class="form-step active" id="formStep1" data-step="1">
+          <p class="form-step-label">Step 1 of 2</p>
+          <div class="field">
+            <label for="phone">Phone</label>
+            <input type="tel" id="phone" name="phone" placeholder="952-000-0000" autocomplete="tel" required />
+            <p class="field-help">So I can call and set the report up.</p>
+            <p class="field-error" id="phoneError" role="alert">That number doesn&rsquo;t look quite right &mdash; mind double-checking it?</p>
+          </div>
+          <div class="field">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="you@email.com" autocomplete="email" required />
+            <p class="field-error" id="emailError" role="alert">That email doesn&rsquo;t look quite right. Mind double-checking it?</p>
+          </div>
+          <p class="field-error" id="contactError" role="alert">I need a phone number and an email so I can reach you.</p>
+          <button type="submit" class="submit-btn" id="step1Btn">Set up my Orono report</button>
+        </div>
+        <div class="form-step" id="formStep2" data-step="2">
+          <p class="form-step-label">Step 2 of 2 &mdash; optional</p>
+          <p class="magnet-note" id="step2Note">Got it. What name should I use when I call?</p>
+          <div class="field">
+            <label for="name">Your name <span class="optional">optional</span></label>
+            <input type="text" id="name" name="name" placeholder="First and last name" autocomplete="name" />
+          </div>
+          <button type="submit" class="submit-btn secondary" id="step2Btn">Add my name</button>
+          <button type="button" class="step-skip" id="step2Skip">I&rsquo;m good &mdash; just call me</button>
+        </div>
       </form>
       <p class="form-consent" id="formConsent" hidden>By submitting this form, you agree that Serdar+Partners at Compass may contact you by phone call and text message (including by automated means) at the number you provide, regarding your real estate inquiry. Consent is not a condition of any purchase. Message &amp; data rates may apply; message frequency varies. Reply STOP to opt out, HELP for help. See our <a href="/privacy">Privacy Policy</a> and <a href="/terms">Terms</a>.</p>
     </div>
-    <div class="success-state" id="successState"><div class="success-icon">&check;</div><h3 class="success-title">Got it. Talk soon.</h3><p class="success-sub">Geoffrey will reach out to you directly.<br />In the meantime &mdash; 952-258-3100.</p></div>
+    <div class="success-state" id="successState">
+      <div class="success-icon">&check;</div>
+      <h3 class="success-title">Got it. I&rsquo;ll set that up.</h3>
+      <p class="success-sub">I&rsquo;ll call you from my Compass site setup. In the meantime &mdash; 952-258-3100.</p>
+    </div>
   </div>
 </section>
 <div class="divider"></div>
@@ -725,9 +811,7 @@ function clearContactError() {
   if (err) err.classList.remove('visible');
 }
 function selectedInterestLabel() {
-  var chip = document.querySelector('#interestChips .chip.selected');
-  if (!chip) return '';
-  return String(chip.textContent || '').replace(/\s+/g, ' ').trim();
+  return 'Orono monthly listing report';
 }
 function syncConsent() {
   var phoneEl = document.getElementById('phone');
@@ -742,7 +826,7 @@ function setChecking(on) {
   var btn = document.querySelector('.submit-btn');
   if (!btn) return;
   if (on) { btn.disabled = true; btn.style.opacity = '0.7'; btn.textContent = 'Checking…'; }
-  else { btn.disabled = false; btn.style.opacity = ''; btn.textContent = 'Get in Touch'; }
+  else { btn.disabled = false; btn.style.opacity = ''; btn.textContent = (document.getElementById('step1Btn') && (window.__listingMagnetStep||1)===1) ? document.getElementById('step1Btn').getAttribute('data-label') || 'Set up my report' : (document.getElementById('step2Btn') ? 'Add my name' : 'Get in Touch'); }
 }
 
 // LAYER 2 — carrier check via the Twilio Function. Also fires the speed-to-lead
@@ -852,6 +936,8 @@ function submitToFormspree(name, phone, interest, email) {
     body: JSON.stringify({
       name: name, phone: phone, email: email || '', interest: interest, interest_detail: interestDetail(interest),
       local: PAGE_LOCAL,
+      formType: 'orono-listing-report',
+      magnet_step: (window.__listingMagnetStep || 1),
       utm_source: LEAD_SOURCE.utm_source,
       utm_medium: LEAD_SOURCE.utm_medium,
       utm_campaign: LEAD_SOURCE.utm_campaign,
@@ -865,53 +951,61 @@ function submitToFormspree(name, phone, interest, email) {
 async function handleSubmit(e) {
   if (e && e.target && (e.target.id === 'cxlpBridgeForm' || (e.target.getAttribute && e.target.getAttribute('data-cxlp-bridge') === '1'))) return;
   e.preventDefault();
-  var name = document.getElementById('name').value.trim();
-  var phone = document.getElementById('phone').value.trim();
-  var emailEl = document.getElementById('email');
-  var email = emailEl ? emailEl.value.trim() : '';
-  var interest = document.getElementById('interest').value;
-  var interestLabel = selectedInterestLabel();
-
+  var step = window.__listingMagnetStep || 1;
   clearPhoneError();
   clearEmailError();
   clearContactError();
 
-  if (!name) {
-    var nameInp = document.getElementById('name');
-    if (nameInp) nameInp.focus();
-    return;
-  }
-
-  // Require name plus at least one of email or phone.
-  if (!email && !phone) {
-    showContactError();
-    return;
-  }
-
-  // Email — basic check only if filled.
-  if (email && !isValidEmail(email)) { showEmailError(); return; }
-
-  // Phone — validate only if they typed something. Empty must not block.
-  if (phone) {
+  if (step === 1) {
+    var phone = (document.getElementById('phone') && document.getElementById('phone').value || '').trim();
+    var email = (document.getElementById('email') && document.getElementById('email').value || '').trim();
+    if (!phone || !email) { showContactError(); return; }
     if (!isValidUSPhone(phone)) { showPhoneError(); return; }
-  }
+    if (!isValidEmail(email)) { showEmailError(); return; }
 
-  if (phone) {
-    // Layer 2 — carrier check (also triggers the alert text on a good number).
-    // Twilio gets the visible chip label (or empty if none).
+    window.__listingPending = { phone: phone, email: email, name: '' };
+    window.__listingMagnetStep = 1;
+
     setChecking(true);
-    var verdict = await checkNumber(name, phone, interestLabel);
+    var verdict = await checkNumber('', phone, 'Orono monthly listing report');
     setChecking(false);
+    if (verdict && verdict.valid === false) { showPhoneError(); return; }
 
-    if (verdict && verdict.valid === false) {
-      showPhoneError();
-      return;
-    }
+    submitToFormspree('', phone, 'orono-listing-report', email);
+    try { notifyCompassLeadPixel('', phone, email); } catch (_cxlp) {}
+    window.__listingStep1Saved = true;
+    // Step-1 counts as the lead for Ads/GA4 (showSuccess conversion fires on final)
+    try {
+      if (typeof gtag === 'function') {
+        var LS = (typeof LEAD_SOURCE !== 'undefined' && LEAD_SOURCE) ? LEAD_SOURCE : {};
+        gtag('event', 'generate_lead', {
+          currency: 'USD', value: 1.0,
+          lead_source: LS.utm_source || '',
+          lead_medium: LS.utm_medium || 'listing_report',
+          lead_campaign: 'orono-listing-report',
+          gclid_present: LS.gclid ? 'yes' : 'no',
+          page_path: location.pathname
+        });
+      }
+    } catch (_g) {}
+
+    window.__listingMagnetStep = 2;
+    var s1 = document.getElementById('formStep1');
+    var s2 = document.getElementById('formStep2');
+    if (s1) s1.classList.remove('active');
+    if (s2) s2.classList.add('active');
+    var n = document.getElementById('name'); if (n) n.focus();
+    return;
   }
 
-  // Formspree still receives interest as the slug + interest_detail; email if filled.
-  submitToFormspree(name, phone, interest, email);
-  try { notifyCompassLeadPixel(name, phone, email); } catch (_cxlp) {}
+  // Step 2 — optional name enrichment
+  var pending = window.__listingPending || {};
+  var name = (document.getElementById('name') && document.getElementById('name').value || '').trim();
+  pending.name = name;
+  window.__listingPending = pending;
+  window.__listingMagnetStep = 2;
+  submitToFormspree(name, pending.phone || '', 'orono-listing-report', pending.email || '');
+  try { notifyCompassLeadPixel(name, pending.phone || '', pending.email || ''); } catch (_cxlp2) {}
   showSuccess();
 }
 
@@ -1033,6 +1127,7 @@ syncConsent();
   var fired = false;
   window.addEventListener('pagehide', function () {
     if (fired || !lastField) return;
+    if (window.__listingStep1Saved) return;
     var ok = document.getElementById('successState');
     if (ok && ok.classList.contains('visible')) return;
     fired = true;
@@ -1050,6 +1145,28 @@ document.querySelectorAll('.vfacade').forEach(function (b) {
   });
 });
 </script>
+
+<script>
+/* weekly-hub listing-report binders */
+(function () {
+  window.__listingMagnetStep = 1;
+  window.__listingStep1Saved = false;
+  var form = document.getElementById('captureForm');
+  if (form) {
+    form.addEventListener('submit', function (e) { handleSubmit(e); });
+  }
+  var skip = document.getElementById('step2Skip');
+  if (skip) {
+    skip.addEventListener('click', function () {
+      var pending = window.__listingPending || {};
+      showSuccess();
+    });
+  }
+  var s1 = document.getElementById('step1Btn');
+  if (s1) s1.setAttribute('data-label', s1.textContent);
+})();
+</script>
+
 </body>
 </html>
 
