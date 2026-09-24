@@ -574,6 +574,66 @@ footer { border-top: 1px solid rgba(138, 155, 176, 0.1); padding: 40px 32px; tex
 }
 
 
+
+/* weekly-hub market panel */
+.market-panel {
+  max-width: 640px;
+  margin: 0 auto 36px;
+  padding: 28px 32px;
+  background: #ECE4D4;
+  border: 1px solid rgba(138,106,63,.28);
+  border-radius: 6px;
+}
+.market-panel-eyebrow {
+  font-family: Inter, system-ui, sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  color: #8A6A3F;
+  margin: 0 0 8px;
+}
+.market-panel-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(22px, 4vw, 28px);
+  font-weight: 700;
+  color: #1F201C;
+  margin: 0 0 12px;
+  line-height: 1.25;
+}
+.market-panel-lead, .market-panel-body {
+  font-family: Inter, system-ui, sans-serif;
+  font-size: 15px;
+  line-height: 1.65;
+  color: #4D4839;
+  margin: 0 0 10px;
+}
+.market-panel-link { margin: 14px 0 0; }
+.market-panel-link a {
+  color: #8A6A3F;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+@media (max-width: 640px) {
+  .market-panel { margin: 0 16px 28px; padding: 22px 20px; }
+}
+
+.form-step { display: none; }
+.form-step.active { display: block; }
+.form-step-label {
+  font-size: 11px; font-weight: 600; letter-spacing: 1.2px;
+  text-transform: uppercase; color: #8A6A3F; margin: 0 0 14px;
+}
+.step-skip {
+  display: block; width: 100%; margin-top: 12px; background: none; border: 0;
+  color: #4D4839; font-size: 14px; text-decoration: underline; cursor: pointer;
+  text-underline-offset: 3px;
+}
+.step-skip:hover { color: #8A6A3F; }
+.submit-btn.secondary { background: transparent; color: #8A6A3F; border: 1px solid rgba(138,106,63,.55); }
+.magnet-note { font-size: 14px; color: #4D4839; margin: 0 0 14px; line-height: 1.5; }
+
 </style>
 <!-- PROTECT-LIVE-REVERT-20260921-090434 -->
 <!-- HOUSE-FOOTER-LOCALLOG-20260922-124347 -->
@@ -667,6 +727,16 @@ footer { border-top: 1px solid rgba(138, 155, 176, 0.1); padding: 40px 32px; tex
 
 <!-- FORM — funnel B 2026-09-18: short teaser ABOVE form → weekly deep after submit -->
 <div class="form-section" id="start">
+  <!-- WEEKLY-HUB:LAKE-PANEL baked — do not hand-edit numbers -->
+<aside class="market-panel" id="market-panel" data-town="Lake Minnetonka" data-week-start="2026-09-15">
+  <p class="market-panel-eyebrow">This week</p>
+  <h2 class="market-panel-title">What sold around the lake</h2>
+  <p class="market-panel-lead">Around Lake Minnetonka, <strong>33 homes closed</strong>, and the middle price was <strong>$535,000</strong>.</p>
+  <p class="market-panel-body">Town-by-town numbers live on the weekly page.</p>
+  <p class="market-panel-link"><a href="/lake-minnetonka-weekly/">See every town this week</a></p>
+</aside>
+
+
   <div class="form-card">
     <div class="form-fields" id="formFields">
       <h2 class="form-headline">Lake Minnetonka this week</h2>
