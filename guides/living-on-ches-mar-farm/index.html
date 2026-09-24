@@ -295,6 +295,7 @@ footer .footer-legal, footer .footer-legal a{ color:#8A8375; }
   border:1.5px solid #C9A877; display:flex; align-items:center; justify-content:center; }
 .vplay i::after{ content:""; border:12px solid transparent; border-left:19px solid #ECE4D4; margin-left:5px; }
 </style>
+<link rel="stylesheet" href="/assets/house.css" />
 </head>
 <body>
 
@@ -516,20 +517,39 @@ footer .footer-legal, footer .footer-legal a{ color:#8A8375; }
   <a class="back" href="/guides/">&larr; All Lake Minnetonka guides</a>
 </div>
 
-<footer>
-  <div class="wrap">
-    <p class="footer-name">Geoffrey Serdar</p>
-    <p class="footer-brokerage">Serdar+Partners at Compass</p>
-    <p class="footer-contact">
-      <a href="tel:9522583100">952-258-3100</a>
-      <a href="mailto:geoffrey@serdarpartnersrealty.com">geoffrey@serdarpartnersrealty.com</a>
-    </p>
-        <div class="footer-contact">
-      <a href="/local-log/">Local Log</a>
-    </div>
-<p class="footer-legal">Licensed in Minnesota &nbsp;&middot;&nbsp; Serdar+Partners at Compass<br />&copy; 2026 Geoffrey Serdar. All rights reserved.</p>
+<!-- HOUSE:REACH-BAND -->
+<div class="reach-band" role="region" aria-label="Call or text Geoffrey">
+  <span class="reach-label">Tap to call &mdash; or text</span>
+  <a class="reach-phone" href="tel:+19522583100">952-258-3100</a>
+  <div class="reach-actions">
+    <a class="reach-action" href="sms:+19522583100">Text Geoffrey</a>
+    <a class="reach-action" href="tel:+19522583100">Call Geoffrey</a>
   </div>
+</div>
+<!-- /HOUSE:REACH-BAND -->
+<!-- HOUSE:FOOTER -->
+<footer class="site-foot">
+  <p class="footer-name">Geoffrey Serdar</p>
+  <p class="footer-brokerage">Serdar+Partners at Compass</p>
+  <div class="footer-contact">
+    <a href="tel:+19522583100">952-258-3100</a>
+    <a href="mailto:geoffrey@serdarpartnersrealty.com">geoffrey@serdarpartnersrealty.com</a>
+  </div>
+  <nav class="footer-nav" aria-label="Footer">
+    <a href="https://www.compass.com/agents/geoffrey-serdar/" rel="noopener noreferrer">Compass Profile</a>
+    <a href="/guides/">Lake Minnetonka Guides</a>
+    <a href="/minnetonka/">City of Minnetonka</a>
+    <a href="/excelsior/">Excelsior</a>
+    <a href="/victoria/">Victoria</a>
+    <a href="/refer/">Refer a Friend</a>
+  </nav>
+  <a class="footer-reviews" href="/reviews/"><span class="star" aria-hidden="true">★</span>4.8 · 62 Reviews</a>
+  <p class="footer-legal">
+    Serdar+Partners at Compass<br>
+    &copy; 2026 Geoffrey Serdar. All rights reserved. · <a href="/privacy">Privacy Policy</a>
+  </p>
 </footer>
+<!-- /HOUSE:FOOTER -->
 
 <script>
 document.querySelectorAll('.vfacade').forEach(function (b) {
