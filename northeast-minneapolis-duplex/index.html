@@ -862,6 +862,7 @@ const LEAD_SOURCE = (function () {
     utm_source: p.get('utm_source') || '',
     utm_medium: p.get('utm_medium') || '',
     utm_campaign: p.get('utm_campaign') || '',
+    utm_content: p.get('utm_content') || '',
     gclid: p.get('gclid') || '',
     referrer: document.referrer || ''
   };
@@ -943,7 +944,6 @@ function setChecking(on) {
 // LAYER 2 - carrier check via the Twilio Function. Also fires the speed-to-lead
 // text on a good number. Fails OPEN on timeout/error so a real lead is never lost.
 const LEAD_ALERT_URL = 'https://lead-alert-4343.twil.io/lead-alert';
-const LEAD_ALERT_SECRET = 'slx_9f3Kqe2R';
 const INTEREST_DETAIL = {
   'showing': 'Wants to book a private showing - Ready, book it, give the tenants notice',
   'live-in': 'Wants to live in one unit and rent the other - Owner-occupant, walk FHA 3.5% and conventional options, connect to lender',
@@ -957,13 +957,13 @@ function checkNumber(name, phone, interest) {
   var controller = new AbortController();
   var timer = setTimeout(function () { controller.abort(); }, 2500);
   var data = new URLSearchParams({
-    secret: LEAD_ALERT_SECRET,
     name: name, phone: phone, interest: interest,
     site: window.location.hostname + window.location.pathname,
     local: PAGE_LOCAL,
     utm_source: LEAD_SOURCE.utm_source,
     utm_medium: LEAD_SOURCE.utm_medium,
     utm_campaign: LEAD_SOURCE.utm_campaign,
+    utm_content: LEAD_SOURCE.utm_content,
     gclid: LEAD_SOURCE.gclid,
     referrer: LEAD_SOURCE.referrer
   });
