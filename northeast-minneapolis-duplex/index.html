@@ -167,6 +167,17 @@
   .pays td small{display:block;font-weight:400;color:var(--mid);font-size:13px;}
   .pays tr:last-child td{border-bottom:none;}
 
+  /* TOUR (click-to-play facade, our own poster; no iframe until tapped) */
+  .tour{position:relative;aspect-ratio:16/9;max-width:100%;width:100%;border-radius:12px;overflow:hidden;border:1px solid var(--line);background:#20211c;cursor:pointer;margin-top:8px;padding:0;display:block}
+  .tour img,.tour iframe{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;border:0}
+  .tour::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at center,rgba(20,20,18,.38),rgba(20,20,18,0) 42%);pointer-events:none}
+  .tour .play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;z-index:2}
+  .tour .play span{width:76px;height:76px;border-radius:50%;background:rgba(29,30,26,.84);border:2px solid rgba(236,228,212,.94);box-shadow:0 6px 26px rgba(0,0,0,.45);display:flex;align-items:center;justify-content:center}
+  .tour .play span::after{content:"";border-style:solid;border-width:14px 0 14px 22px;border-color:transparent transparent transparent #C9A877;margin-left:5px}
+  .tour .cap{position:absolute;left:16px;bottom:14px;color:#F3ECDD;font-weight:600;font-size:15px;text-shadow:0 1px 3px rgba(0,0,0,.6);z-index:2}
+  .tour.playing::after,.tour.playing .play,.tour.playing .cap{display:none}
+  @media (max-width:520px){.tour .play span{width:64px;height:64px}}
+
   /* GALLERY */
   .gtabs{display:flex;gap:8px;flex-wrap:wrap;margin:6px 0 18px;}
   .gtabs button,.fp-tabs button{min-height:48px;border:1.5px solid var(--inputline);background:transparent;color:var(--mid);border-radius:8px;font-family:Inter;font-size:15px;font-weight:500;cursor:pointer;padding:0 16px;}
@@ -301,6 +312,7 @@
     <nav class="hnav" aria-label="On this page">
       <a href="#math">The numbers</a>
       <a class="sec" href="#units">The units</a>
+      <a class="sec" href="#tour">Tour</a>
       <a class="sec" href="#photos">Photos</a>
       <a class="sec" href="#floorplans">Floor plans</a>
       <a class="reviews-badge" href="/reviews/"><span class="stars">★★★★★</span> 4.8 · 62 reviews</a>
@@ -359,6 +371,19 @@
         <h3>Income on day one, upside at renewal.</h3>
         <p>Lease the vacant upper at market right away, and move the main level toward market at renewal. Tenants pay gas and electric on their own meters, and water, sewer and trash are billed back. About 7.9% cash‑on‑cash in year one at 25% down.</p>
       </div>
+    </div>
+  </section>
+</div>
+
+<!-- TOUR -->
+<div class="wrap divide" id="tour">
+  <section>
+    <div class="col"><div class="eyebrow">Walk it</div><h2>Take the tour.</h2>
+      <p>Both units, start to finish. Tap to play. Nothing loads from YouTube until you press play.</p></div>
+    <div class="tour" id="tourFacade" data-id="pFEyAJPRxeQ" role="button" tabindex="0" aria-label="Play the 516 8th Ave NE video tour">
+      <img src="/ne-img/tour-poster.jpg" alt="Upper unit living room with original stained glass" loading="lazy">
+      <div class="play"><span></span></div>
+      <div class="cap">516 8th Ave NE · the walk‑through</div>
     </div>
   </section>
 </div>
@@ -500,6 +525,7 @@
           <tr><td>Water, sewer, trash</td><td>Tenant<small>Billed back (RUBS)</small></td></tr>
           <tr><td>Property taxes</td><td>Owner<small>$8,114 / yr</small></td></tr>
           <tr><td>Insurance and upkeep</td><td>Owner</td></tr>
+          <tr><td>City rental license</td><td>In place<small>City of Minneapolis</small></td></tr>
         </table>
       </div>
       <div class="cardbox">
@@ -702,6 +728,17 @@
   "numberOfBathroomsTotal":3,
   "yearBuilt":1904
 }
+</script>
+
+<script>
+(function(){var f=document.getElementById('tourFacade');if(!f)return;
+function play(){if(f.classList.contains('playing'))return;f.classList.add('playing');
+  var fr=document.createElement('iframe');
+  fr.src='https://www.youtube.com/embed/'+f.getAttribute('data-id')+'?autoplay=1&rel=0&playsinline=1&enablejsapi=1';
+  fr.title='516 8th Ave NE video tour';fr.setAttribute('allow','autoplay; encrypted-media; fullscreen; picture-in-picture');fr.setAttribute('allowfullscreen','');
+  fr.addEventListener('load',function(){try{fr.contentWindow.postMessage(JSON.stringify({event:'command',func:'playVideo',args:[]}),'*');}catch(e){}});
+  f.appendChild(fr);if(typeof gtag==='function')gtag('event','video_play',{video:'516-tour'});}
+f.addEventListener('click',play);f.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();play();}});})();
 </script>
 
 <!-- PAGE: calculator, chart, gallery, floor plans, scroll progress -->
