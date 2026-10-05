@@ -577,6 +577,20 @@ a.stat-link .stat-number{ color:#8A6A3F; }
   margin-right: auto;
 }
 
+/* This week — listing dashboard */
+.week-counts { display: flex; flex-wrap: wrap; gap: 28px; margin: 28px 0 4px; }
+.week-count { display: flex; flex-direction: column; gap: 4px; }
+.week-num { font-family: 'Playfair Display', serif; font-size: 32px; font-weight: 700; color: var(--warm); line-height: 1; }
+.week-label { font-size: 11px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; color: var(--mid); }
+.week-note { font-size: 15px; line-height: 1.6; color: var(--mid); margin: 22px 0 0; }
+.week-kicker { font-size: 11px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gold); margin: 28px 0 0; }
+.week-list { list-style: none; margin: 8px 0 0; padding: 0; }
+.week-list li { padding: 14px 0; border-top: 1px solid rgba(77,72,57,0.15); font-size: 15px; line-height: 1.55; color: var(--mid); }
+.week-list li:last-child { border-bottom: 1px solid rgba(77,72,57,0.15); }
+.week-addr { color: var(--warm); font-weight: 500; display: block; }
+.week-meta { display: block; margin-top: 2px; }
+.week-flag { color: var(--gold); font-weight: 600; letter-spacing: 0.3px; }
+
 </style>
 <link rel="canonical" href="https://geoffreyserdar.com/victoria/">
 <link rel="stylesheet" href="/assets/house.css" />
@@ -791,6 +805,34 @@ a.stat-link .stat-number{ color:#8A6A3F; }
 </div>
 <!-- /HOUSE:REACH-BAND -->
 <!-- HOUSE:FOOTER -->
+<!-- this-week start -->
+<div class="divider"></div>
+<div class="section" id="this-week">
+  <p class="section-eyebrow">October 4, 2026</p>
+  <h2 class="section-headline">Victoria this week</h2>
+  <p class="section-body">What the Victoria search returned on October 4, 2026.</p>
+  <div class="week-counts">
+    <div class="week-count"><span class="week-num">6</span><span class="week-label">For sale</span></div>
+    <div class="week-count"><span class="week-num">16</span><span class="week-label">Pending</span></div>
+    <div class="week-count"><span class="week-num">2</span><span class="week-label">Sold</span></div>
+  </div>
+  <p class="week-note">Four homes are off market.</p>
+  <p class="week-kicker">For sale and coming soon</p>
+  <ul class="week-list">
+    <li><span class="week-addr">5392 Rolling Hills Parkway, Victoria, MN 55318-7410</span><span class="week-meta">$925,000 · 5 beds · 4,819 sq ft · $192 per square foot</span></li>
+    <li><span class="week-addr">5500 Rolling Hills Parkway, Victoria, MN 55318-7412</span><span class="week-meta">$925,000 · 5 beds · 4,948 sq ft · $187 per square foot</span></li>
+    <li><span class="week-addr">1640 Field Drive, Victoria, MN 55386-4575</span><span class="week-meta">$899,999 · 5 beds · 5,392 sq ft · $167 per square foot</span></li>
+    <li><span class="week-addr">2442 Lacy Lane, Victoria, MN 55386-2302</span><span class="week-meta">$759,900 · 4 beds · 4,466 sq ft · $170 per square foot</span></li>
+    <li><span class="week-addr">1929 Woodstone Drive, Victoria, MN 55386-9637</span><span class="week-meta">$599,900 · 4 beds · 3,388 sq ft · $177 per square foot</span></li>
+    <li><span class="week-addr">8340 Grace Court, Victoria, MN 55386-9566</span><span class="week-meta">$449,900 · 4 beds · 1,896 sq ft · $237 per square foot</span></li>
+  </ul>
+  <p class="week-kicker">Sold</p>
+  <ul class="week-list">
+    <li><span class="week-addr">2735 Fieldstone Drive, Victoria, MN 55386-4546</span><span class="week-meta">Sold for $680,000 · 4 beds · 2,719 sq ft · $250 per square foot</span></li>
+    <li><span class="week-addr">1601 Hidden Pond Lane, Victoria, MN 55386-8500</span><span class="week-meta">Sold for $650,000 · 3 beds · 4,241 sq ft · $153 per square foot</span></li>
+  </ul>
+</div>
+<!-- this-week end -->
 <footer class="site-foot">
   <p class="footer-name">Geoffrey Serdar</p>
   <p class="footer-brokerage">Serdar+Partners at Compass</p>
