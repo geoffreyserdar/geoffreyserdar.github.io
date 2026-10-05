@@ -690,7 +690,7 @@ a.stat-link .stat-number{ color:#8A6A3F; }
     Chanhassen sits in <strong>Carver County</strong> on the west side of the Lake Minnetonka story &mdash; close enough that Excelsior and Victoria feel like next-door towns, far enough that you get yards, trails, and neighborhoods built for kids and dogs, not just a postcard bay view.<br /><br />
     <strong>Lake Minnewashta</strong> is the water people mean when they say Chanhassen has a lake life of its own. It sits on both the Chanhassen and Excelsior sides of the map, so &ldquo;Minnewashta&rdquo; is a place name buyers chase before they settle on a city label. Inland, <strong>Lake Susan</strong>, <strong>Lake Ann</strong>, <strong>Lake Riley</strong>, and the creek corridors give the town parks and quiet water without every address being a Minnetonka shoreline premium.<br /><br />
     The <strong>Minnesota Landscape Arboretum</strong> is the cultural landmark on this edge of the metro &mdash; gardens, sculpture, and seasonal driving that people plan weekends around. Downtown and the Highway 5 corridor carry daily life: groceries, schools, the Dinner Theatre, and the short drive toward Eden Prairie or into the south-shore lake towns.<br /><br />
-    Kids in most of Chanhassen attend <strong>Eastern Carver County Schools (District 112)</strong> &mdash; the same district as Victoria and Chaska. I still verify every address against the district map before anyone trusts a listing blurb.<br /><br />
+    Families here often weigh <strong>Eastern Carver County Schools (District 112)</strong> alongside Catholic schools such as <strong>St. Hubert Catholic School</strong> &mdash; same town, different calendars. I still verify every address against the district map before anyone trusts a listing blurb.<br /><br />
     <strong>Choosing Chanhassen over Excelsior or Victoria.</strong> Excelsior sells walk-to-Water-Street and a Lake Minnetonka bay address. Victoria trades lake-street premiums for room next to Carver Park Reserve. Chanhassen is the larger Carver County city in between &mdash; more inventory, more neighborhood types, Minnewashta and the Arboretum in the same week as a family suburb. Same west-metro orbit. Different questions. Worth naming which one you actually want before you tour.
   </p>
 </div>
@@ -723,7 +723,7 @@ a.stat-link .stat-number{ color:#8A6A3F; }
 
 <div class="vic-video">
   <div class="video-frame">
-    <button class="vfacade" type="button" data-src="https://www.youtube.com/embed/EKSv1CQQ89o?autoplay=1&rel=0" aria-label="Play: Lakeside by Charles Cudd, Chanhassen">
+    <button class="vfacade" type="button" data-src="https://www.youtube.com/embed/EKSv1CQQ89o?autoplay=1&amp;playsinline=1&amp;rel=0&amp;modestbranding=1&amp;enablejsapi=1" aria-label="Play: Lakeside by Charles Cudd, Chanhassen">
       <img loading="lazy" alt="" src="https://img.youtube.com/vi/EKSv1CQQ89o/maxresdefault.jpg"
         onerror="this.onerror=null;this.src='https://img.youtube.com/vi/EKSv1CQQ89o/hqdefault.jpg'">
       <span class="vplay"><i></i></span>
@@ -1252,8 +1252,14 @@ syncConsent();
 <script>
 document.querySelectorAll('.vfacade').forEach(function (b) {
   b.addEventListener('click', function () {
-    b.outerHTML = '<iframe src="' + b.dataset.src + '" style="position:absolute;inset:0;width:100%;height:100%;border:0" '
-      + 'allow="autoplay; encrypted-media; fullscreen" allowfullscreen></iframe>';
+    var src = b.getAttribute('data-src');
+    var iframe = document.createElement('iframe');
+    iframe.src = src;
+    iframe.setAttribute('style', 'position:absolute;inset:0;width:100%;height:100%;border:0');
+    iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');
+    iframe.setAttribute('allowfullscreen', '');
+    iframe.setAttribute('title', b.getAttribute('aria-label') || 'Video');
+    b.replaceWith(iframe);
   });
 });
 </script>
