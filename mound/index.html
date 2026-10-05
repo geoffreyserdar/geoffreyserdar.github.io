@@ -350,14 +350,6 @@ a.stat-link .stat-number{ color:#8A6A3F; }
 .vic-video{ max-width:640px; margin:44px auto 0; padding:0 32px; }
 .video-frame{ position:relative; width:100%; aspect-ratio:16/9; border-radius:6px; overflow:hidden;
   border:1px solid rgba(138,106,63,.25); background:#1D1E1A; }
-.vfacade{ position:absolute; inset:0; width:100%; height:100%; padding:0; border:0; display:block; cursor:pointer; background:#1D1E1A; }
-.vfacade img{ width:100%; height:100%; object-fit:cover; display:block; transition:transform .4s; }
-.vfacade:hover img{ transform:scale(1.02); }
-.vfacade:focus{ outline:3px solid #8A6A3F; outline-offset:2px; }
-.vplay{ position:absolute; inset:0; display:flex; align-items:flex-end; justify-content:flex-start; padding:20px; pointer-events:none; }
-.vplay i{ width:56px; height:56px; border-radius:50%; background:rgba(236,228,212,.16);
-  border:1.5px solid #C9A877; display:flex; align-items:center; justify-content:center; }
-.vplay i::after{ content:""; border:10px solid transparent; border-left:17px solid #ECE4D4; margin-left:5px; }
 .vic-vcap{ font-size:13px; color:#4D4839; margin-top:12px; text-align:center; font-style:italic; }
 .vic-read{ font-size:15px; color:#4D4839; margin-top:22px; text-align:center; line-height:1.7; }
 .vic-read a{ color:#8A6A3F; }
@@ -1277,14 +1269,6 @@ syncConsent();
     }
   });
 })();
-</script>
-<script>
-document.querySelectorAll('.vfacade').forEach(function (b) {
-  b.addEventListener('click', function () {
-    b.outerHTML = '<iframe src="' + b.dataset.src + '" style="position:absolute;inset:0;width:100%;height:100%;border:0" '
-      + 'allow="autoplay; encrypted-media; fullscreen" allowfullscreen></iframe>';
-  });
-});
 </script>
 </body>
 </html>
