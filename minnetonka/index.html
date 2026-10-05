@@ -570,6 +570,20 @@ a.stat-link .stat-number{ color:#8A6A3F; }
   margin-right: auto;
 }
 
+/* This week — listing dashboard */
+.week-counts { display: flex; flex-wrap: wrap; gap: 28px; margin: 28px 0 4px; }
+.week-count { display: flex; flex-direction: column; gap: 4px; }
+.week-num { font-family: 'Playfair Display', serif; font-size: 32px; font-weight: 700; color: var(--warm); line-height: 1; }
+.week-label { font-size: 11px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; color: var(--mid); }
+.week-note { font-size: 15px; line-height: 1.6; color: var(--mid); margin: 22px 0 0; }
+.week-kicker { font-size: 11px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gold); margin: 28px 0 0; }
+.week-list { list-style: none; margin: 8px 0 0; padding: 0; }
+.week-list li { padding: 14px 0; border-top: 1px solid rgba(77,72,57,0.15); font-size: 15px; line-height: 1.55; color: var(--mid); }
+.week-list li:last-child { border-bottom: 1px solid rgba(77,72,57,0.15); }
+.week-addr { color: var(--warm); font-weight: 500; display: block; }
+.week-meta { display: block; margin-top: 2px; }
+.week-flag { color: var(--gold); font-weight: 600; letter-spacing: 0.3px; }
+
 </style>
 <link rel="canonical" href="https://geoffreyserdar.com/minnetonka/">
 <link rel="stylesheet" href="/assets/house.css" />
@@ -761,6 +775,45 @@ a.stat-link .stat-number{ color:#8A6A3F; }
 </div>
 <!-- /HOUSE:REACH-BAND -->
 <!-- HOUSE:FOOTER -->
+<!-- this-week start -->
+<div class="divider"></div>
+<div class="section" id="this-week">
+  <p class="section-eyebrow">October 4, 2026</p>
+  <h2 class="section-headline">Minnetonka this week</h2>
+  <p class="section-body">What the Minnetonka search returned on October 4, 2026.</p>
+  <div class="week-counts">
+    <div class="week-count"><span class="week-num">8</span><span class="week-label">For sale</span></div>
+    <div class="week-count"><span class="week-num">1</span><span class="week-label">Coming soon</span></div>
+    <div class="week-count"><span class="week-num">7</span><span class="week-label">Pending</span></div>
+    <div class="week-count"><span class="week-num">10</span><span class="week-label">Sold</span></div>
+  </div>
+  <p class="week-note">Four homes are off market.</p>
+  <p class="week-kicker">For sale and coming soon</p>
+  <ul class="week-list">
+    <li><span class="week-addr">2312 Sheridan Hills Road, Wayzata, MN 55391-2312</span><span class="week-meta">$900,000 · 4 beds · 3,057 sq ft · $294 per square foot</span></li>
+    <li><span class="week-addr">16724 Blenheim Way, Minnetonka, MN 55345-1797</span><span class="week-meta">$725,000 · 4 beds · 3,454 sq ft · $210 per square foot</span></li>
+    <li><span class="week-addr">5442 Mayview Road, Minnetonka, MN 55345-5935</span><span class="week-meta">$650,000 · 4 beds · 2,500 sq ft · $260 per square foot</span></li>
+    <li><span class="week-addr">342 Kenmar Circle, Minnetonka, MN 55305-2218</span><span class="week-meta">$524,900 · 4 beds · 2,380 sq ft · $221 per square foot</span></li>
+    <li><span class="week-addr">4335 Briarwood Drive, Minnetonka, MN 55343-6826</span><span class="week-meta">$499,900 · 4 beds · 2,226 sq ft · $225 per square foot</span></li>
+    <li><span class="week-addr">13819 Bellevue Drive, Minnetonka, MN 55345</span><span class="week-meta">$499,000 · 3 beds · 2,348 sq ft · $213 per square foot</span></li>
+    <li><span class="week-addr">2222 Black Oak Drive, Minnetonka, MN 55305-2538 <span class="week-flag">Coming soon, Oct 7</span></span><span class="week-meta">$485,000 · 3 beds · 1,999 sq ft · $243 per square foot</span></li>
+    <li><span class="week-addr">18503 Hanus Road, Minnetonka, MN 55345-5008</span><span class="week-meta">$475,000 · 4 beds · 2,754 sq ft · $172 per square foot</span></li>
+    <li><span class="week-addr">5603 Woodland Road, Minnetonka, MN 55345-5438</span><span class="week-meta">$335,000 · 3 beds · 2,203 sq ft · $152 per square foot</span></li>
+  </ul>
+  <p class="week-kicker">Sold</p>
+  <ul class="week-list">
+    <li><span class="week-addr">12815 Woodhaven Place, Minnetonka, MN 55305</span><span class="week-meta">Sold for $2,673,000 · 3 beds · 4,750 sq ft · $563 per square foot</span></li>
+    <li><span class="week-addr">19 Westwood Road, Minnetonka, MN 55305-1587</span><span class="week-meta">Sold for $1,147,777 · 4 beds · 3,979 sq ft · $288 per square foot</span></li>
+    <li><span class="week-addr">5536 Bristol Lane, Minnetonka, MN 55343-4306</span><span class="week-meta">Sold for $950,000 · 5 beds · 4,996 sq ft · $190 per square foot</span></li>
+    <li><span class="week-addr">5409 Highland Road, Minnetonka, MN 55345-5632</span><span class="week-meta">Sold for $740,000 · 4 beds · 2,586 sq ft · $286 per square foot</span></li>
+    <li><span class="week-addr">4615 Saddlewood Drive, Minnetonka, MN 55345</span><span class="week-meta">Sold for $590,000 · 4 beds · 3,644 sq ft · $162 per square foot</span></li>
+    <li><span class="week-addr">12810 Lone Oak Drive, Minnetonka, MN 55305-5029</span><span class="week-meta">Sold for $565,000 · 4 beds · 2,578 sq ft · $219 per square foot</span></li>
+    <li><span class="week-addr">3642 Sunrise Drive W, Minnetonka, MN 55345-2238</span><span class="week-meta">Sold for $539,475 · 4 beds · 2,824 sq ft · $191 per square foot</span></li>
+    <li><span class="week-addr">4613 Twin Haven Road, Minnetonka, MN 55343-8672</span><span class="week-meta">Sold for $500,000 · 5 beds · 3,376 sq ft · $148 per square foot</span></li>
+  </ul>
+  <p class="week-note">Two more sold in this search.</p>
+</div>
+<!-- this-week end -->
 <footer class="site-foot">
   <p class="footer-name">Geoffrey Serdar</p>
   <p class="footer-brokerage">Serdar+Partners at Compass</p>
