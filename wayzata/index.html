@@ -587,6 +587,20 @@ a.stat-link .stat-number{ color:#8A6A3F; }
   margin-right: auto;
 }
 
+/* This week — listing dashboard */
+.week-counts { display: flex; flex-wrap: wrap; gap: 28px; margin: 28px 0 4px; }
+.week-count { display: flex; flex-direction: column; gap: 4px; }
+.week-num { font-family: 'Playfair Display', serif; font-size: 32px; font-weight: 700; color: var(--warm); line-height: 1; }
+.week-label { font-size: 11px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; color: var(--mid); }
+.week-note { font-size: 15px; line-height: 1.6; color: var(--mid); margin: 22px 0 0; }
+.week-kicker { font-size: 11px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gold); margin: 28px 0 0; }
+.week-list { list-style: none; margin: 8px 0 0; padding: 0; }
+.week-list li { padding: 14px 0; border-top: 1px solid rgba(77,72,57,0.15); font-size: 15px; line-height: 1.55; color: var(--mid); }
+.week-list li:last-child { border-bottom: 1px solid rgba(77,72,57,0.15); }
+.week-addr { color: var(--warm); font-weight: 500; display: block; }
+.week-meta { display: block; margin-top: 2px; }
+.week-flag { color: var(--gold); font-weight: 600; letter-spacing: 0.3px; }
+
 </style>
 <meta name="robots" content="index, follow" />
 
@@ -745,6 +759,34 @@ Small north-shore towns swing month to month &mdash; that&rsquo;s normal here. W
   </p>
 </div>
 
+<!-- this-week start -->
+<div class="divider"></div>
+<div class="section" id="this-week">
+  <p class="section-eyebrow">October 4, 2026</p>
+  <h2 class="section-headline">Wayzata this week</h2>
+  <p class="section-body">What the Wayzata search returned on October 4, 2026.</p>
+  <div class="week-counts">
+    <div class="week-count"><span class="week-num">2</span><span class="week-label">For sale</span></div>
+    <div class="week-count"><span class="week-num">2</span><span class="week-label">Coming soon</span></div>
+    <div class="week-count"><span class="week-num">4</span><span class="week-label">Sold</span></div>
+  </div>
+  <p class="week-note">One home is off market.</p>
+  <p class="week-kicker">For sale and coming soon</p>
+  <ul class="week-list">
+    <li><span class="week-addr">1225 Shoreline Drive, Wayzata MN 55391-4458 <span class="week-flag">Coming soon, Oct 8</span></span><span class="week-meta">$7,895,000 · 6 beds · 6,385 sq ft · $1,236 per square foot</span></li>
+    <li><span class="week-addr">1426 Holdridge Circle, Wayzata MN 55391-0067</span><span class="week-meta">$2,795,000 · 5 beds · 6,344 sq ft · $441 per square foot</span></li>
+    <li><span class="week-addr">435 Far Hill Road, Wayzata MN 55391-1067 <span class="week-flag">Coming soon, Oct 8</span></span><span class="week-meta">$799,900 · 4 beds · 4,342 sq ft · $184 per square foot</span></li>
+    <li><span class="week-addr">1316 Holdridge Terrace, Wayzata MN 55391-1821</span><span class="week-meta">$435,000 · 4 beds · 2,362 sq ft · $184 per square foot</span></li>
+  </ul>
+  <p class="week-kicker">Sold</p>
+  <ul class="week-list">
+    <li><span class="week-addr">546 Harrington Road, Wayzata MN 55391</span><span class="week-meta">Sold for $5,500,000 · 5 beds · 10,130 sq ft · $543 per square foot</span></li>
+    <li><span class="week-addr">415 Highcroft Road, Wayzata MN 55391</span><span class="week-meta">Sold for $4,850,000 · 6 beds · 6,091 sq ft · $796 per square foot</span></li>
+    <li><span class="week-addr">619 Gardner Street, Wayzata MN 55391-3706</span><span class="week-meta">Sold for $2,035,000 · 4 beds · 5,123 sq ft · $397 per square foot</span></li>
+    <li><span class="week-addr">126 Circle A Drive S, Wayzata MN 55391-1824</span><span class="week-meta">Sold for $900,000 · 5 beds · 3,398 sq ft · $265 per square foot</span></li>
+  </ul>
+</div>
+<!-- this-week end -->
 <div class="divider"></div>
 <div class="section">
   <p class="section-eyebrow">Schools &amp; Daily Life</p>
