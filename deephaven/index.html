@@ -587,6 +587,20 @@ a.stat-link .stat-number{ color:#8A6A3F; }
   margin-right: auto;
 }
 
+/* This week — listing dashboard */
+.week-counts { display: flex; flex-wrap: wrap; gap: 28px; margin: 28px 0 4px; }
+.week-count { display: flex; flex-direction: column; gap: 4px; }
+.week-num { font-family: 'Playfair Display', serif; font-size: 32px; font-weight: 700; color: var(--warm); line-height: 1; }
+.week-label { font-size: 11px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; color: var(--mid); }
+.week-note { font-size: 15px; line-height: 1.6; color: var(--mid); margin: 22px 0 0; }
+.week-kicker { font-size: 11px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gold); margin: 28px 0 0; }
+.week-list { list-style: none; margin: 8px 0 0; padding: 0; }
+.week-list li { padding: 14px 0; border-top: 1px solid rgba(77,72,57,0.15); font-size: 15px; line-height: 1.55; color: var(--mid); }
+.week-list li:last-child { border-bottom: 1px solid rgba(77,72,57,0.15); }
+.week-addr { color: var(--warm); font-weight: 500; display: block; }
+.week-meta { display: block; margin-top: 2px; }
+.week-flag { color: var(--gold); font-weight: 600; letter-spacing: 0.3px; }
+
 </style>
 <meta name="robots" content="index, follow" />
 
@@ -745,6 +759,27 @@ I won&rsquo;t dress up a short month as a trend. Your street and your bay get th
   </p>
 </div>
 
+<!-- this-week start -->
+<div class="divider"></div>
+<div class="section" id="this-week">
+  <p class="section-eyebrow">October 4, 2026</p>
+  <h2 class="section-headline">Deephaven this week</h2>
+  <p class="section-body">What the Deephaven search returned on October 4, 2026.</p>
+  <div class="week-counts">
+    <div class="week-count"><span class="week-num">1</span><span class="week-label">For sale</span></div>
+    <div class="week-count"><span class="week-num">1</span><span class="week-label">Sold</span></div>
+  </div>
+  <p class="week-note">One home is off market.</p>
+  <p class="week-kicker">For sale and coming soon</p>
+  <ul class="week-list">
+    <li><span class="week-addr">20265 Cottagewood Road, Deephaven, MN 55331-6701</span><span class="week-meta">$1,895,000 · 5 beds · 5,062 sq ft · $374 per square foot</span></li>
+  </ul>
+  <p class="week-kicker">Sold</p>
+  <ul class="week-list">
+    <li><span class="week-addr">20670 Linwood Road, Deephaven, MN 55331-9384</span><span class="week-meta">Sold for $18,250,000 · 5 beds · 10,440 sq ft · $1,748 per square foot</span></li>
+  </ul>
+</div>
+<!-- this-week end -->
 <div class="divider"></div>
 <div class="section">
   <p class="section-eyebrow">Schools &amp; Daily Life</p>
