@@ -548,6 +548,20 @@ a.stat-link .stat-number{ color:#8A6A3F; }
   margin-right: auto;
 }
 
+/* This week — listing dashboard */
+.week-counts { display: flex; flex-wrap: wrap; gap: 28px; margin: 28px 0 4px; }
+.week-count { display: flex; flex-direction: column; gap: 4px; }
+.week-num { font-family: 'Playfair Display', serif; font-size: 32px; font-weight: 700; color: var(--warm); line-height: 1; }
+.week-label { font-size: 11px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; color: var(--mid); }
+.week-note { font-size: 15px; line-height: 1.6; color: var(--mid); margin: 22px 0 0; }
+.week-kicker { font-size: 11px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gold); margin: 28px 0 0; }
+.week-list { list-style: none; margin: 8px 0 0; padding: 0; }
+.week-list li { padding: 14px 0; border-top: 1px solid rgba(77,72,57,0.15); font-size: 15px; line-height: 1.55; color: var(--mid); }
+.week-list li:last-child { border-bottom: 1px solid rgba(77,72,57,0.15); }
+.week-addr { color: var(--warm); font-weight: 500; display: block; }
+.week-meta { display: block; margin-top: 2px; }
+.week-flag { color: var(--gold); font-weight: 600; letter-spacing: 0.3px; }
+
 </style>
 <link rel="canonical" href="https://geoffreyserdar.com/excelsior/">
 <meta property="og:title" content="Excelsior, MN Realtor | Geoffrey Serdar — Lake Minnetonka" />
@@ -736,6 +750,20 @@ a.stat-link .stat-number{ color:#8A6A3F; }
   </p>
 </div>
 
+<!-- this-week start -->
+<div class="divider"></div>
+<div class="section" id="this-week">
+  <p class="section-eyebrow">October 4, 2026</p>
+  <h2 class="section-headline">Excelsior this week</h2>
+  <p class="section-body">What the Excelsior search returned on October 4, 2026.</p>
+  <p class="week-note">Two homes are off market.</p>
+  <p class="week-kicker">Off market</p>
+  <ul class="week-list">
+    <li><span class="week-addr">5960 Grant Street, Excelsior, MN 55331-3138</span><span class="week-meta">$519,999 · 3 beds · 1,546 sq ft · $336 per square foot</span></li>
+    <li><span class="week-addr">5200 Greenwood Circle, Excelsior, MN 55331-8400</span><span class="week-meta">$475,000 · 3 beds · 1,980 sq ft · $240 per square foot</span></li>
+  </ul>
+</div>
+<!-- this-week end -->
 <div class="divider"></div>
 
 <div class="section">
