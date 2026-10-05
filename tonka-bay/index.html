@@ -587,6 +587,20 @@ a.stat-link .stat-number{ color:#8A6A3F; }
   margin-right: auto;
 }
 
+/* This week — listing dashboard */
+.week-counts { display: flex; flex-wrap: wrap; gap: 28px; margin: 28px 0 4px; }
+.week-count { display: flex; flex-direction: column; gap: 4px; }
+.week-num { font-family: 'Playfair Display', serif; font-size: 32px; font-weight: 700; color: var(--warm); line-height: 1; }
+.week-label { font-size: 11px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; color: var(--mid); }
+.week-note { font-size: 15px; line-height: 1.6; color: var(--mid); margin: 22px 0 0; }
+.week-kicker { font-size: 11px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gold); margin: 28px 0 0; }
+.week-list { list-style: none; margin: 8px 0 0; padding: 0; }
+.week-list li { padding: 14px 0; border-top: 1px solid rgba(77,72,57,0.15); font-size: 15px; line-height: 1.55; color: var(--mid); }
+.week-list li:last-child { border-bottom: 1px solid rgba(77,72,57,0.15); }
+.week-addr { color: var(--warm); font-weight: 500; display: block; }
+.week-meta { display: block; margin-top: 2px; }
+.week-flag { color: var(--gold); font-weight: 600; letter-spacing: 0.3px; }
+
 </style>
 <meta name="robots" content="index, follow" />
 
@@ -746,6 +760,23 @@ Quiet peninsula towns can go quiet on the board, too. When a house here matters 
   </p>
 </div>
 
+<!-- this-week start -->
+<div class="divider"></div>
+<div class="section" id="this-week">
+  <p class="section-eyebrow">October 4, 2026</p>
+  <h2 class="section-headline">Tonka Bay this week</h2>
+  <p class="section-body">What the Tonka Bay search returned on October 4, 2026.</p>
+  <div class="week-counts">
+    <div class="week-count"><span class="week-num">1</span><span class="week-label">Sold</span></div>
+  </div>
+  <p class="week-note">One home is off market.</p>
+  <p class="week-note">Nothing in this search is for sale or coming soon.</p>
+  <p class="week-kicker">Sold</p>
+  <ul class="week-list">
+    <li><span class="week-addr">365 Lakeview Avenue, Tonka Bay, MN 55331-9569</span><span class="week-meta">Sold for $3,350,000 · 4 beds · 3,172 sq ft · $1,056 per square foot</span></li>
+  </ul>
+</div>
+<!-- this-week end -->
 <div class="divider"></div>
 <div class="section">
   <p class="section-eyebrow">Schools &amp; Daily Life</p>
