@@ -588,7 +588,7 @@ a.stat-link .stat-number{ color:#8A6A3F; }
   <div class="form-card" id="weekMagnetCard">
     <div class="form-fields" id="formFields">
       <h2 class="form-headline">Excelsior this week</h2>
-      <p class="form-sub"><span data-week-sub>What closed in Excelsior the week of Sep 28–Oct 4.</span> Leave your name and email, and this week's closed sales land in your inbox. Add your mobile only if you'd like Geoffrey to text you. No blasts.</p>
+      <p class="form-sub"><span data-week-sub>What closed in Excelsior the week of Sep 28–Oct 4.</span> Leave your name and email, and this week's closed sales land in your inbox. Add your mobile only if you'd like Geoffrey to text you.</p>
 
       <div class="week-teaser" id="weekTeaser" data-week-town="Excelsior">
         <p class="week-teaser-label">This week at a glance</p>
@@ -640,7 +640,7 @@ a.stat-link .stat-number{ color:#8A6A3F; }
     <div class="success-state" id="successState">
       <div class="success-icon">&check;</div>
       <h3 class="success-title">You’re in.</h3>
-      <p class="success-sub">Here’s what closed around the lake this week — including how Excelsior sat.</p>
+      <p class="success-sub">Thanks. This week's closed sales for Excelsior and around the lake are on their way to your inbox. If you left your mobile, Geoffrey may text you too.</p>
       <a class="success-go" id="weeklyGo" href="/lake-minnetonka-weekly/">Open this week’s note →</a>
       <div class="success-crosslink">
         <p class="success-crosslink-prompt">Also looking at the top of the lake?</p>
@@ -745,10 +745,24 @@ a.stat-link .stat-number{ color:#8A6A3F; }
 
 <!-- this-week start -->
 <div class="divider"></div>
-<div class="section" id="this-week">
-  <p class="section-eyebrow">October 4, 2026</p>
+<div class="section" id="this-week" data-week-section="Excelsior" data-week-start="2026-09-28">
+  <p class="section-eyebrow" data-ws-eyebrow>Closed Sep 28 to Oct 4, 2026</p>
   <h2 class="section-headline">Excelsior this week</h2>
-  <p class="section-body">What the Excelsior search returned on October 4, 2026.</p>
+  <p class="section-body" data-ws-line>4 homes closed in Excelsior between Sep 28 and Oct 4, 2026, at a typical price of $847,500.</p>
+  <div data-ws-closed>
+    <div class="week-counts">
+      <div class="week-count"><span class="week-num">4</span><span class="week-label">Sold</span></div>
+    </div>
+    <p class="week-kicker">Sold</p>
+    <ul class="week-list">
+      <li><span class="week-addr">28200 Boulder Circle, Excelsior</span><span class="week-meta">Sold for $2,800,000 · house · closed Oct 2</span></li>
+      <li><span class="week-addr">24295 Wood Drive, Excelsior</span><span class="week-meta">Sold for $870,000 · house · closed Oct 1</span></li>
+      <li><span class="week-addr">21160 Forest Drive, Excelsior</span><span class="week-meta">Sold for $825,000 · house · closed Oct 2</span></li>
+      <li><span class="week-addr">6060 Oakview Court, Excelsior</span><span class="week-meta">Sold for $647,000 · twin home · closed Sep 28</span></li>
+    </ul>
+  </div>
+  <p class="week-note">Same numbers as the card above and the <a href="/lake-minnetonka-weekly/">Lake Minnetonka weekly</a>.</p>
+  <p class="section-body" style="margin-top:40px;"><strong>Listings from the October 4 search.</strong> These are separate from the closed sales above. They are the homes that were listed, pending, or off market when the Excelsior search ran on October 4.</p>
   <p class="week-note">Two homes are off market.</p>
   <p class="week-kicker">Off market</p>
   <ul class="week-list">
@@ -1286,6 +1300,7 @@ syncConsent();
 })();
 </script>
 <script src="/assets/week-data.js" defer></script>
+<script src="/assets/week-section.js" defer></script>
 </body>
 </html>
 
