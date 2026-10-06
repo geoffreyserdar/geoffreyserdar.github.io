@@ -620,26 +620,26 @@ a.stat-link .stat-number{ color:#8A6A3F; }
   <div class="form-card" id="weekMagnetCard">
     <div class="form-fields" id="formFields">
       <h2 class="form-headline">Mound this week</h2>
-      <p class="form-sub">What the Mound search returned on October 4. Leave your name, email, and mobile so Geoffrey can text or call. No blasts.</p>
+      <p class="form-sub"><span data-week-sub>What closed in Mound the week of Sep 28–Oct 4.</span> Leave your name, email, and mobile so Geoffrey can text or call. No blasts.</p>
 
-      <div class="week-teaser" id="weekTeaser">
+      <div class="week-teaser" id="weekTeaser" data-week-town="Mound">
         <p class="week-teaser-label">This week at a glance</p>
-        <p class="week-teaser-meta">October 4, 2026</p>
-        <div class="teaser-dash" aria-label="What the Mound search returned on October 4, 2026">
+        <p class="week-teaser-meta">Week of Sep 28–Oct 4, 2026</p>
+        <div class="teaser-dash" aria-label="Closed sales for the week of Sep 28–Oct 4, 2026">
           <div class="teaser-dash-tile">
-            <div class="teaser-dash-n">$449,000</div>
-            <div class="teaser-dash-l">Typical asking · 3</div>
+            <div class="teaser-dash-n">5</div>
+            <div class="teaser-dash-l">Sold this week</div>
           </div>
           <div class="teaser-dash-tile">
             <div class="teaser-dash-n">$359,900</div>
-            <div class="teaser-dash-l">Typical sold · 3</div>
+            <div class="teaser-dash-l">Typical sold</div>
           </div>
           <div class="teaser-dash-tile">
-            <div class="teaser-dash-n">$274</div>
-            <div class="teaser-dash-l">Per sq ft · 8</div>
+            <div class="teaser-dash-n">49</div>
+            <div class="teaser-dash-l">Sold around the lake</div>
           </div>
         </div>
-        <p class="week-teaser-line"><em>Geoffrey:</em> 2 for sale, 1 coming soon, 3 sold and 2 pending. Asking runs from $359,000 to $550,000. Sold runs from $320,000 to $2,500,000. The typical price per square foot is $274.</p>
+        <p class="week-teaser-line"><em>Geoffrey:</em> 5 homes closed in Mound the week of Sep 28–Oct 4, at a typical $359,900. Around the lake, 49 sold at a typical $647,000.</p>
       </div>
 
       <form id="captureForm" onsubmit="handleSubmit(event)">
@@ -1273,6 +1273,7 @@ syncConsent();
   });
 })();
 </script>
+<script src="/assets/week-data.js" defer></script>
 </body>
 </html>
 
