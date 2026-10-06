@@ -625,26 +625,26 @@ a.stat-link .stat-number{ color:#8A6A3F; }
   <div class="form-card" id="weekMagnetCard">
     <div class="form-fields" id="formFields">
       <h2 class="form-headline">Spring Park this week</h2>
-      <p class="form-sub">What the Spring Park search returned on October 4. Leave your name, email, and mobile so Geoffrey can text or call. No blasts.</p>
+      <p class="form-sub"><span data-week-sub>No Spring Park homes closed the week of Sep 28–Oct 4, so here is the lake.</span> Leave your name, email, and mobile so Geoffrey can text or call. No blasts.</p>
 
-      <div class="week-teaser" id="weekTeaser">
+      <div class="week-teaser" id="weekTeaser" data-week-town="Spring Park">
         <p class="week-teaser-label">This week at a glance</p>
-        <p class="week-teaser-meta">October 4, 2026</p>
-        <div class="teaser-dash" aria-label="What the Spring Park search returned on October 4, 2026">
+        <p class="week-teaser-meta">Week of Sep 28–Oct 4, 2026</p>
+        <div class="teaser-dash" aria-label="Closed sales for the week of Sep 28–Oct 4, 2026">
           <div class="teaser-dash-tile">
-            <div class="teaser-dash-n">None</div>
-            <div class="teaser-dash-l">No asking</div>
+            <div class="teaser-dash-n">49</div>
+            <div class="teaser-dash-l">Sold around the lake</div>
           </div>
           <div class="teaser-dash-tile">
-            <div class="teaser-dash-n">None</div>
-            <div class="teaser-dash-l">No sold</div>
+            <div class="teaser-dash-n">$647,000</div>
+            <div class="teaser-dash-l">Typical price (lake)</div>
           </div>
           <div class="teaser-dash-tile">
-            <div class="teaser-dash-n">—</div>
-            <div class="teaser-dash-l">No size on file</div>
+            <div class="teaser-dash-n">Minnetonka · 17</div>
+            <div class="teaser-dash-l">Most closes this week</div>
           </div>
         </div>
-        <p class="week-teaser-line"><em>Geoffrey:</em> Nothing came back in the search on October 4.</p>
+        <p class="week-teaser-line"><em>Geoffrey:</em> No homes closed in Spring Park the week of Sep 28–Oct 4. Small towns have quiet weeks. Around the lake, 49 sold at a typical $647,000.</p>
       </div>
 
       <form id="captureForm" onsubmit="handleSubmit(event)">
@@ -840,12 +840,12 @@ const INTEREST_DETAIL = {
 function interestDetail(v) { return INTEREST_DETAIL[v] || v || '(none selected)'; }
 
 
-function checkNumber(name, phone, interest) {
+function checkNumber(name, phone, interest, email) {
   var controller = new AbortController();
   var timer = setTimeout(function () { controller.abort(); }, 2500);
   var data = new URLSearchParams({
 
-    name: name, phone: phone, interest: interest,
+    name: name, phone: phone, email: email || '', interest: interest,
     site: window.location.hostname + window.location.pathname,
     local: PAGE_LOCAL,
     utm_source: LEAD_SOURCE.utm_source,
@@ -981,7 +981,7 @@ async function handleSubmit(e) {
     // Layer 2 — carrier check (also triggers the alert text on a good number).
     // Twilio gets the visible chip label (or empty if none).
     setChecking(true);
-    var verdict = await checkNumber(name, phone, interestLabel);
+    var verdict = await checkNumber(name, phone, interestLabel, email);
     setChecking(false);
 
     if (verdict && verdict.valid === false) {
@@ -991,6 +991,8 @@ async function handleSubmit(e) {
   }
 
   // Formspree still receives interest as the slug + interest_detail; email if filled.
+  // Oct 6 2026: email-only leads still text Geoffrey. Fire-and-forget; no phone check without a phone.
+  if (!phone) { try { checkNumber(name, '', interestLabel, email); } catch (_la) {} }
   submitToFormspree(name, phone, interest, email);
   try { notifyCompassLeadPixel(name, phone, email); } catch (_cxlp) {}
   showSuccess();
@@ -1131,5 +1133,6 @@ document.querySelectorAll('.vfacade').forEach(function (b) {
   });
 });
 </script>
+<script src="/assets/week-data.js" defer></script>
 </body>
 </html>
