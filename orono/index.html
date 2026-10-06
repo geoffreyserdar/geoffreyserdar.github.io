@@ -620,7 +620,7 @@ a.stat-link .stat-number{ color:#8A6A3F; }
   <div class="form-card" id="weekMagnetCard">
     <div class="form-fields" id="formFields">
       <h2 class="form-headline">Orono this week</h2>
-      <p class="form-sub"><span data-week-sub>What closed in Orono the week of Sep 28–Oct 4.</span> Leave your name and email, and this week's closed sales land in your inbox. Add your mobile only if you'd like Geoffrey to text you. No blasts.</p>
+      <p class="form-sub"><span data-week-sub>What closed in Orono the week of Sep 28–Oct 4.</span> Leave your name and email, and this week's closed sales land in your inbox. Add your mobile only if you'd like Geoffrey to text you.</p>
 
       <div class="week-teaser" id="weekTeaser" data-week-town="Orono">
         <p class="week-teaser-label">This week at a glance</p>
@@ -672,7 +672,7 @@ a.stat-link .stat-number{ color:#8A6A3F; }
     <div class="success-state" id="successState">
       <div class="success-icon">&check;</div>
       <h3 class="success-title">You’re in.</h3>
-      <p class="success-sub">Here’s what closed in Orono and around the lake this week.</p>
+      <p class="success-sub">Thanks. This week's closed sales for Orono and around the lake are on their way to your inbox. If you left your mobile, Geoffrey may text you too.</p>
       <a class="success-go" id="weeklyGo" href="/lake-minnetonka-weekly/">Open this week’s note →</a>
       <div class="success-crosslink">
         <p class="success-crosslink-prompt">Also looking at the top of the lake?</p>
@@ -759,15 +759,25 @@ One month doesn&rsquo;t tell the whole story out here. We&rsquo;ll read your bay
 
 <!-- this-week start -->
 <div class="divider"></div>
-<div class="section" id="this-week">
-  <p class="section-eyebrow">October 4, 2026</p>
+<div class="section" id="this-week" data-week-section="Orono" data-week-start="2026-09-28">
+  <p class="section-eyebrow" data-ws-eyebrow>Closed Sep 28 to Oct 4, 2026</p>
   <h2 class="section-headline">Orono this week</h2>
-  <p class="section-body">What the Orono search returned on October 4, 2026.</p>
+  <p class="section-body" data-ws-line>One home closed in Orono between Sep 28 and Oct 4, 2026, for $1,500,000.</p>
+  <div data-ws-closed>
+    <div class="week-counts">
+      <div class="week-count"><span class="week-num">1</span><span class="week-label">Sold</span></div>
+    </div>
+    <p class="week-kicker">Sold</p>
+    <ul class="week-list">
+      <li><span class="week-addr">1525 6th Avenue N, Orono</span><span class="week-meta">Sold for $1,500,000 · house · closed Oct 2</span></li>
+    </ul>
+  </div>
+  <p class="week-note">Same numbers as the card above and the <a href="/lake-minnetonka-weekly/">Lake Minnetonka weekly</a>.</p>
+  <p class="section-body" style="margin-top:40px;"><strong>Listings from the October 4 search.</strong> These are separate from the closed sales above. They are the homes that were listed, pending, or off market when the Orono search ran on October 4.</p>
   <div class="week-counts">
     <div class="week-count"><span class="week-num">1</span><span class="week-label">For sale</span></div>
     <div class="week-count"><span class="week-num">2</span><span class="week-label">Coming soon</span></div>
     <div class="week-count"><span class="week-num">5</span><span class="week-label">Pending</span></div>
-    <div class="week-count"><span class="week-num">2</span><span class="week-label">Sold</span></div>
   </div>
   <p class="week-note">One home is off market.</p>
   <p class="week-kicker">For sale and coming soon</p>
@@ -775,11 +785,6 @@ One month doesn&rsquo;t tell the whole story out here. We&rsquo;ll read your bay
     <li><span class="week-addr">440 Stubbs Bay Road, Orono, MN 55356</span><span class="week-meta">$2,495,000 · 5 beds · 7,067 sq ft · $353 per square foot</span></li>
     <li><span class="week-addr">45 Smith Avenue, Orono, MN 55391-9551 <span class="week-flag">Coming soon, Oct 10</span></span><span class="week-meta">$1,765,000 · 5 beds · 4,628 sq ft · $381 per square foot</span></li>
     <li><span class="week-addr">3425 Watertown Road, Orono, MN 55356-9211 <span class="week-flag">Coming soon, Oct 9</span></span><span class="week-meta">$1,350,000 · 5 beds · 4,412 sq ft · $306 per square foot</span></li>
-  </ul>
-  <p class="week-kicker">Sold</p>
-  <ul class="week-list">
-    <li><span class="week-addr">945 Willow View Drive, Long Lake, MN 55356-4303</span><span class="week-meta">Sold for $1,880,000 · 5 beds · 6,341 sq ft · $296 per square foot</span></li>
-    <li><span class="week-addr">1525 6th Avenue N, Orono, MN 55356-8201</span><span class="week-meta">Sold for $1,500,000 · 5 beds · 6,500 sq ft · $231 per square foot</span></li>
   </ul>
 </div>
 <!-- this-week end -->
@@ -1281,6 +1286,7 @@ syncConsent();
 })();
 </script>
 <script src="/assets/week-data.js" defer></script>
+<script src="/assets/week-section.js" defer></script>
 </body>
 </html>
 
