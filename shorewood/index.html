@@ -625,26 +625,26 @@ a.stat-link .stat-number{ color:#8A6A3F; }
   <div class="form-card" id="weekMagnetCard">
     <div class="form-fields" id="formFields">
       <h2 class="form-headline">Shorewood this week</h2>
-      <p class="form-sub">What the Shorewood search returned on October 4. Leave your name, email, and mobile so Geoffrey can text or call. No blasts.</p>
+      <p class="form-sub"><span data-week-sub>What closed in Shorewood the week of Sep 28–Oct 4.</span> Leave your name, email, and mobile so Geoffrey can text or call. No blasts.</p>
 
-      <div class="week-teaser" id="weekTeaser">
+      <div class="week-teaser" id="weekTeaser" data-week-town="Shorewood">
         <p class="week-teaser-label">This week at a glance</p>
-        <p class="week-teaser-meta">October 4, 2026</p>
-        <div class="teaser-dash" aria-label="What the Shorewood search returned on October 4, 2026">
+        <p class="week-teaser-meta">Week of Sep 28–Oct 4, 2026</p>
+        <div class="teaser-dash" aria-label="Closed sales for the week of Sep 28–Oct 4, 2026">
           <div class="teaser-dash-tile">
-            <div class="teaser-dash-n">$724,900</div>
-            <div class="teaser-dash-l">One asking</div>
+            <div class="teaser-dash-n">2</div>
+            <div class="teaser-dash-l">Sold this week</div>
           </div>
           <div class="teaser-dash-tile">
-            <div class="teaser-dash-n">$870,000</div>
-            <div class="teaser-dash-l">Typical sold · 5</div>
+            <div class="teaser-dash-n">$605K–$2.15M</div>
+            <div class="teaser-dash-l">Sold range</div>
           </div>
           <div class="teaser-dash-tile">
-            <div class="teaser-dash-n">$242</div>
-            <div class="teaser-dash-l">Per sq ft · 10</div>
+            <div class="teaser-dash-n">49</div>
+            <div class="teaser-dash-l">Sold around the lake</div>
           </div>
         </div>
-        <p class="week-teaser-line"><em>Geoffrey:</em> 1 for sale, 5 sold, 1 pending, and 3 off market. The one on the market is $724,900. Sold runs from $605,000 to $2,800,000. The typical price per square foot is $242.</p>
+        <p class="week-teaser-line"><em>Geoffrey:</em> 2 homes closed in Shorewood the week of Sep 28–Oct 4, from $605,000 to $2,150,000. Around the lake, 49 sold at a typical $647,000.</p>
       </div>
 
       <form id="captureForm" onsubmit="handleSubmit(event)">
@@ -1155,5 +1155,6 @@ document.querySelectorAll('.vfacade').forEach(function (b) {
   });
 });
 </script>
+<script src="/assets/week-data.js" defer></script>
 </body>
 </html>
