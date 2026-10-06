@@ -625,7 +625,7 @@ a.stat-link .stat-number{ color:#8A6A3F; }
   <div class="form-card" id="weekMagnetCard">
     <div class="form-fields" id="formFields">
       <h2 class="form-headline">Shorewood this week</h2>
-      <p class="form-sub"><span data-week-sub>What closed in Shorewood the week of Sep 28–Oct 4.</span> Leave your name and email, and this week's closed sales land in your inbox. Add your mobile only if you'd like Geoffrey to text you. No blasts.</p>
+      <p class="form-sub"><span data-week-sub>What closed in Shorewood the week of Sep 28–Oct 4.</span> Leave your name and email, and this week's closed sales land in your inbox. Add your mobile only if you'd like Geoffrey to text you.</p>
 
       <div class="week-teaser" id="weekTeaser" data-week-town="Shorewood">
         <p class="week-teaser-label">This week at a glance</p>
@@ -677,7 +677,7 @@ a.stat-link .stat-number{ color:#8A6A3F; }
     <div class="success-state" id="successState">
       <div class="success-icon">&check;</div>
       <h3 class="success-title">You’re in.</h3>
-      <p class="success-sub">Geoffrey will text or call about Shorewood.</p>
+      <p class="success-sub">Thanks. This week's closed sales for Shorewood and around the lake are on their way to your inbox. If you left your mobile, Geoffrey may text you too.</p>
       <a class="success-go" id="weeklyGo" href="/lake-minnetonka-weekly/">Open this week’s note →</a>
       <div class="success-crosslink">
         <p class="success-crosslink-prompt">Also looking at the top of the lake?</p>
@@ -687,21 +687,25 @@ a.stat-link .stat-number{ color:#8A6A3F; }
   </div>
 </section>
 <div class="divider"></div>
-<div class="section" id="this-week">
-  <p class="section-eyebrow">October 4, 2026</p>
+<div class="section" id="this-week" data-week-section="Shorewood" data-week-start="2026-09-28">
+  <p class="section-eyebrow" data-ws-eyebrow>Closed Sep 28 to Oct 4, 2026</p>
   <h2 class="section-headline">Shorewood this week</h2>
-  <p class="section-body">What the Shorewood search returned on October 4, 2026.</p>
+  <p class="section-body" data-ws-line>2 homes closed in Shorewood between Sep 28 and Oct 4, 2026, for $605,000 and $2,150,000.</p>
+  <div data-ws-closed>
+    <div class="week-counts">
+      <div class="week-count"><span class="week-num">2</span><span class="week-label">Sold</span></div>
+    </div>
+    <p class="week-kicker">Sold</p>
+    <ul class="week-list">
+      <li><span class="week-addr">20575 Manor Road, Shorewood</span><span class="week-meta">Sold for $2,150,000 · house · closed Oct 2</span></li>
+      <li><span class="week-addr">5665 Star Circle, Shorewood</span><span class="week-meta">Sold for $605,000 · house · closed Oct 1</span></li>
+    </ul>
+  </div>
+  <p class="week-note">Same numbers as the card above and the <a href="/lake-minnetonka-weekly/">Lake Minnetonka weekly</a>.</p>
+  <p class="section-body" style="margin-top:40px;"><strong>Listings from the October 4 search.</strong> These are separate from the closed sales above. They are the homes that were listed, pending, or off market when the Shorewood search ran on October 4. Some carry a neighboring town's mailing address.</p>
   <p class="week-kicker">For sale</p>
   <ul class="week-list">
     <li><span class="week-addr">25745 Wild Rose Lane, Excelsior, MN 55331-7930</span><span class="week-meta">$724,900 · 5 beds · 5,003 sq ft · $145 per square foot</span></li>
-  </ul>
-  <p class="week-kicker">Sold</p>
-  <ul class="week-list">
-    <li><span class="week-addr">28200 Boulder Circle, Excelsior, MN 55331-8325</span><span class="week-meta">Sold for $2,800,000 · 5 beds · 6,560 sq ft · $427 per square foot</span></li>
-    <li><span class="week-addr">20575 Manor Road, Shorewood, MN 55331-8699</span><span class="week-meta">Sold for $2,150,000 · 5 beds · 5,416 sq ft · $397 per square foot</span></li>
-    <li><span class="week-addr">24295 Wood Drive, Excelsior, MN 55331-8967</span><span class="week-meta">Sold for $870,000 · 4 beds · 3,282 sq ft · $265 per square foot</span></li>
-    <li><span class="week-addr">21160 Forest Drive, Excelsior, MN 55331-8681</span><span class="week-meta">Sold for $825,000 · 3 beds · 2,044 sq ft · $404 per square foot</span></li>
-    <li><span class="week-addr">5665 Star Circle, Shorewood, MN 55331-8403</span><span class="week-meta">Sold for $605,000 · 4 beds · 3,015 sq ft · $201 per square foot</span></li>
   </ul>
   <p class="week-kicker">Pending</p>
   <ul class="week-list">
@@ -1156,5 +1160,6 @@ document.querySelectorAll('.vfacade').forEach(function (b) {
 });
 </script>
 <script src="/assets/week-data.js" defer></script>
+<script src="/assets/week-section.js" defer></script>
 </body>
 </html>
