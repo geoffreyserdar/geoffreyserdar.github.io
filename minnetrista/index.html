@@ -625,7 +625,7 @@ a.stat-link .stat-number{ color:#8A6A3F; }
   <div class="form-card" id="weekMagnetCard">
     <div class="form-fields" id="formFields">
       <h2 class="form-headline">Minnetrista this week</h2>
-      <p class="form-sub"><span data-week-sub>What closed in Minnetrista the week of Sep 28–Oct 4.</span> Leave your name and email, and this week's closed sales land in your inbox. Add your mobile only if you'd like Geoffrey to text you. No blasts.</p>
+      <p class="form-sub"><span data-week-sub>What closed in Minnetrista the week of Sep 28–Oct 4.</span> Leave your name and email, and this week's closed sales land in your inbox. Add your mobile only if you'd like Geoffrey to text you.</p>
 
       <div class="week-teaser" id="weekTeaser" data-week-town="Minnetrista">
         <p class="week-teaser-label">This week at a glance</p>
@@ -677,7 +677,7 @@ a.stat-link .stat-number{ color:#8A6A3F; }
     <div class="success-state" id="successState">
       <div class="success-icon">&check;</div>
       <h3 class="success-title">You’re in.</h3>
-      <p class="success-sub">Geoffrey will text or call about Minnetrista.</p>
+      <p class="success-sub">Thanks. This week's closed sales for Minnetrista and around the lake are on their way to your inbox. If you left your mobile, Geoffrey may text you too.</p>
       <a class="success-go" id="weeklyGo" href="/lake-minnetonka-weekly/">Open this week’s note →</a>
       <div class="success-crosslink">
         <p class="success-crosslink-prompt">Also looking at the top of the lake?</p>
@@ -687,21 +687,28 @@ a.stat-link .stat-number{ color:#8A6A3F; }
   </div>
 </section>
 <div class="divider"></div>
-<div class="section" id="this-week">
-  <p class="section-eyebrow">October 4, 2026</p>
+<div class="section" id="this-week" data-week-section="Minnetrista" data-week-start="2026-09-28">
+  <p class="section-eyebrow" data-ws-eyebrow>Closed Sep 28 to Oct 4, 2026</p>
   <h2 class="section-headline">Minnetrista this week</h2>
-  <p class="section-body">What the Minnetrista search returned on October 4, 2026.</p>
+  <p class="section-body" data-ws-line>4 homes closed in Minnetrista between Sep 28 and Oct 4, 2026, at a typical price of $824,912.</p>
+  <div data-ws-closed>
+    <div class="week-counts">
+      <div class="week-count"><span class="week-num">4</span><span class="week-label">Sold</span></div>
+    </div>
+    <p class="week-kicker">Sold</p>
+    <ul class="week-list">
+      <li><span class="week-addr">4005 County Road 44, Minnetrista</span><span class="week-meta">Sold for $1,600,000 · house · closed Sep 30</span></li>
+      <li><span class="week-addr">6609 Wolfberry Curve, Minnetrista</span><span class="week-meta">Sold for $830,825 · house · closed Sep 30</span></li>
+      <li><span class="week-addr">4657 Wolfberry Curve, Minnetrista</span><span class="week-meta">Sold for $819,000 · house · closed Sep 28</span></li>
+      <li><span class="week-addr">4596 Landings Way, Minnetrista</span><span class="week-meta">Sold for $590,000 · house · closed Oct 2</span></li>
+    </ul>
+  </div>
+  <p class="week-note">Same numbers as the card above and the <a href="/lake-minnetonka-weekly/">Lake Minnetonka weekly</a>.</p>
+  <p class="section-body" style="margin-top:40px;"><strong>Listings from the October 4 search.</strong> These are separate from the closed sales above. They are the homes that were listed, pending, or off market when the Minnetrista search ran on October 4. Some carry a neighboring town's mailing address.</p>
   <p class="week-kicker">For sale</p>
   <ul class="week-list">
     <li><span class="week-addr">4100 Enchanted Lane, Mound, MN 55364-8821</span><span class="week-meta">$5,495,000 · 7 beds · 9,096 sq ft · $604 per square foot</span></li>
     <li><span class="week-addr">5585 Orchard Cove, Mound, MN 55364-1292</span><span class="week-meta">$775,000 · 4 beds · 2,947 sq ft · $263 per square foot</span></li>
-  </ul>
-  <p class="week-kicker">Sold</p>
-  <ul class="week-list">
-    <li><span class="week-addr">4005 County Road 44, Minnetrista, MN 55364-9574</span><span class="week-meta">Sold for $1,600,000 · 4 beds · 3,154 sq ft · $507 per square foot</span></li>
-    <li><span class="week-addr">6609 Wolfberry Curve, Minnetrista, MN 55331</span><span class="week-meta">Sold for $830,825 · 4 beds · 3,782 sq ft · $220 per square foot</span></li>
-    <li><span class="week-addr">4657 Wolfberry Curve, Minnetrista, MN 55331-4473</span><span class="week-meta">Sold for $819,000 · 4 beds · 3,855 sq ft · $212 per square foot</span></li>
-    <li><span class="week-addr">4596 Landings Way, Minnetrista, MN 55375-4523</span><span class="week-meta">Sold for $590,000 · 5 beds · 3,504 sq ft · $168 per square foot</span></li>
   </ul>
   <p class="week-kicker">Pending</p>
   <ul class="week-list">
@@ -1155,5 +1162,6 @@ document.querySelectorAll('.vfacade').forEach(function (b) {
 });
 </script>
 <script src="/assets/week-data.js" defer></script>
+<script src="/assets/week-section.js" defer></script>
 </body>
 </html>
