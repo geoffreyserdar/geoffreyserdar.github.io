@@ -637,8 +637,9 @@ a.stat-link .stat-number{ color:#8A6A3F; }
           <p class="field-error" id="emailError" role="alert">That email doesn’t look quite right — mind double-checking?</p>
         </div>
         <div class="field">
-          <label for="phone">Mobile</label>
-          <input type="tel" id="phone" name="phone" placeholder="952-000-0000" required autocomplete="tel" />
+          <label for="phone">Mobile <span class="optional">(optional)</span></label>
+          <input type="tel" id="phone" name="phone" placeholder="952-000-0000" autocomplete="tel" />
+          <p class="field-help">Only to text you back. Never shared.</p>
           <p class="field-error" id="phoneError" role="alert">That number doesn’t look quite right — Geoffrey texts from his own phone, so we need a real mobile.</p>
         </div>
         <input type="hidden" id="interest" name="interest" value="minnetonka_weekly_note" />
@@ -884,7 +885,7 @@ function clearPhoneError() {
 function isValidEmail(raw) {
   var s = String(raw || '').trim();
   if (!s) return true; // empty is ok; required-contact rule handled separately
-  return /^[^\s@]+@[^\s@]+\.[^\s@]{2}$/.test(s);
+  return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(s);
 }
 function showEmailError() {
   var err = document.getElementById('emailError');
