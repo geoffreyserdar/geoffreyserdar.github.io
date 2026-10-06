@@ -268,10 +268,11 @@ input.input-error{border-color:var(--warn)!important;box-shadow:0 0 0 3px rgba(1
       <input type="text" id="nombre_p1" name="Nombre_completo_P1__Full_name_P1" required autocomplete="name" placeholder="Dos apellidos OK / Two surnames OK">
 
       <label class="fld" for="celular_p1">
-        <span class="es" lang="es"><span id="lbl_cel1_es">Celular - Élla</span> <span class="req">*</span></span>
-        <span class="en" lang="en" id="lbl_cel1_en">Cell - Person 1 / Ella</span>
+        <span class="es" lang="es"><span id="lbl_cel1_es">Celular - Élla</span> (opcional)</span>
+        <span class="en" lang="en"><span id="lbl_cel1_en">Cell - Person 1 / Ella</span> (optional)</span>
       </label>
-      <input type="tel" id="celular_p1" name="Celular_P1__Cell_P1" required autocomplete="tel" inputmode="numeric" placeholder="612-710-1234" maxlength="12">
+      <input type="tel" id="celular_p1" name="Celular_P1__Cell_P1" autocomplete="tel" inputmode="numeric" placeholder="612-710-1234" maxlength="12">
+      <p class="hint">Solo para responderte por mensaje. Nunca se comparte. / Only to text you back. Never shared.</p>
       <p class="field-error" id="phoneError1">Número de EE. UU. válido (10 dígitos). / Valid US number (10 digits). No 555.</p>
 
       <div class="p2-block" id="p2Block">
@@ -281,8 +282,8 @@ input.input-error{border-color:var(--warn)!important;box-shadow:0 0 0 3px rgba(1
         </label>
         <input type="text" id="nombre_p2" name="Nombre_completo_P2__Full_name_P2" autocomplete="name" placeholder="Dos apellidos OK / Two surnames OK">
         <label class="fld" for="celular_p2">
-          <span class="es" lang="es"><span id="lbl_cel2_es">Celular - Él</span> <span class="req">*</span></span>
-          <span class="en" lang="en" id="lbl_cel2_en">Cell - Person 2 / Él</span>
+          <span class="es" lang="es"><span id="lbl_cel2_es">Celular - Él</span> (opcional)</span>
+          <span class="en" lang="en"><span id="lbl_cel2_en">Cell - Person 2 / Él</span> (optional)</span>
         </label>
         <input type="tel" id="celular_p2" name="Celular_P2__Cell_P2" autocomplete="tel" inputmode="numeric" placeholder="612-710-5678" maxlength="12">
         <p class="field-error" id="phoneError2">Número de EE. UU. válido (10 dígitos). / Valid US number (10 digits). No 555.</p>
@@ -738,7 +739,7 @@ input.input-error{border-color:var(--warn)!important;box-shadow:0 0 0 3px rgba(1
     var emailP2Wrap=document.getElementById('emailP2Wrap');
     if(couple){
       p2Block.classList.remove('hidden-block');if(emailP2Wrap)emailP2Wrap.classList.remove('hidden-block');
-      nombreP2.required=true;celularP2.required=true;if(emailP2)emailP2.required=true;
+      nombreP2.required=true;celularP2.required=false;if(emailP2)emailP2.required=true;
     } else {
       p2Block.classList.add('hidden-block');if(emailP2Wrap)emailP2Wrap.classList.add('hidden-block');
       nombreP2.required=false;celularP2.required=false;if(emailP2){emailP2.required=false;emailP2.value='';emailP2.classList.remove('miss','input-error');}
@@ -848,7 +849,7 @@ input.input-error{border-color:var(--warn)!important;box-shadow:0 0 0 3px rgba(1
     }
     btn.disabled=true;btn.innerHTML='<span lang="es">Verificando…</span><span class="en" lang="en">Checking…</span>';
     var verdict=await checkNumber(nameP1,phoneP1,interest);
-    if(verdict&&verdict.valid===false){
+    if(phoneP1&&verdict&&verdict.valid===false){
       btn.disabled=false;btn.innerHTML='<span lang="es">Enviar nuestra checklist de compradores</span><span class="en" lang="en">Submit our buyer checklist</span>';
       var p1=document.getElementById('celular_p1');
       p1.classList.add('input-error');
