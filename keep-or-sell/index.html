@@ -543,8 +543,9 @@ footer .footer-legal, footer .footer-legal a{ color:#8A8375; }
           <input type="text" id="name" name="name" placeholder="First and last name" required autocomplete="name" />
         </div>
         <div class="field">
-          <label for="phone">Phone Number</label>
+          <label for="phone">Mobile (optional)</label>
           <input type="tel" id="phone" name="phone" placeholder="952-000-0000" autocomplete="tel" />
+          <p class="field-hint" style="margin-top:6px;">Only to text you back. Never shared.</p>
           <p class="field-error" id="phoneError" role="alert">That number doesn't look quite right &mdash; mind double-checking it? Geoffrey calls every owner personally, so we want to be sure it reaches you.</p>
         </div>
         <div class="field">
@@ -982,7 +983,7 @@ function submitToFormspree(name, phone, email) {
 
 /* ---- email validation (simple + permissive; fails friendly) ---- */
 function isValidEmail(raw) {
-  return /^[^\s@]+@[^\s@]+\.[^\s@]{2}$/.test(String(raw || '').trim());
+  return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(String(raw || '').trim());
 }
 function showEmailError() {
   var err = document.getElementById('emailError'), inp = document.getElementById('email');
@@ -1003,7 +1004,7 @@ async function handleSubmit(e) {
   var email = document.getElementById('email').value.trim();
 
   // phone first, then email — we want cell AND a newsletter address
-  if (!isValidUSPhone(phone)) { showPhoneError(); return; }
+  if (phone && !isValidUSPhone(phone)) { showPhoneError(); return; }
   clearPhoneError();
   if (!isValidEmail(email)) { showEmailError(); return; }
   clearEmailError();
@@ -1012,7 +1013,7 @@ async function handleSubmit(e) {
   var verdict = await checkNumber(name, phone, email);
   setChecking(false);
 
-  if (verdict && verdict.valid === false) { showPhoneError(); return; }
+  if (phone && verdict && verdict.valid === false) { showPhoneError(); return; }
 
   submitToFormspree(name, phone, email);
   try { notifyCompassLeadPixel(name, phone, email); } catch (_cxlp) {}
