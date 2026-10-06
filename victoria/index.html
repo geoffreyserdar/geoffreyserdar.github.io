@@ -611,7 +611,7 @@ a.stat-link .stat-number{ color:#8A6A3F; }
   <div class="form-card" id="weekMagnetCard">
     <div class="form-fields" id="formFields">
       <h2 class="form-headline">Victoria this week</h2>
-      <p class="form-sub"><span data-week-sub>What closed in Victoria the week of Sep 28–Oct 4.</span> Leave your name and email, and this week's closed sales land in your inbox. Add your mobile only if you'd like Geoffrey to text you. No blasts.</p>
+      <p class="form-sub"><span data-week-sub>What closed in Victoria the week of Sep 28–Oct 4.</span> Leave your name and email, and this week's closed sales land in your inbox. Add your mobile only if you'd like Geoffrey to text you.</p>
 
       <div class="week-teaser" id="weekTeaser" data-week-town="Victoria">
         <p class="week-teaser-label">This week at a glance</p>
@@ -663,7 +663,7 @@ a.stat-link .stat-number{ color:#8A6A3F; }
     <div class="success-state" id="successState">
       <div class="success-icon">&check;</div>
       <h3 class="success-title">You’re in.</h3>
-      <p class="success-sub">Here’s what closed in Victoria and around the lake this week.</p>
+      <p class="success-sub">Thanks. This week's closed sales for Victoria and around the lake are on their way to your inbox. If you left your mobile, Geoffrey may text you too.</p>
       <a class="success-go" id="weeklyGo" href="/lake-minnetonka-weekly/">Open this week’s note →</a>
       <div class="success-crosslink">
         <p class="success-crosslink-prompt">Also looking at the top of the lake?</p>
@@ -799,14 +799,30 @@ a.stat-link .stat-number{ color:#8A6A3F; }
 <!-- HOUSE:FOOTER -->
 <!-- this-week start -->
 <div class="divider"></div>
-<div class="section" id="this-week">
-  <p class="section-eyebrow">October 4, 2026</p>
+<div class="section" id="this-week" data-week-section="Victoria" data-week-start="2026-09-28">
+  <p class="section-eyebrow" data-ws-eyebrow>Closed Sep 28 to Oct 4, 2026</p>
   <h2 class="section-headline">Victoria this week</h2>
-  <p class="section-body">What the Victoria search returned on October 4, 2026.</p>
+  <p class="section-body" data-ws-line>7 homes closed in Victoria between Sep 28 and Oct 4, 2026, at a typical price of $475,000.</p>
+  <div data-ws-closed>
+    <div class="week-counts">
+      <div class="week-count"><span class="week-num">7</span><span class="week-label">Sold</span></div>
+    </div>
+    <p class="week-kicker">Sold</p>
+    <ul class="week-list">
+      <li><span class="week-addr">1660 Hackamore Drive, Victoria</span><span class="week-meta">Sold for $850,000 · house · closed Sep 28</span></li>
+      <li><span class="week-addr">2735 Fieldstone Drive, Victoria</span><span class="week-meta">Sold for $680,000 · house · closed Sep 28</span></li>
+      <li><span class="week-addr">1601 Hidden Pond Lane, Victoria</span><span class="week-meta">Sold for $650,000 · house · closed Oct 1</span></li>
+      <li><span class="week-addr">988 Daylily Drive, Victoria</span><span class="week-meta">Sold for $475,000 · townhouse · closed Sep 30</span></li>
+      <li><span class="week-addr">8810 Point Vista Drive, Victoria</span><span class="week-meta">Sold for $460,000 · townhouse · closed Sep 30</span></li>
+      <li><span class="week-addr">10366 Birchwood Circle, Victoria</span><span class="week-meta">Sold for $402,200 · townhouse · closed Oct 2</span></li>
+      <li><span class="week-addr">9540 Bridle Way, Victoria</span><span class="week-meta">Sold for $385,000 · townhouse · closed Sep 30</span></li>
+    </ul>
+  </div>
+  <p class="week-note">Same numbers as the card above and the <a href="/lake-minnetonka-weekly/">Lake Minnetonka weekly</a>.</p>
+  <p class="section-body" style="margin-top:40px;"><strong>Listings from the October 4 search.</strong> These are separate from the closed sales above. They are the homes that were listed, pending, or off market when the Victoria search ran on October 4.</p>
   <div class="week-counts">
     <div class="week-count"><span class="week-num">6</span><span class="week-label">For sale</span></div>
     <div class="week-count"><span class="week-num">16</span><span class="week-label">Pending</span></div>
-    <div class="week-count"><span class="week-num">2</span><span class="week-label">Sold</span></div>
   </div>
   <p class="week-note">Four homes are off market.</p>
   <p class="week-kicker">For sale and coming soon</p>
@@ -817,11 +833,6 @@ a.stat-link .stat-number{ color:#8A6A3F; }
     <li><span class="week-addr">2442 Lacy Lane, Victoria, MN 55386-2302</span><span class="week-meta">$759,900 · 4 beds · 4,466 sq ft · $170 per square foot</span></li>
     <li><span class="week-addr">1929 Woodstone Drive, Victoria, MN 55386-9637</span><span class="week-meta">$599,900 · 4 beds · 3,388 sq ft · $177 per square foot</span></li>
     <li><span class="week-addr">8340 Grace Court, Victoria, MN 55386-9566</span><span class="week-meta">$449,900 · 4 beds · 1,896 sq ft · $237 per square foot</span></li>
-  </ul>
-  <p class="week-kicker">Sold</p>
-  <ul class="week-list">
-    <li><span class="week-addr">2735 Fieldstone Drive, Victoria, MN 55386-4546</span><span class="week-meta">Sold for $680,000 · 4 beds · 2,719 sq ft · $250 per square foot</span></li>
-    <li><span class="week-addr">1601 Hidden Pond Lane, Victoria, MN 55386-8500</span><span class="week-meta">Sold for $650,000 · 3 beds · 4,241 sq ft · $153 per square foot</span></li>
   </ul>
 </div>
 <!-- this-week end -->
@@ -1248,6 +1259,7 @@ syncConsent();
 })();
 </script>
 <script src="/assets/week-data.js" defer></script>
+<script src="/assets/week-section.js" defer></script>
 </body>
 </html>
 
