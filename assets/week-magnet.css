@@ -1,0 +1,55 @@
+/* week-magnet.css (2026-10-06): the "This week at a glance" card from the lake-town pages,
+   scoped under .wm so it drops into guides, topics, reviews and Chanhassen without touching page styles. */
+.wm { --navy:#ECE4D4; --navy2:#E3DAC6; --gold:#8A6A3F; --gold2:#C9A877; --warm:#1F201C; --mid:#4D4839;
+  max-width:560px; margin:0 auto; padding:56px 24px 64px; font-family:'Inter', system-ui, sans-serif; color:var(--warm); text-align:left; }
+.wm *, .wm *::before, .wm *::after { box-sizing:border-box; }
+.wm .form-card { background:var(--navy2); border:1px solid rgba(138,106,63,0.28); border-radius:4px; padding:36px 32px;
+  max-width:520px; width:100%; margin:0 auto; position:relative; z-index:1; }
+.wm .form-headline { font-family:'Playfair Display', Georgia, serif; font-size:22px; font-weight:700; color:var(--warm); margin:0 0 6px; line-height:1.3; }
+.wm .form-sub { font-size:13px; color:var(--mid); margin:0 0 28px; line-height:1.6; }
+.wm .week-teaser { margin:0 0 18px; padding:16px 16px 14px; background:#FAF7EF; border:1px solid rgba(77,72,57,0.14); border-radius:6px; text-align:left; }
+.wm .week-teaser-label { font-size:12px; font-weight:600; letter-spacing:0.04em; text-transform:uppercase; color:var(--gold); margin:0 0 6px; }
+.wm .week-teaser-meta { font-size:12px; color:var(--mid); margin:0 0 12px; }
+.wm .teaser-dash { display:grid; grid-template-columns:repeat(3, 1fr); gap:8px; margin:0 0 12px; }
+.wm .teaser-dash-tile { background:var(--navy2); border:1px solid rgba(31,32,28,0.10); border-radius:4px; padding:12px 8px; text-align:center; }
+.wm .teaser-dash-n { font-family:'Playfair Display', Georgia, serif; font-size:24px; font-weight:700; color:var(--warm); line-height:1.1; }
+.wm .teaser-dash-l { font-size:10px; font-weight:500; letter-spacing:0.04em; text-transform:uppercase; color:var(--mid); margin-top:4px; }
+.wm .week-teaser-line { font-size:14px; line-height:1.5; color:var(--warm); margin:0; }
+.wm .week-teaser-line em { font-style:normal; color:var(--gold); font-weight:500; }
+.wm .field { margin:0 0 16px; }
+.wm .field label { display:block; font-size:17px; font-weight:600; letter-spacing:0.02em; text-transform:none; color:var(--warm); margin:0 0 8px; }
+.wm .field .optional { font-size:13px; font-weight:400; color:var(--mid); text-transform:none; letter-spacing:0; }
+.wm .field input { width:100%; border:1px solid #B9AC8E; background:#FAF7EF; color:#1F201C; border-radius:3px;
+  font-family:'Inter', sans-serif; font-size:17px; min-height:48px; padding:12px 16px; outline:none; transition:border-color .2s; appearance:none; margin:0; }
+.wm .field input::placeholder { color:#A39B87; opacity:1; }
+.wm .field input:focus { border-color:var(--gold); }
+.wm .field input.input-error { border-color:#E8A0A0; }
+.wm .field-help { margin:6px 0 0; font-size:13px; line-height:1.45; color:var(--mid); }
+.wm .field-error { display:none; margin:8px 0 0; font-size:12px; line-height:1.5; color:#E8A0A0; }
+.wm .field-error.visible { display:block; }
+.wm .submit-btn { width:100%; background:var(--gold); border:none; border-radius:3px; color:var(--navy); font-family:'Inter', sans-serif;
+  font-size:13px; font-weight:700; letter-spacing:2px; text-transform:uppercase; padding:16px; cursor:pointer; margin-top:8px; transition:background .2s, transform .1s, opacity .2s; }
+.wm .submit-btn:hover { background:var(--gold2); }
+.wm .submit-btn:active { transform:scale(0.99); }
+.wm .submit-btn:disabled { cursor:default; opacity:.7; }
+.wm .gate-phone-once { margin:16px 0 8px; font-size:14px; color:var(--mid); text-align:center; }
+.wm .door-btns { display:flex; flex-wrap:wrap; gap:10px; margin:0 0 4px; }
+.wm .door-btn { display:flex; align-items:center; justify-content:center; flex:1 1 140px; padding:17px 20px; border-radius:6px; font-size:16px;
+  font-weight:700; letter-spacing:.3px; text-decoration:none; min-height:56px; text-align:center; font-family:'Inter', sans-serif; }
+.wm .door-text { background:#8A6A3F; color:#FAF7EF; border:0; }
+.wm .door-text:hover { filter:brightness(1.08); color:#FAF7EF; }
+.wm .door-call { background:transparent; color:#8A6A3F; border:1px solid rgba(138,106,63,.55); }
+.wm .door-call:hover { background:rgba(138,106,63,.10); color:#8A6A3F; }
+.wm .form-consent { font-size:12px; color:#4D4839; text-align:center; margin:16px auto 0; line-height:1.65; max-width:60ch; }
+.wm .form-consent a { color:#8A6A3F; text-decoration:underline; }
+.wm .form-fields.hidden { display:none; }
+.wm .success-state { display:none; text-align:center; padding:20px 0; }
+.wm .success-state.visible { display:block; }
+.wm .success-icon { font-size:40px; margin-bottom:16px; color:var(--warm); }
+.wm .success-title { font-family:'Playfair Display', Georgia, serif; font-size:24px; font-weight:700; color:var(--warm); margin:0 0 8px; }
+.wm .success-sub { font-size:14px; color:var(--mid); line-height:1.6; margin:0; }
+.wm .success-go { display:inline-block; margin-top:18px; background:var(--gold); color:#FAF7EF !important; font-size:13px; font-weight:700;
+  letter-spacing:1.5px; text-transform:uppercase; text-decoration:none; padding:14px 28px; border-radius:3px; }
+.wm .success-go:hover { background:var(--gold2); color:#1F201C !important; }
+@media (max-width:520px) { .wm .teaser-dash { grid-template-columns:1fr; } }
+@media (max-width:480px) { .wm { padding:40px 16px 48px; } .wm .form-card { padding:28px 24px; } .wm .door-btns { flex-direction:column; } .wm .door-btn { width:100%; flex:1 1 auto; } }
