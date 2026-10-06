@@ -620,7 +620,7 @@ a.stat-link .stat-number{ color:#8A6A3F; }
   <div class="form-card" id="weekMagnetCard">
     <div class="form-fields" id="formFields">
       <h2 class="form-headline">Mound this week</h2>
-      <p class="form-sub"><span data-week-sub>What closed in Mound the week of Sep 28–Oct 4.</span> Leave your name and email, and this week's closed sales land in your inbox. Add your mobile only if you'd like Geoffrey to text you. No blasts.</p>
+      <p class="form-sub"><span data-week-sub>What closed in Mound the week of Sep 28–Oct 4.</span> Leave your name and email, and this week's closed sales land in your inbox. Add your mobile only if you'd like Geoffrey to text you.</p>
 
       <div class="week-teaser" id="weekTeaser" data-week-town="Mound">
         <p class="week-teaser-label">This week at a glance</p>
@@ -672,7 +672,7 @@ a.stat-link .stat-number{ color:#8A6A3F; }
     <div class="success-state" id="successState">
       <div class="success-icon">&check;</div>
       <h3 class="success-title">You’re in.</h3>
-      <p class="success-sub">Here’s what closed around the lake this week — including how Mound sat.</p>
+      <p class="success-sub">Thanks. This week's closed sales for Mound and around the lake are on their way to your inbox. If you left your mobile, Geoffrey may text you too.</p>
       <a class="success-go" id="weeklyGo" href="/lake-minnetonka-weekly/">Open this week’s note →</a>
       <div class="success-crosslink">
         <p class="success-crosslink-prompt">Also looking at the top of the lake?</p>
@@ -752,27 +752,35 @@ West-end and east-end are different products. Bring the bay name and we&rsquo;ll
 
 <!-- this-week start -->
 <div class="divider"></div>
-<div class="section" id="this-week">
-  <p class="section-eyebrow">October 4, 2026</p>
+<div class="section" id="this-week" data-week-section="Mound" data-week-start="2026-09-28">
+  <p class="section-eyebrow" data-ws-eyebrow>Closed Sep 28 to Oct 4, 2026</p>
   <h2 class="section-headline">Mound this week</h2>
-  <p class="section-body">What the Mound search returned on October 4, 2026.</p>
+  <p class="section-body" data-ws-line>5 homes closed in Mound between Sep 28 and Oct 4, 2026, at a typical price of $359,900.</p>
+  <div data-ws-closed>
+    <div class="week-counts">
+      <div class="week-count"><span class="week-num">5</span><span class="week-label">Sold</span></div>
+    </div>
+    <p class="week-kicker">Sold</p>
+    <ul class="week-list">
+      <li><span class="week-addr">2412 Avon Drive, Mound</span><span class="week-meta">Sold for $2,500,000 · house · closed Sep 29</span></li>
+      <li><span class="week-addr">5492 Lost Lake Lane, Mound</span><span class="week-meta">Sold for $610,000 · townhouse · closed Oct 1</span></li>
+      <li><span class="week-addr">5867 Bartlett Boulevard, Mound</span><span class="week-meta">Sold for $359,900 · house · closed Sep 30</span></li>
+      <li><span class="week-addr">4932 Hanover Road, Mound</span><span class="week-meta">Sold for $320,000 · house · closed Sep 30</span></li>
+      <li><span class="week-addr">2143 Old School Road, Mound</span><span class="week-meta">Sold for $263,600 · townhouse · closed Sep 30</span></li>
+    </ul>
+  </div>
+  <p class="week-note">Same numbers as the card above and the <a href="/lake-minnetonka-weekly/">Lake Minnetonka weekly</a>.</p>
+  <p class="section-body" style="margin-top:40px;"><strong>Listings from the October 4 search.</strong> These are separate from the closed sales above. They are the homes that were listed, pending, or off market when the Mound search ran on October 4.</p>
   <div class="week-counts">
     <div class="week-count"><span class="week-num">2</span><span class="week-label">For sale</span></div>
     <div class="week-count"><span class="week-num">1</span><span class="week-label">Coming soon</span></div>
     <div class="week-count"><span class="week-num">2</span><span class="week-label">Pending</span></div>
-    <div class="week-count"><span class="week-num">3</span><span class="week-label">Sold</span></div>
   </div>
   <p class="week-kicker">For sale and coming soon</p>
   <ul class="week-list">
     <li><span class="week-addr">6385 Acorn Road, Mound, MN 55364-9502 <span class="week-flag">Coming soon, Oct 9</span></span><span class="week-meta">$550,000 · 5 beds · 2,711 sq ft · $203 per square foot</span></li>
     <li><span class="week-addr">6112 Bartlett Boulevard, Mound, MN 55364-9508</span><span class="week-meta">$449,000 · 4 beds · 1,815 sq ft · $247 per square foot</span></li>
     <li><span class="week-addr">5129 Waterbury Road, Mound, MN 55364-9442</span><span class="week-meta">$359,000 · 2 beds · 880 sq ft · $408 per square foot</span></li>
-  </ul>
-  <p class="week-kicker">Sold</p>
-  <ul class="week-list">
-    <li><span class="week-addr">2412 Avon Drive, Mound, MN 55364-1834</span><span class="week-meta">Sold for $2,500,000 · 5 beds · 3,635 sq ft · $688 per square foot</span></li>
-    <li><span class="week-addr">5867 Bartlett Boulevard, Mound, MN 55364-0175</span><span class="week-meta">Sold for $359,900 · 3 beds · 1,760 sq ft · $204 per square foot</span></li>
-    <li><span class="week-addr">4932 Hanover Road, Mound, MN 55364-9378</span><span class="week-meta">Sold for $320,000 · 3 beds · 1,186 sq ft · $270 per square foot</span></li>
   </ul>
 </div>
 <!-- this-week end -->
@@ -1274,6 +1282,7 @@ syncConsent();
 })();
 </script>
 <script src="/assets/week-data.js" defer></script>
+<script src="/assets/week-section.js" defer></script>
 </body>
 </html>
 
