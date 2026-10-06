@@ -1039,17 +1039,18 @@ document.getElementById('probate-submit').addEventListener('click', async functi
 <script>
 (function () {
   var lastField = null;
-  ['name', 'phone'].forEach(function (id) {
-    var el = document.getElementById(id);
+  // Oct 6 2026: the inputs are p-name / p-phone (GA last_field stays name / phone).
+  [['p-name', 'name'], ['p-phone', 'phone']].forEach(function (pair) {
+    var el = document.getElementById(pair[0]);
     if (!el) return;
-    el.addEventListener('focus', function () { lastField = id; });
-    el.addEventListener('input', function () { lastField = id; });
+    el.addEventListener('focus', function () { lastField = pair[1]; });
+    el.addEventListener('input', function () { lastField = pair[1]; });
   });
   var fired = false;
   window.addEventListener('pagehide', function () {
     if (fired || !lastField) return;
-    var ok = document.getElementById('successState');
-    if (ok && ok.classList.contains('visible')) return;
+    var ok = document.getElementById('probate-success');
+    if (ok && ok.style.display === 'block') return;
     fired = true;
     if (typeof gtag === 'function') {
       gtag('event', 'form_abandon', { last_field: lastField });
