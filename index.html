@@ -649,7 +649,7 @@ function clearPhoneError() {
 function isValidEmail(raw) {
   var s = String(raw || '').trim();
   if (!s) return true; // empty is ok; required-contact rule handled separately
-  return /^[^\s@]+@[^\s@]+\.[^\s@]{2}$/.test(s);
+  return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(s);
 }
 function showEmailError() {
   var err = document.getElementById('emailError');
@@ -706,12 +706,12 @@ const INTEREST_DETAIL = {
 function interestDetail(v) { return INTEREST_DETAIL[v] || v || '(none selected)'; }
 
 
-function checkNumber(name, phone, interest) {
+function checkNumber(name, phone, interest, email) {
   var controller = new AbortController();
   var timer = setTimeout(function () { controller.abort(); }, 2500);
   var data = new URLSearchParams({
 
-    name: name, phone: phone, interest: interest,
+    name: name, phone: phone, email: email || '', interest: interest,
     site: window.location.hostname + window.location.pathname,
     utm_source: LEAD_SOURCE.utm_source,
     utm_medium: LEAD_SOURCE.utm_medium,
@@ -845,7 +845,7 @@ async function handleSubmit(e) {
     // Layer 2 — carrier check (also triggers the alert text on a good number).
     // Twilio gets the visible chip label (or empty if none).
     setChecking(true);
-    var verdict = await checkNumber(name, phone, interestLabel);
+    var verdict = await checkNumber(name, phone, interestLabel, email);
     setChecking(false);
 
     if (verdict && verdict.valid === false) {
@@ -855,6 +855,8 @@ async function handleSubmit(e) {
   }
 
   // Formspree still receives interest as the slug + interest_detail; email if filled.
+  // Oct 6 2026: email-only leads still text Geoffrey. Fire-and-forget; no phone check without a phone.
+  if (!phone) { try { checkNumber(name, '', interestLabel, email); } catch (_la) {} }
   submitToFormspree(name, phone, interest, email);
   try { notifyCompassLeadPixel(name, phone, email); } catch (_cxlp) {}
   showSuccess();
