@@ -551,7 +551,7 @@ footer.site-foot .footer-legal a:hover { color: #C9A877; }
 
   <h2>Leave a note — or just text</h2>
   <p class="lede">Same inbox Geoffrey already uses. Prefer the phone? Text or call <strong>952-258-3100</strong>. Prefer a calendar? <a href="/book/?utm_source=sell-options&amp;utm_medium=form_lede">Book here</a>. Hardship details stay on the call — not on this form.</p>
-  <form class="soft-form" id="sellOptionsForm" novalidate>
+  <form class="soft-form" id="sellOptionsForm">
     <input type="hidden" name="formType" value="sell-options">
     <input type="hidden" name="source" value="sell-options">
     <div class="field">
@@ -559,12 +559,13 @@ footer.site-foot .footer-legal a:hover { color: #C9A877; }
       <input id="so-name" name="name" autocomplete="name" required>
     </div>
     <div class="field">
-      <label for="so-phone">Phone</label>
-      <input id="so-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required>
+      <label for="so-phone">Mobile (optional)</label>
+      <input id="so-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel">
+      <p class="hint">Only to text you back. Never shared.</p>
     </div>
     <div class="field">
       <label for="so-email">Email</label>
-      <input id="so-email" name="email" type="email" autocomplete="email">
+      <input id="so-email" name="email" type="email" autocomplete="email" required>
     </div>
     <div class="field">
       <label for="so-area">Area / address</label>
