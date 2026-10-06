@@ -18,11 +18,26 @@
   }
   function homes(n) { return n === 1 ? '1 home' : n + ' homes'; }
 
+  var MON = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  function weekSpoken(w) {
+    // Prefer week_start / week_end so spoken copy never inherits an en dash from week_label.
+    var a = String(w.week_start || '').match(/^(\d{4})-(\d{2})-(\d{2})/);
+    var b = String(w.week_end || '').match(/^(\d{4})-(\d{2})-(\d{2})/);
+    if (a && b) {
+      var from = MON[+a[2] - 1] + ' ' + (+a[3]);
+      var to = MON[+b[2] - 1] + ' ' + (+b[3]);
+      return { label: from + ' to ' + to + ', ' + b[1], short: from + ' to ' + to };
+    }
+    var label = String(w.week_label || '').replace(/\u2013|\u2014/g, ' to ').replace(/\s+to\s+/g, ' to ');
+    return { label: label, short: label.replace(/,\s*\d{4}$/, '') };
+  }
+
   function build(doc, town) {
     var w = doc.weeks[doc.weeks.length - 1];
     var lake = w.lake_ring || {};
-    var label = w.week_label;                       // "Sep 28–Oct 4, 2026"
-    var wk = String(label).replace(/,\s*\d{4}$/, ''); // "Sep 28–Oct 4"
+    var spoken = weekSpoken(w);                     // "Sep 28 to Oct 4, 2026"
+    var label = spoken.label;
+    var wk = spoken.short;                          // "Sep 28 to Oct 4"
     var lakeTyp = lake.typical_price_display || (lake.median ? money(lake.median) : '');
     var hot = lake.hottest_town ? lake.hottest_town + ' · ' + lake.hottest_count : 'See the weekly note';
     var lakeTiles = [
@@ -59,7 +74,7 @@
       priceTile = [money(prices[0]), 'Sold for'];
       priceText = ', for ' + money(prices[0]);
     } else if (prices.length) {
-      priceTile = [short(prices[0]) + '–' + short(prices[prices.length - 1]), 'Sold range'];
+      priceTile = [short(prices[0]) + ' to ' + short(prices[prices.length - 1]), 'Sold range'];
       priceText = ', from ' + money(prices[0]) + ' to ' + money(prices[prices.length - 1]);
     } else {
       priceTile = [lakeTyp, 'Typical price (lake)'];
