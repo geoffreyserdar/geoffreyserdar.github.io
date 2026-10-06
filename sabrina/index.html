@@ -152,6 +152,7 @@ a { color: var(--gold); text-decoration: none; }
 .field input::placeholder, .field textarea::placeholder { color: rgba(77,72,57,0.5); }
 .field input:focus, .field select:focus, .field textarea:focus { border-color: var(--gold); }
 .field input.input-error, .field select.input-error { border-color: #E8A0A0; }
+.field-help { margin-top: 6px; font-size: 13px; line-height: 1.45; color: var(--mid); }
 .field-optional { font-weight: 400; text-transform: none; letter-spacing: 0; color: rgba(77,72,57,0.6); font-size: 10.5px; }
 .field-error { display: none; margin-top: 8px; font-size: 12px; line-height: 1.5; color: #E8A0A0; }
 .field-error.visible { display: block; }
@@ -369,13 +370,14 @@ footer .footer-legal, footer .footer-legal a{ color:#8A8375; }
         <input type="text" id="name" placeholder="Your first and last name" autocomplete="name" />
       </div>
       <div class="field">
-        <label for="phone">Your Phone</label>
+        <label for="phone">Your Mobile <span class="field-optional">(optional)</span></label>
         <input type="tel" id="phone" placeholder="952-000-0000" autocomplete="tel" />
+        <p class="field-help">Only to text you back. Never shared.</p>
         <p class="field-error" id="phoneError" role="alert">That number doesn't look quite right &mdash; mind double-checking it?</p>
       </div>
       <div class="field">
         <label for="email">Your Email</label>
-        <input type="email" id="email" placeholder="you@email.com" autocomplete="email" />
+        <input type="email" id="email" placeholder="you@email.com" required autocomplete="email" />
         <p class="field-error" id="emailError" role="alert">That email doesn't look quite right &mdash; mind double-checking it?</p>
       </div>
       <div class="field">
@@ -648,7 +650,7 @@ async function handleSubmit() {
   if (!name) { ce.textContent = 'Mind adding your name so I know who I\u2019m talking to?'; ce.classList.add('visible'); return; }
   ce.classList.remove('visible');
 
-  if (!isValidUSPhone(phone)) { showErr('phone'); return; }
+  if (phone && !isValidUSPhone(phone)) { showErr('phone'); return; }
   clearErr('phone');
 
   if (!isValidEmail(email)) { showErr('email'); return; }
@@ -658,7 +660,7 @@ async function handleSubmit() {
   var verdict = await checkNumber(name, phone, email, interest, note);
   setChecking(false);
 
-  if (verdict && verdict.valid === false) { showErr('phone'); return; }
+  if (phone && verdict && verdict.valid === false) { showErr('phone'); return; }
 
   submitToFormspree(name, phone, email, interest, note);
   try { notifyCompassLeadPixel(name, phone, email); } catch (_cxlp) {}
