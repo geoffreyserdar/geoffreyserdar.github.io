@@ -473,7 +473,6 @@ footer .footer-legal, footer .footer-legal a{ color:#8A8375; }
 /* ================================================================= */
 const RAZIEL_CONFIG = {
   twilioUrl:    'https://lead-alert-4343.twil.io/lead-alert',
-  twilioSecret: 'slx_9f3Kqe2R',
   formspreeId:  'mpqerwwk',
   source:       'sabrina',
   ctaLabel:     'Send to Sabrina'
@@ -537,7 +536,6 @@ function checkNumber(name, phone, email, interest, note) {
   var controller = new AbortController();
   var timer = setTimeout(function () { controller.abort(); }, 2500);
   var body = new URLSearchParams({
-    secret: RAZIEL_CONFIG.twilioSecret,
     name: 'SABRINA-PAGE: ' + name,
     phone: phone,
     email: email,
