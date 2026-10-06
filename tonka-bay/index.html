@@ -620,7 +620,7 @@ a.stat-link .stat-number{ color:#8A6A3F; }
   <div class="form-card" id="weekMagnetCard">
     <div class="form-fields" id="formFields">
       <h2 class="form-headline">Tonka Bay this week</h2>
-      <p class="form-sub"><span data-week-sub>What closed in Tonka Bay the week of Sep 28–Oct 4.</span> Leave your name and email, and this week's closed sales land in your inbox. Add your mobile only if you'd like Geoffrey to text you. No blasts.</p>
+      <p class="form-sub"><span data-week-sub>What closed in Tonka Bay the week of Sep 28–Oct 4.</span> Leave your name and email, and this week's closed sales land in your inbox. Add your mobile only if you'd like Geoffrey to text you.</p>
 
       <div class="week-teaser" id="weekTeaser" data-week-town="Tonka Bay">
         <p class="week-teaser-label">This week at a glance</p>
@@ -672,7 +672,7 @@ a.stat-link .stat-number{ color:#8A6A3F; }
     <div class="success-state" id="successState">
       <div class="success-icon">&check;</div>
       <h3 class="success-title">You’re in.</h3>
-      <p class="success-sub">Here’s what closed around the lake this week — including how Tonka Bay sat.</p>
+      <p class="success-sub">Thanks. This week's closed sales for Tonka Bay and around the lake are on their way to your inbox. If you left your mobile, Geoffrey may text you too.</p>
       <a class="success-go" id="weeklyGo" href="/lake-minnetonka-weekly/">Open this week’s note →</a>
       <div class="success-crosslink">
         <p class="success-crosslink-prompt">Also looking at the top of the lake?</p>
@@ -755,19 +755,23 @@ Quiet peninsula towns can go quiet on the board, too. When a house here matters 
 
 <!-- this-week start -->
 <div class="divider"></div>
-<div class="section" id="this-week">
-  <p class="section-eyebrow">October 4, 2026</p>
+<div class="section" id="this-week" data-week-section="Tonka Bay" data-week-start="2026-09-28">
+  <p class="section-eyebrow" data-ws-eyebrow>Closed Sep 28 to Oct 4, 2026</p>
   <h2 class="section-headline">Tonka Bay this week</h2>
-  <p class="section-body">What the Tonka Bay search returned on October 4, 2026.</p>
-  <div class="week-counts">
-    <div class="week-count"><span class="week-num">1</span><span class="week-label">Sold</span></div>
+  <p class="section-body" data-ws-line>One home closed in Tonka Bay between Sep 28 and Oct 4, 2026, for $3,350,000.</p>
+  <div data-ws-closed>
+    <div class="week-counts">
+      <div class="week-count"><span class="week-num">1</span><span class="week-label">Sold</span></div>
+    </div>
+    <p class="week-kicker">Sold</p>
+    <ul class="week-list">
+      <li><span class="week-addr">365 Lakeview Avenue, Tonka Bay</span><span class="week-meta">Sold for $3,350,000 · house · closed Oct 1</span></li>
+    </ul>
   </div>
+  <p class="week-note">Same numbers as the card above and the <a href="/lake-minnetonka-weekly/">Lake Minnetonka weekly</a>.</p>
+  <p class="section-body" style="margin-top:40px;"><strong>Listings from the October 4 search.</strong> These are separate from the closed sales above. They are the homes that were listed, pending, or off market when the Tonka Bay search ran on October 4.</p>
   <p class="week-note">One home is off market.</p>
   <p class="week-note">Nothing in this search is for sale or coming soon.</p>
-  <p class="week-kicker">Sold</p>
-  <ul class="week-list">
-    <li><span class="week-addr">365 Lakeview Avenue, Tonka Bay, MN 55331-9569</span><span class="week-meta">Sold for $3,350,000 · 4 beds · 3,172 sq ft · $1,056 per square foot</span></li>
-  </ul>
 </div>
 <!-- this-week end -->
 <div class="divider"></div>
@@ -1268,6 +1272,7 @@ syncConsent();
 })();
 </script>
 <script src="/assets/week-data.js" defer></script>
+<script src="/assets/week-section.js" defer></script>
 </body>
 </html>
 
