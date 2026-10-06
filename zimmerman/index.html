@@ -818,12 +818,12 @@ const INTEREST_DETAIL = {
 };
 function interestDetail(v) { return INTEREST_DETAIL[v] || v || '(none selected)'; }
 
-function checkNumber(name, phone, interest) {
+function checkNumber(name, phone, interest, email) {
   var controller = new AbortController();
   var timer = setTimeout(function () { controller.abort(); }, 2500);
   var data = new URLSearchParams({
 
-    name: name, phone: phone, interest: interest,
+    name: name, phone: phone, email: email || '', interest: interest,
     site: window.location.hostname + window.location.pathname,
     local: PAGE_LOCAL,
     utm_source: LEAD_SOURCE.utm_source,
@@ -952,7 +952,7 @@ async function handleSubmit(e) {
 
   if (phone) {
     setChecking(true);
-    var verdict = await checkNumber(name, phone, interestLabel);
+    var verdict = await checkNumber(name, phone, interestLabel, email);
     setChecking(false);
     if (verdict && verdict.valid === false) {
       showPhoneError();
@@ -960,6 +960,8 @@ async function handleSubmit(e) {
     }
   }
 
+  // Oct 6 2026: email-only leads still text Geoffrey. Fire-and-forget; no phone check without a phone.
+  if (!phone) { try { checkNumber(name, '', interestLabel, email); } catch (_la) {} }
   submitToFormspree(name, phone, interest, email);
   try { notifyCompassLeadPixel(name, phone, email); } catch (_cxlp) {}
   showSuccess();
