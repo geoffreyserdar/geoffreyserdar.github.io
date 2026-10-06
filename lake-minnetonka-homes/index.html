@@ -249,6 +249,7 @@ body {
   color: #E8A0A0;
 }
 .field-error.visible { display: block; }
+.field-help { margin-top: 8px; font-size: 12px; line-height: 1.5; color: var(--mid); }
 .submit-btn {
   width: 100%;
   background: var(--gold);
@@ -799,8 +800,9 @@ footer { border-top: 1px solid rgba(138, 155, 176, 0.1); padding: 40px 32px; tex
           <p class="field-error" id="emailError" role="alert">That email doesn’t look quite right — mind double-checking?</p>
         </div>
         <div class="field">
-          <label for="phone">Mobile</label>
-          <input type="tel" id="phone" name="phone" placeholder="952-000-0000" required autocomplete="tel" />
+          <label for="phone">Mobile (optional)</label>
+          <input type="tel" id="phone" name="phone" placeholder="952-000-0000" autocomplete="tel" />
+          <p class="field-help">Only to text you back. Never shared.</p>
           <p class="field-error" id="phoneError" role="alert">That number doesn’t look quite right — Geoffrey texts from his own phone, so we need a real mobile.</p>
         </div>
         <input type="hidden" id="interest" name="interest" value="weekly_lake_note" />
@@ -980,7 +982,7 @@ function clearPhoneError() {
 
 // Email — light, permissive check; fails friendly (same pattern as the phone layer).
 function isValidEmail(raw) {
-  return /^[^\s@]+@[^\s@]+\.[^\s@]{2}$/.test(String(raw || '').trim());
+  return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(String(raw || '').trim());
 }
 function showEmailError() {
   var err = document.getElementById('emailError');
@@ -1066,7 +1068,7 @@ async function handleSubmit(e) {
   var interest = document.getElementById('interest').value;
 
   // Layer 1 — impossible numbers never get in.
-  if (!isValidUSPhone(phone)) { showPhoneError(); return; }
+  if (phone && !isValidUSPhone(phone)) { showPhoneError(); return; }
   clearPhoneError();
 
   // Email — must look like an email (light check, fails friendly).
@@ -1078,7 +1080,7 @@ async function handleSubmit(e) {
   var verdict = await checkNumber(name, phone, email, interest);
   setChecking(false);
 
-  if (verdict && verdict.valid === false) {
+  if (phone && verdict && verdict.valid === false) {
     showPhoneError();   // looks fine, but the carrier says it isn't a working line
     return;
   }
