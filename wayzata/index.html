@@ -620,26 +620,26 @@ a.stat-link .stat-number{ color:#8A6A3F; }
   <div class="form-card" id="weekMagnetCard">
     <div class="form-fields" id="formFields">
       <h2 class="form-headline">Wayzata this week</h2>
-      <p class="form-sub">What the Wayzata search returned on October 4. Leave your name, email, and mobile so Geoffrey can text or call. No blasts.</p>
+      <p class="form-sub"><span data-week-sub>What closed in Wayzata the week of Sep 28–Oct 4.</span> Leave your name, email, and mobile so Geoffrey can text or call. No blasts.</p>
 
-      <div class="week-teaser" id="weekTeaser">
+      <div class="week-teaser" id="weekTeaser" data-week-town="Wayzata">
         <p class="week-teaser-label">This week at a glance</p>
-        <p class="week-teaser-meta">October 4, 2026</p>
-        <div class="teaser-dash" aria-label="What the Wayzata search returned on October 4, 2026">
+        <p class="week-teaser-meta">Week of Sep 28–Oct 4, 2026</p>
+        <div class="teaser-dash" aria-label="Closed sales for the week of Sep 28–Oct 4, 2026">
           <div class="teaser-dash-tile">
-            <div class="teaser-dash-n">$1,797,450</div>
-            <div class="teaser-dash-l">Typical asking · 4</div>
+            <div class="teaser-dash-n">7</div>
+            <div class="teaser-dash-l">Sold this week</div>
           </div>
           <div class="teaser-dash-tile">
-            <div class="teaser-dash-n">$3,442,500</div>
-            <div class="teaser-dash-l">Typical sold · 4</div>
+            <div class="teaser-dash-n">$2,035,000</div>
+            <div class="teaser-dash-l">Typical sold</div>
           </div>
           <div class="teaser-dash-tile">
-            <div class="teaser-dash-n">$441</div>
-            <div class="teaser-dash-l">Per sq ft · 9</div>
+            <div class="teaser-dash-n">49</div>
+            <div class="teaser-dash-l">Sold around the lake</div>
           </div>
         </div>
-        <p class="week-teaser-line"><em>Geoffrey:</em> 2 for sale, 2 coming soon, 4 sold, and 1 off market. Asking runs from $435,000 to $7,895,000. Sold runs from $900,000 to $5,500,000. The typical price per square foot is $441.</p>
+        <p class="week-teaser-line"><em>Geoffrey:</em> 7 homes closed in Wayzata the week of Sep 28–Oct 4, at a typical $2,035,000. Around the lake, 49 sold at a typical $647,000.</p>
       </div>
 
       <form id="captureForm" onsubmit="handleSubmit(event)">
@@ -1277,6 +1277,7 @@ syncConsent();
   });
 })();
 </script>
+<script src="/assets/week-data.js" defer></script>
 </body>
 </html>
 
