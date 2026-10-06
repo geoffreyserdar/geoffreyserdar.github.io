@@ -662,7 +662,6 @@ footer.site-foot .footer-legal a:hover { color: #C9A877; }
   /* RAZIEL_CONFIG — same Twilio lead-alert pipe as keep-or-sell (speed-to-SMS). Ads/Meta deferred. */
   var RAZIEL_CONFIG = {
     twilioUrl: 'https://lead-alert-4343.twil.io/lead-alert',
-    twilioSecret: 'slx_9f3Kqe2R',
     formspreeId: 'mpqerwwk',
     source: 'sell-options'
   };
@@ -681,7 +680,6 @@ footer.site-foot .footer-legal a:hover { color: #C9A877; }
     var controller = new AbortController();
     var timer = setTimeout(function () { controller.abort(); }, 2500);
     var data = new URLSearchParams({
-      secret: RAZIEL_CONFIG.twilioSecret,
       name: name || '',
       phone: phone || '',
       email: email || '',
