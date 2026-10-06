@@ -604,26 +604,26 @@ a.stat-link .stat-number{ color:#8A6A3F; }
   <div class="form-card" id="weekMagnetCard">
     <div class="form-fields" id="formFields">
       <h2 class="form-headline">Minnetonka this week</h2>
-      <p class="form-sub">What the Minnetonka search returned on October 4. Leave your name, email, and mobile so Geoffrey can text or call. No blasts.</p>
+      <p class="form-sub"><span data-week-sub>What closed in Minnetonka the week of Sep 28–Oct 4.</span> Leave your name, email, and mobile so Geoffrey can text or call. No blasts.</p>
 
-      <div class="week-teaser" id="weekTeaser">
+      <div class="week-teaser" id="weekTeaser" data-week-town="Minnetonka">
         <p class="week-teaser-label">This week at a glance</p>
-        <p class="week-teaser-meta">October 4, 2026</p>
-        <div class="teaser-dash" aria-label="What the Minnetonka search returned on October 4, 2026">
+        <p class="week-teaser-meta">Week of Sep 28–Oct 4, 2026</p>
+        <div class="teaser-dash" aria-label="Closed sales for the week of Sep 28–Oct 4, 2026">
           <div class="teaser-dash-tile">
-            <div class="teaser-dash-n">$499,900</div>
-            <div class="teaser-dash-l">Typical asking · 9</div>
+            <div class="teaser-dash-n">17</div>
+            <div class="teaser-dash-l">Sold this week</div>
           </div>
           <div class="teaser-dash-tile">
-            <div class="teaser-dash-n">$577,500</div>
-            <div class="teaser-dash-l">Typical sold · 10</div>
+            <div class="teaser-dash-n">$500,000</div>
+            <div class="teaser-dash-l">Typical sold</div>
           </div>
           <div class="teaser-dash-tile">
-            <div class="teaser-dash-n">$216</div>
-            <div class="teaser-dash-l">Per sq ft · 30</div>
+            <div class="teaser-dash-n">49</div>
+            <div class="teaser-dash-l">Sold around the lake</div>
           </div>
         </div>
-        <p class="week-teaser-line"><em>Geoffrey:</em> 8 for sale, 1 coming soon, 10 sold, 7 pending, and 4 off market. Asking runs from $335,000 to $900,000. Sold runs from $489,000 to $2,673,000. The typical price per square foot is $216.</p>
+        <p class="week-teaser-line"><em>Geoffrey:</em> 17 homes closed in Minnetonka the week of Sep 28–Oct 4, at a typical $500,000. Around the lake, 49 sold at a typical $647,000.</p>
       </div>
 
       <form id="captureForm" onsubmit="handleSubmit(event)">
@@ -1229,6 +1229,7 @@ syncConsent();
   });
 })();
 </script>
+<script src="/assets/week-data.js" defer></script>
 </body>
 </html>
 
