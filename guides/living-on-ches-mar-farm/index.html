@@ -297,6 +297,40 @@ footer .footer-legal, footer .footer-legal a{ color:#8A8375; }
 </style>
 <link rel="stylesheet" href="/assets/house.css" />
 <link rel="stylesheet" href="/assets/week-magnet.css" />
+<style>
+/* NEIGHBORS-REFER + PUMPKIN-WELCOME (2026-10-07) */
+.pk-welcome[hidden], .nb [hidden] { display:none !important; }
+.pk-welcome { margin:22px 0 0; padding:16px 20px; background:#E3DAC6; border:1px solid rgba(138,106,63,.35); border-radius:6px; font-size:15px; line-height:1.55; color:#1F201C; }
+.pk-welcome p { margin:0 0 8px; }
+.pk-welcome a { color:#8A6A3F; font-weight:600; text-decoration:underline; text-underline-offset:3px; }
+.nb { margin:48px 0 8px; scroll-margin-top:16px; }
+.nb h2 { font-family:'Playfair Display', serif; font-weight:700; font-size:clamp(22px, 4vw, 30px); color:#1F201C; margin:0 0 14px; line-height:1.25; }
+.nb > p { color:#33342C; font-size:17px; line-height:1.7; margin:0 0 16px; }
+.nb-card { background:#E3DAC6; border:1px solid rgba(201,168,76,0.25); border-radius:6px; padding:28px 28px 24px; margin:22px 0 0; }
+.nb-field { margin:0 0 16px; }
+.nb-field label { display:block; font-size:16px; font-weight:600; color:#1F201C; margin:0 0 7px; }
+.nb-opt { font-size:13px; font-weight:400; color:#4D4839; }
+.nb-field input, .nb-field textarea { width:100%; box-sizing:border-box; border:1px solid #B9AC8E; background:#FAF7EF; color:#1F201C; border-radius:3px; font-family:'Inter', sans-serif; font-size:17px; min-height:48px; padding:12px 14px; outline:none; appearance:none; }
+.nb-field textarea { min-height:84px; resize:vertical; line-height:1.5; }
+.nb-field input::placeholder, .nb-field textarea::placeholder { color:#A39B87; opacity:1; }
+.nb-field input:focus, .nb-field textarea:focus { border-color:#8A6A3F; }
+.nb-field input.nb-bad { border-color:#C0392B; }
+.nb-help { margin:6px 0 0; font-size:13px; color:#4D4839; }
+.nb-err { display:none; margin:8px 0 0; font-size:13px; line-height:1.5; color:#A33A2B; }
+.nb-err.on { display:block; }
+.nb-err-form { text-align:center; }
+.nb-hp { position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden; }
+.nb-btn { width:100%; background:#8A6A3F; border:none; border-radius:3px; color:#FAF7EF; font-family:'Inter', sans-serif; font-size:13px; font-weight:700; letter-spacing:2px; text-transform:uppercase; padding:16px; cursor:pointer; margin-top:6px; }
+.nb-btn:hover { background:#C9A877; color:#1F201C; }
+.nb-btn:disabled { opacity:.7; cursor:default; }
+.nb-consent { font-size:12px; color:#4D4839; text-align:center; margin:14px auto 0; line-height:1.6; max-width:60ch; }
+.nb-consent a { color:#8A6A3F; }
+.nb-thanks { text-align:center; padding:8px 0; }
+.nb-thanks h3 { font-family:'Playfair Display', serif; font-size:24px; font-weight:700; color:#1F201C; margin:0 0 8px; }
+.nb-thanks p { color:#4D4839; font-size:15px; line-height:1.6; margin:0 0 10px; }
+.nb-thanks a { color:#8A6A3F; }
+@media (max-width:560px) { .nb-card { padding:22px 18px 18px; } .nb > p { font-size:16px; } }
+</style>
 </head>
 <body>
 
@@ -308,6 +342,12 @@ footer .footer-legal, footer .footer-legal a{ color:#8A8375; }
 </div>
 
 <div class="wrap">
+  <!-- PUMPKIN-WELCOME (2026-10-07): hidden unless ?src=pumpkin -->
+  <div class="pk-welcome" id="pkWelcome" role="note" hidden>
+    <p><strong>Hi, neighbor. Thanks for reading the pumpkin note.</strong> This is our story, from a condo in Edina to the sandhill cranes and the twenty minutes that brought us to this road.</p>
+    <a href="#neighbors">Know someone thinking about moving?</a>
+  </div>
+  <!-- /PUMPKIN-WELCOME -->
   <header class="post">
     <p class="eyebrow">Excelsior &middot; Lake Minnewashta &middot; Ches Mar Farm</p>
     <h1>Living on Ches Mar Farm: The Excelsior Neighborhood Hiding Beside Lake Minnewashta</h1>
@@ -507,6 +547,52 @@ footer .footer-legal, footer .footer-legal a{ color:#8A8375; }
     <p class="disclaimer">This guide is a personal account and local information only. Park details are from Carver County as of July 2026 and can change &mdash; confirm current hours, fees, and rules with the county. Historical details about the Ches Mar family are shared as local lore. Market figures are from publicly available sources as of 2026 and change.</p>
   </article>
 
+<!-- NEIGHBORS-REFER (2026-10-07, pumpkin campaign): same lead pipe as /refer/ (Twilio lead-alert + Formspree mpqerwwk, source=referral). -->
+<section class="nb" id="neighbors" aria-labelledby="nb-title">
+  <h2 id="nb-title">Neighbors: know someone thinking about moving?</h2>
+  <p>It&rsquo;s been a few years now since the sandhill cranes flew over this lot and Sabrina said yes. Benedetta and Godfrey are growing up here, beside the park, the way we pictured when we first stood on this ground. We walk the park, we swim at the beach in summer, and the kids sled the same hills every winter. And most nights, we still hear the coyotes.</p>
+  <p>At the start of this guide I said this is one of those places you only find because you know someone on the road. My work has always happened the same way. Over thirteen years, I&rsquo;ve helped more than 360 families buy and sell homes, and most of them found me because someone who knew them made an introduction.</p>
+  <p>So if you, or anyone you know, is ever thinking about moving, we&rsquo;d be grateful if you&rsquo;d let us know. I&rsquo;ll take good care of them, the way a neighbor should.<span class="nb-pumpkin-only" hidden> And if not? Just enjoy the pumpkin.</span></p>
+
+  <div class="nb-card">
+    <form class="nb-form" id="nbForm" novalidate>
+      <div class="nb-field">
+        <label for="nbYourName">Your name</label>
+        <input type="text" id="nbYourName" name="referrer_name" placeholder="First and last name" autocomplete="name" required />
+      </div>
+      <div class="nb-field">
+        <label for="nbYourContact">Your email or phone <span class="nb-opt">(optional)</span></label>
+        <input type="text" id="nbYourContact" name="referrer_contact" placeholder="Email or mobile number" autocomplete="email" />
+        <p class="nb-help">Only so we can say thank you.</p>
+        <p class="nb-err" id="nbYourContactErr" role="alert">That doesn&rsquo;t look quite right. Mind double-checking it?</p>
+      </div>
+      <div class="nb-field">
+        <label for="nbTheirName">Their name</label>
+        <input type="text" id="nbTheirName" name="friend_name" placeholder="Their name" autocomplete="off" required />
+      </div>
+      <div class="nb-field">
+        <label for="nbTheirContact">Best way to reach them</label>
+        <input type="text" id="nbTheirContact" name="friend_contact" placeholder="Their phone or email" autocomplete="off" required />
+        <p class="nb-err" id="nbTheirContactErr" role="alert">Add a phone number or email so I can reach them.</p>
+      </div>
+      <div class="nb-field">
+        <label for="nbNote">Anything I should know? <span class="nb-opt">(optional)</span></label>
+        <textarea id="nbNote" name="note" rows="3" placeholder="For example: my sister wants to move closer to us next spring"></textarea>
+      </div>
+      <div class="nb-hp" aria-hidden="true"><label for="nbGotcha">Leave this empty</label><input type="text" id="nbGotcha" name="_gotcha" tabindex="-1" autocomplete="off" /></div>
+      <button type="submit" class="nb-btn">Send it to Geoffrey</button>
+      <p class="nb-err nb-err-form" id="nbFormErr" role="alert">Just need your name, their name, and how to reach them. The rest is optional.</p>
+      <p class="nb-consent">By sending this, you agree Serdar+Partners at Compass may contact you by call, text (including automated means), or email about this introduction. Consent is not required to buy. Msg &amp; data rates may apply. Reply STOP to opt out. <a href="/privacy">Privacy</a> &middot; <a href="/terms">Terms</a>.</p>
+    </form>
+    <div class="nb-thanks" id="nbThanks" role="status" hidden>
+      <h3>Thank you, truly.</h3>
+      <p>I&rsquo;ll reach out to them personally and take good care of them. If you left your email or phone, I&rsquo;ll be in touch to say thanks myself.</p>
+      <p class="nb-sign">Geoffrey &middot; <a href="tel:+19522583100">952-258-3100</a></p>
+    </div>
+  </div>
+</section>
+<!-- /NEIGHBORS-REFER -->
+
   <div class="cta-card">
     <p class="cta-eyebrow">Thinking About Living Here?</p>
     <h3>See homes around Lake Minnewashta &amp; Excelsior before they hit Zillow</h3>
@@ -629,6 +715,144 @@ document.querySelectorAll('.vfacade').forEach(function (b) {
       + 'allow="autoplay; encrypted-media; fullscreen" allowfullscreen></iframe>';
   });
 });
+</script>
+<script>
+/* NEIGHBORS-REFER (2026-10-07): same pipe as /refer/. Twilio lead-alert texts Geoffrey; Formspree mpqerwwk emails the lead inbox.
+   Tagged source=referral; pumpkin visits (?src=pumpkin or utm_source=pumpkin) also carry utm_source=pumpkin. No Ads conversion (referral, not ad lead). */
+(function () {
+  'use strict';
+  var TWILIO_URL = 'https://lead-alert-4343.twil.io/lead-alert';
+  var FORMSPREE_ID = 'mpqerwwk';
+  var qs = new URLSearchParams(window.location.search);
+  var PUMPKIN = (qs.get('src') || '').toLowerCase() === 'pumpkin' || (qs.get('utm_source') || '').toLowerCase() === 'pumpkin';
+  var SRC = {
+    utm_source: PUMPKIN ? 'pumpkin' : (qs.get('utm_source') || ''),
+    utm_medium: PUMPKIN ? 'tag' : (qs.get('utm_medium') || ''),
+    utm_campaign: PUMPKIN ? 'minnewashta-pumpkins' : (qs.get('utm_campaign') || ''),
+    referrer: document.referrer || ''
+  };
+  var TAG = PUMPKIN ? 'pumpkin' : 'guide-ches-mar-farm';
+
+  function show(el) { if (el) el.hidden = false; }
+  if (PUMPKIN) {
+    show(document.getElementById('pkWelcome'));
+    var only = document.querySelectorAll('.nb-pumpkin-only');
+    for (var i = 0; i < only.length; i++) show(only[i]);
+  }
+
+  var form = document.getElementById('nbForm');
+  if (!form) return;
+  var $ = function (id) { return document.getElementById(id); };
+
+  function isEmail(v) { return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v); }
+  function isUSPhone(raw) {
+    var d = String(raw || '').replace(/\D/g, '');
+    if (d.length === 11 && d.charAt(0) === '1') d = d.slice(1);
+    if (d.length !== 10) return false;
+    if (+d.charAt(0) < 2 || +d.charAt(3) < 2) return false;
+    if (d.charAt(1) === '1' && d.charAt(2) === '1') return false;
+    if (d.slice(3, 6) === '555') return false;
+    if (/^(\d)\1{9}$/.test(d)) return false;
+    return true;
+  }
+  function contactOk(v) { return v.indexOf('@') >= 0 ? isEmail(v) : isUSPhone(v); }
+  function bad(inputId, errId, on) {
+    var i = $(inputId), e = $(errId);
+    if (e) e.classList[on ? 'add' : 'remove']('on');
+    if (i) { i.classList[on ? 'add' : 'remove']('nb-bad'); if (on) i.focus(); }
+  }
+
+  var started = false, lastField = null, sent = false;
+  ['nbYourName', 'nbYourContact', 'nbTheirName', 'nbTheirContact', 'nbNote'].forEach(function (id) {
+    var el = $(id); if (!el) return;
+    ['focus', 'input'].forEach(function (ev) {
+      el.addEventListener(ev, function () {
+        lastField = id;
+        if (!started) { started = true; if (typeof gtag === 'function') gtag('event', 'form_start', { first_field: id, form_id: 'guide_referral', lead_source: TAG }); }
+      });
+    });
+  });
+  $('nbYourContact').addEventListener('input', function () { bad('nbYourContact', 'nbYourContactErr', false); });
+  $('nbTheirContact').addEventListener('input', function () { bad('nbTheirContact', 'nbTheirContactErr', false); });
+
+  function alertGeoffrey(d) {
+    var ctrl = new AbortController();
+    var t = setTimeout(function () { ctrl.abort(); }, 2500);
+    var theirIsEmail = d.theirContact.indexOf('@') >= 0;
+    var body = new URLSearchParams({
+      name: 'REFERRAL from ' + d.yourName + (PUMPKIN ? ' (pumpkin tag)' : ''),
+      phone: theirIsEmail ? '' : d.theirContact,
+      email: theirIsEmail ? d.theirContact : '',
+      interest: 'referral: ' + d.theirName + ', sent by ' + d.yourName + (d.yourContact ? ' (' + d.yourContact + ')' : ''),
+      source: 'referral',
+      site: window.location.hostname + window.location.pathname,
+      utm_source: SRC.utm_source, utm_medium: SRC.utm_medium, utm_campaign: SRC.utm_campaign,
+      referrer: SRC.referrer
+    });
+    return fetch(TWILIO_URL, { method: 'POST', body: body, signal: ctrl.signal })
+      .then(function (r) { clearTimeout(t); return r.json(); })
+      .catch(function () { clearTimeout(t); return { failOpen: true }; });
+  }
+
+  function toFormspree(d) {
+    return fetch('https://formspree.io/f/' + FORMSPREE_ID, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({
+        name: 'REFERRAL: ' + d.theirName + ' (referred by ' + d.yourName + ')',
+        source: 'referral',
+        interest: 'referral',
+        interest_detail: 'REFERRAL: ' + d.yourName + ' referred ' + d.theirName + '. Reach them: ' + d.theirContact + '. ' +
+          (d.note ? 'Note: ' + d.note + '. ' : '') +
+          (d.yourContact ? 'Thank the referrer at ' + d.yourContact + '.' : 'Referrer left no contact.') +
+          (PUMPKIN ? ' Came from the pumpkin tag.' : ''),
+        referrer_name: d.yourName,
+        referrer_contact: d.yourContact,
+        friend_name: d.theirName,
+        friend_contact: d.theirContact,
+        note: d.note,
+        form_source: TAG,
+        page: window.location.hostname + window.location.pathname,
+        utm_source: SRC.utm_source, utm_medium: SRC.utm_medium, utm_campaign: SRC.utm_campaign,
+        page_referrer: SRC.referrer
+      })
+    }).catch(function () {});
+  }
+
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault();
+    if (sent) return;
+    var d = {
+      yourName: $('nbYourName').value.trim(),
+      yourContact: $('nbYourContact').value.trim(),
+      theirName: $('nbTheirName').value.trim(),
+      theirContact: $('nbTheirContact').value.trim(),
+      note: $('nbNote').value.trim()
+    };
+    var fe = $('nbFormErr');
+    if ($('nbGotcha').value) { return; }
+    if (!d.yourName || !d.theirName || !d.theirContact) { fe.classList.add('on'); return; }
+    fe.classList.remove('on');
+    if (!contactOk(d.theirContact)) { bad('nbTheirContact', 'nbTheirContactErr', true); return; }
+    if (d.yourContact && !contactOk(d.yourContact)) { bad('nbYourContact', 'nbYourContactErr', true); return; }
+
+    var btn = form.querySelector('.nb-btn'), label = btn.textContent;
+    btn.disabled = true; btn.textContent = 'Sending\u2026';
+    sent = true;
+    await alertGeoffrey(d);
+    toFormspree(d);
+    btn.disabled = false; btn.textContent = label;
+    form.hidden = true;
+    var thanks = $('nbThanks'); thanks.hidden = false;
+    try { thanks.scrollIntoView({ behavior: 'smooth', block: 'center' }); } catch (_s) {}
+    if (typeof gtag === 'function') gtag('event', 'referral_submitted', { source: 'referral', lead_source: TAG, form_id: 'guide_referral' });
+  });
+
+  window.addEventListener('pagehide', function () {
+    if (sent || !lastField) return;
+    if (typeof gtag === 'function') gtag('event', 'form_abandon', { last_field: lastField, form_id: 'guide_referral' });
+  });
+})();
 </script>
 <script src="/assets/week-data.js" defer></script>
 <script src="/assets/week-magnet.js" defer></script>
