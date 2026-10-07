@@ -124,6 +124,26 @@
     .hero .hello{font-size:54px;}
     .hero h1{font-size:25px;}
   }
+
+  /* BOOK A STAY (2026-10-07 preview) */
+  .book{padding:46px 0 40px;}
+  .book .lead{margin-bottom:10px;}
+  .from-guide{display:none;background:var(--cream);border:1px solid var(--line);border-left:3px solid var(--gold);border-radius:6px;padding:14px 18px;margin:4px 0 18px;font-size:16px;color:var(--ink);}
+  .from-guide.on{display:block;}
+  .listings{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:20px;}
+  .lcard{border:1px solid var(--line);border-radius:8px;background:var(--cream);overflow:hidden;display:flex;flex-direction:column;}
+  .lcard img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;}
+  .lcard .lbody{padding:16px 18px 18px;display:flex;flex-direction:column;flex:1;}
+  .lcard .kind{font-family:'Helvetica Neue',Arial,sans-serif;text-transform:uppercase;letter-spacing:0.14em;font-size:11px;color:var(--gold);font-weight:600;}
+  .lcard h3{font-weight:normal;font-size:21px;color:var(--deep);margin:6px 0 6px;line-height:1.25;}
+  .lcard p{font-size:15px;margin:0 0 14px;color:var(--soft);}
+  .lcard .abtn{margin-top:auto;display:block;text-align:center;background:var(--deep);color:var(--cream);text-decoration:none;border-radius:5px;padding:14px 16px;font-family:'Helvetica Neue',Arial,sans-serif;font-size:15px;font-weight:600;letter-spacing:0.04em;}
+  .lcard .abtn:hover{background:#2f3d33;}
+  .neighbor-line{font-size:15px;margin-top:16px;color:var(--soft);}
+  .neighbor-line a{color:var(--gold);font-weight:bold;text-decoration:underline;}
+  .booknote{font-size:15px;margin-top:18px;}
+  .booknote a{color:var(--gold);font-weight:bold;}
+  @media(max-width:760px){.listings{grid-template-columns:1fr;}}
   /* lake short */
   .stayvid{max-width:330px;margin:28px auto 4px;}
   .stayvid .frame{position:relative;width:100%;aspect-ratio:9/16;border-radius:10px;overflow:hidden;border:1px solid var(--gold);}
@@ -155,6 +175,35 @@
 
 <div class="wrap">
 
+  <section class="book" id="book">
+    <div class="eyebrow">Book a stay</div>
+    <h2>Stay with us on Ches Mar Farm</h2>
+    <p class="from-guide" id="fromGuide">Coming from our guide? This is the house we told you about. Both halves are on Airbnb, so pick the one that fits and book it there.</p>
+    <p class="lead">Our home is two stays: the upper home and the walkout lower level, right beside Lake Minnewashta Regional Park. Sabrina hosts both as a Superhost, and more than 78 families have stayed with us so far.</p>
+    <div class="listings">
+      <div class="lcard">
+        <img src="/guides/living-on-ches-mar-farm/img/great-room.jpg" alt="The upper great room of The Woodland Lodge, with a patterned rug, a low wooden table, and windows on both sides" loading="lazy" />
+        <div class="lbody">
+          <div class="kind">The upper home</div>
+          <h3>The Woodland Lodge</h3>
+          <p>Light-filled, with wooded views and the walk-around fireplace. Three bedrooms, sleeps four.</p>
+          <a class="abtn" href="https://airbnb.com/h/thewoodlandlodge/" target="_blank" rel="noopener" data-airbnb="woodland-lodge">View on Airbnb</a>
+        </div>
+      </div>
+      <div class="lcard">
+        <img src="/guides/living-on-ches-mar-farm/img/night.jpg" alt="Ches Mar Homestead lit up at dusk on a fall evening, with the curved gravel drive lined with lights" loading="lazy" />
+        <div class="lbody">
+          <div class="kind">The walkout lower level</div>
+          <h3>The Tranquil Nature Retreat</h3>
+          <p>Private and quiet, steps from the park and the beach. Sleeps five.</p>
+          <a class="abtn" href="https://airbnb.com/h/chesmarhomestead/" target="_blank" rel="noopener" data-airbnb="tranquil-nature-retreat">View on Airbnb</a>
+        </div>
+      </div>
+    </div>
+    <p class="neighbor-line">Bringing more people? Our neighbors Adam and Alisa host the <a href="https://www.airbnb.com/rooms/1399997108736782583" target="_blank" rel="noopener" data-airbnb="garden_flat_neighbor">Ches Mar Garden Flat</a>, two houses down.</p>
+    <p class="booknote">Want the whole story first? <a href="/guides/living-on-ches-mar-farm/?utm_source=stay&amp;utm_medium=book-block&amp;utm_campaign=ches-mar-farm">Read Living on Ches Mar Farm</a>, or see <a href="#guests">what our guests say</a>.</p>
+  </section>
+
   <section>
     <div class="eyebrow">From your hosts</div>
     <h2>Make yourself at home</h2>
@@ -182,7 +231,7 @@
     <p style="margin-top:14px;font-size:15px;">And if you'd like the whole story of this place &mdash; the neighborhood, the 340-acre park next door, and the history behind the Ches Mar name &mdash; we wrote it all down: <a href="/guides/living-on-ches-mar-farm/?utm_source=stay&amp;utm_medium=page&amp;utm_campaign=ches-mar-farm" style="color:var(--gold);font-weight:bold;text-decoration:underline;">Living on Ches Mar Farm &rarr;</a></p>
   </section>
 
-  <section>
+  <section id="guests">
     <div class="eyebrow">From our guests</div>
     <h2>What other families say</h2>
     <p>More than 78 families have stayed with us, from all over the world. Here are a few words they left behind.</p>
@@ -357,20 +406,21 @@ function notifyCompassLeadPixel(name, phone, email) {
       // 2) GA4 event
       if(typeof gtag==='function'){
         gtag('event', 'generate_lead', {form:'airbnb-guest', source:'chesmar-stay'});
-        // 3) Google Ads conversion (same label as the site lead conversion)
-        gtag('event', 'conversion', {'send_to':'AW-17849235035/jRxICLmDpr0cENvslr9C','value':1.0,'currency':'USD'});
+        // Google Ads conversion removed 2026-10-07: guest sign-ups are not ad leads.
       }
-      // 4) Twilio lead-alert (fires now; texts will deliver once Twilio TFV is approved)
+      // 3) Twilio lead-alert, form-encoded like /refer/ and the town pages (no JSON preflight)
       try{
         fetch('https://lead-alert-4343.twil.io/lead-alert', {
-          method:'POST', headers:{'Content-Type':'application/json'},
-          body: JSON.stringify({
-            name: data.get('name'), phone: data.get('phone'), email: data.get('email') || '',
+          method:'POST',
+          body: new URLSearchParams({
+            name: data.get('name') || '', phone: data.get('phone') || '', email: data.get('email') || '',
             interest: 'Airbnb Guest',
+            source: 'stay',
             site: window.location.hostname + window.location.pathname,
-            utm_source: data.get('utm_source'),
-            utm_medium: data.get('utm_medium'),
-            utm_campaign: data.get('utm_campaign')
+            utm_source: data.get('utm_source') || '',
+            utm_medium: data.get('utm_medium') || '',
+            utm_campaign: data.get('utm_campaign') || '',
+            referrer: document.referrer || ''
           })
         }).catch(function(){});
       }catch(err){}
@@ -399,8 +449,8 @@ function notifyCompassLeadPixel(name, phone, email) {
   var fired = false;
   window.addEventListener('pagehide', function () {
     if (fired || !lastField) return;
-    var ok = document.getElementById('successState');
-    if (ok && ok.classList.contains('visible')) return;
+    var ok = document.getElementById('staySuccess');
+    if (ok && ok.style.display === 'block') return;
     fired = true;
     if (typeof gtag === 'function') {
       gtag('event', 'form_abandon', { last_field: lastField });
@@ -417,6 +467,24 @@ function notifyCompassLeadPixel(name, phone, email) {
     if (v.length >= 7) { v = v.slice(0,3) + '-' + v.slice(3,6) + '-' + v.slice(6); }
     else if (v.length >= 4) { v = v.slice(0,3) + '-' + v.slice(3); }
     e.target.value = v;
+  });
+})();
+</script>
+
+<script>
+/* BOOK A STAY (2026-10-07 preview): guide visitors get a short line; every Airbnb click is a GA4 event. */
+(function () {
+  var p = new URLSearchParams(location.search);
+  var src = (p.get('utm_source') || '').toLowerCase();
+  if (src === 'guides' || src === 'guide') { var g = document.getElementById('fromGuide'); if (g) g.classList.add('on'); }
+  document.querySelectorAll('a[data-airbnb]').forEach(function (a) {
+    a.addEventListener('click', function () {
+      if (typeof gtag === 'function') gtag('event', 'airbnb_click', {
+        listing: a.getAttribute('data-airbnb'), placement: 'stay_book_block',
+        lead_source: src || 'direct', lead_medium: p.get('utm_medium') || '', lead_campaign: p.get('utm_campaign') || '',
+        transport_type: 'beacon'
+      });
+    });
   });
 })();
 </script>
