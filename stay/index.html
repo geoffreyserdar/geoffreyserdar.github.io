@@ -37,12 +37,12 @@
   *{margin:0;padding:0;box-sizing:border-box;}
   html{scroll-behavior:smooth;}
   body{
-    font-family:Georgia,'Times New Roman',serif; color:var(--ink);
+    font-family:'Inter', system-ui, sans-serif; color:var(--ink);
     background:var(--paper); line-height:1.65; font-size:17px;
   }
   .wrap{max-width:760px;margin:0 auto;padding:0 22px;}
   .eyebrow{
-    font-family:'Helvetica Neue',Arial,sans-serif; text-transform:uppercase;
+    font-family:'Montserrat', 'Inter', system-ui, sans-serif; text-transform:uppercase;
     letter-spacing:0.28em; font-size:12px; color:var(--gold); font-weight:600;
   }
   /* HERO */
@@ -52,12 +52,12 @@
   }
   .hero .eyebrow{color:var(--gold);}
   .hero .hello{
-    font-family:'Snell Roundhand','Apple Chancery',cursive,serif; font-style:italic;
+    font-family:'Cormorant Garamond', Georgia, serif; font-style:italic;
     font-size:68px; color:var(--gold); line-height:0.95; margin:10px 0 4px;
   }
   .hero h1{font-weight:normal;font-size:30px;color:var(--cream);letter-spacing:0.01em;}
   .hero .loc{
-    font-family:'Helvetica Neue',Arial,sans-serif; text-transform:uppercase;
+    font-family:'Montserrat', 'Inter', system-ui, sans-serif; text-transform:uppercase;
     letter-spacing:0.26em; font-size:12px; color:var(--cream); margin-top:22px; opacity:0.85;
   }
   .hero .gline{width:64px;height:1px;background:var(--gold);margin:26px auto 0;}
@@ -72,7 +72,7 @@
   .gcard h3{font-weight:normal;font-size:18px;color:var(--deep);margin-bottom:5px;}
   .gcard p{font-size:15px;margin:0;color:var(--soft);}
   .gcard .where{
-    font-family:'Helvetica Neue',Arial,sans-serif;text-transform:uppercase;
+    font-family:'Montserrat', 'Inter', system-ui, sans-serif;text-transform:uppercase;
     letter-spacing:0.14em;font-size:10px;color:var(--gold);margin-top:7px;
   }
   /* the warm capture */
@@ -82,26 +82,26 @@
   .wall{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:8px;}
   .quote{border-left:2px solid var(--gold);padding:6px 0 6px 18px;}
   .quote p{font-style:italic;color:var(--ink);margin-bottom:8px;font-size:16px;}
-  .quote .who{font-family:'Helvetica Neue',Arial,sans-serif;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);}
+  .quote .who{font-family:'Montserrat', 'Inter', system-ui, sans-serif;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);}
   @media(max-width:620px){.wall{grid-template-columns:1fr;}}
   form{margin-top:24px;max-width:520px;}
   .field{margin-bottom:14px;}
   label{
-    display:block;font-family:'Helvetica Neue',Arial,sans-serif;font-size:12px;
+    display:block;font-family:'Montserrat', 'Inter', system-ui, sans-serif;font-size:12px;
     letter-spacing:0.12em;text-transform:uppercase;color:var(--soft);margin-bottom:5px;
   }
   input,textarea{
     width:100%;padding:13px 14px;border:1px solid var(--line);border-radius:5px;
-    font-family:Georgia,serif;font-size:16px;color:var(--ink);background:var(--paper);
+    font-family:'Inter', system-ui, sans-serif;font-size:16px;color:var(--ink);background:var(--paper);
   }
   input:focus,textarea:focus{outline:2px solid var(--gold);outline-offset:1px;border-color:var(--gold);}
   textarea{min-height:84px;resize:vertical;}
   .opts{display:flex;gap:18px;flex-wrap:wrap;margin:4px 0 16px;}
-  .opt{font-family:'Helvetica Neue',Arial,sans-serif;font-size:14px;color:var(--ink);display:flex;align-items:center;gap:7px;}
+  .opt{font-family:'Montserrat', 'Inter', system-ui, sans-serif;font-size:14px;color:var(--ink);display:flex;align-items:center;gap:7px;}
   .opt input{width:auto;}
   button{
     background:var(--deep);color:var(--cream);border:none;border-radius:5px;
-    padding:15px 30px;font-family:'Helvetica Neue',Arial,sans-serif;font-size:15px;
+    padding:15px 30px;font-family:'Montserrat', 'Inter', system-ui, sans-serif;font-size:15px;
     letter-spacing:0.06em;cursor:pointer;font-weight:600;
   }
   button:hover{background:#2f3d33;}
@@ -110,11 +110,11 @@
     display:none;background:var(--deep);color:var(--cream);padding:26px;border-radius:6px;
     margin-top:24px;text-align:center;
   }
-  .success .h{font-family:'Snell Roundhand','Apple Chancery',cursive,serif;font-style:italic;font-size:34px;color:var(--gold);}
+  .success .h{font-family:'Cormorant Garamond', Georgia, serif;font-style:italic;font-size:34px;color:var(--gold);}
   /* hosts footer */
   .hosts{text-align:center;padding:48px 22px 60px;}
   .hosts .name{
-    font-family:'Snell Roundhand','Apple Chancery',cursive,serif;font-style:italic;
+    font-family:'Cormorant Garamond', Georgia, serif;font-style:italic;
     font-size:34px;color:var(--gold);
   }
   .hosts p{color:var(--soft);font-size:15px;margin:6px 0;}
@@ -134,10 +134,10 @@
   .lcard{border:1px solid var(--line);border-radius:8px;background:var(--cream);overflow:hidden;display:flex;flex-direction:column;}
   .lcard img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;}
   .lcard .lbody{padding:16px 18px 18px;display:flex;flex-direction:column;flex:1;}
-  .lcard .kind{font-family:'Helvetica Neue',Arial,sans-serif;text-transform:uppercase;letter-spacing:0.14em;font-size:11px;color:var(--gold);font-weight:600;}
+  .lcard .kind{font-family:'Montserrat', 'Inter', system-ui, sans-serif;text-transform:uppercase;letter-spacing:0.14em;font-size:11px;color:var(--gold);font-weight:600;}
   .lcard h3{font-weight:normal;font-size:21px;color:var(--deep);margin:6px 0 6px;line-height:1.25;}
   .lcard p{font-size:15px;margin:0 0 14px;color:var(--soft);}
-  .lcard .abtn{margin-top:auto;display:block;text-align:center;background:var(--deep);color:var(--cream);text-decoration:none;border-radius:5px;padding:14px 16px;font-family:'Helvetica Neue',Arial,sans-serif;font-size:15px;font-weight:600;letter-spacing:0.04em;}
+  .lcard .abtn{margin-top:auto;display:block;text-align:center;background:var(--deep);color:var(--cream);text-decoration:none;border-radius:5px;padding:14px 16px;font-family:'Montserrat', 'Inter', system-ui, sans-serif;font-size:15px;font-weight:600;letter-spacing:0.04em;}
   .lcard .abtn:hover{background:#2f3d33;}
   .neighbor-line{font-size:15px;margin-top:16px;color:var(--soft);}
   .neighbor-line a{color:var(--gold);font-weight:bold;text-decoration:underline;}
@@ -148,7 +148,7 @@
   .stayvid{max-width:330px;margin:28px auto 4px;}
   .stayvid .frame{position:relative;width:100%;aspect-ratio:9/16;border-radius:10px;overflow:hidden;border:1px solid var(--gold);}
   .stayvid .frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
-  .stayvid figcaption{font-family:Georgia,serif;font-style:italic;font-size:14px;color:var(--soft);text-align:center;margin-top:10px;}
+  .stayvid figcaption{font-family:'Inter', system-ui, sans-serif;font-style:italic;font-size:14px;color:var(--soft);text-align:center;margin-top:10px;}
 </style>
 <script type="application/ld+json">
 {
@@ -162,6 +162,8 @@
 }
 </script>
 <link rel="canonical" href="https://geoffreyserdar.com/stay/">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600&family=Montserrat:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/type.css">
 </head>
 <body>
 
