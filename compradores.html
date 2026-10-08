@@ -14,7 +14,7 @@
 <meta property="og:locale" content="es_US">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600&family=Montserrat:wght@500;600&display=swap" rel="stylesheet">
 <!-- begin Pixel Code (Compass Lead Flow — real estate only) -->
 <script src="https://www.compass.com/cxlp/a.min.js" id="cxlp-ajs" data-client-id="dh30gl6zq3rg" async></script>
 <!-- end Pixel Code -->
@@ -30,12 +30,12 @@
 
 :root{
   --navy:#1D1E1A;--navy2:#2C2D27;--ivory:#ECE4D4;--card:#FAF7EF;
-  --brass:#8A6A3F;--brass2:#C9A877;--ink:#1F201C;--long:#33342C;
-  --en:#8A6A3F;--en-soft:#6B6454;
+  --brass:#6E5228;--brass2:#C9A877;--ink:#1F201C;--long:#33342C;
+  --en:#6E5228;--en-soft:#6B6454;
   --muted:#4D4839;--border:#D8CCB4;--input-border:#B9AC8E;
   --placeholder:#A39B87;--warn:#8a5a1a;--warn-bg:#f8efe0;
   --radius:12px;--shadow:0 2px 18px rgba(29,30,26,.06);
-  --serif:"Playfair Display",Georgia,serif;
+  --serif:'Cormorant Garamond',Georgia,serif;
   --sans:"Inter",system-ui,-apple-system,sans-serif;
 }
 *{box-sizing:border-box}html{scroll-behavior:smooth}
@@ -48,11 +48,11 @@ body{margin:0;background:var(--ivory);color:var(--ink);font-family:var(--sans);f
 .lang-strip{display:none;max-width:760px;margin:0 auto;padding:6px 18px 0;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:600}
 @media(min-width:900px){.lang-strip{display:block}}
 .topbar{padding:32px 0 12px;display:flex;align-items:flex-start;justify-content:space-between;gap:16px}
-.brand-mark{font-family:var(--serif);font-weight:900;font-size:1.15rem;color:var(--navy);margin:0}
+.brand-mark{font-family:var(--serif);font-weight: 600;font-size:1.15rem;color:var(--navy);margin:0}
 .brand-sub{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--brass);margin:6px 0 0;font-weight:600}
 .phone-pill{flex:0 0 auto;text-decoration:none;color:var(--card);background:var(--navy);padding:12px 16px;border-radius:10px;font-size:.88rem;font-weight:600;line-height:1.3;min-height:56px;display:flex;flex-direction:column;justify-content:center;box-shadow:0 2px 10px rgba(29,30,26,.12)}
 .phone-pill span{display:block;font-size:.68rem;font-weight:500;color:var(--brass2);letter-spacing:.06em;text-transform:uppercase}
-.hero h1{font-family:var(--serif);font-weight:900;font-size:clamp(1.55rem,4vw,2.2rem);color:var(--navy);margin:18px 0 8px;line-height:1.25}
+.hero h1{font-family:var(--serif);font-weight: 600;font-size:clamp(1.55rem,4vw,2.2rem);color:var(--navy);margin:18px 0 8px;line-height:1.25}
 .hero .h1-en{font-family:var(--sans);font-size:.98rem;font-weight:500;color:var(--en);margin:0 0 18px;letter-spacing:.01em}
 .hero p{color:var(--long);margin:0 0 14px;max-width:64ch}
 .hero p strong{color:var(--ink);font-weight:600}
@@ -107,7 +107,7 @@ select{appearance:auto;cursor:pointer}
 .consent-check input{margin-top:4px;width:22px;height:22px;min-width:22px;accent-color:var(--brass)}
 .consent-check .en-sub{display:block;font-size:.82rem;color:var(--en);margin-top:4px;font-weight:500}
 .form-consent{font-size:12px;color:#4D4839;text-align:center;margin-top:16px;line-height:1.65;max-width:62ch;margin-left:auto;margin-right:auto}
-.form-consent a{color:#8A6A3F;text-decoration:underline}
+.form-consent a{color:#6E5228;text-decoration:underline}
 .submit{margin-top:22px;width:100%;background:var(--navy);color:var(--card);border:none;min-height:56px;padding:16px 18px;border-radius:11px;font-size:1.05rem;font-weight:600;cursor:pointer;font-family:inherit;line-height:1.3;box-shadow:0 2px 12px rgba(29,30,26,.14)}
 .submit .en{display:block;font-size:.8rem;font-weight:500;color:var(--brass2);margin-top:3px}
 .submit:hover{background:#2C2D27}.submit:disabled{opacity:.55;cursor:not-allowed}
@@ -116,7 +116,7 @@ select{appearance:auto;cursor:pointer}
 .evo-card .h2-en{font-size:.84rem;color:var(--en);margin:0 0 12px;font-weight:500}
 .evo-card .hint{font-size:.88rem;color:var(--muted)}
 .thanks{display:none;background:var(--card);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);padding:40px 28px;margin-top:26px}
-.thanks h2{font-family:var(--serif);color:var(--navy);margin:0 0 6px;font-size:1.55rem;font-weight:900}
+.thanks h2{font-family:var(--serif);color:var(--navy);margin:0 0 6px;font-size:1.55rem;font-weight: 600}
 .thanks .h2-en{font-size:.95rem;color:var(--en);margin:0 0 16px;font-weight:500}
 .thanks p{color:var(--long);margin:0 0 12px;max-width:58ch}
 .thanks .cta-phone{display:inline-block;margin-top:8px;background:var(--navy);color:var(--card);text-decoration:none;padding:16px 22px;border-radius:10px;font-weight:700;min-height:56px;line-height:1.3}
@@ -157,6 +157,7 @@ input.input-error{border-color:var(--warn)!important;box-shadow:0 0 0 3px rgba(1
 .calc-disc.en{color:var(--en);font-size:.82rem;margin:0 0 14px}
 
 </style>
+<link rel="stylesheet" href="/assets/type.css">
 </head>
 <body>
 
@@ -181,9 +182,9 @@ input.input-error{border-color:var(--warn)!important;box-shadow:0 0 0 3px rgba(1
   <section class="hero" id="inicio">
     <div class="hero-mark" aria-hidden="true">
       <svg width="36" height="20" viewBox="0 0 36 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M2 12c4-6 8-8 16-8s12 2 16 8" stroke="#8A6A3F" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M2 12c4-6 8-8 16-8s12 2 16 8" stroke="#6E5228" stroke-width="1.5" stroke-linecap="round"/>
         <path d="M6 15c3-3 6-4 12-4s9 1 12 4" stroke="#C9A877" stroke-width="1.2" stroke-linecap="round" opacity=".85"/>
-        <circle cx="18" cy="7" r="1.6" fill="#8A6A3F"/>
+        <circle cx="18" cy="7" r="1.6" fill="#6E5228"/>
       </svg>
       <span class="line"></span>
     </div>
