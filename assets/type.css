@@ -1,0 +1,75 @@
+/* /assets/type.css — Type System A, sitewide. Loaded last.
+   Cormorant Garamond 600 headings, Inter 400 body, Montserrat 500/600 caps.
+   Does not set layout (no widths, no margins). Brass text/fill darkening is #6E5228 in each page's --gold. */
+:root {
+  --font-head: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+  --font-body: 'Inter', system-ui, -apple-system, 'Segoe UI', Arial, sans-serif;
+  --font-ui: 'Montserrat', 'Inter', system-ui, Arial, sans-serif;
+  --ink: #2C2924;          /* body text */
+  --ink-head: #1F201C;     /* headings */
+  --ink-soft: #4D4839;     /* secondary text */
+  --brass-text: #6E5228;   /* eyebrows, links, outline buttons on light bg */
+  --brass-fill: #6E5228;   /* solid button fill (ivory text on it) */
+  --brass-soft: #C9A877;   /* accents and text on dark bands only */
+  --fs-body: 19px;
+  --fs-small: 16px;
+  --fs-legal: 14px;
+  --lh-body: 1.65;
+}
+@media (max-width: 600px) { :root { --fs-body: 18px; } }
+
+body { font-family: var(--font-body); color: var(--ink); font-size: var(--fs-body); line-height: var(--lh-body); -webkit-font-smoothing: antialiased; }
+
+/* Headings: Cormorant Garamond SemiBold, never Light */
+.hero::before { font-family: var(--font-head); font-weight: 600; letter-spacing: 0; }
+.hero-name { font-family: var(--font-head); font-weight: 600; font-size: clamp(54px, 10vw, 104px); line-height: 0.98; letter-spacing: 0; color: var(--ink-head); }
+.hero-name span { font-weight: 600; color: var(--brass-text); }
+.section-headline, .keepsell-headline { font-family: var(--font-head); font-weight: 600; font-size: clamp(34px, 5.5vw, 48px); line-height: 1.12; letter-spacing: 0; color: var(--ink-head); }
+.form-headline, .success-title { font-family: var(--font-head); font-weight: 600; font-size: 30px; line-height: 1.15; color: var(--ink-head); }
+.stat-number, .week-num, .teaser-dash-n { font-family: var(--font-head); font-weight: 600; font-size: 40px; line-height: 1; color: var(--ink-head); }
+.photo-need strong { font-family: var(--font-head); font-weight: 600; font-size: 24px; }
+
+/* Body copy: Inter Regular, near-black, ~65 to 75 characters per line */
+.hero-title { font-family: var(--font-body); font-weight: 400; font-size: clamp(17px, 2.4vw, 20px); color: var(--ink-soft); letter-spacing: 0.01em; line-height: 1.5; }
+.section-body, .keepsell-body, .form-sub, .success-sub, .week-note, .week-teaser-line { font-family: var(--font-body); font-weight: 400; font-size: var(--fs-body); line-height: var(--lh-body); color: var(--ink); }
+.section-body strong { font-weight: 600; color: var(--ink-head); }
+.spec-title { font-family: var(--font-body); font-weight: 600; font-size: 17px; color: var(--ink-head); letter-spacing: 0; }
+.spec-desc { font-family: var(--font-body); font-weight: 400; font-size: var(--fs-small); line-height: 1.55; color: var(--ink); }
+.field input, .field select { font-family: var(--font-body); font-size: 17px; color: var(--ink-head); }
+.field-help, .field-error, .gate-phone-once, .week-teaser-meta { font-size: 15px; line-height: 1.5; }
+.form-privacy, .form-consent { font-size: var(--fs-legal); line-height: 1.55; color: var(--ink-soft); }
+.chip { font-family: var(--font-body); font-size: 15px; font-weight: 500; }
+
+/* Tracked caps: Montserrat Medium/SemiBold, 13px minimum for eyebrows, 15px for buttons and nav */
+.eyebrow, .section-eyebrow, .keepsell-eyebrow, .week-kicker, .week-teaser-label, .stat-label, .library-strip .library-label {
+  font-family: var(--font-ui); font-weight: 600; font-size: 13px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--brass-text);
+}
+.stat-label { color: var(--ink-soft); }
+.field label { font-family: var(--font-ui); font-weight: 600; font-size: 13px; letter-spacing: 0.12em; color: var(--ink-soft); }
+.submit-btn, .keepsell-btn, .door-btn, .success-crosslink-btn, .cta-primary {
+  font-family: var(--font-ui); font-weight: 600; font-size: 15px; letter-spacing: 0.14em; text-transform: uppercase;
+}
+.section-body a, .form-consent a, .sister-doors a { color: var(--brass-text); }
+
+/* Dark closer band and footer (house.css) */
+.reach-label { font-family: var(--font-ui); font-weight: 600; font-size: 13px; letter-spacing: 0.16em; color: #B9B1A2; }
+.reach-phone { font-family: var(--font-head); font-weight: 600; font-size: clamp(34px, 8vw, 48px); letter-spacing: 0.01em; }
+.reach-action { font-family: var(--font-ui); font-weight: 600; font-size: 15px; letter-spacing: 0.14em; }
+footer .footer-name { font-family: var(--font-head); font-weight: 600; font-size: 28px; }
+footer .footer-brokerage { font-family: var(--font-ui); font-weight: 500; font-size: 13px; letter-spacing: 0.16em; color: #B9B1A2; }
+footer .footer-nav a, footer .footer-contact a { font-family: var(--font-ui); font-weight: 500; font-size: 15px; letter-spacing: 0.08em; }
+footer .footer-legal, footer .footer-legal a { font-size: var(--fs-legal); color: #A9A192; }
+
+/* Small-text floors for older readers (nothing under 12px; running text 15px+) */
+.door-who .door-note { font-size: 15px; color: var(--ink-soft); }
+.teaser-dash-l { font-family: var(--font-ui); font-size: 12px; font-weight: 600; letter-spacing: 0.06em; color: var(--ink-soft); }
+.week-label { font-family: var(--font-ui); font-size: 13px; font-weight: 600; letter-spacing: 0.12em; color: var(--ink-soft); }
+.week-teaser-meta { font-size: 15px; color: var(--ink-soft); }
+.week-teaser-meta .example-tag { font-size: 12px; }
+.field .optional { font-size: 13px; color: var(--ink-soft); }
+.week-teaser-line em { color: var(--brass-text); font-style: normal; font-weight: 600; }
+
+.stat-number, .week-num, .teaser-dash-n, .reach-phone { font-variant-numeric: lining-nums; font-feature-settings: "lnum" 1; }
+
+h1, h2, h3 { font-family: var(--font-head); font-weight: 600; letter-spacing: 0; }
+.hello, .success .h { font-family: var(--font-head); font-style: italic; font-weight: 500; }
