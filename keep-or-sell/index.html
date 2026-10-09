@@ -1091,11 +1091,20 @@ document.getElementById('email').addEventListener('input', clearEmailError);
 <script>
 (function () {
   var lastField = null;
+  var startFired = false;
+  // 2026-10-07 Pipe: this page had form_abandon but never fired form_start, so its
+  // starts were invisible in GA4. Same once-per-page form_start as the town pages.
+  function touchField(id) {
+    lastField = id;
+    if (startFired) return;
+    startFired = true;
+    if (typeof gtag === 'function') gtag('event', 'form_start', { first_field: id });
+  }
   ['name', 'phone', 'email'].forEach(function (id) {
     var el = document.getElementById(id);
     if (!el) return;
-    el.addEventListener('focus', function () { lastField = id; });
-    el.addEventListener('input', function () { lastField = id; });
+    el.addEventListener('focus', function () { touchField(id); });
+    el.addEventListener('input', function () { touchField(id); });
   });
   var fired = false;
   window.addEventListener('pagehide', function () {
