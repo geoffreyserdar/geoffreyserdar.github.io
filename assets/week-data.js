@@ -39,7 +39,7 @@
     var label = spoken.label;
     var wk = spoken.short;                          // "Sep 28 to Oct 4"
     var lakeTyp = lake.typical_price_display || (lake.median ? money(lake.median) : '');
-    var hot = lake.hottest_town ? lake.hottest_town + ' · ' + lake.hottest_count : 'See the weekly note';
+    var hot = lake.hottest_town ? lake.hottest_town + ' · ' + lake.hottest_count : 'See the weekly page';
     var lakeTiles = [
       [String(lake.n_sold), 'Sold around the lake'],
       [lakeTyp, 'Typical price (lake)'],
