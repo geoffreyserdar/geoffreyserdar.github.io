@@ -544,15 +544,15 @@ footer .footer-legal, footer .footer-legal a{ color:#8A8375; }
           <input type="text" id="name" name="name" placeholder="First and last name" required autocomplete="name" />
         </div>
         <div class="field">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="you@email.com" required autocomplete="email" />
+          <p class="field-error" id="emailError" role="alert">That email doesn't look quite right &mdash; mind double-checking it? It's how Geoffrey sends your numbers over.</p>
+        </div>
+        <div class="field">
           <label for="phone">Mobile (optional)</label>
           <input type="tel" id="phone" name="phone" placeholder="Your best number (optional)" autocomplete="tel" />
           <p class="field-hint" style="margin-top:6px;">Only to text you back. Never shared.</p>
           <p class="field-error" id="phoneError" role="alert">That number doesn't look quite right &mdash; mind double-checking it? Geoffrey calls every owner personally, so we want to be sure it reaches you.</p>
-        </div>
-        <div class="field">
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" placeholder="you@email.com" required autocomplete="email" />
-          <p class="field-error" id="emailError" role="alert">That email doesn't look quite right &mdash; mind double-checking it? It's how Geoffrey sends your numbers over.</p>
         </div>
         <button type="submit" class="submit-btn">Send it to Geoffrey</button>
       </form>
