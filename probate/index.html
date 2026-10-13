@@ -1047,12 +1047,20 @@ document.getElementById('probate-submit').addEventListener('click', async functi
 <script>
 (function () {
   var lastField = null;
+  var startFired = false;
+  // 2026-10-13 Pipe: GS /probate/ had form_abandon but never fired form_start (MPS lands here). Same once-per-page form_start as LMP/keep-or-sell.
+  function touchField(gaId) {
+    lastField = gaId;
+    if (startFired) return;
+    startFired = true;
+    if (typeof gtag === 'function') gtag('event', 'form_start', { first_field: gaId });
+  }
   // Oct 6 2026: the inputs are p-name / p-phone (GA last_field stays name / phone).
   [['p-name', 'name'], ['p-phone', 'phone']].forEach(function (pair) {
     var el = document.getElementById(pair[0]);
     if (!el) return;
-    el.addEventListener('focus', function () { lastField = pair[1]; });
-    el.addEventListener('input', function () { lastField = pair[1]; });
+    el.addEventListener('focus', function () { touchField(pair[1]); });
+    el.addEventListener('input', function () { touchField(pair[1]); });
   });
   var fired = false;
   window.addEventListener('pagehide', function () {
