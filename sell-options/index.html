@@ -765,6 +765,36 @@ footer.site-foot .footer-legal a:hover { color: #C9A877; }
   });
 })();
 </script>
+<!-- raziel: form drop-off tracking -->
+<script>
+(function () {
+  var lastField = null;
+  var startFired = false;
+  // 2026-10-13 Pipe: /sell-options/ had generate_lead only — add once-per-page form_start + form_abandon.
+  function touchField(gaId) {
+    lastField = gaId;
+    if (startFired) return;
+    startFired = true;
+    if (typeof gtag === 'function') gtag('event', 'form_start', { first_field: gaId });
+  }
+  [['so-name', 'name'], ['so-email', 'email'], ['so-phone', 'phone'], ['so-area', 'area']].forEach(function (pair) {
+    var el = document.getElementById(pair[0]);
+    if (!el) return;
+    el.addEventListener('focus', function () { touchField(pair[1]); });
+    el.addEventListener('input', function () { touchField(pair[1]); });
+  });
+  var fired = false;
+  window.addEventListener('pagehide', function () {
+    if (fired || !lastField) return;
+    var ok = document.getElementById('so-ok');
+    if (ok && ok.style.display === 'block') return;
+    fired = true;
+    if (typeof gtag === 'function') {
+      gtag('event', 'form_abandon', { last_field: lastField, source: 'sell-options' });
+    }
+  });
+})();
+</script>
 <script src="/assets/door-clicks.js" defer></script>
 </body>
 </html>
