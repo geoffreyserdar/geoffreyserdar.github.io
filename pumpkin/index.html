@@ -6,8 +6,20 @@
 <title>Hi, neighbor | Geoffrey Serdar</title>
 <meta name="robots" content="noindex,nofollow" />
 <meta name="googlebot" content="noindex,nofollow" />
-<meta name="description" content="A note from Geoffrey and Sabrina on Minnewashta Park." />
+<meta name="description" content="Thanks for saying hello at the door. A note from Geoffrey and Sabrina, your neighbors on Minnewashta Park." />
+<link rel="canonical" href="https://geoffreyserdar.com/pumpkin/" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://geoffreyserdar.com/pumpkin/" />
+<meta property="og:title" content="Hi, neighbor. Thanks for saying hello at the door." />
+<meta property="og:description" content="A note from Geoffrey and Sabrina, your neighbors on Minnewashta Park." />
+<meta property="og:image" content="https://geoffreyserdar.com/pumpkin/img/family.jpg" />
+<meta property="og:image:width" content="960" />
+<meta property="og:image:height" content="698" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Hi, neighbor. Thanks for saying hello at the door." />
+<meta name="twitter:image" content="https://geoffreyserdar.com/pumpkin/img/family.jpg" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600&family=Montserrat:wght@500;600&display=swap" rel="stylesheet">
 <!-- PUMPKIN PAGE (2026-10-07): QR target for the Lake Minnewashta pumpkin tags. Not linked anywhere, not in the sitemap, noindex.
      GA4 only (no Google Ads config, so no Ads conversion on page view). -->
@@ -88,25 +100,30 @@ h2 { font-family: 'Cormorant Garamond', serif; font-weight: 700; font-size: 24px
 <body>
 <div class="topbar"><div class="wrap"><a class="brandmark" href="https://geoffreyserdar.com/">Geoffrey<span> Serdar</span></a></div></div>
 <main class="wrap">
-  <figure class="photo"><img src="/pumpkin/img/family.jpg" width="960" height="698" alt="Geoffrey and Sabrina with their kids, Benedetta and Godfrey" /></figure>
-  <h1>Hi, neighbor. Thanks for reading the pumpkin note.</h1>
+  <figure class="photo"><img src="/pumpkin/img/family.jpg" width="960" height="698" alt="Geoffrey and Sabrina with their kids, Benedetta and Godfrey" fetchpriority="high" decoding="async" /></figure>
+  <h1>Hi, neighbor. Thanks for saying hello at the door.</h1>
   <p>We&rsquo;re Geoffrey and Sabrina, and we&rsquo;ve lived beside Minnewashta Park for a few years now with Benedetta and our newest addition, Godfrey.</p>
 
-  <p>Before we had children, Sabrina and I were living in a condo in Edina. Then we walked this lot. Sandhill cranes lifted off and flew right over us, and I asked Sabrina the only question that mattered: do you want to raise our children here? She said yes. We decided to buy the place within twenty minutes of standing on that ground.</p>
-  <p>Now the kids sled the same hills every winter, we walk to the beach in summer, and most nights we still hear the coyotes.</p>
+  <h2>How the pumpkins got here</h2>
+  <p>They started at Degler Farm in Chanhassen. I brought them home, and Benedetta and our neighbor Rex sprayed every one of them down with the hose. Then on October 23 I took them around the lake, one porch at a time.</p>
 
   <figure class="short">
     <div class="frame"><iframe src="https://www.youtube-nocookie.com/embed/gkqWH2iCqR0?playsinline=1&amp;rel=0" title="Benedetta's on pumpkin washing duty. Nobody is safe" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
     <figcaption>Benedetta on pumpkin washing duty (Sabrina got the worst of it).</figcaption>
   </figure>
 
+  <h2>Why we live here</h2>
+  <p>Before we had children, Sabrina and I were living in a condo in Edina. Then we walked this lot. Sandhill cranes lifted off and flew right over us, and I asked Sabrina the only question that mattered: do you want to raise our children here? She said yes. We decided to buy the place within twenty minutes of standing on that ground.</p>
+  <p>Now the kids sled the same hills every winter, we walk to the beach in summer, and most nights we still hear the coyotes.</p>
+
+
   <div class="honest">
     <p>Full honesty: I&rsquo;m a real estate agent. I&rsquo;ve been doing this for 14+ years and have helped more than 360 families, and most of them came through someone who knew them. So if you, or anyone you know, is ever thinking about moving, we&rsquo;d be grateful if you&rsquo;d let us know.</p>
   </div>
 
   <div class="callbox">
-    <a class="btn-call" id="pkCall" href="tel:+19522583100">Call or text Geoffrey:<span class="num">952-258-3100</span></a>
-    <a class="btn-text" id="pkText" href="sms:+19522583100">Send a text instead</a>
+    <a class="btn-call" id="pkCall" href="tel:+19522583100">Call Geoffrey<span class="num">952-258-3100</span></a>
+    <a class="btn-text" id="pkText" href="sms:+19522583100">Or send a text</a>
   </div>
 
   <h2 id="say-hi">Say hi, or pass along a name</h2>
@@ -265,6 +282,7 @@ h2 { font-family: 'Cormorant Garamond', serif; font-weight: 700; font-size: 24px
       method: 'POST',
       headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
       body: JSON.stringify(Object.assign(fields, {
+        _subject: 'Pumpkin page: ' + (fields.name || 'new note'),
         form_source: TAG,
         page: window.location.hostname + window.location.pathname,
         utm_source: SRC.utm_source, utm_medium: SRC.utm_medium, utm_campaign: SRC.utm_campaign,
@@ -303,7 +321,8 @@ h2 { font-family: 'Cormorant Garamond', serif; font-weight: 700; font-size: 24px
         source: 'seller-self', interest: 'seller-self',
         interest_detail: 'SELLER-SELF: ' + m.name + ' says they are thinking about moving. Phone: ' + m.phone + '.' +
           (m.email ? ' Email: ' + m.email + '.' : '') + ' Came from the pumpkin page.',
-        neighbor_name: m.name, neighbor_phone: m.phone, neighbor_email: m.email
+        neighbor_name: m.name, neighbor_phone: m.phone, neighbor_email: m.email,
+        email: m.email || undefined, _replyto: m.email || undefined
       });
       btn.disabled = false; btn.textContent = label;
       done('me');
@@ -335,7 +354,9 @@ h2 { font-family: 'Cormorant Garamond', serif; font-weight: 700; font-size: 24px
         (d.note ? 'Note: ' + d.note + '. ' : '') +
         (d.yourContact ? 'Thank the referrer at ' + d.yourContact + '.' : 'Referrer left no contact.') + ' Came from the pumpkin page.',
       referrer_name: d.yourName, referrer_contact: d.yourContact,
-      friend_name: d.theirName, friend_contact: d.theirContact, note: d.note
+        friend_name: d.theirName, friend_contact: d.theirContact, note: d.note,
+        email: (d.yourContact.indexOf('@') >= 0 ? d.yourContact : undefined),
+        _replyto: (d.yourContact.indexOf('@') >= 0 ? d.yourContact : undefined)
     });
     btn.disabled = false; btn.textContent = label;
     done('friend');
