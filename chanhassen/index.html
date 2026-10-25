@@ -409,6 +409,18 @@ a.stat-link .stat-number{ color:#6E5228; }
   padding: 12px 16px;
 }
 
+.week-counts { display: flex; flex-wrap: wrap; gap: 28px; margin: 28px 0 4px; }
+.week-count { display: flex; flex-direction: column; gap: 4px; }
+.week-num { font-family: 'Cormorant Garamond', serif; font-size: 32px; font-weight: 700; color: var(--warm); line-height: 1; }
+.week-label { font-size: 11px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; color: var(--mid); }
+.week-note { font-size: 15px; line-height: 1.6; color: var(--mid); margin: 22px 0 0; }
+.week-kicker { font-size: 11px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gold); margin: 28px 0 0; }
+.week-list { list-style: none; margin: 8px 0 0; padding: 0; }
+.week-list li { padding: 14px 0; border-top: 1px solid rgba(77,72,57,0.15); font-size: 15px; line-height: 1.55; color: var(--mid); }
+.week-list li:last-child { border-bottom: 1px solid rgba(77,72,57,0.15); }
+.week-addr { color: var(--warm); font-weight: 500; display: block; }
+.week-meta { display: block; margin-top: 2px; }
+.week-flag { color: var(--gold); font-weight: 600; letter-spacing: 0.3px; }
 .week-teaser {
   margin: 0 0 18px;
   padding: 16px 16px 14px;
@@ -1004,6 +1016,26 @@ a.stat-link .stat-number{ color:#6E5228; }
   </div>
 </section>
 <!-- /WEEK-MAGNET -->
+<!-- listings-week start -->
+<div class="divider"></div>
+<div class="section" id="listings-week">
+  <h2 class="section-headline">Chanhassen this week</h2>
+  <p class="section-body"><strong>Changed this week (Oct 19 to 25).</strong> These are the homes in the Chanhassen search that were listed, relisted, changed price, went pending, sold, or came off the market between October 19 and October 25. Some carry a neighboring town's mailing address.</p>
+  <div class="week-counts"><div class="week-count"><span class="week-num">2</span><span class="week-label">New listing</span></div><div class="week-count"><span class="week-num">1</span><span class="week-label">Relisted</span></div><div class="week-count"><span class="week-num">2</span><span class="week-label">Went pending</span></div><div class="week-count"><span class="week-num">4</span><span class="week-label">Sold</span></div><div class="week-count"><span class="week-num">1</span><span class="week-label">Off market</span></div></div>
+  <ul class="week-list">
+    <li><span class="week-addr">3961 White Oak Lane, Chanhassen, MN 55331-9178</span><span class="week-meta">$1,549,862 · 3 beds · 3 baths · 3,787 sq ft · $409 per square foot · <span class="week-flag">New listing</span></span></li>
+    <li><span class="week-addr">2388 Highover Trail, Chanhassen, MN 55317-4744</span><span class="week-meta">$835,000 · 5 beds · 4 baths · 3,451 sq ft · $242 per square foot · <span class="week-flag">Off market</span></span></li>
+    <li><span class="week-addr">7164 Harrison Hill Trail, Chanhassen, MN 55317-7581</span><span class="week-meta">$821,000 · 5 beds · 4 baths · 4,032 sq ft · $204 per square foot · <span class="week-flag">Sold</span></span></li>
+    <li><span class="week-addr">2413 Bridle Creek Trail, Chanhassen, MN 55317-9369</span><span class="week-meta">$625,000 · 5 beds · 4 baths · 3,478 sq ft · $180 per square foot · <span class="week-flag">Relisted</span></span></li>
+    <li><span class="week-addr">2730 Orchard Lane, Excelsior, MN 55331-3124</span><span class="week-meta">$575,000 · 5 beds · 4 baths · 4,921 sq ft · $117 per square foot · <span class="week-flag">Went pending</span></span></li>
+    <li><span class="week-addr">7471 Saratoga Drive, Chanhassen, MN 55317-9771</span><span class="week-meta">$539,900 · 4 beds · 3 baths · 1,976 sq ft · $273 per square foot · <span class="week-flag">New listing</span></span></li>
+    <li><span class="week-addr">970 Redwing Court, Chanhassen, MN 55317-9239</span><span class="week-meta">$465,000 · 3 beds · 3 baths · 1,741 sq ft · $267 per square foot · <span class="week-flag">Sold</span></span></li>
+    <li><span class="week-addr">7611 Kiowa Avenue, Chanhassen, MN 55317-9606</span><span class="week-meta">$449,900 · 4 beds · 2 baths · 1,986 sq ft · $227 per square foot · <span class="week-flag">Went pending</span></span></li>
+    <li><span class="week-addr">951 Redwing Court, Chanhassen, MN 55317-8683</span><span class="week-meta">$425,000 · 3 beds · 2 baths · 1,600 sq ft · $266 per square foot · <span class="week-flag">Sold</span></span></li>
+    <li><span class="week-addr">503 Chan View, Chanhassen, MN 55317-9488</span><span class="week-meta">$360,000 · 3 beds · 2 baths · 1,947 sq ft · $185 per square foot · <span class="week-flag">Sold</span></span></li>
+  </ul>
+</div>
+<!-- listings-week end -->
 
 <div class="keepsell">
   <div class="keepsell-card">
