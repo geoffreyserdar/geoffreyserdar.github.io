@@ -11,15 +11,15 @@
 <meta name="description" content="Geoffrey Serdar is a local realtor serving Victoria, Minnesota, Carver County's City of Lakes and Parks. Homes near Stieger Lake, Lake Bavaria, Carver Park Reserve and the Minnesota Landscape Arboretum. 14+ years, 360+ families served, and he answers his own phone." />
 
 <meta property="og:title" content="Victoria, MN Realtor | Geoffrey Serdar" />
-<meta property="og:description" content="Local realtor for Victoria: Stieger Lake, Lake Bavaria, Carver Park Reserve, and the Arboretum. 14+ years, 360+ families, answers his own phone." />
+<meta property="og:description" content="Local realtor for Victoria: Ruby&#8217;s Roost and downtown, Stieger Lake, Carver Park Reserve and the Lowry Nature Center. 14+ years, 360+ families, answers his own phone." />
 <meta property="og:url" content="https://geoffreyserdar.com/victoria/" />
-<meta property="og:image" content="https://geoffreyserdar.com/victoria/img/victoria-og.jpg" />
+<meta property="og:image" content="https://geoffreyserdar.com/victoria/img/victoria-og-downtown.jpg" />
 <meta property="og:type" content="website" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
-<meta property="og:image:alt" content="Map of Victoria, Minnesota, with Stieger Lake and Lake Bavaria" />
+<meta property="og:image:alt" content="The Ruby&#8217;s Roost Bakery &amp; Coffee storefront on Victoria Drive in downtown Victoria, Minnesota" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:image" content="https://geoffreyserdar.com/victoria/img/victoria-og.jpg" />
+<meta name="twitter:image" content="https://geoffreyserdar.com/victoria/img/victoria-og-downtown.jpg" />
 
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600&family=Montserrat:wght@500;600&display=swap" rel="stylesheet">
 
@@ -718,7 +718,7 @@ a.stat-link .stat-number{ color:#6E5228; }
       "@type": "WebPage",
       "@id": "https://geoffreyserdar.com/victoria/#webpage",
       "url": "https://geoffreyserdar.com/victoria/",
-      "dateModified": "2026-10-26T07:15:37-05:00",
+      "dateModified": "2026-10-26T17:45:00-05:00",
       "name": "Victoria, MN Realtor | Geoffrey Serdar, Carver County's City of Lakes and Parks",
       "about": {
         "@type": "City",
@@ -754,6 +754,8 @@ a.stat-link .stat-number{ color:#6E5228; }
     <div class="stat"><span class="stat-number">Carver</span><span class="stat-label">County Local</span></div>
     <a class="stat stat-link" href="/reviews/"><span class="stat-number">4.8&#9733;</span><span class="stat-label">62 Google Reviews</span></a>
   </div>
+
+  <p class="section-body" style="max-width:640px;margin:8px auto 28px">Victoria&rsquo;s downtown is the corner of Victoria Drive and Stieger Lake Lane. Fresh caramel rolls, dinner and the lake are all a few minutes on foot, and Carver Park Reserve is a short bike ride up the trail.</p>
 
   <!-- FORM -->
   <!-- WEEK-MAGNET: copied from lake-minnetonka-homes (town-adapted numbers/copy only) -->
@@ -852,7 +854,7 @@ a.stat-link .stat-number{ color:#6E5228; }
     Victoria calls itself the City of Lakes and Parks, which is the rare case of a city slogan being an understatement.
     <strong>Carver Park Reserve</strong> alone holds <strong>604 acres of water</strong> and three fishable lakes, Stieger, Auburn and Zumbra, plus <strong>25 miles of hiking trail</strong>, 10 miles of mountain-bike singletrack, cross-country ski and horseback trails, a campground,
     and the <strong>Lowry Nature Center</strong>, the first public nature center ever built in the Twin Cities.<br /><br />
-    The <strong>Minnesota Landscape Arboretum</strong> is here. So is the <strong>Wassermann Lake Preserve</strong>. The
+    The <strong>Minnesota Landscape Arboretum</strong> is right next door in Chaska. So is the <strong>Wassermann Lake Preserve</strong>. The
     <strong>Lake Minnetonka LRT Regional Trail</strong> runs more than fifteen miles from Hopkins straight through town and into the park reserve. You can ride to Excelsior for lunch without touching a highway.<br /><br />
     Kids attend <strong>Eastern Carver County Schools (District 112)</strong>. Downtown is small and walkable, Bayfront Park sits on
     Stieger Lake, and you are twenty-five minutes from a Minneapolis office and about four minutes from a trailhead.<br /><br />
@@ -863,6 +865,134 @@ a.stat-link .stat-number{ color:#6E5228; }
     They are just answers to different questions, and it is worth knowing which one you want before you start touring.
   </p>
 </div>
+
+<style>
+/* Victoria downtown map + cards (pattern from /whittier-minneapolis/) */
+.wm-frame{position:relative;background:#ECE4D4;border:1px solid #C9A877;border-radius:14px;overflow:hidden;aspect-ratio:1/1;max-width:760px;margin:0 auto;box-shadow:0 10px 30px rgba(31,32,28,.12)}
+.wm-frame .wm-svg{display:block;width:100%;height:100%}
+.wm-load{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#4D4839;font-size:14px;letter-spacing:.08em}
+.wm-lbl{font:600 17px/1 Georgia,serif;fill:#1F201C;paint-order:stroke;stroke:#FAF7EF;stroke-width:4px;stroke-linejoin:round}
+.wm-st{font:12px/1 sans-serif;letter-spacing:.12em;text-transform:uppercase;fill:#4D4839;opacity:.75;paint-order:stroke;stroke:#ECE4D4;stroke-width:3px}
+.wm-eat{font:700 14px/1 sans-serif;letter-spacing:.3em;fill:#6E5228;paint-order:stroke;stroke:#ECE4D4;stroke-width:4px}
+.wm-ring text{font:italic 14px/1 Georgia,serif;fill:#6E5228;paint-order:stroke;stroke:#ECE4D4;stroke-width:3px}
+.wm-ctr{font:700 13px/1 sans-serif;letter-spacing:.06em;fill:#6E5228;paint-order:stroke;stroke:#FAF7EF;stroke-width:4px}
+.wm-pin{cursor:pointer;outline:none}
+.wm-pin circle{transition:transform .2s}
+.wm-pin:hover circle,.wm-pin:focus circle,.wm-pin.on circle{transform:scale(1.25);fill:#6E5228}
+.wm-card{position:absolute;left:12px;right:12px;bottom:12px;background:#FAF7EF;border:1px solid #C9A877;border-radius:12px;display:none;gap:12px;align-items:center;padding:10px;box-shadow:0 8px 24px rgba(31,32,28,.2)}
+.wm-card.on{display:flex}
+.wm-card img{width:72px;height:54px;object-fit:cover;border-radius:8px;flex:none}
+.wm-card b{display:block;font:600 16px/1.2 Georgia,serif;color:#1F201C}
+.wm-card span{display:block;font-size:13px;color:#6E5228;margin-top:4px}
+.wm-x{position:absolute;top:4px;right:8px;background:none;border:0;font-size:22px;color:#4D4839;cursor:pointer}
+.wm-stats{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:#C9A877;border:1px solid #C9A877;border-radius:12px;overflow:hidden;max-width:760px;margin:14px auto 0}
+.wm-stats div{background:#FAF7EF;padding:12px 10px;text-align:center}
+.wm-stats strong{display:block;font:600 24px/1.1 Georgia,serif;color:#1F201C}
+.wm-stats small{display:block;font-size:12px;letter-spacing:.06em;color:#4D4839;margin-top:4px}
+.wm-note{max-width:760px;margin:10px auto 0;font-size:12px;line-height:1.5;color:#4D4839}
+.wm-note a{color:#6E5228}
+@media(min-width:700px){.wm-card img{width:96px;height:72px}.wm-stats{grid-template-columns:repeat(4,1fr)}.wm-card{left:auto;width:340px}}
+
+.wm{margin:0 auto 8px;padding:0 20px;max-width:800px}
+.wm-head{max-width:640px;margin:0 auto 24px;text-align:center}
+.es{ padding:56px 20px 8px; max-width:1160px; margin:0 auto; }
+.es-head{ max-width:640px; margin:0 auto 28px; text-align:center; }
+.es-grid{ display:grid; grid-template-columns:1fr; gap:20px; }
+@media (min-width:640px){ .es-grid{ grid-template-columns:repeat(2,1fr); } }
+@media (min-width:1024px){ .es-grid{ grid-template-columns:repeat(3,1fr); gap:24px; } }
+.es-card{ background:var(--white); border:1px solid rgba(110,82,40,.18); border-radius:6px; overflow:hidden; display:flex; flex-direction:column; }
+.es-media{ aspect-ratio:4/3; background:var(--navy2); }
+.es-media img{ width:100%; height:100%; object-fit:cover; display:block; }
+.es-type{ display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; padding:24px; background:#1F201C; color:var(--white); }
+.es-type-tag{ font-family:'Inter',sans-serif; font-size:11px; letter-spacing:.22em; text-transform:uppercase; color:var(--gold2); margin-bottom:14px; }
+.es-type-name{ font-family:'Cormorant Garamond',serif; font-size:clamp(34px,6vw,46px); font-weight:600; line-height:1.05; }
+.es-media-wide{ aspect-ratio:4/3; }
+@media (min-width:640px){ .es-wide{ grid-column:1/-1; } .es-media-wide{ aspect-ratio:16/7; } }
+.es-body{ padding:18px 20px 20px; }
+.es-name{ font-family:'Cormorant Garamond',serif; font-size:26px; font-weight:600; color:var(--warm); }
+.es-addr{ font-size:12px; letter-spacing:.12em; text-transform:uppercase; color:var(--gold); margin:4px 0 10px; }
+.es-line{ font-size:15px; line-height:1.65; color:var(--mid); }
+.es-credit{ font-size:11px; color:#6b6555; margin-top:12px; }
+.es-credit a{ color:#6b6555; }
+
+.es-line a{color:var(--gold)}
+</style>
+<!-- VICTORIA DOWNTOWN MAP: OSM + OSRM, see VICTORIA-PIZZAZZ-2026-10-26.md -->
+<section class="wm" id="victoria-walk-map">
+  <div class="wm-head">
+    <p class="section-eyebrow">Downtown, On Foot</p>
+    <h2 class="section-headline">Start at the corner.</h2>
+    <p class="section-body">Park once at Victoria Drive and Stieger Lake Lane and the morning takes care of itself: coffee and a caramel roll, a loop down to the lake, and the trail out to Carver Park Reserve if you brought a bike.</p>
+  </div>
+  <div class="wm-frame" data-src="/victoria/victoria-walk-map.svg">
+    <div class="wm-load">Loading walking map</div>
+    <div class="wm-card" aria-live="polite"><img alt="" width="96" height="72" /><div><b></b><span></span></div><button class="wm-x" type="button" aria-label="Close">&times;</button></div>
+  </div>
+  <div class="wm-stats">
+    <div><strong>1 min</strong><small>walk to Ruby&rsquo;s Roost</small></div>
+    <div><strong>3 min</strong><small>walk to Stieger Lake</small></div>
+    <div><strong>6 min</strong><small>walk to OMNI</small></div>
+    <div><strong>18 min</strong><small>bike to Lowry Nature Center</small></div>
+  </div>
+  <p class="wm-note">Tap a pin for the name and the time. Walk and bike times and the shaded 5 and 10 minute areas are routed from Victoria Drive at Stieger Lake Lane with <a href="https://routing.openstreetmap.de/" rel="noopener" target="_blank">OSRM foot and bike routing</a>; shaded areas are approximate. Gold line: the Lake Minnetonka LRT Regional Trail. Map data &copy; <a href="https://www.openstreetmap.org/copyright" rel="noopener" target="_blank">OpenStreetMap contributors</a>.</p>
+</section>
+<script>
+(function(){var f=document.querySelector('#victoria-walk-map .wm-frame');if(!f)return;var done=0;
+function init(){if(done)return;done=1;fetch(f.dataset.src).then(function(r){return r.text()}).then(function(t){var w=document.createElement('div');w.innerHTML=t;var s=w.querySelector('svg');f.insertBefore(s,f.firstChild);f.querySelector('.wm-load').remove();
+var c=f.querySelector('.wm-card'),im=c.querySelector('img'),b=c.querySelector('b'),sp=c.querySelector('span');
+function show(p){f.querySelectorAll('.wm-pin.on').forEach(function(x){x.classList.remove('on')});p.classList.add('on');if(p.dataset.img){im.src=p.dataset.img;im.style.display=''}else{im.removeAttribute('src');im.style.display='none'}im.alt=p.dataset.name;b.textContent=p.dataset.name;sp.textContent=p.dataset.walk;c.classList.add('on')}
+s.querySelectorAll('.wm-pin').forEach(function(p){p.addEventListener('click',function(){show(p)});p.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();show(p)}})});
+c.querySelector('.wm-x').addEventListener('click',function(){c.classList.remove('on');f.querySelectorAll('.wm-pin.on').forEach(function(x){x.classList.remove('on')})})}).catch(function(){f.querySelector('.wm-load').textContent='Map unavailable'})}
+if('IntersectionObserver'in window){var o=new IntersectionObserver(function(e){if(e[0].isIntersecting){o.disconnect();init()}},{rootMargin:'400px'});o.observe(f)}else init()})();
+</script>
+<section class="es" id="victoria-weekend">
+  <div class="es-head">
+    <p class="section-eyebrow">Downtown and Beyond</p>
+    <h2 class="section-headline">Where your Saturday goes.</h2>
+  </div>
+  <div class="es-grid">
+    <article class="es-card">
+      <div class="es-media"><img src="/victoria/img/rubys-roost-storefront-800.webp" srcset="/victoria/img/rubys-roost-storefront-800.webp 800w, /victoria/img/rubys-roost-storefront-1200.webp 1200w" sizes="(min-width:1024px) 360px, (min-width:640px) 50vw, 100vw" width="800" height="600" loading="lazy" decoding="async" alt="The Ruby&rsquo;s Roost Bakery and Coffee storefront on Victoria Drive"></div>
+      <div class="es-body"><h3 class="es-name">Ruby&rsquo;s Roost Bakery &amp; Coffee</h3><p class="es-addr">7924 Victoria Dr</p><p class="es-line">A small batch organic bakery that bakes in house every morning, with coffee from Tiny Footprint. It opened in 2015, and the caramel rolls are the reason people know the name.</p><p class="es-credit">Photo: <a href="https://commons.wikimedia.org/wiki/File:Book_store_and_coffee_house,_Victoria,_Minnesota-07.jpg" rel="noopener" target="_blank">Myotus</a>, <a href="https://creativecommons.org/licenses/by/4.0/" rel="license noopener" target="_blank">CC BY 4.0</a>, via Wikimedia Commons</p></div>
+    </article>
+    <article class="es-card">
+      <div class="es-media es-type" aria-hidden="true"><span class="es-type-tag">Dinner downtown</span><span class="es-type-name">The Noble Lion</span></div>
+      <div class="es-body"><h3 class="es-name">The Noble Lion</h3><p class="es-addr">7940 Victoria Dr</p><p class="es-line">Elevated American cooking with a French influence, out of a scratch kitchen on the same block as Ruby&rsquo;s Roost. Dinner Tuesday through Sunday, closed Mondays.</p></div>
+    </article>
+    <article class="es-card">
+      <div class="es-media es-type" aria-hidden="true"><span class="es-type-tag">Brewery &amp; taproom</span><span class="es-type-name">OMNI</span></div>
+      <div class="es-body"><h3 class="es-name">OMNI Brewing</h3><p class="es-addr">1495 Stieger Lake Ln</p><p class="es-line">The brewery that took over the old Enki taproom, with handcrafted pizzas and an in house caf&eacute; that opens at 7 a.m. Thursday through Sunday.</p></div>
+    </article>
+    <article class="es-card">
+      <div class="es-media es-type" aria-hidden="true"><span class="es-type-tag">Opening soon</span><span class="es-type-name">Harland</span></div>
+      <div class="es-body"><h3 class="es-name">Harland Chicken &amp; Fish</h3><p class="es-addr">1715 Stieger Lake Ln</p><p class="es-line">Going into the old Victoria House building. It is not open yet, and its liquor license hearing was on the city&rsquo;s calendar for October 26, 2026. More in the <a href="/guides/downtown-victoria-mn/">downtown Victoria guide</a>.</p></div>
+    </article>
+    <article class="es-card">
+      <div class="es-media"><img src="/victoria/img/steiger-lake-800.webp" srcset="/victoria/img/steiger-lake-800.webp 800w, /victoria/img/steiger-lake-1200.webp 1200w" sizes="(min-width:1024px) 360px, (min-width:640px) 50vw, 100vw" width="800" height="600" loading="lazy" decoding="async" alt="Stieger Lake in Victoria, ringed with cattails and goldenrod"></div>
+      <div class="es-body"><h3 class="es-name">Bayfront Park</h3><p class="es-addr">1730 Stieger Lake Ln</p><p class="es-line">The city park on Stieger Lake, about a three minute walk from the corner. Halloween in Victoria is here on Saturday, October 31, 2026, from 1:00 to 3:30.</p><p class="es-credit">Photo: <a href="https://commons.wikimedia.org/wiki/File:Steiger_Lake,_Victoria_MN_Sept_2019.jpg" rel="noopener" target="_blank">Thomson200</a>, <a href="https://creativecommons.org/publicdomain/zero/1.0/" rel="license noopener" target="_blank">CC0</a>, via Wikimedia Commons</p></div>
+    </article>
+    <article class="es-card">
+      <div class="es-media es-type" aria-hidden="true"><span class="es-type-tag">Carver Park Reserve</span><span class="es-type-name">Lowry</span></div>
+      <div class="es-body"><h3 class="es-name">Lowry Nature Center</h3><p class="es-addr">7025 Nature Center Dr</p><p class="es-line">The first public nature center built in the Twin Cities, inside Carver Park Reserve, with trumpeter swans and osprey out on the water. About 18 minutes from downtown by bike. Open Monday to Saturday 9 to 5, Sunday noon to 5.</p></div>
+    </article>
+    <article class="es-card">
+      <div class="es-media"><img src="/victoria/img/grimm-farmhouse-800.webp" srcset="/victoria/img/grimm-farmhouse-800.webp 800w, /victoria/img/grimm-farmhouse-1200.webp 1200w" sizes="(min-width:1024px) 360px, (min-width:640px) 50vw, 100vw" width="800" height="600" loading="lazy" decoding="async" alt="The yellow brick Wendelin Grimm farmhouse"></div>
+      <div class="es-body"><h3 class="es-name">Grimm Farm Historic Site</h3><p class="es-addr">7720 Grimm Rd, Carver Park Reserve</p><p class="es-line">Where Wendelin and Julianna Grimm grew the first winter hardy alfalfa in North America, which is why Three Rivers calls it the birthplace of the Dairy Belt. Open during scheduled programs.</p><p class="es-credit">Photo: <a href="https://commons.wikimedia.org/wiki/File:Wendelin_Grimm_Farmhouse.jpg" rel="noopener" target="_blank">McGhiever</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="license noopener" target="_blank">CC BY SA 4.0</a>, via Wikimedia Commons</p></div>
+    </article>
+    <article class="es-card">
+      <div class="es-media"><img src="/victoria/img/arboretum-creek-800.webp" srcset="/victoria/img/arboretum-creek-800.webp 800w, /victoria/img/arboretum-creek-1200.webp 1200w" sizes="(min-width:1024px) 360px, (min-width:640px) 50vw, 100vw" width="800" height="600" loading="lazy" decoding="async" alt="A creek and stone garden under old trees at the Minnesota Landscape Arboretum"></div>
+      <div class="es-body"><h3 class="es-name">Minnesota Landscape Arboretum</h3><p class="es-addr">3675 Arboretum Dr, Chaska</p><p class="es-line">Right next door in Chaska, for gardens and trails when you want a different walk.</p><p class="es-credit">Photo: <a href="https://commons.wikimedia.org/wiki/File:Minnesota_Landscape_Arboretum_Sept_2019_14.jpg" rel="noopener" target="_blank">Thomson200</a>, <a href="https://creativecommons.org/publicdomain/zero/1.0/" rel="license noopener" target="_blank">CC0</a>, via Wikimedia Commons</p></div>
+    </article>
+    <article class="es-card">
+      <div class="es-media es-type" aria-hidden="true"><span class="es-type-tag">Ride it</span><span class="es-type-name">The LRT Trail</span></div>
+      <div class="es-body"><h3 class="es-name">Lake Minnetonka LRT Regional Trail</h3><p class="es-addr">Through downtown</p><p class="es-line">More than fifteen miles of trail from Hopkins straight through town and into the park reserve. You can ride to Excelsior for lunch without touching a highway.</p></div>
+    </article>
+    <article class="es-card es-wide">
+      <div class="es-media es-media-wide"><img src="/victoria/img/victoria-drive-wide-1200.webp" srcset="/victoria/img/victoria-drive-wide-1200.webp 1200w, /victoria/img/victoria-drive-wide-1600.webp 1600w" sizes="(min-width:1160px) 1120px, 100vw" width="1200" height="525" loading="lazy" decoding="async" alt="Shops and brick storefronts along Victoria Drive downtown"></div>
+      <div class="es-body"><h3 class="es-name">Downtown on Victoria Drive</h3><p class="es-addr">Lions Park, 1505 82nd St</p><p class="es-line">Small Business Saturday is November 28, 2026. Then Light Up Victoria fills Lions Park on Thursday, December 3, from 6:00 to 7:30. It is free, put on by the City and the Victoria Business Association.</p><p class="es-credit">Photo: <a href="https://commons.wikimedia.org/wiki/File:Businesses_on_Victoria_Drive,_Victoria,_Minnesota-02.jpg" rel="noopener" target="_blank">Myotus</a>, <a href="https://creativecommons.org/licenses/by/4.0/" rel="license noopener" target="_blank">CC BY 4.0</a>, via Wikimedia Commons</p></div>
+    </article>
+  </div>
+</section>
 
 <!-- NEIGHBORHOODS -->
 <div class="hoods">
