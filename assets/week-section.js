@@ -1,4 +1,4 @@
-/* week-section.js (2026-10-06)
+/* week-section.js (2026-10-06; 2026-10-26: no duplicate Sold kicker, off-lake towns [data-off-lake="1"] get no lake sentence)
    Keeps the lower "[Town] this week" closed-sales block on the town pages in step with
    /data/weekly-towns.json, the same file the card above it and /lake-minnetonka-weekly/ read.
    The HTML is baked from that week's closed rows (with addresses). If the JSON has moved on to a
@@ -12,7 +12,7 @@
   function money(n) { return '$' + Math.round(n).toLocaleString('en-US'); }
   function md(iso) { var m = String(iso || '').match(/^(\d{4})-(\d{2})-(\d{2})/); return m ? { y: m[1], t: MON[+m[2] - 1] + ' ' + (+m[3]) } : null; }
 
-  function build(doc, town) {
+  function build(doc, town, offLake) {
     var w = doc.weeks[doc.weeks.length - 1];
     var a = md(w.week_start), b = md(w.week_end);
     if (!a || !b) return null;
@@ -23,7 +23,9 @@
     var n = parseInt(rec.n || 0, 10);
     var prices = (rec.sold_prices || []).slice().sort(function (x, y) { return y - x; });
     var line;
-    if (!n) {
+    if (!n && offLake) {
+      line = 'Nothing closed in ' + town + ' ' + between + '. Small towns have quiet weeks.';
+    } else if (!n) {
       line = 'Nothing closed in ' + town + ' ' + between + '. Small towns have quiet weeks. Around the lake, ' +
         lake.n_sold + ' homes sold at a typical price of ' + lakeTyp + '.';
     } else if (n === 1 && prices.length === 1) {
@@ -50,7 +52,6 @@
         c.appendChild(el('span', 'week-num', String(v.n))); c.appendChild(el('span', 'week-label', 'Sold'));
         counts.appendChild(c); box.appendChild(counts);
         if (v.prices.length) {
-          box.appendChild(el('p', 'week-kicker', 'Sold'));
           var ul = el('ul', 'week-list');
           for (var i = 0; i < v.prices.length; i++) { var li = el('li'); li.appendChild(el('span', 'week-addr', 'Sold for ' + money(v.prices[i]))); ul.appendChild(li); }
           box.appendChild(ul);
@@ -69,7 +70,7 @@
         if (!doc || !doc.weeks || !doc.weeks.length) return;
         for (var i = 0; i < secs.length; i++) {
           try {
-            var v = build(doc, secs[i].getAttribute('data-week-section'));
+            var v = build(doc, secs[i].getAttribute('data-week-section'), secs[i].getAttribute('data-off-lake') === '1');
             if (v && v.start !== secs[i].getAttribute('data-week-start')) paint(secs[i], v); // same week: keep the baked rows (they carry addresses)
           } catch (e) {}
         }
