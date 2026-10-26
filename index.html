@@ -546,6 +546,22 @@ footer .footer-legal, footer .footer-legal a{ color:#8A8375; }
   ]
 }
 </script>
+<style id="sv-css">
+h1.hero-title{margin-top:0;line-height:inherit}
+.sv-offer{max-width:640px;margin:40px auto;padding:28px 24px;border:1px solid var(--gold,#b08d57);border-radius:14px;background:rgba(176,141,87,.06);font-family:'Inter',sans-serif;scroll-margin-top:24px}
+.sv-offer h2{font-family:'Cormorant Garamond',serif;font-size:30px;line-height:1.15;margin:0 0 10px;color:inherit}
+.sv-offer p{font-size:15px;line-height:1.6;margin:0 0 16px;opacity:.9}
+.sv-offer label{display:block;font-size:13px;margin:0 0 4px}
+.sv-offer input{display:block;width:100%;box-sizing:border-box;font-size:16px;padding:12px;margin:0 0 12px;border:1px solid #ccc;border-radius:8px}
+.sv-offer button{width:100%;min-height:48px;font-size:16px;font-weight:600;border:0;border-radius:8px;background:var(--gold,#b08d57);color:#fff;cursor:pointer}
+.sv-offer .sv-small{font-size:12px;opacity:.75;margin:10px 0 0}
+.sv-offer .sv-err{color:#b3261e;font-size:13px;display:none}
+.sv-bar{display:none}
+@media (max-width:760px){.sv-bar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:9999;gap:8px;padding:8px 10px calc(8px + env(safe-area-inset-bottom));background:rgba(20,20,20,.94)}
+.sv-bar a{flex:1;min-height:46px;display:flex;align-items:center;justify-content:center;border-radius:8px;font:600 15px 'Inter',sans-serif;text-decoration:none;color:#fff;border:1px solid rgba(255,255,255,.4)}
+.sv-bar a.sv-main{background:var(--gold,#b08d57);border-color:transparent}
+body{padding-bottom:72px}}
+</style>
 </head>
 
 <body>
@@ -553,11 +569,11 @@ footer .footer-legal, footer .footer-legal a{ color:#8A8375; }
 <!-- HERO -->
 <section class="hero">
   <p class="eyebrow">Serdar+Partners at Compass</p>
-  <h1 class="hero-name">
+  <p class="hero-name">
     Geoffrey
     <span>Serdar</span>
-  </h1>
-  <p class="hero-title">Minnesota Realtor &nbsp;·&nbsp; Lake Minnetonka &nbsp;·&nbsp; Carver County</p>
+  </p>
+  <h1 class="hero-title">Minnesota Realtor &nbsp;·&nbsp; Lake Minnetonka &nbsp;·&nbsp; Carver County</h1>
 
   <div class="hero-stats">
     <div class="stat"><span class="stat-number">14+</span><span class="stat-label">Years</span></div>
@@ -618,6 +634,33 @@ footer .footer-legal, footer .footer-legal a{ color:#8A8375; }
     </div>
   </div>
 </section>
+<!-- SV:BEGIN seller-value 2026-10-26 -->
+<section class="sv-offer" id="sv-offer" data-sv="seller_value_home">
+<div id="svFields"><h2>Thinking about selling?</h2><p>Tell me the address and I’ll send you a one page read on what your home would likely sell for today, built from real sales near you. I read every one myself. No automated estimate, and no obligation.</p>
+<label for="svName">First name</label><input id="svName" autocomplete="given-name" placeholder="First name" required>
+<label for="svEmail">Email</label><input id="svEmail" type="email" autocomplete="email" placeholder="you@email.com" required>
+<label for="svAddr">Home address</label><input id="svAddr" name="address" autocomplete="street-address" placeholder="Street and city" required><label for="svPhone">Mobile (optional)</label><input id="svPhone" type="tel" autocomplete="tel" placeholder="Your best number (optional)">
+<p class="sv-err" id="svErr" role="alert">Please add your first name and a working email.</p>
+<button type="button" id="svBtn">Send me my number</button>
+<p class="sv-small">By submitting, you agree Serdar+Partners at Compass may contact you by call or text at the number you provide. Consent is not required to buy or sell. Reply STOP to opt out. <a href="/privacy">Privacy</a></p></div>
+<p id="svThanks" style="display:none;font-size:17px">Thank you. I’ll look at recent sales near you and send your number soon.</p>
+</section>
+<nav class="sv-bar" aria-label="Quick contact"><a class="sv-main" href="#sv-offer">What’s my home worth?</a><a href="sms:+19522583100">Text Geoffrey</a></nav>
+<script>
+(function(){var I="seller_value_home",LT="seller_value";function q(n){try{return new URLSearchParams(location.search).get(n)||''}catch(e){return''}}
+document.getElementById('svBtn').addEventListener('click',function(){var g=function(i){var e=document.getElementById(i);return e?e.value.trim():''};
+var n=g('svName'),em=g('svEmail'),ph=g('svPhone'),ad=g('svAddr'),err=document.getElementById('svErr');
+if(!n||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em)||(document.getElementById('svAddr')&&!ad)){err.textContent=document.getElementById('svAddr')?'Please add your first name, a working email and the address.':'Please add your first name and a working email.';err.style.display='block';return}
+err.style.display='none';var b=this;b.disabled=true;
+var src={utm_source:q('utm_source'),utm_medium:q('utm_medium'),utm_campaign:q('utm_campaign'),utm_content:q('utm_content'),gclid:q('gclid'),referrer:document.referrer||''};
+var test=/test/i.test(n)?'TEST ':'';
+var p=Object.assign({name:n,email:em,phone:ph,address:ad,interest:I,lead_type:LT,interest_detail:test+(LT==='seller_value'?'Seller home value request':'Weekly lake sales signup'),page:location.pathname},src);
+try{fetch('https://lead-alert-4343.twil.io/lead-alert',{method:'POST',body:new URLSearchParams({name:n,phone:ph,email:em,interest:test+(LT==='seller_value'?'Home value: '+ad:'Weekly lake sales'),site:location.hostname+location.pathname,local:I})}).catch(function(){})}catch(e){}
+fetch('https://formspree.io/f/mpqerwwk',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(p)}).then(function(r){return r.ok}).catch(function(){return false}).then(function(ok){
+if(ok){document.getElementById('svFields').style.display='none';document.getElementById('svThanks').style.display='block';try{if(typeof gtag==='function')gtag('event','generate_lead',{lead_type:LT,page_path:location.pathname})}catch(e){}}
+else{b.disabled=false;err.textContent='That didn\u2019t go through. Please try again, or text Geoffrey at 952 258 3100.';err.style.display='block'}});});})();
+</script>
+<!-- SV:END -->
 
 <div class="divider"></div>
 
