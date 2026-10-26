@@ -448,6 +448,7 @@ a.stat-link .stat-number{ color:#6E5228; }
   gap: 8px;
   margin: 0 0 12px;
 }
+.teaser-dash:has(> .teaser-dash-tile:nth-child(2):last-child) { grid-template-columns: repeat(2, 1fr); }
 .teaser-dash-tile {
   background: var(--navy2, #E3DAC6);
   border: 1px solid rgba(31,32,28,0.10);
@@ -768,12 +769,8 @@ a.stat-link .stat-number{ color:#6E5228; }
             <div class="teaser-dash-n">$680,000</div>
             <div class="teaser-dash-l">Sold for</div>
           </div>
-          <div class="teaser-dash-tile">
-            <div class="teaser-dash-n">17</div>
-            <div class="teaser-dash-l">Sold around the lake</div>
-          </div>
         </div>
-        <p class="week-teaser-line"><em>Geoffrey:</em> 1 home closed in Victoria the week of Oct 19 to Oct 25, for $680,000. Around the lake, 17 sold at a typical $620,000.</p>
+        <p class="week-teaser-line"><em>Geoffrey:</em> 1 home closed in Victoria the week of Oct 19 to Oct 25, for $680,000.</p>
       </div>
 
       <form id="captureForm" onsubmit="handleSubmit(event)">
