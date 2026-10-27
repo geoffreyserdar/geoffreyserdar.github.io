@@ -647,8 +647,43 @@ body {
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:image" content="https://geoffreyserdar.com/probate/img/probate-og.jpg" />
 <meta property="og:type" content="website" />
+<style id="sv-css">
+h1.hero-title{margin-top:0;line-height:inherit}
+.sv-offer{max-width:640px;margin:40px auto;padding:28px 24px;border:1px solid var(--gold,#b08d57);border-radius:14px;background:rgba(176,141,87,.06);font-family:'Inter',sans-serif;scroll-margin-top:24px}
+.sv-offer h2{font-family:'Cormorant Garamond',serif;font-size:30px;line-height:1.15;margin:0 0 10px;color:inherit}
+.sv-offer p{font-size:15px;line-height:1.6;margin:0 0 16px;opacity:.9}
+.sv-offer label{display:block;font-size:13px;margin:0 0 4px}
+.sv-offer input{display:block;width:100%;box-sizing:border-box;font-size:16px;padding:12px;margin:0 0 12px;border:1px solid #ccc;border-radius:8px}
+.sv-offer button{width:100%;min-height:48px;font-size:16px;font-weight:600;border:0;border-radius:8px;background:var(--gold,#b08d57);color:#fff;cursor:pointer}
+.sv-offer .sv-small{font-size:12px;opacity:.75;margin:10px 0 0}
+.sv-offer .sv-err{color:#b3261e;font-size:13px;display:none}
+.sv-bar{display:none}
+@media (max-width:760px){.sv-bar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:9999;gap:8px;padding:8px 10px calc(8px + env(safe-area-inset-bottom));background:rgba(20,20,20,.94)}
+.sv-bar a{flex:1;min-height:46px;display:flex;align-items:center;justify-content:center;border-radius:8px;font:600 15px 'Inter',sans-serif;text-decoration:none;color:#fff;border:1px solid rgba(255,255,255,.4)}
+.sv-bar a.sv-main{background:var(--gold,#b08d57);border-color:transparent}
+body{padding-bottom:72px}}
+</style>
+
+<style id="gs-topbar-css">
+/* GS:TOPBAR shared include (house-chrome/_partials/gs-bars). Mobile only, under 768px. */
+.gs-top{display:none}
+@media (max-width:767.98px){
+.gs-top{display:flex;align-items:center;gap:10px;position:fixed;top:0;left:0;right:0;z-index:9998;box-sizing:content-box;height:42px;padding:env(safe-area-inset-top) 12px 0;background:rgba(29,30,26,.96);color:#fff;font:600 13px/1.2 'Inter',system-ui,sans-serif;transform:translateY(0);transition:transform .25s ease;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+.gs-top.gs-hide{transform:translateY(-100%)}
+.gs-top a{color:#fff;text-decoration:none}
+.gs-top .gs-mark{flex:0 0 auto;display:flex;align-items:center;justify-content:center;width:30px;height:30px;border:1px solid #C9A877;border-radius:50%;font:700 12px/1 'Playfair Display',Georgia,serif;letter-spacing:.5px;color:#C9A877}
+.gs-top .gs-line{flex:1 1 auto;min-width:0;text-align:right;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.gs-top .gs-line b{color:#C9A877;font-weight:700}
+body{padding-top:calc(42px + env(safe-area-inset-top))}
+#signup,#sv-offer{scroll-margin-top:calc(56px + env(safe-area-inset-top))}
+}
+</style>
 </head>
 <body>
+<!-- GS:TOPBAR -->
+<div class="gs-top" id="gsTop" role="navigation" aria-label="Site top bar"><a class="gs-mark" href="/" aria-label="Serdar+Partners home">GS</a><a class="gs-line" id="gsTopLine" href="/lake-minnetonka-weekly/#signup">Lake Minnetonka sales each week · <b>See the list</b></a></div>
+<!-- /GS:TOPBAR -->
+
 
 <header class="site-header">
   <div class="header-brand">
@@ -1098,6 +1133,8 @@ document.getElementById('probate-submit').addEventListener('click', async functi
 })();
 </script>
 <script src="/assets/door-clicks.js" defer></script>
+<nav class="sv-bar" aria-label="Quick contact"><a class="sv-main" href="#get-in-touch">Ask a question</a><a href="sms:+19522583100">Text Geoffrey</a></nav>
+<script src="/assets/gs-bars.js?v=20261026" defer data-mode="care"></script>
 </body>
 
 <!-- PRESENCE-GS-PROBATE 1789974029.043068 -->
