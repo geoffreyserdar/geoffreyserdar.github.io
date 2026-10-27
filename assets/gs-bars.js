@@ -6,6 +6,12 @@
   var mode=(me&&me.getAttribute('data-mode'))||'seller';
   var town=(me&&me.getAttribute('data-town'))||'';
   var bar=document.getElementById('gsTop'), line=document.getElementById('gsTopLine');
+  /* Face mark (Geoffrey 2026-10-26): swap the GS initials for his headshot. 96px source for a 30px slot. */
+  (function(){var m=bar&&bar.querySelector('.gs-mark');if(!m||m.querySelector('img'))return;
+    var im=new Image();im.alt='Geoffrey Serdar';im.width=30;im.height=30;im.decoding='async';
+    im.style.cssText='width:100%;height:100%;border-radius:50%;object-fit:cover;display:block';
+    im.onload=function(){m.textContent='';m.appendChild(im);m.style.overflow='hidden';m.style.padding='0';m.style.borderWidth='1.5px'};
+    im.src='https://geoffreyserdar.com/img/geoffrey-face-96.jpg';})();
   function ev(name,label){try{if(typeof gtag==='function')gtag('event',name,{link_text:label,page_path:location.pathname})}catch(e){}}
   function esc(s){return String(s).replace(/[&<>]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;'}[c]})}
   function set(html,href){if(!line)return;line.innerHTML=html;if(href)line.setAttribute('href',href)}
