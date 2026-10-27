@@ -598,16 +598,16 @@ a.stat-link .stat-number{ color:#6E5228; }
 
 <!-- Fact sources listed in ./SOURCES.md, not for display -->
 <link rel="canonical" href="https://geoffreyserdar.com/mound/">
-<meta property="og:title" content="Mound, MN Realtor | Geoffrey Serdar, Lake Minnetonka" />
-<meta property="og:description" content="Geoffrey Serdar helps buyers and sellers in Mound: Cook's Bay, Busy Corners, Commons docks. Westonka Schools. 952-258-3100." />
+<meta property="og:title" content="Mound, MN: Surfside Park, Lost Lake and the Dakota Rail Trail | Geoffrey Serdar" />
+<meta property="og:description" content="Start at the Saturday farmers market on Shoreline Drive, walk to Lost Lake Commons and the Dakota Rail Trail, and end at Surfside Park on Cook&#39;s Bay. A local realtor who works this map every week." />
 <meta property="og:url" content="https://geoffreyserdar.com/mound/" />
-<meta property="og:image" content="https://geoffreyserdar.com/mound/img/mound-og.jpg" />
+<meta property="og:image" content="https://geoffreyserdar.com/mound/img/mound-og-e.jpg" />
 <meta property="og:type" content="website" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
-<meta property="og:image:alt" content="Lakeview walking path in Mound, Minnesota" />
+<meta property="og:image:alt" content="Aerial view of boat docks below fall trees on a Lake Minnetonka bay" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:image" content="https://geoffreyserdar.com/mound/img/mound-og.jpg" />
+<meta name="twitter:image" content="https://geoffreyserdar.com/mound/img/mound-og-e.jpg" />
   <link rel="stylesheet" href="/assets/house.css" />
 <link rel="stylesheet" href="/assets/type.css">
 <script type="application/ld+json">
@@ -887,6 +887,137 @@ I tell west-end buyers: if you&rsquo;re comparing Mound to Wayzata on price alon
   <img src="img/history-cooks-bay-pd.jpg" width="1920" height="1166" alt="Cook's Bay shoreline in Mound, Minnesota, historic postcard" />
   <figcaption class="place-cap">Cook's Bay when the postcard still said Mound right on the water.</figcaption>
 </figure>
+
+<style>
+/* Victoria downtown map + cards (pattern from /whittier-minneapolis/) */
+.wm-frame{position:relative;background:#ECE4D4;border:1px solid #C9A877;border-radius:14px;overflow:hidden;aspect-ratio:1/1;max-width:760px;margin:0 auto;box-shadow:0 10px 30px rgba(31,32,28,.12)}
+.wm-frame .wm-svg{display:block;width:100%;height:100%}
+.wm-load{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#4D4839;font-size:14px;letter-spacing:.08em}
+.wm-lbl{font:600 17px/1 Georgia,serif;fill:#1F201C;paint-order:stroke;stroke:#FAF7EF;stroke-width:4px;stroke-linejoin:round}
+.wm-st{font:12px/1 sans-serif;letter-spacing:.12em;text-transform:uppercase;fill:#4D4839;opacity:.75;paint-order:stroke;stroke:#ECE4D4;stroke-width:3px}
+.wm-eat{font:700 14px/1 sans-serif;letter-spacing:.3em;fill:#6E5228;paint-order:stroke;stroke:#ECE4D4;stroke-width:4px}
+.wm-ring text{font:italic 14px/1 Georgia,serif;fill:#6E5228;paint-order:stroke;stroke:#ECE4D4;stroke-width:3px}
+.wm-ctr{font:700 13px/1 sans-serif;letter-spacing:.06em;fill:#6E5228;paint-order:stroke;stroke:#FAF7EF;stroke-width:4px}
+.wm-pin{cursor:pointer;outline:none}
+.wm-pin circle{transition:transform .2s}
+.wm-pin:hover circle,.wm-pin:focus circle,.wm-pin.on circle{transform:scale(1.25);fill:#6E5228}
+.wm-card{position:absolute;left:12px;right:12px;bottom:12px;background:#FAF7EF;border:1px solid #C9A877;border-radius:12px;display:none;gap:12px;align-items:center;padding:10px;box-shadow:0 8px 24px rgba(31,32,28,.2)}
+.wm-card.on{display:flex}
+.wm-card img{width:72px;height:54px;object-fit:cover;border-radius:8px;flex:none}
+.wm-card b{display:block;font:600 16px/1.2 Georgia,serif;color:#1F201C}
+.wm-card span{display:block;font-size:13px;color:#6E5228;margin-top:4px}
+.wm-x{position:absolute;top:4px;right:8px;background:none;border:0;font-size:22px;color:#4D4839;cursor:pointer}
+.wm-stats{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:#C9A877;border:1px solid #C9A877;border-radius:12px;overflow:hidden;max-width:760px;margin:14px auto 0}
+.wm-stats div{background:#FAF7EF;padding:12px 10px;text-align:center}
+.wm-stats strong{display:block;font:600 24px/1.1 Georgia,serif;color:#1F201C}
+.wm-stats small{display:block;font-size:12px;letter-spacing:.06em;color:#4D4839;margin-top:4px}
+.wm-note{max-width:760px;margin:10px auto 0;font-size:12px;line-height:1.5;color:#4D4839}
+.wm-note a{color:#6E5228}
+@media(min-width:700px){.wm-card img{width:96px;height:72px}.wm-stats{grid-template-columns:repeat(4,1fr)}.wm-card{left:auto;width:340px}}
+
+.wmap{margin:0 auto 8px;padding:56px 20px 0;max-width:800px}
+.wm-head{max-width:640px;margin:0 auto 24px;text-align:center}
+.es{ padding:56px 20px 8px; max-width:1160px; margin:0 auto; }
+.es-head{ max-width:640px; margin:0 auto 28px; text-align:center; }
+.es-grid{ display:grid; grid-template-columns:1fr; gap:20px; }
+@media (min-width:640px){ .es-grid{ grid-template-columns:repeat(2,1fr); } }
+@media (min-width:1024px){ .es-grid{ grid-template-columns:repeat(3,1fr); gap:24px; } }
+.es-card{ background:var(--white); border:1px solid rgba(110,82,40,.18); border-radius:6px; overflow:hidden; display:flex; flex-direction:column; }
+.es-media{ aspect-ratio:4/3; background:var(--navy2); }
+.es-media img{ width:100%; height:100%; object-fit:cover; display:block; }
+.es-type{ display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; padding:24px; background:#1F201C; color:var(--white); }
+.es-type-tag{ font-family:'Inter',sans-serif; font-size:11px; letter-spacing:.22em; text-transform:uppercase; color:var(--gold2); margin-bottom:14px; }
+.es-type-name{ font-family:'Cormorant Garamond',serif; font-size:clamp(34px,6vw,46px); font-weight:600; line-height:1.05; }
+.es-media-wide{ aspect-ratio:4/3; }
+@media (min-width:640px){ .es-wide{ grid-column:1/-1; } .es-media-wide{ aspect-ratio:16/7; } }
+.es-body{ padding:18px 20px 20px; }
+.es-name{ font-family:'Cormorant Garamond',serif; font-size:26px; font-weight:600; color:var(--warm); }
+.es-addr{ font-size:12px; letter-spacing:.12em; text-transform:uppercase; color:var(--gold); margin:4px 0 10px; }
+.es-line{ font-size:15px; line-height:1.65; color:var(--mid); }
+.es-credit{ font-size:11px; color:#6b6555; margin-top:12px; }
+.es-credit a{ color:#6b6555; }
+
+.es-line a{color:var(--gold)}
+.es-type{background:linear-gradient(160deg,#F4EEE2 0%,#E9DFCB 100%);color:#2A2823;border-bottom:1px solid rgba(150,120,60,.25)}
+.es-type-tag{color:#8A6A2F}
+.es-type-name{color:#2A2823}
+.vr-fig{display:grid;grid-template-columns:1fr;gap:0;max-width:900px;margin:36px auto 0;background:#FBF8F1;border:1px solid rgba(150,120,60,.18)}
+.vr-fig img{display:block;width:100%;height:auto}
+.vr-cap{padding:22px 24px}
+.vr-cap h3{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:600;margin:0 0 10px;color:#2A2823}
+.vr-cap p{font-size:15px;line-height:1.65;margin:0 0 10px}
+.vr-cap .es-credit{font-size:11px;opacity:.75}
+.vr-cap a{color:var(--gold)}
+@media(min-width:760px){.vr-fig{grid-template-columns:5fr 6fr;align-items:center}}
+
+
+.vr-wrap{max-width:1000px;margin:0 auto;padding:56px 24px 0}
+</style>
+<div class="vr-wrap">
+  <figure class="vr-fig" id="surfside-park">
+    <picture><img src="/mound/img/surfside-park-e-800.webp" srcset="/mound/img/surfside-park-e-800.webp 800w, /mound/img/surfside-park-e-1200.webp 1200w" sizes="(min-width:760px) 430px, 100vw" width="800" height="600" loading="lazy" decoding="async" alt="Historical marker titled Minnetonka, Queen of the Inland Lakes, beside frozen Cook&rsquo;s Bay at Surfside Park"></picture>
+    <figcaption class="vr-cap">
+      <p class="section-eyebrow">Surfside Park and Beach</p>
+      <h3>Where Mound meets Cook&rsquo;s Bay.</h3>
+      <p>At 2670 Commerce Blvd: a beach, beach volleyball, a playground, a picnic and grill area, fishing, and a day-use dock for boaters, with mooring limited to 8 hours. The Depot building rents for parties. City parks are open 5 a.m. to 10 p.m.</p>
+    </figcaption>
+  </figure>
+</div>
+<section class="wmap" id="mound-walk-map">
+  <div class="wm-head">
+    <p class="section-eyebrow">Downtown, On Foot</p>
+    <h2 class="section-headline">Start at the plaza.</h2>
+    <p class="section-body">Start at Veterans Memorial Plaza on Shoreline Drive, where the farmers market sets up Saturday mornings in season. Lost Lake Commons is a few minutes east, the Dakota Rail crosses Commerce Boulevard close by, and Surfside Park sits on Cook&rsquo;s Bay at the south end of Commerce.</p>
+  </div>
+  <div class="wm-frame" data-src="/mound/mound-walk-map.svg">
+    <div class="wm-load">Loading walking map</div>
+    <div class="wm-card" aria-live="polite"><img alt="" width="96" height="72" /><div><b></b><span></span></div><button class="wm-x" type="button" aria-label="Close">&times;</button></div>
+  </div>
+  <div class="wm-stats">
+    <div><strong>2 min</strong><small>walk to the Dakota Rail</small></div>
+    <div><strong>4 min</strong><small>walk to Lost Lake Commons</small></div>
+    <div><strong>7 min</strong><small>walk to the library</small></div>
+    <div><strong>13 min</strong><small>walk to Surfside Park</small></div>
+  </div>
+  <p class="wm-note">Tap a pin for the name and the time. Walk times are routed from Veterans Memorial Plaza on Shoreline Drive with <a href="https://routing.openstreetmap.de/" rel="noopener" target="_blank">OSRM foot routing</a>. The 5 and 10 minute circles are straight line and approximate. Map data &copy; <a href="https://www.openstreetmap.org/copyright" rel="noopener" target="_blank">OpenStreetMap contributors</a>.</p>
+</section>
+<script>
+(function(){var f=document.querySelector('#mound-walk-map .wm-frame');if(!f)return;var done=0;
+function init(){if(done)return;done=1;fetch(f.dataset.src).then(function(r){return r.text()}).then(function(t){var w=document.createElement('div');w.innerHTML=t;var s=w.querySelector('svg');f.insertBefore(s,f.firstChild);f.querySelector('.wm-load').remove();
+var c=f.querySelector('.wm-card'),im=c.querySelector('img'),b=c.querySelector('b'),sp=c.querySelector('span');
+function show(p){f.querySelectorAll('.wm-pin.on').forEach(function(x){x.classList.remove('on')});p.classList.add('on');if(p.dataset.img){im.src=p.dataset.img;im.style.display=''}else{im.removeAttribute('src');im.style.display='none'}im.alt=p.dataset.name;b.textContent=p.dataset.name;sp.textContent=p.dataset.walk;c.classList.add('on')}
+s.querySelectorAll('.wm-pin').forEach(function(p){p.addEventListener('click',function(){show(p)});p.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();show(p)}})});
+c.querySelector('.wm-x').addEventListener('click',function(){c.classList.remove('on');f.querySelectorAll('.wm-pin.on').forEach(function(x){x.classList.remove('on')})})}).catch(function(){f.querySelector('.wm-load').textContent='Map unavailable'})}
+if('IntersectionObserver'in window){var o=new IntersectionObserver(function(e){if(e[0].isIntersecting){o.disconnect();init()}},{rootMargin:'400px'});o.observe(f)}else init()})();
+</script>
+<section class="es" id="mound-weekend">
+  <div class="es-head">
+    <p class="section-eyebrow">Mound and the Bays</p>
+    <h2 class="section-headline">Where your Saturday goes.</h2>
+  </div>
+  <div class="es-grid">
+    <article class="es-card">
+      <div class="es-media"><img src="/mound/img/dakota-rail-mound-e-800.webp" srcset="/mound/img/dakota-rail-mound-e-800.webp 800w, /mound/img/dakota-rail-mound-e-1200.webp 1200w" sizes="(min-width:1024px) 360px, (min-width:640px) 50vw, 100vw" width="800" height="600" loading="lazy" decoding="async" alt="A paved bike and walking trail running past downtown Mound under a blue sky"></div>
+      <div class="es-body"><h3 class="es-name">Dakota Rail Regional Trail</h3><p class="es-addr">Through downtown Mound</p><p class="es-line">Paved, and 13.5 miles in Hennepin County from Wayzata to St. Bonifacius. In Mound it crosses Commerce Boulevard a couple of minutes from the plaza.</p></div>
+    </article>
+    <article class="es-card">
+      <div class="es-media"><img src="/mound/img/westonka-library-e-800.webp" srcset="/mound/img/westonka-library-e-800.webp 800w, /mound/img/westonka-library-e-1200.webp 1200w" sizes="(min-width:1024px) 360px, (min-width:640px) 50vw, 100vw" width="800" height="600" loading="lazy" decoding="async" alt="The Hennepin County Library Westonka sign with flowers and a green lawn"></div>
+      <div class="es-body"><h3 class="es-name">Westonka Library</h3><p class="es-addr">2079 Commerce Blvd</p><p class="es-line">The Hennepin County Library branch for Mound and the Westonka towns, a short walk up Commerce Boulevard from the lake.</p></div>
+    </article>
+    <article class="es-card">
+      <div class="es-media"><img src="/mound/img/spirit-of-the-lakes-e-800.webp" srcset="/mound/img/spirit-of-the-lakes-e-800.webp 800w, /mound/img/spirit-of-the-lakes-e-1200.webp 1200w" sizes="(min-width:1024px) 360px, (min-width:640px) 50vw, 100vw" width="800" height="600" loading="lazy" decoding="async" alt="Families at a festival prize booth under striped tents"></div>
+      <div class="es-body"><h3 class="es-name">Spirit of the Lakes</h3><p class="es-addr">Surfside Park, July</p><p class="es-line">Mound&rsquo;s summer festival at Surfside Park. In 2026 it ran July 16 to 18, with fireworks over Cook&rsquo;s Bay and a boat-in movie.</p></div>
+    </article>
+    <article class="es-card">
+      <div class="es-media"><img src="/mound/img/cooks-bay-ice-e-800.webp" srcset="/mound/img/cooks-bay-ice-e-800.webp 800w, /mound/img/cooks-bay-ice-e-1200.webp 1200w" sizes="(min-width:1024px) 360px, (min-width:640px) 50vw, 100vw" width="800" height="600" loading="lazy" decoding="async" alt="A snowmobile crossing frozen Cook&rsquo;s Bay under a clear winter sky"></div>
+      <div class="es-body"><h3 class="es-name">Cook&rsquo;s Bay in Winter</h3><p class="es-addr">Off Surfside Park</p><p class="es-line">When the bay freezes, the ice off Surfside turns into a white plain crossed with snowmobile tracks.</p></div>
+    </article>
+    <article class="es-card es-wide">
+      <div class="es-media es-media-wide"><img src="/mound/img/mound-docks-wide-e-1200.webp" srcset="/mound/img/mound-docks-wide-e-1200.webp 1200w, /mound/img/mound-docks-wide-e-1600.webp 1600w" sizes="(min-width:1160px) 1120px, 100vw" width="1200" height="525" loading="lazy" decoding="async" alt="Aerial view of boat docks below fall trees on a Lake Minnetonka bay"></div>
+      <div class="es-body"><h3 class="es-name">Docks and Commons</h3><p class="es-addr">Mound shoreline</p><p class="es-line">Mound runs the largest municipal dock program in Minnesota, with room for up to 637 boats a year on shoreline Commons dedicated between 1906 and 1921.</p></div>
+    </article>
+  </div>
+</section>
 
 <div class="divider"></div>
 <div class="section">
