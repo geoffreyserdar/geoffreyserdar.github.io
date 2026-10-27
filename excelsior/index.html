@@ -556,16 +556,16 @@ a.stat-link .stat-number{ color:#6E5228; }
 
 </style>
 <link rel="canonical" href="https://geoffreyserdar.com/excelsior/">
-<meta property="og:title" content="Excelsior, MN Realtor | Geoffrey Serdar, Lake Minnetonka" />
-<meta property="og:description" content="Geoffrey Serdar helps buyers and sellers in Excelsior: Water Street, the Port, Excelsior Bay and St. Albans Bay. Minnetonka Schools. 952-258-3100." />
+<meta property="og:title" content="Excelsior, MN: Water Street, the Commons and Excelsior Bay | Geoffrey Serdar" />
+<meta property="og:description" content="Walk Water Street from the streetcar to the Commons, catch Apple Days in September, and spend Saturday on Excelsior Bay. A local realtor who works this map every week." />
 <meta property="og:url" content="https://geoffreyserdar.com/excelsior/" />
-<meta property="og:image" content="https://geoffreyserdar.com/excelsior/img/excelsior-og.jpg" />
+<meta property="og:image" content="https://geoffreyserdar.com/excelsior/img/excelsior-og-e.jpg" />
 <meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
-<meta property="og:image:alt" content="Dock line and shoreline on Excelsior Bay, Lake Minnetonka" />
-<meta name="twitter:image" content="https://geoffreyserdar.com/excelsior/img/excelsior-og.jpg" />
+<meta property="og:image:alt" content="Brick storefronts along Water Street in downtown Excelsior under a blue sky" />
+<meta name="twitter:image" content="https://geoffreyserdar.com/excelsior/img/excelsior-og-e.jpg" />
 
 <meta name="robots" content="index, follow" />
   <link rel="stylesheet" href="/assets/house.css" />
@@ -867,6 +867,142 @@ else{b.disabled=false;err.textContent='That didn\u2019t go through. Please try a
   <img src="img/excelsior-dock-steamers-front.jpg" width="1593" height="997" alt="Historic steamers Stillwater and Como at Excelsior Dock on Lake Minnetonka" />
   <figcaption class="place-cap">Excelsior Dock when the steamers Stillwater and Como tied up here, the Port still faces the same bay.</figcaption>
 </figure>
+
+<style>
+/* Victoria downtown map + cards (pattern from /whittier-minneapolis/) */
+.wm-frame{position:relative;background:#ECE4D4;border:1px solid #C9A877;border-radius:14px;overflow:hidden;aspect-ratio:1/1;max-width:760px;margin:0 auto;box-shadow:0 10px 30px rgba(31,32,28,.12)}
+.wm-frame .wm-svg{display:block;width:100%;height:100%}
+.wm-load{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#4D4839;font-size:14px;letter-spacing:.08em}
+.wm-lbl{font:600 17px/1 Georgia,serif;fill:#1F201C;paint-order:stroke;stroke:#FAF7EF;stroke-width:4px;stroke-linejoin:round}
+.wm-st{font:12px/1 sans-serif;letter-spacing:.12em;text-transform:uppercase;fill:#4D4839;opacity:.75;paint-order:stroke;stroke:#ECE4D4;stroke-width:3px}
+.wm-eat{font:700 14px/1 sans-serif;letter-spacing:.3em;fill:#6E5228;paint-order:stroke;stroke:#ECE4D4;stroke-width:4px}
+.wm-ring text{font:italic 14px/1 Georgia,serif;fill:#6E5228;paint-order:stroke;stroke:#ECE4D4;stroke-width:3px}
+.wm-ctr{font:700 13px/1 sans-serif;letter-spacing:.06em;fill:#6E5228;paint-order:stroke;stroke:#FAF7EF;stroke-width:4px}
+.wm-pin{cursor:pointer;outline:none}
+.wm-pin circle{transition:transform .2s}
+.wm-pin:hover circle,.wm-pin:focus circle,.wm-pin.on circle{transform:scale(1.25);fill:#6E5228}
+.wm-card{position:absolute;left:12px;right:12px;bottom:12px;background:#FAF7EF;border:1px solid #C9A877;border-radius:12px;display:none;gap:12px;align-items:center;padding:10px;box-shadow:0 8px 24px rgba(31,32,28,.2)}
+.wm-card.on{display:flex}
+.wm-card img{width:72px;height:54px;object-fit:cover;border-radius:8px;flex:none}
+.wm-card b{display:block;font:600 16px/1.2 Georgia,serif;color:#1F201C}
+.wm-card span{display:block;font-size:13px;color:#6E5228;margin-top:4px}
+.wm-x{position:absolute;top:4px;right:8px;background:none;border:0;font-size:22px;color:#4D4839;cursor:pointer}
+.wm-stats{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:#C9A877;border:1px solid #C9A877;border-radius:12px;overflow:hidden;max-width:760px;margin:14px auto 0}
+.wm-stats div{background:#FAF7EF;padding:12px 10px;text-align:center}
+.wm-stats strong{display:block;font:600 24px/1.1 Georgia,serif;color:#1F201C}
+.wm-stats small{display:block;font-size:12px;letter-spacing:.06em;color:#4D4839;margin-top:4px}
+.wm-note{max-width:760px;margin:10px auto 0;font-size:12px;line-height:1.5;color:#4D4839}
+.wm-note a{color:#6E5228}
+@media(min-width:700px){.wm-card img{width:96px;height:72px}.wm-stats{grid-template-columns:repeat(4,1fr)}.wm-card{left:auto;width:340px}}
+
+.wmap{margin:0 auto 8px;padding:56px 20px 0;max-width:800px}
+.wm-head{max-width:640px;margin:0 auto 24px;text-align:center}
+.es{ padding:56px 20px 8px; max-width:1160px; margin:0 auto; }
+.es-head{ max-width:640px; margin:0 auto 28px; text-align:center; }
+.es-grid{ display:grid; grid-template-columns:1fr; gap:20px; }
+@media (min-width:640px){ .es-grid{ grid-template-columns:repeat(2,1fr); } }
+@media (min-width:1024px){ .es-grid{ grid-template-columns:repeat(3,1fr); gap:24px; } }
+.es-card{ background:var(--white); border:1px solid rgba(110,82,40,.18); border-radius:6px; overflow:hidden; display:flex; flex-direction:column; }
+.es-media{ aspect-ratio:4/3; background:var(--navy2); }
+.es-media img{ width:100%; height:100%; object-fit:cover; display:block; }
+.es-type{ display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; padding:24px; background:#1F201C; color:var(--white); }
+.es-type-tag{ font-family:'Inter',sans-serif; font-size:11px; letter-spacing:.22em; text-transform:uppercase; color:var(--gold2); margin-bottom:14px; }
+.es-type-name{ font-family:'Cormorant Garamond',serif; font-size:clamp(34px,6vw,46px); font-weight:600; line-height:1.05; }
+.es-media-wide{ aspect-ratio:4/3; }
+@media (min-width:640px){ .es-wide{ grid-column:1/-1; } .es-media-wide{ aspect-ratio:16/7; } }
+.es-body{ padding:18px 20px 20px; }
+.es-name{ font-family:'Cormorant Garamond',serif; font-size:26px; font-weight:600; color:var(--warm); }
+.es-addr{ font-size:12px; letter-spacing:.12em; text-transform:uppercase; color:var(--gold); margin:4px 0 10px; }
+.es-line{ font-size:15px; line-height:1.65; color:var(--mid); }
+.es-credit{ font-size:11px; color:#6b6555; margin-top:12px; }
+.es-credit a{ color:#6b6555; }
+
+.es-line a{color:var(--gold)}
+.es-type{background:linear-gradient(160deg,#F4EEE2 0%,#E9DFCB 100%);color:#2A2823;border-bottom:1px solid rgba(150,120,60,.25)}
+.es-type-tag{color:#8A6A2F}
+.es-type-name{color:#2A2823}
+.vr-fig{display:grid;grid-template-columns:1fr;gap:0;max-width:900px;margin:36px auto 0;background:#FBF8F1;border:1px solid rgba(150,120,60,.18)}
+.vr-fig img{display:block;width:100%;height:auto}
+.vr-cap{padding:22px 24px}
+.vr-cap h3{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:600;margin:0 0 10px;color:#2A2823}
+.vr-cap p{font-size:15px;line-height:1.65;margin:0 0 10px}
+.vr-cap .es-credit{font-size:11px;opacity:.75}
+.vr-cap a{color:var(--gold)}
+@media(min-width:760px){.vr-fig{grid-template-columns:5fr 6fr;align-items:center}}
+</style>
+<div class="section">
+  <figure class="vr-fig" id="excelsior-commons">
+    <picture><img src="/excelsior/img/excelsior-commons-e-800.webp" srcset="/excelsior/img/excelsior-commons-e-800.webp 800w, /excelsior/img/excelsior-commons-e-1200.webp 1200w" sizes="(min-width:760px) 490px, 100vw" width="800" height="600" loading="lazy" decoding="async" alt="Lawn, trees and boat docks at the Port of Excelsior on Lake Minnetonka"></picture>
+    <figcaption class="vr-cap">
+      <p class="section-eyebrow">The Commons and Port of Excelsior</p>
+      <h3>Thirteen acres the town kept for everyone.</h3>
+      <p>A public park on the lake with two swimming beaches, playgrounds, tennis, baseball, a bandshell and the docks for the excursion boats. The beaches are open Memorial Day through Labor Day with no lifeguards.</p>
+    </figcaption>
+  </figure>
+</div>
+<section class="wmap" id="excelsior-walk-map">
+  <div class="wm-head">
+    <p class="section-eyebrow">Downtown, On Foot</p>
+    <h2 class="section-headline">Start on Water Street.</h2>
+    <p class="section-body">Park once near Water and Lake Street and the whole town is a short walk: the streetcar and the museum by the library, then down to the Commons and the Port. Keep going over the bridge and the Old Log is next.</p>
+  </div>
+  <div class="wm-frame" data-src="/excelsior/excelsior-walk-map.svg">
+    <div class="wm-load">Loading walking map</div>
+    <div class="wm-card" aria-live="polite"><img alt="" width="96" height="72" /><div><b></b><span></span></div><button class="wm-x" type="button" aria-label="Close">&times;</button></div>
+  </div>
+  <div class="wm-stats">
+    <div><strong>3 min</strong><small>walk to the streetcar</small></div>
+    <div><strong>3 min</strong><small>walk to the museum</small></div>
+    <div><strong>6 min</strong><small>walk to the Commons</small></div>
+    <div><strong>20 min</strong><small>walk to the Old Log</small></div>
+  </div>
+  <p class="wm-note">Tap a pin for the name and the time. Walk times are routed from Water and Lake Street with <a href="https://routing.openstreetmap.de/" rel="noopener" target="_blank">OSRM foot routing</a>. The 5 and 10 minute circles are straight line and approximate. Map data &copy; <a href="https://www.openstreetmap.org/copyright" rel="noopener" target="_blank">OpenStreetMap contributors</a>.</p>
+</section>
+<script>
+(function(){var f=document.querySelector('#excelsior-walk-map .wm-frame');if(!f)return;var done=0;
+function init(){if(done)return;done=1;fetch(f.dataset.src).then(function(r){return r.text()}).then(function(t){var w=document.createElement('div');w.innerHTML=t;var s=w.querySelector('svg');f.insertBefore(s,f.firstChild);f.querySelector('.wm-load').remove();
+var c=f.querySelector('.wm-card'),im=c.querySelector('img'),b=c.querySelector('b'),sp=c.querySelector('span');
+function show(p){f.querySelectorAll('.wm-pin.on').forEach(function(x){x.classList.remove('on')});p.classList.add('on');if(p.dataset.img){im.src=p.dataset.img;im.style.display=''}else{im.removeAttribute('src');im.style.display='none'}im.alt=p.dataset.name;b.textContent=p.dataset.name;sp.textContent=p.dataset.walk;c.classList.add('on')}
+s.querySelectorAll('.wm-pin').forEach(function(p){p.addEventListener('click',function(){show(p)});p.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();show(p)}})});
+c.querySelector('.wm-x').addEventListener('click',function(){c.classList.remove('on');f.querySelectorAll('.wm-pin.on').forEach(function(x){x.classList.remove('on')})})}).catch(function(){f.querySelector('.wm-load').textContent='Map unavailable'})}
+if('IntersectionObserver'in window){var o=new IntersectionObserver(function(e){if(e[0].isIntersecting){o.disconnect();init()}},{rootMargin:'400px'});o.observe(f)}else init()})();
+</script>
+<section class="es" id="excelsior-weekend">
+  <div class="es-head">
+    <p class="section-eyebrow">Downtown and Beyond</p>
+    <h2 class="section-headline">Where your Saturday goes.</h2>
+  </div>
+  <div class="es-grid">
+    <article class="es-card">
+      <div class="es-media"><img src="/excelsior/img/excelsior-water-street-e-800.webp" srcset="/excelsior/img/excelsior-water-street-e-800.webp 800w, /excelsior/img/excelsior-water-street-e-1200.webp 1200w" sizes="(min-width:1024px) 360px, (min-width:640px) 50vw, 100vw" width="800" height="600" loading="lazy" decoding="async" alt="Brick storefronts along Water Street under a blue sky"></div>
+      <div class="es-body"><h3 class="es-name">Water Street</h3><p class="es-addr">Downtown Excelsior</p><p class="es-line">The heart of the Excelsior Commercial Historic District, on the National Register. Shops, coffee and dinner within a few blocks of the lake.</p></div>
+    </article>
+    <article class="es-card">
+      <div class="es-media"><img src="/excelsior/img/excelsior-streetcar-e-800.webp" srcset="/excelsior/img/excelsior-streetcar-e-800.webp 800w, /excelsior/img/excelsior-streetcar-e-1200.webp 1200w" sizes="(min-width:1024px) 360px, (min-width:640px) 50vw, 100vw" width="800" height="600" loading="lazy" decoding="async" alt="A restored yellow streetcar on the Excelsior line under green trees"></div>
+      <div class="es-body"><h3 class="es-name">Excelsior Streetcar Line</h3><p class="es-addr">337 Water St</p><p class="es-line">The Minnesota Streetcar Museum runs restored cars on a half mile of track, boarding next to the library. Weekends from May into September, about a three minute walk.</p></div>
+    </article>
+    <article class="es-card">
+      <div class="es-media"><img src="/excelsior/img/excelsior-museum-e-800.webp" srcset="/excelsior/img/excelsior-museum-e-800.webp 800w, /excelsior/img/excelsior-museum-e-1200.webp 1200w" sizes="(min-width:1024px) 360px, (min-width:640px) 50vw, 100vw" width="800" height="600" loading="lazy" decoding="async" alt="The small depot building with the museum sign on Water Street"></div>
+      <div class="es-body"><h3 class="es-name">Excelsior Museum</h3><p class="es-addr">305 Water St</p><p class="es-line">The Lake Minnetonka Historical Society&rsquo;s museum in the old rail station, free and open Saturdays in season. Call ahead to check the hours.</p></div>
+    </article>
+    <article class="es-card">
+      <div class="es-media"><img src="/excelsior/img/steamboat-minnehaha-e-800.webp" srcset="/excelsior/img/steamboat-minnehaha-e-800.webp 800w, /excelsior/img/steamboat-minnehaha-e-1200.webp 1200w" sizes="(min-width:1024px) 360px, (min-width:640px) 50vw, 100vw" width="800" height="600" loading="lazy" decoding="async" alt="The yellow streetcar steamboat Minnehaha on blue water"></div>
+      <div class="es-body"><h3 class="es-name">Steamboat Minnehaha</h3><p class="es-addr">Home port: Excelsior</p><p class="es-line">A 1906 streetcar boat, now on the National Register. She is in storage while the historical society works on a new launch site, so watch for her return.</p></div>
+    </article>
+    <article class="es-card">
+      <div class="es-media"><img src="/excelsior/img/old-log-theatre-e-800.webp" srcset="/excelsior/img/old-log-theatre-e-800.webp 800w, /excelsior/img/old-log-theatre-e-1200.webp 1200w" sizes="(min-width:1024px) 360px, (min-width:640px) 50vw, 100vw" width="800" height="600" loading="lazy" decoding="async" alt="The Old Log Theatre sign and building among bare trees"></div>
+      <div class="es-body"><h3 class="es-name">Old Log Theatre</h3><p class="es-addr">5185 Meadville St, Greenwood</p><p class="es-line">Opened in 1940 in a log stable, the first professional theatre in the Northwest. Just over the line in Greenwood, about a twenty minute walk.</p></div>
+    </article>
+    <article class="es-card">
+      <div class="es-media"><img src="/excelsior/img/excelsior-apple-days-e-800.webp" srcset="/excelsior/img/excelsior-apple-days-e-800.webp 800w, /excelsior/img/excelsior-apple-days-e-1200.webp 1200w" sizes="(min-width:1024px) 360px, (min-width:640px) 50vw, 100vw" width="800" height="600" loading="lazy" decoding="async" alt="Vendor tents and shoppers on Water Street during Apple Days"></div>
+      <div class="es-body"><h3 class="es-name">Apple Days</h3><p class="es-addr">Water Street, September</p><p class="es-line">The Excelsior-Lake Minnetonka Chamber&rsquo;s fall festival takes over Water Street every September, free to walk.</p></div>
+    </article>
+    <article class="es-card es-wide">
+      <div class="es-media es-media-wide"><img src="/excelsior/img/excelsior-bay-docks-wide-e-1200.webp" srcset="/excelsior/img/excelsior-bay-docks-wide-e-1200.webp 1200w, /excelsior/img/excelsior-bay-docks-wide-e-1600.webp 1600w" sizes="(min-width:1160px) 1120px, 100vw" width="1200" height="525" loading="lazy" decoding="async" alt="Lakefront homes and boathouses along the shore at Excelsior"></div>
+      <div class="es-body"><h3 class="es-name">Excelsior Bay and St. Albans Bay</h3><p class="es-addr">Lake Minnetonka, south shore</p><p class="es-line">Excelsior Bay is the water off the Commons. St. Albans Bay runs east toward Greenwood, under the St. Albans Bay Bridge.</p></div>
+    </article>
+  </div>
+</section>
 
 <div class="divider"></div>
 
