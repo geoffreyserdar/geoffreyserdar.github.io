@@ -7,10 +7,69 @@
 <title>Victoria home tour | Geoffrey Serdar</title>
 <link rel="canonical" href="https://geoffreyserdar.com/tour/">
 <style>
-  html,body{height:100%;margin:0}
-  body{font-family:Georgia,'Times New Roman',serif;background:#0e1b33;color:#c9a14a;
-       display:flex;align-items:center;justify-content:center;text-align:center}
-  a{color:#c9a14a}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root { --ivory: #F7F2E8; --ink: #2B2A27; --brass: #6E5228; --line: #DCCFB8; }
+body { font-family: Georgia, 'Times New Roman', serif; background: var(--ivory); color: var(--ink); line-height: 1.6; }
+.wrap { max-width: 760px; margin: 0 auto; padding: 32px 20px 48px; }
+.eyebrow { font: 600 12px/1.4 -apple-system, Helvetica, Arial, sans-serif; letter-spacing: .14em; text-transform: uppercase; color: var(--brass); }
+h1 { font-size: 32px; line-height: 1.2; margin: 8px 0 16px; }
+.intro p { font-size: 18px; margin: 0 0 12px; }
+.video { position: relative; padding-top: 56.25%; background: #E3DAC6; border: 1px solid var(--line); margin: 24px 0; }
+.video iframe, .video .ph { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.ph { display: flex; align-items: center; justify-content: center; text-align: center; font: 15px/1.4 -apple-system, Helvetica, Arial, sans-serif; color: var(--brass); padding: 20px; }
+.photo { aspect-ratio: 3 / 2; background: #E3DAC6; border: 1px solid var(--line); margin: 0 0 28px; position: relative; }
+.photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.card { background: #fff; border: 1px solid var(--line); padding: 24px 20px; margin: 28px 0; }
+.card h2 { font-size: 22px; margin-bottom: 6px; }
+label { display: block; font: 600 14px/1.4 -apple-system, Helvetica, Arial, sans-serif; margin: 14px 0 6px; }
+input[type=text], input[type=email], input[type=tel] { width: 100%; font-size: 16px; padding: 12px; border: 1px solid var(--line); background: var(--ivory); }
+.choices { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 6px; }
+.choices label { display: flex; gap: 8px; align-items: center; font-weight: 400; border: 1px solid var(--line); padding: 10px 14px; margin: 0; cursor: pointer; }
+.submit-btn { margin-top: 18px; width: 100%; font: 600 16px/1 -apple-system, Helvetica, Arial, sans-serif; padding: 16px; background: var(--brass); color: #fff; border: 0; cursor: pointer; }
+.err { display: none; color: #9B2C2C; font: 13px/1.4 -apple-system, Helvetica, Arial, sans-serif; margin-top: 6px; }
+.err.visible { display: block; }
+.input-error { border-color: #9B2C2C !important; }
+.hidden { display: none; }
+.success { display: none; }
+.success.visible { display: block; }
+.consent { font: 12px/1.5 -apple-system, Helvetica, Arial, sans-serif; color: #6b655b; margin-top: 10px; }
+.contact, .more { font-size: 17px; margin: 18px 0; }
+a { color: var(--brass); }
+footer { border-top: 1px solid var(--line); margin-top: 36px; padding-top: 18px; font: 14px/1.6 -apple-system, Helvetica, Arial, sans-serif; color: #6b655b; }
+.price { font-size: 30px; margin: 4px 0 18px; }
+.gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 10px; margin: 18px 0 28px; }
+.gallery .photo { margin: 0; }
+.facts { list-style: none; border-top: 1px solid var(--line); margin: 12px 0 28px; }
+.facts li { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid var(--line); font-size: 17px; }
+.facts span:first-child { color: #6b655b; }
+h2.sec { font-size: 24px; margin: 28px 0 8px; }
+.nearby li { margin: 0 0 8px 20px; font-size: 17px; }
+.quiet { font-size: 15px; color: #6b655b; margin-top: 18px; }
+.slot { border: 2px dashed var(--brass); background: #FBF6EC; color: var(--brass); font: 600 13px/1.4 -apple-system, Helvetica, Arial, sans-serif; padding: 2px 8px; border-radius: 4px; }
+.cta-top { display: block; text-align: center; background: var(--brass); color: #fff; text-decoration: none; font: 600 16px/1 -apple-system, Helvetica, Arial, sans-serif; padding: 16px; margin: 8px 0 24px; border-radius: 4px; }
+.post p { font-size: 18px; margin: 0 0 14px; }
+.post h3 { font-size: 20px; margin: 22px 0 6px; }
+.faq dt { font-weight: 700; font-size: 17px; margin-top: 14px; }
+.faq dd { font-size: 17px; margin: 4px 0 0; }
+.sources { font: 12px/1.5 -apple-system, Helvetica, Arial, sans-serif; color: #6b655b; margin-top: 14px; }
+.sources li { margin: 0 0 4px 18px; word-break: break-word; }
+@media (max-width: 480px) { h1 { font-size: 27px; } .facts li { font-size: 16px; } }
+.photo .ph { position: absolute; inset: 0; }
+.video .ph, .gallery .ph { border: 2px dashed var(--brass); }
+.byline { font: 14px/1.5 -apple-system, Helvetica, Arial, sans-serif; color: #6b655b; margin: 0 0 22px; }
+.sub { font-size: 20px; font-style: italic; margin: 0 0 12px; }
+.take { border-left: 4px solid var(--brass); background: #fff; padding: 16px 18px; margin: 22px 0; }
+.map img { width: 100%; height: auto; display: block; border: 1px solid var(--line); }
+.map figcaption { font: 14px/1.5 -apple-system, Helvetica, Arial, sans-serif; color: #6b655b; margin-top: 8px; }
+.home { background: #fff; border: 1px solid var(--line); padding: 22px 18px; margin: 34px 0 0; }
+.home .gallery { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); }
+.softcta { font: 600 16px/1.4 -apple-system, Helvetica, Arial, sans-serif; }
+.ph-fig { margin: 22px 0; }
+.ph-fig img { width: 100%; height: auto; display: block; border-radius: 4px; }
+.ph-fig figcaption { font: 13px/1.5 -apple-system, Helvetica, Arial, sans-serif; color: #6b655b; margin-top: 6px; }
+.nums { list-style: none; margin: 14px 0 18px; border-top: 1px solid var(--line); }
+.nums li { padding: 12px 0; border-bottom: 1px solid var(--line); font-size: 17px; }
+.nums strong { display: block; font-size: 24px; color: var(--brass); }
 </style>
 <style id="sv-css">
 h1.hero-title{margin-top:0;line-height:inherit}
@@ -43,14 +102,33 @@ body{padding-top:calc(52px + env(safe-area-inset-top))}
 #signup,#sv-offer{scroll-margin-top:calc(66px + env(safe-area-inset-top))}
 }
 </style>
+<style id="tour-css">
+.video{padding-top:0;aspect-ratio:16/9;margin:20px 0 8px}
+.video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.watch{font:14px/1.5 -apple-system,Helvetica,Arial,sans-serif;color:#6b655b;margin:0 0 4px}
+main .sv-offer{max-width:none;margin:28px 0 0;padding:24px 20px;border:1px solid var(--line);border-radius:0;background:#fff;font-family:-apple-system,Helvetica,Arial,sans-serif}
+main .sv-offer h2{font-family:Georgia,'Times New Roman',serif;font-size:22px;line-height:1.3;margin:0 0 6px;color:var(--ink)}
+main .sv-offer p{font-family:Georgia,'Times New Roman',serif;font-size:17px;opacity:1}
+main .sv-offer label{font:600 14px/1.4 -apple-system,Helvetica,Arial,sans-serif;margin:14px 0 6px}
+main .sv-offer input{border:1px solid var(--line);border-radius:0;background:var(--ivory);margin:0}
+main .sv-offer button{margin-top:18px;border-radius:0;background:var(--brass);font:600 16px/1 -apple-system,Helvetica,Arial,sans-serif;padding:16px}
+main .sv-offer .sv-small{font:12px/1.5 -apple-system,Helvetica,Arial,sans-serif;color:#6b655b;opacity:1}
+main .sv-offer .sv-err{font-family:-apple-system,Helvetica,Arial,sans-serif}
+.wrap{padding-top:24px;padding-bottom:32px}
+footer{margin-top:28px}
+</style>
 </head>
 <body>
 <!-- GS:TOPBAR -->
 <div class="gs-top" id="gsTop" role="navigation" aria-label="Site top bar"><a class="gs-mark" href="/" aria-label="Serdar+Partners home"><img src="https://geoffreyserdar.com/img/geoffrey-face-120c.jpg" alt="Geoffrey Serdar" width="40" height="40" style="width:100%;height:100%;border-radius:50%;object-fit:cover;display:block"></a><a class="gs-line" id="gsTopLine" href="/lake-minnetonka-weekly/#signup">Lake Minnetonka sales each week · <b>See the list</b></a></div>
 <!-- /GS:TOPBAR -->
 
-  <div style="position:relative;width:100%;max-width:960px;margin:16px auto;aspect-ratio:16/9;background:#000;border-radius:10px;overflow:hidden"><iframe src="https://www.youtube-nocookie.com/embed/rqxiDCX_eoI?playsinline=1&rel=0" title="Victoria home tour" style="position:absolute;inset:0;width:100%;height:100%;border:0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
-  <p style="text-align:center"><a href="https://youtu.be/rqxiDCX_eoI?utm_source=shortlink&utm_medium=social&utm_campaign=victoria_tour" style="display:inline-block;padding:12px 22px;border-radius:999px;background:#c9a96e;color:#111;font-weight:700;text-decoration:none">Watch in the YouTube app</a></p>
+<main class="wrap">
+  <p class="eyebrow">Victoria, Minnesota</p>
+  <h1>A Victoria home tour</h1>
+  <p class="byline">Video by Geoffrey Serdar, Compass</p>
+  <div class="video"><iframe src="https://www.youtube-nocookie.com/embed/rqxiDCX_eoI?playsinline=1&rel=0" title="Victoria home tour" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+  <p class="watch">Prefer the app? <a href="https://youtu.be/rqxiDCX_eoI?utm_source=shortlink&utm_medium=social&utm_campaign=victoria_tour">Watch on YouTube</a>.</p>
 <!-- SV:BEGIN seller-value 2026-10-26 -->
 <section class="sv-offer" id="sv-offer" data-sv="seller_value_tour">
 <div id="svFields"><h2>Wondering what your home would sell for?</h2><p>Tell me the address and I’ll send you a one page read on what your home would likely sell for today, built from real sales near you. I read every one myself. No automated estimate, and no obligation.</p>
@@ -78,6 +156,11 @@ else{b.disabled=false;err.textContent='That didn\u2019t go through. Please try a
 </script>
 <nav class="sv-bar" aria-label="Quick contact"><a class="sv-main" href="#sv-offer">What’s my home worth?</a><a href="sms:+19522583100">Text Geoffrey</a></nav>
 <!-- SV:END -->
+<footer>
+    Geoffrey Serdar, Serdar+Partners at Compass. 952-258-3100. Equal Housing Opportunity.
+    <p class="quiet">More on the town: <a href="/victoria-next-excelsior/">Is Victoria the next Excelsior?</a> and my <a href="/victoria/">Victoria homes page</a>.</p>
+  </footer>
+</main>
 
 <script src="/assets/gs-bars.js?v=20261026" defer data-mode="seller"></script>
 </body>
