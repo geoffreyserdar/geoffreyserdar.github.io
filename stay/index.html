@@ -202,6 +202,7 @@ body{padding-top:calc(52px + env(safe-area-inset-top))}
 #signup,#sv-offer{scroll-margin-top:calc(66px + env(safe-area-inset-top))}
 }
 </style>
+  <script src="/assets/phone-later.js"></script>
 </head>
 <body>
 <!-- GS:TOPBAR -->
@@ -308,11 +309,7 @@ body{padding-top:calc(52px + env(safe-area-inset-top))}
         <label for="email">Email</label>
         <input type="email" id="email" name="email" required />
       </div>
-      <div class="field">
-        <label for="phone">Mobile (optional)</label>
-        <input type="tel" id="phone" name="phone" />
-        <p class="fineprint" style="margin-top:6px;">Only to text you back. Never shared.</p>
-      </div>
+      <input type="hidden" id="phone" name="phone" value="" />
 
       <label>What brings you our way? (optional)</label>
       <div class="opts">
