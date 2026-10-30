@@ -461,6 +461,7 @@ body{padding-top:calc(52px + env(safe-area-inset-top))}
 #signup,#sv-offer{scroll-margin-top:calc(66px + env(safe-area-inset-top))}
 }
 </style>
+  <script src="/assets/phone-later.js"></script>
 </head>
 
 <body>
@@ -588,12 +589,7 @@ body{padding-top:calc(52px + env(safe-area-inset-top))}
           <input type="email" id="email" name="email" placeholder="you@email.com" required autocomplete="email" />
           <p class="field-error" id="emailError" role="alert">That email doesn't look quite right, mind double-checking it? It's how Geoffrey sends your numbers over.</p>
         </div>
-        <div class="field">
-          <label for="phone">Mobile (optional)</label>
-          <input type="tel" id="phone" name="phone" placeholder="Your best number (optional)" autocomplete="tel" />
-          <p class="field-hint" style="margin-top:6px;">Only to text you back. Never shared.</p>
-          <p class="field-error" id="phoneError" role="alert">That number doesn't look quite right, mind double-checking it? Geoffrey calls every owner personally, so we want to be sure it reaches you.</p>
-        </div>
+        <input type="hidden" id="phone" name="phone" value="" />
         <button type="submit" class="submit-btn">Send it to Geoffrey</button>
       </form>
       <p class="form-consent">By submitting this form, you agree that Serdar+Partners at Compass may contact you by phone call and text message (including by automated means) at the number you provide, regarding your real estate inquiry. Consent is not a condition of any purchase. Message &amp; data rates may apply; message frequency varies. Reply STOP to opt out, HELP for help. See our <a href="/privacy">Privacy Policy</a> and <a href="/terms">Terms</a>.</p>
