@@ -176,6 +176,11 @@
   .tour .play span::after{content:"";border-style:solid;border-width:14px 0 14px 22px;border-color:transparent transparent transparent #C9A877;margin-left:5px}
   .tour .cap{position:absolute;left:16px;bottom:14px;color:#F3ECDD;font-weight:600;font-size:15px;text-shadow:0 1px 3px rgba(0,0,0,.6);z-index:2}
   .tour.playing::after,.tour.playing .play,.tour.playing .cap{display:none}
+  #walkFacade .play{justify-content:flex-start;padding-left:16%}
+  #walkFacade::after{background:radial-gradient(circle at 24% 50%,rgba(20,20,18,.38),rgba(20,20,18,0) 42%)}
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+  .chips button{font:inherit;font-size:15px;padding:10px 14px;min-height:44px;border-radius:999px;border:1px solid var(--line);background:transparent;color:inherit;cursor:pointer}
+  .chips button:hover{border-color:#C9A877}
   @media (max-width:520px){.tour .play span{width:64px;height:64px}}
 
   /* GALLERY */
@@ -386,6 +391,29 @@ body{padding-top:calc(52px + env(safe-area-inset-top))}
   </section>
 </div>
 
+<!-- WALK TOUR (full YouTube tour) -->
+<div class="wrap divide" id="tour">
+  <section>
+    <div class="col"><div class="eyebrow">Walk it with me</div><h2>The full walking tour.</h2>
+      <p>Fifteen minutes, both units, the attic, the basement and the block, plus the Northeast spots I grew up around. Tap to play. Nothing loads from YouTube until you press play.</p></div>
+    <div class="tour" id="walkFacade" data-id="YLLG9tu8wpQ" data-label="walk-tour" role="button" tabindex="0" aria-label="Play the full walking tour of 516 8th Ave NE">
+      <img src="/ne-img/walk-tour-poster.jpg" alt="Geoffrey Serdar in front of 516 8th Ave NE" loading="lazy" width="1280" height="720">
+      <div class="play"><span></span></div>
+      <div class="cap">The full walk‑through · 15 min</div>
+    </div>
+    <div class="chips" aria-label="Jump to a part of the tour">
+      <button type="button" data-t="117">Upper unit</button>
+      <button type="button" data-t="256">Kitchen</button>
+      <button type="button" data-t="301">Bath + laundry</button>
+      <button type="button" data-t="408">Attic</button>
+      <button type="button" data-t="498">Main level</button>
+      <button type="button" data-t="729">Basement</button>
+      <button type="button" data-t="768">The street</button>
+      <button type="button" data-t="831">Neighborhood history</button>
+    </div>
+  </section>
+</div>
+
 <!-- TWO WAYS -->
 <div class="wrap divide">
   <section>
@@ -409,19 +437,6 @@ body{padding-top:calc(52px + env(safe-area-inset-top))}
         <h3>Income on day one, upside at renewal.</h3>
         <p>Lease the vacant upper at market right away, and move the main level toward market at renewal. Tenants pay gas and electric on their own meters, and water, sewer and trash are billed back. About 7.9% cash‑on‑cash in year one at 25% down.</p>
       </div>
-    </div>
-  </section>
-</div>
-
-<!-- TOUR -->
-<div class="wrap divide" id="tour">
-  <section>
-    <div class="col"><div class="eyebrow">Walk it</div><h2>Take the tour.</h2>
-      <p>Both units, start to finish. Tap to play. Nothing loads from YouTube until you press play.</p></div>
-    <div class="tour" id="tourFacade" data-id="pFEyAJPRxeQ" role="button" tabindex="0" aria-label="Play the 516 8th Ave NE video tour">
-      <img src="/ne-img/tour-poster.jpg" alt="Upper unit living room with original stained glass" loading="lazy">
-      <div class="play"><span></span></div>
-      <div class="cap">516 8th Ave NE · the walk‑through</div>
     </div>
   </section>
 </div>
@@ -591,6 +606,19 @@ body{padding-top:calc(52px + env(safe-area-inset-top))}
     </div>
     <div class="gal" id="gal"></div>
     <p class="photo-note">Main‑level photos are lightly digitally enhanced. The main level is lived in by its tenants; furniture and belongings shown are theirs and are not included in the sale.</p>
+  </section>
+</div>
+
+<!-- PHOTO VIDEO (short) -->
+<div class="wrap divide" id="photovideo">
+  <section>
+    <div class="col"><div class="eyebrow">In a hurry?</div><h2>The one‑minute photo tour.</h2>
+      <p>The highlights, set to music. Tap to play.</p></div>
+    <div class="tour" id="tourFacade" data-id="pFEyAJPRxeQ" data-label="516-tour" role="button" tabindex="0" aria-label="Play the short 516 8th Ave NE photo video">
+      <img src="/ne-img/tour-poster.jpg" alt="Upper unit living room with original stained glass" loading="lazy">
+      <div class="play"><span></span></div>
+      <div class="cap">516 8th Ave NE · photo tour</div>
+    </div>
   </section>
 </div>
 
@@ -786,14 +814,22 @@ body{padding-top:calc(52px + env(safe-area-inset-top))}
 </script>
 
 <script>
-(function(){var f=document.getElementById('tourFacade');if(!f)return;
-function play(){if(f.classList.contains('playing'))return;f.classList.add('playing');
+(function(){
+function wire(f,title){if(!f)return null;
+ function play(start){var id=f.getAttribute('data-id');if(!id||id==="__none__")return;
+  var old=f.querySelector('iframe');if(old)old.remove();f.classList.add('playing');
   var fr=document.createElement('iframe');
-  fr.src='https://www.youtube.com/embed/'+f.getAttribute('data-id')+'?autoplay=1&rel=0&playsinline=1&enablejsapi=1';
-  fr.title='516 8th Ave NE video tour';fr.setAttribute('allow','autoplay; encrypted-media; fullscreen; picture-in-picture');fr.setAttribute('allowfullscreen','');
+  fr.src='https://www.youtube.com/embed/'+id+'?autoplay=1&rel=0&playsinline=1&enablejsapi=1'+(start?'&start='+start:'');
+  fr.title=title;fr.setAttribute('allow','autoplay; encrypted-media; fullscreen; picture-in-picture');fr.setAttribute('allowfullscreen','');
   fr.addEventListener('load',function(){try{fr.contentWindow.postMessage(JSON.stringify({event:'command',func:'playVideo',args:[]}),'*');}catch(e){}});
-  f.appendChild(fr);if(typeof gtag==='function')gtag('event','video_play',{video:'516-tour'});}
-f.addEventListener('click',play);f.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();play();}});})();
+  f.appendChild(fr);if(typeof gtag==='function')gtag('event','video_play',{video:f.getAttribute('data-label'),start:start||0});}
+ f.addEventListener('click',function(){if(!f.classList.contains('playing'))play(0);});
+ f.addEventListener('keydown',function(e){if((e.key==='Enter'||e.key===' ')&&!f.classList.contains('playing')){e.preventDefault();play(0);}});
+ return play;}
+var w=wire(document.getElementById('walkFacade'),'516 8th Ave NE full walking tour');
+wire(document.getElementById('tourFacade'),'516 8th Ave NE photo tour');
+document.querySelectorAll('.chips button').forEach(function(b){b.addEventListener('click',function(){if(w){w(+b.getAttribute('data-t'));document.getElementById('walkFacade').scrollIntoView({behavior:'smooth',block:'center'});}});});
+})();
 </script>
 
 <!-- PAGE: calculator, chart, gallery, floor plans, scroll progress -->
