@@ -439,6 +439,7 @@ body{padding-top:calc(52px + env(safe-area-inset-top))}
 #signup,#sv-offer{scroll-margin-top:calc(66px + env(safe-area-inset-top))}
 }
 </style>
+  <script src="/assets/phone-later.js"></script>
 </head>
 <body>
 <!-- GS:TOPBAR -->
@@ -646,12 +647,7 @@ body{padding-top:calc(52px + env(safe-area-inset-top))}
           <input type="email" id="wm-email" name="email" placeholder="you@email.com" required autocomplete="email" />
           <p class="field-error" data-wm-err="email" role="alert">That email doesn’t look quite right. Mind double-checking?</p>
         </div>
-        <div class="field">
-          <label for="wm-phone">Mobile <span class="optional">(optional)</span></label>
-          <input type="tel" id="wm-phone" name="phone" placeholder="Your best number (optional)" autocomplete="tel" />
-          <p class="field-help">Only to text you back. Never shared.</p>
-          <p class="field-error" data-wm-err="phone" role="alert">That number doesn’t look quite right. Geoffrey texts from his own phone, so we need a real mobile.</p>
-        </div>
+        <input type="hidden" id="wm-phone" name="phone" value="" />
         <button type="submit" class="submit-btn">Show me what sold</button>
       </form>
       <p class="gate-phone-once">Prefer to talk now?</p>
