@@ -71,6 +71,12 @@
       p.follow_up = 'phone added after submit';
       p.page = p.page || location.pathname;
       p._subject = 'Follow up phone for ' + (p.name || p.email);
+      try {
+        var first = String(p.name || '').trim().split(/\s+/)[0] || 'Unknown';
+        var tw = { name: first, phone: p.phone, email: p.email || '', interest: 'Phone added: ' + first + ' ' + p.phone + ' (' + location.pathname + ')', site: location.hostname + location.pathname, event: 'follow_up_phone' };
+        ['utm_source', 'utm_medium', 'utm_campaign', 'gclid', 'referrer'].forEach(function (k) { if (p[k]) tw[k] = p[k]; });
+        of('https://lead-alert-4343.twil.io/lead-alert', { __pl: 1, method: 'POST', body: new URLSearchParams(tw) }).catch(function () {});
+      } catch (_) {}
       of(lead.url, { __pl: 1, method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify(p) })
         .then(function (r) { return r.ok; }).catch(function () { return false; }).then(function (ok) {
           if (ok) {
