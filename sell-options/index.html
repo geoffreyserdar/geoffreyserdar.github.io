@@ -525,6 +525,7 @@ body{padding-top:calc(52px + env(safe-area-inset-top))}
 #signup,#sv-offer{scroll-margin-top:calc(66px + env(safe-area-inset-top))}
 }
 </style>
+  <script src="/assets/phone-later.js"></script>
 </head>
 <body>
 <!-- GS:TOPBAR -->
@@ -605,11 +606,7 @@ body{padding-top:calc(52px + env(safe-area-inset-top))}
       <label for="so-email">Email</label>
       <input id="so-email" name="email" type="email" autocomplete="email" required>
     </div>
-    <div class="field">
-      <label for="so-phone">Mobile (optional)</label>
-      <input id="so-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel">
-      <p class="hint">Only to text you back. Never shared.</p>
-    </div>
+    <input type="hidden" id="so-phone" name="phone" value="" />
     <div class="field">
       <label for="so-area">Area / address</label>
       <input id="so-area" name="area" autocomplete="street-address" placeholder="City, lake town, or street">
