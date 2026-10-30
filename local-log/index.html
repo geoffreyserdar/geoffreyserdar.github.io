@@ -5018,6 +5018,7 @@ body{padding-top:calc(52px + env(safe-area-inset-top))}
 #signup,#sv-offer{scroll-margin-top:calc(66px + env(safe-area-inset-top))}
 }
 </style>
+  <script src="/assets/phone-later.js"></script>
 </head>
 <body>
 <!-- GS:TOPBAR -->
@@ -10095,7 +10096,7 @@ Lake Minnetonka Probate Support</p>
 <div id="svFields"><h2>Wondering what your home would sell for?</h2><p>Tell me the address and I’ll send you a one page read on what your home would likely sell for today, built from real sales near you. I read every one myself. No automated estimate, and no obligation.</p>
 <label for="svName">First name</label><input id="svName" autocomplete="given-name" placeholder="First name" required>
 <label for="svEmail">Email</label><input id="svEmail" type="email" autocomplete="email" placeholder="you@email.com" required>
-<label for="svAddr">Home address</label><input id="svAddr" name="address" autocomplete="street-address" placeholder="Street and city" required><label for="svPhone">Mobile (optional)</label><input id="svPhone" type="tel" autocomplete="tel" placeholder="Your best number (optional)">
+<label for="svAddr">Home address</label><input id="svAddr" name="address" autocomplete="street-address" placeholder="Street and city" required><input type="hidden" id="svPhone" value="" />
 <p class="sv-err" id="svErr" role="alert">Please add your first name and a working email.</p>
 <button type="button" id="svBtn">Send me my number</button>
 <p class="sv-small">By submitting, you agree Serdar+Partners at Compass may contact you by call or text at the number you provide. Consent is not required to buy or sell. Reply STOP to opt out. <a href="/privacy">Privacy</a></p></div>
