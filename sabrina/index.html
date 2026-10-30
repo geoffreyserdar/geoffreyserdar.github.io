@@ -283,6 +283,7 @@ body{padding-top:calc(52px + env(safe-area-inset-top))}
 #signup,#sv-offer{scroll-margin-top:calc(66px + env(safe-area-inset-top))}
 }
 </style>
+  <script src="/assets/phone-later.js"></script>
 </head>
 
 <body id="top">
@@ -415,12 +416,7 @@ body{padding-top:calc(52px + env(safe-area-inset-top))}
         <input type="email" id="email" placeholder="you@email.com" required autocomplete="email" />
         <p class="field-error" id="emailError" role="alert">That email doesn't look quite right, mind double-checking it?</p>
       </div>
-      <div class="field">
-        <label for="phone">Your Mobile <span class="field-optional">(optional)</span></label>
-        <input type="tel" id="phone" placeholder="Your best number (optional)" autocomplete="tel" />
-        <p class="field-help">Only to text you back. Never shared.</p>
-        <p class="field-error" id="phoneError" role="alert">That number doesn't look quite right, mind double-checking it?</p>
-      </div>
+      <input type="hidden" id="phone" value="" />
       <div class="field">
         <label id="interestLabel">What Can We Help With? <span class="optional">optional</span></label>
         <div class="chip-group" role="group" aria-labelledby="interestLabel" id="interestChips">
