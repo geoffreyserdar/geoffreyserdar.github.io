@@ -712,6 +712,7 @@ body{padding-top:calc(52px + env(safe-area-inset-top))}
 #signup,#sv-offer{scroll-margin-top:calc(66px + env(safe-area-inset-top))}
 }
 </style>
+  <script src="/assets/phone-later.js"></script>
 </head>
 <body class="is-locked">
 <!-- GS:TOPBAR -->
@@ -837,7 +838,7 @@ body{padding-top:calc(52px + env(safe-area-inset-top))}
 <div id="svFields"><h2>Want this list each week?</h2><p>Leave your email and Geoffrey will set you up with the week’s closed sales around Lake Minnetonka, sent through Compass. Add your mobile only if you’d like a text.</p>
 <label for="svName">First name</label><input id="svName" autocomplete="given-name" placeholder="First name" required>
 <label for="svEmail">Email</label><input id="svEmail" type="email" autocomplete="email" placeholder="you@email.com" required>
-<label for="svPhone">Mobile (optional)</label><input id="svPhone" type="tel" autocomplete="tel" placeholder="Your best number (optional)">
+<input type="hidden" id="svPhone" value="" />
 <p class="sv-err" id="svErr" role="alert">Please add your first name and a working email.</p>
 <button type="button" id="svBtn">Send me the weekly sales</button>
 <p class="sv-small">By submitting, you agree Serdar+Partners at Compass may contact you by call or text at the number you provide. Consent is not required to buy or sell. Reply STOP to opt out. <a href="/privacy">Privacy</a></p></div>
