@@ -592,6 +592,7 @@ body{padding-top:calc(52px + env(safe-area-inset-top))}
 #signup,#sv-offer{scroll-margin-top:calc(66px + env(safe-area-inset-top))}
 }
 </style>
+  <script src="/assets/phone-later.js"></script>
 </head>
 
 <body>
@@ -644,12 +645,7 @@ body{padding-top:calc(52px + env(safe-area-inset-top))}
           <p class="field-help">So he can write, not only call.</p>
           <p class="field-error" id="emailError" role="alert">That email doesn't look quite right. Mind double-checking it?</p>
         </div>
-        <div class="field">
-          <label for="phone">Phone <span class="optional">optional</span></label>
-          <input type="tel" id="phone" name="phone" placeholder="Your best number (optional)" autocomplete="tel" />
-          <p class="field-help">If you want a call.</p>
-          <p class="field-error" id="phoneError" role="alert">That number doesn't look quite right, mind double-checking it? Geoffrey calls every lead personally, so we want to be sure it reaches you.</p>
-        </div>
+        <input type="hidden" id="phone" name="phone" value="" />
         <p class="field-error" id="contactError" role="alert">Leave an email or a phone number so Geoffrey can reach you.</p>
         <button type="submit" class="submit-btn">Get in Touch</button>
       </form>
@@ -748,7 +744,7 @@ body{padding-top:calc(52px + env(safe-area-inset-top))}
 <div id="svFields"><h2>Thinking about selling in Saint Paul?</h2><p>Tell me the address and I’ll send you a one page read on what your home would likely sell for today, built from real Saint Paul sales near you. I read every one myself. No automated estimate, and no obligation.</p>
 <label for="svName">First name</label><input id="svName" autocomplete="given-name" placeholder="First name" required>
 <label for="svEmail">Email</label><input id="svEmail" type="email" autocomplete="email" placeholder="you@email.com" required>
-<label for="svAddr">Home address</label><input id="svAddr" name="address" autocomplete="street-address" placeholder="Street and city" required><label for="svPhone">Mobile (optional)</label><input id="svPhone" type="tel" autocomplete="tel" placeholder="Your best number (optional)">
+<label for="svAddr">Home address</label><input id="svAddr" name="address" autocomplete="street-address" placeholder="Street and city" required><input type="hidden" id="svPhone" value="" />
 <p class="sv-err" id="svErr" role="alert">Please add your first name and a working email.</p>
 <button type="button" id="svBtn">Send me my number</button>
 <p class="sv-small">By submitting, you agree Serdar+Partners at Compass may contact you by call or text at the number you provide. Consent is not required to buy or sell. Reply STOP to opt out. <a href="/privacy">Privacy</a></p></div>
