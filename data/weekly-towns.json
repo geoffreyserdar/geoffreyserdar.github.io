@@ -843,6 +843,139 @@
         }
       },
       "provenance": "Compass agent-search cities=/neighborhoods= IDs / Closed / sold date Oct 19\u2013Oct 25, 2026. Place IDs from /workspace/lab-inbox/compass-lake-ring-city-ids.json. Raw: /workspace/lab-inbox/compass-raw-lake-ring-week-2026-10-19-10-25.json. Status lock: Closed only (no Sold Contingent)."
+    },
+    {
+      "week_label": "Oct 26\u2013Nov 1, 2026",
+      "week_start": "2026-10-26",
+      "week_end": "2026-11-01",
+      "as_of_ct": "2026-11-02T07:15:48-06:00",
+      "lake_ring": {
+        "n_sold": 33,
+        "typical_price_display": "$640,000",
+        "typical_price_kind": "median",
+        "hottest_town": "Minnetonka",
+        "hottest_count": 14,
+        "median": 640000
+      },
+      "hottest": "Minnetonka",
+      "hottest_n": 14,
+      "towns": {
+        "Deephaven": {
+          "n": 0,
+          "sold_prices": []
+        },
+        "Excelsior": {
+          "n": 1,
+          "sold_prices": [
+            2050000
+          ],
+          "range": [
+            2050000,
+            2050000
+          ]
+        },
+        "Greenwood": {
+          "n": 0,
+          "sold_prices": []
+        },
+        "Minnetonka": {
+          "n": 14,
+          "sold_prices": [
+            244000,
+            265000,
+            269900,
+            350000,
+            360000,
+            391000,
+            450000,
+            460000,
+            477000,
+            500000,
+            590000,
+            630000,
+            740000,
+            760000
+          ],
+          "has_median": true,
+          "median": 455000
+        },
+        "Minnetonka Beach": {
+          "n": 0,
+          "sold_prices": []
+        },
+        "Minnetrista": {
+          "n": 3,
+          "sold_prices": [
+            929000,
+            1316552,
+            3715000
+          ],
+          "has_median": true,
+          "median": 1316552
+        },
+        "Mound": {
+          "n": 4,
+          "sold_prices": [
+            300000,
+            358500,
+            575000,
+            1630000
+          ],
+          "has_median": true,
+          "median": 466750
+        },
+        "Orono": {
+          "n": 1,
+          "sold_prices": [
+            4295000
+          ],
+          "range": [
+            4295000,
+            4295000
+          ]
+        },
+        "Shorewood": {
+          "n": 0,
+          "sold_prices": []
+        },
+        "Spring Park": {
+          "n": 0,
+          "sold_prices": []
+        },
+        "Tonka Bay": {
+          "n": 0,
+          "sold_prices": []
+        },
+        "Victoria": {
+          "n": 6,
+          "sold_prices": [
+            532500,
+            640000,
+            655000,
+            680000,
+            710000,
+            1488000
+          ],
+          "has_median": true,
+          "median": 667500
+        },
+        "Wayzata": {
+          "n": 4,
+          "sold_prices": [
+            875000,
+            2955000,
+            3050000,
+            4500000
+          ],
+          "has_median": true,
+          "median": 3002500
+        },
+        "Woodland": {
+          "n": 0,
+          "sold_prices": []
+        }
+      },
+      "provenance": "Compass agent-search cities=/neighborhoods= IDs / Closed / sold date Oct 26\u2013Nov 1, 2026. Place IDs from /workspace/lab-inbox/compass-lake-ring-city-ids.json. Raw: /workspace/lab-inbox/compass-raw-lake-ring-week-2026-10-26-11-01.json. Status lock: Closed only (no Sold Contingent)."
     }
   ]
 }
