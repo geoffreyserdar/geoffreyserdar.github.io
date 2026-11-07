@@ -610,16 +610,18 @@ input.input-error{border-color:var(--warn)!important;box-shadow:0 0 0 3px rgba(1
     <p>Esta página es una guía de intake bilingüe para compradores. No es un contrato ni una preaprobación de hipoteca. / This page is a bilingual buyer intake guide. Not a contract or mortgage pre-approval.</p>
   </div>
 </footer>
+<script src="/assets/lead-source.js"></script>
 <script>
 
 (function(){
   'use strict';
   (function(){
     var p=new URLSearchParams(window.location.search);
+    var s=window.gsLeadSource?window.gsLeadSource():null;
     function set(id,val){var el=document.getElementById(id);if(el)el.value=val||'';}
-    set('utm_source',p.get('utm_source'));set('utm_medium',p.get('utm_medium'));
-    set('utm_campaign',p.get('utm_campaign'));set('utm_content',p.get('utm_content'));
-    set('gclid',p.get('gclid'));set('referrer',document.referrer||'');
+    set('utm_source',s?s.utm_source:p.get('utm_source'));set('utm_medium',s?s.utm_medium:p.get('utm_medium'));
+    set('utm_campaign',s?s.utm_campaign:p.get('utm_campaign'));set('utm_content',s?s.utm_content:p.get('utm_content'));
+    set('gclid',s?s.gclid:p.get('gclid'));set('referrer',s?s.referrer:(document.referrer||''));
   })();
   // Lead source + Twilio LAYER 2 — same plumbing as /buyers/ (fail OPEN).
   var LEAD_SOURCE={

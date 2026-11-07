@@ -851,6 +851,7 @@ footer .footer-legal, footer .footer-legal a{ color:#8A8375; }
 </footer>
 <!-- /HOUSE:FOOTER -->
 
+<script src="/assets/lead-source.js"></script>
 <script>
 /* ================================================================= */
 /* RAZIEL_CONFIG — the lead pipe in ONE place.                       */
@@ -869,17 +870,7 @@ const RAZIEL_CONFIG = {
 };
 
 // Capture lead source on page load (UTM / Google Ads / referrer)
-const LEAD_SOURCE = (function () {
-  const p = new URLSearchParams(window.location.search);
-  return {
-    utm_source: p.get('utm_source') || '',
-    utm_medium: p.get('utm_medium') || '',
-    utm_campaign: p.get('utm_campaign') || '',
-    utm_content: p.get('utm_content') || '',
-    gclid: p.get('gclid') || '',
-    referrer: document.referrer || ''
-  };
-})();
+const LEAD_SOURCE = window.gsLeadSource();
 
 // LAYER 1 — front door: block structurally-impossible US numbers in the browser.
 function isValidUSPhone(raw) {

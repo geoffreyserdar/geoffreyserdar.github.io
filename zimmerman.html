@@ -777,21 +777,13 @@ f.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.prev
 </script>
 
 <!-- LEAD CAPTURE: wiring copied from victoria.html (Formspree mpqerwwk, Twilio speed-to-lead, GA4 + Ads conversion) -->
+<script src="/assets/lead-source.js"></script>
 <script>
 // Which page is this? Stamps every lead so the CRM/bridge can tag it by city.
 const PAGE_LOCAL = 'Zimmerman';
 
 // Capture lead source on page load (UTM / Google Ads / referrer)
-const LEAD_SOURCE = (function () {
-  const p = new URLSearchParams(window.location.search);
-  return {
-    utm_source: p.get('utm_source') || '',
-    utm_medium: p.get('utm_medium') || '',
-    utm_campaign: p.get('utm_campaign') || '',
-    gclid: p.get('gclid') || '',
-    referrer: document.referrer || ''
-  };
-})();
+const LEAD_SOURCE = window.gsLeadSource();
 
 // LAYER 1 — front door: block structurally-impossible US numbers in the browser.
 function isValidUSPhone(raw) {

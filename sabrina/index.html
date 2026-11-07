@@ -500,6 +500,7 @@ body{padding-top:calc(52px + env(safe-area-inset-top))}
   </p>
 </footer>
 
+<script src="/assets/lead-source.js"></script>
 <script>
 /* ================================================================= */
 /* RAZIEL_CONFIG — SAME lead pipe as the rest of the site, tagged     */
@@ -517,15 +518,7 @@ const RAZIEL_CONFIG = {
 };
 
 // Capture lead source on page load (UTM / referrer)
-const LEAD_SOURCE = (function () {
-  const p = new URLSearchParams(window.location.search);
-  return {
-    utm_source: p.get('utm_source') || '',
-    utm_medium: p.get('utm_medium') || '',
-    utm_campaign: p.get('utm_campaign') || '',
-    referrer: document.referrer || ''
-  };
-})();
+const LEAD_SOURCE = window.gsLeadSource();
 
 // LAYER 1 — block structurally-impossible US numbers in the browser.
 function isValidUSPhone(raw) {

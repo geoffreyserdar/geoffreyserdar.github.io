@@ -381,6 +381,7 @@ body{padding-top:calc(52px + env(safe-area-inset-top))}
   </p>
 </footer>
 
+<script src="/assets/lead-source.js"></script>
 <script>
 /* ================================================================= */
 /* RAZIEL_CONFIG — same lead pipe, tagged as a REFERRAL.             */
@@ -395,15 +396,7 @@ const RAZIEL_CONFIG = {
   ctaLabel:    'Send it to Geoffrey'
 };
 
-const LEAD_SOURCE = (function () {
-  const p = new URLSearchParams(window.location.search);
-  return {
-    utm_source: p.get('utm_source') || '',
-    utm_medium: p.get('utm_medium') || '',
-    utm_campaign: p.get('utm_campaign') || '',
-    referrer: document.referrer || ''
-  };
-})();
+const LEAD_SOURCE = window.gsLeadSource();
 
 function isValidUSPhone(raw) {
   var d = String(raw || '').replace(/\D/g, '');
