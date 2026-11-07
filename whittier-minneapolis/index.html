@@ -386,6 +386,13 @@ a.stat-link .stat-number{ color:#6E5228; }
 .tour-videos .vic-video::after{content:none;margin:0}
 .tour-videos .vic-video + .vic-video{margin-top:28px}
 .tour-videos .vic-video:last-child::after{content:"";display:block;width:40px;height:2px;background:#6E5228;opacity:.4;margin:36px auto 28px}
+.vic-video-end{margin-top:28px;margin-bottom:12px}
+.vic-video-end::after{content:none;margin:0}
+.vic-video-end .vic-read{margin-top:14px}
+@media (max-width:760px){
+  .vic-video-end{padding-left:24px;padding-right:24px;margin-bottom:20px;scroll-margin-bottom:96px}
+  .vic-video-end .vic-read{scroll-margin-bottom:96px}
+}
 .crumb ol{display:flex;flex-wrap:wrap;align-items:center;list-style:none;padding:0;margin:0 0 18px;font-size:14px;line-height:1.4}
 .crumb li{color:var(--mid)}
 .crumb li+li::before{content:"\203A";margin:0 8px;color:var(--gold)}
@@ -931,19 +938,7 @@ body{padding-top:calc(52px + env(safe-area-inset-top))}
         allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen
         title="Whittier Minneapolis Condo Tour | Inside, Then a Walk on Eat Street"></iframe>
     </div>
-    <p class="vic-vcap">Whittier Minneapolis Condo Tour | Inside, Then a Walk on Eat Street</p>
     <p class="vic-read"><a href="https://youtu.be/PEupGHepIVA">Watch the full tour on YouTube</a></p>
-  </div>
-  <div class="vic-video">
-    <p class="tour-label">Earlier listing video</p>
-    <div class="video-frame">
-      <iframe src="https://www.youtube-nocookie.com/embed/B3cM2QYj1g4?playsinline=1&rel=0&modestbranding=1" loading="lazy"
-        style="position:absolute;inset:0;width:100%;height:100%;border:0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen
-        title="Whittier Minneapolis Condo: Lock Up, Leave, Walk to Coffee | Our Buyer's Win"></iframe>
-    </div>
-    <p class="vic-vcap">Earlier listing video. Whittier Minneapolis Condo: Lock Up, Leave, Walk to Coffee | Our Buyer&rsquo;s Win</p>
-    <p class="vic-read"><a href="https://youtu.be/B3cM2QYj1g4">Watch the earlier listing video on YouTube</a></p>
   </div>
 </div>
 
@@ -1166,6 +1161,16 @@ else{b.disabled=false;err.textContent='That didn\u2019t go through. Please try a
 </script>
 <nav class="sv-bar" aria-label="Quick contact"><a class="sv-main" href="#sv-offer">What’s my home worth?</a><a href="sms:+19522583100">Text Geoffrey</a></nav>
 <!-- SV:END -->
+
+<div class="vic-video vic-video-end" id="earlier-condo-video">
+  <div class="video-frame">
+    <iframe src="https://www.youtube-nocookie.com/embed/B3cM2QYj1g4?playsinline=1&rel=0&modestbranding=1" loading="lazy"
+      style="position:absolute;inset:0;width:100%;height:100%;border:0"
+      allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen
+      title="Whittier Minneapolis Condo: Lock Up, Leave, Walk to Coffee | Our Buyer's Win"></iframe>
+  </div>
+  <p class="vic-read"><a href="https://youtu.be/B3cM2QYj1g4">Watch the earlier condo video on YouTube</a></p>
+</div>
 
 <footer class="site-foot">
   <p class="footer-name">Geoffrey Serdar</p>
