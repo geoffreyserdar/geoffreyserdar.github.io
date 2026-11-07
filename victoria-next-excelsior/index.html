@@ -705,7 +705,7 @@ function checkNumber(name, phone, interest, email) {
 
 // Same Formspree form the town pages use, so lead-watch reads it (local and form_type tag the page).
 function submitToFormspree(name, phone, interest, email) {
-  fetch('https://formspree.io/f/' + FORMSPREE_ID, {
+  return fetch('https://formspree.io/f/' + FORMSPREE_ID, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
     body: JSON.stringify({
@@ -715,7 +715,12 @@ function submitToFormspree(name, phone, interest, email) {
       utm_campaign: LEAD_SOURCE.utm_campaign, utm_content: LEAD_SOURCE.utm_content,
       gclid: LEAD_SOURCE.gclid, referrer: LEAD_SOURCE.referrer
     })
-  }).catch(function () {});
+  }).then(function (response) {
+    if (!response || !response.ok) return false;
+    return response.json().then(function (body) {
+      return !(body && body.ok === false);
+    }).catch(function () { return false; });
+  }).catch(function () { return false; });
 }
 
 // Compass lead pixel bridge, same as the town pages.
@@ -745,6 +750,36 @@ function showSuccess() {
   try { document.getElementById('successState').scrollIntoView({ behavior: 'smooth', block: 'center' }); } catch (_s) {}
 }
 
+
+var leadSubmitBusy = false;
+function leadSubmitButton() {
+  var nameEl = document.getElementById('name');
+  var form = nameEl && nameEl.form;
+  return (form && form.querySelector('.submit-btn')) || document.querySelector('.submit-btn');
+}
+function setLeadSubmitPending(on) {
+  var btn = leadSubmitButton();
+  if (!btn) return;
+  btn.disabled = !!on;
+}
+function showLeadSubmitError() {
+  var btn = leadSubmitButton();
+  var err = document.getElementById('leadSubmitError');
+  if (!err && btn && btn.parentNode) {
+    err = document.createElement('p');
+    err.id = 'leadSubmitError';
+    err.className = 'field-error';
+    err.setAttribute('role', 'alert');
+    btn.parentNode.insertBefore(err, btn.nextSibling);
+  }
+  if (!err) return;
+  err.textContent = 'That didn\u2019t go through. Your details are still here. Please try again, or text Geoffrey at 952-258-3100.';
+  err.classList.add('visible');
+}
+function clearLeadSubmitError() {
+  var err = document.getElementById('leadSubmitError');
+  if (err) err.classList.remove('visible');
+}
 async function handleSubmit(e) {
   e.preventDefault();
   clearErrs();
@@ -764,9 +799,24 @@ async function handleSubmit(e) {
   } else {
     try { checkNumber(name, '', choiceLabel(interest), email); } catch (_la) {}
   }
-  submitToFormspree(name, phone, interest, email);
-  try { notifyCompassLeadPixel(name, phone, email); } catch (_cx) {}
-  showSuccess();
+  if (leadSubmitBusy) return;
+  leadSubmitBusy = true;
+  setLeadSubmitPending(true);
+  clearLeadSubmitError();
+  var accepted = false;
+  try {
+    accepted = await submitToFormspree(name, phone, interest, email);
+  } catch (_sendErr) {
+    accepted = false;
+  }
+  leadSubmitBusy = false;
+  if (accepted) {
+    try { notifyCompassLeadPixel(name, phone, email); } catch (_cxlp) {}
+    showSuccess();
+  } else {
+    setLeadSubmitPending(false);
+    showLeadSubmitError();
+  }
 }
 
 // GA4 form events, same names as the town pages.
