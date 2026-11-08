@@ -49,6 +49,10 @@ for (const file of walk(ROOT, [])) {
 check('published HTML has no standalone editing-count paragraph', leaks.length === 0, JSON.stringify(leaks));
 
 const report = { passed: results.filter((r) => r.ok).length, failed: results.filter((r) => !r.ok).length, leaks, results };
-mkdirSync('/opt/cursor/artifacts', { recursive: true });
-writeFileSync('/opt/cursor/artifacts/local-log-metadata-hygiene-test.json', JSON.stringify(report, null, 2));
+try {
+  mkdirSync('/opt/cursor/artifacts', { recursive: true });
+  writeFileSync('/opt/cursor/artifacts/local-log-metadata-hygiene-test.json', JSON.stringify(report, null, 2));
+} catch (e) {
+  // GitHub Actions has no agent artifact directory. The checks above still decide pass or fail.
+}
 console.log('REPORT', report.passed, 'passed', report.failed, 'failed');
