@@ -1,0 +1,14 @@
+name: Public metadata hygiene
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  hygiene:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: node assets/public-metadata-hygiene.test.mjs
