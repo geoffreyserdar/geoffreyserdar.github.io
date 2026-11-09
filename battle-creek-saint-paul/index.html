@@ -8,10 +8,10 @@
 <!-- begin Pixel Code (Compass Lead Flow, real estate only) -->
 <script src="https://www.compass.com/cxlp/a.min.js" id="cxlp-ajs" data-client-id="dh30gl6zq3rg" async></script>
 <!-- end Pixel Code -->
-<meta name="description" content="A walking tour of 30 South B Street in Battle Creek, Saint Paul. Big lots, old oaks, the park, and a short drive to downtown and Suburban Avenue. The house is in contract. Call or text 952-258-3100." />
+<meta name="description" content="A walking tour of 30 South B Street in Battle Creek, Saint Paul. Big lots, old oaks, the park, and a short drive to downtown and Suburban Avenue. Call or text 952-258-3100." />
 
 <meta property="og:title" content="Living in Battle Creek, Saint Paul | 30 South B Street" />
-<meta property="og:description" content="A walking tour of 30 South B Street in Battle Creek, Saint Paul. Big lots, old oaks, the park, and a short drive to downtown and Suburban Avenue. The house is in contract. Call or text 952-258-3100." />
+<meta property="og:description" content="A walking tour of 30 South B Street in Battle Creek, Saint Paul. Big lots, old oaks, the park, and a short drive to downtown and Suburban Avenue. Call or text 952-258-3100." />
 <meta property="og:url" content="https://geoffreyserdar.com/battle-creek-saint-paul/" />
 <meta property="og:image" content="https://geoffreyserdar.com/battle-creek-saint-paul/img/battle-creek-saint-paul-og.jpg" />
 <meta property="og:type" content="website" />
@@ -20,7 +20,7 @@
 <meta property="og:image:alt" content="A Battle Creek street in fall, oaks over wide lawns" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Living in Battle Creek, Saint Paul | 30 South B Street" />
-<meta name="twitter:description" content="A walking tour of 30 South B Street in Battle Creek, Saint Paul. Big lots, old oaks, the park, and a short drive to downtown and Suburban Avenue. The house is in contract. Call or text 952-258-3100." />
+<meta name="twitter:description" content="A walking tour of 30 South B Street in Battle Creek, Saint Paul. Big lots, old oaks, the park, and a short drive to downtown and Suburban Avenue. Call or text 952-258-3100." />
 <meta name="twitter:image" content="https://geoffreyserdar.com/battle-creek-saint-paul/img/battle-creek-saint-paul-og.jpg" />
 
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600&family=Montserrat:wght@500;600&display=swap" rel="stylesheet">
@@ -835,17 +835,33 @@ body{padding-top:calc(52px + env(safe-area-inset-top))}
 <!-- /GS:TOPBAR -->
 
 <style>
-.bc-hero{position:relative;min-height:0;padding:32px 20px 40px;overflow:hidden;color:#FAF7EF}
-.bc-hero-bg{position:absolute;inset:0;background:#1F201C url("/battle-creek-saint-paul/img/battle-creek-fall-street-1.jpg") center 42%/cover no-repeat}
-.bc-hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(31,32,28,.28) 0%,rgba(31,32,28,.72) 55%,rgba(31,32,28,.88) 100%)}
-.bc-hero .bc-hero-inner{position:relative;z-index:1;max-width:720px;margin:0 auto}
-.bc-hero::before{content:none}
-.bc-hero .hero-name,.bc-hero .stat-number{color:#FAF7EF}
-.bc-hero .hero-name span,.bc-hero .eyebrow{color:#C9A877}
-.bc-hero .hero-title,.bc-hero .stat-label,.bc-hero .bc-lead{color:#F6F0E6}
-.bc-hero a.stat-link .stat-number{color:#C9A877}
-.bc-hero .form-card{color:#1F201C;background:#FAF7EF}
-.bc-lead{font-size:17px;line-height:1.65;max-width:40rem;margin:0 auto 22px}
+.bc-photo{position:relative;height:340px;overflow:hidden;background:#1F201C;display:flex;align-items:flex-end}
+.bc-hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 42%}
+.bc-hero-scrim{position:absolute;inset:0;background:linear-gradient(180deg,rgba(31,32,28,.12),rgba(31,32,28,.38));pointer-events:none}
+.bc-photo-copy{position:relative;z-index:1;padding:24px 32px 22px;max-width:720px}
+.bc-photo .eyebrow,.bc-photo .hero-title{color:#F6F0E6}
+.bc-photo .hero-name{color:#FAF7EF}
+.bc-photo .hero-name span{color:#C9A877}
+@media (max-width:760px){.bc-photo{height:280px}.bc-photo-copy{padding:18px 20px 16px}}
+.es{ padding:56px 20px 8px; max-width:1160px; margin:0 auto; }
+.es-head{ max-width:640px; margin:0 auto 28px; text-align:center; }
+.es-grid{ display:grid; grid-template-columns:1fr; gap:20px; }
+@media (min-width:640px){ .es-grid{ grid-template-columns:repeat(2,1fr); } }
+@media (min-width:1024px){ .es-grid{ grid-template-columns:repeat(3,1fr); gap:24px; } }
+.es-card{ background:var(--white); border:1px solid rgba(110,82,40,.18); border-radius:6px; overflow:hidden; display:flex; flex-direction:column; }
+.es-media{ aspect-ratio:4/3; background:var(--navy2); }
+.es-media img{ width:100%; height:100%; object-fit:cover; display:block; }
+.es-type{ display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; padding:24px; background:#1F201C; color:var(--white); }
+.es-type-tag{ font-family:'Inter',sans-serif; font-size:11px; letter-spacing:.22em; text-transform:uppercase; color:var(--gold2); margin-bottom:14px; }
+.es-type-name{ font-family:'Cormorant Garamond',serif; font-size:clamp(34px,6vw,46px); font-weight:600; line-height:1.05; }
+.es-media-wide{ aspect-ratio:4/3; }
+@media (min-width:640px){ .es-wide{ grid-column:1/-1; } .es-media-wide{ aspect-ratio:16/7; } }
+.es-body{ padding:18px 20px 20px; }
+.es-name{ font-family:'Cormorant Garamond',serif; font-size:26px; font-weight:600; color:var(--warm); }
+.es-addr{ font-size:12px; letter-spacing:.12em; text-transform:uppercase; color:var(--gold); margin:4px 0 10px; }
+.es-line{ font-size:15px; line-height:1.65; color:var(--mid); }
+.bc-hero-inner{max-width:640px;margin:0 auto}
+section.hero{min-height:0;padding-top:36px;padding-bottom:28px}
 .bc-strip{display:flex;gap:8px;overflow-x:auto;padding:8px 16px 0;-webkit-overflow-scrolling:touch}
 .bc-strip img{height:168px;width:auto;flex:0 0 auto;border-radius:10px;object-fit:cover}
 @media(min-width:800px){.bc-strip{padding:12px 32px 0;justify-content:center}.bc-strip img{height:220px}}
@@ -889,9 +905,12 @@ body{padding-top:calc(52px + env(safe-area-inset-top))}
 .es-owners img{height:auto;max-height:520px}
 .es-thumbs{display:flex;gap:6px;padding:8px 8px 0;background:#FAF7EF}
 .es-thumbs img{width:84px;height:64px;object-fit:cover;border-radius:8px}
+.es-pair{display:grid;grid-template-columns:1fr;gap:2px}
+.es-pair img{width:100%;height:100%;object-fit:cover;aspect-ratio:16/10;display:block}
+@media(min-width:700px){.es-pair{grid-template-columns:1fr 1fr}}
 .es-owners{margin:0;background:#FAF7EF}
 .es-owners img{width:100%;max-height:520px;object-fit:cover;object-position:center 20%;display:block}
-.es-owners figcaption{padding:12px 18px 0;font:600 15px/1.4 'Cormorant Garamond',serif;color:#1F201C}
+.es-owners figcaption{display:none}
 .bc-paint{display:flex;align-items:center;gap:8px;margin-top:12px;font-size:14px;line-height:1.45;color:#4D4839}
 .swatch{width:22px;height:22px;border-radius:4px;border:1px solid rgba(31,32,28,.25);flex:none}
 .bc-pin{background:#6E5228;color:#FAF7EF;border:2px solid #FAF7EF;border-radius:50%;font:700 13px/24px Inter,sans-serif;text-align:center;box-shadow:0 1px 4px rgba(31,32,28,.4)}
@@ -903,14 +922,18 @@ body{padding-top:calc(52px + env(safe-area-inset-top))}
 </style>
 
 <!-- HERO -->
-<section class="hero bc-hero">
-  <div class="bc-hero-bg"></div>
-  <div class="bc-hero-inner">
+<section class="bc-photo" aria-label="Fall trees on a Battle Creek street">
+  <img class="bc-hero-img" src="/battle-creek-saint-paul/img/battle-creek-fall-street-1.jpg" width="1920" height="1080" alt="Fall trees along a Battle Creek street">
+  <div class="bc-hero-scrim"></div>
+  <div class="bc-photo-copy">
     <p class="eyebrow">Serdar+Partners at Compass</p>
     <h1 class="hero-name">Geoffrey<span>Serdar</span></h1>
     <p class="hero-title">Battle Creek &nbsp;·&nbsp; Saint Paul &nbsp;·&nbsp; District 1</p>
-    <p class="bc-lead">This is the walking tour of 30 South B Street. Big lots. Old oaks. Fall color. Out here, it doesn&rsquo;t actually feel like the rest of St. Paul.</p>
-
+  </div>
+</section>
+<section class="hero">
+  <div class="bc-hero-inner">
+    <p class="section-body" style="max-width:640px;margin:8px auto 28px">This is the walking tour of 30 South B Street. Big lots. Old oaks. Fall color. Out here, it doesn&rsquo;t actually feel like the rest of St. Paul.</p>
     <div class="hero-stats">
       <div class="stat"><span class="stat-number">14+</span><span class="stat-label">Years</span></div>
       <div class="stat"><span class="stat-number">360+</span><span class="stat-label">Families Served</span></div>
@@ -952,11 +975,10 @@ body{padding-top:calc(52px + env(safe-area-inset-top))}
   </div>
 </section>
 
-<div class="bc-strip" aria-label="Photos from the tour">
-  <img src="/battle-creek-saint-paul/img/battle-creek-fall-street-2.jpg" width="1800" height="1012" alt="Another Battle Creek street in fall, lawns and oaks along the block" />
-  <img src="/battle-creek-saint-paul/img/ha-tien-storefront.jpg" width="1800" height="1012" alt="The Ha Tien Super Market building and parking lot" />
-  <img src="/battle-creek-saint-paul/img/los-ocampo-food.jpg" width="1800" height="797" alt="A spread of tacos, seafood, and plates from Los Ocampo" />
-  <img src="/battle-creek-saint-paul/img/downtown-st-paul-skyline.jpg" width="1800" height="1001" alt="The downtown St. Paul skyline across the river" />
+<div class="bc-strip" aria-label="Street, food, and the downtown skyline">
+  <img src="/battle-creek-saint-paul/img/battle-creek-fall-street-2.jpg" width="1920" height="1080" alt="Fall trees and wide lawns on a Battle Creek street" />
+  <img src="/battle-creek-saint-paul/img/los-ocampo-food.jpg" width="1800" height="797" alt="Plates of food from Los Ocampo" />
+  <img src="/battle-creek-saint-paul/img/downtown-st-paul-skyline.jpg" width="1800" height="1001" alt="The downtown St. Paul skyline" />
 </div>
 
 <div class="divider"></div>
@@ -970,8 +992,7 @@ body{padding-top:calc(52px + env(safe-area-inset-top))}
     </ol>
   </nav>
   <h2 class="section-headline">30 South B Street, and the places around it.</h2>
-  <p class="section-body">The house is in contract. The close is estimated around November 20. There is no price on this page.</p>
-  <p class="section-body tour-invite">If you are looking here, ask me what the week actually feels like. If this is your home, ask how its rooms, and the blocks around them, could be walked the way this tour does. Call or text <a href="sms:+19522583100">952-258-3100</a>. If you are thinking about selling, <a href="#sv-offer">tell me about your home</a>.</p>
+  <p class="section-body">If you are curious about this house, let me know. If you are looking here, ask what the week actually feels like. If this is your home, ask how its rooms, and the blocks around them, could be walked the way this tour does. Call or text <a href="sms:+19522583100">952-258-3100</a>. If you are thinking about selling, <a href="#sv-offer">tell me about your home</a>.</p>
 </div>
 
 <div class="tour-videos" id="bcTourVideo" data-youtube-id="">
@@ -991,7 +1012,7 @@ body{padding-top:calc(52px + env(safe-area-inset-top))}
   <div class="bc-places-head">
     <p class="section-eyebrow">The tour, on a map</p>
     <h2 class="section-headline">Tap a place.</h2>
-    <p class="section-body">Ha Tien is my usual stop. Los Ocampo, Tea House, Sabores, and Loma Bonita are nearby options. I&rsquo;m naming them because they&rsquo;re close, not because they&rsquo;re my personal favorites.</p>
+    <p class="section-body">Ha Tien is my usual stop. Los Ocampo, Tea House, and Sabores are nearby options. I&rsquo;m naming them because they&rsquo;re close, not because they&rsquo;re my personal favorites.</p>
   </div>
 
   <div class="bc-map-wrap">
@@ -1024,30 +1045,21 @@ body{padding-top:calc(52px + env(safe-area-inset-top))}
   <div class="es-grid">
     <article class="es-card">
       <div class="es-media es-type">
-        <p class="es-type-tag">In contract</p>
+        <p class="es-type-tag">The tour</p>
         <p class="es-type-name">30 South B</p>
       </div>
       <div class="es-body">
         <h3 class="es-name">The tour home</h3>
-        <p class="es-addr">30 S B St, St. Paul 55106</p>
-        <p class="es-line">This is the house I walk through. It is in contract. The close is estimated around November 20. No price.</p>
-        <p class="bc-paint"><span class="swatch" style="background:rgb(230,223,211)" aria-hidden="true"></span> The paint in the tour is Sherwin-Williams Shoji White, SW 7042.</p>
+        <p class="es-addr">30 S B St</p>
+        <p class="es-line">If you&rsquo;re curious about this house, let me know.</p>
       </div>
     </article>
     <article class="es-card">
-      <div class="es-media"><img src="/battle-creek-saint-paul/img/battle-creek-fall-street-1.jpg" width="1800" height="1012" alt="A Battle Creek street in fall, oaks turning color over wide lawns" loading="lazy" decoding="async"></div>
+      <div class="es-media"><img src="/battle-creek-saint-paul/img/battle-creek-fall-street-2.jpg" width="1920" height="1080" alt="Fall trees and wide lawns on a Battle Creek street" loading="lazy" decoding="async"></div>
       <div class="es-body">
         <h3 class="es-name">The streets around South B</h3>
         <p class="es-addr">Around S B St</p>
-        <p class="es-line">Big lots. Old oaks. Fall color on the lawns. That is the feeling of these blocks.</p>
-      </div>
-    </article>
-    <article class="es-card">
-      <div class="es-media"><img src="/battle-creek-saint-paul/img/battle-creek-fall-street-2.jpg" width="1800" height="1012" alt="Fall color and wide lawns on a Battle Creek block" loading="lazy" decoding="async"></div>
-      <div class="es-body">
-        <h3 class="es-name">Same blocks, a little farther</h3>
-        <p class="es-addr">Around S B St</p>
-        <p class="es-line">Another look down the street. The lots stay big. The trees do the work.</p>
+        <p class="es-line">Big lots. Old oaks. Fall color.</p>
       </div>
     </article>
     <article class="es-card">
@@ -1055,7 +1067,7 @@ body{padding-top:calc(52px + env(safe-area-inset-top))}
       <div class="es-body">
         <h3 class="es-name">Battle Creek Regional Park</h3>
         <p class="es-addr">Lower Afton Rd and McKnight Rd &middot; about 5 min</p>
-        <p class="es-line">The amenity people feel every week. Trails. Cross-country skiing on machine-made snow. A sledding hill. About a 5 minute drive.</p>
+        <p class="es-line">Trails, skiing, and a sledding hill.</p>
       </div>
     </article>
     <article class="es-card">
@@ -1066,7 +1078,7 @@ body{padding-top:calc(52px + env(safe-area-inset-top))}
       <div class="es-body">
         <h3 class="es-name">Battle Creek Recreation Center</h3>
         <p class="es-addr">75 Winthrop St. S., Saint Paul, MN 55119</p>
-        <p class="es-line">The rec center and the neighborhood schools are part of the week out here.</p>
+        <p class="es-line">The rec center and the neighborhood schools.</p>
       </div>
     </article>
     <article class="es-card">
@@ -1074,7 +1086,7 @@ body{padding-top:calc(52px + env(safe-area-inset-top))}
       <div class="es-body">
         <h3 class="es-name">Regions Hospital</h3>
         <p class="es-addr">640 Jackson St &middot; about 9 min</p>
-        <p class="es-line">HealthPartners. St. Paul&rsquo;s Level I Trauma Center. About a 9 minute drive.</p>
+        <p class="es-line">St. Paul&rsquo;s Level I trauma center.</p>
       </div>
     </article>
     <article class="es-card es-wide">
@@ -1082,7 +1094,7 @@ body{padding-top:calc(52px + env(safe-area-inset-top))}
       <div class="es-body">
         <h3 class="es-name">Downtown St. Paul</h3>
         <p class="es-addr">About 11 minutes &middot; a quick hop to I-94</p>
-        <p class="es-line">A short drive downtown. And a quick hop to I-94.</p>
+        <p class="es-line">A quick hop to I-94.</p>
       </div>
     </article>
   </div>
@@ -1103,7 +1115,7 @@ body{padding-top:calc(52px + env(safe-area-inset-top))}
       <div class="es-body">
         <h3 class="es-name">1 &middot; Los Ocampo</h3>
         <p class="es-addr">1751 Suburban Ave &middot; about 3 min</p>
-        <p class="es-line">A long-running Mexican restaurant, under a mile away.</p>
+        <p class="es-line">A long-running Mexican restaurant.</p>
       </div>
     </article>
     <article class="es-card">
@@ -1130,31 +1142,12 @@ body{padding-top:calc(52px + env(safe-area-inset-top))}
         <p class="es-line">A Latin grocery. Butcher, bakery, produce, and a small restaurant.</p>
       </div>
     </article>
-    <article class="es-card">
-      <div class="es-media es-type">
-        <p class="es-type-tag">About 6 min</p>
-        <p class="es-type-name">Loma Bonita</p>
-      </div>
-      <div class="es-body">
-        <h3 class="es-name">4 &middot; Supermercado Loma Bonita</h3>
-        <p class="es-addr">800 White Bear Ave N &middot; about 6 min</p>
-        <p class="es-line">A family-run Mexican market, with a bakery and pan dulce, and a restaurant. The family&rsquo;s stores began in 2007. This St. Paul store opened in 2017.</p>
-      </div>
-    </article>
     <article class="es-card es-wide">
-      <div class="es-media es-media-wide"><img src="/battle-creek-saint-paul/img/ha-tien-storefront.jpg" width="1800" height="1012" alt="Ha Tien Super Market, in a low dark building with a full parking lot" loading="lazy" decoding="async"></div>
-      <div class="es-thumbs">
-        <img src="/battle-creek-saint-paul/img/ha-tien-deli-roast-meats.jpg" width="1360" height="765" alt="Roast pork and duck hanging in the Ha Tien deli case" loading="lazy" decoding="async">
-        <img src="/battle-creek-saint-paul/img/ha-tien-bakery-case.jpg" width="1800" height="1012" alt="Baked goods in the Ha Tien case" loading="lazy" decoding="async">
-      </div>
-      <figure class="es-owners">
-        <img src="/battle-creek-saint-paul/img/ha-tien-owners-son-ne-dao.jpg" width="1240" height="815" alt="Son and Ne Dao standing in an aisle at Ha Tien" loading="lazy" decoding="async">
-        <figcaption>Son &amp; Ne Dao, owners since 1996</figcaption>
-      </figure>
+      <div class="es-media"><img src="/battle-creek-saint-paul/img/ha-tien-owners-son-ne-dao.jpg" width="1240" height="815" alt="Son and Ne Dao at Ha Tien" loading="lazy" decoding="async"></div>
       <div class="es-body">
-        <h3 class="es-name">5 &middot; Ha Tien Super Market</h3>
+        <h3 class="es-name">4 &middot; Ha Tien Super Market</h3>
         <p class="es-addr">1959 Suburban Ave &middot; about 4 min</p>
-        <p class="es-line">The last stop on the tour. Deli, roast pork and duck, and b&aacute;nh m&igrave; made to order. The building opened as a Byerly&rsquo;s in 1971 and closed in March 2016. Son and Ne Dao opened their second Ha Tien here on November 29, 2016. They took over Son&rsquo;s parents&rsquo; grocery in 1996. Son is from Vietnam. Ne is from Cambodia. The store is named for H&agrave; Ti&ecirc;n, the city where Son was born.</p>
+        <p class="es-line">Son &amp; Ne Dao, owners since 1996.</p>
       </div>
     </article>
   </div>
@@ -1170,21 +1163,18 @@ body{padding-top:calc(52px + env(safe-area-inset-top))}
       <div class="es-media"><img src="/battle-creek-saint-paul/img/kaposia-village-1846.jpg" width="640" height="401" alt="An 1846 painting of Kaposia, a Dakota village along the Mississippi" loading="lazy" decoding="async"></div>
       <div class="es-body">
         <h3 class="es-name">Kaposia, 1846</h3>
-        <p class="es-line">In 1842, Battle Creek took its name from a clash between Dakota and Ojibwe people near the creek. The Kaposia band of Mdewakanton Dakota had lived near Pig&rsquo;s Eye Lake from about 1775 into the early 1800s.</p>
       </div>
     </article>
     <article class="es-card">
       <div class="es-media"><img src="/battle-creek-saint-paul/img/burlington-line-1891.jpg" width="579" height="382" alt="An 1891 photograph of a railroad bridge over a river" loading="lazy" decoding="async"></div>
       <div class="es-body">
         <h3 class="es-name">The Burlington line, 1891</h3>
-        <p class="es-line">In the 1860s the Chicago, Milwaukee and St. Paul line ran along Point Douglas Road. In the late 1880s the Chicago, Burlington and Northern laid tracks through here. This is an 1891 view of a bridge on that line. St. Paul annexed this land in 1872, 1885, and 1887.</p>
       </div>
     </article>
     <article class="es-card">
       <div class="es-media"><img src="/battle-creek-saint-paul/img/st-paul-1874.jpg" width="1800" height="670" alt="An 1874 view of downtown St. Paul from the river bluffs" loading="lazy" decoding="async"></div>
       <div class="es-body">
         <h3 class="es-name">St. Paul from the bluffs, 1874</h3>
-        <p class="es-line">Trains ran into downtown St. Paul. In 1886 a St. Paul and Boston syndicate, the Union Land Company, bought about 1,200 acres and platted Burlington Heights. Two small stations sat about a mile apart. Few houses went up at first.</p>
       </div>
     </article>
     <article class="es-card">
@@ -1194,14 +1184,17 @@ body{padding-top:calc(52px + env(safe-area-inset-top))}
       </div>
       <div class="es-body">
         <h3 class="es-name">Highwood</h3>
-        <p class="es-line">Highwood is named for the Highwood station. It is the 1880s railroad-suburb story, just south of these blocks. Most of District 1 filled in after World War II, with 1960s neighborhoods on larger lots near the bluffs and the park.</p>
+        <p class="es-line">Named for the Highwood station.</p>
       </div>
     </article>
     <article class="es-card es-wide">
-      <div class="es-media es-media-wide"><img src="/battle-creek-saint-paul/img/pigs-eye-lake-pelicans.jpg" width="1600" height="718" alt="White pelicans lifting off the water at Pig's Eye Lake" loading="lazy" decoding="async"></div>
+      <div class="es-pair">
+        <img src="/battle-creek-saint-paul/img/pigs-eye-lake-pelicans.jpg" width="1600" height="718" alt="White pelicans lifting off the water at Pig's Eye Lake" loading="lazy" decoding="async">
+        <img src="/battle-creek-saint-paul/img/pigs-eye-lake-eagles.jpg" width="1800" height="1183" alt="Bald eagles gathered on the water at Pig's Eye Lake" loading="lazy" decoding="async">
+      </div>
       <div class="es-body">
         <h3 class="es-name">Pig&rsquo;s Eye Lake</h3>
-        <p class="es-line">Battle Creek runs toward Pig&rsquo;s Eye Lake and the Mississippi.</p>
+        <p class="es-line">Pelicans and bald eagles.</p>
       </div>
     </article>
     <article class="es-card">
@@ -1211,11 +1204,21 @@ body{padding-top:calc(52px + env(safe-area-inset-top))}
       </div>
       <div class="es-body">
         <h3 class="es-name">Eastview, Conway, Battle Creek, Highwood</h3>
-        <p class="es-line">Today this is St. Paul&rsquo;s District 1. Those four neighborhoods, plus Battle Creek Regional Park. The city draws the line around the whole district. Battle Creek itself does not have its own official boundary.</p>
+        <p class="es-line">Eastview, Conway, Battle Creek, and Highwood.</p>
       </div>
     </article>
   </div>
 </section>
+
+<div class="section" id="facts">
+  <p class="section-eyebrow">Worth knowing</p>
+  <h2 class="section-headline">The short version.</h2>
+  <p class="section-body">District 1 is Eastview, Conway, Battle Creek, and Highwood, plus the regional park. Battle Creek has no separate city boundary.<br /><br />
+    The park is about 5 minutes, by Lower Afton and McKnight. Trails, machine-made-snow skiing, a sledding hill. Regions Hospital is about 9 minutes, at 640 Jackson Street. Downtown is about 11 minutes, and I-94 is a quick hop.<br /><br />
+    Ha Tien is my usual stop. Los Ocampo, Tea House, and Sabores are nearby options, not my personal favorites.<br /><br />
+    Ha Tien is at 1959 Suburban, about 4 minutes. Deli, roast pork and duck, and b&aacute;nh m&igrave; made to order. Son and Ne Dao have run it since 1996. The building was a Byerly&rsquo;s from 1971 until March 2016. They opened here on November 29, 2016.<br /><br />
+    The creek was named in 1842 for a clash between Dakota and Ojibwe people. It runs toward Pig&rsquo;s Eye Lake. Highwood, just south, is named for the Highwood station. The walls in the tour are Sherwin-Williams Shoji White, SW 7042.</p>
+</div>
 
 <div class="hoods">
   <p class="section-eyebrow">Where this page sits</p>
@@ -1270,7 +1273,7 @@ body{padding-top:calc(52px + env(safe-area-inset-top))}
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
-<script type="application/json" id="bcPlacesData">[{"id": "home", "name": "30 South B Street", "short": "30 B", "kicker": "The tour home", "addr": "30 S B St, St. Paul 55106", "drive": "", "lat": 44.94035, "lng": -93.02669, "text": "The house in the tour. It is in contract. The close is estimated around November 20. No price.", "photos": []}, {"id": "streets", "name": "Battle Creek streets", "short": "The streets", "kicker": "Around South B", "addr": "Around S B St", "drive": "", "lat": 44.9404, "lng": -93.0267, "text": "It doesn't actually feel like St. Paul. Big lots, old oaks, and fall color.", "photos": [{"src": "/battle-creek-saint-paul/img/battle-creek-fall-street-1.jpg", "alt": "A Battle Creek street in fall, oaks turning color over wide lawns"}, {"src": "/battle-creek-saint-paul/img/battle-creek-fall-street-2.jpg", "alt": "Fall color and wide lawns on a Battle Creek block"}]}, {"id": "park", "name": "Battle Creek Regional Park", "short": "The park", "kicker": "About 5 min", "addr": "Lower Afton Rd and McKnight Rd", "drive": "about 5 min", "lat": 44.94037, "lng": -92.9966, "text": "The amenity people feel every week. Trails, cross-country skiing on machine-made snow, and a sledding hill.", "photos": [{"src": "/battle-creek-saint-paul/img/battle-creek-park-winter-trail.jpg", "alt": "A snowy trail through the trees at Battle Creek Regional Park"}]}, {"id": "rec", "name": "Battle Creek Recreation Center", "short": "Rec center", "kicker": "Close by", "addr": "75 Winthrop St. S., Saint Paul, MN 55119", "drive": "", "lat": 44.9386, "lng": -93.01286, "text": "The rec center and the neighborhood schools, at 75 Winthrop Street South.", "photos": []}, {"id": "regions", "name": "Regions Hospital", "short": "Regions", "kicker": "For work", "addr": "640 Jackson St", "drive": "about 9 min", "lat": 44.95585, "lng": -93.09469, "text": "HealthPartners. St. Paul's Level I Trauma Center. About a 9 minute drive.", "photos": [{"src": "/battle-creek-saint-paul/img/regions-hospital.jpg", "alt": "The Regions Hospital building and its HealthPartners sign"}]}, {"id": "downtown", "name": "Downtown St. Paul", "short": "Downtown", "kicker": "About 11 min", "addr": "Downtown", "drive": "about 11 min", "lat": 44.94463, "lng": -93.09711, "text": "A short drive downtown, and a quick hop to I-94.", "photos": [{"src": "/battle-creek-saint-paul/img/downtown-st-paul-skyline.jpg", "alt": "The downtown St. Paul skyline across the river"}]}, {"id": "ocampo", "num": 1, "name": "Los Ocampo", "short": "Los Ocampo", "kicker": "Nearby option", "addr": "1751 Suburban Ave", "drive": "about 3 min", "lat": 44.94979, "lng": -93.02624, "text": "A long-running Mexican restaurant, under a mile away.", "photos": [{"src": "/battle-creek-saint-paul/img/los-ocampo-storefront.jpg", "alt": "The Los Ocampo taqueria sign"}, {"src": "/battle-creek-saint-paul/img/los-ocampo-food.jpg", "alt": "A spread of tacos, seafood, and plates from Los Ocampo"}]}, {"id": "teahouse", "num": 2, "name": "Tea House", "short": "Tea House", "kicker": "Nearby option", "addr": "1676 Suburban Ave", "drive": "about 3 min", "lat": 44.95105, "lng": -93.02804, "text": "Sichuan cooking, and dim sum on the weekend.", "photos": [{"src": "/battle-creek-saint-paul/img/tea-house-fish.jpg", "alt": "A bowl of fish in a red chile sauce"}, {"src": "/battle-creek-saint-paul/img/tea-house-noodles.jpg", "alt": "A plate of noodles with meat and vegetables"}, {"src": "/battle-creek-saint-paul/img/tea-house-chicken.jpg", "alt": "Sesame chicken with broccoli"}]}, {"id": "sabores", "num": 3, "name": "Sabores Fresh Market", "short": "Sabores", "kicker": "Nearby option", "addr": "1990 Suburban Ave", "drive": "about 4 min", "lat": 44.9498, "lng": -93.01648, "text": "A Latin grocery. Butcher, bakery, produce, and a small restaurant.", "photos": [{"src": "/battle-creek-saint-paul/img/sabores-tacos.jpg", "alt": "Tacos on a plate with the Sabores Fresh Market mark"}, {"src": "/battle-creek-saint-paul/img/sabores-butcher.jpg", "alt": "A butcher counter with hanging cuts of meat"}, {"src": "/battle-creek-saint-paul/img/sabores-bakery.jpg", "alt": "Pastries in a bakery case"}]}, {"id": "loma", "num": 4, "name": "Supermercado Loma Bonita", "short": "Loma Bonita", "kicker": "Nearby option", "addr": "800 White Bear Ave N", "drive": "about 6 min", "lat": 44.96553, "lng": -93.02488, "text": "A family-run Mexican market with a bakery, pan dulce, and a restaurant. The family's stores began in 2007. This St. Paul store opened in 2017.", "photos": []}, {"id": "hatien", "num": 5, "name": "Ha Tien Super Market", "short": "Ha Tien", "kicker": "My usual stop", "addr": "1959 Suburban Ave", "drive": "about 4 min", "lat": 44.95045, "lng": -93.01799, "text": "The tour's last stop. Deli, roast pork and duck, and bánh mì made to order, in the old Byerly's building.", "photos": [{"src": "/battle-creek-saint-paul/img/ha-tien-storefront.jpg", "alt": "Ha Tien Super Market, in a low dark building with a full parking lot"}, {"src": "/battle-creek-saint-paul/img/ha-tien-deli-roast-meats.jpg", "alt": "Roast pork and duck hanging in the Ha Tien deli case"}, {"src": "/battle-creek-saint-paul/img/ha-tien-bakery-case.jpg", "alt": "Baked goods in the Ha Tien case"}, {"src": "/battle-creek-saint-paul/img/ha-tien-owners-son-ne-dao.jpg", "alt": "Son and Ne Dao standing in an aisle at Ha Tien"}]}, {"id": "pigseye", "name": "Pig's Eye Lake", "short": "Pig's Eye", "kicker": "The creek runs here", "addr": "Southwest of the neighborhood", "drive": "", "lat": 44.91053, "lng": -93.02913, "text": "Battle Creek runs toward Pig's Eye Lake and the Mississippi.", "photos": [{"src": "/battle-creek-saint-paul/img/pigs-eye-lake-pelicans.jpg", "alt": "White pelicans lifting off the water at Pig's Eye Lake"}]}, {"id": "highwood", "name": "Highwood", "short": "Highwood", "kicker": "Just south", "addr": "Highwood Hills", "drive": "", "lat": 44.91491, "lng": -93.0146, "text": "The 1880s railroad suburb, just south. Highwood is named for the Highwood station.", "photos": [{"src": "/battle-creek-saint-paul/img/burlington-line-1891.jpg", "alt": "An 1891 photograph of a railroad bridge over a river"}]}]</script>
+<script type="application/json" id="bcPlacesData">[{"id": "home", "name": "30 South B Street", "short": "30 B", "kicker": "The tour home", "addr": "30 S B St, St. Paul 55106", "drive": "", "lat": 44.94035, "lng": -93.02669, "text": "If you're curious about this house, let me know.", "photos": []}, {"id": "streets", "name": "Battle Creek streets", "short": "The streets", "kicker": "Around South B", "addr": "Around S B St", "drive": "", "lat": 44.9404, "lng": -93.0267, "text": "Big lots. Old oaks. Fall color.", "photos": [{"src": "/battle-creek-saint-paul/img/battle-creek-fall-street-1.jpg", "alt": "Fall trees along a Battle Creek street"}, {"src": "/battle-creek-saint-paul/img/battle-creek-fall-street-2.jpg", "alt": "Fall trees and wide lawns on a Battle Creek street"}]}, {"id": "park", "name": "Battle Creek Regional Park", "short": "The park", "kicker": "About 5 min", "addr": "Lower Afton Rd and McKnight Rd", "drive": "about 5 min", "lat": 44.94037, "lng": -92.9966, "text": "Trails, skiing, and a sledding hill.", "photos": [{"src": "/battle-creek-saint-paul/img/battle-creek-park-winter-trail.jpg", "alt": "A snowy trail through the trees at Battle Creek Regional Park"}]}, {"id": "rec", "name": "Battle Creek Recreation Center", "short": "Rec center", "kicker": "Close by", "addr": "75 Winthrop St. S., Saint Paul, MN 55119", "drive": "", "lat": 44.9386, "lng": -93.01286, "text": "The rec center and the neighborhood schools.", "photos": []}, {"id": "regions", "name": "Regions Hospital", "short": "Regions", "kicker": "For work", "addr": "640 Jackson St", "drive": "about 9 min", "lat": 44.95585, "lng": -93.09469, "text": "St. Paul's Level I trauma center.", "photos": [{"src": "/battle-creek-saint-paul/img/regions-hospital.jpg", "alt": "The Regions Hospital building and its HealthPartners sign"}]}, {"id": "downtown", "name": "Downtown St. Paul", "short": "Downtown", "kicker": "About 11 min", "addr": "Downtown", "drive": "about 11 min", "lat": 44.94463, "lng": -93.09711, "text": "A quick hop to I-94.", "photos": [{"src": "/battle-creek-saint-paul/img/downtown-st-paul-skyline.jpg", "alt": "The downtown St. Paul skyline across the river"}]}, {"id": "ocampo", "num": 1, "name": "Los Ocampo", "short": "Los Ocampo", "kicker": "Nearby option", "addr": "1751 Suburban Ave", "drive": "about 3 min", "lat": 44.94979, "lng": -93.02624, "text": "A long-running Mexican restaurant.", "photos": [{"src": "/battle-creek-saint-paul/img/los-ocampo-storefront.jpg", "alt": "The Los Ocampo taqueria sign"}, {"src": "/battle-creek-saint-paul/img/los-ocampo-food.jpg", "alt": "A spread of tacos, seafood, and plates from Los Ocampo"}]}, {"id": "teahouse", "num": 2, "name": "Tea House", "short": "Tea House", "kicker": "Nearby option", "addr": "1676 Suburban Ave", "drive": "about 3 min", "lat": 44.95105, "lng": -93.02804, "text": "Sichuan cooking, and weekend dim sum.", "photos": [{"src": "/battle-creek-saint-paul/img/tea-house-fish.jpg", "alt": "A bowl of fish in a red chile sauce"}, {"src": "/battle-creek-saint-paul/img/tea-house-noodles.jpg", "alt": "A plate of noodles with meat and vegetables"}, {"src": "/battle-creek-saint-paul/img/tea-house-chicken.jpg", "alt": "Sesame chicken with broccoli"}]}, {"id": "sabores", "num": 3, "name": "Sabores Fresh Market", "short": "Sabores", "kicker": "Nearby option", "addr": "1990 Suburban Ave", "drive": "about 4 min", "lat": 44.9498, "lng": -93.01648, "text": "Butcher, bakery, produce, and a small restaurant.", "photos": [{"src": "/battle-creek-saint-paul/img/sabores-tacos.jpg", "alt": "Tacos on a plate with the Sabores Fresh Market mark"}, {"src": "/battle-creek-saint-paul/img/sabores-butcher.jpg", "alt": "A butcher counter with hanging cuts of meat"}, {"src": "/battle-creek-saint-paul/img/sabores-bakery.jpg", "alt": "Pastries in a bakery case"}]}, {"id": "hatien", "num": 4, "name": "Ha Tien Super Market", "short": "Ha Tien", "kicker": "My usual stop", "addr": "1959 Suburban Ave", "drive": "about 4 min", "lat": 44.95045, "lng": -93.01799, "text": "Son & Ne Dao, owners since 1996.", "photos": [{"src": "/battle-creek-saint-paul/img/ha-tien-owners-son-ne-dao.jpg", "alt": "Son and Ne Dao at Ha Tien"}]}, {"id": "pigseye", "name": "Pig's Eye Lake", "short": "Pig's Eye", "kicker": "The creek runs here", "addr": "Southwest of the neighborhood", "drive": "", "lat": 44.91053, "lng": -93.02913, "text": "Pelicans and bald eagles.", "photos": [{"src": "/battle-creek-saint-paul/img/pigs-eye-lake-pelicans.jpg", "alt": "White pelicans lifting off the water at Pig's Eye Lake"}, {"src": "/battle-creek-saint-paul/img/pigs-eye-lake-eagles.jpg", "alt": "Bald eagles gathered on the water at Pig's Eye Lake"}]}, {"id": "highwood", "name": "Highwood", "short": "Highwood", "kicker": "Just south", "addr": "Highwood Hills", "drive": "", "lat": 44.91491, "lng": -93.0146, "text": "Named for the Highwood station.", "photos": [{"src": "/battle-creek-saint-paul/img/burlington-line-1891.jpg", "alt": "An 1891 photograph of a railroad bridge over a river"}]}]</script>
 <script>
 (function () {
   var slot = document.getElementById('bcTourVideo');
