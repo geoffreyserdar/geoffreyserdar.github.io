@@ -874,8 +874,15 @@ section.hero{min-height:0;padding-top:36px;padding-bottom:28px}
 .bc-map-wrap{border:1px solid #C9A877;border-radius:14px;overflow:hidden;background:#E3DAC6}
 .bc-map-bar{background:#1F201C;color:#FAF7EF;font:600 15px/1.35 Inter,sans-serif;padding:12px 16px}
 .bc-map-bar b{color:#C9A877;font-weight:600}
-#bcMap{height:440px;background:#E3DAC6}
-@media(min-width:800px){#bcMap{height:520px}}
+#bcStillMap{width:100%;height:auto;display:block;background:#E4DACA;touch-action:pan-y}
+#bcStillMap a:focus{outline:none}
+#bcStillMap a:focus .lbl,#bcStillMap a:focus circle{stroke:#C9A877}
+#bcStillMap .lbl{font-family:Inter,sans-serif;font-weight:700;font-size:28px;fill:#1F201C;paint-order:stroke;stroke:#fff;stroke-width:6px;stroke-linejoin:round;pointer-events:none}
+#bcStillMap .lbl.light{fill:#FAF7EF;stroke:#2A2116}
+#bcStillMap .num{font-family:Inter,sans-serif;font-weight:700;font-size:26px;fill:#FAF7EF;text-anchor:middle;dominant-baseline:central;pointer-events:none}
+#bcStillMap circle,#bcStillMap path,#bcStillMap text{pointer-events:none}
+#bcStillMap a{cursor:pointer}
+.es-card[id]{scroll-margin-top:76px;scroll-margin-bottom:96px}
 .bc-map-note{font-size:12px;line-height:1.5;color:#4D4839;margin:8px 2px 0}
 .bc-card{display:grid;background:#FAF7EF;border:1px solid #C9A877;border-radius:14px;overflow:hidden;margin-top:14px}
 @media(min-width:800px){.bc-card{grid-template-columns:1.15fr .85fr}}
@@ -920,11 +927,6 @@ section.hero{min-height:0;padding-top:36px;padding-bottom:28px}
 .es-owners figcaption{display:none}
 .bc-paint{display:flex;align-items:center;gap:8px;margin-top:12px;font-size:14px;line-height:1.45;color:#4D4839}
 .swatch{width:22px;height:22px;border-radius:4px;border:1px solid rgba(31,32,28,.25);flex:none}
-.bc-pin{background:#6E5228;color:#FAF7EF;border:2px solid #FAF7EF;border-radius:50%;font:700 13px/24px Inter,sans-serif;text-align:center;box-shadow:0 1px 4px rgba(31,32,28,.4)}
-.bc-pin.food{background:#1F201C}
-.bc-pin.home{background:#C9A877;color:#1F201C;border-radius:4px}
-.bc-pin.on{box-shadow:0 0 0 3px #C9A877}
-#bcMap img{max-width:none}
 @media(max-width:760px){.bc-places{padding-left:16px;padding-right:16px}}
 </style>
 
@@ -1019,24 +1021,91 @@ section.hero{min-height:0;padding-top:36px;padding-bottom:28px}
 
   <div class="bc-map-wrap">
     <div class="bc-map-bar">From 30 South B Street <b>· the places on the tour</b></div>
-    <div id="bcMap" role="region" aria-label="Map of places from the Battle Creek tour"></div>
+    <svg id="bcStillMap" viewBox="0 0 720 760" xmlns="http://www.w3.org/2000/svg" role="group" aria-label="Still map of places on the Battle Creek tour">
+  <rect width="720" height="760" fill="#E4DACA"/>
+  <path d="M337.7,449.5 L327.0,426.8 L342.1,367.0 L342.8,330.6 L331.4,293.0 L295.3,230.7 L400.0,187.1 L397.5,135.1 L406.8,123.5 L406.5,88.8 L426.9,88.5 L427.0,63.5 L405.9,63.4 L406.0,37.8 L626.7,37.9 L626.7,72.0 L626.8,106.1 L626.9,140.1 L627.0,174.2 L627.3,211.8 L627.6,245.8 L627.8,279.9 L628.1,314.0 L628.1,348.0 L628.1,382.0 L628.1,416.0 L628.2,450.0 L628.8,484.1 L629.4,518.1 L629.9,552.0 L630.3,585.9 L630.8,619.6 L631.2,653.4 L631.3,687.2 L631.3,721.0 L598.9,721.1 L566.6,721.1 L545.0,721.2 L541.4,721.2 L534.3,721.2 L530.8,721.2 L501.7,689.8 L437.0,654.3 L389.7,585.6 L370.2,517.5 L337.7,449.5 Z" fill="#6E5228" stroke="#FAF7EF" stroke-width="3"/>
+  <path d="M300,508 C477,332 497,189 517,159" fill="none" stroke="#C9A877" stroke-width="3"/>
+  <circle cx="517.1" cy="158.7" r="7" fill="#F08C14" stroke="#fff" stroke-width="3"/>
+  <rect x="32" y="292" width="276" height="432" rx="18" fill="#F6F1E8" stroke="#C9A877" stroke-width="3"/>
+  <a href="#card-ocampo" aria-label="1, Los Ocampo">
+    <rect x="32" y="292" width="276" height="108" fill="transparent"/>
+    <circle cx="78" cy="346.0" r="24" fill="#1F201C" stroke="#fff" stroke-width="4"/>
+    <text class="num" x="78" y="347.0">1</text>
+    <text class="lbl" x="116" y="354.0">Los Ocampo</text>
+  </a><a href="#card-teahouse" aria-label="2, Tea House">
+    <rect x="32" y="400" width="276" height="108" fill="transparent"/>
+    <circle cx="78" cy="454.0" r="24" fill="#1F201C" stroke="#fff" stroke-width="4"/>
+    <text class="num" x="78" y="455.0">2</text>
+    <text class="lbl" x="116" y="462.0">Tea House</text>
+  </a><a href="#card-sabores" aria-label="3, Sabores">
+    <rect x="32" y="508" width="276" height="108" fill="transparent"/>
+    <circle cx="78" cy="562.0" r="24" fill="#1F201C" stroke="#fff" stroke-width="4"/>
+    <text class="num" x="78" y="563.0">3</text>
+    <text class="lbl" x="116" y="570.0">Sabores</text>
+  </a><a href="#card-hatien" aria-label="4, Ha Tien">
+    <rect x="32" y="616" width="276" height="108" fill="transparent"/>
+    <circle cx="78" cy="670.0" r="24" fill="#1F201C" stroke="#fff" stroke-width="4"/>
+    <text class="num" x="78" y="671.0">4</text>
+    <text class="lbl" x="116" y="678.0">Ha Tien</text>
+  </a>
+
+<a href="#card-regions" aria-label="Regions Hospital">
+    <rect x="40" y="78" width="200" height="64" fill="transparent"/>
+    <circle cx="53.8" cy="108" r="18" fill="#1F201C" opacity="0.18"/>
+    <circle cx="53.8" cy="106" r="15" fill="#fff"/>
+    <circle cx="53.8" cy="106" r="9" fill="#1F201C"/>
+    <text class="lbl" x="80" y="114">Regions</text>
+  </a>
+  <a href="#card-downtown" aria-label="Downtown St. Paul">
+    <rect x="24" y="184" width="220" height="64" fill="transparent"/>
+    <circle cx="38.3" cy="214" r="18" fill="#1F201C" opacity="0.18"/>
+    <circle cx="38.3" cy="212" r="15" fill="#fff"/>
+    <circle cx="38.3" cy="212" r="9" fill="#1F201C"/>
+    <text class="lbl" x="66" y="220">Downtown</text>
+  </a>
+  <a href="#card-park" aria-label="Battle Creek Regional Park">
+    <rect x="560" y="168" width="150" height="100" fill="transparent"/>
+    <circle cx="680.7" cy="254" r="18" fill="#1F201C" opacity="0.18"/>
+    <circle cx="680.7" cy="252" r="15" fill="#fff"/>
+    <circle cx="680.7" cy="252" r="9" fill="#1F201C"/>
+    <text class="lbl light" text-anchor="middle" x="640" y="210">The park</text>
+  </a>
+  <a href="#card-rec" aria-label="Battle Creek Recreation Center">
+    <rect x="500" y="250" width="180" height="100" fill="transparent"/>
+    <circle cx="576.7" cy="271" r="18" fill="#1F201C" opacity="0.18"/>
+    <circle cx="576.7" cy="269" r="15" fill="#fff"/>
+    <circle cx="576.7" cy="269" r="9" fill="#fff"/>
+    <circle cx="576.7" cy="269" r="6" fill="#1F201C"/>
+    <text class="lbl light" x="520" y="328">Rec center</text>
+  </a>
+  <a href="#card-highwood" aria-label="Highwood">
+    <rect x="390" y="440" width="220" height="90" fill="transparent"/>
+    <circle cx="565.6" cy="495" r="18" fill="#1F201C" opacity="0.18"/>
+    <circle cx="565.6" cy="493" r="15" fill="#fff"/>
+    <circle cx="565.6" cy="493" r="9" fill="#1F201C"/>
+    <text class="lbl light" text-anchor="end" x="546" y="470">Highwood</text>
+  </a>
+  <a href="#card-pigs-eye" aria-label="Pig’s Eye Lake">
+    <rect x="360" y="510" width="200" height="90" fill="transparent"/>
+    <circle cx="472.8" cy="536" r="18" fill="#1F201C" opacity="0.18"/>
+    <circle cx="472.8" cy="534" r="15" fill="#fff"/>
+    <circle cx="472.8" cy="534" r="9" fill="#1F201C"/>
+    <text class="lbl light" text-anchor="middle" x="430" y="590">Pig’s Eye</text>
+  </a>
+  <a href="#card-tour-home" aria-label="The tour home, 30 South B Street">
+    <rect x="300" y="168" width="220" height="120" fill="transparent"/>
+    <circle cx="488.4" cy="256" r="38" fill="#1F201C" opacity="0.22"/>
+    <circle cx="488.4" cy="252" r="32" fill="#fff"/>
+    <circle cx="488.4" cy="252" r="22" fill="#F08C14"/>
+    <text class="lbl light" text-anchor="end" x="452" y="200">30 South B</text>
+  </a>
+  <a href="#card-streets" aria-label="The streets around South B">
+    <rect x="310" y="320" width="180" height="52" fill="transparent"/>
+    <text class="lbl light" x="324" y="352">The streets</text>
+  </a>
+</svg>
   </div>
-  <p class="bc-map-note">Drive times are by car from 30 South B Street, the way the tour says them. Map data &copy; OpenStreetMap contributors. Shaded views use USGS and Esri imagery.</p>
-
-  <article class="bc-card" id="bcCard" aria-live="polite">
-    <div class="bc-card-media" id="bcCardMedia"></div>
-    <div class="bc-card-body">
-      <p class="bc-card-kicker" id="bcCardKicker"></p>
-      <h3 id="bcCardTitle"></h3>
-      <p class="bc-card-addr" id="bcCardAddr"></p>
-      <p class="bc-card-text" id="bcCardText"></p>
-    </div>
-  </article>
-
-  <h3 class="bc-legend-title">Suburban Avenue, numbered</h3>
-  <ol class="bc-legend" id="bcFoodLegend"></ol>
-  <h3 class="bc-legend-title">Also on the drive</h3>
-  <div class="bc-also" id="bcAlso"></div>
+  <p class="bc-map-note">Drive times are by car from 30 South B Street, the way the tour says them. Shaded views use USGS and Esri imagery.</p>
 </section>
 
 <section class="es" id="the-places">
@@ -1055,7 +1124,7 @@ section.hero{min-height:0;padding-top:36px;padding-bottom:28px}
         <p class="es-line">If you&rsquo;re curious about this house, let me know.</p>
       </div>
     </article>
-    <article class="es-card">
+    <article class="es-card" id="card-streets">
       <div class="es-media"><img src="/battle-creek-saint-paul/img/battle-creek-fall-street-2.jpg" width="1920" height="1080" alt="Fall trees and wide lawns on a Battle Creek street" loading="lazy" decoding="async"></div>
       <div class="es-body">
         <h3 class="es-name">The streets around South B</h3>
@@ -1063,7 +1132,7 @@ section.hero{min-height:0;padding-top:36px;padding-bottom:28px}
         <p class="es-line">Big lots. Old oaks. Fall color.</p>
       </div>
     </article>
-    <article class="es-card">
+    <article class="es-card" id="card-park">
       <div class="es-media"><img src="/battle-creek-saint-paul/img/battle-creek-park-winter-trail.jpg" width="1800" height="1200" alt="A snowy trail through the trees at Battle Creek Regional Park" loading="lazy" decoding="async"></div>
       <div class="es-body">
         <h3 class="es-name">Battle Creek Regional Park</h3>
@@ -1071,7 +1140,7 @@ section.hero{min-height:0;padding-top:36px;padding-bottom:28px}
         <p class="es-line">Trails, skiing, and a sledding hill.</p>
       </div>
     </article>
-    <article class="es-card">
+    <article class="es-card" id="card-rec">
       <div class="es-media"><img src="/battle-creek-saint-paul/img/battle-creek-rec-center.jpg" width="1580" height="889" alt="Battle Creek Community Recreation Center from above" loading="lazy" decoding="async"></div>
       <div class="es-body">
         <h3 class="es-name">Battle Creek Recreation Center</h3>
@@ -1079,7 +1148,7 @@ section.hero{min-height:0;padding-top:36px;padding-bottom:28px}
         <p class="es-line">The rec center and the neighborhood schools.</p>
       </div>
     </article>
-    <article class="es-card">
+    <article class="es-card" id="card-regions">
       <div class="es-media"><img src="/battle-creek-saint-paul/img/regions-hospital.jpg" width="1800" height="1212" alt="The Regions Hospital building and its HealthPartners sign" loading="lazy" decoding="async"></div>
       <div class="es-body">
         <h3 class="es-name">Regions Hospital</h3>
@@ -1087,7 +1156,7 @@ section.hero{min-height:0;padding-top:36px;padding-bottom:28px}
         <p class="es-line">St. Paul&rsquo;s Level I trauma center.</p>
       </div>
     </article>
-    <article class="es-card es-wide">
+    <article class="es-card es-wide" id="card-downtown">
       <div class="es-media es-media-wide"><img src="/battle-creek-saint-paul/img/downtown-st-paul-skyline.jpg" width="1800" height="1001" alt="Downtown St. Paul skyline, seen across the Mississippi" loading="lazy" decoding="async"></div>
       <div class="es-body">
         <h3 class="es-name">Downtown St. Paul</h3>
@@ -1105,7 +1174,7 @@ section.hero{min-height:0;padding-top:36px;padding-bottom:28px}
     <p class="section-body">Vietnamese, Mexican, Sichuan and Latin, all on one stretch of Suburban Avenue.</p>
   </div>
   <div class="es-grid">
-    <article class="es-card">
+    <article class="es-card" id="card-ocampo">
       <div class="es-media"><img src="/battle-creek-saint-paul/img/los-ocampo-storefront.jpg" width="1800" height="1200" alt="The Los Ocampo taqueria sign" loading="lazy" decoding="async"></div>
       <div class="es-thumbs">
         <img src="/battle-creek-saint-paul/img/los-ocampo-food.jpg" width="1800" height="797" alt="Plates of food from Los Ocampo" loading="lazy" decoding="async">
@@ -1116,7 +1185,7 @@ section.hero{min-height:0;padding-top:36px;padding-bottom:28px}
         <p class="es-line">A long-running Mexican restaurant.</p>
       </div>
     </article>
-    <article class="es-card">
+    <article class="es-card" id="card-teahouse">
       <div class="es-media"><img src="/battle-creek-saint-paul/img/tea-house-fish.jpg" width="1254" height="1254" alt="A bowl of fish in a red chile sauce" loading="lazy" decoding="async"></div>
       <div class="es-thumbs">
         <img src="/battle-creek-saint-paul/img/tea-house-noodles.jpg" width="1254" height="1254" alt="A plate of noodles with meat and vegetables" loading="lazy" decoding="async">
@@ -1128,7 +1197,7 @@ section.hero{min-height:0;padding-top:36px;padding-bottom:28px}
         <p class="es-line">Sichuan cooking, and dim sum on the weekend.</p>
       </div>
     </article>
-    <article class="es-card">
+    <article class="es-card" id="card-sabores">
       <div class="es-media"><img src="/battle-creek-saint-paul/img/sabores-tacos.jpg" width="1080" height="1080" alt="Tacos on a plate with the Sabores Fresh Market mark" loading="lazy" decoding="async"></div>
       <div class="es-thumbs">
         <img src="/battle-creek-saint-paul/img/sabores-butcher.jpg" width="1080" height="1080" alt="A butcher counter with hanging cuts of meat" loading="lazy" decoding="async">
@@ -1140,7 +1209,7 @@ section.hero{min-height:0;padding-top:36px;padding-bottom:28px}
         <p class="es-line">A Latin grocery. Butcher, bakery, produce, and a small restaurant.</p>
       </div>
     </article>
-    <article class="es-card es-wide">
+    <article class="es-card es-wide" id="card-hatien">
       <div class="es-media"><img src="/battle-creek-saint-paul/img/ha-tien-owners-son-ne-dao.jpg" width="1240" height="815" alt="Son and Ne Dao at Ha Tien" loading="lazy" decoding="async"></div>
       <div class="es-body">
         <h3 class="es-name">4 &middot; Ha Tien Super Market</h3>
@@ -1263,9 +1332,6 @@ section.hero{min-height:0;padding-top:36px;padding-bottom:28px}
   </ul>
 </nav>
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
-<script type="application/json" id="bcPlacesData">[{"id": "home", "name": "30 South B Street", "short": "30 B", "kicker": "The tour home", "addr": "30 S B St, St. Paul 55106", "drive": "", "lat": 44.94035, "lng": -93.02669, "text": "If you're curious about this house, let me know.", "photos": [{"src": "/battle-creek-saint-paul/img/30-south-b-map.jpg", "alt": "A shaded map of 30 South B Street and the blocks around it"}]}, {"id": "streets", "name": "Battle Creek streets", "short": "The streets", "kicker": "Around South B", "addr": "Around S B St", "drive": "", "lat": 44.9404, "lng": -93.0267, "text": "Big lots. Old oaks. Fall color.", "photos": [{"src": "/battle-creek-saint-paul/img/battle-creek-fall-street-1.jpg", "alt": "Fall trees along a Battle Creek street"}, {"src": "/battle-creek-saint-paul/img/battle-creek-fall-street-2.jpg", "alt": "Fall trees and wide lawns on a Battle Creek street"}]}, {"id": "park", "name": "Battle Creek Regional Park", "short": "The park", "kicker": "About 5 min", "addr": "Lower Afton Rd and McKnight Rd", "drive": "about 5 min", "lat": 44.94037, "lng": -92.9966, "text": "Trails, skiing, and a sledding hill.", "photos": [{"src": "/battle-creek-saint-paul/img/battle-creek-park-winter-trail.jpg", "alt": "A snowy trail through the trees at Battle Creek Regional Park"}]}, {"id": "rec", "name": "Battle Creek Recreation Center", "short": "Rec center", "kicker": "Close by", "addr": "75 Winthrop St. S., Saint Paul, MN 55119", "drive": "", "lat": 44.9386, "lng": -93.01286, "text": "The rec center and the neighborhood schools.", "photos": [{"src": "/battle-creek-saint-paul/img/battle-creek-rec-center.jpg", "alt": "Battle Creek Community Recreation Center from above"}]}, {"id": "regions", "name": "Regions Hospital", "short": "Regions", "kicker": "For work", "addr": "640 Jackson St", "drive": "about 9 min", "lat": 44.95585, "lng": -93.09469, "text": "St. Paul's Level I trauma center.", "photos": [{"src": "/battle-creek-saint-paul/img/regions-hospital.jpg", "alt": "The Regions Hospital building and its HealthPartners sign"}]}, {"id": "downtown", "name": "Downtown St. Paul", "short": "Downtown", "kicker": "About 11 min", "addr": "Downtown", "drive": "about 11 min", "lat": 44.94463, "lng": -93.09711, "text": "A quick hop to I-94.", "photos": [{"src": "/battle-creek-saint-paul/img/downtown-st-paul-skyline.jpg", "alt": "The downtown St. Paul skyline across the river"}]}, {"id": "ocampo", "num": 1, "name": "Los Ocampo", "short": "Los Ocampo", "kicker": "Nearby option", "addr": "1751 Suburban Ave", "drive": "about 3 min", "lat": 44.94979, "lng": -93.02624, "text": "A long-running Mexican restaurant.", "photos": [{"src": "/battle-creek-saint-paul/img/los-ocampo-storefront.jpg", "alt": "The Los Ocampo taqueria sign"}, {"src": "/battle-creek-saint-paul/img/los-ocampo-food.jpg", "alt": "A spread of tacos, seafood, and plates from Los Ocampo"}]}, {"id": "teahouse", "num": 2, "name": "Tea House", "short": "Tea House", "kicker": "Nearby option", "addr": "1676 Suburban Ave", "drive": "about 3 min", "lat": 44.95105, "lng": -93.02804, "text": "Sichuan cooking, and weekend dim sum.", "photos": [{"src": "/battle-creek-saint-paul/img/tea-house-fish.jpg", "alt": "A bowl of fish in a red chile sauce"}, {"src": "/battle-creek-saint-paul/img/tea-house-noodles.jpg", "alt": "A plate of noodles with meat and vegetables"}, {"src": "/battle-creek-saint-paul/img/tea-house-chicken.jpg", "alt": "Sesame chicken with broccoli"}]}, {"id": "sabores", "num": 3, "name": "Sabores Fresh Market", "short": "Sabores", "kicker": "Nearby option", "addr": "1990 Suburban Ave", "drive": "about 4 min", "lat": 44.9498, "lng": -93.01648, "text": "Butcher, bakery, produce, and a small restaurant.", "photos": [{"src": "/battle-creek-saint-paul/img/sabores-tacos.jpg", "alt": "Tacos on a plate with the Sabores Fresh Market mark"}, {"src": "/battle-creek-saint-paul/img/sabores-butcher.jpg", "alt": "A butcher counter with hanging cuts of meat"}, {"src": "/battle-creek-saint-paul/img/sabores-bakery.jpg", "alt": "Pastries in a bakery case"}]}, {"id": "hatien", "num": 4, "name": "Ha Tien Super Market", "short": "Ha Tien", "kicker": "Suburban Avenue", "addr": "1959 Suburban Ave", "drive": "about 4 min", "lat": 44.95045, "lng": -93.01799, "text": "Son & Ne Dao, owners since 1996.", "photos": [{"src": "/battle-creek-saint-paul/img/ha-tien-owners-son-ne-dao.jpg", "alt": "Son and Ne Dao at Ha Tien"}]}, {"id": "pigseye", "name": "Pig's Eye Lake", "short": "Pig's Eye", "kicker": "The creek runs here", "addr": "Southwest of the neighborhood", "drive": "", "lat": 44.91053, "lng": -93.02913, "text": "Pelicans and bald eagles.", "photos": [{"src": "/battle-creek-saint-paul/img/pigs-eye-lake-pelicans.jpg", "alt": "White pelicans lifting off the water at Pig's Eye Lake"}]}, {"id": "highwood", "name": "Highwood", "short": "Highwood", "kicker": "Just south", "addr": "Highwood Hills", "drive": "", "lat": 44.91491, "lng": -93.0146, "text": "Highwood Hills, in fall.", "photos": [{"src": "/battle-creek-saint-paul/img/highwood.jpg", "alt": "Highwood Hills Recreation Center and park in fall"}]}]</script>
 <script>
 (function () {
   function mountVideos() {
@@ -1286,112 +1352,6 @@ section.hero{min-height:0;padding-top:36px;padding-bottom:28px}
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', mountVideos);
   else mountVideos();
-
-  var places = [];
-  try { places = JSON.parse(document.getElementById('bcPlacesData').textContent); } catch (e) { places = []; }
-  var byId = {};
-  places.forEach(function (p) { byId[p.id] = p; });
-  var current = 'streets';
-  var markers = {};
-  var map;
-
-  function esc(s) {
-    return String(s || '').replace(/[&<>"]/g, function (c) {
-      return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];
-    });
-  }
-
-  function show(id, fly) {
-    var p = byId[id];
-    if (!p) return;
-    current = id;
-    var media = document.getElementById('bcCardMedia');
-    if (p.photos && p.photos.length) {
-      var main = p.photos[0];
-      var thumbs = p.photos.map(function (ph, i) {
-        return '<button type="button" class="bc-thumb' + (i === 0 ? ' on' : '') + '" data-src="' + esc(ph.src) + '" data-alt="' + esc(ph.alt) + '"><img src="' + esc(ph.src) + '" alt=""></button>';
-      }).join('');
-      media.innerHTML = '<img class="bc-card-photo" id="bcCardPhoto" src="' + esc(main.src) + '" alt="' + esc(main.alt) + '">' +
-        (p.photos.length > 1 ? '<div class="bc-thumbs">' + thumbs + '</div>' : '');
-    } else {
-      media.innerHTML = '<div class="bc-card-empty"><span>' + esc(p.short || p.name) + '</span></div>';
-    }
-    document.getElementById('bcCardKicker').textContent = p.kicker || '';
-    document.getElementById('bcCardTitle').textContent = p.name;
-    var addr = p.addr || '';
-    if (p.drive) addr = addr ? (addr + ' · ' + p.drive) : p.drive;
-    document.getElementById('bcCardAddr').textContent = addr;
-    document.getElementById('bcCardText').textContent = p.text || '';
-    document.querySelectorAll('#bcFoodLegend button, #bcAlso button').forEach(function (b) {
-      var on = b.getAttribute('data-id') === id;
-      b.classList.toggle('on', on);
-      if (on) b.setAttribute('aria-current', 'true'); else b.removeAttribute('aria-current');
-    });
-    Object.keys(markers).forEach(function (k) {
-      var el = markers[k].getElement();
-      if (el) el.classList.toggle('on', k === id);
-    });
-    if (fly && map && p.lat != null) {
-      map.flyTo([p.lat, p.lng], 16, {duration: 0.55});
-    }
-  }
-
-  document.getElementById('bcCard').addEventListener('click', function (e) {
-    var b = e.target.closest('.bc-thumb');
-    if (!b) return;
-    var img = document.getElementById('bcCardPhoto');
-    if (!img) return;
-    img.src = b.getAttribute('data-src');
-    img.alt = b.getAttribute('data-alt') || '';
-    document.querySelectorAll('.bc-thumb').forEach(function (t) { t.classList.toggle('on', t === b); });
-  });
-
-  var food = document.getElementById('bcFoodLegend');
-  var also = document.getElementById('bcAlso');
-  places.forEach(function (p) {
-    var btn = document.createElement('button');
-    btn.type = 'button';
-    btn.setAttribute('data-id', p.id);
-    if (p.num) {
-      btn.innerHTML = '<span class="num">' + p.num + '</span>' + esc(p.name);
-      food.appendChild(document.createElement('li')).appendChild(btn);
-    } else {
-      btn.textContent = p.name;
-      also.appendChild(btn);
-    }
-    btn.addEventListener('click', function () { show(p.id, true); });
-  });
-
-  function bootMap() {
-    if (!window.L || !places.length) return;
-    map = L.map('bcMap', {scrollWheelZoom: false});
-    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      maxZoom: 19,
-      attribution: '&copy; OpenStreetMap'
-    }).addTo(map);
-    var bounds = [];
-    places.forEach(function (p) {
-      if (p.lat == null) return;
-      bounds.push([p.lat, p.lng]);
-      var cls = 'bc-pin' + (p.num ? ' food' : '') + (p.id === 'home' ? ' home' : '');
-      var html = p.num ? String(p.num) : '';
-      var icon = L.divIcon({
-        className: cls,
-        html: html,
-        iconSize: p.num ? [28, 28] : [16, 16],
-        iconAnchor: p.num ? [14, 14] : [8, 8]
-      });
-      var m = L.marker([p.lat, p.lng], {icon: icon, keyboard: true, title: p.name, alt: p.name});
-      m.on('click', function () { show(p.id, false); });
-      m.addTo(map);
-      markers[p.id] = m;
-    });
-    if (bounds.length) map.fitBounds(bounds, {padding: [28, 28], maxZoom: 13});
-    show(current, false);
-    setTimeout(function () { map.invalidateSize(); }, 200);
-  }
-  show('streets', false);
-  bootMap();
 })();
 </script>
 
@@ -1435,10 +1395,9 @@ else{b.disabled=false;err.textContent='That didn\u2019t go through. Please try a
 <nav class="sv-bar" aria-label="Quick contact"><a class="sv-main" href="#sv-offer">What’s my home worth?</a><a href="sms:+19522583100">Text Geoffrey</a></nav>
 <!-- SV:END -->
 
-<div class="tour-videos vic-video-end" id="bcAiVideo" data-youtube-id="bkLFnkBuig0" data-youtube-title="A furnished look inside 30 South B Street">
+<div class="tour-videos vic-video-end" id="bcInsideVideo" data-youtube-id="bkLFnkBuig0" data-youtube-title="Another look inside 30 S B St">
   <div class="vic-video">
-    <p class="tour-label">A furnished look inside</p>
-    <p class="section-body" style="text-align:center;max-width:40rem;margin:0 auto 12px">The house, shown with virtual furniture.</p>
+    <p class="tour-label">Another look inside</p>
     <div class="video-frame video-placeholder"></div>
   </div>
 </div>
