@@ -901,13 +901,17 @@ section.hero{min-height:0;padding-top:36px;padding-bottom:28px}
 .bc-also{display:flex;flex-wrap:wrap;gap:8px}
 .bc-also button{width:auto}
 .es-card,.es-media,.es-owners,.es-thumbs{min-width:0;max-width:100%}
-.es-media img,.es-owners img{width:100%;max-width:100%;height:100%;object-fit:cover}
-.es-owners img{height:auto;max-height:520px}
+.es-media{position:relative;overflow:hidden}
+.es-media > img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.es-owners img{width:100%;max-width:100%;height:auto;max-height:520px;object-fit:cover;display:block}
 .es-thumbs{display:flex;gap:6px;padding:8px 8px 0;background:#FAF7EF}
 .es-thumbs img{width:84px;height:64px;object-fit:cover;border-radius:8px}
-.es-pair{display:grid;grid-template-columns:1fr;gap:2px}
-.es-pair img{width:100%;height:100%;object-fit:cover;aspect-ratio:16/10;display:block}
-@media(min-width:700px){.es-pair{grid-template-columns:1fr 1fr}}
+.es-pair{display:grid;grid-template-columns:1fr;gap:8px;background:#E3DAC6}
+.es-pair img{width:100%;height:auto;max-width:100%;object-fit:contain;display:block}
+@media(min-width:700px){.es-pair{grid-template-columns:1fr 1fr;align-items:start}}
+.es-body{position:relative;z-index:1;background:var(--white)}
+.d1-map{background:#E3DAC6}
+.d1-map svg{display:block;width:100%;height:100%}
 .es-owners{margin:0;background:#FAF7EF}
 .es-owners img{width:100%;max-height:520px;object-fit:cover;object-position:center 20%;display:block}
 .es-owners figcaption{display:none}
@@ -1071,7 +1075,8 @@ section.hero{min-height:0;padding-top:36px;padding-bottom:28px}
       </div>
     </article>
     <article class="es-card">
-      <div class="es-media es-type">
+      <!-- PHOTO SLOT: replace this block with an img when the rec center photo arrives. -->
+      <div class="es-media es-type" data-photo-slot="rec-center">
         <p class="es-type-tag">75 Winthrop</p>
         <p class="es-type-name">Rec center</p>
       </div>
@@ -1178,7 +1183,8 @@ section.hero{min-height:0;padding-top:36px;padding-bottom:28px}
       </div>
     </article>
     <article class="es-card">
-      <div class="es-media es-type">
+      <!-- PHOTO SLOT: replace this block with an img when the Highwood photo arrives. -->
+      <div class="es-media es-type" data-photo-slot="highwood">
         <p class="es-type-tag">Just south</p>
         <p class="es-type-name">Highwood</p>
       </div>
@@ -1198,9 +1204,12 @@ section.hero{min-height:0;padding-top:36px;padding-bottom:28px}
       </div>
     </article>
     <article class="es-card">
-      <div class="es-media es-type">
-        <p class="es-type-tag">District 1</p>
-        <p class="es-type-name">Today</p>
+      <div class="es-media d1-map">
+        <svg class="d1-svg" viewBox="0 0 320 240" role="img" aria-label="Map of Saint Paul District 1">
+          <rect width="320" height="240" fill="#E3DAC6"/>
+          <path d="M120.0,141.3 L116.5,134.4 L121.4,116.2 L121.6,105.1 L118.0,93.7 L106.5,74.7 L139.8,61.5 L139.0,45.6 L142.0,42.1 L141.9,31.5 L148.4,31.4 L148.4,23.8 L141.7,23.8 L141.7,16.0 L212.0,16.0 L212.1,26.4 L212.1,36.8 L212.1,47.2 L212.1,57.5 L212.2,69.0 L212.3,79.3 L212.4,89.7 L212.5,100.1 L212.5,110.4 L212.5,120.8 L212.5,131.1 L212.5,141.5 L212.7,151.9 L212.9,162.2 L213.1,172.5 L213.2,182.8 L213.4,193.1 L213.5,203.4 L213.5,213.7 L213.5,224.0 L203.2,224.0 L192.9,224.0 L186.0,224.0 L184.9,224.0 L182.6,224.0 L181.5,224.0 L172.2,214.4 L151.6,203.6 L136.5,182.7 L130.3,162.0 L120.0,141.3 Z" fill="#6E5228" stroke="#FAF7EF" stroke-width="2"/>
+          <text x="166.1" y="129.6" text-anchor="middle" dominant-baseline="middle" fill="#FAF7EF" font-family="Inter, sans-serif" font-size="22" font-weight="700">District 1</text>
+        </svg>
       </div>
       <div class="es-body">
         <h3 class="es-name">Eastview, Conway, Battle Creek, Highwood</h3>
@@ -1276,19 +1285,18 @@ section.hero{min-height:0;padding-top:36px;padding-bottom:28px}
 <script type="application/json" id="bcPlacesData">[{"id": "home", "name": "30 South B Street", "short": "30 B", "kicker": "The tour home", "addr": "30 S B St, St. Paul 55106", "drive": "", "lat": 44.94035, "lng": -93.02669, "text": "If you're curious about this house, let me know.", "photos": []}, {"id": "streets", "name": "Battle Creek streets", "short": "The streets", "kicker": "Around South B", "addr": "Around S B St", "drive": "", "lat": 44.9404, "lng": -93.0267, "text": "Big lots. Old oaks. Fall color.", "photos": [{"src": "/battle-creek-saint-paul/img/battle-creek-fall-street-1.jpg", "alt": "Fall trees along a Battle Creek street"}, {"src": "/battle-creek-saint-paul/img/battle-creek-fall-street-2.jpg", "alt": "Fall trees and wide lawns on a Battle Creek street"}]}, {"id": "park", "name": "Battle Creek Regional Park", "short": "The park", "kicker": "About 5 min", "addr": "Lower Afton Rd and McKnight Rd", "drive": "about 5 min", "lat": 44.94037, "lng": -92.9966, "text": "Trails, skiing, and a sledding hill.", "photos": [{"src": "/battle-creek-saint-paul/img/battle-creek-park-winter-trail.jpg", "alt": "A snowy trail through the trees at Battle Creek Regional Park"}]}, {"id": "rec", "name": "Battle Creek Recreation Center", "short": "Rec center", "kicker": "Close by", "addr": "75 Winthrop St. S., Saint Paul, MN 55119", "drive": "", "lat": 44.9386, "lng": -93.01286, "text": "The rec center and the neighborhood schools.", "photos": []}, {"id": "regions", "name": "Regions Hospital", "short": "Regions", "kicker": "For work", "addr": "640 Jackson St", "drive": "about 9 min", "lat": 44.95585, "lng": -93.09469, "text": "St. Paul's Level I trauma center.", "photos": [{"src": "/battle-creek-saint-paul/img/regions-hospital.jpg", "alt": "The Regions Hospital building and its HealthPartners sign"}]}, {"id": "downtown", "name": "Downtown St. Paul", "short": "Downtown", "kicker": "About 11 min", "addr": "Downtown", "drive": "about 11 min", "lat": 44.94463, "lng": -93.09711, "text": "A quick hop to I-94.", "photos": [{"src": "/battle-creek-saint-paul/img/downtown-st-paul-skyline.jpg", "alt": "The downtown St. Paul skyline across the river"}]}, {"id": "ocampo", "num": 1, "name": "Los Ocampo", "short": "Los Ocampo", "kicker": "Nearby option", "addr": "1751 Suburban Ave", "drive": "about 3 min", "lat": 44.94979, "lng": -93.02624, "text": "A long-running Mexican restaurant.", "photos": [{"src": "/battle-creek-saint-paul/img/los-ocampo-storefront.jpg", "alt": "The Los Ocampo taqueria sign"}, {"src": "/battle-creek-saint-paul/img/los-ocampo-food.jpg", "alt": "A spread of tacos, seafood, and plates from Los Ocampo"}]}, {"id": "teahouse", "num": 2, "name": "Tea House", "short": "Tea House", "kicker": "Nearby option", "addr": "1676 Suburban Ave", "drive": "about 3 min", "lat": 44.95105, "lng": -93.02804, "text": "Sichuan cooking, and weekend dim sum.", "photos": [{"src": "/battle-creek-saint-paul/img/tea-house-fish.jpg", "alt": "A bowl of fish in a red chile sauce"}, {"src": "/battle-creek-saint-paul/img/tea-house-noodles.jpg", "alt": "A plate of noodles with meat and vegetables"}, {"src": "/battle-creek-saint-paul/img/tea-house-chicken.jpg", "alt": "Sesame chicken with broccoli"}]}, {"id": "sabores", "num": 3, "name": "Sabores Fresh Market", "short": "Sabores", "kicker": "Nearby option", "addr": "1990 Suburban Ave", "drive": "about 4 min", "lat": 44.9498, "lng": -93.01648, "text": "Butcher, bakery, produce, and a small restaurant.", "photos": [{"src": "/battle-creek-saint-paul/img/sabores-tacos.jpg", "alt": "Tacos on a plate with the Sabores Fresh Market mark"}, {"src": "/battle-creek-saint-paul/img/sabores-butcher.jpg", "alt": "A butcher counter with hanging cuts of meat"}, {"src": "/battle-creek-saint-paul/img/sabores-bakery.jpg", "alt": "Pastries in a bakery case"}]}, {"id": "hatien", "num": 4, "name": "Ha Tien Super Market", "short": "Ha Tien", "kicker": "My usual stop", "addr": "1959 Suburban Ave", "drive": "about 4 min", "lat": 44.95045, "lng": -93.01799, "text": "Son & Ne Dao, owners since 1996.", "photos": [{"src": "/battle-creek-saint-paul/img/ha-tien-owners-son-ne-dao.jpg", "alt": "Son and Ne Dao at Ha Tien"}]}, {"id": "pigseye", "name": "Pig's Eye Lake", "short": "Pig's Eye", "kicker": "The creek runs here", "addr": "Southwest of the neighborhood", "drive": "", "lat": 44.91053, "lng": -93.02913, "text": "Pelicans and bald eagles.", "photos": [{"src": "/battle-creek-saint-paul/img/pigs-eye-lake-pelicans.jpg", "alt": "White pelicans lifting off the water at Pig's Eye Lake"}, {"src": "/battle-creek-saint-paul/img/pigs-eye-lake-eagles.jpg", "alt": "Bald eagles gathered on the water at Pig's Eye Lake"}]}, {"id": "highwood", "name": "Highwood", "short": "Highwood", "kicker": "Just south", "addr": "Highwood Hills", "drive": "", "lat": 44.91491, "lng": -93.0146, "text": "Named for the Highwood station.", "photos": [{"src": "/battle-creek-saint-paul/img/burlington-line-1891.jpg", "alt": "An 1891 photograph of a railroad bridge over a river"}]}]</script>
 <script>
 (function () {
-  var slot = document.getElementById('bcTourVideo');
-  if (slot) {
+  document.querySelectorAll('.tour-videos[data-youtube-id]').forEach(function (slot) {
     var id = (slot.getAttribute('data-youtube-id') || '').trim();
-    if (/^[A-Za-z0-9_-]{11}$/.test(id)) {
-      var frame = slot.querySelector('.video-frame');
-      frame.className = 'video-frame';
-      frame.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/' + id + '?playsinline=1&rel=0" title="Battle Creek walking tour of 30 South B Street" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="position:absolute;inset:0;width:100%;height:100%;border:0"></iframe>';
-      var read = document.createElement('p');
-      read.className = 'vic-read';
-      read.innerHTML = '<a href="https://youtu.be/' + id + '">Watch the tour on YouTube</a>';
-      slot.querySelector('.vic-video').appendChild(read);
-    }
-  }
+    if (!/^[A-Za-z0-9_-]{11}$/.test(id)) return;
+    var title = slot.getAttribute('data-youtube-title') || 'Battle Creek video';
+    var frame = slot.querySelector('.video-frame');
+    frame.className = 'video-frame';
+    frame.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/' + id + '?playsinline=1&rel=0" title="' + title.replace(/"/g, '') + '" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="position:absolute;inset:0;width:100%;height:100%;border:0"></iframe>';
+    var read = document.createElement('p');
+    read.className = 'vic-read';
+    read.innerHTML = '<a href="https://youtu.be/' + id + '">Watch on YouTube</a>';
+    slot.querySelector('.vic-video').appendChild(read);
+  });
 
   var places = [];
   try { places = JSON.parse(document.getElementById('bcPlacesData').textContent); } catch (e) { places = []; }
@@ -1437,6 +1445,18 @@ else{b.disabled=false;err.textContent='That didn\u2019t go through. Please try a
 </script>
 <nav class="sv-bar" aria-label="Quick contact"><a class="sv-main" href="#sv-offer">What’s my home worth?</a><a href="sms:+19522583100">Text Geoffrey</a></nav>
 <!-- SV:END -->
+
+<div class="tour-videos vic-video-end" id="bcAiVideo" data-youtube-id="" data-youtube-title="30 South B Street, an AI-style video">
+  <!-- PARENT SWAP: set data-youtube-id="XXXXXXXXXXX" on #bcAiVideo when the AI-style video is up. Leave it empty until then. -->
+  <div class="vic-video">
+    <p class="tour-label">30 South B, an AI-style video</p>
+    <div class="video-frame video-placeholder">
+      <p class="ph-kicker">Video coming soon</p>
+      <p>Geoffrey&rsquo;s AI-style look at 30 South B will play here.</p>
+      <p class="ph-swap">Placeholder. Set data-youtube-id on #bcAiVideo when that video is up.</p>
+    </div>
+  </div>
+</div>
 
 <footer class="site-foot">
   <p class="footer-name">Geoffrey Serdar</p>
