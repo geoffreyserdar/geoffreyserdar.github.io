@@ -24,6 +24,10 @@
       if (!a) return;
       var u;
       try { u = new URL(a.getAttribute('href'), location.href); } catch (_) { return; }
+      if (u.protocol === 'tel:' || u.protocol === 'sms:') { /* 2026-11-10: restore canon call_tap / text_tap (intent only, not a lead) */
+        gtag('event', u.protocol === 'tel:' ? 'call_tap' : 'text_tap', { link_text: cut(a.innerText || a.textContent || a.getAttribute('aria-label')), door_area: areaOf(a), page_path: location.pathname, transport_type: 'beacon' });
+        return;
+      }
       if (u.protocol !== 'http:' && u.protocol !== 'https:') return;
       var host = u.hostname.replace(/^www\./, ''), here = location.hostname.replace(/^www\./, '');
       var p = { link_url: cut(u.href), link_text: cut(a.innerText || a.textContent || a.getAttribute('aria-label')), door_area: areaOf(a), transport_type: 'beacon' };
