@@ -1,0 +1,45 @@
+# Pages publish (Pipe, 2026-11-10 publish fix step 4, Geoffrey's yes 1:45 PM CT).
+# Replaces GitHub's built-in branch deploy: 30 minute deploy limit (was a fixed 10), a push queues
+# instead of cancelling a deploy in progress, and a live check fails the run loudly if the new
+# commit is not what geoffreyserdar.com serves. Undo: set Pages source back to "Deploy from a branch"
+# (main, /) in Settings > Pages; this file can stay or be removed.
+name: Pages publish
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+concurrency:
+  group: pages
+  cancel-in-progress: false
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Commit marker
+        run: mkdir -p _deploy && echo "${{ github.sha }}" > _deploy/commit.txt
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+      - id: deploy
+        uses: actions/deploy-pages@v4
+        with:
+          timeout: 1800000
+      - name: Live check (fails loudly if this commit is not live)
+        run: |
+          for i in $(seq 1 40); do
+            got=$(curl -fsS "https://geoffreyserdar.com/_deploy/commit.txt?cb=$(date +%s)" || true)
+            if [ "$got" = "${{ github.sha }}" ]; then echo "LIVE: geoffreyserdar.com serves ${{ github.sha }}"; exit 0; fi
+            echo "not live yet (got '${got:0:12}'), check $i/40"; sleep 15
+          done
+          echo "::error::Deployed, but geoffreyserdar.com does not serve commit ${{ github.sha }} after 10 minutes"
+          exit 1
