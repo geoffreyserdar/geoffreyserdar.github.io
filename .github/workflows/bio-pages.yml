@@ -1,0 +1,14 @@
+# Fails when a committed bio page does not match _bio/template.html.
+# Regenerate with: python3 _bio/build.py
+name: Bio pages
+on:
+  pull_request:
+  push:
+    branches: [main]
+jobs:
+  generated:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fail if bio pages drift from the template
+        run: python3 _bio/build.py --check
