@@ -19,8 +19,9 @@ TEMPLATE = Path(__file__).resolve().parent / "template.html"
 ORIGIN = "https://geoffreyserdar.com"
 HUB = ORIGIN + "/social/"
 
-# Profile URLs already published on the site. Nextdoor is absent: the repo has
-# a personal profile and post links, not a business page, so no icon is emitted.
+# Profile URLs already published on the site. Instagram and Facebook are
+# Geoffrey's personal accounts only. Nextdoor is absent: the repo has a
+# personal profile and post links, not a business page, so no icon is emitted.
 SOCIALS = [
     {
         "platform": "youtube",
@@ -35,12 +36,6 @@ SOCIALS = [
         "svg": '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="5"/><circle cx="12" cy="12" r="3.6"/><circle cx="16.6" cy="7.4" r="0.9" fill="currentColor" stroke="none"/></svg>',
     },
     {
-        "platform": "instagram",
-        "label": "Instagram @serdar_partners",
-        "href": "https://www.instagram.com/serdar_partners/",
-        "svg": '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="5"/><circle cx="12" cy="12" r="3.6"/><circle cx="16.6" cy="7.4" r="0.9" fill="currentColor" stroke="none"/></svg>',
-    },
-    {
         "platform": "tiktok",
         "label": "TikTok @geoffrey.serdar",
         "href": "https://www.tiktok.com/@geoffrey.serdar",
@@ -48,8 +43,8 @@ SOCIALS = [
     },
     {
         "platform": "facebook",
-        "label": "Facebook Serdar+Partners",
-        "href": "https://www.facebook.com/serdarpartners",
+        "label": "Facebook Geoffrey Serdar",
+        "href": "https://www.facebook.com/geoffrey.serdar",
         "svg": '<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M14 8h3V4h-3c-2.8 0-4.5 1.8-4.5 4.6V11H7v4h2.5v7h4v-7H16l.5-4h-3V8.8c0-.5.3-.8.9-.8z"/></svg>',
     },
     {
