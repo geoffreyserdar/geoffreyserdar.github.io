@@ -33,7 +33,7 @@ CI runs that check on pull requests and on pushes to `main` (`.github/workflows/
 | `/nd/` | nextdoor | social | | `seller_value_nd` | noindex,follow | `/social/` |
 | `/social/` | social-hub | referral | | `seller_value_social` | index,follow | `/social/` |
 
-Every card link adds that page’s utm tags plus the card’s `utm_campaign`. `og:url` is the page’s own URL. `/social/` is the indexable hub and is listed in `sitemap.xml`. The other paths stay out of the sitemap.
+Every card link adds that page’s utm tags plus the card’s `utm_campaign`. The last card, “Inherited a house?”, links to `/probate/` with those same tags (`utm_campaign=probate`). `og:url` is the page’s own URL. `/social/` is the indexable hub and is listed in `sitemap.xml`. The other paths stay out of the sitemap.
 
 The value form posts `interest` to Formspree and `local` to the Twilio lead alert as a plain string. This repo has no allowlist. Town and guide pages already send their own `seller_value_*` ids (`seller_value_ig`, `seller_value_mound`, `seller_value_whittier-minneapolis`, and others), so each bio path uses `seller_value_<short>` the same way. `/tt/` sends `seller_value_tt`.
 
