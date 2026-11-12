@@ -37,7 +37,7 @@ Every card link adds that page’s utm tags plus the card’s `utm_campaign`. `o
 
 The value form posts `interest` to Formspree and `local` to the Twilio lead alert as a plain string. This repo has no allowlist. Town and guide pages already send their own `seller_value_*` ids (`seller_value_ig`, `seller_value_mound`, `seller_value_whittier-minneapolis`, and others), so each bio path uses `seller_value_<short>` the same way. `/tt/` sends `seller_value_tt`.
 
-On a platform’s own page, that platform’s icon is left out of the footer (and off the `/social/` “Follow along” row, which shows every icon). Campaign stubs (`buyers-*`, `northeast-*`, `saintpaul-*`, `victoria-*`, `zimmerman-*`) and `/card/`, `/zillow/`, `/homes/`, `/pin/` are not generated here.
+On a platform’s own page, that platform’s icon is left out of the footer (and off the `/social/` “Follow along” row, which shows every icon). Instagram is only `https://www.instagram.com/geoffreyserdar/`. Facebook is only `https://www.facebook.com/geoffrey.serdar`. Campaign stubs (`buyers-*`, `northeast-*`, `saintpaul-*`, `victoria-*`, `zimmerman-*`) and `/card/`, `/zillow/`, `/homes/`, `/pin/` are not generated here.
 
 ## Images
 
