@@ -6,7 +6,7 @@ One template feeds every bio link. Edit `_bio/template.html` (layout, cards, and
 python3 _bio/build.py
 ```
 
-That writes a full static `index.html` at each path. The pages are copies, not redirects: no meta refresh and no JavaScript redirect. Commit the generated files with the template.
+That writes a full static `index.html` at each path. The pages are copies, not redirects: no meta refresh and no JavaScript redirect. The template includes the same Google tag as the rest of the site, so GA4 `G-250YS9FRRM` loads on every path and the value form can send `generate_lead`. Commit the generated files with the template.
 
 Check that the committed copies still match:
 
