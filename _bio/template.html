@@ -43,6 +43,7 @@ a.card:active{transform:translateY(-1px)}
 .copy{min-width:0}
 .t{font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:600;line-height:1.15;display:block}
 .s{font-size:12.5px;color:var(--mid);margin-top:2px;line-height:1.2;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+a.card.estate .s{white-space:normal;overflow:visible;text-overflow:clip}
 .socs{display:flex;flex-wrap:wrap;justify-content:center;gap:0}
 .socs a{width:44px;height:44px;display:flex;align-items:center;justify-content:center;color:var(--gold);border-radius:10px;text-decoration:none}
 .socs a:hover,.socs a:active{color:var(--ink);background:var(--sand)}
@@ -98,6 +99,12 @@ body{padding-top:calc(52px + env(safe-area-inset-top))}
   __FOLLOW__
   <nav class="links" aria-label="Links">
 __CARDS__
+    <a class="card estate" id="probate" href="__ESTATE_HREF__">
+      <span class="thumb">
+        <img src="/bio-img/estate-home.webp" alt="A lakeside house with a front porch" width="124" height="70" loading="lazy" decoding="async">
+      </span>
+      <span class="copy"><span class="t">Inherited a house?</span><span class="s">I help families sell estate homes, working alongside your attorney.</span></span>
+    </a>
   </nav>
   <!-- SV:BEGIN seller-value 2026-10-26 -->
 <section class="sv-offer" id="sv-offer" data-sv="__INTEREST__">

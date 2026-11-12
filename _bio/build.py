@@ -150,6 +150,7 @@ IMAGES = {
     "bio-img/whittier-mia.webp": 30_000,
     "bio-img/lake-minnetonka-homes.webp": 30_000,
     "bio-img/weekly-market.webp": 30_000,
+    "bio-img/estate-home.webp": 30_000,
 }
 
 # Campaign stubs and other short links this generator must never write.
@@ -234,6 +235,7 @@ def render(platform: dict, template: str) -> str:
         "__INTEREST__": platform["interest"],
         "__FOLLOW__": follow_block(platform),
         "__CARDS__": cards_html(platform),
+        "__ESTATE_HREF__": html.escape(with_utm("/probate/", platform, "probate"), quote=True),
         "__SOCIAL__": social_nav(platform),
     }
     for key, value in replacements.items():
@@ -265,8 +267,21 @@ def validate(platform: dict, page: str) -> None:
     need("http-equiv=\"refresh\"" not in page and "http-equiv='refresh'" not in page, "meta refresh")
     need("location.replace" not in page, "js redirect")
     need("New:" not in page, "New: tag")
-    need(page.count('width="124" height="70"') == 6, "thumb dimensions")
-    need(page.count('loading="lazy"') == 2, "lazy thumbs")
+    need(page.count('width="124" height="70"') == 7, "thumb dimensions")
+    need(page.count('loading="lazy"') == 3, "lazy thumbs")
+    need("Inherited a house?" in page, "probate title")
+    need("I help families sell estate homes, working alongside your attorney." in page, "probate line")
+    estate = with_utm("/probate/", platform, "probate")
+    need(html.escape(estate, quote=True) in page, "probate link")
+    estate_q = dict(parse_qsl(urlsplit(estate).query))
+    need(estate_q.get("utm_source") == platform["source"], "probate utm_source")
+    need(estate_q.get("utm_medium") == platform["medium"], "probate utm_medium")
+    need(estate_q.get("utm_campaign") == "probate", "probate campaign")
+    if platform["content"]:
+        need(estate_q.get("utm_content") == platform["content"], "probate utm_content")
+    else:
+        need("utm_content" not in estate_q, "probate unexpected utm_content")
+    need(page.find('id="weekly-market"') < page.find('id="probate"') < page.find("<footer"), "probate card placement")
     need(page.count('loading="eager"') == 5, "eager images")
     need(page.count('class="play"') == 2, "play badges")
     need("What’s my home worth?" in page, "sticky bar")
