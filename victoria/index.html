@@ -1187,7 +1187,7 @@ document.getElementById('svBtn').addEventListener('click',function(){var g=funct
 var n=g('svName'),em=g('svEmail'),ph=g('svPhone'),ad=g('svAddr'),err=document.getElementById('svErr');
 if(!n||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em)||(document.getElementById('svAddr')&&!ad)){err.textContent=document.getElementById('svAddr')?'Please add your first name, a working email and the address.':'Please add your first name and a working email.';err.style.display='block';return}
 err.style.display='none';var b=this;b.disabled=true;
-var src={utm_source:q('utm_source'),utm_medium:q('utm_medium'),utm_campaign:q('utm_campaign'),utm_content:q('utm_content'),gclid:q('gclid'),referrer:document.referrer||''};
+var src=(window.gsLeadSource?window.gsLeadSource():{utm_source:q('utm_source'),utm_medium:q('utm_medium'),utm_campaign:q('utm_campaign'),utm_content:q('utm_content'),gclid:q('gclid'),referrer:document.referrer||''});
 var test=/test/i.test(n)?'TEST ':'';
 var p=Object.assign({name:n,email:em,phone:ph,address:ad,interest:I,lead_type:LT,interest_detail:test+(LT==='seller_value'?'Seller home value request':'Weekly lake sales signup'),page:location.pathname},src);
 try{fetch('https://lead-alert-4343.twil.io/lead-alert',{method:'POST',body:new URLSearchParams({name:n,phone:ph,email:em,interest:test+(LT==='seller_value'?'Home value: '+ad:'Weekly lake sales'),site:location.hostname+location.pathname,local:I})}).catch(function(){})}catch(e){}
@@ -1240,22 +1240,13 @@ else{b.disabled=false;err.textContent='That didn\u2019t go through. Please try a
 </footer>
 <!-- /HOUSE:FOOTER -->
 
+<script src="/assets/lead-source.js"></script>
 <script>
 // Which page is this? Stamps every lead so the CRM/bridge can tag it by city.
 const PAGE_LOCAL = 'Victoria';
 
 // Capture lead source on page load (UTM / Google Ads / referrer)
-const LEAD_SOURCE = (function () {
-  const p = new URLSearchParams(window.location.search);
-  return {
-    utm_source: p.get('utm_source') || '',
-    utm_medium: p.get('utm_medium') || '',
-    utm_campaign: p.get('utm_campaign') || '',
-    utm_content: p.get('utm_content') || '',
-    gclid: p.get('gclid') || '',
-    referrer: document.referrer || ''
-  };
-})();
+const LEAD_SOURCE = window.gsLeadSource();
 
 // LAYER 1 — front door: block structurally-impossible US numbers in the browser.
 function isValidUSPhone(raw) {
