@@ -1141,6 +1141,147 @@
         },
         "lake_total": 128
       }
+    },
+    {
+      "week_label": "Nov 9\u201315, 2026",
+      "week_start": "2026-11-09",
+      "week_end": "2026-11-15",
+      "as_of_ct": "2026-11-16T06:59:38-06:00",
+      "lake_ring": {
+        "n_sold": 21,
+        "typical_price_display": "$575,000",
+        "typical_price_kind": "median",
+        "hottest_town": "Minnetonka",
+        "hottest_count": 14,
+        "median": 575000
+      },
+      "hottest": "Minnetonka",
+      "hottest_n": 14,
+      "towns": {
+        "Deephaven": {
+          "n": 1,
+          "sold_prices": [
+            1850000
+          ],
+          "range": [
+            1850000,
+            1850000
+          ]
+        },
+        "Excelsior": {
+          "n": 3,
+          "sold_prices": [
+            575000,
+            1550000,
+            2350000
+          ],
+          "has_median": true,
+          "median": 1550000
+        },
+        "Greenwood": {
+          "n": 0,
+          "sold_prices": []
+        },
+        "Minnetonka": {
+          "n": 14,
+          "sold_prices": [
+            134000,
+            145000,
+            164500,
+            190000,
+            407000,
+            470500,
+            475000,
+            500000,
+            505000,
+            525000,
+            590000,
+            600000,
+            783500,
+            1005000
+          ],
+          "has_median": true,
+          "median": 487500
+        },
+        "Minnetonka Beach": {
+          "n": 0,
+          "sold_prices": []
+        },
+        "Minnetrista": {
+          "n": 0,
+          "sold_prices": []
+        },
+        "Mound": {
+          "n": 2,
+          "sold_prices": [
+            850000,
+            4890000
+          ],
+          "range": [
+            850000,
+            4890000
+          ]
+        },
+        "Orono": {
+          "n": 0,
+          "sold_prices": []
+        },
+        "Shorewood": {
+          "n": 0,
+          "sold_prices": []
+        },
+        "Spring Park": {
+          "n": 0,
+          "sold_prices": []
+        },
+        "Tonka Bay": {
+          "n": 0,
+          "sold_prices": []
+        },
+        "Victoria": {
+          "n": 0,
+          "sold_prices": []
+        },
+        "Wayzata": {
+          "n": 1,
+          "sold_prices": [
+            930000
+          ],
+          "range": [
+            930000,
+            930000
+          ]
+        },
+        "Woodland": {
+          "n": 0,
+          "sold_prices": []
+        }
+      },
+      "provenance": "Compass agent-search cities=/neighborhoods= IDs / Closed / sold date Nov 9\u2013Nov 15, 2026. Place IDs from /workspace/lab-inbox/compass-lake-ring-city-ids.json. Raw: /workspace/lab-inbox/compass-raw-lake-ring-week-2026-11-09-11-15.json. Status lock: Closed only (no Sold Contingent).",
+      "pending": {
+        "week_start": "2026-11-09",
+        "as_of_ct": "2026-11-16",
+        "status_lock": "Pending only",
+        "source": "agent-search",
+        "provenance": "Compass Agent Search, Pending, residential (Single Family, Condo, Townhouse, Multi Family), City-column exact filter, pulled ~6:05 AM CT 2026-11-16 by Scout; statuses included: Pending only (Coming Soon, Active, In Contract, Sold, Temporarily Off Market, Withdrawn, Expired unchecked)",
+        "towns": {
+          "Deephaven": 2,
+          "Excelsior": 13,
+          "Greenwood": 0,
+          "Minnetonka": 40,
+          "Minnetonka Beach": 2,
+          "Minnetrista": 17,
+          "Mound": 10,
+          "Orono": 4,
+          "Shorewood": 5,
+          "Spring Park": 0,
+          "Tonka Bay": 0,
+          "Victoria": 17,
+          "Wayzata": 11,
+          "Woodland": 0
+        },
+        "lake_total": 121
+      }
     }
   ]
 }
