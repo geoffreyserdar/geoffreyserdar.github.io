@@ -116,6 +116,14 @@ a:hover { color: var(--brass); }
   margin: 0 0 18px;
   max-width: var(--measure);
 }
+.featured-sale {
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--mid);
+  margin: 4px 0 14px;
+  max-width: var(--measure);
+}
+.featured-sale a { color: var(--tuxedo); font-weight: 600; }
 .gate-card {
   background: var(--card);
   border: 1px solid var(--hair);
@@ -773,7 +781,9 @@ body{padding-top:calc(52px + env(safe-area-inset-top))}
       <p class="section-caption">Range $134,000 to $4,890,000. 5 towns had a close; 9 stayed quiet.</p>
     </section>
 
-    
+    <!-- FEATURED-SALE hand-added 2026-11-16. weekly-hub is outside this repo and may rewrite this file on Monday. Keep this block under Week at a glance, keep the optional mobile field, and keep form listeners on #svName #svEmail #svPhone. -->
+    <p class="featured-sale">Featured sale: <a href="/lake-minnetonka/upper-lake/">Upper Lake, Mound · $4,890,000 · the Anderson house story</a><br><a href="/lake-minnetonka-bays/">The bays of Lake Minnetonka</a></p>
+
     <p class="teaser-soft">Minnetonka led; Excelsior next at 3. Full by-town table and Geoffrey’s take below.</p>
   </div>
 
@@ -844,7 +854,7 @@ body{padding-top:calc(52px + env(safe-area-inset-top))}
 <div id="svFields"><h2>Want this list each week?</h2><p>Leave your email and Geoffrey will set you up with the week’s closed sales around Lake Minnetonka, sent through Compass. Add your mobile only if you’d like a text.</p>
 <label for="svName">First name</label><input id="svName" autocomplete="given-name" placeholder="First name" required>
 <label for="svEmail">Email</label><input id="svEmail" type="email" autocomplete="email" placeholder="you@email.com" required>
-<input type="hidden" id="svPhone" value="" />
+<label for="svPhone">Mobile (optional)</label><input id="svPhone" type="tel" autocomplete="tel" placeholder="Only if you want a text">
 <p class="sv-err" id="svErr" role="alert">Please add your first name and a working email.</p>
 <button type="button" id="svBtn">Send me the weekly sales</button>
 <p class="sv-small">By submitting, you agree Serdar+Partners at Compass may contact you by call or text at the number you provide. Consent is not required to buy or sell. Reply STOP to opt out. <a href="/privacy">Privacy</a></p></div>
@@ -1193,7 +1203,7 @@ else{b.disabled=false;err.textContent='That didn\u2019t go through. Please try a
       startFired = true;
       if (typeof gtag === 'function') gtag('event', 'form_start', { first_field: id });
     }
-    ['firstName', 'email', 'phone'].forEach(function (id) {
+    ['svName', 'svEmail', 'svPhone'].forEach(function (id) {
       var el = document.getElementById(id);
       if (!el) return;
       el.addEventListener('focus', function () { touch(id); });
