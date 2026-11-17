@@ -9,7 +9,7 @@
 }
 .lake-chart text.minor{opacity:0;transition:opacity .25s ease}
 .lake-chart svg.is-detail text.minor{opacity:1}
-.lake-chart[data-focus="bays"] .town,.lake-chart[data-focus="bays"] .town-dot{opacity:.38}
+.lake-chart[data-focus="bays"] .town,.lake-chart[data-focus="bays"] .town-dot{opacity:.82}
 .lake-chart[data-focus="towns"] .bay{opacity:.38}
 .lake-chart[data-focus="bays"] a.is-here .town,.lake-chart[data-focus="bays"] a.is-here .town-dot,.lake-chart[data-focus="towns"] a.is-here .bay{opacity:1}
 .lake-chart svg.is-detail .town,.lake-chart svg.is-detail .town-dot,.lake-chart svg.is-detail .bay{opacity:1}
@@ -31,8 +31,9 @@ details.lake-chart-places li span{color:#8A7B62}
 .lake-chart a.nav:focus-visible{outline:2px solid #8C3A2A;outline-offset:2px}
 .lake-chart .pin:focus-visible{outline:2px solid #8C3A2A;outline-offset:3px}
 .lake-chart a.nav.is-hot .bay-water,.lake-chart a.nav:hover .bay-water,.lake-chart a.nav:focus .bay-water{fill:rgba(201,168,119,.7);stroke:#6E5228;stroke-width:1.6}
-.lake-chart a.nav.is-here .bay-water{fill:rgba(201,168,119,.22);stroke:#6E5228;stroke-width:1.05}
-.lake-chart a.nav.is-here .bay,.lake-chart a.nav.is-hot .bay,.lake-chart a.nav:hover .bay{fill:#8C3A2A}
+.lake-chart a.nav.is-here .bay-water{fill:rgba(243,230,200,.62);stroke:#6E5228;stroke-width:1.2}
+.lake-chart a.nav.is-here .bay{fill:#F7F1E4;stroke:#24382F;stroke-width:1.35}
+.lake-chart a.nav.is-hot .bay,.lake-chart a.nav:hover .bay{fill:#8C3A2A}
 .lake-chart a.nav.is-here .town,.lake-chart a.nav.is-here .town-dot{fill:#8C3A2A}
 .lake-chart a.nav:hover .town,.lake-chart a.nav:focus .town,.lake-chart a.nav.is-hot .town{fill:#8C3A2A}
 .lake-chart .here-line{fill:none;stroke:#8C3A2A;stroke-linejoin:round;stroke-linecap:round}

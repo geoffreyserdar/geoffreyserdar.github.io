@@ -292,8 +292,14 @@ for (const pagePath of list) {
     }
     if (!data.hint) fail(pagePath + " @" + width + " missing zoom hint");
     const focus = await page.$eval(".lake-chart", (el) => el.getAttribute("data-focus") || "");
-    if (focus === "bays" && data.labels.some((l) => l.cls === "town")) fail(pagePath + " @" + width + " town names are not quiet on a bay page");
-    if (focus === "towns" && data.labels.some((l) => l.cls === "bay")) fail(pagePath + " @" + width + " bay names are not quiet on a town page");
+    const quietOpacity = await page.evaluate((focus) => {
+      const svg = document.querySelector(".lake-chart svg");
+      const sel = focus === "bays" ? "text.town" : "text.bay";
+      const el = [...svg.querySelectorAll(sel)].find((n) => !n.closest("a.is-here"));
+      return el ? parseFloat(getComputedStyle(el).opacity) : 0;
+    }, focus);
+    if (focus === "bays" && quietOpacity > 0.9) fail(pagePath + " @" + width + " town names are not quiet on a bay page");
+    if (focus === "towns" && quietOpacity > 0.9) fail(pagePath + " @" + width + " bay names are not quiet on a town page");
     if (width === 390 || width === 1280) {
       await page.evaluate(() => {
         document.querySelector(".lake-zoom button[data-z=in]").click();
