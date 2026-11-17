@@ -714,6 +714,7 @@ body{padding-top:calc(52px + env(safe-area-inset-top))}
 </footer>
 <!-- /HOUSE:FOOTER -->
 
+<script src="/assets/lead-source.js"></script>
 <script>
 /* ================================================================= */
 /* RAZIEL_CONFIG — the lead pipe in ONE place. Cloned verbatim from   */
@@ -731,16 +732,7 @@ const RAZIEL_CONFIG = {
 };
 
 /* ---- lead source (UTM / gclid / referrer) ---- */
-const LEAD_SOURCE = (function () {
-  const p = new URLSearchParams(window.location.search);
-  return {
-    utm_source: p.get('utm_source') || '',
-    utm_medium: p.get('utm_medium') || '',
-    utm_campaign: p.get('utm_campaign') || '',
-    gclid: p.get('gclid') || '',
-    referrer: document.referrer || ''
-  };
-})();
+const LEAD_SOURCE = window.gsLeadSource();
 
 /* ================================================================= */
 /* THE MATH                                                          */

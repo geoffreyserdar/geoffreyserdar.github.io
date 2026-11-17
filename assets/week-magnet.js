@@ -9,14 +9,14 @@
   var LEAD_ALERT_URL = 'https://lead-alert-4343.twil.io/lead-alert';
   var ADS_SEND_TO = 'AW-17849235035/jRxICLmDpr0cENvslr9C';
 
-  var LEAD_SOURCE = (function () {
+  var LEAD_SOURCE = (window.gsLeadSource ? window.gsLeadSource() : (function () {
     var p = new URLSearchParams(window.location.search);
     return {
       utm_source: p.get('utm_source') || '', utm_medium: p.get('utm_medium') || '',
       utm_campaign: p.get('utm_campaign') || '', utm_content: p.get('utm_content') || '',
       gclid: p.get('gclid') || '', referrer: document.referrer || ''
     };
-  })();
+  })());
 
   function isValidUSPhone(raw) {
     var d = String(raw || '').replace(/\D/g, '');
