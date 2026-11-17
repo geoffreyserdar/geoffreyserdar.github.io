@@ -29,7 +29,7 @@
 <text font-size="30" text-anchor="middle" x="90" y="9">E</text>
 <text font-size="30" text-anchor="middle" x="0" y="106">S</text>
 <text font-size="30" text-anchor="end" x="-82" y="9">W</text>
-</g><g class="scale" pointer-events="none" transform="translate(268 752)">
+</g><g class="scale" pointer-events="none" transform="translate(298 752)">
 <text class="scale-label" font-size="26" x="70" y="-16" text-anchor="middle">scale of miles</text>
 <rect x="0" y="0" width="70" height="7" fill="#24382F"/>
 <rect x="70" y="0" width="70" height="7" fill="#F7F1E4" stroke="#24382F" stroke-width="0.7"/>
