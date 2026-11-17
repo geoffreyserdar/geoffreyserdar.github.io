@@ -95,12 +95,42 @@ const measure = () => {
     }
     return false;
   }
+  const probeLake = svg.createSVGPoint();
+  function withShape(shape, b) {
+    if (!shape) return false;
+    let inside = 0;
+    let total = 0;
+    for (let x = b.x; x <= b.x + b.width; x += 6) {
+      for (let y = b.y; y <= b.y + b.height; y += 6) {
+        probeLake.x = x;
+        probeLake.y = y;
+        total += 1;
+        if (shape.isPointInFill(probeLake)) inside += 1;
+      }
+    }
+    const frac = total ? inside / total : 0;
+    if (frac > 0.04 && frac < 0.96) return false;
+    if (frac >= 0.96) return true;
+    const pad = 40;
+    const edge = [];
+    for (let x = b.x - pad; x <= b.x + b.width + pad; x += 8) {
+      edge.push([x, b.y - pad], [x, b.y + b.height + pad]);
+    }
+    for (let y = b.y; y <= b.y + b.height; y += 8) {
+      edge.push([b.x - pad, y], [b.x + b.width + pad, y]);
+    }
+    return edge.some(([x, y]) => {
+      probeLake.x = x;
+      probeLake.y = y;
+      return shape.isPointInFill(probeLake);
+    });
+  }
   const decos = [...svg.querySelectorAll("text[data-water]")].map((n) => {
     const b = n.getBBox();
     const pt = new DOMPoint(b.x + b.width / 2, b.y + b.height / 2);
     const id = n.getAttribute("data-water");
     const shape = id === "water" ? water : svg.querySelector("#" + id);
-    const onLake = id === "water" ? !!(shape && shape.isPointInFill(pt)) : beside(shape, pt);
+    const onLake = id === "water" ? !!(shape && shape.isPointInFill(pt)) : (id === "minnewashta" ? withShape(shape, b) : beside(shape, pt));
     return { name: n.textContent, onLake };
   });
   const waters = ["#water", "#minnewashta", "#libbs"].map((id) => svg.querySelector(id)).filter(Boolean);

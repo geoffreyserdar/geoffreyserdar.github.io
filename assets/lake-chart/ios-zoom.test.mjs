@@ -120,7 +120,7 @@ async function runWebKit() {
   });
   if (places.deco !== "none") fail("webkit places links are underlined (" + places.deco + ")");
   if (places.list !== "none") fail("webkit places list has bullets (" + places.list + ")");
-  for (const name of ["Excelsior", "Wayzata", "Lake Minnewashta"]) {
+  for (const name of ["Excelsior Bay", "Wayzata", "Lake Minnewashta"]) {
     await page.evaluate(() => {
       const b = document.querySelector("[data-z=reset]");
       if (b) b.click();
@@ -155,7 +155,7 @@ async function runWebKit() {
     console.log("webkit pinch", name, "drift", d.toFixed(1));
   }
   await page.evaluate(() => document.querySelector("[data-z=reset]").click());
-  const ex = await spot(page, "Excelsior");
+  const ex = await spot(page, "Excelsior Bay");
   const ex0 = await under(page, ex.x, ex.y);
   await page.touchscreen.tap(ex.x, ex.y);
   await page.touchscreen.tap(ex.x, ex.y);
@@ -190,7 +190,7 @@ async function runWebKit() {
   if (Math.abs(back.s - 1) > 0.02 || Math.abs(back.tx) > 1 || Math.abs(back.ty) > 1) fail("webkit reset did not restore the lake");
   await page.locator("[data-z=in]").click();
   await page.locator("[data-z=in]").click();
-  const panAt = await spot(page, "Excelsior");
+  const panAt = await spot(page, "Excelsior Bay");
   const pan0 = await under(page, panAt.x, panAt.y);
   await page.evaluate(({ x, y }) => {
     const view = document.querySelector(".lake-chart-view");
@@ -219,7 +219,7 @@ async function runChromium() {
   const page = await context.newPage();
   await prepare(page);
   const client = await context.newCDPSession(page);
-  for (const name of ["Excelsior", "Wayzata", "Lake Minnewashta"]) {
+  for (const name of ["Excelsior Bay", "Wayzata", "Lake Minnewashta"]) {
     await page.evaluate(() => document.querySelector("[data-z=reset]").click());
     const at = await spot(page, name);
     const before = await under(page, at.x, at.y);
@@ -248,7 +248,7 @@ async function runChromium() {
   await page.setViewportSize({ width: 1440, height: 900 });
   await prepare(page);
   await shot(page, "chromium-1440-start");
-  const at = await spot(page, "Excelsior");
+  const at = await spot(page, "Excelsior Bay");
   const before = await under(page, at.x, at.y);
   await page.mouse.move(at.x, at.y);
   await page.mouse.wheel(0, -240);
