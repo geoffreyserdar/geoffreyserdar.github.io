@@ -50,6 +50,13 @@
   var sb=document.querySelector('nav.sv-bar');
   if(sb)sb.addEventListener('click',function(e){var a=e.target.closest('a');if(a)ev('bottom_bar_click',(a.textContent||'').trim())});
   if(sb){
+    var lede=document.querySelector("main .voice");
+    if(lede){
+      sb.classList.add("bay-hold");
+      var hold=function(){var r=lede.getBoundingClientRect();sb.classList.toggle("bay-hold", r.bottom>72);};
+      window.addEventListener("scroll",hold,{passive:true});
+      window.addEventListener("resize",hold);hold();
+    }
     /* desktop: sms links are clumsy on computers, so the second pill shows the number itself; restore on mobile */
     var dq=window.matchMedia('(min-width:768px)'), sec=sb.querySelector('a[href^="sms:"]'), orig=sec&&sec.textContent;
     function lab(){if(sec)sec.textContent=dq.matches?'Text 952 258 3100':orig}

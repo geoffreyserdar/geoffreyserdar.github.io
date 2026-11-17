@@ -1,4 +1,6 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<!doctype html><html lang="en"><head>
+<link rel="stylesheet" href="/assets/lake-chart/lake-chart.css">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <link rel="preload" as="image" type="image/avif" href="woolsey-house-1200.avif" imagesrcset="woolsey-house-800.avif 800w, woolsey-house-1200.avif 1200w, woolsey-house-1600.avif 1600w" imagesizes="(min-width: 864px) 820px, calc(100vw - 44px)" fetchpriority="high">
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17849235035"></script>
@@ -15,7 +17,7 @@
 <meta name="robots" content="index,follow,max-image-preview:large">
 <title>A colonial on Wayzata Bay, Lake Minnetonka | Geoffrey Serdar</title><meta name="description" content="Patrick and Andrea Bassett’s colonial on a point of Wayzata Bay closed November 2, 2026 for $6,227,200. They bought it in 1988, county records show. Its story, a map, and a plain guide to Wayzata Bay."><link rel="canonical" href="https://geoffreyserdar.com/lake-minnetonka/wayzata-bay/">
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@400;500;600;700&display=optional" rel="stylesheet">
 <link rel="stylesheet" href="/assets/house.css"><style>
 body{margin:0;background:#FAF7EF;color:#1F201C;font-family:Inter,system-ui,sans-serif;line-height:1.6}
 .stage-flag{background:#7a1f1f;color:#fff;text-align:center;font:600 13px Inter,sans-serif;padding:8px 12px;letter-spacing:.4px}
@@ -25,8 +27,8 @@ body{margin:0;background:#FAF7EF;color:#1F201C;font-family:Inter,system-ui,sans-
 h1{font-family:'Playfair Display',Georgia,serif;font-weight:900;font-size:clamp(32px,5.5vw,50px);line-height:1.1;margin:24px 0 8px}
 h1 span{display:block;font-weight:400;font-style:italic;font-size:.6em;color:#4D4839;margin-top:6px}
 h2{font-family:'Playfair Display',Georgia,serif;font-size:28px;margin:44px 0 12px}
-.voice{font-family:'Playfair Display',Georgia,serif;font-size:21px;line-height:1.5;border-left:3px solid #C9A877;padding-left:18px;margin:22px 0}
-.sig{font:700 15px Inter,sans-serif;color:#6E5228;margin-top:-8px}
+.voice{font-family:'Playfair Display',Georgia,serif;font-size:18px;font-weight:400;line-height:1.45;margin:0 0 16px;padding:0;border:0}
+.sig{font:600 13px/1.3 Inter,sans-serif;color:#6E5228;margin:0 0 14px}
 .tid{display:grid;grid-template-columns:1fr 1fr;gap:14px;padding:0;list-style:none}
 .tid li{background:#ECE4D4;border-radius:4px;padding:14px 16px;font-size:15px}
 .tid b{display:block;font-size:11px;letter-spacing:1px;text-transform:uppercase;color:#6E5228;margin-bottom:4px}
@@ -82,10 +84,11 @@ h1.hero-title{margin-top:0;line-height:inherit}
 .sv-offer .sv-small{font-size:12px;opacity:.75;margin:10px 0 0}
 .sv-offer .sv-err{color:#b3261e;font-size:13px;display:none}
 .sv-bar{display:none}
-@media (max-width:760px){.sv-bar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:9999;gap:8px;padding:8px 10px calc(8px + env(safe-area-inset-bottom));background:rgba(20,20,20,.94)}
-.sv-bar a{flex:1;min-height:46px;display:flex;align-items:center;justify-content:center;border-radius:8px;font:600 15px 'Inter',sans-serif;text-decoration:none;color:#fff;border:1px solid rgba(255,255,255,.4)}
-.sv-bar a.sv-main{background:var(--gold,#b08d57);border-color:transparent}
-body{padding-bottom:72px}}
+@media (max-width:760px){.sv-bar{display:flex;align-items:center;position:fixed;left:0;right:0;bottom:0;z-index:9999;gap:8px;box-sizing:border-box;padding:6px 12px calc(6px + env(safe-area-inset-bottom));background:#FAF7EF;border-top:1px solid #C9A877}
+.sv-bar a{flex:1 1 0;min-width:0;width:0;height:40px;min-height:40px;display:flex;align-items:center;justify-content:center;text-align:center;white-space:nowrap;padding:0 12px;box-sizing:border-box;border-radius:6px;font:600 15px/1 'Inter',sans-serif;text-decoration:none;color:#6E5228;border:1px solid #6E5228}
+.sv-bar a.sv-main{background:#6E5228;color:#FAF7EF;border-color:#6E5228}
+.sv-bar.bay-hold{visibility:hidden;pointer-events:none}
+body{padding-bottom:calc(52px + env(safe-area-inset-bottom))}}
 </style>
 
 <style id="gs-topbar-css">
@@ -133,8 +136,10 @@ body{padding-top:calc(52px + env(safe-area-inset-top))}
 </picture>
 </figure>
 <h1>Wayzata Bay on Lake Minnetonka<span>the front porch of the lake</span></h1>
-<p class="voice">Patrick and Andrea Bassett just sold their colonial on a point of Wayzata Bay in Woodland, on Lake Minnetonka, and Patrick’s stepmother was Florence Knoll Bassett, the designer behind the modern American office. They bought it in 1988, county records show. It closed November 2 for $6,227,200.</p><p class="sig">Geoffrey Serdar</p>
+<p class="sig">By Geoffrey Serdar</p>
+<p class="voice">Patrick and Andrea Bassett just sold their colonial on a point of Wayzata Bay in Woodland, on Lake Minnetonka, and Patrick’s stepmother was Florence Knoll Bassett, the designer behind the modern American office.</p>
 <div class="guide" id="bay-story">
+<p>They bought it in 1988, county records show. It closed November 2 for $6,227,200.</p>
 <p>Their place sits where a narrow channel runs in from the bay to Woolsey Pond. The pond takes its name from George and Alvira Woolsey, who grew fruit on the hillsides there in the years after the Civil War. Folks once called it Pete’s Pond too, after a Danish farmer named Peter Peterson who cut ice from it and hauled the big dripping blocks to the summer cottages by horse and wagon.</p>
 <p>In 1915 a Minneapolis doctor, Angus Morrison, had that channel dredged so the land along it would have lake access. Channel shore like this is why, the listing says, the place can keep permanent docks today. The listing dates the colonial to 1942 and talks about a sandy beach, a guest house and a fire pit at the tip of the point, looking across the water to downtown Wayzata.</p>
 <p class="note">The pond’s names, and that 1915 dredging, are written up in <a href="https://cdn.townweb.com/cityofwoodlandmn.gov/wp-content/uploads/2019/06/2016-Fall-Newsletter.pdf" rel="noopener noreferrer">Woodland’s Fall 2016 newsletter</a>.</p>
@@ -207,27 +212,10 @@ if(ok){form.style.display='none';document.getElementById('shThanks').style.displ
 else{b.disabled=false;err.textContent='That didn\u2019t go through. Please try again, or text Geoffrey at 952 258 3100.';err.style.display='block'}});});})();
 </script>
 
-<figure class="map-fig">
-<button type="button" class="map-open" id="mapOpen">
-<picture>
-<source type="image/avif" srcset="woolsey-map-720.avif 720w, woolsey-map-1080.avif 1080w, woolsey-map-1620.avif 1620w" sizes="(min-width: 864px) 820px, calc(100vw - 44px)">
-<source type="image/webp" srcset="woolsey-map-720.webp 720w, woolsey-map-1080.webp 1080w, woolsey-map-1620.webp 1620w" sizes="(min-width: 864px) 820px, calc(100vw - 44px)">
-<img src="woolsey-map-1080.jpg" width="1080" height="1350" loading="lazy" decoding="async" alt="Antique-style chart of Lake Minnetonka in a Northwoods engraved look, with bay names on the water and a pin on Wayzata Bay at 2670 Woolsey Lane in Woodland. Sold Nov 2, 2026, $6,227,200. Map data © OpenStreetMap contributors.">
-</picture>
-<span class="map-hint">Tap to enlarge</span>
-</button>
+<p class="lake-chart-cap">Tap a bay or town to explore.</p>
+<figure class="lake-chart" data-here="wayzata-bay" data-pin-x="652.8" data-pin-y="238" data-pin-addr="2670 Woolsey Lane" data-pin-town="Woodland" data-pin-sold="Nov 2, 2026" data-pin-price="$6,227,200" aria-label="Chart of Lake Minnetonka. Map data © OpenStreetMap contributors.">
+<img src="woolsey-map-1080.jpg" width="800" height="640" loading="lazy" decoding="async" alt="Antique-style chart of Lake Minnetonka in a Northwoods engraved look, with bay names on the water and a pin on Wayzata Bay at 2670 Woolsey Lane in Woodland. Sold Nov 2, 2026, $6,227,200. Map data © OpenStreetMap contributors.">
 </figure>
-<dialog class="map-dialog" id="mapDialog" aria-label="Chart, enlarged">
-<form method="dialog"><button type="submit" class="map-close" id="mapClose">Close</button></form>
-<img id="mapFull" width="1620" height="2025" alt="Antique-style chart of Lake Minnetonka in a Northwoods engraved look, with bay names on the water and a pin on Wayzata Bay at 2670 Woolsey Lane in Woodland. Sold Nov 2, 2026, $6,227,200. Map data © OpenStreetMap contributors.">
-</dialog>
-<script>
-(function(){var d=document.getElementById('mapDialog'),b=document.getElementById('mapOpen'),img=document.getElementById('mapFull');if(!d||!b||!img)return;
-function shut(){if(d.open&&d.close)d.close();}
-b.addEventListener('click',function(){if(!img.getAttribute('src')){img.src='woolsey-map-1620.avif';img.addEventListener('error',function(){img.src='woolsey-map-1080.jpg';},{once:true});}if(d.showModal)d.showModal();});
-d.addEventListener('click',function(e){if(e.target===d)shut();});
-d.addEventListener('close',function(){});})();
-</script>
 
 <h2>The week it sold</h2>
 <div class="guide">
@@ -332,7 +320,7 @@ fetch('https://formspree.io/f/mpqerwwk',{method:'POST',headers:{'Content-Type':'
 if(ok){document.getElementById('svFields').style.display='none';document.getElementById('svThanks').style.display='block';try{if(typeof gtag==='function')gtag('event','generate_lead',{lead_type:LT,page_path:location.pathname})}catch(e){}}
 else{b.disabled=false;err.textContent='That didn\u2019t go through. Please try again, or text Geoffrey at 952 258 3100.';err.style.display='block'}});});})();
 </script>
-<nav class="sv-bar" aria-label="Quick contact"><a class="sv-main" href="#bay-alert">Get Wayzata Bay sale alerts</a><a href="sms:+19522583100">Text Geoffrey</a></nav>
+<nav class="sv-bar" aria-label="Quick contact"><a class="sv-main" href="#bay-alert">Sale alerts</a><a href="sms:+19522583100">Text Geoffrey</a></nav>
 <!-- SV:END -->
 
 <footer class="site-foot">
@@ -370,4 +358,5 @@ else{b.disabled=false;err.textContent='That didn\u2019t go through. Please try a
 <!-- /HOUSE:FOOTER -->
 <script src="/assets/door-clicks.js" defer></script>
 <script src="/assets/gs-bars.js?v=20261117" defer data-mode="bay" data-bay-label="Wayzata Bay"></script>
+<script src="/assets/lake-chart/lake-chart.js" defer></script>
 </body></html>

@@ -12,3 +12,10 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: node assets/public-metadata-hygiene.test.mjs
+      - name: Chart label collision
+        run: |
+          sudo apt-get update
+          wget -q https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+          sudo apt-get install -y ./google-chrome-stable_current_amd64.deb
+          npm install --no-save --no-package-lock puppeteer-core@24.15.0
+          node assets/lake-chart/label-collision.test.mjs

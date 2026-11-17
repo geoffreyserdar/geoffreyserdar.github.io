@@ -1,0 +1,24 @@
+/* Lake chart. Big Shoulders Display and Zilla Slab are for the chart only. */
+.lake-chart-slot{max-width:640px;margin:0 auto;padding:0 32px 8px;box-sizing:border-box}
+.lake-chart-cap{margin:16px 0 6px;font:600 13px/1.4 Inter,system-ui,sans-serif;color:#6E5228;letter-spacing:.02em}
+.lake-chart{position:relative;margin:0 0 8px;aspect-ratio:800/640;background:#F3E6C8;border-radius:4px;overflow:hidden}
+.lake-chart-view{position:absolute;inset:0;background:#F3E6C8;touch-action:pan-y}
+.lake-chart-view svg{width:100%;height:100%;display:block}
+.lake-chart img{width:100%;height:100%;object-fit:cover;display:block}
+.lake-chart.is-live img{display:none}
+.lake-chart a.nav{cursor:pointer}
+.lake-chart a.nav.is-hot .bay-water,.lake-chart a.nav:hover .bay-water,.lake-chart a.nav:focus .bay-water{fill:rgba(201,168,119,.7);stroke:#6E5228;stroke-width:1.6}
+.lake-chart a.nav.is-here .bay-water{fill:rgba(140,58,42,.34)}
+.lake-chart a.nav.is-here .bay,.lake-chart a.nav.is-hot .bay,.lake-chart a.nav:hover .bay{fill:#8C3A2A}
+.lake-chart a.nav.is-here .town,.lake-chart a.nav.is-here .town-dot{fill:#8C3A2A}
+.lake-chart a.nav:hover .town,.lake-chart a.nav:focus .town,.lake-chart a.nav.is-hot .town{fill:#8C3A2A}
+.lake-chart .here-line{stroke:#8C3A2A}
+.lake-chart .pin{cursor:pointer}
+.lake-chart .pin circle.outer{fill:#8C3A2A}
+.lake-chart .pin circle.inner{fill:#F3E6C8}
+.lake-pin-card{position:absolute;z-index:2;max-width:156px;background:#F3E6C8;border:1px solid #24382F;border-radius:6px;padding:6px 22px 6px 8px;font:600 12px/1.3 "Zilla Slab",Georgia,serif;color:#24382F}
+.lake-pin-card p{margin:0}
+.lake-pin-card .price{font-family:"Big Shoulders Display","Arial Narrow",sans-serif;font-size:16px;letter-spacing:.03em;margin-top:2px}
+.lake-pin-card .x{position:absolute;top:0;right:0;width:22px;height:22px;border:0;background:transparent;color:#24382F;font:600 16px/22px Inter,sans-serif;padding:0;cursor:pointer}
+.lake-whole{position:absolute;top:8px;right:8px;z-index:2;display:none;border:1px solid #24382F;border-radius:6px;background:#F3E6C8;color:#24382F;padding:4px 8px;font:600 12px/1 "Zilla Slab",Georgia,serif;cursor:pointer}
+.lake-chart.is-zoomed .lake-whole{display:block}
