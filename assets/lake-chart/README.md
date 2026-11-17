@@ -1,6 +1,6 @@
 # Lake chart
 
-One old-style chart of Lake Minnetonka. Bay water and town names link to pages that already exist. A tap highlights the water. The current page is marked with a cream tag reading “You are here,” in bold rust, and a pointer to that bay or town. The tag stays large enough to read on a phone and sits clear of the other names. A sale pin is optional, and only for a page that has a sale.
+One old-style chart of Lake Minnetonka. Bay water and town names link to pages that already exist. A tap highlights the water. The current page is marked with a cream tag reading “You are here,” in bold rust, sitting beside that bay or town with a short pointer. The tag stays large enough to read on a phone, flips to the open parchment, and sits clear of the other names. A sale pin is optional, and only for a page that has a sale.
 
 The drawing waits until the chart is near the screen. With JavaScript off, the image inside the figure stays.
 
@@ -18,11 +18,11 @@ Paste `include.html` once, where the chart should sit. Change `data-here` to thi
 
 `data-lake` chooses the drawing. It defaults to `minnetonka`, which loads `/assets/lake-chart/lake-minnetonka-chart.svg`. Another lake later is a new SVG that uses the same classes (`bay`, `town`, `minor`, `other`) plus `data-here` and the optional pin on each page.
 
-Zoomed out, the chart shows towns and the large bays. A pinch zooms toward the point between the fingers. The scroll wheel zooms toward the cursor. The + and − buttons zoom toward the middle of the chart. Reset, or zooming all the way out, restores the whole lake. One finger always scrolls the page. Two fingers zoom and drag the chart, and the chart stays inside its frame. The hint fades after the first zoom.
+Zoomed out, the chart shows towns and the large bays. A pinch zooms toward the point between the fingers. The scroll wheel zooms toward the cursor. The + and − buttons zoom toward the center of the map window. Reset, or zooming all the way out, restores the whole lake. With the chart at full size, one finger scrolls the page. Once it is zoomed, one finger pans and two fingers pinch. The point under the fingers stays put, and the lake stays inside the frame. The hint fades after the first zoom.
 
 ## Optional sale pin
 
-Add these on a page that has a sale. The numbers are positions on the chart, from 0 0 to 800 1100. Leave them off everywhere else.
+Add these on a page that has a sale. The numbers are positions on the chart, from 0 0 to 800 860. Leave them off everywhere else.
 
 ```html
 <figure class="lake-chart" data-here="wayzata-bay"

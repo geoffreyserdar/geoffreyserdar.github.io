@@ -95,14 +95,85 @@ const measure = () => {
     }
     return false;
   }
+  const probeLake = svg.createSVGPoint();
+  function withShape(shape, b) {
+    if (!shape) return false;
+    let inside = 0;
+    let total = 0;
+    for (let x = b.x; x <= b.x + b.width; x += 6) {
+      for (let y = b.y; y <= b.y + b.height; y += 6) {
+        probeLake.x = x;
+        probeLake.y = y;
+        total += 1;
+        if (shape.isPointInFill(probeLake)) inside += 1;
+      }
+    }
+    const frac = total ? inside / total : 0;
+    if (frac > 0.04 && frac < 0.96) return false;
+    if (frac >= 0.96) return true;
+    const pad = 40;
+    const edge = [];
+    for (let x = b.x - pad; x <= b.x + b.width + pad; x += 8) {
+      edge.push([x, b.y - pad], [x, b.y + b.height + pad]);
+    }
+    for (let y = b.y; y <= b.y + b.height; y += 8) {
+      edge.push([b.x - pad, y], [b.x + b.width + pad, y]);
+    }
+    return edge.some(([x, y]) => {
+      probeLake.x = x;
+      probeLake.y = y;
+      return shape.isPointInFill(probeLake);
+    });
+  }
   const decos = [...svg.querySelectorAll("text[data-water]")].map((n) => {
     const b = n.getBBox();
     const pt = new DOMPoint(b.x + b.width / 2, b.y + b.height / 2);
     const id = n.getAttribute("data-water");
     const shape = id === "water" ? water : svg.querySelector("#" + id);
-    const onLake = id === "water" ? !!(shape && shape.isPointInFill(pt)) : beside(shape, pt);
+    const onLake = id === "water" ? !!(shape && shape.isPointInFill(pt)) : (id === "minnewashta" ? withShape(shape, b) : beside(shape, pt));
     return { name: n.textContent, onLake };
   });
+  const waters = ["#water", "#minnewashta", "#libbs"].map((id) => svg.querySelector(id)).filter(Boolean);
+  const probe = svg.createSVGPoint();
+  function inWater(x, y) {
+    probe.x = x;
+    probe.y = y;
+    return waters.some((shape) => shape.isPointInFill(probe));
+  }
+  const wetTowns = [];
+  svg.querySelectorAll("text.town").forEach((n) => {
+    const b = n.getBBox();
+    let wet = false;
+    for (let x = b.x; x <= b.x + b.width && !wet; x += 4) {
+      for (let y = b.y; y <= b.y + b.height && !wet; y += 4) wet = inWater(x, y);
+    }
+    if (!wet) wet = inWater(b.x + b.width, b.y) || inWater(b.x, b.y + b.height) || inWater(b.x + b.width, b.y + b.height);
+    if (wet) wetTowns.push(n.textContent);
+  });
+  const win = svg.querySelector("#mapwindow rect");
+  let wr = null;
+  if (win && svg.getScreenCTM()) {
+    const ctm = svg.getScreenCTM();
+    const pt = svg.createSVGPoint();
+    const corner = (x, y) => {
+      pt.x = x;
+      pt.y = y;
+      return pt.matrixTransform(ctm);
+    };
+    const a = corner(+win.getAttribute("x"), +win.getAttribute("y"));
+    const b = corner(+win.getAttribute("x") + +win.getAttribute("width"), +win.getAttribute("y") + +win.getAttribute("height"));
+    wr = { left: Math.min(a.x, b.x), top: Math.min(a.y, b.y), right: Math.max(a.x, b.x), bottom: Math.max(a.y, b.y) };
+  }
+  const tagEl = svg.querySelector(".here-tag");
+  const textEl = svg.querySelector("text.here");
+  function insideWin(el) {
+    if (!el || !wr) return true;
+    const r = el.getBoundingClientRect();
+    return r.left >= wr.left - 2 && r.right <= wr.right + 2 && r.top >= wr.top - 2 && r.bottom <= wr.bottom + 2;
+  }
+  const tagInside = insideWin(tagEl) && insideWin(textEl);
+  const hintEl = document.querySelector(".lake-zoom-hint");
+  const hintBox = hintEl ? hintEl.getBoundingClientRect() : { height: 0, width: 0 };
   const buttons = [...document.querySelectorAll(".lake-zoom button")].map((b) => {
     const r = b.getBoundingClientRect();
     return { name: b.getAttribute("aria-label"), w: Math.round(r.width), h: Math.round(r.height) };
@@ -164,7 +235,7 @@ const measure = () => {
       }
     }
   }
-  return { ready: true, labels, pin, bays, decos, buttons, hint, lineHits, detail: svg.classList.contains("is-detail"), chartW: chart.width };
+  return { ready: true, labels, pin, bays, decos, buttons, hint, hintH: hintBox.height, wetTowns, tagInside, lineHits, detail: svg.classList.contains("is-detail"), chartW: chart.width };
 };
 
 let failed = 0;
@@ -210,7 +281,13 @@ for (const pagePath of list) {
       if (el) el.scrollIntoView({ block: "center" });
     });
     await page.waitForSelector(".lake-chart.is-live text.bay", { timeout: 8000 });
-    await page.evaluate(() => (document.fonts ? document.fonts.ready : Promise.resolve()));
+    await page.evaluate(async () => {
+      if (document.fonts && document.fonts.load) {
+        await document.fonts.load('600 15px "Cormorant Garamond"');
+        await document.fonts.load('500 26px "Cormorant Garamond"');
+      }
+      if (document.fonts) await document.fonts.ready;
+    });
     await page.evaluate(() => new Promise((r) => requestAnimationFrame(() => requestAnimationFrame(r))));
     const data = await page.evaluate(measure);
     if (!data.ready) {
@@ -237,13 +314,22 @@ for (const pagePath of list) {
     for (const deco of data.decos || []) {
       if (!deco.onLake) fail(pagePath + " @" + width + " " + deco.name + " is not on the water");
     }
+    for (const name of data.wetTowns || []) fail(pagePath + " @" + width + " " + name + " intersects the lake");
+    if (!data.tagInside) fail(pagePath + " @" + width + " You are here is outside the frame");
+    if ((width === 360 || width === 390) && data.hintH > 26) fail(pagePath + " @" + width + " zoom hint wraps (" + data.hintH.toFixed(1) + "px)");
     for (const b of data.buttons || []) {
       if (b.w < 44 || b.h < 44) fail(pagePath + " @" + width + " zoom button under 44px " + b.name);
     }
     if (!data.hint) fail(pagePath + " @" + width + " missing zoom hint");
     const focus = await page.$eval(".lake-chart", (el) => el.getAttribute("data-focus") || "");
-    if (focus === "bays" && data.labels.some((l) => l.cls === "town")) fail(pagePath + " @" + width + " town names are not quiet on a bay page");
-    if (focus === "towns" && data.labels.some((l) => l.cls === "bay")) fail(pagePath + " @" + width + " bay names are not quiet on a town page");
+    const quietOpacity = await page.evaluate((focus) => {
+      const svg = document.querySelector(".lake-chart svg");
+      const sel = focus === "bays" ? "text.town" : "text.bay";
+      const el = [...svg.querySelectorAll(sel)].find((n) => !n.closest("a.is-here"));
+      return el ? parseFloat(getComputedStyle(el).opacity) : 0;
+    }, focus);
+    if (focus === "bays" && quietOpacity > 0.9) fail(pagePath + " @" + width + " town names are not quiet on a bay page");
+    if (focus === "towns" && quietOpacity > 0.9) fail(pagePath + " @" + width + " bay names are not quiet on a town page");
     if (width === 390 || width === 1280) {
       await page.evaluate(() => {
         document.querySelector(".lake-zoom button[data-z=in]").click();
@@ -266,6 +352,8 @@ for (const pagePath of list) {
       for (const deco of zoomed.decos || []) {
         if (!deco.onLake) fail(pagePath + " @" + width + " zoomed " + deco.name + " is not on the water");
       }
+      for (const name of zoomed.wetTowns || []) fail(pagePath + " @" + width + " zoomed " + name + " intersects the lake");
+      if (!zoomed.tagInside) fail(pagePath + " @" + width + " zoomed You are here is outside the frame");
       const hintGone = await page.evaluate(() => document.querySelector(".lake-zoom-hint").classList.contains("is-gone"));
       if (!hintGone) fail(pagePath + " @" + width + " zoom hint did not fade");
       await page.evaluate(() => document.querySelector(".lake-zoom button[data-z=reset]").click());

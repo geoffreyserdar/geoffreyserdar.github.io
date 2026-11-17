@@ -11,7 +11,7 @@
     if (!document.querySelector("link[data-lake-fonts]")) {
       var font = document.createElement("link");
       font.rel = "stylesheet";
-      font.href = "https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700&family=Zilla+Slab:ital,wght@0,600;0,700;1,600&display=swap";
+      font.href = "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Zilla+Slab:wght@600&display=swap";
       font.setAttribute("data-lake-fonts", "");
       document.head.appendChild(font);
     }
@@ -46,6 +46,7 @@
         a.classList.add("is-hot");
       });
     });
+    chart = holdClip(chart);
     bindZoom(fig, view, svg, chart);
   }
 
@@ -57,59 +58,228 @@
     if (!labels.length) return;
     var ns = "http://www.w3.org/2000/svg";
     var chart = svg.querySelector("#chart");
-    function place() {
-      chart.querySelectorAll(".here, .here-tag, .here-line").forEach(function (n) { n.remove(); });
-      var note = document.createElementNS(ns, "text");
-      note.setAttribute("class", "here");
-      note.setAttribute("font-size", "42");
-      note.setAttribute("font-family", "Zilla Slab, Georgia, serif");
-      note.setAttribute("font-weight", "700");
-      note.setAttribute("fill", "#8C3A2A");
-      note.setAttribute("pointer-events", "none");
-      note.textContent = "You are here";
-      chart.appendChild(note);
-      note.setAttribute("text-anchor", "middle");
-      note.setAttribute("x", "400");
-      note.setAttribute("y", "400");
-      var sample = note.getBBox();
-      var tw = sample.width + 16;
-      var th = sample.height + 12;
-      var rise = 400 - sample.y;
-      var target = unionBoxes(labels);
-      var dot = mark.querySelector(".town-dot");
-      var mine = [{ x: target.x - 4, y: target.y - 4, w: target.w + 8, h: target.h + 8 }];
-      if (dot) {
-        var db = dot.getBBox();
-        mine.push({ x: db.x - 3, y: db.y - 3, w: db.width + 6, h: db.height + 6 });
-      }
+    var note = document.createElementNS(ns, "text");
+    note.setAttribute("class", "here");
+    note.setAttribute("font-family", "Cormorant Garamond, Georgia, Times New Roman, serif");
+    note.setAttribute("font-weight", "600");
+    note.setAttribute("fill", "#8C3A2A");
+    note.setAttribute("pointer-events", "none");
+    note.setAttribute("text-anchor", "middle");
+    var topLine = document.createElementNS(ns, "tspan");
+    topLine.textContent = "You are";
+    var botLine = document.createElementNS(ns, "tspan");
+    botLine.textContent = "here";
+    note.appendChild(topLine);
+    note.appendChild(botLine);
+    chart.appendChild(note);
+    var bg = document.createElementNS(ns, "rect");
+    bg.setAttribute("class", "here-tag");
+    bg.setAttribute("rx", "4");
+    bg.setAttribute("fill", "#F7F1E4");
+    bg.setAttribute("stroke", "#8C3A2A");
+    bg.setAttribute("stroke-width", "1.4");
+    bg.setAttribute("pointer-events", "none");
+    var line = document.createElementNS(ns, "line");
+    line.setAttribute("class", "here-line");
+    line.setAttribute("stroke", "#8C3A2A");
+    line.setAttribute("stroke-width", "2.4");
+    line.setAttribute("pointer-events", "none");
+    var pin = document.createElementNS(ns, "polygon");
+    pin.setAttribute("class", "here-pin");
+    pin.setAttribute("fill", "#8C3A2A");
+    pin.setAttribute("pointer-events", "none");
+    chart.insertBefore(pin, note);
+    chart.insertBefore(line, pin);
+    chart.insertBefore(bg, line);
+    var target = unionBoxes(labels);
+    var water = svg.querySelector("#water");
+    var otherLake = svg.querySelector("#minnewashta");
+    function place(limit) {
+      var savedX = topLine.getAttribute("x");
+      var savedY = topLine.getAttribute("y");
+      var savedSize = note.getAttribute("font-size");
+      var savedDy = botLine.getAttribute("dy");
       var blocked = obstacles(chart, mark);
-      var chosen = findHereSpot(target, mine, blocked, tw, th, rise, 12) || findHereSpot(target, mine, blocked, tw, th, rise, 8);
-      if (!chosen) chosen = { x: 160, y: 170, box: { x: 160 - tw / 2, y: 170 - rise, w: tw, h: th }, points: [] };
-      note.setAttribute("x", String(Math.round(chosen.x)));
-      note.setAttribute("y", String(Math.round(chosen.y)));
-      var bg = document.createElementNS(ns, "rect");
-      bg.setAttribute("class", "here-tag");
-      bg.setAttribute("x", String(Math.round(chosen.box.x)));
-      bg.setAttribute("y", String(Math.round(chosen.box.y)));
-      bg.setAttribute("width", String(Math.round(chosen.box.w)));
-      bg.setAttribute("height", String(Math.round(chosen.box.h)));
-      bg.setAttribute("rx", "4");
-      bg.setAttribute("fill", "#F7F1E4");
-      bg.setAttribute("stroke", "#8C3A2A");
-      bg.setAttribute("stroke-width", "1.4");
-      bg.setAttribute("pointer-events", "none");
-      var line = document.createElementNS(ns, "polyline");
-      line.setAttribute("class", "here-line");
-      line.setAttribute("points", chosen.points.map(function (p) { return (Math.round(p.x * 10) / 10) + "," + (Math.round(p.y * 10) / 10); }).join(" "));
-      line.setAttribute("fill", "none");
-      line.setAttribute("stroke", "#8C3A2A");
-      line.setAttribute("stroke-width", "2.2");
-      line.setAttribute("pointer-events", "none");
-      chart.insertBefore(line, note);
-      chart.insertBefore(bg, note);
+      var sizes = limit ? [22, 18, 15, 13] : [26, 22, 20];
+      var chosen = null;
+      var rise = 0;
+      for (var i = 0; i < sizes.length && !chosen; i++) {
+        var size = sizes[i];
+        note.setAttribute("font-size", String(size));
+        topLine.setAttribute("x", "400");
+        topLine.setAttribute("y", "400");
+        botLine.setAttribute("x", "400");
+        botLine.setAttribute("dy", String(Math.round(size * 1.08)));
+        var sample = note.getBBox();
+        if (limit && (sample.width + 16 > limit.w || sample.height + 12 > limit.h)) continue;
+        rise = 400 - sample.y;
+        chosen = besideHere(target, blocked, water, otherLake, sample.width + 16, sample.height + 12, limit);
+        if (!chosen && limit) chosen = forceInside(target, blocked, sample.width + 16, sample.height + 12, limit);
+      }
+      if (!chosen) {
+        if (savedX) {
+          note.setAttribute("font-size", savedSize || "26");
+          topLine.setAttribute("x", savedX);
+          topLine.setAttribute("y", savedY);
+          botLine.setAttribute("x", savedX);
+          botLine.setAttribute("dy", savedDy || "28");
+        }
+        return;
+      }
+      var ax = chosen.x + chosen.w / 2;
+      var ay = chosen.y + rise + 6;
+      topLine.setAttribute("x", String(Math.round(ax)));
+      topLine.setAttribute("y", String(Math.round(ay)));
+      botLine.setAttribute("x", String(Math.round(ax)));
+      bg.setAttribute("x", String(Math.round(chosen.x)));
+      bg.setAttribute("y", String(Math.round(chosen.y)));
+      bg.setAttribute("width", String(Math.round(chosen.w)));
+      bg.setAttribute("height", String(Math.round(chosen.h)));
+      var tip = clipTip(limit, { x: chosen.x2, y: chosen.y2 }, { x: chosen.x1, y: chosen.y1 });
+      if (segHits(tip, { x: chosen.x2, y: chosen.y2 }, blocked.lines)) tip = { x: chosen.x2, y: chosen.y2 };
+      line.setAttribute("x1", String(Math.round(tip.x)));
+      line.setAttribute("y1", String(Math.round(tip.y)));
+      line.setAttribute("x2", String(Math.round(chosen.x2)));
+      line.setAttribute("y2", String(Math.round(chosen.y2)));
+      line.setAttribute("points", Math.round(tip.x) + "," + Math.round(tip.y) + " " + Math.round(chosen.x2) + "," + Math.round(chosen.y2));
+      pin.setAttribute("points", hereArrow(chosen.x1, chosen.y1, chosen.x2, chosen.y2));
     }
-    place();
-    if (document.fonts && document.fonts.ready) document.fonts.ready.then(place);
+    svg._seatHere = place;
+    place(null);
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(function () { place(svg._hereLimit || null); });
+    }
+  }
+
+  function inLake(water, other, x, y) {
+    var svg = (water || other) && (water || other).ownerSVGElement;
+    if (!svg) return false;
+    var p = svg.createSVGPoint();
+    p.x = x;
+    p.y = y;
+    if (water && water.isPointInFill(p)) return true;
+    if (other && other.isPointInFill(p)) return true;
+    return false;
+  }
+
+  /* The tag sits on the nearest open parchment beside the place, with a short straight pointer. */
+  function besideHere(target, blocked, water, other, tw, th, limit) {
+    var cx = target.x + target.w / 2;
+    var cy = target.y + target.h / 2;
+    var angles = 24;
+    var reaches = [8, 16, 28, 42, 58, 76, 98, 124];
+    var best = null;
+    var bestScore = 1e12;
+    function consider(box) {
+      if (!boxFits(box, limit)) return;
+      if (hitsBox(box, blocked.tags) || hitsBox(box, [target])) return;
+      var a = edgePoint(target, box.x + box.w / 2, box.y + box.h / 2);
+      var b = edgePoint(box, cx, cy);
+      var plen = Math.hypot(a.x - b.x, a.y - b.y);
+      var cap = limit ? Math.max(180, Math.hypot(limit.w, limit.h)) : 130;
+      if (plen > cap) return;
+      if (segHits(a, b, blocked.lines)) return;
+      var wet = tagOnWater(box, water, other) ? 1 : 0;
+      var score = wet * 8000 + plen;
+      if (score < bestScore) {
+        bestScore = score;
+        best = { x: box.x, y: box.y, w: box.w, h: box.h, x1: a.x, y1: a.y, x2: b.x, y2: b.y };
+      }
+    }
+    for (var r = 0; r < reaches.length; r++) {
+      for (var i = 0; i < angles; i++) {
+        var ang = (Math.PI * 2 * i) / angles;
+        var ux = Math.cos(ang);
+        var uy = Math.sin(ang);
+        var reach = support(target, ux, uy) + reaches[r] + support({ x: 0, y: 0, w: tw, h: th }, ux, uy);
+        consider({ x: cx + ux * reach - tw / 2, y: cy + uy * reach - th / 2, w: tw, h: th });
+      }
+    }
+    if (best) return best;
+    var x0 = limit ? limit.x : 22;
+    var y0 = limit ? limit.y : 98;
+    var x1 = limit ? limit.x + limit.w - tw : 776 - tw;
+    var y1 = limit ? limit.y + limit.h - th : 640 - th;
+    var step = limit ? 12 : 18;
+    for (var top = y0; top <= y1; top += step) {
+      for (var left = x0; left <= x1; left += step) consider({ x: left, y: top, w: tw, h: th });
+    }
+    return best;
+  }
+
+  function clipTip(limit, inside, tip) {
+    if (!limit) return tip;
+    if (tip.x >= limit.x && tip.x <= limit.x + limit.w && tip.y >= limit.y && tip.y <= limit.y + limit.h) return tip;
+    var dx = tip.x - inside.x;
+    var dy = tip.y - inside.y;
+    var hits = [];
+    function add(t) { if (t > 0 && t <= 1) hits.push(t); }
+    if (dx) { add((limit.x - inside.x) / dx); add((limit.x + limit.w - inside.x) / dx); }
+    if (dy) { add((limit.y - inside.y) / dy); add((limit.y + limit.h - inside.y) / dy); }
+    var best = 0;
+    for (var i = 0; i < hits.length; i++) {
+      var t = hits[i];
+      var px = inside.x + dx * t;
+      var py = inside.y + dy * t;
+      if (px < limit.x - 1 || px > limit.x + limit.w + 1 || py < limit.y - 1 || py > limit.y + limit.h + 1) continue;
+      if (t > best) best = t;
+    }
+    return { x: inside.x + dx * best, y: inside.y + dy * best };
+  }
+
+  function boxFits(box, limit) {
+    if (limit) {
+      return box.x >= limit.x - 0.5 && box.y >= limit.y - 0.5 && box.x + box.w <= limit.x + limit.w + 0.5 && box.y + box.h <= limit.y + limit.h + 0.5;
+    }
+    return box.x >= 20 && box.y >= 98 && box.x + box.w <= 780 && box.y + box.h <= 644;
+  }
+
+  function support(box, ux, uy) {
+    return Math.abs(ux) * box.w / 2 + Math.abs(uy) * box.h / 2;
+  }
+
+  function tagOnWater(box, water, other) {
+    var pts = [
+      [box.x + box.w / 2, box.y + box.h / 2],
+      [box.x + 6, box.y + 6],
+      [box.x + box.w - 6, box.y + 6],
+      [box.x + 6, box.y + box.h - 6],
+      [box.x + box.w - 6, box.y + box.h - 6]
+    ];
+    var wet = 0;
+    for (var i = 0; i < pts.length; i++) if (inLake(water, other, pts[i][0], pts[i][1])) wet += 1;
+    return wet >= 3;
+  }
+
+  function hereArrow(x1, y1, x2, y2) {
+    var dx = x2 - x1;
+    var dy = y2 - y1;
+    var len = Math.hypot(dx, dy) || 1;
+    var ux = dx / len;
+    var uy = dy / len;
+    var px = -uy;
+    var py = ux;
+    var base = Math.min(9, len * 0.45);
+    var wing = 3.4;
+    return [
+      x1, y1,
+      x1 + ux * base + px * wing, y1 + uy * base + py * wing,
+      x1 + ux * base - px * wing, y1 + uy * base - py * wing
+    ].map(function (n) { return Math.round(n); }).join(",");
+  }
+
+  function aX(box, target) {
+    var x = target.x + target.w / 2;
+    if (x < box.x) return box.x;
+    if (x > box.x + box.w) return box.x + box.w;
+    return x;
+  }
+
+  function aY(box, target) {
+    var y = target.y + target.h / 2;
+    if (y < box.y) return box.y;
+    if (y > box.y + box.h) return box.y + box.h;
+    return y;
   }
 
   function unionBoxes(nodes) {
@@ -128,32 +298,34 @@
   }
 
   function obstacles(chart, mark) {
-    var list = [];
+    var tags = [];
+    var lines = [];
     chart.querySelectorAll("text, .town-dot").forEach(function (el) {
       if (el.closest && el.closest(".is-here") === mark) return;
-      if (el.getAttribute("class") === "here") return;
+      if (el.classList && el.classList.contains("here")) return;
       var o = el.getBBox();
       if (!o.width && !o.height) return;
       var sw = parseFloat(el.getAttribute("stroke-width") || "0") || 0;
-      var pad = sw / 2 + 4;
-      list.push({ x: o.x - pad, y: o.y - pad, w: o.width + pad * 2, h: o.height + pad * 2 });
+      var loose = sw / 2 + 5;
+      var tight = sw / 2 + 1;
+      tags.push({ x: o.x - loose, y: o.y - loose, w: o.width + loose * 2, h: o.height + loose * 2 });
+      lines.push({ x: o.x - tight, y: o.y - tight, w: o.width + tight * 2, h: o.height + tight * 2 });
     });
     var pin = chart.querySelector(".pin circle.outer");
     if (pin) {
       var pb = pin.getBBox();
       var tr = pin.parentNode.transform.baseVal.consolidate();
       var m = tr ? tr.matrix : { e: 0, f: 0 };
-      list.push({ x: m.e + pb.x - 6, y: m.f + pb.y - 6, w: pb.width + 12, h: pb.height + 12 });
+      var box = { x: m.e + pb.x - 4, y: m.f + pb.y - 4, w: pb.width + 8, h: pb.height + 8 };
+      tags.push(box);
+      lines.push(box);
     }
-    return list;
+    return { tags: tags, lines: lines };
   }
 
-  /* Hint and zoom buttons sit on the lower parchment. Kept clear on a narrow phone. */
+  /* The zoom hint sits on the bottom edge of the map window. */
   function chromeZones() {
-    return [
-      { x: 140, y: 760, w: 520, h: 200 },
-      { x: 300, y: 930, w: 500, h: 170 }
-    ];
+    return [{ x: 150, y: 620, w: 500, h: 70 }];
   }
 
   function findHereSpot(target, mine, blocked, tw, th, rise, step) {
@@ -161,7 +333,7 @@
     var tcy = target.y + target.h / 2;
     var best = null;
     var bestScore = 1e12;
-    for (var top = 108; top <= 800 - th; top += step) {
+    for (var top = 108; top <= 640 - th; top += step) {
       for (var left = 26; left <= 774 - tw; left += step) {
         var box = { x: left, y: top, w: tw, h: th };
         if (hitsBox(box, mine) || hitsBox(box, blocked) || hitsBox(box, chromeZones())) continue;
@@ -209,6 +381,29 @@
     var sy = dy ? (box.h / 2) / Math.abs(dy) : 1e9;
     var s = Math.min(sx, sy);
     return { x: cx + dx * s, y: cy + dy * s };
+  }
+
+  /* Last resort while zoomed: the closest open cell that stays inside the view. */
+  function forceInside(target, blocked, tw, th, limit) {
+    if (!limit || tw > limit.w || th > limit.h) return null;
+    var best = null;
+    var bestScore = 1e12;
+    var cx = target.x + target.w / 2;
+    var cy = target.y + target.h / 2;
+    for (var y = limit.y; y <= limit.y + limit.h - th; y += 10) {
+      for (var x = limit.x; x <= limit.x + limit.w - tw; x += 10) {
+        var box = { x: x, y: y, w: tw, h: th };
+        if (hitsBox(box, blocked.tags) || hitsBox(box, [target])) continue;
+        var a = edgePoint(target, x + tw / 2, y + th / 2);
+        var b = edgePoint(box, cx, cy);
+        var score = Math.hypot(a.x - b.x, a.y - b.y);
+        if (score < bestScore) {
+          bestScore = score;
+          best = { x: x, y: y, w: tw, h: th, x1: a.x, y1: a.y, x2: b.x, y2: b.y };
+        }
+      }
+    }
+    return best;
   }
 
   function hitsBox(box, list) {
@@ -356,59 +551,111 @@
     });
   }
 
+  /* The clip stays on a parent that does not zoom, so the lake cannot paint outside the frame. */
+  function holdClip(chart) {
+    var clip = chart.getAttribute("clip-path");
+    if (!clip) return chart;
+    var ns = "http://www.w3.org/2000/svg";
+    var holder = document.createElementNS(ns, "g");
+    holder.setAttribute("clip-path", clip);
+    chart.removeAttribute("clip-path");
+    chart.parentNode.insertBefore(holder, chart);
+    holder.appendChild(chart);
+    return chart;
+  }
+
   function bindZoom(fig, view, svg, chart) {
     if (!chart) return;
-    var scale = 1, tx = 0, ty = 0, last = null;
+    var scale = 1, tx = 0, ty = 0;
+    var pinch = null, pan = null, gestureOn = false;
+    var lastTap = 0, lastXY = null;
+    var winEl = svg.querySelector("#mapwindow rect");
+    var W = {
+      x: parseFloat(winEl.getAttribute("x")),
+      y: parseFloat(winEl.getAttribute("y")),
+      w: parseFloat(winEl.getAttribute("width")),
+      h: parseFloat(winEl.getAttribute("height"))
+    };
     var bar = document.createElement("div");
     bar.className = "lake-zoom";
-    bar.innerHTML = '<button type="button" data-z="in" aria-label="Zoom in">+</button><button type="button" data-z="out" aria-label="Zoom out">−</button><button type="button" data-z="reset" aria-label="Show the whole lake">↺</button>';
+    bar.innerHTML = '<button type="button" data-z="in" aria-label="Zoom in"><span>+</span></button><button type="button" data-z="out" aria-label="Zoom out"><span>−</span></button><button type="button" data-z="reset" aria-label="Show the whole lake"><span>↺</span></button>';
     var hint = document.createElement("p");
     hint.className = "lake-zoom-hint";
     var coarse = window.matchMedia && window.matchMedia("(pointer: coarse)").matches;
-    hint.textContent = coarse ? "Pinch or tap + to zoom in for more bays" : "Scroll or click + to zoom in for more bays";
+    hint.textContent = coarse ? "Pinch or tap + for more bays" : "Scroll or click + for more bays";
     view.appendChild(bar);
     view.appendChild(hint);
-    function clientToSvg(clientX, clientY) {
-      var vb = svg.viewBox.baseVal;
+    function userPoint(el, clientX, clientY) {
+      var pt = svg.createSVGPoint();
+      pt.x = clientX;
+      pt.y = clientY;
+      var ctm = el.getScreenCTM();
+      if (ctm) {
+        var p = pt.matrixTransform(ctm.inverse());
+        return { x: p.x, y: p.y };
+      }
       var box = svg.getBoundingClientRect();
+      var vb = svg.viewBox.baseVal;
       return {
         x: vb.x + (clientX - box.left) / box.width * vb.width,
         y: vb.y + (clientY - box.top) / box.height * vb.height
       };
     }
     function clampPan() {
-      var vb = svg.viewBox.baseVal;
-      var minX = vb.width * (1 - scale);
-      var minY = vb.height * (1 - scale);
-      if (tx > 0) tx = 0;
+      if (scale <= 1.001) { scale = 1; tx = 0; ty = 0; return; }
+      var maxX = W.x * (1 - scale);
+      var minX = (W.x + W.w) * (1 - scale);
+      var maxY = W.y * (1 - scale);
+      var minY = (W.y + W.h) * (1 - scale);
+      if (tx > maxX) tx = maxX;
       if (tx < minX) tx = minX;
-      if (ty > 0) ty = 0;
+      if (ty > maxY) ty = maxY;
       if (ty < minY) ty = minY;
     }
     function apply() {
-      if (scale <= 1.001) { scale = 1; tx = 0; ty = 0; }
-      else clampPan();
-      chart.setAttribute("transform", "translate(" + tx + " " + ty + ") scale(" + scale + ")");
+      clampPan();
+      chart.setAttribute("transform", "matrix(" + scale + " 0 0 " + scale + " " + tx + " " + ty + ")");
       svg.classList.toggle("is-detail", scale >= 1.55);
       fig.classList.toggle("is-zoomed", scale > 1.05);
       if (scale > 1.05) hint.classList.add("is-gone");
+      var limit = null;
+      if (scale > 1.02) {
+        var x0 = (W.x + 4 - tx) / scale;
+        var y0 = (W.y + 4 - ty) / scale;
+        var x1 = (W.x + W.w - 4 - tx) / scale;
+        var y1 = (W.y + W.h - 4 - ty) / scale;
+        limit = { x: x0, y: y0, w: Math.max(20, x1 - x0), h: Math.max(20, y1 - y0) };
+      }
+      svg._hereLimit = limit;
+      if (svg._seatHere) svg._seatHere(limit);
     }
-    /* Keep the chart point under (clientX, clientY) fixed while the scale changes. */
+    /* One matrix: scale about 0,0 then translate. The chart point under the pointer stays put. */
     function zoomAt(next, clientX, clientY) {
       next = Math.min(4, Math.max(1, next));
-      var p = clientToSvg(clientX, clientY);
-      var ux = (p.x - tx) / scale;
-      var uy = (p.y - ty) / scale;
-      tx = p.x - ux * next;
-      ty = p.y - uy * next;
+      var u = userPoint(chart, clientX, clientY);
+      var root = userPoint(svg, clientX, clientY);
+      tx = root.x - u.x * next;
+      ty = root.y - u.y * next;
       scale = next;
       apply();
     }
+    function viewCenter() {
+      var pt = svg.createSVGPoint();
+      pt.x = W.x + W.w / 2;
+      pt.y = W.y + W.h / 2;
+      var ctm = svg.getScreenCTM();
+      if (!ctm) {
+        var r = svg.getBoundingClientRect();
+        return { x: r.left + r.width / 2, y: r.top + r.height / 2 };
+      }
+      var s = pt.matrixTransform(ctm);
+      return { x: s.x, y: s.y };
+    }
     function zoomBy(factor, clientX, clientY) {
       if (clientX == null) {
-        var r = svg.getBoundingClientRect();
-        clientX = r.left + r.width / 2;
-        clientY = r.top + r.height / 2;
+        var c = viewCenter();
+        clientX = c.x;
+        clientY = c.y;
       }
       zoomAt(scale * factor, clientX, clientY);
     }
@@ -417,46 +664,112 @@
       if (!b) return;
       e.stopPropagation();
       var z = b.getAttribute("data-z");
+      hint.classList.add("is-gone");
       if (z === "in") zoomBy(1.45);
       else if (z === "out") zoomBy(1 / 1.45);
       else { scale = 1; tx = 0; ty = 0; apply(); }
     });
+    view.addEventListener("dblclick", function (e) {
+      e.preventDefault();
+      zoomAt(Math.min(4, scale * 1.6), e.clientX, e.clientY);
+    });
     view.addEventListener("wheel", function (e) {
       e.preventDefault();
+      hint.classList.add("is-gone");
       zoomBy(e.deltaY > 0 ? 0.88 : 1.14, e.clientX, e.clientY);
     }, { passive: false });
     function dist(a, b) {
       var dx = a.clientX - b.clientX, dy = a.clientY - b.clientY;
       return Math.sqrt(dx * dx + dy * dy);
     }
-    /* One finger always scrolls the page. Two fingers zoom about their midpoint and drag the chart. */
+    /* Safari pinch. preventDefault stops the browser zooming the page toward the corner. */
+    view.addEventListener("gesturestart", function (e) {
+      e.preventDefault();
+      hint.classList.add("is-gone");
+      gestureOn = true;
+      pinch = null;
+      pan = null;
+      var u = userPoint(chart, e.clientX, e.clientY);
+      gestureOn = { scale: scale, ux: u.x, uy: u.y };
+    }, { passive: false });
+    view.addEventListener("gesturechange", function (e) {
+      e.preventDefault();
+      if (!gestureOn) return;
+      var next = Math.min(4, Math.max(1, gestureOn.scale * (e.scale || 1)));
+      var root = userPoint(svg, e.clientX, e.clientY);
+      tx = root.x - gestureOn.ux * next;
+      ty = root.y - gestureOn.uy * next;
+      scale = next;
+      apply();
+    }, { passive: false });
+    view.addEventListener("gestureend", function (e) {
+      if (e.preventDefault) e.preventDefault();
+      gestureOn = false;
+    }, { passive: false });
+    view.addEventListener("pointerdown", function (e) {
+      if (e.pointerType === "touch" && !e.isPrimary) return;
+      if (pinch || gestureOn) return;
+      if (scale > 1.02) {
+        var root = userPoint(svg, e.clientX, e.clientY);
+        pan = { id: e.pointerId, tx: tx, ty: ty, rx: root.x, ry: root.y };
+      } else {
+        pan = { id: e.pointerId, scroll: window.scrollY, y: e.clientY };
+      }
+    });
+    view.addEventListener("pointermove", function (e) {
+      if (!pan || pan.id !== e.pointerId || pinch || gestureOn) return;
+      if (pan.scroll != null) {
+        window.scrollTo(window.scrollX, pan.scroll - (e.clientY - pan.y));
+        return;
+      }
+      e.preventDefault();
+      var moved = userPoint(svg, e.clientX, e.clientY);
+      tx = pan.tx + (moved.x - pan.rx);
+      ty = pan.ty + (moved.y - pan.ry);
+      apply();
+    });
+    view.addEventListener("pointerup", function (e) {
+      if (pan && pan.id === e.pointerId) pan = null;
+    });
+    view.addEventListener("pointercancel", function () { pan = null; });
     view.addEventListener("touchstart", function (e) {
-      if (e.touches.length !== 2) return;
-      var mx = (e.touches[0].clientX + e.touches[1].clientX) / 2;
-      var my = (e.touches[0].clientY + e.touches[1].clientY) / 2;
-      var svgAt = clientToSvg(mx, my);
-      last = {
-        d: dist(e.touches[0], e.touches[1]),
-        scale: scale,
-        ux: (svgAt.x - tx) / scale,
-        uy: (svgAt.y - ty) / scale
-      };
+      if (e.touches.length === 2) {
+        pan = null;
+        var mx = (e.touches[0].clientX + e.touches[1].clientX) / 2;
+        var my = (e.touches[0].clientY + e.touches[1].clientY) / 2;
+        var u = userPoint(chart, mx, my);
+        pinch = { d: dist(e.touches[0], e.touches[1]), scale: scale, ux: u.x, uy: u.y };
+      }
     }, { passive: true });
     view.addEventListener("touchmove", function (e) {
-      if (e.touches.length < 2 || !last) return;
+      if (gestureOn || !pinch || e.touches.length < 2) return;
       e.preventDefault();
       var d = dist(e.touches[0], e.touches[1]);
-      var next = Math.min(4, Math.max(1, last.scale * (d / last.d)));
+      var next = Math.min(4, Math.max(1, pinch.scale * (d / pinch.d)));
       var mx = (e.touches[0].clientX + e.touches[1].clientX) / 2;
       var my = (e.touches[0].clientY + e.touches[1].clientY) / 2;
-      var svgAt = clientToSvg(mx, my);
-      tx = svgAt.x - last.ux * next;
-      ty = svgAt.y - last.uy * next;
+      var root = userPoint(svg, mx, my);
+      tx = root.x - pinch.ux * next;
+      ty = root.y - pinch.uy * next;
       scale = next;
       apply();
     }, { passive: false });
     view.addEventListener("touchend", function (e) {
-      if (e.touches.length < 2) last = null;
+      if (e.touches.length >= 2) return;
+      pinch = null;
+      if (e.touches.length === 1) return;
+      if (gestureOn || !e.changedTouches || e.changedTouches.length !== 1) return;
+      var t = e.changedTouches[0];
+      var now = Date.now();
+      if (lastXY && now - lastTap < 300 && Math.hypot(t.clientX - lastXY.x, t.clientY - lastXY.y) < 28) {
+        zoomAt(Math.min(4, scale * 1.6), t.clientX, t.clientY);
+        lastTap = 0;
+        lastXY = null;
+      } else {
+        lastTap = now;
+        lastXY = { x: t.clientX, y: t.clientY };
+      }
     });
+    apply();
   }
 })();

@@ -1,49 +1,52 @@
-/* Lake chart. Big Shoulders Display and Zilla Slab are for the chart only. */
+/* Lake chart. Cormorant Garamond is the plate face. Zilla Slab stays on the zoom buttons only. */
 .lake-chart-slot{max-width:920px;margin:0 auto;padding:0 16px 8px;box-sizing:border-box}
 .lake-chart-cap{margin:16px 0 6px;font:600 13px/1.4 Inter,system-ui,sans-serif;color:#6E5228;letter-spacing:.02em}
-.lake-chart{position:relative;margin:0 0 8px;aspect-ratio:800/1100;background:#24382F;border-radius:2px;overflow:hidden}
+.lake-chart{position:relative;margin:0 0 8px;width:100%;aspect-ratio:800/860;max-height:75vh;background:#24382F;border-radius:2px;overflow:hidden}
 @media (max-width:700px){
   .lake-chart-slot{max-width:none;padding-left:0;padding-right:0}
   .lake-chart-slot .lake-chart-cap,.lake-chart-slot .lake-chart-places{padding-left:16px;padding-right:16px}
-  .wrap > .lake-chart{width:calc(100% + 44px);max-width:none;margin-left:-22px;margin-right:-22px}
+  .wrap > .lake-chart{width:calc(100% + 44px);max-width:none;max-height:none;margin-left:-22px;margin-right:-22px}
 }
 .lake-chart text.minor{opacity:0;transition:opacity .25s ease}
 .lake-chart svg.is-detail text.minor{opacity:1}
-.lake-chart[data-focus="bays"] .town,.lake-chart[data-focus="bays"] .town-dot{opacity:.38}
+.lake-chart[data-focus="bays"] .town,.lake-chart[data-focus="bays"] .town-dot{opacity:.82}
 .lake-chart[data-focus="towns"] .bay{opacity:.38}
 .lake-chart[data-focus="bays"] a.is-here .town,.lake-chart[data-focus="bays"] a.is-here .town-dot,.lake-chart[data-focus="towns"] a.is-here .bay{opacity:1}
 .lake-chart svg.is-detail .town,.lake-chart svg.is-detail .town-dot,.lake-chart svg.is-detail .bay{opacity:1}
 @media (prefers-reduced-motion:reduce){.lake-chart text.minor,.lake-chart .town,.lake-chart .town-dot,.lake-chart .bay,.lake-zoom-hint{transition:none}}
-.lake-chart-places{margin:12px 0 18px;padding:10px 12px 12px;background:#F7F1E4;border:1px solid #24382F;color:#24382F}
-.lake-chart-places-kicker{margin:0 0 4px;font:700 12px/1.2 Georgia,"Times New Roman",serif;letter-spacing:.16em;text-transform:uppercase}
-.lake-chart-places-label{margin:8px 0 2px;font:italic 600 12px/1.2 Georgia,"Times New Roman",serif;color:#6E5228}
-.lake-chart-places ul{margin:0;padding:0;list-style:none;columns:2;column-gap:18px}
-.lake-chart-places li{break-inside:avoid;margin:0 0 3px;font:600 13px/1.35 Georgia,"Times New Roman",serif}
-.lake-chart-places a{color:#24516e}
-.lake-chart-places li span{color:#6B6456}
-@media (max-width:359px){.lake-chart-places ul{columns:1}}
-.lake-chart-view{position:absolute;inset:0;background:#F3E6C8;touch-action:pan-y}
-.lake-chart-view svg{width:100%;height:100%;display:block}
+details.lake-chart-places{margin:12px 16px 18px;border:1px solid #C9BFA9;background:transparent;color:#4D4839}
+details.lake-chart-places summary{cursor:pointer;padding:8px 12px;font:600 12px/1.3 Inter,system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#6E5228;list-style:none}
+details.lake-chart-places summary::-webkit-details-marker{display:none}
+details.lake-chart-places .lake-chart-places-label{margin:8px 12px 2px;font:italic 600 12px/1.2 Inter,system-ui,sans-serif;color:#6E5228}
+details.lake-chart-places ul{margin:0;padding:0 12px 8px;list-style:none;columns:2;column-gap:16px}
+details.lake-chart-places li{break-inside:avoid;margin:0 0 3px;font:500 13px/1.4 Inter,system-ui,sans-serif}
+details.lake-chart-places a,details.lake-chart-places a:link,details.lake-chart-places a:visited{color:#6E5228;text-decoration:none}
+details.lake-chart-places li span{color:#8A7B62}
+@media (max-width:359px){details.lake-chart-places ul{columns:1}}
+.lake-chart-view{position:absolute;inset:0;background:#24382F;touch-action:none;overflow:hidden}
+.lake-chart-view svg{width:100%;height:100%;display:block;overflow:hidden}
 .lake-chart img{width:100%;height:100%;object-fit:cover;display:block}
 .lake-chart.is-live img{display:none}
 .lake-chart a.nav{cursor:pointer}
 .lake-chart a.nav:focus-visible{outline:2px solid #8C3A2A;outline-offset:2px}
 .lake-chart .pin:focus-visible{outline:2px solid #8C3A2A;outline-offset:3px}
 .lake-chart a.nav.is-hot .bay-water,.lake-chart a.nav:hover .bay-water,.lake-chart a.nav:focus .bay-water{fill:rgba(201,168,119,.7);stroke:#6E5228;stroke-width:1.6}
-.lake-chart a.nav.is-here .bay-water{fill:rgba(140,58,42,.34)}
-.lake-chart a.nav.is-here .bay,.lake-chart a.nav.is-hot .bay,.lake-chart a.nav:hover .bay{fill:#8C3A2A}
+.lake-chart a.nav.is-here .bay-water{fill:rgba(243,230,200,.62);stroke:#6E5228;stroke-width:1.2}
+.lake-chart a.nav.is-here .bay{fill:#F7F1E4;stroke:#24382F;stroke-width:1.35}
+.lake-chart a.nav.is-hot .bay,.lake-chart a.nav:hover .bay{fill:#8C3A2A}
 .lake-chart a.nav.is-here .town,.lake-chart a.nav.is-here .town-dot{fill:#8C3A2A}
 .lake-chart a.nav:hover .town,.lake-chart a.nav:focus .town,.lake-chart a.nav.is-hot .town{fill:#8C3A2A}
 .lake-chart .here-line{fill:none;stroke:#8C3A2A;stroke-linejoin:round;stroke-linecap:round}
 .lake-chart .pin{cursor:pointer}
 .lake-chart .pin circle.outer{fill:#8C3A2A}
 .lake-chart .pin circle.inner{fill:#F3E6C8}
-.lake-pin-card{position:absolute;z-index:2;max-width:156px;background:#F3E6C8;border:1px solid #24382F;border-radius:6px;padding:6px 22px 6px 8px;font:600 12px/1.3 "Zilla Slab",Georgia,serif;color:#24382F}
+.lake-pin-card{position:absolute;z-index:2;max-width:156px;background:#F3E6C8;border:1px solid #24382F;border-radius:6px;padding:6px 22px 6px 8px;font:500 15px/1.3 "Cormorant Garamond",Georgia,"Times New Roman",serif;color:#24382F}
 .lake-pin-card p{margin:0}
-.lake-pin-card .price{font-family:"Big Shoulders Display","Arial Narrow",sans-serif;font-size:16px;letter-spacing:.03em;margin-top:2px}
+.lake-pin-card .price{font-family:"Cormorant Garamond",Georgia,"Times New Roman",serif;font-size:18px;font-weight:600;letter-spacing:.02em;margin-top:2px}
 .lake-pin-card .x{position:absolute;top:0;right:0;width:44px;height:44px;border:0;background:transparent;color:#24382F;font:600 18px/44px Inter,sans-serif;padding:0;cursor:pointer}
-.lake-zoom{position:absolute;z-index:3;top:auto;bottom:8px;right:8px;display:flex;flex-direction:row;gap:6px}
-.lake-zoom button{width:44px;height:44px;box-sizing:border-box;border:1px solid #24382F;border-radius:2px;background:#F7F1E4;color:#24382F;font:600 16px/1 "Zilla Slab",Georgia,serif;cursor:pointer;padding:0}
+.lake-zoom{position:absolute;z-index:3;right:6px;bottom:8px;display:flex;flex-direction:column;align-items:center;gap:0}
+.lake-zoom button{width:44px;height:44px;box-sizing:border-box;border:0;border-radius:2px;background:transparent;color:#24382F;font:600 15px/1 "Zilla Slab",Georgia,serif;cursor:pointer;padding:0;display:grid;place-items:center}
+.lake-zoom button span{width:26px;height:26px;display:grid;place-items:center;box-sizing:border-box;border:1px solid #24382F;border-radius:2px;background:#F7F1E4;pointer-events:none}
 .lake-zoom button:focus-visible{outline:2px solid #8C3A2A;outline-offset:2px}
-.lake-zoom-hint{position:absolute;z-index:3;left:50%;bottom:72px;transform:translateX(-50%);margin:0;max-width:58%;text-align:center;pointer-events:none;font:italic 600 11px/1.3 "Zilla Slab",Georgia,serif;color:#24382F;background:rgba(247,241,228,.88);padding:3px 8px}
+.lake-zoom-hint{position:absolute;z-index:3;right:56px;bottom:86px;margin:0;max-width:none;white-space:nowrap;text-align:right;pointer-events:none;font:italic 500 13px/1.2 "Cormorant Garamond",Georgia,"Times New Roman",serif;color:#24382F;background:rgba(247,241,228,.92);padding:2px 8px}
 .lake-zoom-hint.is-gone{opacity:0}
