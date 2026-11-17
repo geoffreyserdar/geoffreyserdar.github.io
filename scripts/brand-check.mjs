@@ -446,6 +446,19 @@ function check() {
   if (!/width:\s*100%/.test(house)) fail('assets/brand.css form button must be full width, like the funnel button');
   if (!/letter-spacing:\s*0\.14em/.test(house)) fail('assets/brand.css form button must use the funnel letter-spacing 0.14em');
   if (!/padding:\s*16px/.test(house)) fail('assets/brand.css form button must use the funnel padding');
+  const secondary = cssRules(brand)
+    .filter((rule) => splitSelectors(rule.selector).some((selector) => /a\.submit-btn\.secondary$/.test(selector.trim())))
+    .map((rule) => rule.body)
+    .join('\n');
+  if (!/background:\s*var\(--footer\)/.test(secondary)) {
+    fail('assets/brand.css secondary form button must use the dark house fill var(--footer)');
+  }
+  if (!/text-decoration:\s*none/.test(secondary)) {
+    fail('assets/brand.css secondary form button must not be underlined');
+  }
+  if (!/text-transform:\s*uppercase/.test(secondary)) {
+    fail('assets/brand.css secondary form button must be uppercase');
+  }
   if (!/-webkit-appearance:\s*none/.test(brand)) fail('assets/brand.css must set -webkit-appearance: none on fields');
   const outsideRoot = hexesIn(stripRoot(brand));
   if (outsideRoot.length) fail('assets/brand.css uses hex outside :root: ' + outsideRoot.join(' '));

@@ -67,7 +67,7 @@ Story forms and bay sale alerts are `form.lead.gs-card`. The style is in `assets
 - The container has no sand fill. A hairline top rule (`--line`) and padding from the spacing tokens. It sits on the parchment like the rest of the article.
 - Fields match the lead form on `/lake-minnetonka-homes/`: full width, 17px `--font-body`, 14px 16px padding, sand fill (`--sand`), a 1px cool hairline, `--radius`, `-webkit-appearance: none`. Focus turns the border `--brass`.
 - The button is the house button, class `submit-btn`. See [Buttons](#buttons).
-- “Or text me” is a quiet link under the button, not a second button.
+- Texting Geoffrey is the same kind of button, class `submit-btn secondary`, 12px under the brass one. It is not an underlined link.
 - The heading inside the form matches the page `h2`.
 - Seller-value blocks (`.sv-offer`) keep their own layout. They still take `font-family` from this sheet so the fields are not Times. Bio pages are generated from `_bio/template.html`.
 
@@ -77,7 +77,9 @@ Class `gs-field` on an input only sets the inherited family and a 16px size. Ins
 
 The house button is the funnel lead button, class `submit-btn`, copied from `/lake-minnetonka-homes/` and defined in `assets/brand.css`. Bay story forms and sale alerts use that class. Do not draw a different button in a page `<style>`.
 
-It is full width. Fill is `--brass`. Type is `--sand`, `--font-ui` (Montserrat, then Inter), 15px, weight 600, letter-spacing 0.14em, uppercase, padding 16px, radius `--radius`. Hover fill is `--brass-soft`. It is a real button, not a text link.
+It is full width. Fill is `--brass`. Type is `--sand`, `--font-ui` (Montserrat, then Inter), 15px, weight 600, letter-spacing 0.14em, uppercase, padding 16px, radius `--radius`. Hover fill is `--brass-soft`. It is a real button, not a text link. A full-width button is the house pattern. Do not thin it into an outline or an underline.
+
+Directly under it, with a 12px gap, is `a.submit-btn.secondary`. Same face, size, weight, tracking, padding, and radius. Fill is the house dark `--footer` (`#2C2D27`). Type is `--sand`. The label is Text Geoffrey and the link is `sms:+19522583100`. No underline, no hairline outline.
 
 A button inside `form.lead` without `submit-btn` fails the brand check.
 
@@ -105,7 +107,7 @@ One old engraved chart of Lake Minnetonka, in `assets/lake-chart/`. Parchment pl
 
 - A browser-default font, or Times, on an input, textarea, select, or button. Set the family on the control.
 - A heavy filled beige box around a form.
-- A text link standing in for the funnel button. The house button is the full-width brass `submit-btn`.
+- Underlined text, or a thin outline, in place of a form action. Both actions are full-width solid buttons: brass `submit-btn`, and dark `submit-btn secondary`.
 - A one-off hex in page CSS. Add a token, or use one that exists.
 - An inline `style` on a form control or button.
 - A new page that does not link `/assets/brand.css` or `/assets/house.css`.
