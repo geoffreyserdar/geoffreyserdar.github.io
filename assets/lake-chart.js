@@ -1,18 +1,28 @@
-/* Lake chart: inline the shared SVG, pinch to zoom, tap a sale pin. */
+/* Lake chart: load the SVG only when the frame is near the screen. */
 (function () {
   var frames = document.querySelectorAll(".lake-chart");
   if (!frames.length) return;
-  if (!document.querySelector("link[data-lake-fonts]")) {
-    var font = document.createElement("link");
-    font.rel = "stylesheet";
-    font.href = "https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700&family=Zilla+Slab:wght@600&display=swap";
-    font.setAttribute("data-lake-fonts", "");
-    document.head.appendChild(font);
+  var started = false;
+  function start() {
+    if (started) return;
+    started = true;
+    if (!document.querySelector("link[data-lake-fonts]")) {
+      var font = document.createElement("link");
+      font.rel = "stylesheet";
+      font.href = "https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700&family=Zilla+Slab:wght@600&display=swap";
+      font.setAttribute("data-lake-fonts", "");
+      document.head.appendChild(font);
+    }
+    fetch("/assets/lake-minnetonka-chart.svg")
+      .then(function (r) { return r.text(); })
+      .then(function (txt) { frames.forEach(function (fig) { mount(fig, txt); }); })
+      .catch(function () {});
   }
-  fetch("/assets/lake-minnetonka-chart.svg")
-    .then(function (r) { return r.text(); })
-    .then(function (txt) { frames.forEach(function (fig) { mount(fig, txt); }); })
-    .catch(function () {});
+  if (!("IntersectionObserver" in window)) { start(); return; }
+  var io = new IntersectionObserver(function (es) {
+    es.forEach(function (e) { if (e.isIntersecting) { start(); io.disconnect(); } });
+  }, { rootMargin: "160px" });
+  frames.forEach(function (fig) { io.observe(fig); });
 
   function mount(fig, txt) {
     var view = document.createElement("div");
@@ -55,23 +65,55 @@
     var card = document.createElement("div");
     card.className = "lake-pin-card";
     card.hidden = true;
-    card.innerHTML = "<p>" + fig.getAttribute("data-pin-addr") + "</p><p>" + (fig.getAttribute("data-pin-town") || "") + "</p><p>Sold " + (fig.getAttribute("data-pin-sold") || "") + "</p><p class=\"price\">" + (fig.getAttribute("data-pin-price") || "") + "</p><button type=\"button\">Close</button>";
+    function esc(s) { return String(s || "").replace(/[&<>]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;" }[c]; }); }
+    card.innerHTML = "<button type=\"button\" class=\"x\" aria-label=\"Close\">×</button><p>" + esc(fig.getAttribute("data-pin-addr")) + "</p><p>" + esc(fig.getAttribute("data-pin-town")) + "</p><p>Sold " + esc(fig.getAttribute("data-pin-sold")) + "</p><p class=\"price\">" + esc(fig.getAttribute("data-pin-price")) + "</p>";
     view.appendChild(card);
-    function toggle(e) {
-      if (e) e.stopPropagation();
-      card.hidden = !card.hidden;
+    function place() {
+      var pr = g.getBoundingClientRect();
+      var vr = view.getBoundingClientRect();
+      var left = pr.left - vr.left - card.offsetWidth - 10;
+      var top = pr.top - vr.top - 4;
+      if (left < 8) left = pr.right - vr.left + 10;
+      if (top < 8) top = 8;
+      if (top + card.offsetHeight > vr.height - 8) top = Math.max(8, vr.height - card.offsetHeight - 8);
+      card.style.left = left + "px";
+      card.style.top = top + "px";
     }
-    g.addEventListener("click", toggle);
-    g.addEventListener("keydown", function (e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); toggle(); } });
-    card.querySelector("button").addEventListener("click", function () { card.hidden = true; });
+    function open(e) {
+      if (e) { e.preventDefault(); e.stopPropagation(); }
+      card.hidden = false;
+      place();
+    }
+    function shut(e) {
+      if (e) e.stopPropagation();
+      card.hidden = true;
+    }
+    g.addEventListener("click", open);
+    g.addEventListener("keydown", function (e) { if (e.key === "Enter" || e.key === " ") open(e); });
+    card.querySelector(".x").addEventListener("click", shut);
+    view.addEventListener("click", function (e) {
+      if (card.hidden) return;
+      if (e.target.closest && (e.target.closest(".pin") || e.target.closest(".lake-pin-card"))) return;
+      card.hidden = true;
+    });
   }
 
   function bindZoom(view, chart) {
     if (!chart) return;
     var scale = 1, tx = 0, ty = 0, last = null;
+    var whole = document.createElement("button");
+    whole.type = "button";
+    whole.className = "lake-whole";
+    whole.textContent = "Whole lake";
+    view.appendChild(whole);
     function apply() {
       chart.setAttribute("transform", "translate(" + tx + " " + ty + ") scale(" + scale + ")");
+      view.parentNode.classList.toggle("is-zoomed", scale > 1.02);
     }
+    whole.addEventListener("click", function (e) {
+      e.stopPropagation();
+      scale = 1; tx = 0; ty = 0; apply();
+    });
     function dist(a, b) {
       var dx = a.clientX - b.clientX, dy = a.clientY - b.clientY;
       return Math.sqrt(dx * dx + dy * dy);
