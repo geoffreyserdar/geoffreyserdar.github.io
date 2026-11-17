@@ -1,5 +1,7 @@
 /* Lake chart: load the SVG only when the frame is near the screen. */
 (function () {
+  if (window.__lakeChart) return;
+  window.__lakeChart = true;
   var frames = document.querySelectorAll(".lake-chart");
   if (!frames.length) return;
   var started = false;
@@ -13,7 +15,7 @@
       font.setAttribute("data-lake-fonts", "");
       document.head.appendChild(font);
     }
-    fetch("/assets/lake-minnetonka-chart.svg")
+    fetch("/assets/lake-chart/lake-minnetonka-chart.svg")
       .then(function (r) { return r.text(); })
       .then(function (txt) { frames.forEach(function (fig) { mount(fig, txt); }); })
       .catch(function () {});
@@ -33,13 +35,60 @@
     var svg = view.querySelector("svg");
     var chart = svg.querySelector("#chart");
     var here = fig.getAttribute("data-here");
-    if (here) {
-      var mark = svg.querySelector('[data-bay="' + here + '"]');
-      if (mark) mark.classList.add("is-here");
-    }
+    if (here) markHere(svg, here);
     var addr = fig.getAttribute("data-pin-addr");
     if (addr && chart) addPin(fig, view, chart, svg);
+    padHits(svg);
+    svg.querySelectorAll("a.nav").forEach(function (a) {
+      a.addEventListener("pointerdown", function () {
+        svg.querySelectorAll("a.nav.is-hot").forEach(function (n) { n.classList.remove("is-hot"); });
+        a.classList.add("is-hot");
+      });
+    });
     bindZoom(view, chart);
+  }
+
+  function markHere(svg, here) {
+    var mark = svg.querySelector('[data-bay="' + here + '"],[data-town="' + here + '"]');
+    if (!mark) return;
+    mark.classList.add("is-here");
+    var note = document.createElementNS("http://www.w3.org/2000/svg", "text");
+    note.setAttribute("class", "here");
+    note.setAttribute("x", "28");
+    note.setAttribute("y", "68");
+    note.textContent = "You are here";
+    var chart = svg.querySelector("#chart");
+    if (chart) chart.appendChild(note);
+  }
+
+  function padHits(svg) {
+    var box = svg.getBoundingClientRect();
+    if (!box.width) return;
+    var unit = svg.viewBox.baseVal.width / box.width;
+    var need = 44 * unit;
+    var ns = "http://www.w3.org/2000/svg";
+    svg.querySelectorAll("a.nav").forEach(function (a) {
+      var texts = a.querySelectorAll("text");
+      if (!texts.length) return;
+      var b = texts[0].getBBox();
+      for (var i = 1; i < texts.length; i++) {
+        var t = texts[i].getBBox();
+        var x0 = Math.min(b.x, t.x), y0 = Math.min(b.y, t.y);
+        var x1 = Math.max(b.x + b.width, t.x + t.width);
+        var y1 = Math.max(b.y + b.height, t.y + t.height);
+        b = { x: x0, y: y0, width: x1 - x0, height: y1 - y0 };
+      }
+      var w = Math.max(b.width + 12, need);
+      var h = Math.max(b.height + 12, need);
+      var r = document.createElementNS(ns, "rect");
+      r.setAttribute("class", "hit");
+      r.setAttribute("x", b.x - (w - b.width) / 2);
+      r.setAttribute("y", b.y - (h - b.height) / 2);
+      r.setAttribute("width", w);
+      r.setAttribute("height", h);
+      r.setAttribute("fill", "transparent");
+      a.insertBefore(r, a.firstChild);
+    });
   }
 
   function addPin(fig, view, chart, svg) {
@@ -55,10 +104,10 @@
     g.setAttribute("aria-label", label);
     var outer = document.createElementNS(ns, "circle");
     outer.setAttribute("class", "outer");
-    outer.setAttribute("r", "8");
+    outer.setAttribute("r", "5.5");
     var inner = document.createElementNS(ns, "circle");
     inner.setAttribute("class", "inner");
-    inner.setAttribute("r", "3.2");
+    inner.setAttribute("r", "2.2");
     g.appendChild(outer);
     g.appendChild(inner);
     chart.appendChild(g);
