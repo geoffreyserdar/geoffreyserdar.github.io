@@ -66,7 +66,7 @@
     var below = b.y + b.height + 26;
     var aboveY = top.y - 16;
     function blocked(y) {
-      if (y < 24 || y > 626) return true;
+      if (y < 24 || y > 710) return true;
       var pin = chart.querySelector(".pin");
       if (pin) {
         var pb = pinBox(pin);
@@ -151,6 +151,14 @@
       r.setAttribute("fill", "transparent");
       a.insertBefore(r, a.firstChild);
     });
+    var pin = svg.querySelector(".pin");
+    if (pin && !pin.querySelector(".pin-hit")) {
+      var hit = document.createElementNS(ns, "circle");
+      hit.setAttribute("class", "pin-hit");
+      hit.setAttribute("r", String(need / 2));
+      hit.setAttribute("fill", "transparent");
+      pin.insertBefore(hit, pin.firstChild);
+    }
   }
 
   function addPin(fig, view, chart, svg) {

@@ -58,12 +58,12 @@ function overlaps(a, b) {
 const measure = () => {
   const svg = document.querySelector(".lake-chart.is-live svg");
   if (!svg) return { ready: false };
-  const labels = [...svg.querySelectorAll("text.bay, text.town, text.plain, text.here, text.chart-title")].map((n) => {
+  const labels = [...svg.querySelectorAll("text")].map((n) => {
     const r = n.getBoundingClientRect();
     const b = n.getBBox();
     return { name: n.textContent, cls: n.getAttribute("class"), x: r.x, y: r.y, w: r.width, h: r.height, ux: b.x, uy: b.y, uw: b.width, uh: b.height };
   });
-  const pinEl = svg.querySelector(".pin");
+  const pinEl = svg.querySelector(".pin circle.outer");
   let pin = null;
   if (pinEl) {
     const r = pinEl.getBoundingClientRect();

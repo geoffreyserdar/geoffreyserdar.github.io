@@ -4,6 +4,8 @@ One old-style chart of Lake Minnetonka. Bay water and town names link to pages t
 
 The drawing waits until the chart is near the screen. With JavaScript off, the image inside the figure stays.
 
+The plate is the parchment ground, the dark green frame with tick marks, the title cartouche, the compass, the scale of miles, and the small bay names that are not links. Those names are decoration. Only the bays and towns in the list below can be tapped.
+
 ## Drop it on a page
 
 Paste `include.html` once, where the chart should sit. Change `data-here` to this page.
