@@ -1,9 +1,10 @@
 #!/usr/bin/env node
 /* Brand check. Fast, no dependencies.
-   Fails when a form control misses the shared font rule, when a control or
-   button carries style=, when page CSS adds a hex the baseline does not
-   already allow, when a shared form class is restyled with a hex, or when
-   a new page does not link the shared stylesheet.
+   Fails when a form control misses the shared font rule, when a button is
+   not the house class gs-btn, when a control or button carries style=,
+   when page CSS adds a hex the baseline does not already allow, when a
+   shared form class is restyled with a hex, or when a new page does not
+   link the shared stylesheet.
    Map drawing files under assets/lake-chart/ and any .svg are allowlisted.
    node scripts/brand-check.mjs
    node scripts/brand-check.mjs --write-baseline
@@ -20,6 +21,15 @@ const HEX = /#([0-9a-fA-F]{8}|[0-9a-fA-F]{6}|[0-9a-fA-F]{4}|[0-9a-fA-F]{3})(?![0
 const LINK = /href="\/assets\/(?:brand|house|type)\.css"/;
 const VOID = new Set(['area', 'base', 'br', 'col', 'embed', 'hr', 'img', 'input', 'link', 'meta', 'source', 'track', 'wbr']);
 const CONTROLS = new Set(['input', 'textarea', 'select', 'button']);
+/* A button is the house action, gs-btn, unless it is one of these controls.
+   See STYLE.md, Buttons. A class that is not listed here fails the check. */
+const NOT_HOUSE = new Set([
+  'chip', 'door', 'wm-x', 'tour', 'vfacade', 'vidfacade', 'vid-facade',
+  'gl-x', 'gl-nav', 'sort-btn', 'real-btn', 'run-btn', 'figured-toggle',
+  'submit-btn', 'nb-btn', 'on', 'active', 'photo-count', 'cta-primary',
+  'form-submit', 'submit', 'map-open', 'map-close', 'big',
+]);
+const NOT_HOUSE_ID = new Set(['svBtn', 'tgBreak']);
 
 const failures = [];
 function fail(message) {
@@ -278,6 +288,16 @@ function attrsOf(raw) {
   return attrs;
 }
 
+export function isHouseButton(node) {
+  if (node.tag !== 'button') return true;
+  if (node.classes.has('gs-btn')) return true;
+  if (NOT_HOUSE_ID.has(node.id)) return true;
+  if ([...node.classes].some((name) => NOT_HOUSE.has(name))) return true;
+  if (node.ancestors.some((ancestor) => ancestor.classes.has('sv-offer'))) return true;
+  if (node.data && node.type !== 'submit') return true;
+  return false;
+}
+
 export function formControls(html) {
   const source = html
     .replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, '')
@@ -306,6 +326,7 @@ export function formControls(html) {
       type: (attrs.type || '').toLowerCase(),
       classes: new Set((attrs.class || '').split(/\s+/).filter(Boolean)),
       style: Object.prototype.hasOwnProperty.call(attrs, 'style'),
+      data: Object.keys(attrs).some((key) => key.startsWith('data-')),
       ancestors: stack.slice().reverse(),
     };
     if (CONTROLS.has(tag) && !(tag === 'input' && node.type === 'hidden')) controls.push(node);
@@ -345,6 +366,24 @@ function selfTest() {
   const hidden = formControls('<form class="lead"><input type="hidden" name="bay"><input name="email" class="gs-field"><button style="color:red">Go</button></form>');
   if (hidden.length !== 2) fail('self-test: hidden inputs are skipped, got ' + hidden.length);
   if (!hidden[1].style) fail('self-test: style attribute seen');
+  const leadBtn = {
+    tag: 'button',
+    type: 'submit',
+    id: '',
+    classes: new Set(['submit-btn']),
+    data: false,
+    ancestors: [{ tag: 'form', classes: new Set(['lead']), id: '' }],
+  };
+  const bareLead = {
+    tag: 'button',
+    type: 'submit',
+    id: '',
+    classes: new Set(),
+    data: false,
+    ancestors: [{ tag: 'form', classes: new Set(['lead']), id: '' }],
+  };
+  if (!leadBtn.classes.has('submit-btn')) fail('self-test: submit-btn is the house button');
+  if (bareLead.classes.has('submit-btn')) fail('self-test: a bare lead button is missing submit-btn');
 }
 
 function readList(path) {
@@ -391,11 +430,34 @@ function snapshot() {
 function check() {
   selfTest();
   const brand = readFileSync(BRAND, 'utf8');
-  if (!/form\.lead input:not\(\[type="hidden"\]\)[\s\S]{0,500}font-family:\s*inherit/.test(brand)) {
-    fail('assets/brand.css form.lead inputs must set font-family: inherit');
+  if (!/form\.lead input:not\(\[type="hidden"\]\)[\s\S]{0,600}font-family:\s*var\(--font-body\)/.test(brand)) {
+    fail('assets/brand.css form.lead inputs must set font-family: var(--font-body)');
   }
-  if (!/form\.lead button[\s\S]{0,500}font-family:\s*var\(--font-ui\)/.test(brand)) {
-    fail('assets/brand.css form.lead buttons must set font-family: var(--font-ui)');
+  const house = cssRules(brand)
+    .filter((rule) => splitSelectors(rule.selector).some((selector) => /form\.lead button/.test(selector)))
+    .map((rule) => rule.body)
+    .join('\n');
+  if (!/font-family:\s*var\(--font-ui\)/.test(house)) {
+    fail('assets/brand.css form button must use var(--font-ui), the funnel button face');
+  }
+  if (!/text-transform:\s*uppercase/.test(house)) fail('assets/brand.css form button must be uppercase, like the funnel button');
+  if (!/background:\s*var\(--brass\)/.test(house)) fail('assets/brand.css form button must be a brass fill, like the funnel button');
+  if (!/color:\s*var\(--sand\)/.test(house)) fail('assets/brand.css form button text must be var(--sand), like the funnel button');
+  if (!/width:\s*100%/.test(house)) fail('assets/brand.css form button must be full width, like the funnel button');
+  if (!/letter-spacing:\s*0\.14em/.test(house)) fail('assets/brand.css form button must use the funnel letter-spacing 0.14em');
+  if (!/padding:\s*16px/.test(house)) fail('assets/brand.css form button must use the funnel padding');
+  const secondary = cssRules(brand)
+    .filter((rule) => splitSelectors(rule.selector).some((selector) => /a\.submit-btn\.secondary$/.test(selector.trim())))
+    .map((rule) => rule.body)
+    .join('\n');
+  if (!/background:\s*var\(--footer\)/.test(secondary)) {
+    fail('assets/brand.css secondary form button must use the dark house fill var(--footer)');
+  }
+  if (!/text-decoration:\s*none/.test(secondary)) {
+    fail('assets/brand.css secondary form button must not be underlined');
+  }
+  if (!/text-transform:\s*uppercase/.test(secondary)) {
+    fail('assets/brand.css secondary form button must be uppercase');
   }
   if (!/-webkit-appearance:\s*none/.test(brand)) fail('assets/brand.css must set -webkit-appearance: none on fields');
   const outsideRoot = hexesIn(stripRoot(brand));
@@ -433,10 +495,14 @@ function check() {
       fail(page.name + ' does not link /assets/brand.css, /assets/house.css, or /assets/type.css');
     }
     formControls(page.html).forEach((control, index) => {
-      const where = control.tag + (control.classes.size ? '.' + [...control.classes].join('.') : '');
+      const where = control.tag + (control.classes.size ? '.' + [...control.classes].join('.') : '') + (control.id ? '#' + control.id : '');
       if (control.style) fail(page.name + ' inline style on ' + where);
       if (!selectors.some((selector) => selectorMatches(selector, control))) {
         fail(page.name + ' ' + where + ' has no shared font-family rule (control ' + (index + 1) + ')');
+      }
+      const inLead = control.ancestors.some((ancestor) => ancestor.tag === 'form' && ancestor.classes.has('lead'));
+      if (control.tag === 'button' && inLead && !control.classes.has('submit-btn')) {
+        fail(page.name + ' ' + where + ' is a lead form button without the house class submit-btn');
       }
     });
   }

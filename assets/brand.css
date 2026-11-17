@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap");
 /* Brand tokens and the shared form, button, and card classes.
    Hex colors live only in this :root. See /STYLE.md.
    House chrome and the type sheet import this file. New pages link
@@ -144,13 +145,13 @@ form.lead .gs-field {
   box-sizing: border-box;
   margin: 0 0 var(--space-3);
   padding: 14px var(--space-4);
-  font-family: inherit;
-  font-size: 16px;
+  font-family: var(--font-body);
+  font-size: 17px;
   font-weight: 400;
   line-height: 1.45;
-  color: inherit;
-  background: var(--parchment);
-  border: 1px solid var(--line);
+  color: var(--ink-head);
+  background: var(--sand);
+  border: 1px solid rgba(138, 155, 176, 0.25);
   border-radius: var(--radius);
   -webkit-appearance: none;
   appearance: none;
@@ -165,7 +166,10 @@ form.lead input::placeholder,
 form.lead textarea::placeholder,
 form.lead input::-webkit-input-placeholder,
 form.lead textarea::-webkit-input-placeholder {
-  color: var(--placeholder);
+  color: rgba(138, 155, 176, 0.5);
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 0;
   opacity: 1;
 }
 
@@ -174,62 +178,151 @@ form.lead textarea:focus,
 form.lead select:focus {
   outline: none;
   border-color: var(--brass);
-  box-shadow: 0 0 0 3px color-mix(in srgb, var(--brass) 22%, transparent);
+  box-shadow: none;
 }
 
-form.lead button,
-form.lead .gs-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: auto;
-  max-width: 100%;
+/* House button. The same control as the lead form on /lake-minnetonka-homes/:
+   full width, brass fill, sand type, uppercase, the UI face. */
+.submit-btn,
+form.lead button {
+  display: inline-block;
+  width: 100%;
+  box-sizing: border-box;
   min-height: 0;
-  margin: 2px 0 0;
-  padding: 10px 18px;
+  margin: 8px 0 0;
+  padding: 16px;
   font-family: var(--font-ui);
-  font-size: 14px;
-  font-weight: 500;
+  font-size: 15px;
+  font-weight: 600;
   font-style: normal;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.14em;
   line-height: 1.2;
-  text-transform: none;
-  white-space: nowrap;
-  color: var(--ink-head);
-  background: transparent;
-  border: 1px solid var(--brass);
+  text-transform: uppercase;
+  text-align: center;
+  white-space: normal;
+  color: var(--sand);
+  background: var(--brass);
+  border: 0;
   border-radius: var(--radius);
+  box-shadow: none;
   cursor: pointer;
   -webkit-appearance: none;
   appearance: none;
+  transition: background 0.2s, transform 0.1s, opacity 0.2s;
 }
 
-form.lead button:hover,
-form.lead .gs-btn:hover {
-  background: color-mix(in srgb, var(--brass) 8%, transparent);
+.submit-btn:hover,
+form.lead button:hover {
+  color: var(--sand);
+  background: var(--brass-soft);
 }
 
-form.lead button:focus-visible,
-form.lead .gs-btn:focus-visible {
+.submit-btn:active,
+form.lead button:active {
+  transform: scale(0.99);
+}
+
+.submit-btn:focus-visible,
+form.lead button:focus-visible {
   outline: 2px solid var(--brass);
   outline-offset: 3px;
 }
 
-form.lead button:disabled,
-form.lead .gs-btn:disabled {
+.submit-btn:disabled,
+form.lead button:disabled {
   opacity: 0.55;
   cursor: default;
 }
 
+/* Second action under the brass submit. Same type, solid dark fill, not a link. */
+a.submit-btn.secondary {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 12px 0 0;
+  padding: 16px;
+  font-family: var(--font-ui);
+  font-size: 15px;
+  font-weight: 600;
+  font-style: normal;
+  letter-spacing: 0.14em;
+  line-height: 1.2;
+  text-transform: uppercase;
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  color: var(--sand);
+  background: var(--footer);
+  border: 0;
+  border-radius: var(--radius);
+  box-shadow: none;
+}
+
+a.submit-btn.secondary:hover {
+  color: var(--sand);
+  background: var(--ink-head);
+  text-decoration: none;
+}
+
+a.submit-btn.secondary:focus-visible {
+  outline: 2px solid var(--brass);
+  outline-offset: 3px;
+}
+
+form.lead input.gs-hp {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+}
+
+#bay-alert,
+#storyHelp {
+  scroll-margin-top: calc(80px + env(safe-area-inset-top));
+  scroll-margin-bottom: calc(88px + env(safe-area-inset-bottom));
+}
+
+@media (max-width: 760px) {
+  nav.sv-bar.bay-inview {
+    visibility: hidden;
+    pointer-events: none;
+  }
+}
+
+form.lead .note {
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.55;
+  letter-spacing: 0;
+  color: var(--ink-soft);
+  margin: 0 0 var(--space-4);
+}
+
+form.lead .gs-btn + .note,
+form.lead button + .note {
+  margin: 14px 0 0;
+  font-size: 15px;
+  color: var(--muted);
+}
+
 form.lead .note a {
   color: var(--muted);
+  font-family: var(--font-body);
   font-weight: 400;
-  letter-spacing: 0.01em;
+  font-size: inherit;
+  letter-spacing: 0;
   text-decoration: underline;
   text-decoration-thickness: 1px;
   text-underline-offset: 3px;
+  text-decoration-color: var(--line);
 }
 
 form.lead .note a:hover {
-  color: var(--ink-head);
+  color: var(--brass);
+  text-decoration-color: var(--brass);
 }

@@ -64,11 +64,11 @@ h1.hero-title{margin-top:0;line-height:inherit}
 .sv-offer .sv-small{font-size:12px;opacity:.75;margin:10px 0 0}
 .sv-offer .sv-err{color:#b3261e;font-size:13px;display:none}
 .sv-bar{display:none}
-@media (max-width:760px){.sv-bar{display:flex;align-items:center;position:fixed;left:0;right:0;bottom:0;z-index:9999;gap:8px;box-sizing:border-box;padding:6px 12px calc(6px + env(safe-area-inset-bottom));background:#FAF7EF;border-top:1px solid #C9A877}
-.sv-bar a{flex:1 1 0;min-width:0;width:0;height:40px;min-height:40px;display:flex;align-items:center;justify-content:center;text-align:center;white-space:nowrap;padding:0 12px;box-sizing:border-box;border-radius:6px;font:600 15px/1 'Inter',sans-serif;text-decoration:none;color:#6E5228;border:1px solid #6E5228}
+@media (max-width:760px){.sv-bar{display:flex;flex-wrap:nowrap;align-items:center;position:fixed;left:0;right:0;bottom:0;z-index:9999;gap:8px;box-sizing:border-box;height:calc(52px + env(safe-area-inset-bottom));padding:6px 12px env(safe-area-inset-bottom);background:#FAF7EF;border-top:1px solid #C9A877;opacity:1;-webkit-backdrop-filter:none;backdrop-filter:none}
+.sv-bar a{flex:1 1 0;min-width:0;height:40px;min-height:40px;max-height:40px;display:flex;align-items:center;justify-content:center;text-align:center;white-space:nowrap;padding:0 10px;box-sizing:border-box;border-radius:6px;font:600 15px/1 'Inter',sans-serif;text-decoration:none;color:#6E5228;border:1px solid #6E5228;background:#FAF7EF}
 .sv-bar a.sv-main{background:#6E5228;color:#FAF7EF;border-color:#6E5228}
 .sv-bar.bay-hold{visibility:hidden;pointer-events:none}
-body{padding-bottom:calc(52px + env(safe-area-inset-bottom))}}
+body{padding-bottom:calc(68px + env(safe-area-inset-bottom))}}
 </style>
 
 <style id="gs-topbar-css">
@@ -82,7 +82,7 @@ body{padding-bottom:calc(52px + env(safe-area-inset-bottom))}}
 .gs-top .gs-line{flex:1 1 auto;min-width:0;text-align:right;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .gs-top .gs-line b{color:#C9A877;font-weight:700}
 body{padding-top:calc(52px + env(safe-area-inset-top))}
-#signup,#sv-offer,#bay-alert{scroll-margin-top:calc(66px + env(safe-area-inset-top))}
+#signup,#sv-offer,#bay-alert{scroll-margin-top:calc(80px + env(safe-area-inset-top));scroll-margin-bottom:calc(88px + env(safe-area-inset-bottom))}
 }
 </style>
   <script src="/assets/phone-later.js"></script>
@@ -132,7 +132,8 @@ body{padding-top:calc(52px + env(safe-area-inset-top))}
 <input id="bayName" name="name" placeholder="First name" autocomplete="given-name" class="gs-field">
 <input id="bayEmail" name="email" type="email" placeholder="Email" required autocomplete="email" class="gs-field">
 <p class="sv-err" id="bayErr" role="alert">Please add your first name and a working email.</p>
-<button type="button" id="bayBtn" class="gs-btn">Email me when one sells</button>
+<button type="button" id="bayBtn" class="submit-btn">Email me when one sells</button>
+<a class="submit-btn secondary" href="sms:+19522583100">Text Geoffrey</a>
 </div>
 <p id="bayThanks" style="display:none;font-size:17px">Thank you. I’ll email you when a home on the Upper Lake sells.</p>
 </form>
@@ -269,7 +270,7 @@ fetch('https://formspree.io/f/mpqerwwk',{method:'POST',headers:{'Content-Type':'
 if(ok){document.getElementById('svFields').style.display='none';document.getElementById('svThanks').style.display='block';try{if(typeof gtag==='function')gtag('event','generate_lead',{lead_type:LT,page_path:location.pathname})}catch(e){}}
 else{b.disabled=false;err.textContent='That didn\u2019t go through. Please try again, or text Geoffrey at 952 258 3100.';err.style.display='block'}});});})();
 </script>
-<nav class="sv-bar" aria-label="Quick contact"><a class="sv-main" href="#sv-offer">What would mine bring?</a><a href="sms:+19522583100">Text Geoffrey</a></nav>
+<nav class="sv-bar" aria-label="Quick contact"><a class="sv-main" href="#bay-alert">Sale alerts</a><a href="sms:+19522583100">Text Geoffrey</a></nav>
 <!-- SV:END -->
 
 <footer class="site-foot">
@@ -306,6 +307,6 @@ else{b.disabled=false;err.textContent='That didn\u2019t go through. Please try a
 </footer>
 <!-- /HOUSE:FOOTER -->
 <script src="/assets/door-clicks.js" defer></script>
-<script src="/assets/gs-bars.js?v=20261026" defer data-mode="seller"></script>
+<script src="/assets/gs-bars.js?v=20261117" defer data-mode="bay" data-bay-label="Upper Lake"></script>
 <script src="/assets/lake-chart/lake-chart.js" defer></script>
 </body></html>

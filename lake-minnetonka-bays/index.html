@@ -53,11 +53,11 @@ h1.hero-title{margin-top:0;line-height:inherit}
 .sv-offer .sv-small{font-size:12px;opacity:.75;margin:10px 0 0}
 .sv-offer .sv-err{color:#b3261e;font-size:13px;display:none}
 .sv-bar{display:none}
-@media (max-width:760px){.sv-bar{display:flex;align-items:center;position:fixed;left:0;right:0;bottom:0;z-index:9999;gap:8px;box-sizing:border-box;padding:6px 12px calc(6px + env(safe-area-inset-bottom));background:#FAF7EF;border-top:1px solid #C9A877}
-.sv-bar a{flex:1 1 0;min-width:0;width:0;height:40px;min-height:40px;display:flex;align-items:center;justify-content:center;text-align:center;white-space:nowrap;padding:0 12px;box-sizing:border-box;border-radius:6px;font:600 15px/1 'Inter',sans-serif;text-decoration:none;color:#6E5228;border:1px solid #6E5228}
+@media (max-width:760px){.sv-bar{display:flex;flex-wrap:nowrap;align-items:center;position:fixed;left:0;right:0;bottom:0;z-index:9999;gap:8px;box-sizing:border-box;height:calc(52px + env(safe-area-inset-bottom));padding:6px 12px env(safe-area-inset-bottom);background:#FAF7EF;border-top:1px solid #C9A877;opacity:1;-webkit-backdrop-filter:none;backdrop-filter:none}
+.sv-bar a{flex:1 1 0;min-width:0;height:40px;min-height:40px;max-height:40px;display:flex;align-items:center;justify-content:center;text-align:center;white-space:nowrap;padding:0 10px;box-sizing:border-box;border-radius:6px;font:600 15px/1 'Inter',sans-serif;text-decoration:none;color:#6E5228;border:1px solid #6E5228;background:#FAF7EF}
 .sv-bar a.sv-main{background:#6E5228;color:#FAF7EF;border-color:#6E5228}
 .sv-bar.bay-hold{visibility:hidden;pointer-events:none}
-body{padding-bottom:calc(52px + env(safe-area-inset-bottom))}}
+body{padding-bottom:calc(68px + env(safe-area-inset-bottom))}}
 </style>
 
 <style id="gs-topbar-css">
@@ -158,7 +158,8 @@ body{padding-top:calc(52px + env(safe-area-inset-top))}
 <form class="lead gs-card" action="https://formspree.io/f/mpqerwwk" method="POST">
 <h3>Want the bay sales as they happen?</h3><p class="note">One short email when a home on this bay sells. No spam, unsubscribe anytime.</p>
 <input type="hidden" name="source" value="bay-hub"><input name="name" placeholder="First name" autocomplete="given-name" class="gs-field"><input name="email" type="email" placeholder="Email" required autocomplete="email" class="gs-field">
-<button type="submit" class="gs-btn">Send me the sales</button></form>
+<button type="submit" class="submit-btn">Send me the sales</button>
+<a class="submit-btn secondary" href="sms:+19522583100">Text Geoffrey</a></form>
 <h2>Questions people ask</h2><details><summary>What is the deepest bay on Lake Minnetonka?</summary><p>Crystal Bay, about 113 feet.</p></details><details><summary>Which bay is good for walking to dinner?</summary><p>Excelsior Bay, where the public docks are steps from Water Street, and Wayzata Bay, with Lake Street on the water.</p></details>
 <p class="note">Getting on the water: <a href="/topics/lake-minnetonka-lake-access-and-boat-slips/">Lake access and boat slips</a>.</p></main><!-- HOUSE:REACH-BAND -->
 <div class="reach-band" role="region" aria-label="Call or text Geoffrey">
