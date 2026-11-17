@@ -34,10 +34,10 @@
     fig.appendChild(view);
     var svg = view.querySelector("svg");
     var chart = svg.querySelector("#chart");
-    var here = fig.getAttribute("data-here");
-    if (here) markHere(svg, here);
     var addr = fig.getAttribute("data-pin-addr");
     if (addr && chart) addPin(fig, view, chart, svg);
+    var here = fig.getAttribute("data-here");
+    if (here) markHere(svg, here);
     padHits(svg);
     svg.querySelectorAll("a.nav").forEach(function (a) {
       a.addEventListener("pointerdown", function () {
@@ -52,13 +52,75 @@
     var mark = svg.querySelector('[data-bay="' + here + '"],[data-town="' + here + '"]');
     if (!mark) return;
     mark.classList.add("is-here");
-    var note = document.createElementNS("http://www.w3.org/2000/svg", "text");
-    note.setAttribute("class", "here");
-    note.setAttribute("x", "28");
-    note.setAttribute("y", "68");
-    note.textContent = "You are here";
+    var labels = mark.querySelectorAll("text.bay, text.town");
+    if (!labels.length) return;
+    var label = labels[labels.length - 1];
+    var top = labels[0].getBBox();
+    var b = label.getBBox();
+    var anchor = label.getAttribute("text-anchor") || "start";
+    var x = anchor === "middle" ? b.x + b.width / 2 : anchor === "end" ? b.x + b.width : b.x;
+    var ns = "http://www.w3.org/2000/svg";
     var chart = svg.querySelector("#chart");
-    if (chart) chart.appendChild(note);
+    var tagW = 78;
+    var tagX = anchor === "middle" ? x - tagW / 2 : anchor === "end" ? x - tagW : x;
+    var below = b.y + b.height + 26;
+    var aboveY = top.y - 16;
+    function blocked(y) {
+      if (y < 24 || y > 626) return true;
+      var pin = chart.querySelector(".pin");
+      if (pin) {
+        var pb = pinBox(pin);
+        if (overlaps(tagX, y - 12, tagW, 14, pb.x, pb.y, pb.width, pb.height)) return true;
+      }
+      var nodes = chart.querySelectorAll("text.bay, text.town, text.plain");
+      for (var i = 0; i < nodes.length; i++) {
+        if (mark.contains(nodes[i])) continue;
+        var o = nodes[i].getBBox();
+        if (overlaps(tagX - 6, y - 18, tagW + 12, 22, o.x, o.y, o.width, o.height)) return true;
+      }
+      return false;
+    }
+    var useBelow = !blocked(below);
+    if (!useBelow && blocked(aboveY)) useBelow = !blocked(below);
+    var y1 = useBelow ? b.y + b.height + 1 : top.y - 1;
+    var y2 = useBelow ? below - 12 : aboveY + 2;
+    var ty = useBelow ? below : aboveY;
+    var line = document.createElementNS(ns, "line");
+    line.setAttribute("class", "here-line");
+    line.setAttribute("x1", String(x));
+    line.setAttribute("y1", String(y1));
+    line.setAttribute("x2", String(x));
+    line.setAttribute("y2", String(y2));
+    line.setAttribute("stroke", "#8C3A2A");
+    line.setAttribute("stroke-width", "1.2");
+    var note = document.createElementNS(ns, "text");
+    note.setAttribute("class", "here");
+    note.setAttribute("x", String(x));
+    note.setAttribute("y", String(ty));
+    note.setAttribute("text-anchor", anchor);
+    note.setAttribute("font-size", "11");
+    note.setAttribute("font-family", "Zilla Slab, Georgia, serif");
+    note.setAttribute("font-style", "italic");
+    note.setAttribute("font-weight", "600");
+    note.setAttribute("fill", "#8C3A2A");
+    note.setAttribute("stroke", "#F3E6C8");
+    note.setAttribute("stroke-width", "3");
+    note.setAttribute("paint-order", "stroke fill");
+    note.textContent = "You are here";
+    chart.appendChild(line);
+    chart.appendChild(note);
+  }
+
+  function pinBox(pin) {
+    var pb = pin.getBBox();
+    var tr = pin.transform.baseVal.consolidate();
+    if (!tr) return pb;
+    var m = tr.matrix;
+    return { x: m.e + pb.x, y: m.f + pb.y, width: pb.width, height: pb.height };
+  }
+
+  function overlaps(x, y, w, h, x2, y2, w2, h2) {
+    return x < x2 + w2 && x + w > x2 && y < y2 + h2 && y + h > y2;
   }
 
   function padHits(svg) {

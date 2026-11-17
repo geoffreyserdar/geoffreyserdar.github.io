@@ -12,7 +12,7 @@
 .lake-chart a.nav.is-here .bay,.lake-chart a.nav.is-hot .bay,.lake-chart a.nav:hover .bay{fill:#8C3A2A}
 .lake-chart a.nav.is-here .town,.lake-chart a.nav.is-here .town-dot{fill:#8C3A2A}
 .lake-chart a.nav:hover .town,.lake-chart a.nav:focus .town,.lake-chart a.nav.is-hot .town{fill:#8C3A2A}
-.lake-chart .here{font-family:"Zilla Slab",Georgia,serif;font-size:13px;font-style:italic;font-weight:600;fill:#8C3A2A;stroke:#F3E6C8;stroke-width:4px;paint-order:stroke fill}
+.lake-chart .here-line{stroke:#8C3A2A}
 .lake-chart .pin{cursor:pointer}
 .lake-chart .pin circle.outer{fill:#8C3A2A}
 .lake-chart .pin circle.inner{fill:#F3E6C8}
