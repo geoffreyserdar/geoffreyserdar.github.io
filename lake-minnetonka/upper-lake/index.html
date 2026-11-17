@@ -17,7 +17,7 @@
 <title>Enchanted Island and the Upper Lake of Lake Minnetonka | Geoffrey Serdar</title><meta name="description" content="The Anderson family’s stone house on Enchanted Island sold November 13, 2026 for $4,890,000. Its story, a map, and a plain guide to the Upper Lake of Lake Minnetonka."><link rel="canonical" href="https://geoffreyserdar.com/lake-minnetonka/upper-lake/">
 
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@400;500;600;700&display=optional" rel="stylesheet">
-<link rel="stylesheet" href="/assets/house.css"><style>
+<link rel="stylesheet" href="/assets/brand.css"><link rel="stylesheet" href="/assets/house.css"><style>
 body{margin:0;background:#FAF7EF;color:#1F201C;font-family:Inter,system-ui,sans-serif;line-height:1.6}
 .stage-flag{background:#7a1f1f;color:#fff;text-align:center;font:600 13px Inter,sans-serif;padding:8px 12px;letter-spacing:.4px}
 .wrap{max-width:820px;margin:0 auto;padding:0 22px}
@@ -36,10 +36,6 @@ h2{font-family:'Playfair Display',Georgia,serif;font-size:28px;margin:44px 0 12p
 .note{font-size:13px;color:#4D4839}
 .towns a,.chip{display:inline-block;border:1px solid #6E5228;color:#6E5228;text-decoration:none;border-radius:20px;padding:6px 14px;margin:4px 6px 4px 0;font-weight:600;font-size:14px}
 details{border-bottom:1px solid #ECE4D4;padding:12px 0}summary{font-weight:600;cursor:pointer}
-.lead{background:#ECE4D4;border-radius:6px;padding:26px;margin:28px 0}.lead h3{font-family:'Playfair Display',serif;font-size:24px;margin:0 0 6px}
-.lead input{width:100%;box-sizing:border-box;padding:12px;margin:6px 0;border:1px solid #C9BFA9;border-radius:3px;font:15px Inter}
-.lead button{background:#6E5228;color:#fff;border:0;border-radius:3px;padding:13px 22px;font:600 15px Inter;margin-top:8px;cursor:pointer}
-.lead .sv-err{color:#b3261e;font-size:13px;display:none;margin:6px 0}
 .bays{display:grid;grid-template-columns:1fr 1fr;gap:18px}.bay-card{background:#ECE4D4;border-radius:6px;overflow:hidden;text-decoration:none;color:inherit}
 .bay-card img{width:100%;aspect-ratio:4/5;object-fit:cover;display:block}.bay-card div{padding:14px 16px}.bay-card b{font-family:'Playfair Display',serif;font-size:21px;display:block}
 .sale{background:#ECE4D4;border-radius:6px;overflow:hidden;margin:28px 0 0}
@@ -127,16 +123,16 @@ body{padding-top:calc(52px + env(safe-area-inset-top))}
 </div>
 </article>
 
-<form class="lead" id="bay-alert" action="https://formspree.io/f/mpqerwwk" method="POST">
+<form class="lead gs-card" id="bay-alert" action="https://formspree.io/f/mpqerwwk" method="POST">
 <div id="bayFields">
 <h3>Want to hear when the next Upper Lake home sells?</h3>
 <p class="note">I’ll send one short email when it happens. No spam, and you can stop anytime.</p>
 <input type="hidden" name="lead_type" value="upper-lake">
 <input type="hidden" name="bay" value="upper-lake">
-<input id="bayName" name="name" placeholder="First name" autocomplete="given-name">
-<input id="bayEmail" name="email" type="email" placeholder="Email" required autocomplete="email">
+<input id="bayName" name="name" placeholder="First name" autocomplete="given-name" class="gs-field">
+<input id="bayEmail" name="email" type="email" placeholder="Email" required autocomplete="email" class="gs-field">
 <p class="sv-err" id="bayErr" role="alert">Please add your first name and a working email.</p>
-<button type="button" id="bayBtn">Email me when one sells</button>
+<button type="button" id="bayBtn" class="gs-btn">Email me when one sells</button>
 </div>
 <p id="bayThanks" style="display:none;font-size:17px">Thank you. I’ll email you when a home on the Upper Lake sells.</p>
 </form>
