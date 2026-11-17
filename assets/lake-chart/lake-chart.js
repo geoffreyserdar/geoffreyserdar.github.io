@@ -567,8 +567,8 @@
   function bindZoom(fig, view, svg, chart) {
     if (!chart) return;
     var scale = 1, tx = 0, ty = 0;
-    var pinch = null, pan = null, gestureOn = false;
-    var lastTap = 0, lastXY = null;
+    var pinch = null, pan = null, drag = null, gestureOn = null;
+    var lastTap = 0, lastXY = null, touchZoomAt = 0, pinchLift = false;
     var winEl = svg.querySelector("#mapwindow rect");
     var W = {
       x: parseFloat(winEl.getAttribute("x")),
@@ -612,12 +612,17 @@
       if (ty > maxY) ty = maxY;
       if (ty < minY) ty = minY;
     }
-    function apply() {
+    /* The matrix updates on every finger move. The tag and the small labels settle once, when the finger lifts. */
+    function matrix() {
       clampPan();
       chart.setAttribute("transform", "matrix(" + scale + " 0 0 " + scale + " " + tx + " " + ty + ")");
-      svg.classList.toggle("is-detail", scale >= 1.55);
+      view.style.touchAction = scale > 1.02 ? "none" : "pan-y";
       fig.classList.toggle("is-zoomed", scale > 1.05);
       if (scale > 1.05) hint.classList.add("is-gone");
+    }
+    function settle() {
+      matrix();
+      svg.classList.toggle("is-detail", scale >= 1.55);
       var limit = null;
       if (scale > 1.02) {
         var x0 = (W.x + 4 - tx) / scale;
@@ -628,6 +633,9 @@
       }
       svg._hereLimit = limit;
       if (svg._seatHere) svg._seatHere(limit);
+    }
+    function apply() {
+      settle();
     }
     /* One matrix: scale about 0,0 then translate. The chart point under the pointer stays put. */
     function zoomAt(next, clientX, clientY) {
@@ -671,6 +679,7 @@
     });
     view.addEventListener("dblclick", function (e) {
       e.preventDefault();
+      if (Date.now() - touchZoomAt < 700) return;
       zoomAt(Math.min(4, scale * 1.6), e.clientX, e.clientY);
     });
     view.addEventListener("wheel", function (e) {
@@ -686,9 +695,10 @@
     view.addEventListener("gesturestart", function (e) {
       e.preventDefault();
       hint.classList.add("is-gone");
-      gestureOn = true;
       pinch = null;
       pan = null;
+      drag = null;
+      view.style.touchAction = "none";
       var u = userPoint(chart, e.clientX, e.clientY);
       gestureOn = { scale: scale, ux: u.x, uy: u.y };
     }, { passive: false });
@@ -700,68 +710,119 @@
       tx = root.x - gestureOn.ux * next;
       ty = root.y - gestureOn.uy * next;
       scale = next;
-      apply();
+      matrix();
     }, { passive: false });
     view.addEventListener("gestureend", function (e) {
       if (e.preventDefault) e.preventDefault();
-      gestureOn = false;
+      gestureOn = null;
+      pinch = null;
+      drag = null;
+      settle();
     }, { passive: false });
+    /* A mouse can still drag the map once it is zoomed. A finger uses the touch events below. */
     view.addEventListener("pointerdown", function (e) {
-      if (e.pointerType === "touch" && !e.isPrimary) return;
-      if (pinch || gestureOn) return;
-      if (scale > 1.02) {
-        var root = userPoint(svg, e.clientX, e.clientY);
-        pan = { id: e.pointerId, tx: tx, ty: ty, rx: root.x, ry: root.y };
-      } else {
-        pan = { id: e.pointerId, scroll: window.scrollY, y: e.clientY };
-      }
+      if (e.pointerType === "touch" || pinch || gestureOn || scale <= 1.02) return;
+      var root = userPoint(svg, e.clientX, e.clientY);
+      pan = { id: e.pointerId, tx: tx, ty: ty, rx: root.x, ry: root.y };
     });
     view.addEventListener("pointermove", function (e) {
       if (!pan || pan.id !== e.pointerId || pinch || gestureOn) return;
-      if (pan.scroll != null) {
-        window.scrollTo(window.scrollX, pan.scroll - (e.clientY - pan.y));
-        return;
-      }
       e.preventDefault();
       var moved = userPoint(svg, e.clientX, e.clientY);
       tx = pan.tx + (moved.x - pan.rx);
       ty = pan.ty + (moved.y - pan.ry);
-      apply();
+      matrix();
     });
     view.addEventListener("pointerup", function (e) {
-      if (pan && pan.id === e.pointerId) pan = null;
-    });
-    view.addEventListener("pointercancel", function () { pan = null; });
-    view.addEventListener("touchstart", function (e) {
-      if (e.touches.length === 2) {
+      if (pan && pan.id === e.pointerId) {
         pan = null;
+        settle();
+      }
+    });
+    view.addEventListener("pointercancel", function () { if (pan) { pan = null; settle(); } });
+    view.addEventListener("touchstart", function (e) {
+      if (e.touches.length === 1 && lastXY && Date.now() - lastTap < 300) {
+        var start = e.touches[0];
+        if (Math.hypot(start.clientX - lastXY.x, start.clientY - lastXY.y) < 28 && e.cancelable) e.preventDefault();
+      }
+      if (e.touches.length >= 2) {
+        pan = null;
+        drag = null;
+        pinchLift = false;
         var mx = (e.touches[0].clientX + e.touches[1].clientX) / 2;
         var my = (e.touches[0].clientY + e.touches[1].clientY) / 2;
         var u = userPoint(chart, mx, my);
         pinch = { d: dist(e.touches[0], e.touches[1]), scale: scale, ux: u.x, uy: u.y };
+        view.style.touchAction = "none";
+        return;
       }
-    }, { passive: true });
+      if (e.touches.length === 1 && scale > 1.02 && !gestureOn) {
+        var t = e.touches[0];
+        var root = userPoint(svg, t.clientX, t.clientY);
+        drag = { tx: tx, ty: ty, rx: root.x, ry: root.y, x: t.clientX, y: t.clientY, moved: false };
+      }
+    }, { passive: false });
     view.addEventListener("touchmove", function (e) {
-      if (gestureOn || !pinch || e.touches.length < 2) return;
-      e.preventDefault();
-      var d = dist(e.touches[0], e.touches[1]);
-      var next = Math.min(4, Math.max(1, pinch.scale * (d / pinch.d)));
-      var mx = (e.touches[0].clientX + e.touches[1].clientX) / 2;
-      var my = (e.touches[0].clientY + e.touches[1].clientY) / 2;
-      var root = userPoint(svg, mx, my);
-      tx = root.x - pinch.ux * next;
-      ty = root.y - pinch.uy * next;
-      scale = next;
-      apply();
+      if (e.touches.length >= 2 && pinch && !gestureOn) {
+        e.preventDefault();
+        var d = dist(e.touches[0], e.touches[1]);
+        if (!pinch.d) return;
+        var next = Math.min(4, Math.max(1, pinch.scale * (d / pinch.d)));
+        var mx = (e.touches[0].clientX + e.touches[1].clientX) / 2;
+        var my = (e.touches[0].clientY + e.touches[1].clientY) / 2;
+        var root = userPoint(svg, mx, my);
+        tx = root.x - pinch.ux * next;
+        ty = root.y - pinch.uy * next;
+        scale = next;
+        matrix();
+        return;
+      }
+      if (drag && e.touches.length === 1 && scale > 1.02 && !gestureOn && !pinch) {
+        e.preventDefault();
+        var t = e.touches[0];
+        if (Math.hypot(t.clientX - drag.x, t.clientY - drag.y) > 8) drag.moved = true;
+        var moved = userPoint(svg, t.clientX, t.clientY);
+        tx = drag.tx + (moved.x - drag.rx);
+        ty = drag.ty + (moved.y - drag.ry);
+        matrix();
+      }
     }, { passive: false });
     view.addEventListener("touchend", function (e) {
       if (e.touches.length >= 2) return;
-      pinch = null;
-      if (e.touches.length === 1) return;
-      if (gestureOn || !e.changedTouches || e.changedTouches.length !== 1) return;
+      if (pinch || gestureOn) {
+        pinch = null;
+        drag = null;
+        if (e.touches.length > 0) {
+          pinchLift = true;
+          return;
+        }
+        pinchLift = false;
+        settle();
+        return;
+      }
+      if (pinchLift) {
+        pinchLift = false;
+        drag = null;
+        if (e.touches.length === 0) settle();
+        return;
+      }
+      if (drag) {
+        var movedDrag = drag.moved;
+        drag = null;
+        if (movedDrag) {
+          settle();
+          lastTap = 0;
+          lastXY = null;
+          return;
+        }
+      }
+      if (e.touches.length > 0) return;
+      if (!e.changedTouches || !e.changedTouches.length) return;
       var t = e.changedTouches[0];
       var now = Date.now();
       if (lastXY && now - lastTap < 300 && Math.hypot(t.clientX - lastXY.x, t.clientY - lastXY.y) < 28) {
+        if (e.preventDefault) e.preventDefault();
+        touchZoomAt = now;
         zoomAt(Math.min(4, scale * 1.6), t.clientX, t.clientY);
         lastTap = 0;
         lastXY = null;

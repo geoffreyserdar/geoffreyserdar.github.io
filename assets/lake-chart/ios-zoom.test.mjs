@@ -156,11 +156,13 @@ async function runWebKit() {
   }
   await page.evaluate(() => document.querySelector("[data-z=reset]").click());
   const ex = await spot(page, "Excelsior Bay");
-  const ex0 = await under(page, ex.x, ex.y);
-  await page.touchscreen.tap(ex.x, ex.y);
-  await page.touchscreen.tap(ex.x, ex.y);
+  const tapAt = { x: Math.max(24, ex.x - 48), y: ex.y };
+  const ex0 = await under(page, tapAt.x, tapAt.y);
+  await page.touchscreen.tap(tapAt.x, tapAt.y);
+  await page.touchscreen.tap(tapAt.x, tapAt.y);
+  if (!(await page.$("#chart"))) fail("webkit double-tap left the page");
   const ex1 = await screenOf(page, ex0.ux, ex0.uy);
-  const dd = drift(ex1, ex);
+  const dd = drift(ex1, tapAt);
   if (dd > 10) fail("webkit double-tap drifted " + dd.toFixed(1) + "px");
   const zoomedTap = await page.evaluate(() => document.querySelector(".lake-chart svg").classList.contains("is-detail"));
   if (!zoomedTap) fail("webkit double-tap did not zoom in");
@@ -195,14 +197,16 @@ async function runWebKit() {
   await page.evaluate(({ x, y }) => {
     const view = document.querySelector(".lake-chart-view");
     const fire = (type, px, py) => {
-      view.dispatchEvent(new PointerEvent(type, {
-        bubbles: true, cancelable: true, pointerId: 1, pointerType: "touch",
-        isPrimary: true, clientX: px, clientY: py
-      }));
+      const ev = new Event(type, { bubbles: true, cancelable: true });
+      const list = [{ identifier: 1, clientX: px, clientY: py, target: view }];
+      ev.touches = type === "touchend" ? [] : list;
+      ev.targetTouches = ev.touches;
+      ev.changedTouches = list;
+      view.dispatchEvent(ev);
     };
-    fire("pointerdown", x, y);
-    fire("pointermove", x + 36, y + 20);
-    fire("pointerup", x + 36, y + 20);
+    fire("touchstart", x, y);
+    fire("touchmove", x + 36, y + 20);
+    fire("touchend", x + 36, y + 20);
   }, panAt);
   const pan1 = await screenOf(page, pan0.ux, pan0.uy);
   if (drift(pan1, panAt) < 15) fail("webkit drag did not pan the map");

@@ -23,7 +23,7 @@ details.lake-chart-places li{break-inside:avoid;margin:0 0 3px;font:500 13px/1.4
 details.lake-chart-places a,details.lake-chart-places a:link,details.lake-chart-places a:visited{color:#6E5228;text-decoration:none}
 details.lake-chart-places li span{color:#8A7B62}
 @media (max-width:359px){details.lake-chart-places ul{columns:1}}
-.lake-chart-view{position:absolute;inset:0;background:#24382F;touch-action:none;overflow:hidden}
+.lake-chart-view{position:absolute;inset:0;background:#24382F;touch-action:pan-y;overflow:hidden}
 .lake-chart-view svg{width:100%;height:100%;display:block;overflow:hidden}
 .lake-chart img{width:100%;height:100%;object-fit:cover;display:block}
 .lake-chart.is-live img{display:none}
