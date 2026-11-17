@@ -89,7 +89,7 @@ The lake chart’s + / − / reset are part of the chart, not this button. Leave
 
 ## Sticky bar
 
-The mobile bar (`nav.sv-bar`, under 760px) matches the lead page `/lake-minnetonka-homes/`: a dark bar, two equal links, 46px tall, white type, the main link a brass fill. It hides while the opening line is on screen, and it hides again while a story form or sale alert is on screen so it does not cover the button. `#bay-alert` keeps a scroll margin so the heading and the email field clear the top bar. Leave that behavior alone.
+The mobile bar (`nav.sv-bar`, under 760px) is one line, 52px plus the safe area. The ground is solid `--parchment` (`#FAF7EF`), not a translucent dark wash, and there is no backdrop blur. A brass hairline sits on top. Two equal links share the line: the main one is a brass fill, the other a brass outline. The page keeps bottom padding so the last paragraph sits fully above the bar. The bar hides while the opening line is on screen, and it hides again while a story form or sale alert is on screen so it does not cover the button. `#bay-alert` keeps a scroll margin so the heading and the email field clear the top bar. Leave that behavior alone.
 
 From 768px up, `assets/gs-bars.js` turns the same bar into a small pill at the bottom right and keeps it off the text column. Do not stack it, do not widen it into a second footer, and do not restyle it from a page.
 
