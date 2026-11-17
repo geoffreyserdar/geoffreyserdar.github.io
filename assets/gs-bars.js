@@ -21,6 +21,10 @@
     bar.addEventListener('click',function(e){var a=e.target.closest('a');if(a)ev('top_bar_click',(a.textContent||'').trim())});
     if(mode==='care'){set('Questions? <b>Text Geoffrey</b>','sms:+19522583100')}
     else if(mode==='weekly'){set('<b>Get this list weekly</b>','#signup')}
+    else if(mode==='bay'){
+      var label=(me&&me.getAttribute('data-bay-label'))||'Bay';
+      set(esc(label)+' sale alerts · <b>Get them</b>','#bay-alert');
+    }
     else{
       fetch('/data/weekly-towns.json',{cache:'no-cache'}).then(function(r){return r.ok?r.json():null}).then(function(d){
         if(!d||!d.weeks||!d.weeks.length)return;
