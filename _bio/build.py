@@ -260,6 +260,7 @@ def person_jsonld(platform: dict) -> str:
         "worksFor": {
             "@type": "Organization",
             "name": "Serdar+Partners at Compass",
+            "url": "https://geoffreyserdar.com/",
         },
         "url": "https://geoffreyserdar.com/",
         "sameAs": agent_same_as(),
@@ -291,6 +292,8 @@ def render(platform: dict, template: str) -> str:
         page = page.replace(key, value)
     if "__" in page:
         raise SystemExit("unreplaced placeholder left in /%s/" % platform["dir"])
+    if platform["dir"] == "social":
+        page = page.replace("</body>", '<script src="/assets/door-clicks.js" defer></script>\n</body>', 1)
     validate(platform, page)
     return page
 
