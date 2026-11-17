@@ -251,7 +251,13 @@ for (const pagePath of list) {
       if (el) el.scrollIntoView({ block: "center" });
     });
     await page.waitForSelector(".lake-chart.is-live text.bay", { timeout: 8000 });
-    await page.evaluate(() => (document.fonts ? document.fonts.ready : Promise.resolve()));
+    await page.evaluate(async () => {
+      if (document.fonts && document.fonts.load) {
+        await document.fonts.load('600 15px "Cormorant Garamond"');
+        await document.fonts.load('500 26px "Cormorant Garamond"');
+      }
+      if (document.fonts) await document.fonts.ready;
+    });
     await page.evaluate(() => new Promise((r) => requestAnimationFrame(() => requestAnimationFrame(r))));
     const data = await page.evaluate(measure);
     if (!data.ready) {

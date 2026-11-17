@@ -11,7 +11,7 @@
     if (!document.querySelector("link[data-lake-fonts]")) {
       var font = document.createElement("link");
       font.rel = "stylesheet";
-      font.href = "https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700&family=Zilla+Slab:ital,wght@0,600;0,700;1,600&display=swap";
+      font.href = "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Zilla+Slab:wght@600&display=swap";
       font.setAttribute("data-lake-fonts", "");
       document.head.appendChild(font);
     }
@@ -60,8 +60,8 @@
     var chart = svg.querySelector("#chart");
     var note = document.createElementNS(ns, "text");
     note.setAttribute("class", "here");
-    note.setAttribute("font-family", "Zilla Slab, Georgia, serif");
-    note.setAttribute("font-weight", "700");
+    note.setAttribute("font-family", "Cormorant Garamond, Georgia, Times New Roman, serif");
+    note.setAttribute("font-weight", "600");
     note.setAttribute("fill", "#8C3A2A");
     note.setAttribute("pointer-events", "none");
     note.setAttribute("text-anchor", "middle");
