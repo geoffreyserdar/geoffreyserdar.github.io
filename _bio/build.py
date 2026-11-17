@@ -10,6 +10,7 @@ Each path is a full static page. Nothing here emits a redirect.
 from __future__ import annotations
 
 import html
+import json
 import sys
 from pathlib import Path
 from urllib.parse import parse_qsl, urlencode, urlsplit, urlunsplit
@@ -223,6 +224,51 @@ def cards_html(platform: dict) -> str:
     return "\n".join(blocks)
 
 
+def agent_same_as() -> list[str]:
+    """Homepage sameAs: Maps, probate, and Compass stay; X is GeoffreySerdar.
+
+    YouTube, Instagram, TikTok, Facebook, and LinkedIn are copied from SOCIALS,
+    the same hrefs the /social/ page renders. Do not invent a profile URL here.
+    """
+    by_platform = {item["platform"]: item["href"] for item in SOCIALS}
+    required = ["youtube", "instagram", "tiktok", "facebook", "linkedin", "x"]
+    missing = [name for name in required if name not in by_platform]
+    if missing:
+        raise SystemExit("social profiles missing from SOCIALS: %s" % ", ".join(missing))
+    if by_platform["x"] != "https://x.com/GeoffreySerdar":
+        raise SystemExit("SOCIALS X href is not https://x.com/GeoffreySerdar")
+    return [
+        "https://maps.google.com/maps?cid=10860202133812577051",
+        "https://lakeminnetonkaprobate.com/",
+        by_platform["x"],
+        "https://www.compass.com/agents/geoffrey-serdar/",
+        by_platform["youtube"],
+        by_platform["instagram"],
+        by_platform["tiktok"],
+        by_platform["facebook"],
+        by_platform["linkedin"],
+    ]
+
+
+def person_jsonld(platform: dict) -> str:
+    if platform["dir"] != "social":
+        return ""
+    data = {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Geoffrey Serdar",
+        "worksFor": {
+            "@type": "Organization",
+            "name": "Serdar+Partners at Compass",
+        },
+        "url": "https://geoffreyserdar.com/",
+        "sameAs": agent_same_as(),
+    }
+    return '\n<script type="application/ld+json">%s</script>' % json.dumps(
+        data, ensure_ascii=False, separators=(", ", ": ")
+    )
+
+
 def render(platform: dict, template: str) -> str:
     path = ORIGIN + "/" + platform["dir"] + "/"
     robots = "index,follow" if platform["indexable"] else "noindex,follow"
@@ -237,6 +283,7 @@ def render(platform: dict, template: str) -> str:
         "__CARDS__": cards_html(platform),
         "__ESTATE_HREF__": html.escape(with_utm("/probate/", platform, "probate"), quote=True),
         "__SOCIAL__": social_nav(platform),
+        "__PERSON_JSONLD__": person_jsonld(platform),
     }
     for key, value in replacements.items():
         if key not in page:
@@ -268,6 +315,16 @@ def validate(platform: dict, page: str) -> None:
     need("location.replace" not in page, "js redirect")
     need("New:" not in page, "New: tag")
     need("G-250YS9FRRM" in page, "ga4")
+    need(page.count('name="twitter:site" content="@GeoffreySerdar"') == 1, "twitter:site")
+    need(page.count('name="twitter:creator" content="@GeoffreySerdar"') == 1, "twitter:creator")
+    need('twitter:site" content="@RealTalkGeo"' not in page, "old twitter:site")
+    if directory == "social":
+        need('"@type": "Person"' in page, "person jsonld")
+        need("x.com/RealTalkGeo" not in page, "old x url")
+        for url in agent_same_as():
+            need(url in page, "sameAs " + url)
+    else:
+        need("application/ld+json" not in page, "jsonld only on /social/")
     need('src="https://www.googletagmanager.com/gtag/js?id=AW-17849235035"' in page, "gtag.js")
     need("gtag('event','generate_lead'" in page, "generate_lead")
     need(page.count('width="124" height="70"') == 7, "thumb dimensions")
