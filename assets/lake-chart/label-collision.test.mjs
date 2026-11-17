@@ -103,6 +103,47 @@ const measure = () => {
     const onLake = id === "water" ? !!(shape && shape.isPointInFill(pt)) : beside(shape, pt);
     return { name: n.textContent, onLake };
   });
+  const waters = ["#water", "#minnewashta", "#libbs"].map((id) => svg.querySelector(id)).filter(Boolean);
+  const probe = svg.createSVGPoint();
+  function inWater(x, y) {
+    probe.x = x;
+    probe.y = y;
+    return waters.some((shape) => shape.isPointInFill(probe));
+  }
+  const wetTowns = [];
+  svg.querySelectorAll("text.town").forEach((n) => {
+    const b = n.getBBox();
+    let wet = false;
+    for (let x = b.x; x <= b.x + b.width && !wet; x += 4) {
+      for (let y = b.y; y <= b.y + b.height && !wet; y += 4) wet = inWater(x, y);
+    }
+    if (!wet) wet = inWater(b.x + b.width, b.y) || inWater(b.x, b.y + b.height) || inWater(b.x + b.width, b.y + b.height);
+    if (wet) wetTowns.push(n.textContent);
+  });
+  const win = svg.querySelector("#mapwindow rect");
+  let wr = null;
+  if (win && svg.getScreenCTM()) {
+    const ctm = svg.getScreenCTM();
+    const pt = svg.createSVGPoint();
+    const corner = (x, y) => {
+      pt.x = x;
+      pt.y = y;
+      return pt.matrixTransform(ctm);
+    };
+    const a = corner(+win.getAttribute("x"), +win.getAttribute("y"));
+    const b = corner(+win.getAttribute("x") + +win.getAttribute("width"), +win.getAttribute("y") + +win.getAttribute("height"));
+    wr = { left: Math.min(a.x, b.x), top: Math.min(a.y, b.y), right: Math.max(a.x, b.x), bottom: Math.max(a.y, b.y) };
+  }
+  const tagEl = svg.querySelector(".here-tag");
+  const textEl = svg.querySelector("text.here");
+  function insideWin(el) {
+    if (!el || !wr) return true;
+    const r = el.getBoundingClientRect();
+    return r.left >= wr.left - 2 && r.right <= wr.right + 2 && r.top >= wr.top - 2 && r.bottom <= wr.bottom + 2;
+  }
+  const tagInside = insideWin(tagEl) && insideWin(textEl);
+  const hintEl = document.querySelector(".lake-zoom-hint");
+  const hintBox = hintEl ? hintEl.getBoundingClientRect() : { height: 0, width: 0 };
   const buttons = [...document.querySelectorAll(".lake-zoom button")].map((b) => {
     const r = b.getBoundingClientRect();
     return { name: b.getAttribute("aria-label"), w: Math.round(r.width), h: Math.round(r.height) };
@@ -164,7 +205,7 @@ const measure = () => {
       }
     }
   }
-  return { ready: true, labels, pin, bays, decos, buttons, hint, lineHits, detail: svg.classList.contains("is-detail"), chartW: chart.width };
+  return { ready: true, labels, pin, bays, decos, buttons, hint, hintH: hintBox.height, wetTowns, tagInside, lineHits, detail: svg.classList.contains("is-detail"), chartW: chart.width };
 };
 
 let failed = 0;
@@ -237,6 +278,9 @@ for (const pagePath of list) {
     for (const deco of data.decos || []) {
       if (!deco.onLake) fail(pagePath + " @" + width + " " + deco.name + " is not on the water");
     }
+    for (const name of data.wetTowns || []) fail(pagePath + " @" + width + " " + name + " intersects the lake");
+    if (!data.tagInside) fail(pagePath + " @" + width + " You are here is outside the frame");
+    if ((width === 360 || width === 390) && data.hintH > 26) fail(pagePath + " @" + width + " zoom hint wraps (" + data.hintH.toFixed(1) + "px)");
     for (const b of data.buttons || []) {
       if (b.w < 44 || b.h < 44) fail(pagePath + " @" + width + " zoom button under 44px " + b.name);
     }
@@ -266,6 +310,8 @@ for (const pagePath of list) {
       for (const deco of zoomed.decos || []) {
         if (!deco.onLake) fail(pagePath + " @" + width + " zoomed " + deco.name + " is not on the water");
       }
+      for (const name of zoomed.wetTowns || []) fail(pagePath + " @" + width + " zoomed " + name + " intersects the lake");
+      if (!zoomed.tagInside) fail(pagePath + " @" + width + " zoomed You are here is outside the frame");
       const hintGone = await page.evaluate(() => document.querySelector(".lake-zoom-hint").classList.contains("is-gone"));
       if (!hintGone) fail(pagePath + " @" + width + " zoom hint did not fade");
       await page.evaluate(() => document.querySelector(".lake-zoom button[data-z=reset]").click());

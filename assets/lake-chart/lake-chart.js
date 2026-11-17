@@ -58,27 +58,49 @@
     if (!labels.length) return;
     var ns = "http://www.w3.org/2000/svg";
     var chart = svg.querySelector("#chart");
-    function place() {
-      chart.querySelectorAll(".here, .here-tag, .here-line, .here-pin").forEach(function (n) { n.remove(); });
-      var note = document.createElementNS(ns, "text");
-      note.setAttribute("class", "here");
-      note.setAttribute("font-family", "Zilla Slab, Georgia, serif");
-      note.setAttribute("font-weight", "700");
-      note.setAttribute("fill", "#8C3A2A");
-      note.setAttribute("pointer-events", "none");
-      note.setAttribute("text-anchor", "middle");
-      var topLine = document.createElementNS(ns, "tspan");
-      topLine.textContent = "You are";
-      var botLine = document.createElementNS(ns, "tspan");
-      botLine.textContent = "here";
-      note.appendChild(topLine);
-      note.appendChild(botLine);
-      chart.appendChild(note);
-      var target = unionBoxes(labels);
+    var note = document.createElementNS(ns, "text");
+    note.setAttribute("class", "here");
+    note.setAttribute("font-family", "Zilla Slab, Georgia, serif");
+    note.setAttribute("font-weight", "700");
+    note.setAttribute("fill", "#8C3A2A");
+    note.setAttribute("pointer-events", "none");
+    note.setAttribute("text-anchor", "middle");
+    var topLine = document.createElementNS(ns, "tspan");
+    topLine.textContent = "You are";
+    var botLine = document.createElementNS(ns, "tspan");
+    botLine.textContent = "here";
+    note.appendChild(topLine);
+    note.appendChild(botLine);
+    chart.appendChild(note);
+    var bg = document.createElementNS(ns, "rect");
+    bg.setAttribute("class", "here-tag");
+    bg.setAttribute("rx", "4");
+    bg.setAttribute("fill", "#F7F1E4");
+    bg.setAttribute("stroke", "#8C3A2A");
+    bg.setAttribute("stroke-width", "1.4");
+    bg.setAttribute("pointer-events", "none");
+    var line = document.createElementNS(ns, "line");
+    line.setAttribute("class", "here-line");
+    line.setAttribute("stroke", "#8C3A2A");
+    line.setAttribute("stroke-width", "2.4");
+    line.setAttribute("pointer-events", "none");
+    var pin = document.createElementNS(ns, "polygon");
+    pin.setAttribute("class", "here-pin");
+    pin.setAttribute("fill", "#8C3A2A");
+    pin.setAttribute("pointer-events", "none");
+    chart.insertBefore(pin, note);
+    chart.insertBefore(line, pin);
+    chart.insertBefore(bg, line);
+    var target = unionBoxes(labels);
+    var water = svg.querySelector("#water");
+    var otherLake = svg.querySelector("#minnewashta");
+    function place(limit) {
+      var savedX = topLine.getAttribute("x");
+      var savedY = topLine.getAttribute("y");
+      var savedSize = note.getAttribute("font-size");
+      var savedDy = botLine.getAttribute("dy");
       var blocked = obstacles(chart, mark);
-      var water = svg.querySelector("#water");
-      var otherLake = svg.querySelector("#minnewashta");
-      var sizes = [26, 22, 20];
+      var sizes = limit ? [22, 18, 15, 13] : [26, 22, 20];
       var chosen = null;
       var rise = 0;
       for (var i = 0; i < sizes.length && !chosen; i++) {
@@ -89,47 +111,44 @@
         botLine.setAttribute("x", "400");
         botLine.setAttribute("dy", String(Math.round(size * 1.08)));
         var sample = note.getBBox();
+        if (limit && (sample.width + 16 > limit.w || sample.height + 12 > limit.h)) continue;
         rise = 400 - sample.y;
-        chosen = besideHere(target, blocked, water, otherLake, sample.width + 16, sample.height + 12);
+        chosen = besideHere(target, blocked, water, otherLake, sample.width + 16, sample.height + 12, limit);
+        if (!chosen && limit) chosen = forceInside(target, blocked, sample.width + 16, sample.height + 12, limit);
       }
-      if (!chosen) return;
+      if (!chosen) {
+        if (savedX) {
+          note.setAttribute("font-size", savedSize || "26");
+          topLine.setAttribute("x", savedX);
+          topLine.setAttribute("y", savedY);
+          botLine.setAttribute("x", savedX);
+          botLine.setAttribute("dy", savedDy || "28");
+        }
+        return;
+      }
       var ax = chosen.x + chosen.w / 2;
       var ay = chosen.y + rise + 6;
       topLine.setAttribute("x", String(Math.round(ax)));
       topLine.setAttribute("y", String(Math.round(ay)));
       botLine.setAttribute("x", String(Math.round(ax)));
-      var bg = document.createElementNS(ns, "rect");
-      bg.setAttribute("class", "here-tag");
       bg.setAttribute("x", String(Math.round(chosen.x)));
       bg.setAttribute("y", String(Math.round(chosen.y)));
       bg.setAttribute("width", String(Math.round(chosen.w)));
       bg.setAttribute("height", String(Math.round(chosen.h)));
-      bg.setAttribute("rx", "4");
-      bg.setAttribute("fill", "#F7F1E4");
-      bg.setAttribute("stroke", "#8C3A2A");
-      bg.setAttribute("stroke-width", "1.4");
-      bg.setAttribute("pointer-events", "none");
-      var line = document.createElementNS(ns, "line");
-      line.setAttribute("class", "here-line");
-      line.setAttribute("x1", String(Math.round(chosen.x1)));
-      line.setAttribute("y1", String(Math.round(chosen.y1)));
+      var tip = clipTip(limit, { x: chosen.x2, y: chosen.y2 }, { x: chosen.x1, y: chosen.y1 });
+      if (segHits(tip, { x: chosen.x2, y: chosen.y2 }, blocked.lines)) tip = { x: chosen.x2, y: chosen.y2 };
+      line.setAttribute("x1", String(Math.round(tip.x)));
+      line.setAttribute("y1", String(Math.round(tip.y)));
       line.setAttribute("x2", String(Math.round(chosen.x2)));
       line.setAttribute("y2", String(Math.round(chosen.y2)));
-      line.setAttribute("stroke", "#8C3A2A");
-      line.setAttribute("stroke-width", "2.4");
-      line.setAttribute("pointer-events", "none");
-      line.setAttribute("points", Math.round(chosen.x1) + "," + Math.round(chosen.y1) + " " + Math.round(chosen.x2) + "," + Math.round(chosen.y2));
-      var pin = document.createElementNS(ns, "polygon");
-      pin.setAttribute("class", "here-pin");
+      line.setAttribute("points", Math.round(tip.x) + "," + Math.round(tip.y) + " " + Math.round(chosen.x2) + "," + Math.round(chosen.y2));
       pin.setAttribute("points", hereArrow(chosen.x1, chosen.y1, chosen.x2, chosen.y2));
-      pin.setAttribute("fill", "#8C3A2A");
-      pin.setAttribute("pointer-events", "none");
-      chart.insertBefore(pin, note);
-      chart.insertBefore(line, pin);
-      chart.insertBefore(bg, line);
     }
-    place();
-    if (document.fonts && document.fonts.ready) document.fonts.ready.then(place);
+    svg._seatHere = place;
+    place(null);
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(function () { place(svg._hereLimit || null); });
+    }
   }
 
   function inLake(water, other, x, y) {
@@ -144,7 +163,7 @@
   }
 
   /* The tag sits on the nearest open parchment beside the place, with a short straight pointer. */
-  function besideHere(target, blocked, water, other, tw, th) {
+  function besideHere(target, blocked, water, other, tw, th, limit) {
     var cx = target.x + target.w / 2;
     var cy = target.y + target.h / 2;
     var angles = 24;
@@ -152,12 +171,13 @@
     var best = null;
     var bestScore = 1e12;
     function consider(box) {
-      if (box.x < 20 || box.y < 74 || box.x + box.w > 780 || box.y + box.h > 644) return;
+      if (!boxFits(box, limit)) return;
       if (hitsBox(box, blocked.tags) || hitsBox(box, [target])) return;
       var a = edgePoint(target, box.x + box.w / 2, box.y + box.h / 2);
       var b = edgePoint(box, cx, cy);
       var plen = Math.hypot(a.x - b.x, a.y - b.y);
-      if (plen > 130) return;
+      var cap = limit ? Math.max(180, Math.hypot(limit.w, limit.h)) : 130;
+      if (plen > cap) return;
       if (segHits(a, b, blocked.lines)) return;
       var wet = tagOnWater(box, water, other) ? 1 : 0;
       var score = wet * 8000 + plen;
@@ -176,10 +196,42 @@
       }
     }
     if (best) return best;
-    for (var top = 76; top <= 640 - th; top += 18) {
-      for (var left = 22; left <= 776 - tw; left += 18) consider({ x: left, y: top, w: tw, h: th });
+    var x0 = limit ? limit.x : 22;
+    var y0 = limit ? limit.y : 98;
+    var x1 = limit ? limit.x + limit.w - tw : 776 - tw;
+    var y1 = limit ? limit.y + limit.h - th : 640 - th;
+    var step = limit ? 12 : 18;
+    for (var top = y0; top <= y1; top += step) {
+      for (var left = x0; left <= x1; left += step) consider({ x: left, y: top, w: tw, h: th });
     }
     return best;
+  }
+
+  function clipTip(limit, inside, tip) {
+    if (!limit) return tip;
+    if (tip.x >= limit.x && tip.x <= limit.x + limit.w && tip.y >= limit.y && tip.y <= limit.y + limit.h) return tip;
+    var dx = tip.x - inside.x;
+    var dy = tip.y - inside.y;
+    var hits = [];
+    function add(t) { if (t > 0 && t <= 1) hits.push(t); }
+    if (dx) { add((limit.x - inside.x) / dx); add((limit.x + limit.w - inside.x) / dx); }
+    if (dy) { add((limit.y - inside.y) / dy); add((limit.y + limit.h - inside.y) / dy); }
+    var best = 0;
+    for (var i = 0; i < hits.length; i++) {
+      var t = hits[i];
+      var px = inside.x + dx * t;
+      var py = inside.y + dy * t;
+      if (px < limit.x - 1 || px > limit.x + limit.w + 1 || py < limit.y - 1 || py > limit.y + limit.h + 1) continue;
+      if (t > best) best = t;
+    }
+    return { x: inside.x + dx * best, y: inside.y + dy * best };
+  }
+
+  function boxFits(box, limit) {
+    if (limit) {
+      return box.x >= limit.x - 0.5 && box.y >= limit.y - 0.5 && box.x + box.w <= limit.x + limit.w + 0.5 && box.y + box.h <= limit.y + limit.h + 0.5;
+    }
+    return box.x >= 20 && box.y >= 98 && box.x + box.w <= 780 && box.y + box.h <= 644;
   }
 
   function support(box, ux, uy) {
@@ -329,6 +381,29 @@
     var sy = dy ? (box.h / 2) / Math.abs(dy) : 1e9;
     var s = Math.min(sx, sy);
     return { x: cx + dx * s, y: cy + dy * s };
+  }
+
+  /* Last resort while zoomed: the closest open cell that stays inside the view. */
+  function forceInside(target, blocked, tw, th, limit) {
+    if (!limit || tw > limit.w || th > limit.h) return null;
+    var best = null;
+    var bestScore = 1e12;
+    var cx = target.x + target.w / 2;
+    var cy = target.y + target.h / 2;
+    for (var y = limit.y; y <= limit.y + limit.h - th; y += 10) {
+      for (var x = limit.x; x <= limit.x + limit.w - tw; x += 10) {
+        var box = { x: x, y: y, w: tw, h: th };
+        if (hitsBox(box, blocked.tags) || hitsBox(box, [target])) continue;
+        var a = edgePoint(target, x + tw / 2, y + th / 2);
+        var b = edgePoint(box, cx, cy);
+        var score = Math.hypot(a.x - b.x, a.y - b.y);
+        if (score < bestScore) {
+          bestScore = score;
+          best = { x: x, y: y, w: tw, h: th, x1: a.x, y1: a.y, x2: b.x, y2: b.y };
+        }
+      }
+    }
+    return best;
   }
 
   function hitsBox(box, list) {
@@ -503,11 +578,11 @@
     };
     var bar = document.createElement("div");
     bar.className = "lake-zoom";
-    bar.innerHTML = '<button type="button" data-z="in" aria-label="Zoom in">+</button><button type="button" data-z="out" aria-label="Zoom out">−</button><button type="button" data-z="reset" aria-label="Show the whole lake">↺</button>';
+    bar.innerHTML = '<button type="button" data-z="in" aria-label="Zoom in"><span>+</span></button><button type="button" data-z="out" aria-label="Zoom out"><span>−</span></button><button type="button" data-z="reset" aria-label="Show the whole lake"><span>↺</span></button>';
     var hint = document.createElement("p");
     hint.className = "lake-zoom-hint";
     var coarse = window.matchMedia && window.matchMedia("(pointer: coarse)").matches;
-    hint.textContent = coarse ? "Pinch or tap + to zoom in for more bays" : "Scroll or click + to zoom in for more bays";
+    hint.textContent = coarse ? "Pinch or tap + for more bays" : "Scroll or click + for more bays";
     view.appendChild(bar);
     view.appendChild(hint);
     function userPoint(el, clientX, clientY) {
@@ -543,6 +618,16 @@
       svg.classList.toggle("is-detail", scale >= 1.55);
       fig.classList.toggle("is-zoomed", scale > 1.05);
       if (scale > 1.05) hint.classList.add("is-gone");
+      var limit = null;
+      if (scale > 1.02) {
+        var x0 = (W.x + 4 - tx) / scale;
+        var y0 = (W.y + 4 - ty) / scale;
+        var x1 = (W.x + W.w - 4 - tx) / scale;
+        var y1 = (W.y + W.h - 4 - ty) / scale;
+        limit = { x: x0, y: y0, w: Math.max(20, x1 - x0), h: Math.max(20, y1 - y0) };
+      }
+      svg._hereLimit = limit;
+      if (svg._seatHere) svg._seatHere(limit);
     }
     /* One matrix: scale about 0,0 then translate. The chart point under the pointer stays put. */
     function zoomAt(next, clientX, clientY) {
@@ -579,6 +664,7 @@
       if (!b) return;
       e.stopPropagation();
       var z = b.getAttribute("data-z");
+      hint.classList.add("is-gone");
       if (z === "in") zoomBy(1.45);
       else if (z === "out") zoomBy(1 / 1.45);
       else { scale = 1; tx = 0; ty = 0; apply(); }
@@ -589,6 +675,7 @@
     });
     view.addEventListener("wheel", function (e) {
       e.preventDefault();
+      hint.classList.add("is-gone");
       zoomBy(e.deltaY > 0 ? 0.88 : 1.14, e.clientX, e.clientY);
     }, { passive: false });
     function dist(a, b) {
@@ -598,6 +685,7 @@
     /* Safari pinch. preventDefault stops the browser zooming the page toward the corner. */
     view.addEventListener("gesturestart", function (e) {
       e.preventDefault();
+      hint.classList.add("is-gone");
       gestureOn = true;
       pinch = null;
       pan = null;
