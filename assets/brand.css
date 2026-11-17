@@ -78,8 +78,10 @@
   font-size: 16px;
 }
 
+/* The house button is defined once, below. This early rule only keeps a
+   real family on the class if a later page rule shortens the cascade. */
 .gs-btn {
-  font-family: var(--font-ui);
+  font-family: var(--font-head);
 }
 
 /* Seller-value blocks keep their own size and fill. They only borrow a real family
@@ -143,13 +145,13 @@ form.lead .gs-field {
   width: 100%;
   box-sizing: border-box;
   margin: 0 0 var(--space-3);
-  padding: 14px var(--space-4);
+  padding: 12px 14px;
   font-family: inherit;
   font-size: 16px;
   font-weight: 400;
   line-height: 1.45;
   color: inherit;
-  background: var(--parchment);
+  background: transparent;
   border: 1px solid var(--line);
   border-radius: var(--radius);
   -webkit-appearance: none;
@@ -166,6 +168,9 @@ form.lead textarea::placeholder,
 form.lead input::-webkit-input-placeholder,
 form.lead textarea::-webkit-input-placeholder {
   color: var(--placeholder);
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: 0;
   opacity: 1;
 }
 
@@ -177,8 +182,11 @@ form.lead select:focus {
   box-shadow: 0 0 0 3px color-mix(in srgb, var(--brass) 22%, transparent);
 }
 
-form.lead button,
-form.lead .gs-btn {
+/* House button. One style for every form action.
+   The same face as the heading, at a reading size. Brass shows up as the
+   hairline under the words, the way "Get them" is brass type and not a box. */
+.gs-btn,
+form.lead button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -186,50 +194,76 @@ form.lead .gs-btn {
   max-width: 100%;
   min-height: 0;
   margin: 2px 0 0;
-  padding: 10px 18px;
-  font-family: var(--font-ui);
-  font-size: 14px;
-  font-weight: 500;
+  padding: 12px 1px 3px;
+  font-family: var(--font-head);
+  font-size: 18px;
+  font-weight: 400;
   font-style: normal;
-  letter-spacing: 0.08em;
+  letter-spacing: 0;
   line-height: 1.2;
   text-transform: none;
   white-space: nowrap;
-  color: var(--ink-head);
+  color: var(--brass);
   background: transparent;
-  border: 1px solid var(--brass);
-  border-radius: var(--radius);
+  border: 0;
+  border-bottom: 1px solid var(--brass);
+  border-radius: 0;
+  box-shadow: none;
   cursor: pointer;
   -webkit-appearance: none;
   appearance: none;
+  transition: color 0.15s ease, border-color 0.15s ease;
 }
 
-form.lead button:hover,
-form.lead .gs-btn:hover {
-  background: color-mix(in srgb, var(--brass) 8%, transparent);
+.gs-btn:hover,
+form.lead button:hover {
+  color: var(--ink-head);
+  border-bottom-color: var(--ink-head);
+  background: transparent;
 }
 
-form.lead button:focus-visible,
-form.lead .gs-btn:focus-visible {
+.gs-btn:focus-visible,
+form.lead button:focus-visible {
   outline: 2px solid var(--brass);
-  outline-offset: 3px;
+  outline-offset: 4px;
 }
 
-form.lead button:disabled,
-form.lead .gs-btn:disabled {
-  opacity: 0.55;
+.gs-btn:disabled,
+form.lead button:disabled {
+  opacity: 0.45;
   cursor: default;
+}
+
+form.lead .note {
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.55;
+  letter-spacing: 0;
+  color: var(--ink-soft);
+  margin: 0 0 var(--space-4);
+}
+
+form.lead .gs-btn + .note,
+form.lead button + .note {
+  margin: 14px 0 0;
+  font-size: 15px;
+  color: var(--muted);
 }
 
 form.lead .note a {
   color: var(--muted);
+  font-family: var(--font-body);
   font-weight: 400;
-  letter-spacing: 0.01em;
+  font-size: inherit;
+  letter-spacing: 0;
   text-decoration: underline;
   text-decoration-thickness: 1px;
   text-underline-offset: 3px;
+  text-decoration-color: var(--line);
 }
 
 form.lead .note a:hover {
-  color: var(--ink-head);
+  color: var(--brass);
+  text-decoration-color: var(--brass);
 }

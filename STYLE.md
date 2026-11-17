@@ -17,7 +17,7 @@ Three families. Always name a generic at the end of a stack so a missing web fon
 
 Bay pages load Playfair Display and Inter. Pages that load `type.css` load Cormorant Garamond, Inter, and Montserrat, and that sheet puts Cormorant back in `--font-head`.
 
-Inputs, textareas, and selects set `font-family: inherit` so they use the page’s body stack. iOS otherwise paints them in Times. Buttons set `font-family: var(--font-ui)`. Both set `-webkit-appearance: none`.
+Inputs, textareas, and selects set `font-family: inherit` so they use the page’s body stack. iOS otherwise paints them in Times. The house button sets `font-family: var(--font-head)`, the same face as the heading. Both set `-webkit-appearance: none`.
 
 ## Color
 
@@ -66,12 +66,25 @@ Story forms and bay sale alerts are `form.lead.gs-card`. The style is in `assets
 
 - The container has no sand fill. A hairline top rule (`--line`) and padding from the spacing tokens. It sits on the parchment like the rest of the article.
 - Fields are full width, 16px type (so iOS does not zoom), 14px 16px padding, a 1px `--line` border, `--radius`, `font-family: inherit`, `-webkit-appearance: none`. Placeholder is `--placeholder`. Focus is a brass border and a soft brass ring.
-- The button is `gs-btn`: auto width, one line, padding 10px 18px, weight 500, letter-spacing 0.08em, sentence case, transparent fill, brass hairline, ink text, the UI font. Not a heavy brown block.
-- “Or text me” is a quiet underlined link in `--muted`, weight 400.
+- The button is the house button, `gs-btn`. See [Buttons](#buttons).
+- “Or text me” is not a second button. It is a quiet link in the body font, `--muted`, weight 400, with a softer underline than the button.
 - The heading inside the form matches the page `h2`.
+- Fields stay in the body font, with a hairline `--line` border, no fill, and an italic `--placeholder`.
 - Seller-value blocks (`.sv-offer`) keep their own layout. They still take `font-family` from this sheet so the fields are not Times. Bio pages are generated from `_bio/template.html`.
 
-Class `gs-field` on an input only sets the inherited family and a 16px size. Class `gs-btn` outside `form.lead` only sets the UI font. The editorial field and button chrome belongs to `form.lead`.
+Class `gs-field` on an input only sets the inherited family and a 16px size.
+
+## Buttons
+
+There is one house button, `gs-btn`, and it lives only in `assets/brand.css`. Bay forms, sale alerts, and any other form action use that class. Do not draw a new button in a page `<style>`.
+
+It is set in the heading face (`--font-head`: Playfair Display on a bay page, Cormorant Garamond where the type sheet has replaced the token). Size is 18px, weight 400, sentence case, letter-spacing 0. The words are `--brass`. A 1px brass hairline sits under the words. There is no fill and no boxed outline. It stays on one line at 390px. Hover turns the words and the hairline to `--ink-head`. Focus is a brass outline, offset from the words.
+
+“Or text me” sits under it in the body font, smaller, in `--muted`.
+
+A `<button>` that is not `gs-btn` fails the brand check, unless it is a control that is not this action: a chip, a close, a video play, a sort, a gallery or floor-plan toggle, the seller-value button, or an older page submit that already has its own class (`submit-btn`, `nb-btn`, `cta-primary`, `form-submit`). A new button uses `gs-btn`.
+
+The lake chart’s + / − / reset use this same face and the brass color. They are not filled squares. The tap target stays at least 44px. Do not move them, and do not restyle the chart drawing to match a form.
 
 ## Cards
 
@@ -95,7 +108,7 @@ One old engraved chart of Lake Minnetonka, in `assets/lake-chart/`. Parchment pl
 
 - A browser-default font, or Times, on an input, textarea, select, or button. Set the family on the control.
 - A heavy filled beige box around a form.
-- A bold, full-width, blocky button.
+- A bold, full-width, blocky button, or a boxed outline standing in for one. The house button is type.
 - A one-off hex in page CSS. Add a token, or use one that exists.
 - An inline `style` on a form control or button.
 - A new page that does not link `/assets/brand.css` or `/assets/house.css`.
