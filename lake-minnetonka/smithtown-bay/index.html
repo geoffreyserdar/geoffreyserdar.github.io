@@ -53,11 +53,11 @@ h1.hero-title{margin-top:0;line-height:inherit}
 .sv-offer .sv-small{font-size:12px;opacity:.75;margin:10px 0 0}
 .sv-offer .sv-err{color:#b3261e;font-size:13px;display:none}
 .sv-bar{display:none}
-@media (max-width:760px){.sv-bar{display:flex;align-items:center;position:fixed;left:0;right:0;bottom:0;z-index:9999;gap:8px;box-sizing:border-box;padding:6px 12px calc(6px + env(safe-area-inset-bottom));background:#FAF7EF;border-top:1px solid #C9A877}
-.sv-bar a{flex:1 1 0;min-width:0;width:0;height:40px;min-height:40px;display:flex;align-items:center;justify-content:center;text-align:center;white-space:nowrap;padding:0 12px;box-sizing:border-box;border-radius:6px;font:600 15px/1 'Inter',sans-serif;text-decoration:none;color:#6E5228;border:1px solid #6E5228}
-.sv-bar a.sv-main{background:#6E5228;color:#FAF7EF;border-color:#6E5228}
+@media (max-width:760px){.sv-bar{display:flex;align-items:center;position:fixed;left:0;right:0;bottom:0;z-index:9999;gap:8px;box-sizing:border-box;padding:8px 10px calc(8px + env(safe-area-inset-bottom));background:rgba(20,20,20,.94)}
+.sv-bar a{flex:1 1 0;min-width:0;height:46px;min-height:46px;display:flex;align-items:center;justify-content:center;text-align:center;white-space:nowrap;padding:0 12px;box-sizing:border-box;border-radius:8px;font:600 15px/1 'Inter',sans-serif;text-decoration:none;color:#fff;border:1px solid rgba(255,255,255,.4)}
+.sv-bar a.sv-main{background:#6E5228;color:#fff;border-color:transparent}
 .sv-bar.bay-hold{visibility:hidden;pointer-events:none}
-body{padding-bottom:calc(52px + env(safe-area-inset-bottom))}}
+body{padding-bottom:calc(72px + env(safe-area-inset-bottom))}}
 </style>
 
 <style id="gs-topbar-css">
@@ -71,7 +71,7 @@ body{padding-bottom:calc(52px + env(safe-area-inset-bottom))}}
 .gs-top .gs-line{flex:1 1 auto;min-width:0;text-align:right;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .gs-top .gs-line b{color:#C9A877;font-weight:700}
 body{padding-top:calc(52px + env(safe-area-inset-top))}
-#signup,#sv-offer{scroll-margin-top:calc(66px + env(safe-area-inset-top))}
+#signup,#sv-offer,#bay-alert{scroll-margin-top:calc(80px + env(safe-area-inset-top));scroll-margin-bottom:calc(88px + env(safe-area-inset-bottom))}
 }
 </style>
   <script src="/assets/phone-later.js"></script>
@@ -159,10 +159,10 @@ body{padding-top:calc(52px + env(safe-area-inset-top))}
 <h2>Good to know</h2><ul class="tid"><li><b>Sun</b>Carver Park Reserve lies west-southwest, so the winter sunset drops over woods, not rooftops. East-shore homes facing west get sunsets across open water all year.</li><li><b>Water</b>About 88 feet at its deepest. Moderate boat traffic.</li><li><b>History</b>Named for the Smith brothers, Elliot and William, who planned a town called Smithtown in the 1850s. They built a mill and two log houses and widened the trail from Excelsior, today's Smithtown Road. Excelsior won out and the town never came.</li><li><b>Islands</b>Eagle Island was named for the eagles that nested there. Crane Island held a great blue heron colony whose birds rose by the thousands when steamboats whistled. Wawatasso Island lies to the north.</li><li><b>Parks</b>Carver Park Reserve and Lake Zumbra are just west, near Victoria.</li><li><b>Ice</b>Lake-wide ice-out median is April 13. In 2026 the ice went out April 3.</li></ul>
 <h2>What homes here ask and sell for</h2><table class="prices"><tr><td><span class="tag SOLD">SOLD</span></td><td><b>$7.625M</b></td><td>6445 Hawks Pointe Ln</td><td>Dec 13, 2024</td></tr></table>
 <p class="note">ASK means a list price, not a sale. Sales are public records or reported sales, shown with their date. Nothing here predicts future prices. See <a href="/lake-minnetonka-most-expensive-homes/">the most expensive homes on the lake</a> and <a href="/lake-minnetonka-weekly/">this week's closed sales</a>.</p>
-<form class="lead gs-card" action="https://formspree.io/f/mpqerwwk" method="POST">
+<form class="lead gs-card" id="bay-alert" action="https://formspree.io/f/mpqerwwk" method="POST">
 <h3>Want the Smithtown Bay sales as they happen?</h3><p class="note">One short email when a home on this bay sells. No spam, unsubscribe anytime.</p>
 <input type="hidden" name="source" value="bay-smithtown-bay"><input name="name" placeholder="First name" autocomplete="given-name" class="gs-field"><input name="email" type="email" placeholder="Email" required autocomplete="email" class="gs-field">
-<button type="submit" class="gs-btn">Send me the sales</button></form>
+<button type="submit" class="submit-btn">Send me the sales</button></form>
 <h2>Getting on the water</h2><p>Boaters reach the bay from the South Upper Lake and Halsted Bay launches. More: <a href="/topics/lake-minnetonka-lake-access-and-boat-slips/">Lake access and boat slips</a> and the <a href="/guides/lost-lake-boat-slips/">Lost Lake slip guide</a>.</p>
 <h2>Where to eat and stop</h2><ul><li><b>Downtown Victoria</b>, see the <a href="/guides/downtown-victoria-mn/">downtown Victoria guide</a></li></ul>
 <h2>Towns on the bay</h2><p class="towns"><a href="/victoria/">Victoria</a><a href="/shorewood/">Shorewood</a></p>
@@ -204,7 +204,7 @@ fetch('https://formspree.io/f/mpqerwwk',{method:'POST',headers:{'Content-Type':'
 if(ok){document.getElementById('svFields').style.display='none';document.getElementById('svThanks').style.display='block';try{if(typeof gtag==='function')gtag('event','generate_lead',{lead_type:LT,page_path:location.pathname})}catch(e){}}
 else{b.disabled=false;err.textContent='That didn\u2019t go through. Please try again, or text Geoffrey at 952 258 3100.';err.style.display='block'}});});})();
 </script>
-<nav class="sv-bar" aria-label="Quick contact"><a class="sv-main" href="#sv-offer">What’s my home worth?</a><a href="sms:+19522583100">Text Geoffrey</a></nav>
+<nav class="sv-bar" aria-label="Quick contact"><a class="sv-main" href="#bay-alert">Sale alerts</a><a href="sms:+19522583100">Text Geoffrey</a></nav>
 <!-- SV:END -->
 
 <footer class="site-foot">
@@ -241,6 +241,6 @@ else{b.disabled=false;err.textContent='That didn\u2019t go through. Please try a
 </footer>
 <!-- /HOUSE:FOOTER -->
 <script src="/assets/door-clicks.js" defer></script>
-<script src="/assets/gs-bars.js?v=20261026" defer data-mode="seller"></script>
+<script src="/assets/gs-bars.js?v=20261026" defer data-mode="bay" data-bay-label="Smithtown Bay"></script>
 <script src="/assets/lake-chart/lake-chart.js" defer></script>
 </body></html>

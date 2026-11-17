@@ -17,7 +17,7 @@ Three families. Always name a generic at the end of a stack so a missing web fon
 
 Bay pages load Playfair Display and Inter. Pages that load `type.css` load Cormorant Garamond, Inter, and Montserrat, and that sheet puts Cormorant back in `--font-head`.
 
-Inputs, textareas, and selects set `font-family: inherit` so they use the page’s body stack. iOS otherwise paints them in Times. The house button sets `font-family: var(--font-head)`, the same face as the heading. Both set `-webkit-appearance: none`.
+Inputs, textareas, and selects set `font-family: var(--font-body)` so iOS cannot paint them in Times. The house button sets `font-family: var(--font-ui)`. Both set `-webkit-appearance: none`.
 
 ## Color
 
@@ -65,26 +65,23 @@ Use the tokens: `--space-2` 8px, `--space-3` 12px, `--space-4` 16px, `--space-5`
 Story forms and bay sale alerts are `form.lead.gs-card`. The style is in `assets/brand.css` only. Copy the markup, not a `<style>` block.
 
 - The container has no sand fill. A hairline top rule (`--line`) and padding from the spacing tokens. It sits on the parchment like the rest of the article.
-- Fields are full width, 16px type (so iOS does not zoom), 14px 16px padding, a 1px `--line` border, `--radius`, `font-family: inherit`, `-webkit-appearance: none`. Placeholder is `--placeholder`. Focus is a brass border and a soft brass ring.
-- The button is the house button, `gs-btn`. See [Buttons](#buttons).
-- “Or text me” is not a second button. It is a quiet link in the body font, `--muted`, weight 400, with a softer underline than the button.
+- Fields match the lead form on `/lake-minnetonka-homes/`: full width, 17px `--font-body`, 14px 16px padding, sand fill (`--sand`), a 1px cool hairline, `--radius`, `-webkit-appearance: none`. Focus turns the border `--brass`.
+- The button is the house button, class `submit-btn`. See [Buttons](#buttons).
+- “Or text me” is a quiet link under the button, not a second button.
 - The heading inside the form matches the page `h2`.
-- Fields stay in the body font, with a hairline `--line` border, no fill, and an italic `--placeholder`.
 - Seller-value blocks (`.sv-offer`) keep their own layout. They still take `font-family` from this sheet so the fields are not Times. Bio pages are generated from `_bio/template.html`.
 
-Class `gs-field` on an input only sets the inherited family and a 16px size.
+Class `gs-field` on an input only sets the inherited family and a 16px size. Inside `form.lead` the field rule above wins.
 
 ## Buttons
 
-There is one house button, `gs-btn`, and it lives only in `assets/brand.css`. Bay forms, sale alerts, and any other form action use that class. Do not draw a new button in a page `<style>`.
+The house button is the funnel lead button, class `submit-btn`, copied from `/lake-minnetonka-homes/` and defined in `assets/brand.css`. Bay story forms and sale alerts use that class. Do not draw a different button in a page `<style>`.
 
-It is set in the heading face (`--font-head`: Playfair Display on a bay page, Cormorant Garamond where the type sheet has replaced the token). Size is 18px, weight 400, sentence case, letter-spacing 0. The words are `--brass`. A 1px brass hairline sits under the words. There is no fill and no boxed outline. It stays on one line at 390px. Hover turns the words and the hairline to `--ink-head`. Focus is a brass outline, offset from the words.
+It is full width. Fill is `--brass`. Type is `--sand`, `--font-ui` (Montserrat, then Inter), 15px, weight 600, letter-spacing 0.14em, uppercase, padding 16px, radius `--radius`. Hover fill is `--brass-soft`. It is a real button, not a text link.
 
-“Or text me” sits under it in the body font, smaller, in `--muted`.
+A button inside `form.lead` without `submit-btn` fails the brand check.
 
-A `<button>` that is not `gs-btn` fails the brand check, unless it is a control that is not this action: a chip, a close, a video play, a sort, a gallery or floor-plan toggle, the seller-value button, or an older page submit that already has its own class (`submit-btn`, `nb-btn`, `cta-primary`, `form-submit`). A new button uses `gs-btn`.
-
-The lake chart’s + / − / reset use this same face and the brass color. They are not filled squares. The tap target stays at least 44px. Do not move them, and do not restyle the chart drawing to match a form.
+The lake chart’s + / − / reset are part of the chart, not this button. Leave them with the chart.
 
 ## Cards
 
@@ -92,7 +89,7 @@ The lake chart’s + / − / reset use this same face and the brass color. They 
 
 ## Sticky bar
 
-The mobile bar (`nav.sv-bar`, under 760px) is one line: 40px tall, nowrap, parchment ground, a brass hairline on top, two equal links. It hides while the opening line or the form is on screen. Leave that behavior alone.
+The mobile bar (`nav.sv-bar`, under 760px) matches the lead page `/lake-minnetonka-homes/`: a dark bar, two equal links, 46px tall, white type, the main link a brass fill. It hides while the opening line is on screen, and it hides again while a story form or sale alert is on screen so it does not cover the button. `#bay-alert` keeps a scroll margin so the heading and the email field clear the top bar. Leave that behavior alone.
 
 From 768px up, `assets/gs-bars.js` turns the same bar into a small pill at the bottom right and keeps it off the text column. Do not stack it, do not widen it into a second footer, and do not restyle it from a page.
 
@@ -108,7 +105,7 @@ One old engraved chart of Lake Minnetonka, in `assets/lake-chart/`. Parchment pl
 
 - A browser-default font, or Times, on an input, textarea, select, or button. Set the family on the control.
 - A heavy filled beige box around a form.
-- A bold, full-width, blocky button, or a boxed outline standing in for one. The house button is type.
+- A text link standing in for the funnel button. The house button is the full-width brass `submit-btn`.
 - A one-off hex in page CSS. Add a token, or use one that exists.
 - An inline `style` on a form control or button.
 - A new page that does not link `/assets/brand.css` or `/assets/house.css`.

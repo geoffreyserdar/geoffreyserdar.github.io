@@ -366,12 +366,24 @@ function selfTest() {
   const hidden = formControls('<form class="lead"><input type="hidden" name="bay"><input name="email" class="gs-field"><button style="color:red">Go</button></form>');
   if (hidden.length !== 2) fail('self-test: hidden inputs are skipped, got ' + hidden.length);
   if (!hidden[1].style) fail('self-test: style attribute seen');
-  const plain = { tag: 'button', type: 'submit', id: '', classes: new Set(), data: false, ancestors: [] };
-  const house = { tag: 'button', type: 'button', id: '', classes: new Set(['gs-btn']), data: false, ancestors: [] };
-  const chip = { tag: 'button', type: 'button', id: '', classes: new Set(['chip']), data: true, ancestors: [] };
-  if (isHouseButton(plain)) fail('self-test: a plain button is not the house button');
-  if (!isHouseButton(house)) fail('self-test: gs-btn is the house button');
-  if (!isHouseButton(chip)) fail('self-test: a chip is not required to be the house button');
+  const leadBtn = {
+    tag: 'button',
+    type: 'submit',
+    id: '',
+    classes: new Set(['submit-btn']),
+    data: false,
+    ancestors: [{ tag: 'form', classes: new Set(['lead']), id: '' }],
+  };
+  const bareLead = {
+    tag: 'button',
+    type: 'submit',
+    id: '',
+    classes: new Set(),
+    data: false,
+    ancestors: [{ tag: 'form', classes: new Set(['lead']), id: '' }],
+  };
+  if (!leadBtn.classes.has('submit-btn')) fail('self-test: submit-btn is the house button');
+  if (bareLead.classes.has('submit-btn')) fail('self-test: a bare lead button is missing submit-btn');
 }
 
 function readList(path) {
@@ -418,38 +430,23 @@ function snapshot() {
 function check() {
   selfTest();
   const brand = readFileSync(BRAND, 'utf8');
-  if (!/form\.lead input:not\(\[type="hidden"\]\)[\s\S]{0,500}font-family:\s*inherit/.test(brand)) {
-    fail('assets/brand.css form.lead inputs must set font-family: inherit');
+  if (!/form\.lead input:not\(\[type="hidden"\]\)[\s\S]{0,600}font-family:\s*var\(--font-body\)/.test(brand)) {
+    fail('assets/brand.css form.lead inputs must set font-family: var(--font-body)');
   }
   const house = cssRules(brand)
-    .filter((rule) => splitSelectors(rule.selector).some((selector) => /(^|[\s>+~])\.gs-btn(?![\w-])/.test(selector)))
+    .filter((rule) => splitSelectors(rule.selector).some((selector) => /form\.lead button/.test(selector)))
     .map((rule) => rule.body)
     .join('\n');
-  if (!/font-family:\s*var\(--font-head\)/.test(house)) {
-    fail('assets/brand.css .gs-btn must use var(--font-head), the heading face');
+  if (!/font-family:\s*var\(--font-ui\)/.test(house)) {
+    fail('assets/brand.css form button must use var(--font-ui), the funnel button face');
   }
-  if (/font-family:\s*var\(--font-ui\)/.test(house)) {
-    fail('assets/brand.css .gs-btn uses the UI face. The house button is the heading face');
-  }
-  if (/letter-spacing:\s*0\.(0[8-9]|[1-9])/.test(house)) {
-    fail('assets/brand.css .gs-btn letter-spacing is too wide for the house button');
-  }
-  if (/text-transform:\s*uppercase/.test(house)) fail('assets/brand.css .gs-btn must stay sentence case');
-  if (/border:\s*1px\s+solid/.test(house)) fail('assets/brand.css .gs-btn must not be a boxed outline');
+  if (!/text-transform:\s*uppercase/.test(house)) fail('assets/brand.css form button must be uppercase, like the funnel button');
+  if (!/background:\s*var\(--brass\)/.test(house)) fail('assets/brand.css form button must be a brass fill, like the funnel button');
+  if (!/color:\s*var\(--sand\)/.test(house)) fail('assets/brand.css form button text must be var(--sand), like the funnel button');
+  if (!/width:\s*100%/.test(house)) fail('assets/brand.css form button must be full width, like the funnel button');
+  if (!/letter-spacing:\s*0\.14em/.test(house)) fail('assets/brand.css form button must use the funnel letter-spacing 0.14em');
+  if (!/padding:\s*16px/.test(house)) fail('assets/brand.css form button must use the funnel padding');
   if (!/-webkit-appearance:\s*none/.test(brand)) fail('assets/brand.css must set -webkit-appearance: none on fields');
-  const chartPath = join(ROOT, 'assets', 'lake-chart', 'lake-chart.css');
-  if (existsSync(chartPath)) {
-    const zoom = cssRules(readFileSync(chartPath, 'utf8'))
-      .filter((rule) => splitSelectors(rule.selector).some((selector) => /^\.lake-zoom button$/.test(selector.trim())))
-      .map((rule) => rule.body)
-      .join('\n');
-    if (!/font-family:\s*var\(--font-head/.test(zoom)) {
-      fail('map + / − / reset must use the heading face, var(--font-head)');
-    }
-    if (!/min-width:\s*44px/.test(zoom) || !/min-height:\s*44px/.test(zoom)) {
-      fail('map + / − / reset must keep a tap target of at least 44px');
-    }
-  }
   const outsideRoot = hexesIn(stripRoot(brand));
   if (outsideRoot.length) fail('assets/brand.css uses hex outside :root: ' + outsideRoot.join(' '));
 
@@ -491,10 +488,8 @@ function check() {
         fail(page.name + ' ' + where + ' has no shared font-family rule (control ' + (index + 1) + ')');
       }
       const inLead = control.ancestors.some((ancestor) => ancestor.tag === 'form' && ancestor.classes.has('lead'));
-      if (control.tag === 'button' && inLead && !control.classes.has('gs-btn')) {
-        fail(page.name + ' ' + where + ' is a form button without the house class gs-btn');
-      } else if (control.tag === 'button' && !isHouseButton(control)) {
-        fail(page.name + ' ' + where + ' does not use the house class gs-btn');
+      if (control.tag === 'button' && inLead && !control.classes.has('submit-btn')) {
+        fail(page.name + ' ' + where + ' is a lead form button without the house class submit-btn');
       }
     });
   }

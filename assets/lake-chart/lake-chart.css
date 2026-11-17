@@ -47,32 +47,3 @@
 .lake-zoom button:focus-visible{outline:2px solid #8C3A2A;outline-offset:2px}
 .lake-zoom-hint{position:absolute;z-index:3;left:50%;bottom:72px;transform:translateX(-50%);margin:0;max-width:58%;text-align:center;pointer-events:none;font:italic 600 11px/1.3 "Zilla Slab",Georgia,serif;color:#24382F;background:rgba(247,241,228,.88);padding:3px 8px}
 .lake-zoom-hint.is-gone{opacity:0}
-/* House paint for + / − / reset only. Position, stack, and the chart drawing
-   stay where the chart left them. The hit area stays at least 44px.
-   When the glyph sits in an inner span, that span is the drawn mark. */
-.lake-zoom button{
-  min-width:44px;
-  min-height:44px;
-  background:transparent;
-  border-color:transparent;
-  box-shadow:none;
-  color:var(--brass,#6E5228);
-  font-family:var(--font-head,"Playfair Display",Georgia,"Times New Roman",serif);
-  font-weight:400;
-  font-size:22px;
-  font-style:normal;
-  letter-spacing:0;
-  line-height:1;
-  -webkit-appearance:none;
-  appearance:none;
-}
-.lake-zoom button span{
-  background:transparent;
-  border-color:transparent;
-  box-shadow:none;
-  color:inherit;
-  font-family:inherit;
-  font-weight:400;
-}
-.lake-zoom button:hover{color:var(--ink-head,#1F201C)}
-.lake-zoom button:focus-visible{outline:2px solid var(--brass,#6E5228);outline-offset:2px}
