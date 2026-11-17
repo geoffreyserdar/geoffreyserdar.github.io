@@ -157,12 +157,12 @@ body{padding-top:calc(52px + env(safe-area-inset-top))}
 <!-- /GS:TOPBAR -->
 <main class="wrap">
 <p class="crumbs"><a href="/">Home</a> / <a href="/lake-minnetonka-bays/">Lake Minnetonka Bays</a> / Wayzata Bay</p>
-<!-- woolsey-house-* and woolsey-map-* files in this branch are sized placeholders. WebP and AVIF siblings are made from the two JPGs. When the real photos replace woolsey-house-1600.jpg and woolsey-map-1080.jpg, regenerate the siblings at the same names or phones will keep these stand-ins. -->
+<!-- House and chart: woolsey-house-1600.jpg (1600x900) and woolsey-map-1080.jpg (1080x1350), with WebP and AVIF siblings resized from the originals. The 1620 map is the larger file for the opened chart. -->
 <figure class="house-fig">
 <picture>
 <source type="image/avif" srcset="woolsey-house-800.avif 800w, woolsey-house-1200.avif 1200w, woolsey-house-1600.avif 1600w" sizes="(min-width: 864px) 820px, calc(100vw - 44px)">
 <source type="image/webp" srcset="woolsey-house-800.webp 800w, woolsey-house-1200.webp 1200w, woolsey-house-1600.webp 1600w" sizes="(min-width: 864px) 820px, calc(100vw - 44px)">
-<img src="woolsey-house-1600.jpg" width="1600" height="900" alt="The Woodland house on a point of Wayzata Bay, seen from the lawn" fetchpriority="high" decoding="async">
+<img src="woolsey-house-1600.jpg" width="1600" height="900" alt="The Bassett colonial at 2670 Woolsey Lane on Wayzata Bay, Woodland, Lake Minnetonka." fetchpriority="high" decoding="async">
 </picture>
 </figure>
 <h1>Wayzata Bay on Lake Minnetonka<span>the front porch of the lake</span></h1>
@@ -252,21 +252,21 @@ else{b.disabled=false;err.textContent='That didn\u2019t go through. Please try a
 <figure class="map-fig">
 <button type="button" class="map-open" id="mapOpen">
 <picture>
-<source type="image/avif" srcset="woolsey-map-720.avif 720w, woolsey-map-1080.avif 1080w" sizes="(min-width: 864px) 820px, calc(100vw - 44px)">
-<source type="image/webp" srcset="woolsey-map-720.webp 720w, woolsey-map-1080.webp 1080w" sizes="(min-width: 864px) 820px, calc(100vw - 44px)">
-<img src="woolsey-map-1080.jpg" width="1080" height="1350" loading="lazy" decoding="async" alt="Antique-style chart of Lake Minnetonka and Lake Minnewashta, Minnesota, with bay names on the water and a pin on the south shore of Wayzata Bay in Woodland, where a house sold Nov 2, 2026. Map data © OpenStreetMap contributors.">
+<source type="image/avif" srcset="woolsey-map-720.avif 720w, woolsey-map-1080.avif 1080w, woolsey-map-1620.avif 1620w" sizes="(min-width: 864px) 820px, calc(100vw - 44px)">
+<source type="image/webp" srcset="woolsey-map-720.webp 720w, woolsey-map-1080.webp 1080w, woolsey-map-1620.webp 1620w" sizes="(min-width: 864px) 820px, calc(100vw - 44px)">
+<img src="woolsey-map-1080.jpg" width="1080" height="1350" loading="lazy" decoding="async" alt="Antique-style chart of Lake Minnetonka in a Northwoods engraved look, with bay names on the water and a pin on Wayzata Bay at 2670 Woolsey Lane in Woodland. Sold Nov 2, 2026, $6,227,200. Map data © OpenStreetMap contributors.">
 </picture>
 <span class="map-hint">Tap to enlarge</span>
 </button>
 </figure>
 <dialog class="map-dialog" id="mapDialog" aria-label="Chart, enlarged">
 <form method="dialog"><button type="submit" class="map-close" id="mapClose">Close</button></form>
-<img id="mapFull" width="1080" height="1350" alt="Antique-style chart of Lake Minnetonka and Lake Minnewashta, Minnesota, with bay names on the water and a pin on the south shore of Wayzata Bay in Woodland, where a house sold Nov 2, 2026. Map data © OpenStreetMap contributors.">
+<img id="mapFull" width="1620" height="2025" alt="Antique-style chart of Lake Minnetonka in a Northwoods engraved look, with bay names on the water and a pin on Wayzata Bay at 2670 Woolsey Lane in Woodland. Sold Nov 2, 2026, $6,227,200. Map data © OpenStreetMap contributors.">
 </dialog>
 <script>
 (function(){var d=document.getElementById('mapDialog'),b=document.getElementById('mapOpen'),img=document.getElementById('mapFull');if(!d||!b||!img)return;
 function shut(){if(d.open&&d.close)d.close();}
-b.addEventListener('click',function(){if(!img.getAttribute('src')){img.src='woolsey-map-1080.avif';img.addEventListener('error',function(){img.src='woolsey-map-1080.jpg';},{once:true});}if(d.showModal)d.showModal();});
+b.addEventListener('click',function(){if(!img.getAttribute('src')){img.src='woolsey-map-1620.avif';img.addEventListener('error',function(){img.src='woolsey-map-1080.jpg';},{once:true});}if(d.showModal)d.showModal();});
 d.addEventListener('click',function(e){if(e.target===d)shut();});
 d.addEventListener('close',function(){});})();
 </script>
