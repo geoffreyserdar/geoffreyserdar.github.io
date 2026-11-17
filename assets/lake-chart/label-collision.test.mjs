@@ -80,8 +80,13 @@ const measure = () => {
       onBay: !!(region && region.isPointInFill(pt))
     };
   });
+  const decos = [...svg.querySelectorAll("text.deco")].map((n) => {
+    const b = n.getBBox();
+    const pt = new DOMPoint(b.x + b.width / 2, b.y + b.height / 2);
+    return { name: n.textContent, onLake: !!(water && water.isPointInFill(pt)) };
+  });
   const chart = document.querySelector(".lake-chart").getBoundingClientRect();
-  return { ready: true, labels, pin, bays, chartW: chart.width };
+  return { ready: true, labels, pin, bays, decos, chartW: chart.width };
 };
 
 let failed = 0;
@@ -143,6 +148,9 @@ for (const pagePath of list) {
     }
     for (const bay of data.bays) {
       if (!bay.onLake || !bay.onBay) fail(pagePath + " @" + width + " " + bay.name + " is not on its own water");
+    }
+    for (const deco of data.decos || []) {
+      if (!deco.onLake) fail(pagePath + " @" + width + " " + deco.name + " is not on the water");
     }
     if (width === 320) narrow = data.labels.find((l) => l.name === "Crystal");
     if (width === 1280) wide = data.labels.find((l) => l.name === "Crystal");
