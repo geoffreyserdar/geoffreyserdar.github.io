@@ -1,4 +1,5 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="preload" as="image" type="image/avif" href="woolsey-house-1200.avif" imagesrcset="woolsey-house-800.avif 800w, woolsey-house-1200.avif 1200w, woolsey-house-1600.avif 1600w" imagesizes="(min-width: 864px) 820px, calc(100vw - 44px)" fetchpriority="high">
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17849235035"></script>
 <script>
@@ -12,7 +13,7 @@
   });
 </script>
 <meta name="robots" content="index,follow,max-image-preview:large">
-<title>A colonial on Wayzata Bay, Lake Minnetonka | Geoffrey Serdar</title><meta name="description" content="Patrick and Andrea Bassett’s 1942 colonial on a point of Wayzata Bay sold November 2, 2026 for $6,227,200. Its story, a map, and a plain guide to Wayzata Bay."><link rel="canonical" href="https://geoffreyserdar.com/lake-minnetonka/wayzata-bay/">
+<title>A colonial on Wayzata Bay, Lake Minnetonka | Geoffrey Serdar</title><meta name="description" content="Patrick and Andrea Bassett’s colonial on a point of Wayzata Bay closed November 2, 2026 for $6,227,200. They bought it in 1988, county records show. Its story, a map, and a plain guide to Wayzata Bay."><link rel="canonical" href="https://geoffreyserdar.com/lake-minnetonka/wayzata-bay/">
 
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/house.css"><style>
@@ -50,10 +51,58 @@ details{border-bottom:1px solid #ECE4D4;padding:12px 0}summary{font-weight:600;c
 .map-fig img{width:100%;height:auto;aspect-ratio:1080/1350;display:block;border-radius:4px;background:#E4DCCB}
 .map-cap{font-size:12px;line-height:1.4;color:#7A7468;margin:8px 0 0}
 .guide p{font-size:17px;line-height:1.65;margin:0 0 16px}
-.sale .note a,.guide a,.note a{color:#6E5228}
-@media(max-width:640px){.tid,.bays{grid-template-columns:1fr}}
+.sale .note a,.guide a,.note a,.more-strip a{color:#6E5228}
+.sold-line{font:700 15px/1.35 Inter,sans-serif;margin:12px 0 0}
+.house-fig{margin:0}
+.house-fig picture,.house-fig img{width:100%;height:auto;display:block}
+.house-fig img{aspect-ratio:1600/900;border-radius:4px;background:#E4DCCB}
+.map-open{display:block;width:100%;margin:0;padding:0;border:0;background:transparent;cursor:zoom-in;text-align:left;font:inherit;color:inherit}
+.map-open picture,.map-open img{width:100%;height:auto;display:block}
+.map-open img{aspect-ratio:1080/1350;border-radius:4px;background:#E4DCCB}
+.map-hint{display:block;margin:8px 0 0;font:600 12px/1.3 Inter,sans-serif;letter-spacing:.3px;color:#6E5228;text-align:center}
+dialog.map-dialog{position:fixed;inset:0;width:100vw;max-width:100vw;height:100vh;max-height:100vh;margin:0;padding:12px;border:0;box-sizing:border-box;background:#F3E8D0;overflow:auto}
+dialog.map-dialog::backdrop{background:rgba(31,32,28,.72)}
+.map-close{display:block;margin:0 0 10px auto;min-width:88px;min-height:48px;padding:0 16px;border:0;border-radius:3px;background:#6E5228;color:#fff;font:600 15px Inter,sans-serif;cursor:pointer}
+.map-dialog img{width:100%;height:auto;aspect-ratio:1080/1350;display:block;background:#E4DCCB}
+.more-strip{margin:8px 0 0}
+.more-strip a{display:flex;align-items:center;min-height:48px;padding:8px 0;border-bottom:1px solid #ECE4D4;text-decoration:none;font-weight:600;font-size:16px;line-height:1.3}
+.guide .hero-img{margin:0 0 16px}
+.lead button{width:100%;min-height:48px}
+.lead input{font-size:16px;min-height:48px}
+#bay-alert,#story-help{scroll-margin-top:72px}
+.story-help{background:#ECE4D4;border-radius:6px;padding:16px 16px 14px;margin:18px 0 8px}
+.story-help h2{margin:0 0 8px;font-size:26px}
+.story-help p,.story-help li{font-size:16px;line-height:1.45}
+.story-help p{margin:0 0 10px}
+.story-help ul{margin:0 0 12px;padding-left:18px}
+.story-help li{margin:0 0 6px}
+.story-help label{display:block;font:600 12px/1.3 Inter,sans-serif;color:#6E5228;margin:8px 0 4px}
+.story-help input,.story-help textarea{display:block;width:100%;box-sizing:border-box;font:16px Inter,sans-serif;padding:12px;border:1px solid #C9BFA9;border-radius:3px;background:#FAF7EF;color:#1F201C}
+.story-help textarea{min-height:96px;resize:vertical}
+.story-help button{width:100%;min-height:48px;margin-top:10px;background:#6E5228;color:#fff;border:0;border-radius:3px;font:600 15px Inter,sans-serif;cursor:pointer}
+.story-help .note{margin:8px 0 0}
+.story-help .sv-err{display:none;color:#b3261e;font-size:13px;margin:8px 0 0}
+.tell{font-weight:600}
+@media(max-width:640px){.tid,.bays{grid-template-columns:1fr}
+.crumbs{margin:8px 0 8px}
+h1{font-size:30px;margin:6px 0 4px}
+h1 span{margin-top:2px}
+.voice{font-size:18px;line-height:1.45;margin:6px 0}
+.sig{margin:0}
+.sold-line{margin:10px 0 0}
+.lead{margin:8px 0 4px;padding:12px 12px 10px}
+.lead h3{font-size:22px;margin:0 0 2px}
+.lead .note{margin:0 0 6px}
+.lead input{margin:0}
+.lead button{margin-top:6px}
+}
+@media(max-width:760px){
+nav.sv-bar.bay-inview{visibility:hidden;pointer-events:none}
+nav.sv-bar a.sv-main{flex:1.7;font-size:13px;line-height:1.15;padding:0 8px;text-align:center}
+nav.sv-bar a[href^="sms:"]{flex:0.85;font-size:14px}
+}
 </style>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Place", "name": "Wayzata Bay, Lake Minnetonka", "url": "https://geoffreyserdar.com/lake-minnetonka/wayzata-bay/", "containedInPlace": [{"@type": "LakeBodyOfWater", "name": "Lake Minnetonka"}, {"@type": "City", "name": "Wayzata, Minnesota"}, {"@type": "City", "name": "Woodland, Minnesota"}]}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Where is the Woodland house that just sold?", "acceptedAnswer": {"@type": "Answer", "text": "It sits on a point on the south shore of Wayzata Bay, in Woodland. The mailing city is Wayzata, and downtown Wayzata is across the water to the north."}}, {"@type": "Question", "name": "Which towns are on Wayzata Bay?", "acceptedAnswer": {"@type": "Answer", "text": "Wayzata and Woodland."}}, {"@type": "Question", "name": "How big is Wayzata Bay?", "acceptedAnswer": {"@type": "Answer", "text": "About 751 acres with 3.33 miles of shoreline and a max depth of about 63 feet."}}, {"@type": "Question", "name": "What have homes on Wayzata Bay sold for?", "acceptedAnswer": {"@type": "Answer", "text": "Reported sales include $10.03M on Bushaway Rd in 2018 and $10.0M in December 2023. In October 2026 the top ask on the bay was $26.5M. An ask is not a sale."}}, {"@type": "Question", "name": "When is race night?", "acceptedAnswer": {"@type": "Answer", "text": "Thursdays, May to September, run by the Wayzata Yacht Club."}}]}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://geoffreyserdar.com/"}, {"@type": "ListItem", "position": 2, "name": "Lake Minnetonka Bays", "item": "https://geoffreyserdar.com/lake-minnetonka-bays/"}, {"@type": "ListItem", "position": 3, "name": "Wayzata Bay", "item": "https://geoffreyserdar.com/lake-minnetonka/wayzata-bay/"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Place", "name": "Wayzata Bay, Lake Minnetonka", "url": "https://geoffreyserdar.com/lake-minnetonka/wayzata-bay/", "containedInPlace": [{"@type": "LakeBodyOfWater", "name": "Lake Minnetonka"}, {"@type": "City", "name": "Wayzata, Minnesota"}, {"@type": "City", "name": "Woodland, Minnesota"}]}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Where is the Woodland house that just sold?", "acceptedAnswer": {"@type": "Answer", "text": "It sits on a point on the south shore of Wayzata Bay, in Woodland, where a narrow channel runs in from the bay to Woolsey Pond. The mailing city is Wayzata, and downtown Wayzata is across the water to the north."}}, {"@type": "Question", "name": "Which towns are on Wayzata Bay?", "acceptedAnswer": {"@type": "Answer", "text": "Wayzata and Woodland."}}, {"@type": "Question", "name": "How big is Wayzata Bay?", "acceptedAnswer": {"@type": "Answer", "text": "About 751 acres with 3.33 miles of shoreline and a max depth of about 63 feet."}}, {"@type": "Question", "name": "What have homes on Wayzata Bay sold for?", "acceptedAnswer": {"@type": "Answer", "text": "Reported sales include $10.03M on Bushaway Rd in 2018 and $10.0M in December 2023. In October 2026 the top ask on the bay was $26.5M. An ask is not a sale."}}, {"@type": "Question", "name": "When is race night?", "acceptedAnswer": {"@type": "Answer", "text": "Thursdays, May to September, run by the Wayzata Yacht Club."}}]}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://geoffreyserdar.com/"}, {"@type": "ListItem", "position": 2, "name": "Lake Minnetonka Bays", "item": "https://geoffreyserdar.com/lake-minnetonka-bays/"}, {"@type": "ListItem", "position": 3, "name": "Wayzata Bay", "item": "https://geoffreyserdar.com/lake-minnetonka/wayzata-bay/"}]}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": ["Person", "RealEstateAgent"], "name": "Geoffrey Serdar", "worksFor": {"@type": "Organization", "name": "Serdar+Partners at Compass"}, "url": "https://geoffreyserdar.com/", "sameAs": ["https://maps.google.com/maps?cid=10860202133812577051", "https://lakeminnetonkaprobate.com/", "https://x.com/GeoffreySerdar", "https://www.compass.com/agents/geoffrey-serdar/", "https://www.youtube.com/@RealTalkGeo", "https://www.instagram.com/geoffreyserdar/", "https://www.tiktok.com/@geoffrey.serdar", "https://www.facebook.com/geoffrey.serdar", "https://www.linkedin.com/in/geoffreyserdar/"]}</script>
 <style id="sv-css">
 h1.hero-title{margin-top:0;line-height:inherit}
@@ -89,7 +138,7 @@ body{padding-top:calc(52px + env(safe-area-inset-top))}
   <script src="/assets/phone-later.js"></script>
 
 <meta property="og:title" content="The colonial on a point of Wayzata Bay, Lake Minnetonka" />
-<meta property="og:description" content="Patrick and Andrea Bassett’s 1942 colonial on a point of Wayzata Bay sold November 2, 2026 for $6,227,200. Its story, a map, and a plain guide to Wayzata Bay." />
+<meta property="og:description" content="Patrick and Andrea Bassett’s colonial on a point of Wayzata Bay closed November 2, 2026 for $6,227,200. They bought it in 1988, county records show. Its story, a map, and a plain guide to Wayzata Bay." />
 <meta property="og:url" content="https://geoffreyserdar.com/lake-minnetonka/wayzata-bay/" />
 <meta property="og:image" content="https://geoffreyserdar.com/lake-minnetonka/wayzata-bay/wayzata-bay-lake-minnetonka-og.jpg" />
 <meta property="og:image:width" content="1200" />
@@ -98,41 +147,69 @@ body{padding-top:calc(52px + env(safe-area-inset-top))}
 <meta property="og:site_name" content="Geoffrey Serdar" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="The colonial on a point of Wayzata Bay, Lake Minnetonka" />
-<meta name="twitter:description" content="Patrick and Andrea Bassett’s 1942 colonial on a point of Wayzata Bay sold November 2, 2026 for $6,227,200. Its story, a map, and a plain guide to Wayzata Bay." />
+<meta name="twitter:description" content="Patrick and Andrea Bassett’s colonial on a point of Wayzata Bay closed November 2, 2026 for $6,227,200. They bought it in 1988, county records show. Its story, a map, and a plain guide to Wayzata Bay." />
 <meta name="twitter:image" content="https://geoffreyserdar.com/lake-minnetonka/wayzata-bay/wayzata-bay-lake-minnetonka-og.jpg" />
 <meta name="twitter:site" content="@GeoffreySerdar" />
 <meta name="twitter:creator" content="@GeoffreySerdar" />
 </head><body>
 <!-- GS:TOPBAR -->
-<div class="gs-top" id="gsTop" role="navigation" aria-label="Site top bar"><a class="gs-mark" href="/" aria-label="Serdar+Partners home"><img src="https://geoffreyserdar.com/img/geoffrey-face-120c.jpg" alt="Geoffrey Serdar" width="40" height="40" style="width:100%;height:100%;border-radius:50%;object-fit:cover;display:block"></a><a class="gs-line" id="gsTopLine" href="/lake-minnetonka-weekly/#signup">Lake Minnetonka sales each week · <b>See the list</b></a></div>
+<div class="gs-top" id="gsTop" role="navigation" aria-label="Site top bar"><a class="gs-mark" href="/" aria-label="Serdar+Partners home"><img src="https://geoffreyserdar.com/img/geoffrey-face-120c.jpg" alt="Geoffrey Serdar" width="40" height="40" style="width:100%;height:100%;border-radius:50%;object-fit:cover;display:block"></a><a class="gs-line" id="gsTopLine" href="#bay-alert">Wayzata Bay sale alerts · <b>Get them</b></a></div>
 <!-- /GS:TOPBAR -->
 <main class="wrap">
 <p class="crumbs"><a href="/">Home</a> / <a href="/lake-minnetonka-bays/">Lake Minnetonka Bays</a> / Wayzata Bay</p>
-<img class="hero-img" src="wayzata-bay-lake-minnetonka-og.jpg" width="1200" height="630" alt="Wayzata Bay on Lake Minnetonka">
+<!-- woolsey-house-* and woolsey-map-* files in this branch are sized placeholders. WebP and AVIF siblings are made from the two JPGs. When the real photos replace woolsey-house-1600.jpg and woolsey-map-1080.jpg, regenerate the siblings at the same names or phones will keep these stand-ins. -->
+<figure class="house-fig">
+<picture>
+<source type="image/avif" srcset="woolsey-house-800.avif 800w, woolsey-house-1200.avif 1200w, woolsey-house-1600.avif 1600w" sizes="(min-width: 864px) 820px, calc(100vw - 44px)">
+<source type="image/webp" srcset="woolsey-house-800.webp 800w, woolsey-house-1200.webp 1200w, woolsey-house-1600.webp 1600w" sizes="(min-width: 864px) 820px, calc(100vw - 44px)">
+<img src="woolsey-house-1600.jpg" width="1600" height="900" alt="The Woodland house on a point of Wayzata Bay, seen from the lawn" fetchpriority="high" decoding="async">
+</picture>
+</figure>
 <h1>Wayzata Bay on Lake Minnetonka<span>the front porch of the lake</span></h1>
-<p class="voice">Out on a point of Wayzata Bay, at the end of a long drive through the woods in Woodland, there is a 1942 colonial that one couple owned for decades. In November it sold. Here is a little more of its story, a map of where it sits, and how this end of the lake fits together.</p><p class="sig">Geoffrey Serdar</p>
-
-<article class="sale">
-<img src="woolsey-house-1600.jpg" width="1600" height="900" loading="lazy" alt="The Woodland house on a point of Wayzata Bay, seen from the lawn">
-<div>
-<p class="kicker">Sold November 2, 2026 for $6,227,200</p>
-<p>Patrick and Andrea Bassett owned the house from 1988 until this fall.</p>
-<p>It is a 1942 colonial, five bedrooms and seven baths, 6,122 square feet on 2.34 acres. A long drive winds through the woods to the house. At the tip of the point there is a fire pit looking across to downtown Wayzata. The shoreline runs more than 400 feet, with a sandy beach, a private harbor, and a permanent dock. A guest house stands apart, with a full kitchen and bath.</p>
-<p>Listed January 27, 2026, the asking price came down from $7,950,000 to $6,950,000 over 279 days, most of a year, and the sale landed $722,800 under that last ask.</p>
+<p class="voice">Patrick and Andrea Bassett just sold their colonial on a point of Wayzata Bay in Woodland, on Lake Minnetonka, and Patrick’s stepmother was Florence Knoll Bassett, the designer behind the modern American office. They bought it in 1988, county records show. It closed November 2 for $6,227,200.</p><p class="sig">Geoffrey Serdar</p>
+<div class="guide" id="bay-story">
+<p>Their place sits where a narrow channel runs in from the bay to Woolsey Pond. The pond takes its name from George and Alvira Woolsey, who grew fruit on the hillsides there in the years after the Civil War. Folks once called it Pete’s Pond too, after a Danish farmer named Peter Peterson who cut ice from it and hauled the big dripping blocks to the summer cottages by horse and wagon.</p>
+<p>In 1915 a Minneapolis doctor, Angus Morrison, had that channel dredged so the land along it would have lake access. Channel shore like this is why, the listing says, the place can keep permanent docks today. The listing dates the colonial to 1942 and talks about a sandy beach, a guest house and a fire pit at the tip of the point, looking across the water to downtown Wayzata.</p>
+<p class="note">The pond’s names, and that 1915 dredging, are written up in <a href="https://cdn.townweb.com/cityofwoodlandmn.gov/wp-content/uploads/2019/06/2016-Fall-Newsletter.pdf" rel="noopener noreferrer">Woodland’s Fall 2016 newsletter</a>.</p>
+<p>Patrick grew up in Miami. His father, Harry Hood Bassett, led the First National Bank of Miami, and his mother, Marguerite, parachuted into occupied France for the Free French and was awarded the Legion of Honor.</p>
+<p>Five bedrooms and seven baths, 6,122 square feet on 2.34 acres. The shoreline runs more than 400 feet. Listed January 27, 2026, the asking price came down from $7,950,000 to $6,950,000 over 279 days, most of a year, and the sale landed $722,800 under that last ask.</p>
 <p class="note">If you knew the Bassetts and something here isn’t right, <a href="sms:+19522583100">text me</a> and I’ll fix it.</p>
+<p>One more, and correct me if I’m wrong: I think Andrea is the Andrea Bassett who served as Woodland’s mayor from 1987 to 1990. If you know better, tell me. <a class="tell" href="sms:+19522583100?body=About%20Andrea%20Bassett%3A%20">Tell me</a></p>
 </div>
-</article>
-
+<!-- STORY-HELP pattern. Copy this section onto another bay page. Change data-bay, the questions, and the text link. Name and email stay optional. It posts to the same Formspree. -->
+<section class="story-help" id="story-help" data-bay="wayzata-bay" data-lead="wayzata-bay-story">
+<h2>Help us fill in the story</h2>
+<p>A few things I don’t know. If you do, tell me.</p>
+<ul>
+<li>Who built the house, and who first owned it in the 1940s.</li>
+<li>Who owned it before the Bassetts bought it in 1988.</li>
+<li>Whether Andrea Bassett served as Woodland’s mayor from 1987 to 1990.</li>
+<li>Whether the point or the channel lagoon ever had a name.</li>
+<li>Any old photos or memories of Woolsey Pond, or Pete’s Pond.</li>
+</ul>
+<form id="storyHelp" action="https://formspree.io/f/mpqerwwk" method="POST">
+<label for="shName">Name, if you want</label>
+<input id="shName" name="name" autocomplete="name" placeholder="Name">
+<label for="shEmail">Email, if you want a reply</label>
+<input id="shEmail" name="email" type="email" inputmode="email" autocomplete="email" placeholder="Email">
+<label for="shMsg">What you know</label>
+<textarea id="shMsg" name="message" placeholder="A name, a year, a memory"></textarea>
+<p class="sv-err" id="shErr" role="alert">Add a few words about what you know.</p>
+<button type="button" id="shBtn">Send what you know</button>
+<p class="note"><a href="sms:+19522583100?body=Wayzata%20Bay%20story%3A%20">Or text me</a></p>
+</form>
+<p id="shThanks" style="display:none;font-size:17px">Thank you. I’ll read what you sent.</p>
+</section>
 <form class="lead" id="bay-alert" action="https://formspree.io/f/mpqerwwk" method="POST">
 <div id="bayFields">
-<h3>Want to hear when the next Wayzata Bay home sells?</h3>
-<p class="note">I’ll send one short email when it happens. No spam, and you can stop anytime.</p>
+<h3>Get Wayzata Bay sale alerts</h3>
+<p class="note">One short email when a home on this bay sells. No spam, and you can stop anytime.</p>
 <input type="hidden" name="lead_type" value="wayzata-bay">
 <input type="hidden" name="bay" value="wayzata-bay">
-<input id="bayName" name="name" placeholder="First name" autocomplete="given-name">
-<input id="bayEmail" name="email" type="email" placeholder="Email" required autocomplete="email">
-<p class="sv-err" id="bayErr" role="alert">Please add your first name and a working email.</p>
+<input id="bayEmail" name="email" type="email" inputmode="email" placeholder="Email" required autocomplete="email" aria-label="Email">
+<p class="sv-err" id="bayErr" role="alert">Please add a working email.</p>
 <button type="button" id="bayBtn">Email me when one sells</button>
+<p class="note"><a href="sms:+19522583100">Or text me</a></p>
 </div>
 <p id="bayThanks" style="display:none;font-size:17px">Thank you. I’ll email you when a home on Wayzata Bay sells.</p>
 </form>
@@ -141,22 +218,58 @@ body{padding-top:calc(52px + env(safe-area-inset-top))}
 var form=document.getElementById('bay-alert');
 form.addEventListener('submit',function(e){e.preventDefault();document.getElementById('bayBtn').click();});
 document.getElementById('bayBtn').addEventListener('click',function(){var g=function(i){var e=document.getElementById(i);return e?e.value.trim():''};
-var n=g('bayName'),em=g('bayEmail'),err=document.getElementById('bayErr');
-if(!n||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em)){err.textContent='Please add your first name and a working email.';err.style.display='block';return}
+var em=g('bayEmail'),err=document.getElementById('bayErr');
+if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em)){err.textContent='Please add a working email.';err.style.display='block';return}
 err.style.display='none';var b=this;b.disabled=true;
 var src={utm_source:q('utm_source'),utm_medium:q('utm_medium'),utm_campaign:q('utm_campaign'),utm_content:q('utm_content'),gclid:q('gclid'),referrer:document.referrer||''};
-var test=/test/i.test(n)?'TEST ':'';
-var p=Object.assign({name:n,email:em,lead_type:LT,bay:'wayzata-bay',source:I,interest:I,interest_detail:test+'Wayzata Bay sales signup',page:location.pathname},src);
-try{fetch('https://lead-alert-4343.twil.io/lead-alert',{method:'POST',body:new URLSearchParams({name:n,phone:'',email:em,interest:test+'Wayzata Bay sales',site:location.hostname+location.pathname,local:I})}).catch(function(){})}catch(e){}
+var test=/test/i.test(em)?'TEST ':'';
+var p=Object.assign({name:em,email:em,lead_type:LT,bay:'wayzata-bay',source:I,interest:I,interest_detail:test+'Wayzata Bay sales signup',page:location.pathname},src);
+try{fetch('https://lead-alert-4343.twil.io/lead-alert',{method:'POST',body:new URLSearchParams({name:em,phone:'',email:em,interest:test+'Wayzata Bay sales',site:location.hostname+location.pathname,local:I})}).catch(function(){})}catch(e){}
 fetch('https://formspree.io/f/mpqerwwk',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(p)}).then(function(r){return r.ok}).catch(function(){return false}).then(function(ok){
 if(ok){document.getElementById('bayFields').style.display='none';document.getElementById('bayThanks').style.display='block';try{if(typeof gtag==='function')gtag('event','generate_lead',{lead_type:LT,bay:'wayzata-bay',page_path:location.pathname})}catch(e){}}
+else{b.disabled=false;err.textContent='That didn\u2019t go through. Please try again, or text Geoffrey at 952 258 3100.';err.style.display='block'}});});
+function watchBar(){var bar=document.querySelector('nav.sv-bar');if(!bar||!('IntersectionObserver' in window))return;var seen=[];var io=new IntersectionObserver(function(es){es.forEach(function(e){var i=seen.indexOf(e.target);if(e.isIntersecting&&i<0)seen.push(e.target);if(!e.isIntersecting&&i>=0)seen.splice(i,1);});bar.classList.toggle('bay-inview',seen.length>0);},{threshold:0});[].forEach.call(document.querySelectorAll('#bay-alert,#story-help'),function(n){io.observe(n);});}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',watchBar);else watchBar();
+})();
+</script>
+<script>
+(function(){var form=document.getElementById('storyHelp');if(!form)return;var bay=form.getAttribute('data-bay')||'';var lead=form.getAttribute('data-lead')||'story-help';function q(n){try{return new URLSearchParams(location.search).get(n)||''}catch(e){return''}}
+form.addEventListener('submit',function(e){e.preventDefault();document.getElementById('shBtn').click();});
+document.getElementById('shBtn').addEventListener('click',function(){var g=function(i){var e=document.getElementById(i);return e?e.value.trim():''};
+var n=g('shName'),em=g('shEmail'),msg=g('shMsg'),err=document.getElementById('shErr');
+if(!msg){err.textContent='Add a few words about what you know.';err.style.display='block';return}
+if(em&&!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em)){err.textContent='That email doesn’t look right. You can leave it blank.';err.style.display='block';return}
+err.style.display='none';var b=this;b.disabled=true;
+var src={utm_source:q('utm_source'),utm_medium:q('utm_medium'),utm_campaign:q('utm_campaign'),utm_content:q('utm_content'),gclid:q('gclid'),referrer:document.referrer||''};
+var test=/test/i.test(n+' '+msg)?'TEST ':'';
+var p=Object.assign({name:n,email:em,message:msg,lead_type:'story-help',bay:bay,source:lead,interest:lead,interest_detail:test+msg,page:location.pathname},src);
+try{fetch('https://lead-alert-4343.twil.io/lead-alert',{method:'POST',body:new URLSearchParams({name:n,phone:'',email:em,interest:test+'Wayzata Bay story: '+msg.slice(0,160),site:location.hostname+location.pathname,local:lead})}).catch(function(){})}catch(e){}
+fetch('https://formspree.io/f/mpqerwwk',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(p)}).then(function(r){return r.ok}).catch(function(){return false}).then(function(ok){
+if(ok){form.style.display='none';document.getElementById('shThanks').style.display='block';try{if(typeof gtag==='function')gtag('event','generate_lead',{lead_type:'story-help',bay:bay,page_path:location.pathname})}catch(e){}}
 else{b.disabled=false;err.textContent='That didn\u2019t go through. Please try again, or text Geoffrey at 952 258 3100.';err.style.display='block'}});});})();
 </script>
 
 <figure class="map-fig">
-<img src="woolsey-map-1080.jpg" width="1080" height="1350" loading="lazy" alt="Antique-style chart of Lake Minnetonka and Lake Minnewashta, Minnesota, with bay names on the water and a pin on the south shore of Wayzata Bay in Woodland, where a house sold Nov 2, 2026. Map data © OpenStreetMap contributors.">
-<figcaption class="map-cap">The pin is the house, on the south shore of Wayzata Bay in Woodland. Downtown Wayzata is across the water to the north.</figcaption>
+<button type="button" class="map-open" id="mapOpen">
+<picture>
+<source type="image/avif" srcset="woolsey-map-720.avif 720w, woolsey-map-1080.avif 1080w" sizes="(min-width: 864px) 820px, calc(100vw - 44px)">
+<source type="image/webp" srcset="woolsey-map-720.webp 720w, woolsey-map-1080.webp 1080w" sizes="(min-width: 864px) 820px, calc(100vw - 44px)">
+<img src="woolsey-map-1080.jpg" width="1080" height="1350" loading="lazy" decoding="async" alt="Antique-style chart of Lake Minnetonka and Lake Minnewashta, Minnesota, with bay names on the water and a pin on the south shore of Wayzata Bay in Woodland, where a house sold Nov 2, 2026. Map data © OpenStreetMap contributors.">
+</picture>
+<span class="map-hint">Tap to enlarge</span>
+</button>
 </figure>
+<dialog class="map-dialog" id="mapDialog" aria-label="Chart, enlarged">
+<form method="dialog"><button type="submit" class="map-close" id="mapClose">Close</button></form>
+<img id="mapFull" width="1080" height="1350" alt="Antique-style chart of Lake Minnetonka and Lake Minnewashta, Minnesota, with bay names on the water and a pin on the south shore of Wayzata Bay in Woodland, where a house sold Nov 2, 2026. Map data © OpenStreetMap contributors.">
+</dialog>
+<script>
+(function(){var d=document.getElementById('mapDialog'),b=document.getElementById('mapOpen'),img=document.getElementById('mapFull');if(!d||!b||!img)return;
+function shut(){if(d.open&&d.close)d.close();}
+b.addEventListener('click',function(){if(!img.getAttribute('src')){img.src='woolsey-map-1080.avif';img.addEventListener('error',function(){img.src='woolsey-map-1080.jpg';},{once:true});}if(d.showModal)d.showModal();});
+d.addEventListener('click',function(e){if(e.target===d)shut();});
+d.addEventListener('close',function(){});})();
+</script>
 
 <h2>The week it sold</h2>
 <div class="guide">
@@ -164,8 +277,27 @@ else{b.disabled=false;err.textContent='That didn\u2019t go through. Please try a
 <p>I post the closed sales every Monday, town by town, on <a href="/lake-minnetonka-weekly/">the weekly list</a>.</p>
 </div>
 
+<nav class="more-strip" aria-label="More from Wayzata Bay">
+<h2>More from Wayzata Bay</h2>
+<a href="/local-log/#2026-11-01__x__spirit-knob-breezy-point">Spirit Knob, the point now called Breezy Point</a>
+<a href="/local-log/#2026-10-29__x__in-march-1945-an-army-engineer">The boat works on this bay</a>
+<a href="/local-log/#2026-10-08__x__wayzata-hill-depot">The Depot on Lake Street</a>
+<a href="/local-log/#2026-11-12__x__lake-minnetonka-weekly-closes-nov-2-8">The week of November 2</a>
+<a href="/wayzata/">Wayzata</a>
+<a href="/woodland/">Woodland</a>
+<a href="/lake-minnetonka-weekly/">This week’s closed sales</a>
+</nav>
+<nav class="more-strip" aria-label="Other bays">
+<h2>Other bays</h2>
+<a href="/lake-minnetonka/browns-bay/">Browns Bay</a>
+<a href="/lake-minnetonka/crystal-bay/">Crystal Bay</a>
+<a href="/lake-minnetonka/upper-lake/">Upper Lake</a>
+<a href="/lake-minnetonka-bays/">All the bays</a>
+</nav>
+
 <h2>How Wayzata Bay fits together</h2>
 <div class="guide">
+<img class="hero-img" src="wayzata-bay-lake-minnetonka-og.jpg" width="1200" height="630" alt="Wayzata Bay on Lake Minnetonka" loading="lazy" decoding="async">
 <p>On a summer Thursday night, more than a hundred sailboats fill this bay. The Wayzata Yacht Club, founded in 1965, races for fourteen weeks from May to September. The sun goes down behind the sails, the boats come back in, and the Great Northern Depot is right there on the water. The railroad arrived in 1867, and the depot was finished in 1906. This is the front porch of the lake.</p>
 <p>Tie up at the downtown dock and you are beside the building where Moore Boat Works started in 1889. Out on the water, Breezy Point was once Spirit Knob, a place of spiritual meaning to the Mdewakanton Dakota. In 1852 a visitor called this water Lake Bryant.</p>
 <p>Cross to the south shore and the woods take over. That is <a href="/woodland/">Woodland</a>, a small city of about 0.8 square miles with 5.9 miles of shoreline, between <a href="/wayzata/">Wayzata</a> and the <a href="/minnetonka/">city of Minnetonka</a> on the north and east and <a href="/deephaven/">Deephaven</a> on the south and west. The colonial that sold in November sits on a point of this shore.</p>
@@ -201,7 +333,7 @@ else{b.disabled=false;err.textContent='That didn\u2019t go through. Please try a
 <p class="towns"><a href="/wayzata/">Wayzata</a><a href="/woodland/">Woodland</a></p>
 
 <h2>Questions people ask</h2>
-<details><summary>Where is the Woodland house that just sold?</summary><p>It sits on a point on the south shore of Wayzata Bay, in Woodland. The mailing city is Wayzata, and downtown Wayzata is across the water to the north.</p></details>
+<details><summary>Where is the Woodland house that just sold?</summary><p>It sits on a point on the south shore of Wayzata Bay, in Woodland, where a narrow channel runs in from the bay to Woolsey Pond. The mailing city is Wayzata, and downtown Wayzata is across the water to the north.</p></details>
 <details><summary>Which towns are on Wayzata Bay?</summary><p>Wayzata and Woodland.</p></details>
 <details><summary>How big is Wayzata Bay?</summary><p>About 751 acres with 3.33 miles of shoreline and a max depth of about 63 feet.</p></details>
 <details><summary>What have homes on Wayzata Bay sold for?</summary><p>Reported sales include $10.03M on Bushaway Rd in 2018 and $10.0M in December 2023. In October 2026 the top ask on the bay was $26.5M. An ask is not a sale.</p></details>
@@ -242,7 +374,7 @@ fetch('https://formspree.io/f/mpqerwwk',{method:'POST',headers:{'Content-Type':'
 if(ok){document.getElementById('svFields').style.display='none';document.getElementById('svThanks').style.display='block';try{if(typeof gtag==='function')gtag('event','generate_lead',{lead_type:LT,page_path:location.pathname})}catch(e){}}
 else{b.disabled=false;err.textContent='That didn\u2019t go through. Please try again, or text Geoffrey at 952 258 3100.';err.style.display='block'}});});})();
 </script>
-<nav class="sv-bar" aria-label="Quick contact"><a class="sv-main" href="#sv-offer">What would mine bring?</a><a href="sms:+19522583100">Text Geoffrey</a></nav>
+<nav class="sv-bar" aria-label="Quick contact"><a class="sv-main" href="#bay-alert">Get Wayzata Bay sale alerts</a><a href="sms:+19522583100">Text Geoffrey</a></nav>
 <!-- SV:END -->
 
 <footer class="site-foot">
@@ -279,5 +411,5 @@ else{b.disabled=false;err.textContent='That didn\u2019t go through. Please try a
 </footer>
 <!-- /HOUSE:FOOTER -->
 <script src="/assets/door-clicks.js" defer></script>
-<script src="/assets/gs-bars.js?v=20261026" defer data-mode="seller"></script>
+<script src="/assets/gs-bars.js?v=20261117" defer data-mode="bay" data-bay-label="Wayzata Bay"></script>
 </body></html>
