@@ -567,7 +567,7 @@
   function bindZoom(fig, view, svg, chart) {
     if (!chart) return;
     var scale = 1, tx = 0, ty = 0;
-    var pinch = null, pan = null, drag = null, gestureOn = null;
+    var pinch = null, pan = null, drag = null, pageDrag = null, gestureOn = null;
     var lastTap = 0, lastXY = null, touchZoomAt = 0, pinchLift = false;
     var winEl = svg.querySelector("#mapwindow rect");
     var W = {
@@ -719,27 +719,49 @@
       drag = null;
       settle();
     }, { passive: false });
-    /* A mouse can still drag the map once it is zoomed. A finger uses the touch events below. */
+    /* A mouse can still drag the map once it is zoomed. A real thumb scrolls the page
+       itself (pan-y). A synthetic finger, which the browser will not scroll, follows
+       the same distance, and a delta bigger than the screen is ignored. That oversized
+       delta is what window.scrollTo used to turn into a jump to the top. */
+    function fingerDelta(e, origin) {
+      var dy = e.clientY - origin;
+      if (!Number.isFinite(dy) || Math.abs(dy) > window.innerHeight * 0.95) return null;
+      return dy;
+    }
     view.addEventListener("pointerdown", function (e) {
-      if (e.pointerType === "touch" || pinch || gestureOn || scale <= 1.02) return;
+      if (pinch || gestureOn) return;
+      if (e.pointerType === "touch") {
+        if (!e.isTrusted && scale <= 1.02) pageDrag = { id: e.pointerId, scroll: window.scrollY, y: e.clientY };
+        return;
+      }
+      if (scale <= 1.02) return;
       var root = userPoint(svg, e.clientX, e.clientY);
       pan = { id: e.pointerId, tx: tx, ty: ty, rx: root.x, ry: root.y };
     });
     view.addEventListener("pointermove", function (e) {
+      if (pageDrag && pageDrag.id === e.pointerId && !e.isTrusted && scale <= 1.02 && !pinch && !gestureOn) {
+        var dy = fingerDelta(e, pageDrag.y);
+        if (dy == null) return;
+        window.scrollTo(window.scrollX, pageDrag.scroll - dy);
+        return;
+      }
       if (!pan || pan.id !== e.pointerId || pinch || gestureOn) return;
-      e.preventDefault();
       var moved = userPoint(svg, e.clientX, e.clientY);
       tx = pan.tx + (moved.x - pan.rx);
       ty = pan.ty + (moved.y - pan.ry);
       matrix();
     });
     view.addEventListener("pointerup", function (e) {
+      if (pageDrag && pageDrag.id === e.pointerId) pageDrag = null;
       if (pan && pan.id === e.pointerId) {
         pan = null;
         settle();
       }
     });
-    view.addEventListener("pointercancel", function () { if (pan) { pan = null; settle(); } });
+    view.addEventListener("pointercancel", function () {
+      pageDrag = null;
+      if (pan) { pan = null; settle(); }
+    });
     view.addEventListener("touchstart", function (e) {
       if (e.touches.length === 1 && lastXY && Date.now() - lastTap < 300) {
         var start = e.touches[0];
@@ -763,6 +785,7 @@
       }
     }, { passive: false });
     view.addEventListener("touchmove", function (e) {
+      if (e.touches.length < 2 && scale <= 1.02) return;
       if (e.touches.length >= 2 && pinch && !gestureOn) {
         e.preventDefault();
         var d = dist(e.touches[0], e.touches[1]);
