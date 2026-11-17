@@ -1,0 +1,235 @@
+/* Brand tokens and the shared form, button, and card classes.
+   Hex colors live only in this :root. See /STYLE.md.
+   House chrome and the type sheet import this file. New pages link
+   /assets/brand.css or /assets/house.css. */
+
+:root {
+  --font-head: "Playfair Display", "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  --font-body: "Inter", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+  --font-ui: "Montserrat", "Inter", system-ui, -apple-system, Arial, sans-serif;
+
+  --parchment: #FAF7EF;
+  --sand: #ECE4D4;
+  --sand-deep: #E4DCCB;
+  --ink: #2C2924;
+  --ink-head: #1F201C;
+  --ink-soft: #4D4839;
+  --brass: #6E5228;
+  --brass-text: #6E5228;
+  --brass-fill: #6E5228;
+  --brass-soft: #C9A877;
+  --brass-hover: #E0C79B;
+  --line: #C9BFA9;
+  --placeholder: #A39B87;
+  --muted: #7A7468;
+  --error: #B3261E;
+  --stage: #7A1F1F;
+  --paper: #FFFFFF;
+  --closer: #1D1E1A;
+  --footer: #2C2D27;
+  --footer-muted: #A49C89;
+  --footer-legal: #8A8375;
+  --reach-muted: #A9A192;
+  --reach-label: #B9B1A2;
+
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 22px;
+  --space-6: 28px;
+  --space-8: 44px;
+  --radius: 3px;
+
+  --house-page: var(--parchment);
+  --house-card: var(--sand);
+  --house-tuxedo: var(--ink-head);
+  --house-mid: var(--ink-soft);
+  --house-brass: var(--brass);
+  --house-brass-soft: var(--brass-soft);
+  --house-closer: var(--closer);
+  --house-footer: var(--footer);
+}
+
+/* Floor for iOS. A control with no font-family falls back to Times.
+   :where() is zero specificity, so a page rule that already sets a family wins.
+   The brand check requires every control to match one of these classes. */
+:where(
+  .sv-offer, .field, .form-card, .form-fields, .lead, .gs-card, .gs-form,
+  .card, .calc-wrap, .calc-card, .calc-grid, .ctrl, .seg, .chips, .fp-tabs,
+  .gtabs, .chip-group, .checks, .check-label, .check, .checklist, .yn, .calc,
+  .row, .row2, .p2-block, .consent-check, .money-input, .mini-field,
+  .breakdown-fields, .nb, .nb-card, .nb-form, .nb-field, .nb-about, .nb-seg,
+  .soft-form, .wm-form, .wm, .wm-card, .wm-frame, .wmap, .form-wrap,
+  .form-section, .form-row, .lead-card, .lead-fields, .lead-wrap, .reach-grid,
+  .invite, .opts, .opt, .hub, .shell, .wrap, .divide, .section, .section-wide,
+  .sort-bar, .video-frame, .video-wrap, .vshort, .shorts-row, .verdict,
+  .figured, .toggle, .doors, .evo-card, .pl-box, .vne-x
+) :where(input, textarea, select, button),
+:where(button, input, textarea, select):where(
+  .gs-field, .gs-btn, .submit-btn, .chip, .door, .wm-x, .tour, .vfacade,
+  .vidfacade, .vid-facade, .gl-x, .gl-nav, .sort-btn, .real-btn, .run-btn,
+  .figured-toggle, .submit, .on, .active
+) {
+  font-family: inherit;
+}
+
+.gs-field {
+  font-family: inherit;
+  font-size: 16px;
+}
+
+.gs-btn {
+  font-family: var(--font-ui);
+}
+
+/* Seller-value blocks keep their own size and fill. They only borrow a real family
+   so iOS does not paint the fields in Times. */
+.sv-offer input,
+.sv-offer textarea,
+.sv-offer select {
+  font-family: inherit;
+}
+
+.sv-offer button {
+  font-family: var(--font-ui);
+}
+
+/* Quiet card. No sand fill. A hairline is enough. */
+.gs-card {
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  border-top: 1px solid var(--line);
+  box-shadow: none;
+  padding: var(--space-5) 0 var(--space-2);
+  margin: var(--space-6) 0 var(--space-3);
+}
+
+/* Bay story and sale-alert forms. One style for every form.lead. */
+form.lead {
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  border-top: 1px solid var(--line);
+  box-shadow: none;
+  padding: var(--space-5) 0 var(--space-2);
+  margin: var(--space-6) 0 var(--space-3);
+}
+
+form.lead h2,
+form.lead h3 {
+  font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+  font-weight: 700;
+  font-size: 28px;
+  line-height: normal;
+  letter-spacing: 0;
+  margin: 0 0 10px;
+  color: inherit;
+}
+
+form.lead .sv-err {
+  color: var(--error);
+  font-family: var(--font-body);
+  font-size: 13px;
+  display: none;
+  margin: 6px 0;
+}
+
+form.lead input:not([type="hidden"]),
+form.lead textarea,
+form.lead select,
+form.lead .gs-field {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0 0 var(--space-3);
+  padding: 14px var(--space-4);
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.45;
+  color: inherit;
+  background: var(--parchment);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+form.lead textarea {
+  min-height: 7.5em;
+  resize: vertical;
+}
+
+form.lead input::placeholder,
+form.lead textarea::placeholder,
+form.lead input::-webkit-input-placeholder,
+form.lead textarea::-webkit-input-placeholder {
+  color: var(--placeholder);
+  opacity: 1;
+}
+
+form.lead input:focus,
+form.lead textarea:focus,
+form.lead select:focus {
+  outline: none;
+  border-color: var(--brass);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--brass) 22%, transparent);
+}
+
+form.lead button,
+form.lead .gs-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  max-width: 100%;
+  min-height: 0;
+  margin: 2px 0 0;
+  padding: 10px 18px;
+  font-family: var(--font-ui);
+  font-size: 14px;
+  font-weight: 500;
+  font-style: normal;
+  letter-spacing: 0.08em;
+  line-height: 1.2;
+  text-transform: none;
+  white-space: nowrap;
+  color: var(--ink-head);
+  background: transparent;
+  border: 1px solid var(--brass);
+  border-radius: var(--radius);
+  cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+form.lead button:hover,
+form.lead .gs-btn:hover {
+  background: color-mix(in srgb, var(--brass) 8%, transparent);
+}
+
+form.lead button:focus-visible,
+form.lead .gs-btn:focus-visible {
+  outline: 2px solid var(--brass);
+  outline-offset: 3px;
+}
+
+form.lead button:disabled,
+form.lead .gs-btn:disabled {
+  opacity: 0.55;
+  cursor: default;
+}
+
+form.lead .note a {
+  color: var(--muted);
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+form.lead .note a:hover {
+  color: var(--ink-head);
+}

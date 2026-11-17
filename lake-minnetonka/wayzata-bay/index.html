@@ -18,7 +18,7 @@
 <title>A colonial on Wayzata Bay, Lake Minnetonka | Geoffrey Serdar</title><meta name="description" content="Patrick and Andrea Bassett’s colonial on a point of Wayzata Bay closed November 2, 2026 for $6,227,200. They bought it in the summer of 1988 for $1.1 million, county records show. Its story, a map, and a plain guide to Wayzata Bay."><link rel="canonical" href="https://geoffreyserdar.com/lake-minnetonka/wayzata-bay/">
 
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@400;500;600;700&display=optional" rel="stylesheet">
-<link rel="stylesheet" href="/assets/house.css"><style>
+<link rel="stylesheet" href="/assets/brand.css"><link rel="stylesheet" href="/assets/house.css"><style>
 body{margin:0;background:#FAF7EF;color:#1F201C;font-family:Inter,system-ui,sans-serif;line-height:1.6}
 .stage-flag{background:#7a1f1f;color:#fff;text-align:center;font:600 13px Inter,sans-serif;padding:8px 12px;letter-spacing:.4px}
 .wrap{max-width:820px;margin:0 auto;padding:0 22px}
@@ -37,10 +37,6 @@ h2{font-family:'Playfair Display',Georgia,serif;font-size:28px;margin:44px 0 12p
 .note{font-size:13px;color:#4D4839}
 .towns a,.chip{display:inline-block;border:1px solid #6E5228;color:#6E5228;text-decoration:none;border-radius:20px;padding:6px 14px;margin:4px 6px 4px 0;font-weight:600;font-size:14px}
 details{border-bottom:1px solid #ECE4D4;padding:12px 0}summary{font-weight:600;cursor:pointer}
-.lead{background:#ECE4D4;border-radius:6px;padding:26px;margin:28px 0}.lead h3{font-family:'Playfair Display',serif;font-size:24px;margin:0 0 6px}
-.lead input{width:100%;box-sizing:border-box;padding:12px;margin:6px 0;border:1px solid #C9BFA9;border-radius:3px;font:15px Inter}
-.lead button{background:#6E5228;color:#fff;border:0;border-radius:3px;padding:13px 22px;font:600 15px Inter;margin-top:8px;cursor:pointer}
-.lead .sv-err{color:#b3261e;font-size:13px;display:none;margin:6px 0}
 .bays{display:grid;grid-template-columns:1fr 1fr;gap:18px}.bay-card{background:#ECE4D4;border-radius:6px;overflow:hidden;text-decoration:none;color:inherit}
 .bay-card img{width:100%;aspect-ratio:4/5;object-fit:cover;display:block}.bay-card div{padding:14px 16px}.bay-card b{font-family:'Playfair Display',serif;font-size:21px;display:block}
 .sale{background:#ECE4D4;border-radius:6px;overflow:hidden;margin:28px 0 0}
@@ -57,7 +53,6 @@ details{border-bottom:1px solid #ECE4D4;padding:12px 0}summary{font-weight:600;c
 .house-fig{margin:0}
 .house-fig picture,.house-fig img{width:100%;height:auto;display:block}
 .house-fig img{aspect-ratio:1600/900;border-radius:4px;background:#E4DCCB}
-.lead textarea{width:100%;box-sizing:border-box;padding:12px;margin:6px 0;border:1px solid #C9BFA9;border-radius:3px;font:15px Inter;min-height:7.5em;resize:vertical}
 .map-open{display:block;width:100%;margin:0;padding:0;border:0;background:transparent;cursor:zoom-in;text-align:left;font:inherit;color:inherit}
 .map-open picture,.map-open img{width:100%;height:auto;display:block}
 .map-open img{aspect-ratio:1080/1350;border-radius:4px;background:#E4DCCB}
@@ -155,25 +150,25 @@ body{padding-top:calc(52px + env(safe-area-inset-top))}
 <p>A few things I don’t know. If you do, tell me.</p>
 <p>Who built the house, and who first owned it in the 1940s. Who owned it before the Bassetts bought it in 1988. Whether Andrea Bassett served as Woodland’s mayor from 1987 to 1990. Whether the point or the channel lagoon ever had a name. Any old photos or memories of Woolsey Pond, or Pete’s Pond.</p>
 </div>
-<!-- STORY-HELP pattern. Copy this heading, the questions, and the lead form onto another bay page. Change data-bay and the questions. Name and email stay optional. It posts to the same Formspree. -->
-<form class="lead" id="storyHelp" data-bay="wayzata-bay" data-lead="wayzata-bay-story" action="https://formspree.io/f/mpqerwwk" method="POST">
-<input id="shName" name="name" autocomplete="name" placeholder="Name, if you want">
-<input id="shEmail" name="email" type="email" inputmode="email" autocomplete="email" placeholder="Email, if you want a reply">
-<textarea id="shMsg" name="message" placeholder="A name, a year, a memory"></textarea>
+<!-- STORY-HELP pattern. Copy this heading, the questions, and the lead form onto another bay page. Styles live in /assets/brand.css (form.lead). Do not add a one-off form style. Change data-bay and the questions. Name and email stay optional. It posts to the same Formspree. -->
+<form class="lead gs-card" id="storyHelp" data-bay="wayzata-bay" data-lead="wayzata-bay-story" action="https://formspree.io/f/mpqerwwk" method="POST">
+<input id="shName" name="name" autocomplete="name" placeholder="Name, if you want" class="gs-field">
+<input id="shEmail" name="email" type="email" inputmode="email" autocomplete="email" placeholder="Email, if you want a reply" class="gs-field">
+<textarea id="shMsg" name="message" placeholder="A name, a year, a memory" class="gs-field"></textarea>
 <p class="sv-err" id="shErr" role="alert">Add a few words about what you know.</p>
-<button type="button" id="shBtn">Send what you know</button>
+<button type="button" id="shBtn" class="gs-btn">Send what you know</button>
 <p class="note"><a href="sms:+19522583100?body=Wayzata%20Bay%20story%3A%20">Or text me</a></p>
 </form>
 <p id="shThanks" style="display:none;font-size:17px">Thank you. I’ll read what you sent.</p>
-<form class="lead" id="bay-alert" action="https://formspree.io/f/mpqerwwk" method="POST">
+<form class="lead gs-card" id="bay-alert" action="https://formspree.io/f/mpqerwwk" method="POST">
 <div id="bayFields">
 <h3>Get Wayzata Bay sale alerts</h3>
 <p class="note">One short email when a home on this bay sells. No spam, and you can stop anytime.</p>
 <input type="hidden" name="lead_type" value="wayzata-bay">
 <input type="hidden" name="bay" value="wayzata-bay">
-<input id="bayEmail" name="email" type="email" inputmode="email" placeholder="Email" required autocomplete="email" aria-label="Email">
+<input id="bayEmail" name="email" type="email" inputmode="email" placeholder="Email" required autocomplete="email" aria-label="Email" class="gs-field">
 <p class="sv-err" id="bayErr" role="alert">Please add a working email.</p>
-<button type="button" id="bayBtn">Email me when one sells</button>
+<button type="button" id="bayBtn" class="gs-btn">Email me when one sells</button>
 <p class="note"><a href="sms:+19522583100">Or text me</a></p>
 </div>
 <p id="bayThanks" style="display:none;font-size:17px">Thank you. I’ll email you when a home on Wayzata Bay sells.</p>
