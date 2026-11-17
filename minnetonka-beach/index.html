@@ -731,6 +731,8 @@ a.stat-link .stat-number{ color:#6E5228; }
       "about": {
         "@type": "City",
         "name": "Minnetonka Beach, MN",
+        "@id": "https://geoffreyserdar.com/minnetonka-beach/#place",
+        "geo": {"@type": "GeoCoordinates", "latitude": 44.9396852, "longitude": -93.5766241},
         "containedInPlace": {
           "@type": "State",
           "name": "Minnesota"
@@ -902,9 +904,60 @@ else{b.disabled=false;err.textContent='That didn\u2019t go through. Please try a
 <link rel="stylesheet" href="/assets/lake-chart/lake-chart.css">
 <div class="lake-chart-slot">
 <p class="lake-chart-cap">Tap a bay or town to explore.</p>
-<figure class="lake-chart" data-here="minnetonka-beach" aria-label="Chart of Lake Minnetonka. Map data © OpenStreetMap contributors.">
-<img src="/assets/lake-chart/lake-minnetonka-chart.svg" width="800" height="740" loading="lazy" decoding="async" alt="Chart of Lake Minnetonka with its bays and towns. Map data © OpenStreetMap contributors.">
+<figure class="lake-chart" data-focus="towns" data-here="minnetonka-beach" aria-label="Chart of Lake Minnetonka. Map data © OpenStreetMap contributors.">
+<img src="/assets/lake-chart/lake-minnetonka-chart.svg" width="800" height="1100" loading="lazy" decoding="async" alt="Chart of Lake Minnetonka with its bays and towns. Map data © OpenStreetMap contributors.">
 </figure>
+<nav class="lake-chart-places" aria-label="Places on this map">
+<p class="lake-chart-places-kicker">Places on this map</p>
+<p class="lake-chart-places-label">Bays</p>
+<ul>
+<li><a href="/lake-minnetonka/upper-lake/">Upper Lake, Lake Minnetonka</a></li>
+<li><a href="/lake-minnetonka/wayzata-bay/">Wayzata Bay, Lake Minnetonka</a></li>
+<li><a href="/lake-minnetonka/browns-bay/">Browns Bay, Lake Minnetonka</a></li>
+<li><a href="/lake-minnetonka/crystal-bay/">Crystal Bay, Lake Minnetonka</a></li>
+<li><a href="/lake-minnetonka/carsons-bay/">Carson's Bay, Lake Minnetonka</a></li>
+<li><a href="/lake-minnetonka/smithtown-bay/">Smithtown Bay, Lake Minnetonka</a></li>
+<li><a href="/lake-minnetonka/st-albans-excelsior-bay/">St. Albans and Excelsior Bay, Lake Minnetonka</a></li>
+<li><span>Halsted Bay</span></li>
+<li><span>Priests Bay</span></li>
+<li><span>Cooks Bay</span></li>
+<li><span>North Arm</span></li>
+<li><span>Maxwell Bay</span></li>
+<li><span>Jennings Bay</span></li>
+<li><span>West Arm</span></li>
+<li><span>Spring Park Bay</span></li>
+<li><span>Phelps Bay</span></li>
+<li><span>Carman Bay</span></li>
+<li><span>Lafayette Bay</span></li>
+<li><span>Gideon Bay</span></li>
+<li><span>Robinsons Bay</span></li>
+<li><span>Grays Bay</span></li>
+<li><span>Lower Lake</span></li>
+</ul>
+<p class="lake-chart-places-label">Towns</p>
+<ul>
+<li><a href="/wayzata/">Wayzata, Lake Minnetonka</a></li>
+<li><a href="/woodland/">Woodland, Lake Minnetonka</a></li>
+<li><a href="/minnetonka-beach/">Minnetonka Beach, Lake Minnetonka</a></li>
+<li><a href="/orono/">Orono, Lake Minnetonka</a></li>
+<li><a href="/mound/">Mound, Lake Minnetonka</a></li>
+<li><a href="/spring-park/">Spring Park, Lake Minnetonka</a></li>
+<li><a href="/minnetrista/">Minnetrista, Lake Minnetonka</a></li>
+<li><a href="/excelsior/">Excelsior, Lake Minnetonka</a></li>
+<li><a href="/greenwood/">Greenwood, Lake Minnetonka</a></li>
+<li><a href="/shorewood/">Shorewood, Lake Minnetonka</a></li>
+<li><a href="/deephaven/">Deephaven, Lake Minnetonka</a></li>
+<li><a href="/tonka-bay/">Tonka Bay, Lake Minnetonka</a></li>
+<li><a href="/victoria/">Victoria, Lake Minnetonka</a></li>
+</ul>
+<p class="lake-chart-places-label">Other water</p>
+<ul>
+<li><span>Lake Minnewashta</span></li>
+<li><span>Libbs Lake</span></li>
+</ul>
+</nav>
+<script type="application/ld+json" id="lake-chart-ld">{"@context":"https://schema.org","@graph":[{"@type":"LakeBodyOfWater","@id":"https://geoffreyserdar.com/#lake-minnetonka","name":"Lake Minnetonka","url":"https://geoffreyserdar.com/lake-minnetonka-bays/","containedInPlace":{"@type":"AdministrativeArea","name":"Hennepin and Carver Counties, Minnesota"},"geo":{"@type":"GeoCoordinates","latitude":44.9298178,"longitude":-93.5841405},"containsPlace":[{"@id":"https://geoffreyserdar.com/lake-minnetonka/wayzata-bay/#place"},{"@id":"https://geoffreyserdar.com/lake-minnetonka/browns-bay/#place"},{"@id":"https://geoffreyserdar.com/lake-minnetonka/crystal-bay/#place"},{"@id":"https://geoffreyserdar.com/lake-minnetonka/carsons-bay/#place"},{"@id":"https://geoffreyserdar.com/lake-minnetonka/smithtown-bay/#place"},{"@id":"https://geoffreyserdar.com/lake-minnetonka/upper-lake/#place"},{"@id":"https://geoffreyserdar.com/#saint-albans-bay"},{"@id":"https://geoffreyserdar.com/#excelsior-bay"},{"@id":"https://geoffreyserdar.com/#halsted-bay"},{"@id":"https://geoffreyserdar.com/#priests-bay"},{"@id":"https://geoffreyserdar.com/#cooks-bay"},{"@id":"https://geoffreyserdar.com/#north-arm"},{"@id":"https://geoffreyserdar.com/#maxwell-bay"},{"@id":"https://geoffreyserdar.com/#jennings-bay"},{"@id":"https://geoffreyserdar.com/#west-arm"},{"@id":"https://geoffreyserdar.com/#spring-park-bay"},{"@id":"https://geoffreyserdar.com/#phelps-bay"},{"@id":"https://geoffreyserdar.com/#carman-bay"},{"@id":"https://geoffreyserdar.com/#lafayette-bay"},{"@id":"https://geoffreyserdar.com/#gideon-bay"},{"@id":"https://geoffreyserdar.com/#robinsons-bay"},{"@id":"https://geoffreyserdar.com/#grays-bay"},{"@id":"https://geoffreyserdar.com/#lower-lake"}]},{"@type":"LakeBodyOfWater","@id":"https://geoffreyserdar.com/#lake-minnewashta","name":"Lake Minnewashta","containedInPlace":{"@type":"AdministrativeArea","name":"Carver County, Minnesota"},"geo":{"@type":"GeoCoordinates","latitude":44.8786486,"longitude":-93.6114045}},{"@type":"LakeBodyOfWater","@id":"https://geoffreyserdar.com/#libbs-lake","name":"Libbs Lake","containedInPlace":{"@type":"AdministrativeArea","name":"Hennepin County, Minnesota"},"geo":{"@type":"GeoCoordinates","latitude":44.9459655,"longitude":-93.4869702}},{"@type":"Place","@id":"https://geoffreyserdar.com/lake-minnetonka/wayzata-bay/#place","name":"Wayzata Bay","containedInPlace":{"@id":"https://geoffreyserdar.com/#lake-minnetonka"},"geo":{"@type":"GeoCoordinates","latitude":44.962805,"longitude":-93.5125264},"url":"https://geoffreyserdar.com/lake-minnetonka/wayzata-bay/"},{"@type":"Place","@id":"https://geoffreyserdar.com/lake-minnetonka/browns-bay/#place","name":"Browns Bay","containedInPlace":{"@id":"https://geoffreyserdar.com/#lake-minnetonka"},"geo":{"@type":"GeoCoordinates","latitude":44.9619076,"longitude":-93.5449564},"url":"https://geoffreyserdar.com/lake-minnetonka/browns-bay/"},{"@type":"Place","@id":"https://geoffreyserdar.com/lake-minnetonka/crystal-bay/#place","name":"Crystal Bay","containedInPlace":{"@id":"https://geoffreyserdar.com/#lake-minnetonka"},"geo":{"@type":"GeoCoordinates","latitude":44.9433538,"longitude":-93.6042535},"url":"https://geoffreyserdar.com/lake-minnetonka/crystal-bay/"},{"@type":"Place","@id":"https://geoffreyserdar.com/lake-minnetonka/carsons-bay/#place","name":"Carson's Bay","containedInPlace":{"@id":"https://geoffreyserdar.com/#lake-minnetonka"},"geo":{"@type":"GeoCoordinates","latitude":44.9263521,"longitude":-93.5313444},"url":"https://geoffreyserdar.com/lake-minnetonka/carsons-bay/"},{"@type":"Place","@id":"https://geoffreyserdar.com/lake-minnetonka/smithtown-bay/#place","name":"Smithtown Bay","containedInPlace":{"@id":"https://geoffreyserdar.com/#lake-minnetonka"},"geo":{"@type":"GeoCoordinates","latitude":44.8888517,"longitude":-93.6407928},"url":"https://geoffreyserdar.com/lake-minnetonka/smithtown-bay/"},{"@type":"Place","@id":"https://geoffreyserdar.com/lake-minnetonka/upper-lake/#place","name":"Upper Lake","containedInPlace":{"@id":"https://geoffreyserdar.com/#lake-minnetonka"},"url":"https://geoffreyserdar.com/lake-minnetonka/upper-lake/"},{"@type":"Place","@id":"https://geoffreyserdar.com/#saint-albans-bay","name":"Saint Albans Bay","containedInPlace":{"@id":"https://geoffreyserdar.com/#lake-minnetonka"},"geo":{"@type":"GeoCoordinates","latitude":44.9066298,"longitude":-93.5519006}},{"@type":"Place","@id":"https://geoffreyserdar.com/#excelsior-bay","name":"Excelsior Bay","containedInPlace":{"@id":"https://geoffreyserdar.com/#lake-minnetonka"},"geo":{"@type":"GeoCoordinates","latitude":44.9074631,"longitude":-93.5621787}},{"@type":"Place","@id":"https://geoffreyserdar.com/#halsted-bay","name":"Halsted Bay","containedInPlace":{"@id":"https://geoffreyserdar.com/#lake-minnetonka"}},{"@type":"Place","@id":"https://geoffreyserdar.com/#priests-bay","name":"Priests Bay","containedInPlace":{"@id":"https://geoffreyserdar.com/#lake-minnetonka"},"geo":{"@type":"GeoCoordinates","latitude":44.9194115,"longitude":-93.6771846}},{"@type":"Place","@id":"https://geoffreyserdar.com/#cooks-bay","name":"Cooks Bay","containedInPlace":{"@id":"https://geoffreyserdar.com/#lake-minnetonka"},"geo":{"@type":"GeoCoordinates","latitude":44.9252458,"longitude":-93.6607995}},{"@type":"Place","@id":"https://geoffreyserdar.com/#north-arm","name":"North Arm","containedInPlace":{"@id":"https://geoffreyserdar.com/#lake-minnetonka"},"geo":{"@type":"GeoCoordinates","latitude":44.9588518,"longitude":-93.6205149}},{"@type":"Place","@id":"https://geoffreyserdar.com/#maxwell-bay","name":"Maxwell Bay","containedInPlace":{"@id":"https://geoffreyserdar.com/#lake-minnetonka"},"geo":{"@type":"GeoCoordinates","latitude":44.9607963,"longitude":-93.6041253}},{"@type":"Place","@id":"https://geoffreyserdar.com/#jennings-bay","name":"Jennings Bay","containedInPlace":{"@id":"https://geoffreyserdar.com/#lake-minnetonka"},"geo":{"@type":"GeoCoordinates","latitude":44.9544073,"longitude":-93.6527382}},{"@type":"Place","@id":"https://geoffreyserdar.com/#west-arm","name":"West Arm","containedInPlace":{"@id":"https://geoffreyserdar.com/#lake-minnetonka"},"geo":{"@type":"GeoCoordinates","latitude":44.9463759,"longitude":-93.6354892}},{"@type":"Place","@id":"https://geoffreyserdar.com/#spring-park-bay","name":"Spring Park Bay","containedInPlace":{"@id":"https://geoffreyserdar.com/#lake-minnetonka"},"geo":{"@type":"GeoCoordinates","latitude":44.9291296,"longitude":-93.6271814}},{"@type":"Place","@id":"https://geoffreyserdar.com/#phelps-bay","name":"Phelps Bay","containedInPlace":{"@id":"https://geoffreyserdar.com/#lake-minnetonka"},"geo":{"@type":"GeoCoordinates","latitude":44.9165227,"longitude":-93.6465512}},{"@type":"Place","@id":"https://geoffreyserdar.com/#carman-bay","name":"Carman Bay","containedInPlace":{"@id":"https://geoffreyserdar.com/#lake-minnetonka"},"geo":{"@type":"GeoCoordinates","latitude":44.9274629,"longitude":-93.6099585}},{"@type":"Place","@id":"https://geoffreyserdar.com/#lafayette-bay","name":"Lafayette Bay","containedInPlace":{"@id":"https://geoffreyserdar.com/#lake-minnetonka"},"geo":{"@type":"GeoCoordinates","latitude":44.9355186,"longitude":-93.5902357}},{"@type":"Place","@id":"https://geoffreyserdar.com/#gideon-bay","name":"Gideon Bay","containedInPlace":{"@id":"https://geoffreyserdar.com/#lake-minnetonka"},"geo":{"@type":"GeoCoordinates","latitude":44.9094074,"longitude":-93.5805128}},{"@type":"Place","@id":"https://geoffreyserdar.com/#robinsons-bay","name":"Robinsons Bay","containedInPlace":{"@id":"https://geoffreyserdar.com/#lake-minnetonka"},"geo":{"@type":"GeoCoordinates","latitude":44.9446854,"longitude":-93.5224554}},{"@type":"Place","@id":"https://geoffreyserdar.com/#grays-bay","name":"Grays Bay","containedInPlace":{"@id":"https://geoffreyserdar.com/#lake-minnetonka"},"geo":{"@type":"GeoCoordinates","latitude":44.9537178,"longitude":-93.4937203}},{"@type":"Place","@id":"https://geoffreyserdar.com/#lower-lake","name":"Lower Lake","containedInPlace":{"@id":"https://geoffreyserdar.com/#lake-minnetonka"},"geo":{"@type":"GeoCoordinates","latitude":44.9263303,"longitude":-93.5532798}}]}</script>
+
 </div>
 <script src="/assets/lake-chart/lake-chart.js" defer></script>
 
