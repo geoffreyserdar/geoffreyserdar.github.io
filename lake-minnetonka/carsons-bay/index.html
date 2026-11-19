@@ -52,7 +52,12 @@ details{border-bottom:1px solid #ECE4D4;padding:12px 0}summary{font-weight:600;c
 .guide ul{margin:0 0 16px;padding-left:1.25em}
 .guide li{font-size:17px;line-height:1.65;margin:0 0 8px}
 .sale .note a,.guide a,.note a{color:#6E5228}
-@media(max-width:640px){.tid,.bays{grid-template-columns:1fr}}
+@media(max-width:640px){.tid,.bays{grid-template-columns:1fr}
+.prices,.prices tbody{display:block;width:100%}
+.prices tr{display:grid;grid-template-columns:auto 1fr;column-gap:12px;row-gap:2px;align-items:start;padding:12px 0;border-bottom:1px solid #ECE4D4}
+.prices td{display:block;width:auto;border:0;padding:0}
+.prices td:nth-child(1){grid-column:1;grid-row:1 / span 3;padding-top:3px}
+.prices td:nth-child(2),.prices td:nth-child(3),.prices td:nth-child(4){grid-column:2}}
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Place", "@id": "https://geoffreyserdar.com/lake-minnetonka/carsons-bay/#place", "geo": {"@type": "GeoCoordinates", "latitude": 44.9263521, "longitude": -93.5313444}, "name": "Carson's Bay, Lake Minnetonka", "url": "https://geoffreyserdar.com/lake-minnetonka/carsons-bay/", "containedInPlace": [{"@type": "LakeBodyOfWater", "name": "Lake Minnetonka"}, {"@type": "City", "name": "Deephaven, Minnesota"}, {"@type": "City", "name": "Excelsior, Minnesota"}]}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is Carson's Bay no wake?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, on weekends and holidays under LMCD rules."}}, {"@type": "Question", "name": "Which towns are on Carson's Bay?", "acceptedAnswer": {"@type": "Answer", "text": "Deephaven, including the Cottagewood neighborhood, with Excelsior close by."}}, {"@type": "Question", "name": "Is there a public launch?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, Carson's Bay Launch on Minnetonka Blvd, open year round."}}, {"@type": "Question", "name": "What have homes on Carson's Bay sold for?", "acceptedAnswer": {"@type": "Answer", "text": "19955 Cottagewood Ave sold for $7.6M on Sept 30, 2024."}}, {"@type": "Question", "name": "What sold on Carson's Bay recently?", "acceptedAnswer": {"@type": "Answer", "text": "A 1920 house in Cottagewood, a block from Carson's Bay, sold November 10, 2026 for $1,850,000."}}]}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://geoffreyserdar.com/"}, {"@type": "ListItem", "position": 2, "name": "Lake Minnetonka Bays", "item": "https://geoffreyserdar.com/lake-minnetonka-bays/"}, {"@type": "ListItem", "position": 3, "name": "Carson's Bay", "item": "https://geoffreyserdar.com/lake-minnetonka/carsons-bay/"}]}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": ["Person", "RealEstateAgent"], "@id": "https://geoffreyserdar.com/#agent", "name": "Geoffrey Serdar", "worksFor": {"@type": "Organization", "name": "Serdar+Partners at Compass"}, "url": "https://geoffreyserdar.com/", "sameAs": ["https://maps.google.com/maps?cid=10860202133812577051", "https://lakeminnetonkaprobate.com/", "https://x.com/GeoffreySerdar", "https://www.compass.com/agents/geoffrey-serdar/", "https://www.youtube.com/@RealTalkGeo", "https://www.instagram.com/geoffreyserdar/", "https://www.tiktok.com/@geoffrey.serdar", "https://www.facebook.com/geoffrey.serdar", "https://www.linkedin.com/in/geoffreyserdar/"]}</script>
@@ -117,7 +122,7 @@ body{padding-top:calc(52px + env(safe-area-inset-top))}
 <div class="guide">
 <p>Here is a little more of its story, a map of where it sits, and what else sold in Deephaven that week.</p>
 <p>Carson's is a no-wake bay on weekends and holidays, so mornings are paddleboards and little sailboats.</p>
-<p>Up the hill in Cottagewood the general store has been going since 1895, and when it closed, 135 neighbors got together to save it. That tells you about the place.</p>
+<p>The general store in Cottagewood has been going since 1895, and when it closed, a few neighbors got together on short notice and bought it themselves. That tells you about the place.</p>
 </div>
 <!--
 Sources for the Cottagewood sale (not shown on the page):
@@ -126,16 +131,15 @@ Sources for the Cottagewood sale (not shown on the page):
 - MLS supplement "Home Improvement History" for the house: 2013 kitchen opened to living area; 2012 cedar shake siding; 2014 detached two-car garage removed, attached three-car garage built.
 - Bay: parcel point vs OSM Lake Minnetonka polygon; nearest water is Carson's Bay about 110 to 150 m east.
 - Week it sold: Matrix Deephaven saved search (Nov 15 and Nov 19 reads): 18864 Heathcote went Pending Nov 9; 19640 Excelsior Blvd went Pending Nov 13 and Closed Nov 16 at $765,000; no other Deephaven closings Nov 9 to 15.
-- Kate Regan tie (framed only as "I think"): thesittingroomstudio.com/about; Artful Living "Favorite Things: Kate Regan"; Star Tribune obit of Jim Regan, "son, Tim (Kate)".
-- Cottagewood Store, if a later line needs it: FOX 9, May 14, 2026, https://www.fox9.com/news/cottagewood-general-store-how-deephaven-neighbors-saved-landmark-from-closing ; https://www.cottagewoodstore.com/about . The page keeps the existing 1895 and 135 neighbors line once, and does not repeat that story.
+- Cottagewood Store, told once on the page: since 1895, and when it closed, a few neighbors got together on short notice and bought it themselves. Background only, not shown: FOX 9, May 14, 2026, https://www.fox9.com/news/cottagewood-general-store-how-deephaven-neighbors-saved-landmark-from-closing ; https://www.cottagewoodstore.com/about . Do not retell that story.
 -->
 <article class="sale">
 <img src="cottagewood-house.jpg" width="1020" height="679" alt="Gray cedar-shingled 1920 house with a white arched porch and an attached garage on a green lawn in the Cottagewood neighborhood of Deephaven.">
 <div>
-<p class="kicker">Sold Nov 10, 2026 · $1,850,000 · Carson's Bay, Deephaven</p>
+<p class="kicker">Sold November 10, 2026 for $1,850,000</p>
 <h2>A 1920 Cottagewood house, a block from the bay</h2>
 <p>Timothy and Kathryn Regan bought this house in 2009. It sits a block from Carson's Bay and a short walk from the Cottagewood Store.</p>
-<p>In their years there they opened the kitchen to the living room, wrapped the house in cedar shake and traded the old detached garage for an attached three-car garage. It went on the market October 1 and had a buyer in under two weeks.</p>
+<p>While they lived there, they opened the kitchen to the living room, wrapped the house in cedar shake, and traded the old detached garage for an attached three-car garage. It went on the market October 1 and had a buyer in under two weeks.</p>
 <p class="note">If you know the Regans and something here isn’t right, <a href="sms:+19522583100">text me</a> and I’ll fix it.</p>
 </div>
 </article>
@@ -149,7 +153,7 @@ Sources for the Cottagewood sale (not shown on the page):
 <a class="submit-btn secondary" href="sms:+19522583100">Text Geoffrey</a>
 </form>
 <figure class="map-fig">
-<img src="cottagewood-map-1080.jpg" width="1080" height="1350" alt="Antique-style chart of Lake Minnetonka and Lake Minnewashta with a pin in Cottagewood on the west side of Carson's Bay in Deephaven, labeled 20265 Cottagewood Road, sold Nov 10, 2026, $1,850,000. Map by Geoffrey Serdar, geoffreyserdar.com. Map data © OpenStreetMap contributors.">
+<img src="cottagewood-map-1080.jpg" width="1080" height="1350" alt="Antique-style chart of Lake Minnetonka and Lake Minnewashta with a pin in Cottagewood on the west side of Carson's Bay in Deephaven, labeled 20265 Cottagewood Road, sold Nov 10, 2026, $1,850,000. Map data © OpenStreetMap contributors.">
 <figcaption class="map-cap">The pin sits in Cottagewood, on the west side of Carson's Bay. The open Lower Lake is a few blocks to the west.</figcaption>
 </figure>
 <h2>The week it sold</h2>
@@ -163,9 +167,8 @@ Sources for the Cottagewood sale (not shown on the page):
 <ul>
 <li>Who built the 1920 house a block up from Carson's Bay, and was it a summer cottage first?</li>
 <li>Who lived there before 2009?</li>
-<li>I think Kathryn Regan is Kate Regan, who started The Sitting Room design studio in Excelsior. If that’s wrong, tell me and I’ll fix it.</li>
 <li>Old photos of Cottagewood, the Hotel St. Louis or the Cottagewood Hotel (the Keewaydin).</li>
-<li>Memories of the Cottagewood Store, especially from the day neighbors met to buy it in 1995.</li>
+<li>Memories of the Cottagewood Store.</li>
 </ul>
 </div>
 <form class="lead gs-card" id="storyHelp" data-bay="carsons-bay" data-lead="carsons-bay-story" action="https://formspree.io/f/mpqerwwk" method="POST">
