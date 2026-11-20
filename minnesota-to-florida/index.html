@@ -130,30 +130,9 @@ form.lead h2 {
   font-weight: 600;
   line-height: 1.25;
 }
-.phones {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-4);
-  margin: 0 0 var(--space-5);
-}
-.phones a {
-  display: block;
-  color: var(--brass);
+a.submit-btn,
+a.submit-btn:hover {
   text-decoration: none;
-  font-family: var(--font-head);
-  font-weight: 600;
-  font-size: clamp(32px, 8vw, 44px);
-  line-height: 1.1;
-}
-.phones a span {
-  display: block;
-  margin-bottom: 2px;
-  font-family: var(--font-ui);
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--ink-soft);
 }
 form.lead label {
   display: block;
@@ -192,9 +171,6 @@ form.lead label {
 }
 .share .note { color: var(--ink-soft); }
 .gs-top { display: none; }
-@media (min-width: 640px) {
-  .phones { flex-direction: row; gap: var(--space-8); }
-}
 @media (max-width: 767.98px) {
   body {
     padding-top: calc(52px + env(safe-area-inset-top));
@@ -353,10 +329,8 @@ form.lead label {
   <form class="lead gs-card" id="worth" action="https://formspree.io/f/mpqerwwk" method="POST">
     <div id="worthFields">
       <h2>Wondering what your Minnesota home is worth before Florida? Call or text me.</h2>
-      <div class="phones">
-        <a href="tel:+19522583100"><span>Call</span>952.258.3100</a>
-        <a href="sms:+19522583100"><span>Text</span>952.258.3100</a>
-      </div>
+      <a class="submit-btn" href="tel:+19522583100">Call 952.258.3100</a>
+      <a class="submit-btn secondary" href="sms:+19522583100">Text 952.258.3100</a>
       <p class="note">Or leave the Minnesota address and I will send a one page read from real sales near you. I read every one myself. No automated estimate, and no obligation.</p>
       <label for="worthName">First name</label>
       <input id="worthName" name="name" class="gs-field" autocomplete="given-name" required>
@@ -369,7 +343,7 @@ form.lead label {
       <p class="sv-err" id="worthErr" role="alert">Please add your first name, a working email, and the address.</p>
       <button type="button" class="submit-btn" id="worthBtn">Send me what it is worth</button>
       <a class="submit-btn secondary" href="sms:+19522583100">Text Geoffrey</a>
-      <p class="note">By submitting, you agree Serdar+Partners at Compass may contact you by call or text at the number you provide. Consent is not required to buy or sell. Reply STOP to opt out. <a href="/privacy">Privacy</a></p>
+      <p class="note">By submitting, you agree Serdar+Partners at Compass may email you about your Minnesota home. Consent is not required to buy or sell. <a href="/privacy">Privacy</a></p>
     </div>
   </form>
   <p id="worthThanks" hidden>Thank you. I will look at recent sales near you and write you back.</p>
