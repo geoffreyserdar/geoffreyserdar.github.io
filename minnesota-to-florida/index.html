@@ -3,19 +3,24 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Minnesota to The Villages: sell here, buy there | Geoffrey Serdar</title>
-<meta name="description" content="Maybe the winters are starting to feel a little longer. Maybe the grandkids are in Florida now, or your folks already made the move. I'll help you sell your Minnesota home for the best price, and my wife Sabrina and I will help you find the right home down there.">
+<title>The Villages tour: sell in Minnesota, look in Florida | Geoffrey Serdar</title>
+<meta name="description" content="Geoffrey Serdar sells homes in Minnesota and lives in Excelsior, on Minnewashta Park. After the Villages tour, call or text him about your home up here. Sabrina holds a Florida broker license and can help on the Florida side.">
 <link rel="canonical" href="https://geoffreyserdar.com/minnesota-to-florida/">
 <meta name="robots" content="index,follow,max-image-preview:large">
 <!--
-  Villages walking tour.
-  Set videoId to the YouTube id (the part after watch?v=) once the tour is uploaded.
-  Leave videoId as an empty string until then. The page shows the Tour coming soon
-  poster while it is empty, and swaps in the embed only when the id is 11 characters.
+  Villages walking tour video.
+  File: minnesota-to-florida/index.html
+  Field: window.MINNESOTA_TO_FLORIDA.videoId
+  Set videoId to the YouTube id only (the characters after watch?v=).
+  The current id is the unlisted Villages tour. If videoId is blank or not
+  11 characters, the page shows Tour coming soon instead of the embed.
+  uploadDate is optional, YYYY-MM-DD, and is used only in the video schema.
+  Leave uploadDate as "" if you do not know the day yet.
 -->
 <script>
 window.MINNESOTA_TO_FLORIDA = {
-  videoId: ""
+  videoId: "yglSQMnQ20U",
+  uploadDate: ""
 };
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -144,6 +149,32 @@ form.lead label {
   text-transform: uppercase;
   color: var(--ink-soft);
 }
+form.lead label.opt-in {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  margin: var(--space-2) 0 var(--space-4);
+  font-family: var(--font-body);
+  font-size: 17px;
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
+  line-height: 1.45;
+  color: var(--ink);
+}
+form.lead input[type="checkbox"] {
+  -webkit-appearance: auto;
+  appearance: auto;
+  width: 22px;
+  height: 22px;
+  min-width: 22px;
+  margin: 3px 0 0;
+  padding: 0;
+  display: inline-block;
+  flex: 0 0 auto;
+  accent-color: var(--brass);
+  background: var(--sand);
+}
 #worth {
   scroll-margin-top: calc(80px + env(safe-area-inset-top));
   scroll-margin-bottom: calc(88px + env(safe-area-inset-bottom));
@@ -232,6 +263,10 @@ form.lead label {
   .shots.two { grid-template-columns: 1fr 1fr; }
 }
 .gs-top { display: none; }
+@media (max-width: 600px) {
+  .wrap { padding-top: var(--space-4); }
+  h1 { margin-top: var(--space-2); margin-bottom: var(--space-3); }
+}
 @media (max-width: 767.98px) {
   body {
     padding-top: calc(52px + env(safe-area-inset-top));
@@ -330,8 +365,8 @@ form.lead label {
 }
 </style>
 <script src="/assets/phone-later.js"></script>
-<meta property="og:title" content="Minnesota to The Villages: sell here, buy there">
-<meta property="og:description" content="Maybe the winters are starting to feel a little longer. Maybe the grandkids are in Florida now, or your folks already made the move. I'll help you sell your Minnesota home for the best price, and my wife Sabrina and I will help you find the right home down there.">
+<meta property="og:title" content="The Villages tour: sell in Minnesota, look in Florida">
+<meta property="og:description" content="Geoffrey Serdar sells homes in Minnesota and lives in Excelsior, on Minnewashta Park. After the Villages tour, call or text him about your home up here. Sabrina holds a Florida broker license and can help on the Florida side.">
 <meta property="og:url" content="https://geoffreyserdar.com/minnesota-to-florida/">
 <meta property="og:image" content="https://geoffreyserdar.com/minnesota-to-florida/og.jpg">
 <meta property="og:image:width" content="1200">
@@ -340,8 +375,8 @@ form.lead label {
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Geoffrey Serdar">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Minnesota to The Villages: sell here, buy there">
-<meta name="twitter:description" content="Maybe the winters are starting to feel a little longer. Maybe the grandkids are in Florida now, or your folks already made the move. I'll help you sell your Minnesota home for the best price, and my wife Sabrina and I will help you find the right home down there.">
+<meta name="twitter:title" content="The Villages tour: sell in Minnesota, look in Florida">
+<meta name="twitter:description" content="Geoffrey Serdar sells homes in Minnesota and lives in Excelsior, on Minnewashta Park. After the Villages tour, call or text him about your home up here. Sabrina holds a Florida broker license and can help on the Florida side.">
 <meta name="twitter:image" content="https://geoffreyserdar.com/minnesota-to-florida/og.jpg">
 <meta name="twitter:image:alt" content="Minnesota to The Villages: sell here, buy there. Geoffrey Serdar.">
 <meta name="twitter:site" content="@GeoffreySerdar">
@@ -349,15 +384,47 @@ form.lead label {
 {
   "@context": "https://schema.org",
   "@type": "WebPage",
-  "name": "Minnesota to The Villages: sell here, buy there",
+  "name": "The Villages tour: sell in Minnesota, look in Florida",
   "url": "https://geoffreyserdar.com/minnesota-to-florida/",
-  "description": "Maybe the winters are starting to feel a little longer. Maybe the grandkids are in Florida now, or your folks already made the move. I'll help you sell your Minnesota home for the best price, and my wife Sabrina and I will help you find the right home down there.",
+  "description": "Geoffrey Serdar sells homes in Minnesota and lives in Excelsior, on Minnewashta Park. Sabrina holds a Florida broker license and can help on the Florida side.",
   "isPartOf": { "@type": "WebSite", "name": "Geoffrey Serdar", "url": "https://geoffreyserdar.com/" },
   "about": [
     { "@type": "AdministrativeArea", "name": "The Villages, Florida" },
     { "@type": "AdministrativeArea", "name": "Minnesota" }
   ],
   "author": { "@type": "Person", "name": "Geoffrey Serdar", "url": "https://geoffreyserdar.com/" }
+}
+</script>
+<script type="application/ld+json" id="faq-ld">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Can I sell my Minnesota home while I'm looking in Florida?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. That's a conversation I have with neighbors. We'll look at your Minnesota home and the timing of a Florida home together, and Sabrina can help on the Florida side because she holds a Florida broker license. You don't have to have the Florida house picked out before you call me."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do you time the sale and the purchase?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sometimes you sell first so the money is clear, and sometimes you buy first if you can carry both homes for a while. There's no single rule. We'll look at your calendar and I'll tell you honestly which way I'd go."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What about the taxes?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Florida doesn't have a state income tax, and Minnesota does. If the Florida home is where you'll actually live, you can apply to the county for a homestead exemption, which can lower the property tax on that home, and it isn't automatic. Your own tax person is the one who can say what that means for your household, and I'll work directly with your financial advisor and accountant so the sale and the move line up."
+      }
+    }
+  ]
 }
 </script>
 </head>
@@ -368,11 +435,57 @@ form.lead label {
 </div>
 
 <main class="wrap">
-  <p class="eyebrow">Minnesota to Florida</p>
+  <p class="eyebrow">Geoffrey Serdar, Minnesota realtor</p>
   <h1>Minnesota to The Villages: sell here, buy there</h1>
-  <p class="voice">Maybe the winters are starting to feel a little longer. Maybe the grandkids are in Florida now, or your folks already made the move. Whatever's pulling you south, I'll help you sell your Minnesota home for the best price, and my wife Sabrina and I will help you find the right home down there. One plan, one team, both states.</p>
-  <a class="submit-btn" href="tel:+19522583100">Call me</a>
-  <a class="submit-btn secondary" href="sms:+19522583100">Text me</a>
+  <p class="voice">If you just watched the tour, I'm Geoffrey, and I sell homes here in Minnesota. I live in Excelsior, on Minnewashta Park, and if your home up here is part of a move toward The Villages, I'll help you sell it. My wife Sabrina holds a Florida broker license, so she can help on the Florida side.</p>
+
+  <form class="lead gs-card" id="worth" action="https://formspree.io/f/mpqerwwk" method="POST">
+    <div id="worthFields">
+      <h2>Get your free Minnesota-to-Florida move plan</h2>
+      <p class="note">You'll get a read on your Minnesota home from real sales near you, plus a simple Florida timeline. I put it together myself.</p>
+      <a class="submit-btn" href="tel:+19522583100">Call me</a>
+      <a class="submit-btn secondary" href="sms:+19522583100">Text me</a>
+      <label for="worthName">First name</label>
+      <input id="worthName" name="name" class="gs-field" autocomplete="given-name" required>
+      <label for="worthEmail">Email</label>
+      <input id="worthEmail" name="email" type="email" inputmode="email" class="gs-field" autocomplete="email" required>
+      <label for="worthAddr">Your Minnesota address</label>
+      <input id="worthAddr" name="address" class="gs-field" autocomplete="street-address" required>
+      <label for="worthFl">Where in Florida? (if you know)</label>
+      <input id="worthFl" name="florida" class="gs-field" autocomplete="off">
+      <p class="note">If you'd like me to reach out to them, tell me here. A name helps, and you can leave it blank.</p>
+      <label class="opt-in" for="worthReach">
+        <input id="worthReach" name="reach_advisor" type="checkbox" value="yes">
+        <span>Yes, reach out to my financial advisor and accountant</span>
+      </label>
+      <label for="worthAdvisor">Advisor's name, if you have it</label>
+      <input id="worthAdvisor" name="advisor_name" class="gs-field" autocomplete="off">
+      <label for="worthAccountant">Accountant's name, if you have it</label>
+      <input id="worthAccountant" name="accountant_name" class="gs-field" autocomplete="off">
+      <input type="hidden" id="worthPhone" name="phone" value="">
+      <input class="gs-hp" type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <p class="note">Just your first name, an email and your Minnesota address, and I'll take it from there.</p>
+      <p class="sv-err" id="worthErr" role="alert">Just your first name, an email and your Minnesota address, and I'll take it from there.</p>
+      <button type="button" class="submit-btn" id="worthBtn">Send me my plan</button>
+      <a class="submit-btn secondary" href="sms:+19522583100">Text me</a>
+      <p class="note">By submitting, you agree Serdar+Partners at Compass may email you about your Minnesota home. Consent is not required to buy or sell.</p>
+    </div>
+  </form>
+  <p id="worthThanks" hidden>Thank you. I'll look at the sales near you and get your plan back to you soon.</p>
+
+  <h2>The Villages, Florida</h2>
+  <div class="poster" id="tourPoster">
+    <p class="poster-title">Tour coming soon</p>
+  </div>
+  <div class="frame" id="tourFrame" hidden></div>
+  <p class="watch" id="tourWatch" hidden><a id="tourWatchLink">Watch on YouTube</a></p>
+
+  <div class="story" id="after">
+    <p>My parents live in The Villages, and people back home kept asking what life down there is really like, so I walked it with a camera. The house in the tour is theirs, and it isn't for sale, so I've kept the street off this page. If you're thinking about your own home up here, call or text me and we'll start there.</p>
+    <a class="submit-btn" href="tel:+19522583100">Call me</a>
+    <a class="submit-btn secondary" href="sms:+19522583100">Text me</a>
+    <a class="submit-btn" href="#worth">Send me my plan</a>
+  </div>
 
   <div class="shots two">
     <figure class="shot">
@@ -383,18 +496,6 @@ form.lead label {
       <img src="img/spanish-springs.jpg" width="1280" height="960" alt="Spanish Springs as the lights come on.">
       <figcaption>Spanish Springs as the lights come on.</figcaption>
     </figure>
-  </div>
-
-  <h2>The Villages, Florida</h2>
-  <div class="poster" id="tourPoster">
-    <p class="poster-title">Tour coming soon</p>
-  </div>
-  <div class="frame" id="tourFrame" hidden></div>
-  <p class="watch" id="tourWatch" hidden><a id="tourWatchLink">Watch on YouTube</a></p>
-
-  <div class="story">
-    <p>My parents live in The Villages, and people back home kept asking me what life down there is really like. So I grabbed my camera and spent a day showing you around: the house, the golf carts, the town squares, all of it. The house is theirs and it isn't for sale, so I've kept the street off this page.</p>
-    <p>I live in Excelsior, on Minnewashta Park, and I hear the same question from neighbors all the time. They're still shoveling, they're a few years out, and they're wondering what January feels like when you can run your errands in shorts.</p>
   </div>
 
   <section id="life">
@@ -410,7 +511,7 @@ form.lead label {
       <img src="img/lake-sumter-pier.jpg" width="1280" height="960" alt="A pier on Lake Sumter">
     </figure>
     <p>The <a href="https://www.thevillages.com/entertainment/town-squares/" rel="noopener noreferrer">town squares</a> are the heart of it. Spanish Springs, Lake Sumter Landing and Brownwood each have something going on every night, and Sawgrass Grove is one of the newer ones. It moves at a different pace than a Minnesota neighborhood, which is exactly why I'd want you to see it before you decide anything.</p>
-    <p><a href="https://floridarevenue.com/faq/Pages/FAQDetails.aspx?FAQID=1307" rel="noopener noreferrer">Florida doesn't have a state income tax</a>, and <a href="https://www.revenue.state.mn.us/individual-income-tax" rel="noopener noreferrer">Minnesota does</a>. What that means for you depends on your situation, so that's a great conversation to have with your tax person.</p>
+    <p><a href="https://floridarevenue.com/faq/Pages/FAQDetails.aspx?FAQID=1307" rel="noopener noreferrer">Florida doesn't have a state income tax</a>, and <a href="https://www.revenue.state.mn.us/individual-income-tax" rel="noopener noreferrer">Minnesota does</a>. Your own tax person is the one who can say what that means for your household.</p>
   </section>
 
   <section id="steps">
@@ -426,55 +527,30 @@ form.lead label {
     </li>
     <li>
       <h3>Sabrina finds your Florida home</h3>
-      <p><a href="/sabrina/">Sabrina</a> is my wife and business partner, and she's licensed in Florida, so you'll have someone you trust on that side too.</p>
+      <p><a href="/sabrina/">Sabrina</a> is my wife and business partner, and she holds a Florida broker license, so you'll have someone you trust on that side too.</p>
     </li>
     <li>
-      <h3>We close both, on dates you know ahead of time</h3>
-      <p>so you're not juggling two closings by text and you know which day is which before you pack a single box.</p>
+      <h3>We close both on dates you know ahead of time</h3>
+      <p>That way you're not juggling two closings by text, and you know which day is which before you pack a single box.</p>
     </li>
   </ol>
 
   <h2>Questions people ask me</h2>
   <div class="faq">
     <details>
-      <summary>Should we sell first or buy first?</summary>
-      <p>There's no one answer. If the Minnesota sale is paying for the Florida home, selling first keeps it simple. If you can carry both for a little while, buying first can feel a lot calmer. We'll look at your numbers and your timeline, and I'll tell you honestly which way I'd go.</p>
+      <summary>Can I sell my Minnesota home while I'm looking in Florida?</summary>
+      <p>Yes. That's a conversation I have with neighbors. We'll look at your Minnesota home and the timing of a Florida home together, and <a href="/sabrina/">Sabrina</a> can help on the Florida side because she holds a Florida broker license. You don't have to have the Florida house picked out before you call me.</p>
     </details>
     <details>
-      <summary>What if we need both homes for a while?</summary>
-      <p>That happens a lot. Some families use what lenders call a bridge loan to cover the overlap. Whether it makes sense is a question for your lender, and I'm happy to connect you with good ones.</p>
+      <summary>How do you time the sale and the purchase?</summary>
+      <p>Sometimes you sell first so the money is clear, and sometimes you buy first if you can carry both homes for a while. There's no single rule. We'll look at your calendar and I'll tell you honestly which way I'd go.</p>
     </details>
     <details>
-      <summary>What's a Florida homestead exemption?</summary>
-      <p>If the Florida home is where you'll actually live, you can apply to the county for a <a href="https://floridarevenue.com/forms_library/current/brochure/gt800025.pdf" rel="noopener noreferrer">homestead exemption</a>, which lowers your property taxes on that home. It isn't automatic, so you do have to apply. Becoming a Florida resident is its own step, and your tax person is the right one to walk you through it.</p>
+      <summary>What about the taxes?</summary>
+      <p><a href="https://floridarevenue.com/faq/Pages/FAQDetails.aspx?FAQID=1307" rel="noopener noreferrer">Florida doesn't have a state income tax</a>, and <a href="https://www.revenue.state.mn.us/individual-income-tax" rel="noopener noreferrer">Minnesota does</a>. If the Florida home is where you'll actually live, you can apply to the county for a <a href="https://floridarevenue.com/forms_library/current/brochure/gt800025.pdf" rel="noopener noreferrer">homestead exemption</a>, which can lower the property tax on that home, and it isn't automatic. Your own tax person is the one who can say what that means for your household, and I'll work directly with your financial advisor and accountant so the sale and the move line up.</p>
     </details>
   </div>
   </section>
-
-  <form class="lead gs-card" id="worth" action="https://formspree.io/f/mpqerwwk" method="POST">
-    <div id="worthFields">
-      <h2>Get your free Minnesota-to-Florida move plan</h2>
-      <p class="note">It's one page. You'll get what your Minnesota home could sell for, based on real sales near you, plus a simple Florida timeline. I put every one together myself.</p>
-      <a class="submit-btn" href="tel:+19522583100">Call me</a>
-      <a class="submit-btn secondary" href="sms:+19522583100">Text me</a>
-      <label for="worthName">First name</label>
-      <input id="worthName" name="name" class="gs-field" autocomplete="given-name" required>
-      <label for="worthEmail">Email</label>
-      <input id="worthEmail" name="email" type="email" inputmode="email" class="gs-field" autocomplete="email" required>
-      <label for="worthAddr">Your Minnesota address</label>
-      <input id="worthAddr" name="address" class="gs-field" autocomplete="street-address" required>
-      <label for="worthFl">Where in Florida? (if you know)</label>
-      <input id="worthFl" name="florida" class="gs-field" autocomplete="off">
-      <input type="hidden" id="worthPhone" name="phone" value="">
-      <input class="gs-hp" type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true">
-      <p class="note">Just your first name, an email and your Minnesota address, and I'll take it from there.</p>
-      <p class="sv-err" id="worthErr" role="alert">Just your first name, an email and your Minnesota address, and I'll take it from there.</p>
-      <button type="button" class="submit-btn" id="worthBtn">Send me my plan</button>
-      <a class="submit-btn secondary" href="sms:+19522583100">Text me</a>
-      <p class="note">By submitting, you agree Serdar+Partners at Compass may email you about your Minnesota home. Consent is not required to buy or sell.</p>
-    </div>
-  </form>
-  <p id="worthThanks" hidden>Thank you! I'll look at the sales near you and get your plan back to you soon.</p>
 
   <section class="share" id="share">
     <h2>Know someone eyeing The Villages? Send them this.</h2>
@@ -484,13 +560,10 @@ form.lead label {
 
   <section class="more">
     <h2>More tours</h2>
-    <p>If you'd like to see more of my tours here in Minnesota:</p>
+    <p>If you'd like to see how I walk a town here in Minnesota, start with these two.</p>
     <ul class="tours">
-      <li><a href="/victoria-tour/">A Victoria home tour</a></li>
-      <li><a href="/whittier-minneapolis/">A walk through Whittier</a></li>
-      <li><a href="/battle-creek-saint-paul/">A walk through Battle Creek</a></li>
-      <li><a href="/windom-park-northeast-minneapolis/">A walk near Windom Park</a></li>
-      <li><a href="/excelsior/">Excelsior, where I live</a></li>
+      <li><a href="/battle-creek-saint-paul/">The walking tour of 30 South B Street in Battle Creek</a></li>
+      <li><a href="/whittier-minneapolis/">The Whittier tour in Minneapolis</a></li>
     </ul>
     <p>The Villages is my first Florida tour, and there are more on the way.</p>
   </section>
@@ -543,6 +616,22 @@ form.lead label {
   poster.hidden = true;
   frame.hidden = false;
   watch.hidden = false;
+  var video = {
+    "@context": "https://schema.org",
+    "@type": "VideoObject",
+    "name": "A walking tour of The Villages, Florida",
+    "description": "Geoffrey Serdar walks The Villages for Minnesota homeowners who are thinking about selling a home up here.",
+    "embedUrl": "https://www.youtube-nocookie.com/embed/" + id,
+    "contentUrl": "https://www.youtube.com/watch?v=" + id,
+    "thumbnailUrl": "https://i.ytimg.com/vi/" + id + "/hqdefault.jpg"
+  };
+  var uploaded = String(cfg.uploadDate || "").trim();
+  if (/^\d{4}-\d{2}-\d{2}$/.test(uploaded)) video.uploadDate = uploaded;
+  var tag = document.createElement("script");
+  tag.type = "application/ld+json";
+  tag.id = "video-ld";
+  tag.textContent = JSON.stringify(video);
+  document.head.appendChild(tag);
 })();
 </script>
 <script>
@@ -573,6 +662,10 @@ form.lead label {
     var email = field("worthEmail");
     var address = field("worthAddr");
     var florida = field("worthFl");
+    var advisor = field("worthAdvisor");
+    var accountant = field("worthAccountant");
+    var reachBox = document.getElementById("worthReach");
+    var reach = !!(reachBox && reachBox.checked);
     var phone = field("worthPhone");
     var err = document.getElementById("worthErr");
     if (!name || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) || !address) {
@@ -598,9 +691,12 @@ form.lead label {
       phone: phone,
       address: address,
       florida: florida,
+      reach_advisor: reach ? "yes" : "",
+      advisor_name: advisor,
+      accountant_name: accountant,
       interest: I,
       lead_type: LT,
-      interest_detail: test + "Minnesota-to-Florida move plan" + (florida ? ". Florida: " + florida : ""),
+      interest_detail: test + "Minnesota-to-Florida move plan" + (florida ? ". Florida: " + florida : "") + (reach ? ". Reach out to advisor and accountant." : "") + (advisor ? " Advisor: " + advisor : "") + (accountant ? " Accountant: " + accountant : ""),
       page: location.pathname
     }, src);
     try {
@@ -610,7 +706,7 @@ form.lead label {
           name: name,
           phone: phone,
           email: email,
-          interest: test + "Move plan: " + address + (florida ? " / " + florida : ""),
+          interest: test + "Move plan: " + address + (florida ? " / " + florida : "") + (reach ? " / reach advisor" : "") + (advisor ? " / " + advisor : "") + (accountant ? " / " + accountant : ""),
           site: location.hostname + location.pathname,
           local: I
         })
