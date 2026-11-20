@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Minnesota to The Villages: sell here, buy there | Geoffrey Serdar</title>
+<meta name="description" content="For Minnesotans planning a sale here and a purchase in Florida. The first tour walks The Villages. The house is not for sale. Call or text 952.258.3100.">
+<link rel="canonical" href="https://geoffreyserdar.com/minnesota-to-florida/">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<!--
+  Villages walking tour.
+  Set videoId to the YouTube id (the part after watch?v=) once the tour is uploaded.
+  Leave videoId as an empty string until then. The page shows the Tour coming soon
+  poster while it is empty, and swaps in the embed only when the id is 11 characters.
+-->
+<script>
+window.MINNESOTA_TO_FLORIDA = {
+  videoId: ""
+};
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600&family=Montserrat:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/house.css">
+<link rel="stylesheet" href="/assets/type.css">
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17849235035"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'AW-17849235035');
+  gtag('config', 'G-250YS9FRRM', {
+    content_group: 'florida',
+    page_topic: 'minnesota-to-florida'
+  });
+</script>
+<style>
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--parchment);
+  color: var(--ink);
+}
+.wrap {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: var(--space-6) var(--space-5) var(--space-8);
+}
+h1 {
+  font-family: var(--font-head);
+  font-weight: 600;
+  font-size: clamp(34px, 7.2vw, 58px);
+  line-height: 1.08;
+  letter-spacing: 0;
+  color: var(--ink-head);
+  margin: var(--space-3) 0 var(--space-4);
+}
+h2 {
+  font-family: var(--font-head);
+  font-weight: 600;
+  font-size: clamp(30px, 6vw, 40px);
+  line-height: 1.15;
+  letter-spacing: 0;
+  color: var(--ink-head);
+  margin: var(--space-8) 0 var(--space-4);
+}
+.voice { margin: 0 0 var(--space-2); }
+.story p,
+.sabrina p,
+.share p,
+.more p {
+  margin: 0 0 var(--space-4);
+}
+.story a,
+.sabrina a,
+.more a,
+.sources a,
+.watch a {
+  color: var(--brass);
+}
+.poster {
+  min-height: 0;
+  aspect-ratio: 16 / 9;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: var(--space-3);
+  padding: var(--space-5);
+  margin: 0 0 var(--space-5);
+  background: var(--sand-deep);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+.poster[hidden],
+.frame[hidden],
+.watch[hidden] { display: none; }
+.poster-title {
+  margin: 0;
+  font-family: var(--font-head);
+  font-weight: 600;
+  font-size: clamp(32px, 7vw, 48px);
+  line-height: 1.05;
+  color: var(--ink-head);
+}
+.frame {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  margin: 0 0 var(--space-4);
+  background: var(--sand-deep);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.frame iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+.watch {
+  margin: 0 0 var(--space-5);
+  font-size: var(--fs-small);
+  color: var(--ink-soft);
+}
+form.lead h2 {
+  font-family: var(--font-head);
+  font-weight: 600;
+  line-height: 1.25;
+}
+.phones {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  margin: 0 0 var(--space-5);
+}
+.phones a {
+  display: block;
+  color: var(--brass);
+  text-decoration: none;
+  font-family: var(--font-head);
+  font-weight: 600;
+  font-size: clamp(32px, 8vw, 44px);
+  line-height: 1.1;
+}
+.phones a span {
+  display: block;
+  margin-bottom: 2px;
+  font-family: var(--font-ui);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+form.lead label {
+  display: block;
+  margin: 0 0 var(--space-2);
+  font-family: var(--font-ui);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+#worth {
+  scroll-margin-top: calc(80px + env(safe-area-inset-top));
+  scroll-margin-bottom: calc(88px + env(safe-area-inset-bottom));
+}
+#worthThanks {
+  margin: var(--space-4) 0;
+}
+.tours {
+  list-style: none;
+  padding: 0;
+  margin: var(--space-4) 0 0;
+}
+.tours li { border-top: 1px solid var(--line); }
+.tours li:last-child { border-bottom: 1px solid var(--line); }
+.tours + p { margin-top: var(--space-5); }
+.tours a {
+  display: block;
+  padding: var(--space-4) 0;
+  color: var(--ink-head);
+  text-decoration: none;
+  font-family: var(--font-head);
+  font-weight: 600;
+  font-size: clamp(24px, 5vw, 30px);
+  line-height: 1.2;
+}
+.share .note { color: var(--ink-soft); }
+.gs-top { display: none; }
+@media (min-width: 640px) {
+  .phones { flex-direction: row; gap: var(--space-8); }
+}
+@media (max-width: 767.98px) {
+  body {
+    padding-top: calc(52px + env(safe-area-inset-top));
+    padding-bottom: calc(52px + env(safe-area-inset-bottom));
+  }
+  .gs-top {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9998;
+    box-sizing: content-box;
+    height: 52px;
+    padding: env(safe-area-inset-top) 12px 0;
+    background: var(--closer);
+    color: var(--sand);
+    font-family: var(--font-ui);
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1.2;
+  }
+  .gs-top a { color: var(--sand); text-decoration: none; }
+  .gs-top .gs-mark {
+    flex: 0 0 auto;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    overflow: hidden;
+    border: 1.5px solid var(--brass-soft);
+    border-radius: 50%;
+  }
+  .gs-top .gs-mark img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .gs-top .gs-line {
+    flex: 1 1 auto;
+    min-width: 0;
+    text-align: right;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .gs-top .gs-line b { color: var(--brass-soft); }
+  nav.sv-bar {
+    display: flex;
+    align-items: center;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 9999;
+    box-sizing: border-box;
+    height: calc(52px + env(safe-area-inset-bottom));
+    padding: 6px 12px env(safe-area-inset-bottom);
+    background: var(--parchment);
+    border-top: 1px solid var(--brass-soft);
+    gap: 8px;
+  }
+  nav.sv-bar a {
+    flex: 1 1 0;
+    min-width: 0;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    text-decoration: none;
+    white-space: nowrap;
+    padding: 0 8px;
+    box-sizing: border-box;
+    border-radius: var(--radius);
+    border: 1px solid var(--brass);
+    background: var(--parchment);
+    color: var(--brass);
+    font-family: var(--font-ui);
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0;
+  }
+  nav.sv-bar a.sv-main {
+    background: var(--brass);
+    color: var(--parchment);
+    border-color: var(--brass);
+  }
+  nav.sv-bar.bay-hold,
+  nav.sv-bar.bay-inview {
+    visibility: hidden;
+    pointer-events: none;
+  }
+}
+</style>
+<script src="/assets/phone-later.js"></script>
+<meta property="og:title" content="Minnesota to The Villages: sell here, buy there">
+<meta property="og:description" content="For Minnesotans planning a sale here and a purchase in Florida. The first tour walks The Villages. The house is not for sale. Call or text 952.258.3100.">
+<meta property="og:url" content="https://geoffreyserdar.com/minnesota-to-florida/">
+<meta property="og:image" content="https://geoffreyserdar.com/minnesota-to-florida/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Minnesota to The Villages: sell here, buy there. Geoffrey Serdar.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Geoffrey Serdar">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Minnesota to The Villages: sell here, buy there">
+<meta name="twitter:description" content="For Minnesotans planning a sale here and a purchase in Florida. The first tour walks The Villages. The house is not for sale. Call or text 952.258.3100.">
+<meta name="twitter:image" content="https://geoffreyserdar.com/minnesota-to-florida/og.jpg">
+<meta name="twitter:image:alt" content="Minnesota to The Villages: sell here, buy there. Geoffrey Serdar.">
+<meta name="twitter:site" content="@GeoffreySerdar">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Minnesota to The Villages: sell here, buy there",
+  "url": "https://geoffreyserdar.com/minnesota-to-florida/",
+  "description": "For Minnesotans planning a sale here and a purchase in Florida. The first tour walks The Villages. The house is not for sale.",
+  "isPartOf": { "@type": "WebSite", "name": "Geoffrey Serdar", "url": "https://geoffreyserdar.com/" },
+  "about": [
+    { "@type": "Place", "name": "The Villages, Florida" },
+    { "@type": "AdministrativeArea", "name": "Minnesota" }
+  ],
+  "author": { "@type": "Person", "name": "Geoffrey Serdar", "url": "https://geoffreyserdar.com/" }
+}
+</script>
+</head>
+<body>
+<div class="gs-top" id="gsTop" role="navigation" aria-label="Site top bar">
+  <a class="gs-mark" href="/" aria-label="Geoffrey Serdar home"><img src="/img/geoffrey-face-120c.jpg" alt="Geoffrey Serdar" width="40" height="40"></a>
+  <a class="gs-line" id="gsTopLine" href="sms:+19522583100">Questions? <b>Text Geoffrey</b></a>
+</div>
+
+<main class="wrap">
+  <p class="eyebrow">Minnesota to Florida</p>
+  <h1>Minnesota to The Villages: sell here, buy there</h1>
+  <p class="voice">People keep asking me how to leave a Minnesota house for a life in Florida. This page is that conversation. The first walk is The Villages, where my parents live.</p>
+
+  <h2>The Villages, Florida</h2>
+  <div class="poster" id="tourPoster">
+    <p class="poster-title">Tour coming soon</p>
+  </div>
+  <div class="frame" id="tourFrame" hidden></div>
+  <p class="watch" id="tourWatch" hidden><a id="tourWatchLink">Watch on YouTube</a></p>
+
+  <div class="story">
+    <p>The house on the walk is theirs. It is not for sale, and I am leaving the street unnamed. If you came from the video, you are in the right place.</p>
+    <p>I live in Excelsior, on Minnewashta Park. Most of the people who ask are still here in Minnesota, often a few years out, curious what January feels like when the ordinary errands happen outside.</p>
+    <p><a href="https://www.thevillages.com/faq/" rel="noopener noreferrer">The Villages describes itself</a> as a community for people 55 and older. Golf carts are a normal way to get around. The community calls them golf cars, and the paths, bridges, and tunnels are built for them. You take one to the store, to a friend, or to the square.</p>
+    <p>The <a href="https://www.thevillages.com/entertainment/town-squares/" rel="noopener noreferrer">town squares</a> are where the day collects. They include Spanish Springs, Lake Sumter Landing, and Brownwood. Sawgrass Grove is a newer place to gather, and there is nightly entertainment. It moves at a different pace than a Minnesota neighborhood. That is the reason to walk it before you decide anything.</p>
+    <p>On taxes, the general version only. <a href="https://floridarevenue.com/faq/Pages/FAQDetails.aspx?FAQID=1307" rel="noopener noreferrer">Florida does not tax individual income</a>. <a href="https://www.revenue.state.mn.us/individual-income-tax" rel="noopener noreferrer">Minnesota does</a>. Your own tax person can say what that means for you. There is no rate on this page.</p>
+  </div>
+
+  <form class="lead gs-card" id="worth" action="https://formspree.io/f/mpqerwwk" method="POST">
+    <div id="worthFields">
+      <h2>Wondering what your Minnesota home is worth before Florida? Call or text me.</h2>
+      <div class="phones">
+        <a href="tel:+19522583100"><span>Call</span>952.258.3100</a>
+        <a href="sms:+19522583100"><span>Text</span>952.258.3100</a>
+      </div>
+      <p class="note">Or leave the Minnesota address and I will send a one page read from real sales near you. I read every one myself. No automated estimate, and no obligation.</p>
+      <label for="worthName">First name</label>
+      <input id="worthName" name="name" class="gs-field" autocomplete="given-name" required>
+      <label for="worthEmail">Email</label>
+      <input id="worthEmail" name="email" type="email" inputmode="email" class="gs-field" autocomplete="email" required>
+      <label for="worthAddr">Minnesota home</label>
+      <input id="worthAddr" name="address" class="gs-field" autocomplete="street-address" required>
+      <input type="hidden" id="worthPhone" name="phone" value="">
+      <input class="gs-hp" type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <p class="sv-err" id="worthErr" role="alert">Please add your first name, a working email, and the address.</p>
+      <button type="button" class="submit-btn" id="worthBtn">Send me what it is worth</button>
+      <a class="submit-btn secondary" href="sms:+19522583100">Text Geoffrey</a>
+      <p class="note">By submitting, you agree Serdar+Partners at Compass may contact you by call or text at the number you provide. Consent is not required to buy or sell. Reply STOP to opt out. <a href="/privacy">Privacy</a></p>
+    </div>
+  </form>
+  <p id="worthThanks" hidden>Thank you. I will look at recent sales near you and write you back.</p>
+
+  <section class="sabrina">
+    <h2>On the Florida side</h2>
+    <p>My wife and business partner, <a href="/sabrina/">Sabrina Bownik</a>, holds a Florida license. Sabrina can help on the Florida side.</p>
+  </section>
+
+  <section class="share" id="share">
+    <h2>Know someone eyeing The Villages? Send them this.</h2>
+    <button type="button" class="submit-btn" id="shareBtn">Send this</button>
+    <p class="note" id="shareNote" hidden></p>
+  </section>
+
+  <section class="more">
+    <h2>Other walks</h2>
+    <p>If you want to see how I walk a place at home:</p>
+    <ul class="tours">
+      <li><a href="/victoria-tour/">A Victoria home tour</a></li>
+      <li><a href="/whittier-minneapolis/">A walk through Whittier</a></li>
+      <li><a href="/battle-creek-saint-paul/">A walk through Battle Creek</a></li>
+      <li><a href="/windom-park-northeast-minneapolis/">A walk near Windom Park</a></li>
+      <li><a href="/excelsior/">Excelsior, where I live</a></li>
+    </ul>
+    <p>The Villages is the first Florida town on this page. I will add the next one after I have walked it.</p>
+  </section>
+</main>
+
+<div class="reach-band" role="region" aria-label="Call or text Geoffrey">
+  <span class="reach-label">Tap to call or text</span>
+  <a class="reach-phone" href="tel:+19522583100">952.258.3100</a>
+  <div class="reach-actions">
+    <a class="reach-action" href="sms:+19522583100">Text Geoffrey</a>
+    <a class="reach-action" href="tel:+19522583100">Call Geoffrey</a>
+  </div>
+</div>
+
+<footer class="site-foot">
+  <p class="footer-name">Geoffrey Serdar</p>
+  <div class="footer-contact">
+    <a href="tel:+19522583100">952.258.3100</a>
+    <a href="sms:+19522583100">Text</a>
+  </div>
+  <nav class="footer-nav" aria-label="Footer">
+    <a href="/sabrina/">Sabrina Bownik</a>
+    <a href="/excelsior/">Excelsior</a>
+  </nav>
+  <p class="footer-legal">Equal Housing Opportunity. &copy; 2026 Geoffrey Serdar. <a href="/privacy">Privacy</a></p>
+</footer>
+
+<nav class="sv-bar" aria-label="Quick contact">
+  <a class="sv-main" href="#worth">What’s it worth</a>
+  <a href="sms:+19522583100">Text Geoffrey</a>
+</nav>
+
+<script>
+(function () {
+  var cfg = window.MINNESOTA_TO_FLORIDA || {};
+  var id = String(cfg.videoId || "").trim();
+  if (!/^[A-Za-z0-9_-]{11}$/.test(id)) return;
+  var poster = document.getElementById("tourPoster");
+  var frame = document.getElementById("tourFrame");
+  var watch = document.getElementById("tourWatch");
+  var link = document.getElementById("tourWatchLink");
+  var iframe = document.createElement("iframe");
+  iframe.src = "https://www.youtube-nocookie.com/embed/" + id + "?playsinline=1&rel=0";
+  iframe.title = "The Villages, Florida walking tour";
+  iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+  iframe.allowFullscreen = true;
+  frame.appendChild(iframe);
+  link.href = "https://youtu.be/" + id;
+  link.rel = "noopener noreferrer";
+  poster.hidden = true;
+  frame.hidden = false;
+  watch.hidden = false;
+})();
+</script>
+<script>
+(function () {
+  var form = document.getElementById("worth");
+  var I = "seller_value_minnesota-to-florida";
+  var LT = "seller_value";
+  function q(name) {
+    try { return new URLSearchParams(location.search).get(name) || ""; }
+    catch (e) { return ""; }
+  }
+  function field(id) {
+    var el = document.getElementById(id);
+    return el ? el.value.trim() : "";
+  }
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    document.getElementById("worthBtn").click();
+  });
+  document.getElementById("worthBtn").addEventListener("click", function () {
+    var trap = form.querySelector('[name="_gotcha"]');
+    if (trap && trap.value) {
+      document.getElementById("worthFields").hidden = true;
+      document.getElementById("worthThanks").hidden = false;
+      return;
+    }
+    var name = field("worthName");
+    var email = field("worthEmail");
+    var address = field("worthAddr");
+    var phone = field("worthPhone");
+    var err = document.getElementById("worthErr");
+    if (!name || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) || !address) {
+      err.textContent = "Please add your first name, a working email, and the address.";
+      err.style.display = "block";
+      return;
+    }
+    err.style.display = "none";
+    var button = this;
+    button.disabled = true;
+    var src = {
+      utm_source: q("utm_source"),
+      utm_medium: q("utm_medium"),
+      utm_campaign: q("utm_campaign"),
+      utm_content: q("utm_content"),
+      gclid: q("gclid"),
+      referrer: document.referrer || ""
+    };
+    var test = /test/i.test(name) ? "TEST " : "";
+    var payload = Object.assign({
+      name: name,
+      email: email,
+      phone: phone,
+      address: address,
+      interest: I,
+      lead_type: LT,
+      interest_detail: test + "Seller home value request before a Florida move",
+      page: location.pathname
+    }, src);
+    try {
+      fetch("https://lead-alert-4343.twil.io/lead-alert", {
+        method: "POST",
+        body: new URLSearchParams({
+          name: name,
+          phone: phone,
+          email: email,
+          interest: test + "Home value before Florida: " + address,
+          site: location.hostname + location.pathname,
+          local: I
+        })
+      }).catch(function () {});
+    } catch (e) {}
+    fetch("https://formspree.io/f/mpqerwwk", {
+      method: "POST",
+      headers: { "Content-Type": "application/json", "Accept": "application/json" },
+      body: JSON.stringify(payload)
+    }).then(function (r) { return r.ok; }).catch(function () { return false; }).then(function (ok) {
+      if (ok) {
+        document.getElementById("worthFields").hidden = true;
+        document.getElementById("worthThanks").hidden = false;
+        try { if (typeof gtag === "function") gtag("event", "generate_lead", { lead_type: LT, page_path: location.pathname }); } catch (e) {}
+      } else {
+        button.disabled = false;
+        err.innerHTML = 'That did not go through. Please try again, or <a href="sms:+19522583100">text 952.258.3100</a>.';
+        err.style.display = "block";
+      }
+    });
+  });
+})();
+</script>
+<script>
+(function () {
+  var button = document.getElementById("shareBtn");
+  var note = document.getElementById("shareNote");
+  var url = "https://geoffreyserdar.com/minnesota-to-florida/";
+  button.addEventListener("click", function () {
+    var data = {
+      title: "Minnesota to The Villages: sell here, buy there",
+      text: "For anyone in Minnesota thinking about The Villages. Sell here, buy there.",
+      url: url
+    };
+    if (navigator.share) {
+      navigator.share(data).catch(function () {});
+      return;
+    }
+    function copied() {
+      button.textContent = "Link copied";
+      note.hidden = false;
+      note.textContent = "Link copied.";
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(url).then(copied).catch(function () {
+        note.hidden = false;
+        note.textContent = "Use your browser’s share menu to send this page.";
+      });
+      return;
+    }
+    note.hidden = false;
+    note.textContent = "Use your browser’s share menu to send this page.";
+  });
+})();
+</script>
+<script src="/assets/gs-bars.js?v=20261026" defer data-mode="care"></script>
+</body>
+</html>
