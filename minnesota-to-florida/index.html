@@ -149,6 +149,32 @@ form.lead label {
   text-transform: uppercase;
   color: var(--ink-soft);
 }
+form.lead label.opt-in {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  margin: var(--space-2) 0 var(--space-4);
+  font-family: var(--font-body);
+  font-size: 17px;
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
+  line-height: 1.45;
+  color: var(--ink);
+}
+form.lead input[type="checkbox"] {
+  -webkit-appearance: auto;
+  appearance: auto;
+  width: 22px;
+  height: 22px;
+  min-width: 22px;
+  margin: 3px 0 0;
+  padding: 0;
+  display: inline-block;
+  flex: 0 0 auto;
+  accent-color: var(--brass);
+  background: var(--sand);
+}
 #worth {
   scroll-margin-top: calc(80px + env(safe-area-inset-top));
   scroll-margin-bottom: calc(88px + env(safe-area-inset-bottom));
@@ -427,6 +453,15 @@ form.lead label {
       <input id="worthAddr" name="address" class="gs-field" autocomplete="street-address" required>
       <label for="worthFl">Where in Florida? (if you know)</label>
       <input id="worthFl" name="florida" class="gs-field" autocomplete="off">
+      <p class="note">If you'd like me to reach out to them, tell me here. A name helps, and you can leave it blank.</p>
+      <label class="opt-in" for="worthReach">
+        <input id="worthReach" name="reach_advisor" type="checkbox" value="yes">
+        <span>Yes, reach out to my financial advisor and accountant</span>
+      </label>
+      <label for="worthAdvisor">Advisor's name, if you have it</label>
+      <input id="worthAdvisor" name="advisor_name" class="gs-field" autocomplete="off">
+      <label for="worthAccountant">Accountant's name, if you have it</label>
+      <input id="worthAccountant" name="accountant_name" class="gs-field" autocomplete="off">
       <input type="hidden" id="worthPhone" name="phone" value="">
       <input class="gs-hp" type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true">
       <p class="note">Just your first name, an email and your Minnesota address, and I'll take it from there.</p>
@@ -627,6 +662,10 @@ form.lead label {
     var email = field("worthEmail");
     var address = field("worthAddr");
     var florida = field("worthFl");
+    var advisor = field("worthAdvisor");
+    var accountant = field("worthAccountant");
+    var reachBox = document.getElementById("worthReach");
+    var reach = !!(reachBox && reachBox.checked);
     var phone = field("worthPhone");
     var err = document.getElementById("worthErr");
     if (!name || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) || !address) {
@@ -652,9 +691,12 @@ form.lead label {
       phone: phone,
       address: address,
       florida: florida,
+      reach_advisor: reach ? "yes" : "",
+      advisor_name: advisor,
+      accountant_name: accountant,
       interest: I,
       lead_type: LT,
-      interest_detail: test + "Minnesota-to-Florida move plan" + (florida ? ". Florida: " + florida : ""),
+      interest_detail: test + "Minnesota-to-Florida move plan" + (florida ? ". Florida: " + florida : "") + (reach ? ". Reach out to advisor and accountant." : "") + (advisor ? " Advisor: " + advisor : "") + (accountant ? " Accountant: " + accountant : ""),
       page: location.pathname
     }, src);
     try {
@@ -664,7 +706,7 @@ form.lead label {
           name: name,
           phone: phone,
           email: email,
-          interest: test + "Move plan: " + address + (florida ? " / " + florida : ""),
+          interest: test + "Move plan: " + address + (florida ? " / " + florida : "") + (reach ? " / reach advisor" : "") + (advisor ? " / " + advisor : "") + (accountant ? " / " + accountant : ""),
           site: location.hostname + location.pathname,
           local: I
         })
