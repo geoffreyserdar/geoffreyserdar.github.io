@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Minnesota to The Villages: sell here, buy there | Geoffrey Serdar</title>
-<meta name="description" content="For Minnesotans planning a sale here and a purchase in Florida. The first tour walks The Villages. The house is not for sale. Call or text 952.258.3100.">
+<meta name="description" content="Maybe the winters are starting to feel a little longer. Maybe the grandkids are in Florida now, or your folks already made the move. I'll help you sell your Minnesota home for the best price, and my wife Sabrina and I will help you find the right home down there.">
 <link rel="canonical" href="https://geoffreyserdar.com/minnesota-to-florida/">
 <meta name="robots" content="index,follow,max-image-preview:large">
 <!--
@@ -73,9 +73,9 @@ h2 {
   margin: 0 0 var(--space-4);
 }
 .story a,
-.sabrina a,
+#life a,
+.faq a,
 .more a,
-.sources a,
 .watch a {
   color: var(--brass);
 }
@@ -170,6 +170,67 @@ form.lead label {
   line-height: 1.2;
 }
 .share .note { color: var(--ink-soft); }
+.shots {
+  display: grid;
+  gap: var(--space-4);
+  margin: var(--space-5) 0 var(--space-2);
+}
+.shot { margin: var(--space-5) 0; }
+.shot img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: var(--radius);
+  background: var(--sand-deep);
+}
+.shot figcaption {
+  margin: var(--space-2) 0 0;
+  font-size: var(--fs-small);
+  line-height: 1.5;
+  color: var(--ink-soft);
+}
+.steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  counter-reset: move;
+}
+.steps li {
+  border-top: 1px solid var(--line);
+  padding: var(--space-4) 0;
+}
+.steps li:last-child { border-bottom: 1px solid var(--line); }
+.steps h3 {
+  font-family: var(--font-head);
+  font-weight: 600;
+  font-size: clamp(26px, 5vw, 32px);
+  line-height: 1.2;
+  margin: 0 0 var(--space-3);
+  color: var(--ink-head);
+}
+.steps h3::before {
+  counter-increment: move;
+  content: counter(move) ". ";
+  color: var(--brass);
+}
+.steps p { margin: 0; }
+.faq details {
+  border-top: 1px solid var(--line);
+  padding: var(--space-4) 0;
+}
+.faq details:last-of-type { border-bottom: 1px solid var(--line); }
+.faq summary {
+  font-family: var(--font-head);
+  font-weight: 600;
+  font-size: clamp(22px, 4.5vw, 28px);
+  line-height: 1.25;
+  color: var(--ink-head);
+  cursor: pointer;
+}
+.faq details p { margin: var(--space-3) 0 0; }
+@media (min-width: 720px) {
+  .shots.two { grid-template-columns: 1fr 1fr; }
+}
 .gs-top { display: none; }
 @media (max-width: 767.98px) {
   body {
@@ -270,7 +331,7 @@ form.lead label {
 </style>
 <script src="/assets/phone-later.js"></script>
 <meta property="og:title" content="Minnesota to The Villages: sell here, buy there">
-<meta property="og:description" content="For Minnesotans planning a sale here and a purchase in Florida. The first tour walks The Villages. The house is not for sale. Call or text 952.258.3100.">
+<meta property="og:description" content="Maybe the winters are starting to feel a little longer. Maybe the grandkids are in Florida now, or your folks already made the move. I'll help you sell your Minnesota home for the best price, and my wife Sabrina and I will help you find the right home down there.">
 <meta property="og:url" content="https://geoffreyserdar.com/minnesota-to-florida/">
 <meta property="og:image" content="https://geoffreyserdar.com/minnesota-to-florida/og.jpg">
 <meta property="og:image:width" content="1200">
@@ -280,7 +341,7 @@ form.lead label {
 <meta property="og:site_name" content="Geoffrey Serdar">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Minnesota to The Villages: sell here, buy there">
-<meta name="twitter:description" content="For Minnesotans planning a sale here and a purchase in Florida. The first tour walks The Villages. The house is not for sale. Call or text 952.258.3100.">
+<meta name="twitter:description" content="Maybe the winters are starting to feel a little longer. Maybe the grandkids are in Florida now, or your folks already made the move. I'll help you sell your Minnesota home for the best price, and my wife Sabrina and I will help you find the right home down there.">
 <meta name="twitter:image" content="https://geoffreyserdar.com/minnesota-to-florida/og.jpg">
 <meta name="twitter:image:alt" content="Minnesota to The Villages: sell here, buy there. Geoffrey Serdar.">
 <meta name="twitter:site" content="@GeoffreySerdar">
@@ -290,10 +351,10 @@ form.lead label {
   "@type": "WebPage",
   "name": "Minnesota to The Villages: sell here, buy there",
   "url": "https://geoffreyserdar.com/minnesota-to-florida/",
-  "description": "For Minnesotans planning a sale here and a purchase in Florida. The first tour walks The Villages. The house is not for sale.",
+  "description": "Maybe the winters are starting to feel a little longer. Maybe the grandkids are in Florida now, or your folks already made the move. I'll help you sell your Minnesota home for the best price, and my wife Sabrina and I will help you find the right home down there.",
   "isPartOf": { "@type": "WebSite", "name": "Geoffrey Serdar", "url": "https://geoffreyserdar.com/" },
   "about": [
-    { "@type": "Place", "name": "The Villages, Florida" },
+    { "@type": "AdministrativeArea", "name": "The Villages, Florida" },
     { "@type": "AdministrativeArea", "name": "Minnesota" }
   ],
   "author": { "@type": "Person", "name": "Geoffrey Serdar", "url": "https://geoffreyserdar.com/" }
@@ -303,13 +364,26 @@ form.lead label {
 <body>
 <div class="gs-top" id="gsTop" role="navigation" aria-label="Site top bar">
   <a class="gs-mark" href="/" aria-label="Geoffrey Serdar home"><img src="/img/geoffrey-face-120c.jpg" alt="Geoffrey Serdar" width="40" height="40"></a>
-  <a class="gs-line" id="gsTopLine" href="sms:+19522583100">Questions? <b>Text Geoffrey</b></a>
+  <a class="gs-line" id="gsTopLine" href="tel:+19522583100">Questions? <b>Call or text me</b></a>
 </div>
 
 <main class="wrap">
   <p class="eyebrow">Minnesota to Florida</p>
   <h1>Minnesota to The Villages: sell here, buy there</h1>
-  <p class="voice">People keep asking me how to leave a Minnesota house for a life in Florida. This page is that conversation. The first walk is The Villages, where my parents live.</p>
+  <p class="voice">Maybe the winters are starting to feel a little longer. Maybe the grandkids are in Florida now, or your folks already made the move. Whatever's pulling you south, I'll help you sell your Minnesota home for the best price, and my wife Sabrina and I will help you find the right home down there. One plan, one team, both states.</p>
+  <a class="submit-btn" href="tel:+19522583100">Call me</a>
+  <a class="submit-btn secondary" href="sms:+19522583100">Text me</a>
+
+  <div class="shots two">
+    <figure class="shot">
+      <img src="img/excelsior-waterfront.jpg" width="1600" height="1022" alt="Excelsior on a summer evening.">
+      <figcaption>Excelsior on a summer evening.</figcaption>
+    </figure>
+    <figure class="shot">
+      <img src="img/spanish-springs.jpg" width="1280" height="960" alt="Spanish Springs as the lights come on.">
+      <figcaption>Spanish Springs as the lights come on.</figcaption>
+    </figure>
+  </div>
 
   <h2>The Villages, Florida</h2>
   <div class="poster" id="tourPoster">
@@ -319,49 +393,98 @@ form.lead label {
   <p class="watch" id="tourWatch" hidden><a id="tourWatchLink">Watch on YouTube</a></p>
 
   <div class="story">
-    <p>The house on the walk is theirs. It is not for sale, and I am leaving the street unnamed. If you came from the video, you are in the right place.</p>
-    <p>I live in Excelsior, on Minnewashta Park. Most of the people who ask are still here in Minnesota, often a few years out, curious what January feels like when the ordinary errands happen outside.</p>
-    <p><a href="https://www.thevillages.com/faq/" rel="noopener noreferrer">The Villages describes itself</a> as a community for people 55 and older. Golf carts are a normal way to get around. The community calls them golf cars, and the paths, bridges, and tunnels are built for them. You take one to the store, to a friend, or to the square.</p>
-    <p>The <a href="https://www.thevillages.com/entertainment/town-squares/" rel="noopener noreferrer">town squares</a> are where the day collects. They include Spanish Springs, Lake Sumter Landing, and Brownwood. Sawgrass Grove is a newer place to gather, and there is nightly entertainment. It moves at a different pace than a Minnesota neighborhood. That is the reason to walk it before you decide anything.</p>
-    <p>On taxes, the general version only. <a href="https://floridarevenue.com/faq/Pages/FAQDetails.aspx?FAQID=1307" rel="noopener noreferrer">Florida does not tax individual income</a>. <a href="https://www.revenue.state.mn.us/individual-income-tax" rel="noopener noreferrer">Minnesota does</a>. Your own tax person can say what that means for you. There is no rate on this page.</p>
+    <p>My parents live in The Villages, and people back home kept asking me what life down there is really like. So I grabbed my camera and spent a day showing you around: the house, the golf carts, the town squares, all of it. The house is theirs and it isn't for sale, so I've kept the street off this page.</p>
+    <p>I live in Excelsior, on Minnewashta Park, and I hear the same question from neighbors all the time. They're still shoveling, they're a few years out, and they're wondering what January feels like when you can run your errands in shorts.</p>
   </div>
+
+  <section id="life">
+    <h2>Life down there</h2>
+    <figure class="shot">
+      <img src="img/golf-carts.jpg" width="1280" height="960" alt="Golf carts parked along a street in The Villages">
+    </figure>
+    <figure class="shot">
+      <img src="img/spanish-springs-bridge.jpg" width="1280" height="960" alt="A golf-cart bridge at Spanish Springs">
+    </figure>
+    <p><a href="https://www.thevillages.com/faq/" rel="noopener noreferrer">The Villages is a 55-and-up community, and golf carts are how everybody gets around.</a> There are cart paths, cart bridges and even cart tunnels, so you hop in one to grab groceries, visit a friend or head down to the square.</p>
+    <figure class="shot">
+      <img src="img/lake-sumter-pier.jpg" width="1280" height="960" alt="A pier on Lake Sumter">
+    </figure>
+    <p>The <a href="https://www.thevillages.com/entertainment/town-squares/" rel="noopener noreferrer">town squares</a> are the heart of it. Spanish Springs, Lake Sumter Landing and Brownwood each have something going on every night, and Sawgrass Grove is one of the newer ones. It moves at a different pace than a Minnesota neighborhood, which is exactly why I'd want you to see it before you decide anything.</p>
+    <p><a href="https://floridarevenue.com/faq/Pages/FAQDetails.aspx?FAQID=1307" rel="noopener noreferrer">Florida doesn't have a state income tax</a>, and <a href="https://www.revenue.state.mn.us/individual-income-tax" rel="noopener noreferrer">Minnesota does</a>. What that means for you depends on your situation, so that's a great conversation to have with your tax person.</p>
+  </section>
+
+  <section id="steps">
+  <h2>How we'd make the move</h2>
+  <ol class="steps">
+    <li>
+      <h3>We start with your Minnesota home</h3>
+      <p>I'll pull the real sales near you, and we'll get your house ready so it shows its best.</p>
+    </li>
+    <li>
+      <h3>We plan the timing</h3>
+      <p>Sell first, buy first, or overlap for a bit? It depends on your home and your calendar, and we'll figure it out together.</p>
+    </li>
+    <li>
+      <h3>Sabrina finds your Florida home</h3>
+      <p><a href="/sabrina/">Sabrina</a> is my wife and business partner, and she's licensed in Florida, so you'll have someone you trust on that side too.</p>
+    </li>
+    <li>
+      <h3>We close both, on dates you know ahead of time</h3>
+      <p>so you're not juggling two closings by text and you know which day is which before you pack a single box.</p>
+    </li>
+  </ol>
+
+  <h2>Questions people ask me</h2>
+  <div class="faq">
+    <details>
+      <summary>Should we sell first or buy first?</summary>
+      <p>There's no one answer. If the Minnesota sale is paying for the Florida home, selling first keeps it simple. If you can carry both for a little while, buying first can feel a lot calmer. We'll look at your numbers and your timeline, and I'll tell you honestly which way I'd go.</p>
+    </details>
+    <details>
+      <summary>What if we need both homes for a while?</summary>
+      <p>That happens a lot. Some families use what lenders call a bridge loan to cover the overlap. Whether it makes sense is a question for your lender, and I'm happy to connect you with good ones.</p>
+    </details>
+    <details>
+      <summary>What's a Florida homestead exemption?</summary>
+      <p>If the Florida home is where you'll actually live, you can apply to the county for a <a href="https://floridarevenue.com/forms_library/current/brochure/gt800025.pdf" rel="noopener noreferrer">homestead exemption</a>, which lowers your property taxes on that home. It isn't automatic, so you do have to apply. Becoming a Florida resident is its own step, and your tax person is the right one to walk you through it.</p>
+    </details>
+  </div>
+  </section>
 
   <form class="lead gs-card" id="worth" action="https://formspree.io/f/mpqerwwk" method="POST">
     <div id="worthFields">
-      <h2>Wondering what your Minnesota home is worth before Florida? Call or text me.</h2>
-      <a class="submit-btn" href="tel:+19522583100">Call 952.258.3100</a>
-      <a class="submit-btn secondary" href="sms:+19522583100">Text 952.258.3100</a>
-      <p class="note">Or leave the Minnesota address and I will send a one page read from real sales near you. I read every one myself. No automated estimate, and no obligation.</p>
+      <h2>Get your free Minnesota-to-Florida move plan</h2>
+      <p class="note">It's one page. You'll get what your Minnesota home could sell for, based on real sales near you, plus a simple Florida timeline. I put every one together myself.</p>
+      <a class="submit-btn" href="tel:+19522583100">Call me</a>
+      <a class="submit-btn secondary" href="sms:+19522583100">Text me</a>
       <label for="worthName">First name</label>
       <input id="worthName" name="name" class="gs-field" autocomplete="given-name" required>
       <label for="worthEmail">Email</label>
       <input id="worthEmail" name="email" type="email" inputmode="email" class="gs-field" autocomplete="email" required>
-      <label for="worthAddr">Minnesota home</label>
+      <label for="worthAddr">Your Minnesota address</label>
       <input id="worthAddr" name="address" class="gs-field" autocomplete="street-address" required>
+      <label for="worthFl">Where in Florida? (if you know)</label>
+      <input id="worthFl" name="florida" class="gs-field" autocomplete="off">
       <input type="hidden" id="worthPhone" name="phone" value="">
       <input class="gs-hp" type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true">
-      <p class="sv-err" id="worthErr" role="alert">Please add your first name, a working email, and the address.</p>
-      <button type="button" class="submit-btn" id="worthBtn">Send me what it is worth</button>
-      <a class="submit-btn secondary" href="sms:+19522583100">Text Geoffrey</a>
-      <p class="note">By submitting, you agree Serdar+Partners at Compass may email you about your Minnesota home. Consent is not required to buy or sell. <a href="/privacy">Privacy</a></p>
+      <p class="note">Just your first name, an email and your Minnesota address, and I'll take it from there.</p>
+      <p class="sv-err" id="worthErr" role="alert">Just your first name, an email and your Minnesota address, and I'll take it from there.</p>
+      <button type="button" class="submit-btn" id="worthBtn">Send me my plan</button>
+      <a class="submit-btn secondary" href="sms:+19522583100">Text me</a>
+      <p class="note">By submitting, you agree Serdar+Partners at Compass may email you about your Minnesota home. Consent is not required to buy or sell.</p>
     </div>
   </form>
-  <p id="worthThanks" hidden>Thank you. I will look at recent sales near you and write you back.</p>
-
-  <section class="sabrina">
-    <h2>On the Florida side</h2>
-    <p>My wife and business partner, <a href="/sabrina/">Sabrina Bownik</a>, holds a Florida license. Sabrina can help on the Florida side.</p>
-  </section>
+  <p id="worthThanks" hidden>Thank you! I'll look at the sales near you and get your plan back to you soon.</p>
 
   <section class="share" id="share">
     <h2>Know someone eyeing The Villages? Send them this.</h2>
-    <button type="button" class="submit-btn" id="shareBtn">Send this</button>
+    <button type="button" class="submit-btn" id="shareBtn">Share</button>
     <p class="note" id="shareNote" hidden></p>
   </section>
 
   <section class="more">
-    <h2>Other walks</h2>
-    <p>If you want to see how I walk a place at home:</p>
+    <h2>More tours</h2>
+    <p>If you'd like to see more of my tours here in Minnesota:</p>
     <ul class="tours">
       <li><a href="/victoria-tour/">A Victoria home tour</a></li>
       <li><a href="/whittier-minneapolis/">A walk through Whittier</a></li>
@@ -369,16 +492,16 @@ form.lead label {
       <li><a href="/windom-park-northeast-minneapolis/">A walk near Windom Park</a></li>
       <li><a href="/excelsior/">Excelsior, where I live</a></li>
     </ul>
-    <p>The Villages is the first Florida town on this page. I will add the next one after I have walked it.</p>
+    <p>The Villages is my first Florida tour, and there are more on the way.</p>
   </section>
 </main>
 
-<div class="reach-band" role="region" aria-label="Call or text Geoffrey">
-  <span class="reach-label">Tap to call or text</span>
+<div class="reach-band" role="region" aria-label="Call or text">
+  <span class="reach-label">Questions? Call or text me at</span>
   <a class="reach-phone" href="tel:+19522583100">952.258.3100</a>
   <div class="reach-actions">
-    <a class="reach-action" href="sms:+19522583100">Text Geoffrey</a>
-    <a class="reach-action" href="tel:+19522583100">Call Geoffrey</a>
+    <a class="reach-action" href="sms:+19522583100">Text me</a>
+    <a class="reach-action" href="tel:+19522583100">Call me</a>
   </div>
 </div>
 
@@ -396,8 +519,8 @@ form.lead label {
 </footer>
 
 <nav class="sv-bar" aria-label="Quick contact">
-  <a class="sv-main" href="#worth">What’s it worth</a>
-  <a href="sms:+19522583100">Text Geoffrey</a>
+  <a class="sv-main" href="tel:+19522583100">Call me</a>
+  <a href="sms:+19522583100">Text me</a>
 </nav>
 
 <script>
@@ -449,10 +572,11 @@ form.lead label {
     var name = field("worthName");
     var email = field("worthEmail");
     var address = field("worthAddr");
+    var florida = field("worthFl");
     var phone = field("worthPhone");
     var err = document.getElementById("worthErr");
     if (!name || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) || !address) {
-      err.textContent = "Please add your first name, a working email, and the address.";
+      err.textContent = "Just your first name, an email and your Minnesota address, and I'll take it from there.";
       err.style.display = "block";
       return;
     }
@@ -473,9 +597,10 @@ form.lead label {
       email: email,
       phone: phone,
       address: address,
+      florida: florida,
       interest: I,
       lead_type: LT,
-      interest_detail: test + "Seller home value request before a Florida move",
+      interest_detail: test + "Minnesota-to-Florida move plan" + (florida ? ". Florida: " + florida : ""),
       page: location.pathname
     }, src);
     try {
@@ -485,7 +610,7 @@ form.lead label {
           name: name,
           phone: phone,
           email: email,
-          interest: test + "Home value before Florida: " + address,
+          interest: test + "Move plan: " + address + (florida ? " / " + florida : ""),
           site: location.hostname + location.pathname,
           local: I
         })
@@ -517,7 +642,7 @@ form.lead label {
   button.addEventListener("click", function () {
     var data = {
       title: "Minnesota to The Villages: sell here, buy there",
-      text: "For anyone in Minnesota thinking about The Villages. Sell here, buy there.",
+      text: "Maybe the winters are starting to feel a little longer. I'll help you sell up here, and Sabrina and I will help you find the right home down there.",
       url: url
     };
     if (navigator.share) {
@@ -542,5 +667,13 @@ form.lead label {
 })();
 </script>
 <script src="/assets/gs-bars.js?v=20261026" defer data-mode="care"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var line = document.getElementById("gsTopLine");
+  if (!line) return;
+  line.innerHTML = "Questions? <b>Call or text me</b>";
+  line.setAttribute("href", "tel:+19522583100");
+});
+</script>
 </body>
 </html>
