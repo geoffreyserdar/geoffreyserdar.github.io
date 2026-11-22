@@ -3,6 +3,11 @@
 # instead of cancelling a deploy in progress, and a live check fails the run loudly if the new
 # commit is not what geoffreyserdar.com serves. Undo: set Pages source back to "Deploy from a branch"
 # (main, /) in Settings > Pages; this file can stay or be removed.
+#
+# 2026-11-22: split upload and deploy into two jobs so deploy-pages does not look up the
+# github-pages artifact in the same second it was finalized (actions/deploy-pages#451).
+# Do not re-run a failed attempt of this workflow: a second upload in the same run can fail
+# with "Multiple artifacts named github-pages". Trigger a new run (push or workflow_dispatch).
 name: Pages publish
 on:
   push:
@@ -16,12 +21,9 @@ concurrency:
   group: pages
   cancel-in-progress: false
 jobs:
-  publish:
+  build:
     runs-on: ubuntu-latest
     timeout-minutes: 45
-    environment:
-      name: github-pages
-      url: ${{ steps.deploy.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
       - name: Commit marker
@@ -30,6 +32,14 @@ jobs:
       - uses: actions/upload-pages-artifact@v3
         with:
           path: .
+  publish:
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
       - id: deploy
         uses: actions/deploy-pages@v4
         with:
