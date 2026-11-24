@@ -300,7 +300,7 @@ body{padding-top:calc(52px + env(safe-area-inset-top))}
       <div class="field">
         <label for="referrerPhone">Your Phone <span class="field-optional">(optional, but I'd love to thank you)</span></label>
         <input type="tel" id="referrerPhone" placeholder="Your best number (optional)" autocomplete="tel" />
-        <p class="field-error" id="referrerPhoneError" role="alert">That number doesn't look quite right, mind double-checking it?</p>
+        <p class="field-error" id="referrerPhoneError" role="alert" aria-live="polite">That number doesn't look right. Please enter a real 10 digit phone number so we can reach you.</p>
       </div>
 
       <div class="form-divider"></div>
@@ -559,6 +559,13 @@ async function handleSubmit() {
   // if the referrer left a phone, sanity-check it (optional field, so only if present)
   if (d.referrerPhone && !isValidUSPhone(d.referrerPhone)) { showErr('referrerPhone'); return; }
   clearErr('referrerPhone');
+  if (d.friendContact && d.friendContact.indexOf('@') < 0 && !/[A-Za-z]/.test(d.friendContact) && d.friendContact.replace(/\D/g, '').length >= 7 && !isValidUSPhone(d.friendContact)) {
+    var fe = document.getElementById('friendContactError');
+    if (fe) fe.textContent = "That number doesn't look right. Please enter a real 10 digit phone number so we can reach you.";
+    showErr('friendContact');
+    return;
+  }
+  clearErr('friendContact');
 
   setChecking(true);
   await fireAlert(d);
@@ -595,5 +602,6 @@ document.getElementById('referrerPhone').addEventListener('input', function (e) 
 <script src="/assets/door-clicks.js" defer></script>
 <nav class="sv-bar" aria-label="Quick contact"><a class="sv-main" href="#formFields">Refer someone</a><a href="sms:+19522583100">Text Geoffrey</a></nav>
 <script src="/assets/gs-bars.js?v=20261026" defer data-mode="seller"></script>
+<script src="/assets/phone-gate.js" defer></script>
 </body>
 </html>

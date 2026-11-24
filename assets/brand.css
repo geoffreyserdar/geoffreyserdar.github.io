@@ -269,15 +269,29 @@ a.submit-btn.secondary:focus-visible {
   outline-offset: 3px;
 }
 
+input.gs-hp,
 form.lead input.gs-hp {
-  position: absolute;
-  left: -10000px;
-  width: 1px;
-  height: 1px;
-  margin: 0;
-  padding: 0;
-  border: 0;
-  overflow: hidden;
+  position: absolute !important;
+  left: -10000px !important;
+  width: 1px !important;
+  height: 1px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  overflow: hidden !important;
+}
+
+.gs-phone-err {
+  display: none;
+  margin: 8px 0 0;
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.45;
+  color: var(--error);
+}
+
+.gs-phone-err.visible {
+  display: block;
 }
 
 #bay-alert,

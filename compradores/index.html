@@ -320,7 +320,7 @@ body{padding-top:calc(52px + env(safe-area-inset-top))}
       </label>
       <input type="tel" id="celular_p1" name="Celular_P1__Cell_P1" autocomplete="tel" inputmode="numeric" placeholder="612-710-1234" maxlength="12">
       <p class="hint">Solo para responderte por mensaje. Nunca se comparte. / Only to text you back. Never shared.</p>
-      <p class="field-error" id="phoneError1">Número de EE. UU. válido (10 dígitos). / Valid US number (10 digits). No 555.</p>
+      <p class="field-error" id="phoneError1" role="alert" aria-live="polite">Ese número no parece correcto. Escribe un teléfono real de 10 dígitos para que podamos comunicarnos. That number doesn't look right. Please enter a real 10 digit phone number so we can reach you.</p>
 
       <div class="p2-block" id="p2Block">
         <label class="fld" for="nombre_p2">
@@ -333,7 +333,7 @@ body{padding-top:calc(52px + env(safe-area-inset-top))}
           <span class="en" lang="en"><span id="lbl_cel2_en">Cell - Person 2 / Él</span> (optional)</span>
         </label>
         <input type="tel" id="celular_p2" name="Celular_P2__Cell_P2" autocomplete="tel" inputmode="numeric" placeholder="612-710-5678" maxlength="12">
-        <p class="field-error" id="phoneError2">Número de EE. UU. válido (10 dígitos). / Valid US number (10 digits). No 555.</p>
+        <p class="field-error" id="phoneError2" role="alert" aria-live="polite">Ese número no parece correcto. Escribe un teléfono real de 10 dígitos para que podamos comunicarnos. That number doesn't look right. Please enter a real 10 digit phone number so we can reach you.</p>
       </div>
 
       <label class="fld" for="email_p1">
@@ -730,14 +730,9 @@ body{padding-top:calc(52px + env(safe-area-inset-top))}
   var p2Block=document.getElementById('p2Block');
   var nombreP2=document.getElementById('nombre_p2');
   var celularP2=document.getElementById('celular_p2');
-  function isValidUSPhone(raw){
-    var d=String(raw||'').replace(/\D/g,'');
-    if(d.length===11&&d.charAt(0)==='1')d=d.slice(1);
-    if(d.length!==10)return false;
-    if(+d.charAt(0)<2||+d.charAt(3)<2)return false;
-    if(d.charAt(1)==='1'&&d.charAt(2)==='1')return false;
-    if(d.slice(3,6)==='555')return false;
-    if(/^(\d)\1{9}$/.test(d))return false;
+  function isValidUSPhone(raw) {
+    var gate = window.isValidUSPhone;
+    if (typeof gate === "function" && gate !== isValidUSPhone) return gate(raw);
     return true;
   }
   function isValidEmail(raw){var s=String(raw||'').trim();if(!s)return true;return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(s);}
@@ -1017,5 +1012,6 @@ form.addEventListener('submit',async function(e){
 <script src="/assets/door-clicks.js" defer></script>
 <nav class="sv-bar" aria-label="Quick contact"><a class="sv-main" href="#compradoresForm">Empezar mi búsqueda</a><a href="sms:+19522583100">Mensaje a Geoffrey</a></nav>
 <script src="/assets/gs-bars.js?v=20261026" defer data-mode="buyer-es"></script>
+<script src="/assets/phone-gate.js" defer></script>
 </body>
 </html>

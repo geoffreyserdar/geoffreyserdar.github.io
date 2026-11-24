@@ -1010,9 +1010,9 @@ else{b.disabled=false;err.textContent='That didn\u2019t go through. Please try a
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(v || '').trim());
   }
   function isValidUSPhone(v) {
-    var d = String(v || '').replace(/\D/g, '');
-    if (d.length === 11 && d.charAt(0) === '1') d = d.slice(1);
-    return d.length === 10;
+    var gate = window.isValidUSPhone;
+    if (typeof gate === "function" && gate !== isValidUSPhone) return gate(v);
+    return true;
   }
   function formatPhone(v) {
     var d = String(v || '').replace(/\D/g, '');
@@ -1293,6 +1293,7 @@ else{b.disabled=false;err.textContent='That didn\u2019t go through. Please try a
 <script src="/assets/door-clicks.js" defer></script>
 <script src="/assets/gs-bars.js?v=20261026" defer data-mode="weekly"></script>
 <script src="/assets/lake-chart/lake-chart.js" defer></script>
+<script src="/assets/phone-gate.js" defer></script>
 </body>
 <!-- PRESENCE-SHIP 2026-09-21 01:51 CT -->
 </html>
