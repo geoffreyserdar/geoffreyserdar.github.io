@@ -189,27 +189,57 @@ Sources for the Northome-site sale (not shown on the page):
 - The Met, Frank Lloyd Wright Room: https://www.metmuseum.org/about-the-met/collection-areas/the-american-wing/period-rooms/frank-lloyd-wright-room
 - Minnesota Historian, bays history: https://www.minnesotahistory.org/post/the-history-of-lake-minnetonka-s-bays-points-and-islands ; City of Deephaven history: https://deephaven.gov/history/ ; Lakeshore Weekly News on the Northome Arch: https://swnewsmedia.com/lakeshore_weekly/news/local/where-the-heck-extra-info-on-the-northome-arch/article_10ac4139-5e81-5994-b93c-a5e0ffbaa0a8.html
 -->
+
+<h2>Northome, and the room that went to New York</h2>
+<img class="landmark-img" src="northome-met-living-room.jpg" width="1600" height="1070" alt="The Frank Lloyd Wright living room from the Little family's Northome, as it stands today at the Metropolitan Museum of Art in New York: a long oak-trimmed room with bands of geometric leaded-glass windows, a green settee on a pale rug and tall Wright floor lamps.">
+<div class="guide">
+<p>Francis Little was a lawyer and a businessman who came from Peoria as a bank vice president, and his wife, Mary, was a talented pianist who had studied in Germany. Frank Lloyd Wright had already built them a house in Illinois. After they moved to Minneapolis in 1907, they asked him for a summer house on Lake Minnetonka, and he drew a string of low pavilions that ran about 250 feet along the shore, following two hills, with the living room up on the crest looking out at the lake.</p>
+<p>That room was the heart of the house. Bands of leaded glass ran down both long walls, and at Francis's request Wright left the middle panes plain so the family could see the lake through them. Mary gave recitals there, and the family sometimes called it the music room.</p>
+<p>After Mary died in 1941, their daughter Eleanor Stevenson and her family winterized the house and lived in it year round. They looked for a buyer who could save the house. When no one could, and a smaller house couldn't go up on the property until the old one came down, a group of Midwest architects and Wright fans called the <a href="https://www.metmuseum.org/about-the-met/collection-areas/the-american-wing/period-rooms/frank-lloyd-wright-room" rel="noopener">Metropolitan Museum of Art</a>, and the Met bought the house in 1972.</p>
+<p>Curators took it apart that spring. The living room sat in storage for almost ten years, then opened at the Met in 1982 with nearly all of its original furniture. The library went to the <a href="https://www.allentownartmuseum.org/" rel="noopener">Allentown Art Museum</a> in Pennsylvania, and a bedroom hallway is at the <a href="https://new.artsmia.org/" rel="noopener">Minneapolis Institute of Art</a>, so a piece of Northome never left Minnesota.</p>
+</div>
+
 <article class="sale" id="northome-sale">
 <img src="robinsons-bay-house.jpg" width="1628" height="1422" alt="A pale stone and stucco one-story house with a dark gray roof, high on a wooded hillside above Robinson's Bay on Lake Minnetonka in Deephaven, with a covered boat lift and dock on the blue water below.">
 <div>
 <p class="kicker">Sold November 3, 2026 for $3,895,000</p>
 <h2>A 1972 house on the Northome shore</h2>
 <p>Richard and Sarah Diaz bought this house in 2011. It sits high on a wooded lot on the south shore of Robinson's Bay in <a href="/deephaven/">Deephaven</a>, with its own dock on the water below.</p>
-<p>The house went up in 1972, a one-story place of stone and stucco on about an acre and a third, with a walkout lower level. That was the same year Frank Lloyd Wright's Northome, which had stood on this ground since 1914, came down. The story of that house is below.</p>
+<p>The house went up in 1972, one story of stone and stucco on about an acre and a third, with a walkout lower level. That was the same year Frank Lloyd Wright's Northome, which had stood on this ground since 1914, came down.</p>
 <p>It went on the market September 3 and sold two months later at its full asking price.</p>
 <p class="note">If you know the Diaz family and something here isn’t right, <a href="sms:+19522583100">text me</a> and I’ll fix it.</p>
 </div>
 </article>
 <form class="lead gs-card" id="bay-alert" action="https://formspree.io/f/mpqerwwk" method="POST">
+<div id="bayFields">
 <h3>Want to hear when the next Robinson's Bay home sells?</h3>
 <p class="note">One short email when a home on this bay sells. Unsubscribe anytime.</p>
 <input type="hidden" name="lead_type" value="robinsons-bay">
 <input type="hidden" name="bay" value="robinsons-bay">
-<input name="name" placeholder="First name" autocomplete="given-name" class="gs-field">
-<input name="email" type="email" placeholder="Email" required autocomplete="email" class="gs-field">
-<button type="submit" class="submit-btn">Email me when one sells</button>
+<input id="bayName" name="name" placeholder="First name" autocomplete="given-name" class="gs-field">
+<input id="bayEmail" name="email" type="email" placeholder="Email" required autocomplete="email" class="gs-field">
+<p class="sv-err" id="bayErr" role="alert">Please add your first name and a working email.</p>
+<button type="button" id="bayBtn" class="submit-btn">Email me when one sells</button>
 <a class="submit-btn secondary" href="sms:+19522583100">Text Geoffrey</a>
+</div>
+<p id="bayThanks" style="display:none;font-size:17px">Thank you. I’ll email you when a home on Robinson's Bay sells.</p>
 </form>
+<script>
+(function(){var I="bay-robinsons-bay",LT="robinsons-bay";function q(n){try{return new URLSearchParams(location.search).get(n)||''}catch(e){return''}}
+var form=document.getElementById('bay-alert');
+form.addEventListener('submit',function(e){e.preventDefault();document.getElementById('bayBtn').click();});
+document.getElementById('bayBtn').addEventListener('click',function(){var g=function(i){var e=document.getElementById(i);return e?e.value.trim():''};
+var n=g('bayName'),em=g('bayEmail'),err=document.getElementById('bayErr');
+if(!n||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em)){err.textContent='Please add your first name and a working email.';err.style.display='block';return}
+err.style.display='none';var b=this;b.disabled=true;
+var src={utm_source:q('utm_source'),utm_medium:q('utm_medium'),utm_campaign:q('utm_campaign'),utm_content:q('utm_content'),gclid:q('gclid'),referrer:document.referrer||''};
+var test=/test/i.test(n)?'TEST ':'';
+var p=Object.assign({name:n,email:em,lead_type:LT,bay:'robinsons-bay',source:I,interest:I,interest_detail:test+"Robinson's Bay sales signup",page:location.pathname},src);
+try{fetch('https://lead-alert-4343.twil.io/lead-alert',{method:'POST',body:new URLSearchParams({name:n,phone:'',email:em,interest:test+"Robinson's Bay sales",site:location.hostname+location.pathname,local:I})}).catch(function(){})}catch(e){}
+fetch('https://formspree.io/f/mpqerwwk',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(p)}).then(function(r){return r.ok}).catch(function(){return false}).then(function(ok){
+if(ok){document.getElementById('bayFields').style.display='none';document.getElementById('bayThanks').style.display='block';try{if(typeof gtag==='function')gtag('event','generate_lead',{lead_type:LT,bay:'robinsons-bay',page_path:location.pathname})}catch(e){}}
+else{b.disabled=false;err.textContent='That didn\u2019t go through. Please try again, or text Geoffrey at 952 258 3100.';err.style.display='block'}});});})();
+</script>
 <figure class="map-fig">
 <img src="robinsons-bay-map-1080.jpg" width="1080" height="1350" alt="Antique-style chart of Lake Minnetonka and Lake Minnewashta with a pin on the south shore of Robinson's Bay on the Lower Lake in Deephaven, labeled 3350 Northome Road, Deephaven, sold Nov 3, 2026, $3,895,000. Map by Geoffrey Serdar, geoffreyserdar.com. Map data © OpenStreetMap contributors.">
 <figcaption class="map-cap">The pin sits on the south shore of Robinson's Bay in Deephaven, right at the curve in Northome Road. The open Lower Lake is a short way to the west.</figcaption>
@@ -219,14 +249,6 @@ Sources for the Northome-site sale (not shown on the page):
 <p>In Deephaven, two homes closed in the MLS the week of November 2 to 8. This was the bigger of the two. The other, on Montgomerie Avenue, closed for $1,204,500.</p>
 <p>Next door in <a href="/woodland/">Woodland</a>, the town on the bay's north shore, a house on Woolsey Lane over on Wayzata Bay closed November 2 for $6,227,200. Its story is on the <a href="/lake-minnetonka/wayzata-bay/">Wayzata Bay page</a>.</p>
 <p>These are whole-town numbers for Deephaven and Woodland from NorthstarMLS, not only homes on the water. For every close around the lake that week, see the <a href="/lake-minnetonka-weekly/">weekly closed sales page</a>.</p>
-</div>
-<h2>Northome, and the room that went to New York</h2>
-<img class="landmark-img" src="northome-met-living-room.jpg" width="1600" height="1070" alt="The Frank Lloyd Wright living room from the Little family's Northome, as it stands today at the Metropolitan Museum of Art in New York: a long oak-trimmed room with bands of geometric leaded-glass windows, a green settee on a pale rug and tall Wright floor lamps.">
-<div class="guide">
-<p>Francis Little was a lawyer and businessman, and his wife, Mary, was a talented pianist. Frank Lloyd Wright had already built them a house in Peoria, Illinois. After they moved to Minneapolis in 1907, they asked him for a summer house on Lake Minnetonka, and he drew a string of low pavilions that ran about 250 feet along the shore, following two hills, with the living room up on the crest looking out at the lake.</p>
-<p>That room was the heart of the house. Bands of leaded glass ran down both long walls, and at Francis's request Wright left the middle panes plain so the family could see the lake through them. Mary gave recitals there, and the family sometimes called it the music room.</p>
-<p>After Mary died in 1941, their daughter Eleanor Stevenson and her family winterized the house and lived in it year round. By the early 1970s the upkeep and taxes had become too much. The family wanted to build a smaller house on the property, and local zoning meant the old one had to come down first. A group of Midwest architects and Wright fans called the <a href="https://www.metmuseum.org/about-the-met/collection-areas/the-american-wing/period-rooms/frank-lloyd-wright-room" rel="noopener">Metropolitan Museum of Art</a>, and the Met bought the house in 1972.</p>
-<p>Curators took it apart that spring. The living room sat in storage for almost ten years, then opened at the Met in 1982 with nearly all of its original furniture. The library went to the <a href="https://www.allentownartmuseum.org/" rel="noopener">Allentown Art Museum</a> in Pennsylvania, and a bedroom hallway is at the <a href="https://new.artsmia.org/" rel="noopener">Minneapolis Institute of Art</a>, so a piece of Northome never left Minnesota.</p>
 </div>
 <h2>How Robinson's Bay fits together</h2>
 <div class="guide">
@@ -287,7 +309,7 @@ else{b.disabled=false;err.textContent='That didn\u2019t go through. Please try a
 <img src="/assets/lake-chart/lake-minnetonka-chart.svg" width="800" height="860" loading="lazy" decoding="async" alt="Chart of Lake Minnetonka with its bays. Map data © OpenStreetMap contributors.">
 </figure>
 <details class="lake-chart-places">
-<summary>Places on this map</summary>
+<summary>On this map</summary>
 <p class="lake-chart-places-label">Bays</p>
 <ul>
 <li><a href="/lake-minnetonka/upper-lake/">Upper Lake, Lake Minnetonka</a></li>
@@ -353,7 +375,7 @@ else{b.disabled=false;err.textContent='That didn\u2019t go through. Please try a
 <!-- HOUSE:FOOTER -->
 <!-- SV:BEGIN seller-value 2026-10-26 -->
 <section class="sv-offer" id="sv-offer" data-sv="seller_value_lake-minnetonka-robinsons-bay">
-<div id="svFields"><h2>Curious what your place would bring?</h2><p>Send me the address. I’ll look at the recent sales near you myself and write you a one-page read on what your home would likely sell for today. It isn’t an automated estimate, and there’s nothing you have to do with it.</p>
+<div id="svFields"><h2>Curious what your home would bring?</h2><p>Send me the address. I’ll look at the recent sales near you myself and write you a one-page read on what your home would likely sell for today. It isn’t an automated estimate, and there’s nothing you have to do with it.</p>
 <label for="svName">First name</label><input id="svName" autocomplete="given-name" placeholder="First name" required>
 <label for="svEmail">Email</label><input id="svEmail" type="email" autocomplete="email" placeholder="you@email.com" required>
 <label for="svAddr">Home address</label><input id="svAddr" name="address" autocomplete="street-address" placeholder="Street and city" required><input type="hidden" id="svPhone" value="" />
@@ -413,6 +435,6 @@ else{b.disabled=false;err.textContent='That didn\u2019t go through. Please try a
 </footer>
 <!-- /HOUSE:FOOTER -->
 <script src="/assets/door-clicks.js" defer></script>
-<script src="/assets/gs-bars.js?v=20261026" defer data-mode="bay" data-bay-label="Robinson's Bay"></script>
+<script src="/assets/gs-bars.js?v=20261117" defer data-mode="bay" data-bay-label="Robinson's Bay"></script>
 <script src="/assets/lake-chart/lake-chart.js" defer></script>
 </body></html>

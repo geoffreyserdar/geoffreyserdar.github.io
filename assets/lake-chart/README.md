@@ -39,4 +39,4 @@ Towns: `wayzata`, `woodland`, `minnetonka-beach`, `orono`, `mound`, `spring-park
 
 Halsted Bay, the smaller bays, Libbs Lake, and Lake Minnewashta are drawn as names only. They have no page, so they are not links. Lake Minnewashta is its own lake, southwest of Excelsior. Do not invent a new id.
 
-Under the chart, `Places on this map` is real HTML: a link where a page exists, plain text where it does not. The same block carries schema.org for Lake Minnetonka, Lake Minnewashta, and the bays, using OpenStreetMap coordinates only. Each bay or town page points its own place at `https://geoffreyserdar.com/#agent`.
+Under the chart, `On this map` is real HTML: a link where a page exists, plain text where it does not. The same block carries schema.org for Lake Minnetonka, Lake Minnewashta, and the bays, using OpenStreetMap coordinates only. Each bay or town page points its own place at `https://geoffreyserdar.com/#agent`.
