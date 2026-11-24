@@ -724,6 +724,7 @@ body{padding-top:calc(52px + env(safe-area-inset-top))}
   </footer>
 
 </main>
+<script src="/assets/lead-source.js"></script>
 <script>
 (function () {
   /* RAZIEL_CONFIG — same Twilio lead-alert pipe as keep-or-sell (speed-to-SMS). Ads/Meta deferred. */
@@ -732,16 +733,7 @@ body{padding-top:calc(52px + env(safe-area-inset-top))}
     formspreeId: 'mpqerwwk',
     source: 'sell-options'
   };
-  var LEAD_SOURCE = (function () {
-    var p = new URLSearchParams(window.location.search);
-    return {
-      utm_source: p.get('utm_source') || '',
-      utm_medium: p.get('utm_medium') || '',
-      utm_campaign: p.get('utm_campaign') || '',
-      gclid: p.get('gclid') || '',
-      referrer: document.referrer || ''
-    };
-  })();
+  var LEAD_SOURCE = window.gsLeadSource();
 
   function fireLeadAlert(name, phone, email, area) {
     var controller = new AbortController();
