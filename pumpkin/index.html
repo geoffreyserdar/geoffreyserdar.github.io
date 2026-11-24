@@ -144,7 +144,7 @@ h2 { font-family: 'Cormorant Garamond', serif; font-weight: 700; font-size: 24px
         <div class="nb-field">
           <label for="nbMePhone">Your phone</label>
           <input type="tel" id="nbMePhone" name="neighbor_phone" placeholder="Best number to reach you" autocomplete="tel" inputmode="tel" />
-          <p class="nb-err" id="nbMePhoneErr" role="alert">That number doesn&rsquo;t look quite right. Mind double-checking it?</p>
+          <p class="nb-err" id="nbMePhoneErr" role="alert" aria-live="polite">That number doesn't look right. Please enter a real 10 digit phone number so we can reach you.</p>
         </div>
         <div class="nb-field">
           <label for="nbMeEmail">Your email <span class="nb-opt">(optional)</span></label>
@@ -227,13 +227,8 @@ h2 { font-family: 'Cormorant Garamond', serif; font-weight: 700; font-size: 24px
   var form = $('nbForm');
   function isEmail(v) { return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v); }
   function isUSPhone(raw) {
-    var d = String(raw || '').replace(/\D/g, '');
-    if (d.length === 11 && d.charAt(0) === '1') d = d.slice(1);
-    if (d.length !== 10) return false;
-    if (+d.charAt(0) < 2 || +d.charAt(3) < 2) return false;
-    if (d.charAt(1) === '1' && d.charAt(2) === '1') return false;
-    if (d.slice(3, 6) === '555') return false;
-    if (/^(\d)\1{9}$/.test(d)) return false;
+    var gate = window.isValidUSPhone;
+    if (typeof gate === "function" && gate !== isUSPhone) return gate(raw);
     return true;
   }
   function contactOk(v) { return v.indexOf('@') >= 0 ? isEmail(v) : isUSPhone(v); }
@@ -301,7 +296,7 @@ h2 { font-family: 'Cormorant Garamond', serif; font-weight: 700; font-size: 24px
   form.addEventListener('submit', async function (e) {
     e.preventDefault();
     if (sent) return;
-    if ($('nbGotcha').value) { return; }
+    if ($('nbGotcha').value) { sent = true; done(MODE === 'me' ? 'me' : 'friend'); return; }
     var btn = form.querySelector('.nb-btn'), label = btn.textContent;
     if (MODE === 'me') {
       var m = { name: $('nbMeName').value.trim(), phone: $('nbMePhone').value.trim(), email: $('nbMeEmail').value.trim() };
@@ -368,5 +363,6 @@ h2 { font-family: 'Cormorant Garamond', serif; font-weight: 700; font-size: 24px
   });
 })();
 </script>
+<script src="/assets/phone-gate.js" defer></script>
 </body>
 </html>

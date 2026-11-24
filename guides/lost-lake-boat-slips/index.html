@@ -504,7 +504,7 @@ body{padding-top:calc(52px + env(safe-area-inset-top))}
           <label for="wm-phone">Mobile <span class="optional">(optional)</span></label>
           <input type="tel" id="wm-phone" name="phone" placeholder="Your best number (optional)" autocomplete="tel" />
           <p class="field-help">Only to text you back. Never shared.</p>
-          <p class="field-error" data-wm-err="phone" role="alert">That number doesn’t look quite right. Geoffrey texts from his own phone, so we need a real mobile.</p>
+          <p class="field-error" data-wm-err="phone" role="alert" aria-live="polite">That number doesn't look right. Please enter a real 10 digit phone number so we can reach you.</p>
         </div>
         <button type="submit" class="submit-btn">Show me what sold</button>
       </form>
@@ -610,5 +610,6 @@ else{b.disabled=false;err.textContent='That didn\u2019t go through. Please try a
 <script src="/assets/week-magnet.js" defer></script>
 <script src="/assets/door-clicks.js" defer></script>
 <script src="/assets/gs-bars.js?v=20261026" defer data-mode="seller"></script>
+<script src="/assets/phone-gate.js" defer></script>
 </body>
 </html>

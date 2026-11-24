@@ -52,18 +52,41 @@
     css();
     var box = document.createElement('div'); box.className = 'pl-box';
     box.innerHTML = '<label for="plPhone">Want a call or text? Add your number</label>' +
-      '<div class="pl-row"><input id="plPhone" type="tel" inputmode="tel" autocomplete="tel" placeholder="Your best number (optional)"><button type="button" id="plBtn">Send</button></div>' +
-      '<p class="pl-msg" id="plMsg" role="status"></p>' +
+      '<div class="pl-row"><input id="plPhone" type="tel" inputmode="tel" autocomplete="tel" placeholder="Your best number (optional)" aria-describedby="plMsg"><button type="button" id="plBtn">Send</button></div>' +
+      '<input class="gs-hp" type="text" name="gs_fax_line" tabindex="-1" autocomplete="off" aria-hidden="true" autocapitalize="off" autocorrect="off" spellcheck="false">' +
+      '<p class="pl-msg" id="plMsg" role="status" aria-live="polite"></p>' +
       '<p class="pl-fine">Optional. By adding it, you agree Serdar+Partners at Compass may call or text you at this number. Reply STOP to opt out.</p>';
     var fp = host.querySelector('p'); if (/^(P|SPAN)$/.test(host.tagName)) host.insertAdjacentElement('afterend', box); else if (fp && fp.parentNode === host) fp.insertAdjacentElement('afterend', box); else host.appendChild(box);
     var inp = box.querySelector('#plPhone'), btn = box.querySelector('#plBtn'), msg = box.querySelector('#plMsg');
+    var PHONE_MSG = "That number doesn't look right. Please enter a real 10 digit phone number so we can reach you.";
+    function phoneBad() {
+      var v = inp.value.trim();
+      if (!v) return false;
+      if (typeof window.isValidUSPhone !== 'function') return false;
+      return !window.isValidUSPhone(v);
+    }
+    function showPhoneMsg(on) {
+      msg.textContent = on ? PHONE_MSG : '';
+      msg.style.display = on ? 'block' : 'none';
+      inp.setAttribute('aria-invalid', on ? 'true' : 'false');
+    }
     inp.addEventListener('input', function () {
       var v = inp.value.replace(/[^0-9]/g, ''); if (v.length === 11 && v[0] === '1') v = v.slice(1); v = v.slice(0, 10);
       inp.value = v.length >= 7 ? v.slice(0, 3) + '-' + v.slice(3, 6) + '-' + v.slice(6) : v.length >= 4 ? v.slice(0, 3) + '-' + v.slice(3) : v;
+      if (!phoneBad()) showPhoneMsg(false);
     });
+    inp.addEventListener('blur', function () { showPhoneMsg(phoneBad()); });
     btn.addEventListener('click', function () {
+      var hp = box.querySelector('.gs-hp');
+      if (hp && hp.value) {
+        box.querySelector('.pl-row').style.display = 'none';
+        msg.textContent = 'Got it. Geoffrey will reach out at that number.';
+        msg.style.display = 'block';
+        return;
+      }
+      if (!inp.value.trim() || phoneBad()) { showPhoneMsg(true); return; }
       var d = inp.value.replace(/[^0-9]/g, '');
-      if (d.length !== 10 || /^[01]/.test(d)) { msg.textContent = 'That number does not look quite right. Mind checking it?'; msg.style.display = 'block'; return; }
+      if (d.length === 11 && d.charAt(0) === '1') d = d.slice(1);
       btn.disabled = true;
       var p = {}; for (var k in lead.data) if (Object.prototype.hasOwnProperty.call(lead.data, k)) p[k] = lead.data[k];
       p.phone = d.slice(0, 3) + '-' + d.slice(3, 6) + '-' + d.slice(6);

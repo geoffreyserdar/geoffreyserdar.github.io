@@ -851,7 +851,7 @@ body{padding-top:calc(52px + env(safe-area-inset-top))}
         <div class="form-row">
           <label for="p-phone">Best number to reach you</label>
           <input type="tel" id="p-phone" name="phone" placeholder="Your best number" autocomplete="tel" inputmode="numeric" />
-          <span class="form-inline-error" id="phone-error">Please enter a valid phone number.</span>
+          <span class="form-inline-error" id="phone-error" role="alert" aria-live="polite">That number doesn't look right. Please enter a real 10 digit phone number so we can reach you.</span>
         </div>
         <button class="form-submit" id="probate-submit" type="button">Send my number to Geoffrey</button>
         <p class="form-consent">By submitting this form, you agree that Serdar+Partners at Compass may contact you by phone call and/or text message regarding your inquiry. Consent is not a condition of any purchase. Message &amp; data rates may apply. Reply STOP to opt out. <a href="/privacy">Privacy Policy</a>.</p>
@@ -947,14 +947,10 @@ phoneInput.addEventListener('input', function(e) {
 });
 
 function isValidPhone(raw) {
-  const d = raw.replace(/\D/g, '');
-  if (d.length !== 10) return false;
-  if (d[0]==='0'||d[0]==='1') return false;
-  if (d[3]==='0'||d[3]==='1') return false;
-  if (/^(\d)\1{9}$/.test(d)) return false;
-  if (d.slice(3,6)==='555') return false;
-  return true;
-}
+    var gate = window.isValidUSPhone;
+    if (typeof gate === "function" && gate !== isValidPhone) return gate(raw);
+    return true;
+  }
 
 const LEAD_ALERT_URL    = 'https://lead-alert-4343.twil.io/lead-alert';
 
@@ -1142,6 +1138,7 @@ document.getElementById('probate-submit').addEventListener('click', async functi
 <script src="/assets/door-clicks.js" defer></script>
 <nav class="sv-bar" aria-label="Quick contact"><a class="sv-main" href="#get-in-touch">Ask a question</a><a href="sms:+19522583100">Text Geoffrey</a></nav>
 <script src="/assets/gs-bars.js?v=20261026" defer data-mode="care"></script>
+<script src="/assets/phone-gate.js" defer></script>
 </body>
 
 <!-- PRESENCE-GS-PROBATE 1789974029.043068 -->

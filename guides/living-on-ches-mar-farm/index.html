@@ -856,13 +856,8 @@ document.querySelectorAll('.vfacade').forEach(function (b) {
 
   function isEmail(v) { return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v); }
   function isUSPhone(raw) {
-    var d = String(raw || '').replace(/\D/g, '');
-    if (d.length === 11 && d.charAt(0) === '1') d = d.slice(1);
-    if (d.length !== 10) return false;
-    if (+d.charAt(0) < 2 || +d.charAt(3) < 2) return false;
-    if (d.charAt(1) === '1' && d.charAt(2) === '1') return false;
-    if (d.slice(3, 6) === '555') return false;
-    if (/^(\d)\1{9}$/.test(d)) return false;
+    var gate = window.isValidUSPhone;
+    if (typeof gate === "function" && gate !== isUSPhone) return gate(raw);
     return true;
   }
   function contactOk(v) { return v.indexOf('@') >= 0 ? isEmail(v) : isUSPhone(v); }
@@ -940,7 +935,12 @@ document.querySelectorAll('.vfacade').forEach(function (b) {
       note: $('nbNote').value.trim()
     };
     var fe = $('nbFormErr');
-    if ($('nbGotcha').value) { return; }
+    if ($('nbGotcha').value) {
+      sent = true;
+      form.hidden = true;
+      $('nbThanks').hidden = false;
+      return;
+    }
     if (!d.yourName || !d.theirName || !d.theirContact) { fe.classList.add('on'); return; }
     fe.classList.remove('on');
     if (!contactOk(d.theirContact)) { bad('nbTheirContact', 'nbTheirContactErr', true); return; }
@@ -968,5 +968,6 @@ document.querySelectorAll('.vfacade').forEach(function (b) {
 <script src="/assets/week-magnet.js" defer></script>
 <script src="/assets/door-clicks.js" defer></script>
 <script src="/assets/gs-bars.js?v=20261026" defer data-mode="seller"></script>
+<script src="/assets/phone-gate.js" defer></script>
 </body>
 </html>

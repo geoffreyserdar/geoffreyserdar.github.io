@@ -19,13 +19,8 @@
   })();
 
   function isValidUSPhone(raw) {
-    var d = String(raw || '').replace(/\D/g, '');
-    if (d.length === 11 && d.charAt(0) === '1') d = d.slice(1);
-    if (d.length !== 10) return false;
-    if (+d.charAt(0) < 2 || +d.charAt(3) < 2) return false;
-    if (d.charAt(1) === '1' && d.charAt(2) === '1') return false;
-    if (d.slice(3, 6) === '555') return false;
-    if (/^(\d)\1{9}$/.test(d)) return false;
+    var gate = window.isValidUSPhone;
+    if (typeof gate === "function" && gate !== isValidUSPhone) return gate(raw);
     return true;
   }
   function isValidEmail(raw) { return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(String(raw || '').trim()); }
